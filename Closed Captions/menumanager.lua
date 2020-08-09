@@ -1,6 +1,6 @@
---todo sort voicelines by type
---civs can't mask up
---heisters can't scream in fear
+--todo sort voicelines by type (source)
+--todo figure out a cloaker static nearby system
+
 
 ClosedCaptions = ClosedCaptions or {
 	_ws = nil,
@@ -17,28 +17,28 @@ ClosedCaptions._sounds = {} --read through separate file for organization, calle
 ClosedCaptions.debug_missing_lines = {}
 
 ClosedCaptions.character_prefixes = {
-	a = "russian", --dallas
-	b = "spanish", --chains
-	c = "german", --wolf
-	d = "old_hoxton", --hoxton
-	l = "american", --houston
-	m = "jowi", --wick
-	n = "clover", --clover rb7
-	o = "dragan", --dragan
-	p = "jacket", --jacket
-	q = "bonnie", --bonnie
-	r = "sokol", --sokol
-	s = "dragon", --jiro
-	t = "bodhi", --bodhi
-	u = "jimmy", --jimmy
-	v = "sydney", --sydney rb15
-	w = "wild", --rust
-	x = "chico", --tony
-	y = "max", --sangres
-	z = "joy", --joy
-	aa = "ecp_male", --ethan
-	ab = "ecp_female", --hila
-	ac = "myh" --duke
+	a = "russian", --dallas 1 / 4
+	b = "spanish", --chains 2
+	c = "german", --wolf 3
+	d = "old_hoxton", --hoxton 4
+	l = "american", --houston 5
+	m = "jowi", --wick 6
+	n = "clover", --clover 7
+	o = "dragan", --dragan 8
+	p = "jacket", --jacket 9
+	q = "bonnie", --bonnie 10
+	r = "sokol", --sokol 11
+	s = "dragon", --jiro 12
+	t = "bodhi", --bodhi 13
+	u = "jimmy", --jimmy 14
+	v = "sydney", --sydney 15
+	w = "wild", --rust 16
+	x = "chico", --tony 17
+	y = "max", --sangres 18
+	z = "joy", --joy 19
+	aa = "ecp_male", --ethan 20
+	ab = "ecp_female", --hila 21
+	ac = "myh" --duke 22
 }
 
 --[[
@@ -187,16 +187,18 @@ end
 function ClosedCaptions:process_special_vo()
 	local sound_table = self:GetSoundTable()
 	for sound_name_raw,vo_data in pairs(sound_table.vo_special) do 
-		for prefix,char_name in pairs(self.character_prefixes) do 
-			local data = table.deep_map_copy(vo_data)
-			local character_name = managers.localization:text("menu_" .. char_name)
-			if vo_data.caps then 
-				character_name = utf8.to_upper(character_name)
+		if vo_data.macro == "character_name" then 
+			for prefix,char_name in pairs(self.character_prefixes) do 
+				local data = table.deep_map_copy(vo_data)
+				local character_name = managers.localization:text("menu_" .. char_name)
+				if vo_data.caps then 
+					character_name = utf8.to_upper(character_name)
+				end
+				data.text = string.gsub(vo_data.text,"$CHARACTER_NAME",character_name)
+				
+				sound_table.vo[string.gsub(sound_name_raw,"@",prefix)] = data
+	--			self:log("Added item " .. string.gsub(sound_name_raw,"@",prefix) .. " with text " .. tostring(data.text))
 			end
-			data.text = string.gsub(vo_data.text,"$CHARACTER_NAME",character_name)
-			
-			sound_table.vo[string.gsub(sound_name_raw,"@",prefix)] = data
---			self:log("Added item " .. string.gsub(sound_name_raw,"@",prefix) .. " with text " .. tostring(data.text))
 		end
 	end
 	sound_table.vo_special = {}
