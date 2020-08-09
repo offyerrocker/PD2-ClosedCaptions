@@ -1,0 +1,1 @@
+ClosedCaptions._mod_path = self:GetPath()

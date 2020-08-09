@@ -1,0 +1,32 @@
+{
+	"name" : "Closed Captions",
+	"description" : "Adds in-game subtitles to gameplay dialogue.",
+	"author" : "Offyerrocker",
+	"contact" : "Discord: Offyerrocker#3878",
+	"version" : "0.1",
+	"blt_version" : 2,
+	"DISABLED_image" : "avs2.png",
+	"color" : "255 128 0",
+	"hooks" : [
+		{
+			"hook_id" : "lib/managers/menumanager",
+			"script_path" : "menumanager.lua"
+		},
+		{
+			"hook_id" : "lib/network/handlers/unitnetworkhandler",
+			"script_path" : "unitnetworkhandler.lua"
+		},
+		{
+			"hook_id" : "lib/units/beings/player/playersound",
+			"script_path" : "playersound.lua"
+		},
+		{
+			"hook_id" : "lib/units/enemies/cop/copsound",
+			"script_path" : "copsound.lua"
+		},
+		{
+			"hook_id" : "lib/units/weapons/grenades/quickflashgrenade",
+			"script_path" : "quickflashgrenade.lua"
+		}
+	]
+}
