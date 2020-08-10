@@ -1115,8 +1115,7 @@ ClosedCaptions._sounds = {
 										"Wondering if it's the OS, or what?",
 										"[chuckles] Another technical problem with the computer.",
 										"[chuckles] Wonder if it's the software.",
-										"Wonder whether it's software or hardware failures.",
-										
+										"Wonder whether it's software or hardware failures."
 									}
 								}
 							}
@@ -1215,8 +1214,7 @@ ClosedCaptions._sounds = {
 										"Any second...",
 										"Any second now!",
 										"We're almost done!",
-										"Just a couple more seconds!",
-										
+										"Just a couple more seconds!"
 									}
 								}
 							}
@@ -3734,16 +3732,37 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									whisper_mode = { --unfinished
+										"I don't feel too good. Anybody got a Medic Bag?",
 										"I don't feel too good. Anybody got a Medic Bag to offer?",
-										"They got me! I could sure use a Medic Bag. Anyone?",
+										"I don't feel too good. Anybody got a Medic Bag to share?",
+										"I don't feel too good. Any one of you want to share a Medic Bag?",
+										"I don't feel too good. I could sure use a Medic Bag. Anyone got one?",
 										"They got me! Anyone got a Medic Bag?",
-										"Aagh! I'm hurt bad. Anyone got a Medic Bag to offer?",
-										"Oh, I'm not feeling too well. Anyone got a Medic Bag to offer?",
+										"They got me! Anyone got a Medic Bag to offer?",
+										"They got me! Anyone got a Medic Bag to share?",
+										"They got me! Any one of you want to share a Medic Bag?",
+										"They got me! I could sure use a Medic Bag. Anyone got one?",
+										"They got me good! Anyone got a Medic Bag?",
+										"They got me good! Anyone got a Medic Bag to offer?",
+										"They got me good! Anyone got a Medic Bag to share?",
 										"They got me good! Any one of you want to share a Medic Bag?",
+										"They got me good! I could sure use a Medic Bag. Anyone got one?",
+										"Aagh! I'm hurt bad. Anyone got a Medic Bag?",
+										"Aagh! I'm hurt bad. Anyone got a Medic Bag to offer?",
+										"Aagh! I'm hurt bad. Anyone got a Medic Bag to share?",
+										"Aagh! I'm hurt bad. Any one of you want to share a Medic Bag?",
+										"Aagh! I'm hurt bad. I could sure use a Medic Bag. Anyone got one?",
+										"Oh, I'm not feeling too well. Anyone got a Medic Bag?",
+										"Oh, I'm not feeling too well. Anyone got a Medic Bag to offer?",
+										"Oh, I'm not feeling too well. Anyone got a Medic Bag to share?",
+										"Oh, I'm not feeling too well. Any one of you want to share a Medic Bag?",
+										"Oh, I'm not feeling too well. I could sure use a Medic Bag. Anyone got one?",
 										"Oh, I'm hurt, I'm hurt bad! Anyone got a Medic Bag?",
-										"Oh, I'm hurt, I'm hurt bad! Any one of you got a Medic Bag to offer?",
-										"I don't feel too good. I could sure use a Medic Bag. Anyone got one?"
+										"Oh, I'm hurt, I'm hurt bad! Anyone got a Medic Bag to offer?",
+										"Oh, I'm hurt, I'm hurt bad! Anyone got a Medic Bag to share?",
+										"Oh, I'm hurt, I'm hurt bad! Any one of you want to share a Medic Bag?",
+										"Oh, I'm hurt, I'm hurt bad! I could sure use a Medic Bag. Anyone got one?"
 									},
 									assault_mode = {}
 								},
@@ -3806,6 +3825,30 @@ ClosedCaptions._sounds = {
 							text = "Need Ammo Bag",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = { --these ones may not be complete
+										"I almost got no ammo left! Anybody got an Ammo Bag left to share?",
+										"I almost got no ammo left! Anybody got some extra ammo to spare?",
+										"I almost got no ammo left! You guys got an Ammo Bag left to share?",
+										"I almost got no ammo left! Any of you guys got an Ammo Bag?",
+										"I almost got no ammo left! Ammo Bag! Anyone?!",
+										"I'm almost out of ammo! Anybody got an Ammo Bag left to share?",
+										"I'm almost out of ammo! Anybody got some extra ammo to spare?",
+										"I'm almost out of ammo! You guys got an Ammo Bag left to share?",
+										"I'm almost out of ammo! Any of you guys got an Ammo Bag?",
+										"I'm almost out of ammo! Ammo Bag! Anyone?!",
+										"I'm running out of ammo! Anybody got an Ammo Bag left to share?",
+										"I'm running low on ammo! Anybody got an ammo bag?"
+										"I'm running out of ammo! Any of you guys got an Ammo Bag?",
+										"I'm running low on ammo! Ammo Bag! Anyone?!"
+										"I don't have much ammo left now! Anybody got an Ammo Bag left to share?",
+										"I don't have much ammo left now! Anybody got some extra ammo to spare?",
+										"I don't have much ammo left now! You guys got an Ammo Bag left to share?",
+										"I don't have much ammo left now! Any of you guys got an Ammo Bag?",
+										"I don't have much ammo left now! Ammo Bag! Anyone?!",
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"I'm almost out of ammo! I need some bloody ammo!",
@@ -3841,6 +3884,18 @@ ClosedCaptions._sounds = {
 							text = "Placed Ammo Bag",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"I've placed an Ammo Bag over here.",
+										"There's an Ammo Bag over here.",
+										"Come fill up your ammo supplies.",
+										"I've dropped an Ammo Bag over here.",
+										"I got extra ammo over here.",
+										"Come get some! (Ammo)", 
+										"Anyone need ammo?"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"More ammo over here.",
@@ -3860,6 +3915,18 @@ ClosedCaptions._sounds = {
 							text = "Placed Ammo Bag",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"I've dropped a Medic Bag over here.",
+										"Medic Bag! Come get patched up.",
+										"There's a Medic Bag over here!.",
+										"Medic Bag here! Anyone need patching up?",
+										"Get over here if you need a Medic Bag!",
+										"Medic Bag, up for grabs!"
+										"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"I got a Medic Bag right here.",
@@ -3879,6 +3946,16 @@ ClosedCaptions._sounds = {
 							text = "Thanks for reviving me",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Thanks, friend.",
+										"Thanks, my friend.",
+										"[grunts] Thanks, friend.",
+										"[groans] Thanks a lot, my friend.",
+										"[grunts] Thanks."
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"[groans] I guess I should say 'thanks.'",
@@ -3911,6 +3988,21 @@ ClosedCaptions._sounds = {
 							text = "Reviving teammate",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Let's fix you up.",
+										"Let's get you fixed up.",
+										"I've got you.",
+										"I'll get you fixed.",
+										"It's alright, I'm here to help.",
+										"I can get you patched up.",
+										"It's okay, I'm covering you.",
+										"I got ya.",
+										"Don't you worry, I'll fix you right up.",
+										"Come on, now!"										
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"You'll be up in no time.",
@@ -3930,12 +4022,21 @@ ClosedCaptions._sounds = {
 							text = "Placed First Aid Kit",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"First Aid Kit! Get your band-aid here!",
+										"First Aid Kit! Get your band-aid here.",
+										"First Aid Kit here, anyone who needs it!"
+										"Right there! There's a First Aid Kit here."
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Here's a First Aid Kit.", --three variations on this line
 										"Here's a First Aid Kit.",
 										"Here's a First Aid Kit!",
-										"First Aid Kit here."										
+										"First Aid Kit here."
 									},
 									assault_mode = {}
 								}
@@ -3949,6 +4050,15 @@ ClosedCaptions._sounds = {
 							text = "Placed a Bodybag Case here.",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Bodybag Case right here.",
+										"Bodybag Case right here!",
+										"Bodybag Case, right here.",
+										"Bodybag Case deployed!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Bodybag Case!",
@@ -3965,8 +4075,24 @@ ClosedCaptions._sounds = {
 					variants = {}
 				},
 				s32x_sin = {
-					text = "I'm out of cable ties...",
-					variants = {}
+					variants = {
+						criminal = {
+							text = "Out of Ties",
+							priority = 5,
+							variations = {
+								rb15 = {
+									whisper_mode = {
+										"That was the last of my Cable Ties.",
+										"That was the last Cable Tie I had.",
+										"Okay, that was the last of my Cable Ties.",
+										"Alright, that was the last Cable Tie.",
+										"Now I'm all out of Cable Ties."
+									},
+									assault_mode = {}
+								}
+							}
+						}
+					}
 				},
 				f11e_plu = { -- f [eleven] e_plu; curse you, monospace font
 					variants = {
@@ -3974,6 +4100,35 @@ ClosedCaptions._sounds = {
 							text = "Need help",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Guys! Help me up!",
+										"Guys! Help me!",
+										"Guys! HELP!",
+										"Guys! Gimme a hand!",
+										"Guys! Over here!",
+										"Guys! I need help!",
+										"Guys! You gotta help me!",
+										"Guys! You gotta help me up!",
+										"Hey guys! Help me up!",
+										"Hey guys! Help me!",
+										"Hey guys! HELP!",
+										"Hey guys! Gimme a hand!",
+										"Hey guys! Over here!",
+										"Hey guys! I need help!",
+										"Hey guys! You gotta help me!",
+										"Hey guys! You gotta help me up!",
+										"Somebody! Help me up!",
+										"Somebody! Help me!",
+										"Somebody! HELP!",
+										"Somebody! Gimme a hand!",
+										"Somebody! Over here!",
+										"Somebody! I need help!",
+										"Somebody! You gotta help me!"
+										
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"HELP ME!",
@@ -3988,12 +4143,45 @@ ClosedCaptions._sounds = {
 					}
 				},
 				s20x_sin = {
-					text = "Gonna slip out of these cuffs...",
-					variants = {}
+					variants = {
+						criminal = {
+							text = "Picking handcuffs",
+							priority = 5,
+							variations = {
+								rb15 = {
+									whisper_mode = {
+										"This ain't gonna take long.",
+										"Gonna slip these.",
+										"[chuckles] They didn't think I could get out.",
+										"No problem, I know how these go.",
+										"[chuckles] These are easy to get out of."
+									},
+									assault_mode = {}
+								}
+							}
+						}
+					}
 				},
 				s21x_sin = {
-					text = "I got out of my cuffs.",
-					variants = {}
+					variants = {
+						criminal = {
+							text = "Escaped handcuffs",
+							priority = 5,
+							variations = {
+								rb4 = {
+									whisper_mode = {
+										"[laughs] Cuffs off, let's ride!",
+										"[laughs] I'm outta the barn!",
+										"[chuckles] Cuffs open!",
+										"[laughs] Slippery as a greased weasel!",
+										"[laughs] I'm doin' what I was born to do!",
+										"[laughs] What'd I say?"
+									},
+									assault_mode = {}
+								}
+							}
+						}
+					}
 				},
 				f02x_plu = {
 					variants = {
@@ -4001,6 +4189,19 @@ ClosedCaptions._sounds = {
 							text = "Get down",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Everybody, on the ground!",
+										"On the ground, all of you!",
+										"Down on the ground, all of you!",
+										"Down on the ground, people!",
+										"Down, all of you!",
+										"Down, people!",
+										"Everyone, down!",
+										"ON THE GROUND, people!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Down.",
@@ -4021,6 +4222,18 @@ ClosedCaptions._sounds = {
 							text = "Get down",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Get down.",
+										"Down on the ground.",
+										"Get down on the ground!",
+										"Get down on the ground.",
+										"Down!",
+										"DOWN!",
+										"On the ground!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Hit the floor.",
@@ -4042,13 +4255,27 @@ ClosedCaptions._sounds = {
 							text = "Get down",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"I said, down on the ground!",
+										"I said, GET DOWN ON THE GROUND.",
+										"You heard what I just said?!",
+										"You do what I tell you!",
+										"NOW!",
+										"You're pushing it!",
+										"Don't try to be a hero!",
+										"Don't test my patience!",
+										"Don't make me say it again!",
+										"I'm not gonna say it again!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Get down, or get killed.",
 										"I said, 'down.'",
 										"Don't make me say it again.",
-										"Did I stutter?",
-										"
+										"Did I stutter?"
 									},
 									assault_mode = {}
 								}
@@ -4062,6 +4289,17 @@ ClosedCaptions._sounds = {
 							text = "Stay down",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Stay down, everybody!"
+										"Stay down, people!",
+										"Stay down, all of you!",
+										"Everybody stay down!"
+										"Everybody, stay down!"
+										"Nobody move!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Stay down.",
@@ -4084,6 +4322,16 @@ ClosedCaptions._sounds = {
 							text = "Stay down",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Stay low!",
+										"Stay still!",
+										"Stay down!",
+										"Don't move!",
+										"Stay where you are!"										
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Stay put.",
@@ -4118,6 +4366,16 @@ ClosedCaptions._sounds = {
 							text = "And stay down",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"And stay there!",
+										"And stay put.",
+										"And stay down.",
+										"And don't you dare move.",
+										"And don't move."
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"And stay down.",
@@ -4138,6 +4396,20 @@ ClosedCaptions._sounds = {
 							text = "Get the fuck up!",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Get off your ass!",
+										"Up, buddy!",
+										"You! Get back up and fight!",
+										"We need you, buddy! Get up!",
+										"Get back in the fight, buddy!",
+										"Get back up and fight, buddy!",
+										"You can do it!",
+										"Stand up!",
+										"Pain is just mental! Get back up!"
+									},
+									assault_mode = {} --we need you, buddy! Stand up!
+								},
 								rb15 = {
 									whisper_mode = {
 										"Get the fuck up.",
@@ -4163,16 +4435,35 @@ ClosedCaptions._sounds = {
 							text = "Spotted a Guard",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"[whispering] I see a Guard.",
+										"[whispering] They're everywhere.",
+										"[whispering] Guard over here.",
+										"[whispering] Got a Guard over here.",
+										"[whispering] Got a Guard.",
+										"[whispering] They haven't seen us.",
+										"[whispering] Careful...",
+										"[whispering] Guard!",
+										"[whispering] Guard.",
+										"[whispering] Keep track, guys.",
+										"[whispering] Watch it, guys.",
+										"[whispering] Stay low and quiet.",
+										"[whispering] We're good.",
+										"[whispering] Stay back."
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
-										"Guard! Stay back.",
-										"Careful! Guard!",
-										"Guard! Watch it.",
-										"Guard!",
-										"Guard! Stay quiet.",
-										"Don't bloody alert the Guard.",
-										"Guard! Stay alert!",
-										"Look out! Guard!"
+										"[whispering] Look out! Guard!"
+										"[whispering] Guard! Watch it.",
+										"[whispering] Guard! Stay back.",
+										"[whispering] Careful! Guard!",
+										"[whispering] Guard!",
+										"[whispering] Guard! Stay quiet.",
+										"[whispering] Don't bloody alert the Guard.",
+										"[whispering] Guard! Stay alert!",
 									},
 									assault_mode = {}
 								}
@@ -4186,6 +4477,16 @@ ClosedCaptions._sounds = {
 							text = "Follow me",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"C'mon, c'mon!",
+										"C'mon.",
+										"Come with me, move it!",
+										"Come along, now.",
+										"Come along, now!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Come with me!",
@@ -4205,15 +4506,27 @@ ClosedCaptions._sounds = {
 							text = "Spotted Camera",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"[whispering] Stay low and quiet.",
+										"[whispering] They're everywhere.",
+										"[whispering] Careful...",
+										"[whispering] We're good.",
+										"[whispering] Stay back.",
+										"[whispering] Watch it, guys.",
+										"[whispering] Keep track, guys."	
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
-										"Watch out! Camera!",
-										"Smile for the Camera.",
-										"Camera!.",
-										"CCTV!",
-										"Watch out! (Camera)",
-										"Don't get caught on tape.",
-										"Camera over there!"
+										"[whispering] Watch out! Camera!",
+										"[whispering] Smile for the Camera.",
+										"[whispering] Camera!.",
+										"[whispering] CCTV!",
+										"[whispering] Watch out! (Camera)",
+										"[whispering] Don't get caught on tape.",
+										"[whispering] Camera over there!"
 									},
 									assault_mode = {}
 								}
@@ -4227,6 +4540,15 @@ ClosedCaptions._sounds = {
 							text = "Move Faster",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Get a move on!",
+										"Get moving!",
+										"Move!",
+										"GET A MOVE ON!"										
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Run faster, dipshit!",
@@ -4246,6 +4568,13 @@ ClosedCaptions._sounds = {
 							text = "Taxman revive",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Up.",
+										"Up!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Get the fuck up, I'm not kiddin'.",
@@ -4266,6 +4595,13 @@ ClosedCaptions._sounds = {
 							text = "Taxman revive",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Up.",
+										"Up!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Get up and fight!",
@@ -4287,6 +4623,26 @@ ClosedCaptions._sounds = {
 							text = "Taxman interrogation",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"I got a bullet here with your name on it.",
+										"You're fuckin' pushing it!",
+										"LET IT OUT! Right fucking now!",
+										"Right now, motherfucker!",
+										"Speak up, fuckface!",
+										"What are you, a fucking hero?!",
+										"Answer, dammit!",
+										"Don't try to be a fucking hero!",
+										"You fucking listening?",
+										"ANSWER!",
+										"You got a fucking death wish?!",
+										"I'm getting tired of this!",
+										"You hear what I'm saying?!",
+										"DON'T TRY MY PATIENCE!",
+										"You want to live until tomorrow?!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Tell us what we need to know!",
@@ -4319,6 +4675,14 @@ ClosedCaptions._sounds = {
 							text = "Wait over there.",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Don't move!",
+										"Stay still!",
+										"Stay where you are!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Just stay there.",
@@ -4337,6 +4701,31 @@ ClosedCaptions._sounds = {
 							text = "Spotted jammed drill",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Drill got jammed right up, I think. We have to fix it.",
+										"Drill got jammed right up, I think. We need to get it fixed!",
+										"Drill got jammed right up, I think. One of us has to fix it!",
+										"Drill got jammed right up, I think. Somebody gotta restart it.",
+										"You hear that? The drill is jammed. We have to fix it.",
+										"You hear that? The drill is jammed. We need to get it fixed!",
+										"You hear that? The drill is jammed. One of us has to fix it!",
+										"You hear that? The drill is jammed. Somebody gotta restart it.",
+										"Ain't that a jammed drill sound? We have to fix it.",
+										"Ain't that a jammed drill sound? We need to get it fixed!",
+										"Ain't that a jammed drill sound? One of us has to fix it!",
+										"Ain't that a jammed drill sound? Somebody gotta restart it.",
+										"What I hear right now sounds like a jammed drill. We have to fix it.",
+										"What I hear right now sounds like a jammed drill. We need to get it fixed!",
+										"What I hear right now sounds like a jammed drill. One of us has to fix it!",
+										"What I hear right now sounds like a jammed drill. Somebody gotta restart it.",
+										"Aw, man, I can hear the drill got stuck. We have to fix it.",
+										"Aw, man, I can hear the drill got stuck. We need to get it fixed!",
+										"Aw, man, I can hear the drill got stuck. One of us has to fix it!",
+										"Aw, man, I can hear the drill got stuck. Somebody gotta restart it."
+									},
+									whisper_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"The drill's jammed! Someone's gotta fix it!",
@@ -4364,6 +4753,35 @@ ClosedCaptions._sounds = {
 							text = "Spotted jammed drill",
 							priority = 5,
 							variations = {
+								rb4 = {
+									text_variations = {
+										"The drill's squeaking again. Somebody gotta fix it!",
+										"The drill's squeaking again. Somebody gotta restart it!",
+										"The drill's squeaking again. We have to restart it!",
+										"The drill's squeaking again. One of us has to fix it!",
+										"The drill's squeaking again. We need to get it fixed!",
+										"The drill's stuck again. Somebody gotta fix it!",
+										"The drill's stuck again. Somebody gotta restart it!",
+										"The drill's stuck again. We have to restart it!",
+										"The drill's stuck again. One of us has to fix it!",
+										"The drill's stuck again. We need to get it fixed!",
+										"The drill got stuck again. Somebody gotta fix it!",
+										"The drill got stuck again. Somebody gotta restart it!",
+										"The drill got stuck again. We have to restart it!",
+										"The drill got stuck again. One of us has to fix it!",
+										"The drill got stuck again. We need to get it fixed!",
+										"The drill seems to have jammed again. Somebody gotta fix it!",
+										"The drill seems to have jammed again. Somebody gotta restart it!",
+										"The drill seems to have jammed again. We have to restart it!",
+										"The drill seems to have jammed again. One of us has to fix it!",
+										"The drill seems to have jammed again. We need to get it fixed!",
+										"Here we go again, the drill's stuck. Somebody gotta fix it!",
+										"Here we go again, the drill's stuck. Somebody gotta restart it!",
+										"Here we go again, the drill's stuck. We have to restart it!",
+										"Here we go again, the drill's stuck. One of us has to fix it!",
+										"Here we go again, the drill's stuck. We need to get it fixed!"
+									}
+								},
 								rb15 = {
 									text_variations = {
 										"The drill's jammed! Someone's gotta fix it!",
@@ -4391,6 +4809,16 @@ ClosedCaptions._sounds = {
 							text = "Spotted jammed computer",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Computer's beepin'- never good!",
+										"Sounds like we need some tech help!",
+										"Sounds like the computer's all fouled up!",
+										"Appears like the computer's busted!",
+										"Appears like the computer ain't workin' right!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Why is the computer beeping?!",
@@ -4405,16 +4833,66 @@ ClosedCaptions._sounds = {
 					}
 				},
 				d03_sin = {
-					text = "Sounds like the lance is jammed!",
-					variants = {}
+						criminal = {
+							text = "Thermal Lance is broken",
+							priority = 5,
+							variations = {
+								rb4 = {
+									whisper_mode = {
+										"That there is the sound of a stuck Thermal Lance.",
+										"Appears that the Thermal Lance has melted. I hear it!.",
+										"You hear the Thermal Lance. Sounds right... stuck!",
+										"Pretty sure that noise means the Thermal Lance stopped.",
+										"Sounds like the Lance is misfiring.",
+										"Yeah, that's an overheated Thermal Lance, alright." --dallas pronounces it "overhead" so ovk probably made a typo in the script
+--										"Another computer needs fixing!", --uhh... not sure why this sound variant can play from d03_sin
+									},
+									assault_mode = {}
+								}
+							}
+						}
 				},
 				d04_plu = {
-					text = "The computer's jammed again!",
-					variants = {}
+					variants = {
+						criminal = {
+							priority = 5,
+							variations = {
+								rb4 = {
+									text_variations = {
+										"Computer's beeping again!",
+										"We gotta fix the computer again!",
+										"A machine ain't workin' again!",
+										"Wondering if it's the OS, or what?",
+										"[chuckles] Another technical problem with the computer.",
+										"[chuckles] Wonder if it's the software.",
+										"Wonder whether it's software or hardware failures."
+									}
+								}
+							}
+						}
+					}
 				},
 				d04_sin = {
-					text = "The thermal lance is jammed!",
-					variants = {}
+					variants = {
+						criminal = {
+							priority = 5,
+							variations = {
+								rb4 = {
+									text_variations = {
+										"Someone go take a look at the drill, huh?",
+										"The Thermal Drill just isn't sounding good!",
+										"Here we go again! The Lance ain't working!",
+										"Once more, time to fetch the drill a kick!",
+										"Appears the Thermal is broken again!",
+										"We gotta get that Thermal Drill working again!",
+										"Thermal Drill ain't up to snuff!",
+										"'fraid Drill is out of whack again!",
+										"Appears the Thermal Drill is out of order, again!"
+									}
+								}
+							}
+						}
+					}
 				},
 				d05 = {
 					variants = {
@@ -4422,6 +4900,31 @@ ClosedCaptions._sounds = {
 							text = "It's broken",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"It's stuck! One of us has to fix it!",
+										"It's stuck! Somebody gotta fix it!",
+										"It's stuck! Somebody gotta restart it!",
+										"It's stuck! We have to fix it!",
+										"It's stuck! We need to get it fixed!",
+										"Something's not right! One of us has to fix it!",
+										"Something's not right! Somebody gotta fix it!",
+										"Something's not right! Somebody gotta restart it!",
+										"Something's not right! We have to fix it!",
+										"Something's not right! We need to get it fixed!",
+										"What's that? One of us has to fix it!",
+										"What's that? Somebody gotta fix it!",
+										"What's that? Somebody gotta restart it!",
+										"What's that? We have to fix it!",
+										"What's that? We need to get it fixed!",
+										"It's jammed! One of us has to fix it!",
+										"It's jammed! Somebody gotta fix it!",
+										"It's jammed! Somebody gotta restart it!",
+										"It's jammed! We have to fix it!",
+										"It's jammed! We need to get it fixed!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"It's stuck! We need to get it fixed!",
@@ -4449,6 +4952,18 @@ ClosedCaptions._sounds = {
 							text = "Masked up",
 							priority = 5,
 							variations = {
+								rb4 = {
+									text_variations = {
+										"Going to work...",
+										"[chuckles] It's on now...",
+										"Good luck, buddies.",
+										"'kay, let's do this, buddies.",
+										"Let's make that money.",
+										"Ready up.",
+										"Okay, let's do this.",
+										"Let's break bad."
+									}
+								},
 								rb7 = {
 									text = "It's showtime, you shites..."
 								},
@@ -4488,14 +5003,24 @@ ClosedCaptions._sounds = {
 				r01x_sin = { --bot 'follow me' response; short delay
 					variants = {
 						criminal = {
-							rb15 = {
-								text = "Gotcha.",
-								priority = 15,
-								variations = {
+							text = "Gotcha.",
+							priority = 15,
+							variations = {
+								rb4 = {
 									text_variations = {
 										"Got it.",
 										"I got it!",
 										"Right on it."
+									}
+								},
+								rb15 = {
+									text_variations = {
+										"Gotcha!",
+										"Okay!",
+										"I'm comin'!",
+										"Okay.",
+										"Alright!",
+										"Alright."
 									}
 								}
 							}
@@ -4505,40 +5030,96 @@ ClosedCaptions._sounds = {
 				r02a_sin = { --bot response; short delay
 					variants = {
 						criminal = {
+							text = "I'm on my way",
+							priority = 15,
+							rb4 = {
+								text_variations = {
+									"I'm coming!",
+									"Be right there!",
+									"As fast as I can!",
+									"I'm comin' for ya!",
+									"I'll be there in a flash!",
+									"I'll be there in an instant!"
+								}
+							},
 							rb15 = {
-								text = "I'm on my way",
-								priority = 15,
-								variations = {
-									text_variations = {
-										"I'm comin'. Hang in there!",
-										"I'm comin'. Bloody hang in there!",
-										"I'm comin'. Just hang on!",
-										"On the way. Hang in there!",
-										"On the way. Bloody hang in there!",
-										"On the way. Just hang on!",
-										"As soon as I can. Hang in there!",
-										"As soon as I can. Bloody hang in there!",
-										"As soon as I can. Just hang on!",
-										"I'm right there. Hang in there!",
-										"I'm right there. Bloody hang in there!",
-										"I'm right there. Just hang on!"
-									}
+								text_variations = {
+									"I'm comin'. Hang in there!",
+									"I'm comin'. Bloody hang in there!",
+									"I'm comin'. Just hang on!",
+									"On the way. Hang in there!",
+									"On the way. Bloody hang in there!",
+									"On the way. Just hang on!",
+									"As soon as I can. Hang in there!",
+									"As soon as I can. Bloody hang in there!",
+									"As soon as I can. Just hang on!",
+									"I'm right there. Hang in there!",
+									"I'm right there. Bloody hang in there!",
+									"I'm right there. Just hang on!"
 								}
 							}
 						}
 					}
 				},
 				t01x_sin = {
-					text = "Just a few minutes left.",
-					variants = {}
+					variants = {
+						criminal = {
+							text = "Just a few minutes left.",
+							priority = 15,
+							variations = {
+								rb4 = {
+									text_variations = {
+										"Only a few minutes left!",
+										"A few minutes left still.",
+										"Only a couple of minutes left now.",
+										"We still got a few more minutes to go!",
+										"Just a few minutes left now."
+									}
+								}
+							}
+						}
+					}
 				},
 				t02x_sin = {
-					text = "Halfway there.",
-					variants = {}
+					variants = {
+						criminal = {
+							priority = 15,
+							variations = {
+								rb4 = {
+									text = "Halfway there.",
+									text_variations = {
+										"We're halfway through!",
+										"We're halfway now!",
+										"We're about halfway through now!",
+										"We should be about halfway by now!",
+										"We should be halfway through by now.",
+										"Halfway! We're halfway!"
+									}
+								}
+							}
+						}
+					}
 				},
 				t03x_sin = {
-					text = "Any second now!",
-					variants = {}
+					variants = {
+						criminal = {
+							priority = 15,
+							variations = {
+								rb4 = {
+									text = "Almost there.",
+									text_variations = {
+										"Only seconds away!",
+										"Any moment now!",
+										"Any second!",
+										"Any second...",
+										"Any second now!",
+										"We're almost done!",
+										"Just a couple more seconds!"
+									}
+								}
+							}
+						}
+					}
 				},
 				l01x_sin = {
 					variants = {
@@ -4546,16 +5127,22 @@ ClosedCaptions._sounds = {
 							text = "Intimidation stage 1",
 							priority = 5,
 							variations = {
-								rb15 = {
-									assault_mode = {
-										"Put your bloody hands up!",
-										"Get your hands up!",
-										"Hands up, fucker!",
-										"Drop it!",
-										"Get your hands up, dipshit!",
-										"Drop the gun!",
-										"Drop the weapon now!"
+								rb4 = {
+									whisper_mode = {
+										"Hands up!",
+										"Put 'em up!",
+										"Put 'em up.",
+										"Reach for the sky!",
+										"Put your hands in the air!",
+										"Drop your weapon!",
+										"Stick 'em up!",
+										"Stick 'em up.",
+										"Hands where I can see them!",
+										
 									},
+									assault_mode = {}
+								},
+								rb15 = {
 									whisper_mode = {
 										"Put your hands up.",
 										"Put 'em up, fuckwit!",
@@ -4565,6 +5152,15 @@ ClosedCaptions._sounds = {
 										"Hands up, ya fucker!",
 										"Lower ya weapon!",
 										"Hands where I can see them."
+									},
+									assault_mode = {
+										"Put your bloody hands up!",
+										"Get your hands up!",
+										"Hands up, fucker!",
+										"Drop it!",
+										"Get your hands up, dipshit!",
+										"Drop the gun!",
+										"Drop the weapon now!"
 									}
 								}
 							}
@@ -4577,6 +5173,16 @@ ClosedCaptions._sounds = {
 							text = "Intimidation stage 2",
 							priority = 5,
 							variations = {
+								rb15 = {
+									whisper_mode = {
+										"Down on your knees!",
+										"ON YOUR KNEES!",
+										"On your knees!",
+										"Get on your knees!",
+										"Get down on your knees!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Get down on your knees.",
@@ -4606,6 +5212,18 @@ ClosedCaptions._sounds = {
 							text = "Now put your cuffs on.",
 							priority = 5,
 							variations = {
+								rb4 = {
+									whisper_mode = {
+										"Now handcuff yourself!",
+										"Now put your cuffs on!",
+										"Now cuff yourself!",
+										"Cuff yourself!",
+										"Cuff yourself.",
+										"Put your cuffs on!",
+										"Handcuff yourself!"
+									},
+									assault_mode = {}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Cuffs on!",
@@ -4635,6 +5253,37 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "[Answering pager]",
 							variations = {
+								rb4 = { --incomplete
+									text_variations = {
+										"Um, all good, sometimes I just see things. Not to alarm you!",
+										"[embarassed chuckle] I think maybe I'm standing on a magnet. That might be the problem.",
+										"Everything's peachy, over.",
+										"I mean, I didn't see anything.",
+										"I don't know what you heard, but everything's cool over here.",
+										"Not much going on over here, ma'am. Sorry- 'sir.'",
+										"I saw a cockroach. That's it.",
+										"Can't say anything is happening, to be honest.",
+										"Um, I think I got the radio wet when I was washing my hands.",
+										"Things are cool, over.",
+										"Just swatted a fly sitting on the radio.",
+										"No issues, except that I got a hiccup. [hiccups]",
+										"Can't say much is going on.",
+										"Oh yeah, we're perfectly perfect over here.",
+										"Uh... I thought I saw a ghost, but I'm getting tired, don't listen to me.",
+										"Nothing really to speak of. All's well, buddy.",
+										"Nah, situation normal, if you wanna know.",
+										"No problem, except... [sniffling] I got a nasty cold! [coughing violently]",
+										"Uh, hey buddy! Everything's just fine!",
+										"I gotta say, I don't like these radios. They're just no goddamn good.",
+										"I think it's the radio. It's gotta be a short.",
+										"Uh, it's hard to say. Um, everything's in order over here. Over.",
+										"Um, ahh, uhh... I don't... [imitates radio static]",
+										"Everything's good, except the parts that aren't.",
+										"I think the fillings in my teeth are interfering with the radio signals.",
+										"No real issues, except I slammed my toe into a chair.",
+										"Everything is A-OK, over."
+									}
+								},
 								rb15 = {
 									text_variations = {
 										"Nah, we're good. Just a random... man, walking around. I gave him a slice of cheddar, and sent him away.",

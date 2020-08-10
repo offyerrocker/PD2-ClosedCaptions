@@ -1,5 +1,17 @@
 --todo sort voicelines by type (source)
 --todo figure out a cloaker static nearby system
+--todo multi-line 
+
+
+--[[
+calling out guards, deploying, grenades, calling bots, inspiring downed heisters
+guard pager timer having noises
+bain counting down on No Mercy
+mission dialogue:
+	- gangster dialogue on PANIK (not kalm) Room
+	- gangster dialogue on rats
+	- ceo dialogue on the diamond heist
+--]]
 
 
 ClosedCaptions = ClosedCaptions or {
@@ -322,13 +334,15 @@ function ClosedCaptions:Update(t,dt)
 	local viewport_cam = managers.viewport:get_current_camera()
 	local player_aim = viewport_cam and viewport_cam:rotation():yaw() or 0
 	local player_pos = viewport_cam and viewport_cam:position() or Vector3()
+	local queued_remove = {}
 	for i,item in ipairs(self.active_lines) do
 		local is_hidden
 		if item and item.panel and alive(item.panel) then 
 			if n < MAX_SUBTITLES then 
 				if t >= item.expire_t then 
 					is_hidden = false
-					self:remove_line(i)
+					table.insert(queued_remove,i)
+--					self:remove_line(i)
 				else
 					item.panel:set_alpha(((item.expire_t - t) / (item.expire_t - item.start_t) * 2) + 0.5)
 					
@@ -358,8 +372,12 @@ function ClosedCaptions:Update(t,dt)
 			end
 		else
 --			self:Log("Removing line " .. tostring(item and item.panel and item.panel:child("subtitle"):text()))
-			self:remove_line(i)
+			table.insert(queued_remove,i)
+--			self:remove_line(i)
 		end
+	end
+	for _,i in pairs(queued_remove) do 
+		self:remove_lines(i)
 	end
 end
 
