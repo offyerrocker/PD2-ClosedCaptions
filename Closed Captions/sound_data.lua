@@ -217,10 +217,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Wrong way",
 							priority = 5,
-								text_variations = {
-									"This is the wrong way",
-									"Not this way!"
-								}
+							text_variations = {
+								"This is the wrong way",
+								"Not this way!"
 							}
 						}
 					}
@@ -420,8 +419,7 @@ ClosedCaptions._sounds = {
 										"Jump down!",
 										"Down here!"
 									},
-									assault_mode = {
-									}
+									assault_mode = {}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -452,7 +450,7 @@ ClosedCaptions._sounds = {
 									},
 									assault_mode = {
 									}
-								}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Drilling!",
@@ -1467,7 +1465,7 @@ ClosedCaptions._sounds = {
 							variations = {
 								rb4 = {
 									text_variations = {
-										"Yeah, using a keycard..."
+										"Yeah, using a keycard...",
 										"Using a keycard.",
 										"Using a keycard!",
 										"Using a key.",
@@ -2796,13 +2794,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-										"They brought in a turret",
-										"SWAT Turret!",
-										"Turret! Stay clear!",
-										"Turret!",
-										"Oh no! Turret!",
-										"Turret! Watch out!"
-									}
+									"They brought in a turret",
+									"SWAT Turret!",
+									"Turret! Stay clear!",
+									"Turret!",
+									"Oh no! Turret!",
+									"Turret! Watch out!"
 								}
 							}
 						}
@@ -3108,7 +3105,12 @@ ClosedCaptions._sounds = {
 										"It's a Bulldozer!"
 									},
 									assault_mode = {
-									
+										"Oh, SHIT! BULLDOZER!",
+										"Bulldozer!",
+										"BULLDOZER!",
+										"It's a fucking Bulldozer!",
+										"FUCK! BULLDOZER!",
+										"It's a motherfucking Bulldozer!"
 									}
 								},
 								rb15 = {
@@ -3118,9 +3120,7 @@ ClosedCaptions._sounds = {
 										"Bulldozer!",
 										"Got a Bulldozer!"
 									},
-									assault_mode = {
-									
-									}
+									assault_mode = {}
 								}
 							}
 						}
@@ -3133,14 +3133,13 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
-										"BULLDOZER!",
+									text_variations = {
 										"Oh, shit! Bulldozer!",
+										"BULLDOZER!",
 										"FUCK! BULLDOZER!",
 										"It's a fucking Bulldozer!",
 										"Bulldozer!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3169,7 +3168,11 @@ ClosedCaptions._sounds = {
 										"Shield!"
 									},
 									assault_mode = {
-									
+										"Oh, shit! SHIELD!",
+										"We've got a Shield!",
+										"It's a fucking Shield!",
+										"Shield!",
+										"SHIELD!"
 									}
 								},
 								rb15 = {
@@ -3179,9 +3182,7 @@ ClosedCaptions._sounds = {
 										"We've got a Shield!",
 										"Shield!"
 									},
-									assault_mode = {
-									
-									}
+									assault_mode = {}
 								}
 							}
 						}
@@ -3194,14 +3195,13 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"It's a fucking Shield!",
 										"Shield!",
 										"SHIELD!",
 										"Oh, shit! SHIELD!",
 										"We've got a Shield!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3229,7 +3229,12 @@ ClosedCaptions._sounds = {
 										"Taser!",
 										"It's a Taser, watch out!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Taser!",
+										"TASER!",
+										"It's a fucking Taser!",
+										"Oh, shit! Taser!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3251,13 +3256,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"Taser!",
 										"TASER!",
 										"It's a fucking Taser!",
 										"Oh, shit! Taser!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3285,7 +3289,14 @@ ClosedCaptions._sounds = {
 										"Cloaker!",
 										"It's a Cloaker!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Oh, shit! Cloaker!",
+										"Fucking CLOAKER!",
+										"Fucking Cloaker!",
+										"Cloaker!",
+										"CLOAKER!",
+										"Cloaker son of a bitch!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3307,15 +3318,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"Oh, shit! Cloaker!",
 										"Fucking CLOAKER!",
 										"Fucking Cloaker!",
 										"Cloaker!",
 										"CLOAKER!",
 										"Cloaker son of a bitch!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3337,10 +3347,9 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"Sniper!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3362,10 +3371,9 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"Sniper!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3396,7 +3404,15 @@ ClosedCaptions._sounds = {
 										"They brought in a turret!",
 										"SWAT Turret!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Ah, shit, Turret!",
+										"Turret!",
+										"Fuck me! Turret!",
+										"They brought a Turret!",
+										"Turret son of a bitch!",
+										"It's a goddamn turret!",
+										"Motherfucking Turret!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3423,7 +3439,12 @@ ClosedCaptions._sounds = {
 										"Watch out!",
 										"Oh, shit!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"FUCK!",
+										"Oh, shit!",
+										"Aw, shit!",
+										"Shit!"
+									}
 								}
 							}
 						}
@@ -3438,12 +3459,19 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									whisper_mode = {
 										"Oh, shit, a Captain!",
---										"Oh, shit! (Captain)",
---										"Look out! (Captain)",
---										"Watch out! (Captain)",
+										"Oh, shit! (Captain)",
+										"Look out! (Captain)",
+										"Watch out! (Captain)",
 										"Watch out! Captain!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Watch out! Captain!",
+										"FUCK! (Captain)",
+										"SHIT! (Captain)",
+										"Oh, SHIT! (Captain)",
+										"Oh, shit! A Captain!",
+										"Fuck! (Captain)",
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3463,13 +3491,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"They've got a Medic!",
 										"Police Medic in the house!",
 										"Cops got a Medic!",
 										"Look out! Medic!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3496,7 +3523,12 @@ ClosedCaptions._sounds = {
 										"Bulldozer down!",
 										"Bulldozer's history."
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Bulldozer eliminated!",
+										"Bulldozer down!",
+										"Bulldozer taken care of!",
+										"Bulldozer's history.",
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3530,10 +3562,15 @@ ClosedCaptions._sounds = {
 										"Shield down.",
 										"Shield's history.",
 										"Shield taken care of.",
-										"Shield's eliminated",
+										"Shield's eliminated.",
 										"Shield down!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Shield eliminated!",
+										"Shield taken care of!",
+										"Shield's history!",
+										"Shield down!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3556,19 +3593,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"Taser down.",
 										"Taser down!",
 										"Taser taken care of.",
 										"Taser eliminated.",
 										"Taser's history."										
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
 										"I got the Taser.",
-										"Fuck off, Taser."
+										"Fuck off, Taser.",
 										"Taser's dead.",
 										"Get stuffed, Taser fuck.",
 										"Eat that, you tosser. (Taser)"
@@ -3586,15 +3622,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = { --no assault specific lines?
 										"Cloaker down.",
 										"Cloaker down!",
 										"Cloaker's history.",
 										"Cloaker eliminated",
 										"Cloaker taken care of."
-									},
-									assault_mode = {}
-								}
+									}
+								},
 								rb15 = {
 									whisper_mode = {
 										"Cloaker's dead.",
@@ -3622,9 +3657,19 @@ ClosedCaptions._sounds = {
 										"Sniper got what he deserved.",
 										"Sniper's pushing up daisies.",
 										"One sniper less in the world."
-										
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Sniper down!",
+										"SNIPER DOWN!",
+										"Sniper killed!",
+										"Sniper dead!",
+										"Sniper DEAD!",
+										"One sniper less!",
+										"Got him! (Sniper)",
+										"Took him out.",
+										"Sniper out!",
+										"Sniper taken care of!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3647,13 +3692,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"Killed the Medic.",
 										"Killed the Medic!",
 										"Medic is dead.",
 										"Got the Medic."
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3678,13 +3722,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"Flashbang! I'm fucking blind!",
 										"Flashbang! My eyes! MY EYES!",
 										"Aagh, fuckin' flashbang!",
 										"Agh, I can't see fucking SHIT!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3706,11 +3749,10 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
+									text_variations = {
 										"AAGH, TEARGAS!",
 										"AAGH, IT BURNS! IT BURNS!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3748,11 +3790,11 @@ ClosedCaptions._sounds = {
 										"They got me good! Anyone got a Medic Bag to share?",
 										"They got me good! Any one of you want to share a Medic Bag?",
 										"They got me good! I could sure use a Medic Bag. Anyone got one?",
-										"Aagh! I'm hurt bad. Anyone got a Medic Bag?",
-										"Aagh! I'm hurt bad. Anyone got a Medic Bag to offer?",
-										"Aagh! I'm hurt bad. Anyone got a Medic Bag to share?",
-										"Aagh! I'm hurt bad. Any one of you want to share a Medic Bag?",
-										"Aagh! I'm hurt bad. I could sure use a Medic Bag. Anyone got one?",
+										"[screams in pain] I'm hurt bad. Anyone got a Medic Bag?",
+										"[screams in pain] I'm hurt bad. Anyone got a Medic Bag to offer?",
+										"[screams in pain] I'm hurt bad. Anyone got a Medic Bag to share?",
+										"[screams in pain] I'm hurt bad. Any one of you want to share a Medic Bag?",
+										"[screams in pain] I'm hurt bad. I could sure use a Medic Bag. Anyone got one?",
 										"Oh, I'm not feeling too well. Anyone got a Medic Bag?",
 										"Oh, I'm not feeling too well. Anyone got a Medic Bag to offer?",
 										"Oh, I'm not feeling too well. Anyone got a Medic Bag to share?",
@@ -3764,7 +3806,20 @@ ClosedCaptions._sounds = {
 										"Oh, I'm hurt, I'm hurt bad! Any one of you want to share a Medic Bag?",
 										"Oh, I'm hurt, I'm hurt bad! I could sure use a Medic Bag. Anyone got one?"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"I'm hurt! Somebody drop a Medic Bag!",
+										"I'm hurt! I need a Medic Bag!",
+										"I'm hurt! Anybody got a Medic Bag?",
+										"[screams in pain] I'm hurt! Somebody drop a Medic Bag!",
+										"[screams in pain] I'm hurt! I need a Medic Bag!",
+										"[screams in pain] I'm hurt! Anybody got a Medic Bag?",
+										"[screams in pain] I'm dying! Anybody got a Medic Bag?",
+										"[screams in pain] I'm dying! Medic Bag! Anyone?!",
+										"[screams in pain] I'm dying! Somebody drop a Medic Bag!",
+										"[screams in pain] I'm dying! I need a Medic Bag!",
+										"[screams in pain] I need a Medic Bag!",
+										"[screams in pain] Anybody got a Medic Bag?!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3838,16 +3893,33 @@ ClosedCaptions._sounds = {
 										"I'm almost out of ammo! Any of you guys got an Ammo Bag?",
 										"I'm almost out of ammo! Ammo Bag! Anyone?!",
 										"I'm running out of ammo! Anybody got an Ammo Bag left to share?",
-										"I'm running low on ammo! Anybody got an ammo bag?"
+										"I'm running low on ammo! Anybody got an ammo bag?",
 										"I'm running out of ammo! Any of you guys got an Ammo Bag?",
-										"I'm running low on ammo! Ammo Bag! Anyone?!"
+										"I'm running low on ammo! Ammo Bag! Anyone?!",
 										"I don't have much ammo left now! Anybody got an Ammo Bag left to share?",
 										"I don't have much ammo left now! Anybody got some extra ammo to spare?",
 										"I don't have much ammo left now! You guys got an Ammo Bag left to share?",
 										"I don't have much ammo left now! Any of you guys got an Ammo Bag?",
-										"I don't have much ammo left now! Ammo Bag! Anyone?!",
+										"I don't have much ammo left now! Ammo Bag! Anyone?!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Running low on bullets! Anyone got an extra bag?",
+										"Running low on bullets! Anybody got some?",
+										"Running low on bullets! Get me some ammo!",
+										"Running low on bullets! Got some?",
+										"Almost out of ammo! Anyone got an extra bag?",
+										"Almost out of ammo! Anybody got some?",
+										"Almost out of ammo! Get me some ammo!",
+										"Almost out of ammo! Got some?",
+										"Not much ammo left! Anyone got an extra bag?",
+										"Not much ammo left! Anybody got some?",
+										"Not much ammo left! Get me some ammo!",
+										"Not much ammo left! Got some?",
+										"Ammo low! Anyone got an extra bag?",
+										"Ammo low! Anybody got some?",
+										"Ammo low! Get me some ammo!",
+										"Ammo low! Got some?"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3894,14 +3966,24 @@ ClosedCaptions._sounds = {
 										"Come get some! (Ammo)", 
 										"Anyone need ammo?"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Come fill up your ammo!",
+										"Fill up your ammo, guys!",
+										"Come get some ammo!",
+										"Ammo Bag!",
+										"Ammo Bag, over here!",
+										"Extra ammo, up for grabs!",
+										"Come fill up!",
+										"Ammo Bag, right here!",
+										"Extra ammo, over here!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
 										"More ammo over here.",
 										"There's ammo over here.",
 										"Extra ammo over here.",
-										"I dropped an Ammo Bag over here.",
+										"I dropped an Ammo Bag over here."
 									},
 									assault_mode = {}
 								}
@@ -3912,7 +3994,7 @@ ClosedCaptions._sounds = {
 				s02x_plu = {
 					variants = {
 						criminal = {
-							text = "Placed Ammo Bag",
+							text = "Placed Medic Bag",
 							priority = 5,
 							variations = {
 								rb4 = {
@@ -3923,9 +4005,17 @@ ClosedCaptions._sounds = {
 										"Medic Bag here! Anyone need patching up?",
 										"Get over here if you need a Medic Bag!",
 										"Medic Bag, up for grabs!"
-										"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Medical Bag, up for grabs!",
+										"Medical Bag, right here!",
+										"Medical Bag over here!",
+										"Medical Bag, come get patched up!",
+										"Medical Bag, guys!",
+										"Medic Bag, right here!",
+										"Come replenish your health!",
+										"Come patch yourselves up!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -3954,14 +4044,20 @@ ClosedCaptions._sounds = {
 										"[groans] Thanks a lot, my friend.",
 										"[grunts] Thanks."
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Thanks, man!",
+										"Thanks, buddy!",
+										"Thanks!",
+										"Thanks.",
+										"Thanks, pal."
+									}
 								},
 								rb15 = {
 									whisper_mode = {
 										"[groans] I guess I should say 'thanks.'",
 										"[groans] I guess I owe you one.",
 										"[groans] Finally!",
-										"[groans] Thanks for that.",
+										"[groans] Thanks for that."
 									},
 									assault_mode = {}
 								}
@@ -4001,7 +4097,14 @@ ClosedCaptions._sounds = {
 										"Don't you worry, I'll fix you right up.",
 										"Come on, now!"										
 									},
-									assault_mode = {}
+									assault_mode = {
+										"I'll help you up!",
+										"I'll get you back up!",
+										"I'll get you up!",
+										"You'll be up in a sec!",
+										"Let's get you back in business!",
+										"Let's get you back up and running!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4026,10 +4129,14 @@ ClosedCaptions._sounds = {
 									whisper_mode = {
 										"First Aid Kit! Get your band-aid here!",
 										"First Aid Kit! Get your band-aid here.",
-										"First Aid Kit here, anyone who needs it!"
+										"First Aid Kit here, anyone who needs it!",
 										"Right there! There's a First Aid Kit here."
 									},
-									assault_mode = {}
+									assault_mode = {
+										"First Aid Kit here!",
+										"Got a First Aid Kit here!",
+										"Here's a First Aid Kit!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4057,7 +4164,10 @@ ClosedCaptions._sounds = {
 										"Bodybag Case, right here.",
 										"Bodybag Case deployed!"
 									},
-									assault_mode = {}
+									assault_mode = { --why were assault variants recorded
+										"Got a Bodybag Case here!",
+										"Bodybag Case"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4077,10 +4187,10 @@ ClosedCaptions._sounds = {
 				s32x_sin = {
 					variants = {
 						criminal = {
-							text = "Out of Ties",
+							text = "Out of Cable Ties",
 							priority = 5,
 							variations = {
-								rb15 = {
+								rb4 = {
 									whisper_mode = {
 										"That was the last of my Cable Ties.",
 										"That was the last Cable Tie I had.",
@@ -4088,7 +4198,12 @@ ClosedCaptions._sounds = {
 										"Alright, that was the last Cable Tie.",
 										"Now I'm all out of Cable Ties."
 									},
-									assault_mode = {}
+									assault_mode = {
+										"That was the last of my Cable Ties.",
+										"Okay, that was the last Cable Tie I had.",
+										"Alright, that was my last Cable Tie.",
+										"Now I'm all out of Cable Ties."										
+									}
 								}
 							}
 						}
@@ -4127,7 +4242,34 @@ ClosedCaptions._sounds = {
 										"Somebody! You gotta help me!"
 										
 									},
-									assault_mode = {}
+									assault_mode = {
+										"SOMEBODY! Help me!",
+										"SOMEBODY! HELP!",
+										"SOMEBODY! Gimme a hand!",
+										"SOMEBODY! You gotta help me!",
+										"SOMEBODY! Over here!",
+										"SOMEBODY! I need help!",
+										"SOMEBODY! Help me up!",
+										"Friends! Help me!",
+										"Friends! HELP!",
+										"Friends! Gimme a hand!",
+										"Friends! Help me up!",
+										"Friends! I need help!",
+										"Friends! Over here!",
+										"Friends! Give a friend a hand!",
+										"Hey guys! HELP ME!",
+										"Hey guys! HELP!",
+										"Hey guys! Gimme a hand!",
+										"Hey guys! You gotta help me!",
+										"Hey guys! OVER HERE!",
+										"Hey guys! Help me up!",
+										"Hey, my friends! Help me!",
+										"Hey, my friends! HELP!",
+										"Hey, my friends! Gimme a hand!",
+										"Hey, my friends! You gotta help me!",
+										"Hey, my friends! OVER HERE!",
+										"Hey, my friends! Help me up!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4148,7 +4290,7 @@ ClosedCaptions._sounds = {
 							text = "Picking handcuffs",
 							priority = 5,
 							variations = {
-								rb15 = {
+								rb4 = {
 									whisper_mode = {
 										"This ain't gonna take long.",
 										"Gonna slip these.",
@@ -4156,7 +4298,14 @@ ClosedCaptions._sounds = {
 										"No problem, I know how these go.",
 										"[chuckles] These are easy to get out of."
 									},
-									assault_mode = {}
+									assault_mode = {
+										"I'm gonna pick these handcuffs.",
+										"I'll get out of these cuffs in a jiffy.",
+										"I'm gonna get out of these cuffs.",
+										"Time to make use of those old lockpicking skills.",
+										"I'll pick these cuffs in no time.",
+										"[chuckles] Like I haven't picked a pair of these before."
+									}
 								}
 							}
 						}
@@ -4177,7 +4326,15 @@ ClosedCaptions._sounds = {
 										"[laughs] I'm doin' what I was born to do!",
 										"[laughs] What'd I say?"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Okay, I picked the cuffs.",
+										"[chuckles] They thought these cuffs could hold me.",
+										"[chuckles] I'm a bona fide escape artist.",
+										"[quiet chuckle] The cuffs are off.",
+										"Alright, I'm free.",
+										"Alright, the cuffs are off.",
+										"Okay, I got rid of the cuffs."
+									}
 								}
 							}
 						}
@@ -4200,7 +4357,15 @@ ClosedCaptions._sounds = {
 										"Everyone, down!",
 										"ON THE GROUND, people!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"On the ground, people!",
+										"EVERYBODY. DOWN.",
+										"EVERYBODY DOWN!",
+										"Everybody down!",
+										"Down!",
+										"DOWN!",
+										"Down, all of you!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4223,16 +4388,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								rb4 = {
-									whisper_mode = {
-										"Get down.",
-										"Down on the ground.",
+									text_variations = {
+										"Get down!",
+										"Down on the ground!",
 										"Get down on the ground!",
 										"Get down on the ground.",
 										"Down!",
 										"DOWN!",
 										"On the ground!"
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4241,7 +4405,7 @@ ClosedCaptions._sounds = {
 										"Get down.",
 										"Ge'down.",
 										"On the ground.",
-										"On the ground.",
+										"On the ground."
 									},
 									assault_mode = {}
 								}
@@ -4268,7 +4432,29 @@ ClosedCaptions._sounds = {
 										"Don't make me say it again!",
 										"I'm not gonna say it again!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"I SAID GET THE FUCK DOWN!",
+										"I SAID DOWN, ON THE GROUND!",
+										"I SAID ON THE GROUND!",
+										"I. SAID. DOWN!",
+										"I TOLD YOU, DOWN!",
+										"I'M NOT SAYING IT AGAIN!",
+										"I TOLD YOU, GET DOWN ON THE GROUND!",
+										"DON'T TEST MY PATIENCE!",
+										"DON'T TRY TO BE A HERO!",
+										"DO WHAT I FUCKING SAY!",
+										"ON THE GROUND, YOU PIECE OF SHIT!",
+										"ON THE FUCKING GROUND, YOU SON OF A BITCH!",
+										"RIGHT NOW, MOTHERFUCKER!",
+										"RIGHT FUCKING NOW!",
+										"WHAT ARE YOU, A FUCKIN' HERO?",
+										"YOU'RE PUSHING IT!",
+										"YOU HEAR WHAT I'M FUCKING SAYING?",
+										"YOU HEARD WHAT I FUCKIN' SAID?",
+										"YOU DO WHAT I FUCKING TELL YOU!",
+										"YOU FUCKING HEARING ME?!",
+										"YOU. DO WHAT I FUCKING SAY!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4291,14 +4477,22 @@ ClosedCaptions._sounds = {
 							variations = {
 								rb4 = {
 									whisper_mode = {
-										"Stay down, everybody!"
+										"Stay down, everybody!",
 										"Stay down, people!",
 										"Stay down, all of you!",
-										"Everybody stay down!"
-										"Everybody, stay down!"
+										"Everybody stay down!",
+										"Everybody, stay down!",
 										"Nobody move!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"Stay where you are!",
+										"STAY WHERE YOU ARE!",
+										"NOBODY MOVE!",
+										"Everybody, stay DOWN!",
+										"Everybody stay down!",
+										"Everybody stay down.",
+										"Stay! DOWN!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4456,14 +4650,14 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									whisper_mode = {
-										"[whispering] Look out! Guard!"
+										"[whispering] Look out! Guard!",
 										"[whispering] Guard! Watch it.",
 										"[whispering] Guard! Stay back.",
 										"[whispering] Careful! Guard!",
 										"[whispering] Guard!",
 										"[whispering] Guard! Stay quiet.",
 										"[whispering] Don't bloody alert the Guard.",
-										"[whispering] Guard! Stay alert!",
+										"[whispering] Guard! Stay alert!"
 									},
 									assault_mode = {}
 								}
@@ -5400,47 +5594,45 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "Tactical chatter",
 							priority = 5,
-							variations = {
-								text_variations = {
-									"I see one of 'em!",
-									"I got contact!",
-									"Contact!",
-									"HARD contact!",
-									"Takedown!",
-									"DROP 'EM!",
-									"FIIIRE!",
-									"Fire at will!",
-									"Take 'em down!",
-									"LIGHT 'EM UP!",									
-									"HELP!",
-									"Help!",
-									"Let 'er rip!",
-									"Go, GO!",
-									"GO!",
-									"Go, go, GO!",
-									"Move!",
-									"Move out!",
-									"Shred 'em!",
-									"Move, MOVE!",
-									"Move, now!",
-									"Move it!",
-									"Forward!"
-									"Cover me!",
-									"Gimme cover!",
-									"Formation!",
-									"Take positions!",
-									"Get ready!",
-									"Ready up!",
-									"Ready now!",
-									"Ready!",
-									"...Insane!",
-									"Oh... SHIT!",
-									"CHRIST ALMIGHTY!",
-									"I'll be damned!",
-									"Fuckin' hell!",
-									"Holy SHIT!",
-									"FUCK!"
-								}
+							text_variations = {
+								"I see one of 'em!",
+								"I got contact!",
+								"Contact!",
+								"HARD contact!",
+								"Takedown!",
+								"DROP 'EM!",
+								"FIIIRE!",
+								"Fire at will!",
+								"Take 'em down!",
+								"LIGHT 'EM UP!",									
+								"HELP!",
+								"Help!",
+								"Let 'er rip!",
+								"Go, GO!",
+								"GO!",
+								"Go, go, GO!",
+								"Move!",
+								"Move out!",
+								"Shred 'em!",
+								"Move, MOVE!",
+								"Move, now!",
+								"Move it!",
+								"Forward!",
+								"Cover me!",
+								"Gimme cover!",
+								"Formation!",
+								"Take positions!",
+								"Get ready!",
+								"Ready up!",
+								"Ready now!",
+								"Ready!",
+								"...Insane!",
+								"Oh... SHIT!",
+								"CHRIST ALMIGHTY!",
+								"I'll be damned!",
+								"Fuckin' hell!",
+								"Holy SHIT!",
+								"FUCK!"
 							}
 						}
 					},
@@ -6150,6 +6342,7 @@ ClosedCaptions._sounds = {
 				},
 				rdy = {
 					text = "Ready!",
+					disabled = true,
 					variants = {}
 				},
 				rrl = {

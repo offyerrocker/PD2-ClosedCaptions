@@ -377,7 +377,7 @@ function ClosedCaptions:Update(t,dt)
 		end
 	end
 	for _,i in pairs(queued_remove) do 
-		self:remove_lines(i)
+		self:remove_line(i)
 	end
 end
 
@@ -456,9 +456,9 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 				sound_data = sound_data.variants.criminal
 				bird = sound_data
 				Log("Found  criminal variants")
-				if sound_data[tostring(prefix)] then 
+				if sound_data.variations and sound_data.variations[tostring(prefix)] then 
 					Log("Found variant for prefix " .. tostring(prefix))
-					sound_data = sound_data[tostring(prefix)]
+					sound_data = sound_data.variations[tostring(prefix)]
 				end
 			--[[
 				local sound_variants = sound_data.variants.criminal[tostring(prefix)]
@@ -566,6 +566,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 	local h = 100
 	item_panel = self._panel:panel({
 		name = panel_name,
+		y = -1000
 		w = w,
 		h = h,
 		visible = true
