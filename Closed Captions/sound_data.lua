@@ -1,4 +1,5 @@
 ClosedCaptions._sounds = {
+--return {
 	languages = {
 		english = {
 			vo_special = {
@@ -2586,13 +2587,14 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "{heat speech}",
 							priority = 5,
+							duration = 22,
 							variations = {
 								rb4 = {
 									text_variations = {
-										"Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your loved ones, don't try to be a hero. Just shut up, and stay down, and this'll be over in no time."
+										"Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your beloved ones, don't try to be a hero. Just shut up, and stay down, and this'll be over in no time."
 									}
 								},
-								rb15 = { --! need to write multi-line code to split it up because it's fuckin long
+								rb15 = {
 									text_variations = { 
 										"Listen up, you bloody drongos! This is a robbery! We're not here to hurt you, but that can quickly change dependin' on your FUCKIN' actions, got it? We're after this BANK'S money, not yours, all your BLOODY money's insured by the FUCKIN' government, alright? You won't lose a FUCKIN' penny so think of your dipshit FAMILIES, now, your fat spouses and your ugly kids, you just KEEP IT SHUT like the good tools you are and STAY DOWN, and this'll be over in a bloody heartbeat."
 									}
@@ -5279,6 +5281,20 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				r03x_sin = {
+					variants = {
+						criminal = {
+							text = "Gotcha!",
+							priority = 15,
+							rb4 = {
+								text_variations = {
+									"Gotcha!",
+									"Gotcha."
+								}
+							}
+						}
+					}
+				},
 				t01x_sin = {
 					variants = {
 						criminal = {
@@ -5355,10 +5371,18 @@ ClosedCaptions._sounds = {
 										"Drop your weapon!",
 										"Stick 'em up!",
 										"Stick 'em up.",
-										"Hands where I can see them!",
-										
+										"Hands where I can see them!"
 									},
-									assault_mode = {}
+									assault_mode = {
+										"No sudden movements!",
+										"Put your hands up!",
+										"Drop your piece!",
+										"Hands in the air!",
+										"Hands up!",
+										"Stick em up!",
+										"Put your fuckin' hands up!",
+										"Hands up, mothafucka!"
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -5469,7 +5493,7 @@ ClosedCaptions._sounds = {
 				dsp_radio_checking_1 = {
 					variants = {
 						criminal = {
-							text = "[Answering pager]",
+							text = "[answering pager]",
 							variations = {
 								rb4 = { --incomplete
 									text_variations = {
@@ -5556,22 +5580,398 @@ ClosedCaptions._sounds = {
 				dsp_radio_russian = {
 					disabled = true
 				},
+				--]]
 				dsp_radio_reminder_1 = {
-					disabled = true
+					variants = {
+						security = {
+							text = "[pager buzz]",
+							text_variations = {
+								"[pager operator] This is dispatch. PICK UP THE PAGER.",
+							}
+						}
+					}
 				},
 				dsp_radio_fooled_1 = {
-					disabled = true
+					variants = {
+						security = {
+							text = "[pager operator fooled]",
+							--text_variations = {
+							--	"Okay, I guess I'll see you for bowling later.",
+							--}
+						}
+					}
 				},
-				dsp_radio_fooled_4 = { --"no pagers remaining" warning?
-					disabled = true
+				dsp_radio_fooled_4 = { --"no pagers remaining" warning
+					variants = {
+						security = {
+							text = "[pager operator warning]"
+						}
+					}
 				},
-				--]]
 				dsp_stop_all = {
 					text = "[radio static ends]",
-					variants = {},
 					disabled = true,
 					priority = 5
 				}, --disable this
+				l2n_a15 = {
+					variants = {
+						security = {
+							text = "[spotted alerted Civilian]",
+							variations = {
+								text_variations = {
+									"Two-Three here. Uh, reporting in. We got a situation",
+									"Two-Three here. Uh, reporting in. Something's up.",
+									"Two-Three here. Uh, reporting in. There's something going on here.",
+									"Two-Three, reporting in. We got a situation",
+									"Two-Three, reporting in. Something's up.",
+									"Two-Three, reporting in. There's something going on here.",
+									"Two-Three over here. Reporting in. We got a situation",
+									"Two-Three over here. Reporting in. Something's up.",
+									"Two-Three over here. Reporting in. There's something going on here.",
+									"This is, uh, Two-Three reporting in. We got a situation.",
+									"This is, uh, Two-Three reporting in. Something's up.",
+									"This is, uh, Two-Three reporting in. There's something going on here."
+								}
+							}
+						}
+					}
+				},
+				l2n_a05 = {
+					variants = {
+						security = {
+							text = "[idle pager chatter]",
+							variations = {
+								text_variations = {
+									"Two-Three here. Reporting in. All's clear over here. Out.",
+									"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
+									"Two-Three, reporting in. All is quiet on the western front. Out.",
+									"Feels like another boring evening.",
+									"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
+									"Seems like a good day for something to happen... right?",
+									"This is, uh, Two-Three reporting in. All clear. Over and out."
+								}
+							}
+						}
+					}
+				},
+				l2n_a07b = {
+					variants = {
+						security = {
+							text = "[spots suspicious object]",
+							variations = {
+								text_variations = {
+									"What the heck...?",
+									"Who was that?",
+									"That's weird...",
+									"What on earth...?",
+									"What's going on here...?",
+									"That's strange...",
+									"What the hell...?"
+								}
+							}
+						}
+					}
+				},
+				l2n_b01 = {
+					variants = {
+						security = {
+							text = "[reporting clear Entrance]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Entrance is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b02 = {
+					variants = {
+						security = {
+							text = "[reporting clear Hall A]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Hall A is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b03 = {
+					variants = {
+						security = {
+							text = "[reporting clear Hall B]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Hall B is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b04 = {
+					variants = {
+						security = {
+							text = "[reporting clear Hall C]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Hall C is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b05 = {
+					variants = {
+						security = {
+							text = "[reporting clear Hall D]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Hall C is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b06 = {
+					variants = {
+						security = {
+							text = "[reporting clear Roof]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Roof is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b07 = {
+					variants = {
+						security = {
+							text = "[reporting clear Basement]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Roof is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b08 = {
+					variants = {
+						security = {
+							text = "[reporting clear First Floor]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. First Floor is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b09 = {
+					variants = {
+						security = {
+							text = "[reporting clear Second Floor]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Second Floor is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b09 = {
+					variants = {
+						security = {
+							text = "[reporting clear Third Floor]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Third Floor is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b11 = {
+					variants = {
+						security = {
+							text = "[reporting clear Pool]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Pool Area is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b12 = {
+					variants = {
+						security = {
+							text = "[reporting clear Balcony]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Balcony is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b13 = {
+					variants = {
+						security = {
+							text = "[reporting clear Living Room]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Living Room is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b14 = {
+					variants = {
+						security = {
+							text = "[reporting clear Corridor]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Corridor is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b15 = {
+					variants = {
+						security = {
+							text = "[reporting clear Lobby]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Lobby is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b16 = {
+					variants = {
+						security = {
+							text = "[reporting clear Security Door]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. Security Door is shut and locked. No sign of criminal activity." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b17 = {
+					variants = {
+						security = {
+							text = "[reporting clear GenSec Room]",
+							variations = {
+								text_variations = {
+									"Two three, reporting in. GenSec room is clear." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b18 = {
+					variants = {
+						security = {
+							text = "[reporting clear Camera]",
+							variations = {
+								text_variations = {
+									"Two three, reporting. Camera operational. This place no signs of suspicious activity. Repeat, no sign of tampering. Over." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b19 = {
+					variants = {
+						security = {
+							text = "[reporting clear Staircase]",
+							variations = {
+								text_variations = {
+									"Two three, reporting. Staircase is clear. Everything's clear here. Over." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b20 = {
+					variants = {
+						security = {
+							text = "[reporting clear Penthouse]",
+							variations = {
+								text_variations = {
+									"Two three, reporting. Penthouse is clear. Over." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b21 = {
+					variants = {
+						security = {
+							text = "[reporting clear Garage]",
+							variations = {
+								text_variations = {
+									"Two three, reporting. Garage is clear. Over." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b22 = {
+					variants = {
+						security = {
+							text = "[reporting proceeding with sweep]",
+							variations = {
+								text_variations = {
+									"Proceeding" 
+								}
+							}
+						}
+					}
+				},
+				l2n_b23 = {
+					variants = {
+						security = {
+							text = "[request gate access]",
+							variations = {
+								text_variations = {
+									"This is Two-Three. Can you buzz me in? Over." 
+								}
+							}
+						}
+					}
+				},
+				l2n_b24 = {
+					variants = {
+						security = {
+							text = "[reporting finished clear sweep]",
+							variations = {
+								text_variations = {
+									"Two-Three reporting. This place is clear from top to bottom. I'm outta here. Over and out." 
+								}
+							}
+						}
+					}
+				},
+				l2n_i02 = {
+					variants = {
+						cop = {
+							text = "[attempting arrest]",
+							variations = {
+								text_variations = {
+									"No sudden movements!"
+								}
+							}
+						}
+					}
+				},
 				s09a = {
 					text = "[reviving] Hey, man, you're not looking too good...",
 					variants = {}
@@ -5592,7 +5992,7 @@ ClosedCaptions._sounds = {
 					text = "Whew, thanks.",
 					variants = {}
 				},
-
+				
 		--cops
 				l3n_civ = {
 					variants = {
@@ -5601,9 +6001,9 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							variations = {
 								whisper_mode = {
+									"Get the civilians!",
 									"Get the canaries!",
 									"Get the hostages!",
-									"Get the civilians!",
 									"Get the civvies!"
 								},
 								assault_mode = {}
@@ -5629,6 +6029,68 @@ ClosedCaptions._sounds = {
 						}
 					},
 					disabled = true
+				},
+				l4n_a01 = {
+					variants = {
+						cop = {
+							text = "[spotted heister]",
+							priority = 5,
+							text_variations = {
+								"He's armed!",
+								"FREEZE!",
+								"STOP IT!",
+								"He's got a gun!",
+								"HOLD IT!",
+								"Gun! GUN!",
+								"He's got a weapon!",
+								"He has a gun!"
+							}
+						}
+					}
+				},
+				l4n_lk3a = {
+					variants = {
+						cop = {
+							text = "[panicked chatter]",
+							priority = 5,
+							text_variations = {
+								"Christ!",
+								"Fuckin' hell!",
+								"Christ almighty!"								
+							}
+						}
+					}
+				},
+				l2n_lk3b = {
+					variants = {
+						cop = {
+							text = "[panicked chatter]",
+							priority = 5,
+							text_variations = { --non-exhaustive 
+								"CHRIST!",
+								"INSANE!",
+								"HOLY SHIT!",
+								"JEEZ!"
+							}
+						}
+					},
+					disabled = true
+				},
+				l4n_i03 = {
+					variants = {
+						cop = {
+							text = "[arrested heister]",
+							priority = 5,
+							text_variations = {
+								"It's over now, scumbag! I hope you like prison food.",
+								"This ends now, scumbag. I hope you drop the soap, a lot.",
+								"It's over now, dirtbag! You're going away for a loooong time.",
+								"It's over... scumbag! Get ready to do some hard time.",
+								"It's over, dirtbag! I hope you drop the soap... a lot.",
+								"It's over... you son of a bitch!",
+							}
+						}
+					}
 				},
 				l2n_mov = {
 					variants = {
@@ -6452,6 +6914,7 @@ ClosedCaptions._sounds = {
 				},
 				x01a_any_3p = {
 					text = "[pain]",
+					disabled = true,
 					variants = {
 						--
 					}

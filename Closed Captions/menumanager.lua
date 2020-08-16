@@ -1,8 +1,42 @@
---todo sort voicelines by type (source)
---todo figure out a cloaker static nearby system
---todo multi-line 
-
-
+--[[
+* todo re-make and re-center text (currently left-aligned)
+* todo address dialog manager text;
+	* check certain lines even if contractor lines are disabled
+		* camera countdown for no mercy is not considered an exception
+* todo sort voicelines by type (source)
+* todo figure out a cloaker static nearby system
+* todo filter out voicelines by local-player only (eg. for pickups/uppers ace)?
+	* can_say filter per type of character?
+	* per faction disabling?
+		* cops saying stuff but criminals cannot
+* rename "text_variations" to "any" to reflect lack of required conditions
+* rename "variations" to something reflecting the presence of required conditions as well as variations
+* add macroized variants
+	* table structure to automate variations; 
+		* eg. 
+			combinable_variations {
+				{
+					"Two-Three, reporting in.",
+					"Uh, this is Two-Three, reporting in.",
+					"Two-Three here, reporting in.",
+					"This is Two-Three, uh, checking in."
+				}
+				{
+					"All clear here. Everything is A-OK.",
+					"Nothing suspicious here. Repeat, no suspicious activity.",
+					"Everything is fine. Repeat, no signs of criminal activity.",
+					"Clean as a whistle here. Everything is fine.",
+				}
+				{
+					"Over.",
+					"Over!",
+					"Over and out.",
+					"Over and out, heading back to base."
+				}
+			}
+* todo layer custom user settings over sound_data
+	* todo documented custom template for those things
+--]]
 --[[
 calling out guards, deploying, grenades, calling bots, inspiring downed heisters
 guard pager timer having noises
@@ -21,7 +55,9 @@ ClosedCaptions = ClosedCaptions or {
 ClosedCaptions.LOG_ENABLED = true
 
 ClosedCaptions._mod_path = ClosedCaptions._mod_path or ModPath
-ClosedCaptions._debug_list_path = ClosedCaptions._mod_path .. "FOUND_MISSING_LINES.txt"
+ClosedCaptions._debug_list_path = SavePath .. "CLOSEDCAPTIONS_FOUND_MISSING_LINES.txt"
+
+ClosedCaptions._sound_data_filename = "sound_data.lua"
 
 ClosedCaptions.sounds = nil --"processed" sounds with appropriate data
 ClosedCaptions._sounds = {} --read through separate file for organization, called through LoadSounds()
@@ -170,8 +206,13 @@ ClosedCaptions.languages = {
 	"english"
 }
 
-function ClosedCaptions:LoadSounds()
-	dofile(self._mod_path .. "sound_data.lua")
+function ClosedCaptions:LoadSounds()	
+	if SystemFS:exists( Application:nice_path( SavePath .. self._sound_data_filename, true )) then
+		self:log("Closed Captions: Reading " .. self._sound_data_filename .. " override from user save")
+		dofile(SavePath .. self._sound_data_filename)
+	else
+		dofile(self._mod_path .. self._sound_data_filename)
+	end
 end
 
 function ClosedCaptions:log(...)
@@ -312,7 +353,7 @@ function ClosedCaptions:ReadFromDebug() --reads existing "missing lines" into me
 			sound_name = split_lines[1]
 			source_name = split_lines[2]
 			if sound_name and source_name then 
-				self.debug_missing_lines[sound_name] = source_name
+				self.debug_missing_lines[sound_name] = {[source_name] = true}
 			end
 		end
 		file:close()
@@ -405,10 +446,10 @@ function ClosedCaptions:Update(t,dt)
 			elseif is_hidden == false then
 			else
 				item.panel:hide()
---				self:Log("Hiding line " .. tostring(item and item.panel and item.panel:child("subtitle"):text()))
+--				self:log("Hiding line " .. tostring(item and item.panel and item.panel:child("subtitle"):text()))
 			end
 		else
---			self:Log("Removing line " .. tostring(item and item.panel and item.panel:child("subtitle"):text()))
+--			self:log("Removing line " .. tostring(item and item.panel and item.panel:child("subtitle"):text()))
 			table.insert(queued_remove,i)
 --			self:remove_line(i)
 		end
@@ -481,6 +522,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		end
 	end
 	
+	local text
 	
 	local sound_data = all_sounds_data.vo[sound_id]
 	if not sound_data then 
@@ -488,70 +530,66 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		self:AddToDebug(sound_id,source_name)
 		return
 	else
+		if sound_data.variants then 
+			if sound_data.variants[variant] then 
+				sound_data = sound_data.variants[variant]
+				
+				if sound_data.variations then 
+					local variations = sound_data.variations[prefix]
+					if variations then 
+						if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
+							local num_variants = #variations.whisper_mode
+							if num_variants > 0 then 
+								text = variations.whisper_mode[math.random(num_variants)]
+							end
+						elseif not is_whisper_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
+							local num_variants = #variations.assault_mode
+							if num_variants > 0 then 
+								text = variations.assault_mode[math.random(num_variants)]
+							end
+						elseif not is_whisper_mode and variations.assault_break_mode then --no assault
+							local num_variants = #variations.assault_break_mode
+							if num_variants > 0 then 
+								text = variations.assault_break_mode[math.random(num_variants)]
+							end
+						elseif variations.text_variations then --text_variations indicates the lack of requirements for these lines
+							local num_variants = #variations.text_variations
+							if num_variants > 0 then 
+								text = variations.text_variations[math.random(num_variants)]
+							end
+						end
+					end
+				end
+			elseif not sound_data.text then
+				--variants exist, but none for this unit's variant, so do nothing
+				return
+			end
+		end
+		text = text or sound_data.text
+		--[[
 		if variant == "criminal" then
 			if sound_data.variants and sound_data.variants.criminal then 
 				sound_data = sound_data.variants.criminal
-				bird = sound_data
-				Log("Found  criminal variants")
 				if sound_data.variations and sound_data.variations[tostring(prefix)] then 
-					Log("Found variant for prefix " .. tostring(prefix))
 					sound_data = sound_data.variations[tostring(prefix)]
 				end
-			--[[
-				local sound_variants = sound_data.variants.criminal[tostring(prefix)]
-				if sound_variants then
-					local num_variants = #sound_variants
-					Log("Found variants for " .. tostring(prefix) .. " " .. tostring(num_variants))
-					--if random enabled then 
-					
-					--sound_data = sound_data.variants.criminal[tostring(prefix)][math.random(#sound_data.variants.criminal[tostring(prefix)])]
-				elseif sound_data.variants.criminal.generic then 
-					sound_data = sound_data.variants.criminal.generic
-				end
-				--]]
 			end
 		else
 			sound_data = (sound_data.variants and sound_data.variants[tostring(prefix)]) or sound_data
 		end
-		--[[
-		local original_sound_data = sound_data
-		sound_data = (original_sound_data.variants and original_sound_data.variants[variant]) or original_sound_data
-		if managers.groupai:state():is_enemy_special(source) then
-			sound_data = (original_sound_data.variants and original_sound_data.variants["special_enemy"]) or sound_data
-		end
 		--]]
 		if sound_data.disabled == true then 
 			return
-		elseif (sound_data.disabled == "whisper_mode") then 
+		elseif sound_data.disabled == "whisper_mode" then 
 			if not is_whisper_mode then
+				return
+			end
+		elseif sound_data.disabled == "local_player" then --todo split into separate filter
+			if not (alive(source) and (source == managers.player:local_player()) ) then 
 				return
 			end
 		end
 	end
-	
-
-	
-	local text = sound_data.text
-	if is_whisper_mode and sound_data.whisper_mode then
-		local num_variants = #sound_data.whisper_mode
-		if num_variants > 0 then 
-			text = sound_data.whisper_mode[math.random(num_variants)]
-		end
-	elseif not is_whisper_mode and sound_data.assault_mode then
-		local num_variants = #sound_data.assault_mode
-		if num_variants > 0 then 
-			text = sound_data.assault_mode[math.random(num_variants)]
-		end
-	elseif sound_data.text_variations then 
-		local num_variants = #sound_data.text_variations
-		if num_variants > 0 then 
-			text = sound_data.text_variations[math.random(num_variants)]
-		end
-	elseif sound_data.generic then 
-		text = sound_data.generic.text
---		Log("Error: No text variations?")
-	end
-	
 	
 	local panel_text = tostring(source_name) .. ": " .. tostring(text)
 	--if source type is unit, use unit key
@@ -562,13 +600,9 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		self:log("Error: No valid text in add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
 	else
 		self:log("add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=text_color})
-	
 	end
 	
 	local priority = sound_data.priority or 1
-	
-	
-	
 	
 	
 	
@@ -582,7 +616,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			priority = priority,
 			panel = panel,
 			start_t = t,
-			expire_t = expire_t or (t + 3)
+			expire_t = (sound_data.duration and (sound_data.duration + t)) or expire_t or (t + 3)
 		}
 		table.insert(self.active_lines,data)
 	elseif not panel then 
@@ -599,13 +633,15 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 		panel:remove(item_panel)
 --		return item_panel,true
 	end
+	local hor_text_margin = 8
+	local ver_text_margin = 20
 	local w = self.hud_data.subtitle_w
-	local h = 100
+	local h = 100  --default
 	item_panel = self._panel:panel({
 		name = panel_name,
-		y = -1000,
+		y = panel:h(),
 		w = w,
-		h = h,
+		h = 100,
 		visible = true
 	})
 	
@@ -615,6 +651,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 		x = 0,
 		y = 0,
 		align = "left",
+		vertical = "center",
 		font = tweak_data.hud_players.ammo_font,
 		font_size = 16,
 		color = text_color,
@@ -624,29 +661,99 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 	local subtitle = item_panel:text({
 		name = "subtitle",
 		text = text,
-		x = 0,
-		y = 0,
-		align = "left",
+		x = hor_text_margin / 2,
+		y = ver_text_margin / 2,
+--		w = item_panel:w(),
+--		align = "center", --todo
 		font = tweak_data.hud_players.ammo_font,
 		font_size = 16,
 		color = text_color,
 		layer = 2,
 		visible = true
 	})
-	local s_x,s_y,s_w,s_h = subtitle:text_rect()
+
+	local function check_text_spillover()
+	--returns true if it is too large
+		local s_x,s_y,s_w,s_h = subtitle:text_rect()
+		return s_w >= (panel:w() - 100)--horizontal margin
+	end
+
+	--[[ pseudo
+
 --	local w_r = s_w / panel:w() 
 --	if w_r > 1 then 
 		--todo resize?
---	end
-	subtitle:set_x((item_panel:w() - s_w) / 2)
-	item_panel:set_h(s_h)
+--	end	
 	
+	if check_text_over_threshold() then 
+		local words_in_text = string.split(text," ")
+		local words_remaining = #words_in_text
+		repeat 
+			words_remaining = words_remaining / 2
+			for i = 1,#words_in_text - math.ceil(words_remaining),1 do 
+				s = s .. words_in_text[i]
+				subtitle_set_text(s)
+				
+			end
+		until ((words_remaining / 2) < 1)
+	end	
+		
+	check text over threshold 
+	if text over threshold then 
+		get all words in text -> table
+		get num words in table
+		if half_words >= 1 then 
+			compilate half of words in table
+			set text to new compilate
+				goto check text over threshold again		
+		else
+			add remaining word
+			if text over threshold then 
+				split word in half?
+			end
+		end
+	--]]
+	
+	
+	--this multi-line spillover capability does not cover cases where a single word (where a "word" is any string of characters delimited by a single space character " ")
+	--so uh. todo
+	if check_text_spillover() then 
+		local words = string.split(text," ")
+		if #words > 0 then 
+			local new_text
+			for i = 1,#words,1 do 
+				if word[i] and word[i] ~= "" then
+	--			for i = #words,1,-1 do 
+					if new_text then 
+						new_text = new_text .. " "
+					else
+						new_text = ""
+					end
+					subtitle:set_text(new_text .. words[i])
+					if check_text_spillover() then 
+						new_text = new_text .. "\n"
+					end
+					new_text = new_text .. words[i]
+				end
+			end
+		else
+			--todo that thing i just said
+		end		
+	end
+	
+	
+	local s_x,s_y,s_w,s_h = subtitle:text_rect()
+	subtitle:set_w(s_w)
+	subtitle:set_h(s_h)
+	
+	item_panel:set_size(s_w + hor_text_margin,s_h + ver_text_margin)
 	local arrow_right = item_panel:text({
 		name = "arrow_right",
 		text = is_locationless and "" or ">",
 		x = 0,
 		y = 0,
 		align = "right",
+		vertical = "center",
 		font = tweak_data.hud_players.ammo_font,
 		font_size = 16,
 		color = text_color,
@@ -658,8 +765,8 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 		layer = 1,
 		texture = "guis/textures/pd2/hud_tabs",
 		texture_rect = {84,0,44,32},
-		w = w,
-		h = h,
+		w = item_panel:w(),
+		h = item_panel:h(),
 		alpha = 0.75
 	})
 	return item_panel
