@@ -1,4 +1,3 @@
---todo gambler?
 ClosedCaptions._sounds = {
 	languages = {
 		english = {
@@ -23,6 +22,23 @@ ClosedCaptions._sounds = {
 					source = "sfx",
 					disabled = true
 				},
+				pickup_ammo_health_boost = {
+					text = "(Gambler) [picked up ammo]",
+					source = "sfx",
+					disabled = true
+				},
+				pickup_fak_skill = {
+					text = "[activated Uppers Ace]",
+					source = "sfx"
+				},
+				wp_four_pick_up = {
+					text = "[picked up Throwing Card]",
+					source = "sfx"
+				},
+				wp_jav_pick_up = {
+					text = "[picked up Javelin]",
+					source = "sfx"
+				},
 				flashbang_beep = {
 					text = "[flashbang beeping]",
 					source = "sfx",
@@ -40,6 +56,14 @@ ClosedCaptions._sounds = {
 				player_hit = {
 					text = "armor damage",
 					disabled = true
+				},
+				vo_special = {
+					text = "vo_special",
+					disabled = true
+				},
+				swat_explosion = {
+					text = "[swat_explosion ???]",
+					disabled = false
 				},
 				g01 = {
 					variants = {
@@ -688,12 +712,12 @@ ClosedCaptions._sounds = {
 									"Killed a dozer!"
 								},
 								assault_mode = {
-									"Fuck you, Bulldozer!",
 									"Bulldozer down!",
-									"Get stuffed, dozer fuck!",
 									"Fuck off, dozer!",
+									"Fuck you, Bulldozer!",
+									"Dozer's history!",
 									"Killed a dozer!",
-									"Dozer's history!"
+									"Get stuffed, dozer fuck!"
 								}
 							}
 						}
@@ -897,7 +921,7 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				g69 = {
+				g69 = { --haha nice
 					variants = {
 						criminal = {
 							priority = 5,
@@ -5525,6 +5549,23 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				--[[
+				fri_dsp_stop_all = {
+					disabled = true
+				},
+				dsp_radio_russian = {
+					disabled = true
+				},
+				dsp_radio_reminder_1 = {
+					disabled = true
+				},
+				dsp_radio_fooled_1 = {
+					disabled = true
+				},
+				dsp_radio_fooled_4 = { --"no pagers remaining" warning?
+					disabled = true
+				},
+				--]]
 				dsp_stop_all = {
 					text = "[radio static ends]",
 					variants = {},
@@ -5642,6 +5683,30 @@ ClosedCaptions._sounds = {
 					text = "[dispatch radio chatter]",
 					disabled = true
 				},
+				cloaker_spawn = {
+					text = "[Cloaker spawned]",
+					disabled = false
+				},
+				cloaker_taunt_after_assault = {
+					text = "[Cloaker taunt]",
+					disabled = false
+				},
+				rcloaker_taunt_during_assault = {
+					text = "[Cloaker taunt]",
+					disabled = false
+				},
+				clk_c01x_plu = {
+					text = "cloaker ???",
+					disabled = false
+				},
+				cloaker_detect_christmas_mono = {
+					text = "[FESTIVE CLOAKER CHARGE]",
+					disabled = false
+				},
+				cloaker_detect_christmas_stop = {
+					text = "[festive Cloaker charge stops]",
+					disabled = false
+				},
 				cloaker_detect_mono = {
 					text = "[CLOAKER CHARGE]", --wololololo
 					disabled = false
@@ -5691,6 +5756,9 @@ ClosedCaptions._sounds = {
 				mdc_entrance = {
 					text = "Somebody order a Medic?"
 				},
+				rmdc_entrance = {
+					text = "rmedic entrance ???"
+				},
 				entrance_elite = {
 					text = "ELITE BULLDOZER, COMING THROUGH!"
 				},
@@ -5702,6 +5770,12 @@ ClosedCaptions._sounds = {
 				},
 				cpa_a02_01 = {
 					text = "Captain's just got here, time to turn this around!"
+				},
+				cpw_a01 = {
+					text = "(winters noise???)"
+				},
+				cpw_a02 = {
+					text = "(winters noise 2???)"
 				},
 				cpw_a04 = {
 					text = "(Winters retreat)"
@@ -5751,6 +5825,24 @@ ClosedCaptions._sounds = {
 				clk_punch_3rd_person_3p = {
 					text = "[Cloaker kick]"
 				},
+				tsr_entrance = {
+					text = "[taser entrance]"
+				},
+				tsr_elite = {
+					text = "[tsr elite]"
+				},
+				tasered_3rd_stop = {
+					text = "tasered_3rd_stop",
+					disabled = true
+				},
+				tasered_3rd = {
+					text = "tasered_3rd",
+					disabled = true
+				},
+				post_kill_taunt = {
+					text = "post_kill_taunt",
+					disabled = false
+				},
 				post_tasing_taunt = {
 					text = "(tasing taunt)"
 				},
@@ -5777,11 +5869,12 @@ ClosedCaptions._sounds = {
 						},
 						cm1 = {
 							text = "Hello? 911? I need help, there's armed robbers here!"
-						},
-						criminal = {
-							disabled = true
 						}
 					}
+				},
+				cm1_911_call = {
+					text = "cm1_911_call",
+					disabled = false
 				},
 				a02x_any = {
 					text = "(fearful screaming)",

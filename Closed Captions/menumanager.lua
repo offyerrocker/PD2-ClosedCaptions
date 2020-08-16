@@ -27,6 +27,7 @@ ClosedCaptions.sounds = nil --"processed" sounds with appropriate data
 ClosedCaptions._sounds = {} --read through separate file for organization, called through LoadSounds()
 
 ClosedCaptions.debug_missing_lines = {}
+ClosedCaptions.debug_mission_name = nil --evaluated once per level, for debug tracking reasons
 
 ClosedCaptions.character_prefixes = {
 	a = "russian", --dallas 1 / 4
@@ -104,8 +105,8 @@ ClosedCaptions.unit_names = {
 	taser = "Taser",
 	sniper = "Sniper",
 	security = "Security",
-	security_undominatable = "Garrett",
-	mute_security_undominatable = "Garrett  2",
+	security_undominatable = "Garrett", --???
+	mute_security_undominatable = "Garrett",
 	gensec = "GenSec",
 	cop = "Cop",
 	cop_scared = "Cop Scared",
@@ -125,11 +126,11 @@ ClosedCaptions.unit_names = {
 	biker_boss = "Biker Boss",
 	chavez_boss = "Chavez",
 	hector_boss = "Hector",
-	hector_boss_no_armor = "Hector (surprised pikachu)",
+	hector_boss_no_armor = "Hector", --stealth
 	bolivian = "Bolivian Gangster",
 	bolivian_indoors = "Bolivian Security",
 	drug_lord_boss = "Ernesto Sosa",
-	drug_lord_boss_stealth = "Sosa (surprised pikachu)"
+	drug_lord_boss_stealth = "Sosa" --stealth
 }
 
 ClosedCaptions.color_data = {
@@ -300,7 +301,42 @@ function ClosedCaptions.angle_from(a,b,c,d) -- converts to angle with ranges (-1
 	end
 end
 
+function ClosedCaptions:ReadFromDebug() --reads existing "missing lines" into memory so that duplicate lines are not created
+
+	local file = io.open(self._debug_list_path,"r")
+	if file then
+--		for k,line in pairs(file:read("*all")) do 
+		for line in file:lines() do
+			local sound_name,source_name
+			local split_lines = string.split(line," : ") or {}
+			sound_name = split_lines[1]
+			source_name = split_lines[2]
+			if sound_name and source_name then 
+				self.debug_missing_lines[sound_name] = source_name
+			end
+		end
+		file:close()
+	end
+	
+end
+--local file = io.open(ClosedCaptions._debug_list_path,"a+"); if file then for sound,source in pairs(ClosedCaptions.debug_missing_lines) do file:write(sound .. " : " .. source .. "\n") end end 
+--used to convert FOUND_MISSING_LINES from versions 0.1 and earlier, since those versions did not have duplicate line protection
 function ClosedCaptions:AddToDebug(sound_name,source_name)
+	if not self.debug_mission_name then 
+		local level_data = managers.job:current_level_data()
+		local level_name = level_data and level_data.name_id
+		self.debug_mission_name = level_name and managers.localization:text(level_name)
+		
+		--write the mission name once in the file, for easier replication later
+		if self.debug_mission_name then 
+			local file = io.open(self._debug_list_path,"a+")
+			if file then
+				file:write(tostring(level_name) .. " | " .. tostring(self.debug_mission_name) .. "\n")
+				file:close()
+			end
+		end
+	end
+	
 	sound_name = tostring(sound_name)
 	source_name = tostring(source_name)
 	if self.debug_missing_lines[sound_name] then 
@@ -316,6 +352,7 @@ function ClosedCaptions:AddToDebug(sound_name,source_name)
 		}
 	end
 	
+	--append to list
 	local file = io.open(self._debug_list_path,"a+")
 	if file then
 		file:write(sound_name .. " : " .. source_name .. "\n")
@@ -566,7 +603,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 	local h = 100
 	item_panel = self._panel:panel({
 		name = panel_name,
-		y = -1000
+		y = -1000,
 		w = w,
 		h = h,
 		visible = true
@@ -638,7 +675,10 @@ end
 function ClosedCaptions:_remove_line(id,source)
 end
 
+--todo check menu options
+if ClosedCaptions.LOG_ENABLED then 
+	ClosedCaptions:ReadFromDebug()
+end
 ClosedCaptions:LoadSounds()
-
 
 Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",callback(ClosedCaptions,ClosedCaptions,"init_captions"))
