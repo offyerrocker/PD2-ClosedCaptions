@@ -1,4 +1,7 @@
 --[[
+* todo adjust horizontal position of subtitles
+* todo option to align vertical by top/bottom/center
+
 * todo re-make and re-center text (currently left-aligned)
 * todo address dialog manager text;
 	* check certain lines even if contractor lines are disabled
@@ -181,11 +184,12 @@ ClosedCaptions.color_data = {
 }
 
 ClosedCaptions.settings = {
-	language = 1
+	language = 1,
+	box_y = 150,
+	box_w = 600
 }
 
 ClosedCaptions.hud_data = {
-	subtitle_w = 500
 }
 
 ClosedCaptions.active_lines = {
@@ -405,7 +409,7 @@ function ClosedCaptions:Update(t,dt)
 	local snd_dist_max_sq = 2000 * 2000
 	local panel = self._panel
 	local angle_threshold = 45
-	local y = 0
+	local y = self.settings.box_y --starting position
 	local n = 0
 	local MAX_SUBTITLES = 16
 	local player = managers.player:local_player()
@@ -422,6 +426,7 @@ function ClosedCaptions:Update(t,dt)
 					table.insert(queued_remove,i)
 --					self:remove_line(i)
 				else
+				--todo fadeout in x seconds, starting at duration-x seconds
 					item.panel:set_alpha(((item.expire_t - t) / (item.expire_t - item.start_t) * 2) + 0.5)
 					
 					local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
@@ -440,7 +445,7 @@ function ClosedCaptions:Update(t,dt)
 			if is_hidden == nil then 
 				item.panel:show()
 				n = n + 1
-				item.panel:set_position((panel:w() - item.panel:w()) / 2,panel:h() - (item.panel:h() + y + 24))
+				item.panel:set_position((panel:w() - item.panel:w()) / 2,panel:h() - (y + 24))
 				y = y + item.panel:h()
 				
 			elseif is_hidden == false then
@@ -523,6 +528,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	end
 	
 	local text
+	local subvariant_data
+	--local variations
 	
 	local sound_data = all_sounds_data.vo[sound_id]
 	if not sound_data then 
@@ -534,50 +541,55 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			if sound_data.variants[variant] then 
 				sound_data = sound_data.variants[variant]
 				
-				if sound_data.variations then 
-					local variations = sound_data.variations[prefix]
-					if variations then 
-						if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
-							local num_variants = #variations.whisper_mode
-							if num_variants > 0 then 
-								text = variations.whisper_mode[math.random(num_variants)]
-							end
-						elseif not is_whisper_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
-							local num_variants = #variations.assault_mode
-							if num_variants > 0 then 
-								text = variations.assault_mode[math.random(num_variants)]
-							end
-						elseif not is_whisper_mode and variations.assault_break_mode then --no assault
-							local num_variants = #variations.assault_break_mode
-							if num_variants > 0 then 
-								text = variations.assault_break_mode[math.random(num_variants)]
-							end
-						elseif variations.text_variations then --text_variations indicates the lack of requirements for these lines
-							local num_variants = #variations.text_variations
-							if num_variants > 0 then 
-								text = variations.text_variations[math.random(num_variants)]
-							end
-						end
-					end
+				if sound_data.subvariants then 
+					subvariant_data = sound_data.subvariants[prefix]
 				end
+				
 			elseif not sound_data.text then
 				--variants exist, but none for this unit's variant, so do nothing
 				return
 			end
 		end
-		text = text or sound_data.text
-		--[[
-		if variant == "criminal" then
-			if sound_data.variants and sound_data.variants.criminal then 
-				sound_data = sound_data.variants.criminal
-				if sound_data.variations and sound_data.variations[tostring(prefix)] then 
-					sound_data = sound_data.variations[tostring(prefix)]
+		
+		
+		local function get_random_variation(variations_tbl,is_recombinable)
+			if is_recombinable then
+				local variation_text
+				for _,combinable_parts in pairs(variations_tbl) do 
+					if variation_text then
+						variation_text = variation_text .. " "
+					else
+						variation_text = ""
+					end
+					variation_text = variation_text .. combinable_parts[math.random(#combinable_parts)]
+				end
+				return variation_text
+			else
+				local num_variants = #variations_tbl
+				if num_variants > 0 then 
+					return variations_tbl[math.random(num_variants)]
 				end
 			end
-		else
-			sound_data = (sound_data.variants and sound_data.variants[tostring(prefix)]) or sound_data
 		end
-		--]]
+		
+		
+		--untested
+		--todo check recombinable flag 
+		--vvv this thing (requires refactoring sound_data again)
+--		variations = subvariant_data.variations or sound_data.variations
+		if is_whisper_mode and (sound_data.whisper_mode or subvariant_data.whisper_mode) then --whisper_mode indicates the requirement that the heist is currently in stealth mode
+			text = get_random_variation(sound_data.whisper_mode or subvariant_data.whisper_mode)
+		elseif not is_whisper_mode and(sound_data.assault_mode or subvariant_data.assault_mode) then --assault_mode indicates the requirement that an assault is present
+			text = get_random_variation(sound_data.assault_mode or subvariant_data.assault_mode)
+		elseif (sound_data.standard_mode or subvariant_data.standard_mode) then --no assault
+			text = get_random_variation(sound_data.standard_mode or subvariant_data.standard_mode)
+		elseif (sound_data.text_variations or subvariant_data.text_variations) then --no conditional requirements for these lines
+			
+			text = get_random_variation(sound_data.standard_mode or subvariant_data.standard_mode)
+		end
+		
+		text = text or sound_data.text
+		
 		if sound_data.disabled == true then 
 			return
 		elseif sound_data.disabled == "whisper_mode" then 
@@ -591,12 +603,15 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		end
 	end
 	
+	source_name = sound_data.override_name or source_name
+	
 	local panel_text = tostring(source_name) .. ": " .. tostring(text)
 	--if source type is unit, use unit key
 	
 	
 	
 	if not text then 
+		debugbird = sound_data
 		self:log("Error: No valid text in add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
 	else
 		self:log("add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=text_color})
@@ -635,7 +650,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 	end
 	local hor_text_margin = 20
 	local ver_text_margin = 8
-	local w = self.hud_data.subtitle_w
+	local w = self.settings.box_w
 	local h = 100  --default
 	item_panel = self._panel:panel({
 		name = panel_name,
@@ -675,7 +690,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 	local function check_text_spillover()
 	--returns true if it is too large
 		local s_x,s_y,s_w,s_h = subtitle:text_rect()
-		return s_w >= (panel:w() - 100)--horizontal margin
+		return s_w >= (self.settings.box_w)--horizontal margin
 	end
 
 	--[[ pseudo
@@ -722,7 +737,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 		if #words > 0 then 
 			local new_text
 			for i = 1,#words,1 do 
-				if word[i] and word[i] ~= "" then
+				if words[i] and words[i] ~= "" then
 	--			for i = #words,1,-1 do 
 					if new_text then 
 						new_text = new_text .. " "
@@ -779,7 +794,7 @@ function ClosedCaptions:remove_line(i)
 	end
 end
 
-function ClosedCaptions:_remove_line(id,source)
+function ClosedCaptions:_remove_line(id,source) --unused; intended for a by-source reference/called from outside of direct reference 
 end
 
 --todo check menu options

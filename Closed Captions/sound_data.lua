@@ -19,50 +19,61 @@ ClosedCaptions._sounds = {
 			},
 			vo = {	
 				pickup_ammo = {
-					text = "[picked up ammo]",
+					override_name = "SFX",
+					text = "picked up ammo",
 					source = "sfx",
 					disabled = true
 				},
 				pickup_ammo_health_boost = {
-					text = "(Gambler) [picked up ammo]",
+					override_name = "SFX",
+					text = "(Gambler) picked up ammo",
 					source = "sfx",
 					disabled = true
 				},
 				pickup_fak_skill = {
-					text = "[activated Uppers Ace]",
+					override_name = "SFX",
+					text = "activated Uppers Ace",
 					source = "sfx"
 				},
 				wp_four_pick_up = {
-					text = "[picked up Throwing Card]",
+					override_name = "SFX",
+					text = "picked up Throwing Card",
 					source = "sfx"
 				},
 				wp_jav_pick_up = {
-					text = "[picked up Javelin]",
+					override_name = "SFX",
+					text = "picked up Javelin",
 					source = "sfx"
 				},
 				flashbang_beep = {
-					text = "[flashbang beeping]",
+					override_name = "SFX",
+					text = "flashbang beeping",
 					source = "sfx",
 					disabled = true
 				},
 				tasered_loop = {
+					override_name = "SFX",
 					text = "tased",
 					source = "sfx",
 					disabled = true
 				},
 				melee_hit_body = {
+					override_name = "SFX",
 					text = "melee impact",
+					source = "sfx",
 					disabled = true
 				},
 				player_hit = {
+					override_name = "SFX",
 					text = "armor damage",
+					source = "sfx",
 					disabled = true
 				},
 				vo_special = {
-					text = "vo_special",
 					disabled = true
 				},
 				swat_explosion = {
+					override_name = "SFX",
 					text = "[swat_explosion ???]",
 					disabled = false
 				},
@@ -71,7 +82,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Go downstairs",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Down the stairs",
@@ -93,7 +104,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Go upstairs",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Up, up!",
@@ -139,9 +150,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Go up",
 							priority = 5,
-							variations = {
+							subvariants = {
 								criminal = {
-									whisper_mode = {
+									standard_mode = {
 										"Up, up!",
 										"Keep going up!"
 									},
@@ -159,7 +170,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Go down",
 							priority = 5,
-							whisper_mode = {
+							standard_mode = {
 								"Down!",
 								"Keep going down!"
 							},
@@ -175,7 +186,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "We need to get out",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"We've got to get out.",
@@ -210,7 +221,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Hurry",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"C'mon, faster!",
@@ -260,7 +271,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "This way",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"This way!",
@@ -282,7 +293,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Let's go",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Come on.",
@@ -304,7 +315,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "This is it!",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"This is it.",
@@ -338,7 +349,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Keep defending",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = { --!
 									assault_mode = {
 										"Keep defending!",
@@ -361,11 +372,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Time to go",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									assault_mode = {
 									},
-									whisper_mode = {
+									standard_mode = {
 										"We've got to get out of here.",
 										"Time to go."
 									}
@@ -377,7 +388,7 @@ ClosedCaptions._sounds = {
 										"Time to go!",
 										"We gotta get outta here!"
 									},
-									whisper_mode = {
+									standard_mode = {
 										"We've got to get out of here.",
 										"Time to go."
 									}
@@ -391,9 +402,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Move faster",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Move!",
 										"Move it."
 									},
@@ -411,7 +422,7 @@ ClosedCaptions._sounds = {
 										"Get a move on!",
 										"Leg it, drongo!",
 									},
-									whisper_mode = {
+									standard_mode = {
 										"Move your arse, you tosser!",
 										"Move, move!",
 										"You're not jogging in the park, ya idiot!",
@@ -444,16 +455,16 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Jump down",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Jump down!",
 										"Down here!"
 									},
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Jump down!",
 										"Down there!"
 									},
@@ -472,9 +483,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Placed drill",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Drill's in place.",
 										"Drill in place.",
 										"Drill mounted."
@@ -483,7 +494,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Drilling!",
 										"Got the drill up.",
 										"Drill placed.",
@@ -503,7 +514,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = nil, --only houston and chains have sound vo for this, so do not display cc for anyone else for this line
-							variations = {
+							subvariants = {
 								rb222 = {
 									text_variations = {	
 										"Piece of shit drill!",
@@ -539,7 +550,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Victory",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									whisper_mode = {
 										
@@ -602,9 +613,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Use cable ties",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Rope down the people with the Cable Ties.",
 										"Remember the Cable Ties.",
 										"Use those Cable Ties!",
@@ -612,7 +623,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Tie 'em up.",
 										"Tie everybody down.",
 										"Well, how about using the cable ties, dipshit?"
@@ -627,9 +638,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Watch civilians",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Careful with the people!",
 										"Watch the crowd!",
 										"Watch the civvies!",
@@ -637,7 +648,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Hey, watch the bloody civilians!",
 										"Crikey, keep the civvies in check!"
 									}
@@ -650,9 +661,9 @@ ClosedCaptions._sounds = {
 					text = "We're almost there!",
 					variants = {
 						criminal = {
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"We're gonna make it!",
 										"Almost there, almost there!",
 									}
@@ -666,9 +677,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Exasperation",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Aw, shit!",
 										"FUCK! Oh, FUCK!",
 										"Shit!",
@@ -676,7 +687,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"SHIT!",
 										"Aw, shit!",
 										"Aw, SHIT!",
@@ -701,7 +712,7 @@ ClosedCaptions._sounds = {
 							text = "Killed Bulldozer",
 							priority = 5,
 							rb4 = {
-								whisper_mode = { --! check whisper variant for get stuffed
+								standard_mode = { --! check whisper variant for get stuffed
 									"Bulldozer down!",
 									"Bulldozer eliminated!",
 									"Bulldozer taken care of!",
@@ -711,7 +722,7 @@ ClosedCaptions._sounds = {
 								}
 							},
 							rb15 = {
-								whisper_mode = { --! check whisper variant for get stuffed
+								standard_mode = { --! check whisper variant for get stuffed
 									"Bulldozer down!",
 									"Fuck off, dozer!",
 									"Fuck you, Bulldozer!",
@@ -775,9 +786,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Awestruck",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Oh, fuck...",
 										"Fuck me...",
 										"[chuckles] Oho, shit...",
@@ -788,7 +799,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"[chuckles] I like it.",
 										"Hah, well bugger me!",
 										"Hahaha, fuckin' look at that!"
@@ -809,12 +820,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "I got the drill",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I got the drill.",
-										"I got the drill!",
-										
+										"I got the drill!"
 									}
 								}
 							}
@@ -825,7 +835,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text = "Thirty seconds!"
 								}
@@ -837,7 +847,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text = "One minute!"
 								}
@@ -849,7 +859,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text = "One thirty!" -- should it be "1:30" ?
 								}
@@ -861,7 +871,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text = "Two minutes."
 								}
@@ -873,7 +883,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text = "Two thirty."
 								}
@@ -887,9 +897,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Any second now",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Any second now.",
 										"Any second...",
 										"Steady now! Hold it...",
@@ -898,7 +908,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Let's just fucking go!",
 										"Time to dance!",
 										"Get fucking ready.",
@@ -913,7 +923,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're everywhere!",
@@ -932,7 +942,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"We're easy targets here...",
@@ -956,9 +966,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Picked up Gage Package",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Gotcha!",
 										"Gotcha.",
 										"Alriiight!",
@@ -966,7 +976,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Got it!",
 										"It's secured.",
 										"I got it!",
@@ -989,7 +999,7 @@ ClosedCaptions._sounds = {
 						},
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Alright, let's do this.",
@@ -1008,7 +1018,7 @@ ClosedCaptions._sounds = {
 						},
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Time to make that money.",
@@ -1027,7 +1037,7 @@ ClosedCaptions._sounds = {
 						},
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Time to break a little bad.",
@@ -1042,7 +1052,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"C'mon, c'mon!",
@@ -1060,7 +1070,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"The cops have arrived!",
@@ -1081,7 +1091,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Okay!",
@@ -1099,7 +1109,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"We got a hostage lined up already. Let's trade!",
@@ -1117,7 +1127,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Computer's beepin'- never good!",
@@ -1135,7 +1145,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Computer's beeping again!",
@@ -1159,7 +1169,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Go, go!",
@@ -1174,7 +1184,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Get a move on!",
@@ -1189,7 +1199,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Move it!",
@@ -1204,7 +1214,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Get moving!"
@@ -1218,7 +1228,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Move!",
@@ -1234,7 +1244,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Only seconds away!",
@@ -1252,13 +1262,14 @@ ClosedCaptions._sounds = {
 				},
 				p18 = {
 					text = "What're you waiting for!?",
-					variants = {}
+					variants = {},
+					disabled = true --unverified
 				},
 				p19 = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"I'm coming!",
@@ -1277,7 +1288,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Follow me!",
@@ -1294,7 +1305,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Ah, fuck it. I never liked 'Plan A' anyway!",
@@ -1311,7 +1322,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Dig in! Get ready for the storm!",
@@ -1330,7 +1341,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Get ready for action!",
@@ -1347,7 +1358,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Assault finished",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's get our eyes back on the prize!",
@@ -1385,7 +1396,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Flashbang! I'm fucking blind!",
@@ -1403,7 +1414,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Don't get loose with it now!",
@@ -1421,9 +1432,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Secured loot",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Lootbag secured.",
 										"Got a bag.",
 										"One down.",
@@ -1435,7 +1446,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"It's secured.",
 										"It's at the drop.",
 										"One lootbag, at the drop.",
@@ -1453,16 +1464,16 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "All loot secured",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"That's all of 'em!",
 										"Haha, that's all of 'em!"
 									},
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"We got 'em all.",
 										"That's all of 'em!",
 										"That's all the bags!"
@@ -1477,7 +1488,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Picking the lock.",
@@ -1493,7 +1504,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Yeah, using a keycard...",
@@ -1512,7 +1523,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted bag repossession",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"These dirty fucking cops are stealing our loot!",
@@ -1539,7 +1550,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Waiting here",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"You case the joint. I'll be here.",
@@ -1568,22 +1579,20 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
+									recombinable = true,
 									text_variations = {
-										"You go ahead. I'll be ready when things go crazy.",
-										"You go ahead. Call me when the fun begins.",
-										"You go ahead. I'm here for the exciting bit.",
-										"You go ahead. I'll turn the head up when it's time.",
-										"Go on, then. I'll be ready when things go crazy.",
-										"Go on, then. Call me when the fun begins.",
-										"Go on, then. I'm here for the exciting bit.",
-										"Check the place out. I'll be ready when things go crazy.",
-										"Check the place out. Call me when the fun begins.",
-										"Check the place out. I'm here for the exciting bit.",
-										"Check the place out. I'll turn the heat up when it's time.",
-										"Yeah, yeah- I'll wait here. I'll be ready when things go crazy.",
-										"Yeah, yeah- I'll wait here. Call me when the fun begins.",
-										"Yeah, yeah- I'll wait here. I'm here for the exciting bit.",
-										"Yeah, yeah- I'll wait here. I'll turn the heat up when it's time."
+										{
+											"You go ahead.",
+											"Go on, then.",
+											"Check the place out.",
+											"Yeah, yeah- I'll wait here."
+										},
+										{
+											"I'll be ready when things go crazy.",
+											"Call me when the fun begins.",
+											"I'm here for the exciting bit.",
+											"I'll turn the head up when it's time."
+										}
 									}
 								}
 							}
@@ -1594,7 +1603,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're coming through the skylights!",
@@ -1610,7 +1619,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're coming in from above!",
@@ -1625,7 +1634,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're coming down the walls!",
@@ -1640,7 +1649,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're coming through the wall!",
@@ -1656,7 +1665,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're coming up through the manholes!",
@@ -1675,7 +1684,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're coming in from outside!",
@@ -1690,7 +1699,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're climbing down on the outside!"
@@ -1704,7 +1713,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're climbing up on the outside!"
@@ -1719,7 +1728,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted SWAT Helicopter",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									"SWAT chopper incoming!",
 									"We got a helicopter inbound!"
@@ -1739,7 +1748,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted SWAT Van",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									"SWAT insertion! Van coming in!"
 								},
@@ -1757,7 +1766,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Snipers!",
@@ -1773,7 +1782,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They're coming from the forest!",
@@ -1788,16 +1797,16 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Friends, help!",
-										"SOMEBODY! Help me!",
 										"Friends, help me up!",
+										"SOMEBODY! Help me!",
 										"SOMEBODY! HELP!",
 										"Somebody! I need help!",
-										"Hey guys! You gotta help me!",
 										"Somebody! Help me up!",
+										"Hey guys! You gotta help me!",
 										"Hey, my friends! Help me!"
 									}
 								}
@@ -1809,7 +1818,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Jump!"
@@ -1823,7 +1832,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"[laughs] It's on now!",
@@ -1845,40 +1854,38 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Got it",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
+									recombinable = true,
 									text_variations = {
-										"Okay, we're on it!",
-										"Okay, on it!",
-										"Okay, we'll take care of it!",
-										"Okay, will do!",
-										"Alright, we're on it!",
-										"Alright, we'll take care of it!",
-										"Alright, will do!",
-										"Acknowledged. We're on it!",
-										"Acknowledged. On it!",
-										"Acknowledged. We'll take care of it!",
-										"Acknowledged. Will do!"
+										{
+											"Okay,",
+											"Alright,",
+											"Acknowledged,"
+										},
+										{
+											"we're on it!"
+											"on it!",
+											"we'll take care of it!",
+											"will do!"
+										}
 									}
 								},
 								rb15 = {
+									recombinable = true,
 									text_variations = {
-										"Alright, we're on it.",
-										"Alright, on it!",
-										"Alright, will do.",
-										"Alright, we'll take care of it.",
-										"Okay, we're on it!",
-										"Okay, on it!",
-										"Okay, will do.",
-										"Okay, we'll take care of it.",
-										"Got it, we're on it!",
-										"Got it, on it!",
-										"Got it, will do.",
-										"Got it, we'll take care of it.",
-										"I hear you, we're on it.",
-										"I hear you, on it!",
-										"I hear you, will do.",
-										"I hear you, we'll take care of it."
+										{
+											"Alright,",
+											"Okay,",
+											"Got it,",
+											"I hear you,"
+										},
+										{
+											"we're on it!",
+											"on it!",
+											"will do.",
+											"we'll take care of it."
+										}
 									}
 								}
 							}
@@ -1890,7 +1897,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "We're inside",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"We're in.",
@@ -1917,9 +1924,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Found it",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"It's here!",
 										"Here it is!",
 										"Found it!",
@@ -1928,7 +1935,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"We got it!",
 										"Here it is!",
 										"Found it!"
@@ -1944,7 +1951,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Found one",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Found one!",
@@ -1967,7 +1974,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Found another",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Got one more.",
@@ -1993,7 +2000,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "It's done",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"It's done!",
@@ -2015,7 +2022,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "We're done",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"We're done!",
@@ -2037,7 +2044,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "What next?",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Hey, don't pat yourself on the back, we aren't finished yet.",
@@ -2066,7 +2073,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Found keycard",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"I found a keycard!",
@@ -2088,7 +2095,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Grabbed keycard",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"I got the keycard!",
@@ -2110,7 +2117,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Used keycard",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb15 = {
 									text_variations = {
 										"Fucking hell, these things make it too easy!",
@@ -2128,7 +2135,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Planted C4",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Alright, back up!",
@@ -2150,7 +2157,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Detonated C4",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Oops! Forgot to knock!",
@@ -2173,7 +2180,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Open this door",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"C'mon! Let's open the fucking door!",
@@ -2196,7 +2203,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Open this",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's open this sucker up!",
@@ -2220,7 +2227,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Let's go",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's go, team!"
@@ -2240,7 +2247,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Kill them",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Wipe 'em out!",
@@ -2262,7 +2269,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Incoming",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"INCOMING!",
@@ -2284,9 +2291,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "It's arrived",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"It's arrived!",
 										"It's here, it's here!",
 										"Okay, it's here!"
@@ -2294,7 +2301,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"We got it!",
 										"It's here!",
 										"It's here, it's here!"
@@ -2310,7 +2317,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Loot it",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"PAYDAY!",
@@ -2332,7 +2339,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "We got all of it",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"We got all of it, awesome!",
@@ -2356,7 +2363,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Drill finished",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Drill's done.",
@@ -2378,7 +2385,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Hack finished",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Computer's done!",
@@ -2400,7 +2407,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "It's done",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"It's done, c'mon!",
@@ -2422,7 +2429,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Exit this way",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"There's the ride!",
@@ -2444,7 +2451,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted cops in the vents",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"I thought I heard them in the ventilation shafts- watch out!",
@@ -2466,7 +2473,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted the mark",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"The mark's in sight!",
@@ -2488,7 +2495,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "She's there",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"There she is!"
@@ -2509,7 +2516,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "He's there",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"There he is!"
@@ -2530,7 +2537,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "They're there",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"There they are!"
@@ -2551,7 +2558,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "It's there",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"There it is!"
@@ -2572,7 +2579,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Find the manager",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Where's the goddamn manager?"
@@ -2594,7 +2601,7 @@ ClosedCaptions._sounds = {
 							text = "{heat speech}",
 							priority = 5,
 							duration = 22,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your beloved ones, don't try to be a hero. Just shut up, and stay down, and this'll be over in no time."
@@ -2614,7 +2621,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Bain?!",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"BAIN!?"
@@ -2635,7 +2642,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Now what?",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"What do we do now?",
@@ -2657,7 +2664,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Feeling uneasy",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"I've got a bad feeling about this."
@@ -2677,7 +2684,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Search the place",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Sweep the place."
@@ -2698,7 +2705,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Find the mark",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's find that mark."
@@ -2719,7 +2726,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Find her",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's find her!"
@@ -2740,7 +2747,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Find him",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's find him!"
@@ -2761,7 +2768,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Find them",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's find them!"
@@ -2782,7 +2789,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Find it",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's find it, now!"
@@ -2803,7 +2810,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Keep looking",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Keep looking!"
@@ -2824,7 +2831,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Battle cry",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									"They brought in a turret",
 									"SWAT Turret!",
@@ -2842,7 +2849,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Battle cry",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"That's what I'm talking about!",
@@ -2865,7 +2872,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Is that enough?",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Is that enough?"
@@ -2885,7 +2892,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Nah, let's take it all",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Nah, get all of it!"
@@ -2905,7 +2912,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Shoot it down",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Fire at it!"
@@ -2925,7 +2932,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Murkies",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"We got murkies here!",
@@ -2947,7 +2954,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Move the loot",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Let's get this stuff moving!",
@@ -2969,7 +2976,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "It's stuck",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"It's fucking stuck!",
@@ -2991,7 +2998,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Smells awful",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"That fucking smell!",
@@ -3013,7 +3020,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "That was loud",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Damn, that was loud!",
@@ -3035,7 +3042,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "skydive adrenaline",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"YIPPIE-KI-YAY, MOTHERFUCKER!",
@@ -3061,7 +3068,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Greeting",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Hi.",
@@ -3083,7 +3090,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Found crowbar",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"I found a crowbar!",
@@ -3105,7 +3112,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Get in the chair!",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"GET IN!",
@@ -3127,9 +3134,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Bulldozer",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I've spotted a Bulldozer",
 										"Bulldozer!",
 										"BULLDOZER!",
@@ -3146,7 +3153,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"I see a Bulldozer!",
 										"It's a Bulldozer!",
 										"Bulldozer!",
@@ -3163,7 +3170,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Bulldozer",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Oh, shit! Bulldozer!",
@@ -3174,7 +3181,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"I see a Bulldozer!",
 										"It's a Bulldozer!",
 										"Bulldozer!",
@@ -3191,9 +3198,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Shield",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I've spotted a Shield!",
 										"We've got a Shield over here!",
 										"It's a shield!",
@@ -3208,7 +3215,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"I've spotted a Shield!",
 										"We've got a Shield over here!",
 										"We've got a Shield!",
@@ -3225,7 +3232,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Shield",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"It's a fucking Shield!",
@@ -3236,7 +3243,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"I've spotted a Shield!",
 										"We've got a Shield over here!",
 										"We've got a Shield!",
@@ -3253,9 +3260,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Taser",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I've spotted a Taser!",
 										"I've spotted a Taser, look out!",
 										"Taser!",
@@ -3269,7 +3276,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Taser spotted, look out!",
 										"Taser spotted!",
 										"We've got a taser!",
@@ -3286,7 +3293,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Taser",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Taser!",
@@ -3296,7 +3303,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Taser spotted!",
 										"Taser spotted, look out!",
 										"We've got a taser!",
@@ -3313,9 +3320,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Cloaker",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I've spotted a Cloaker!",
 										"We've got a Cloaker over here!",
 										"Cloaker!",
@@ -3331,7 +3338,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Spotted a Cloaker!",
 										"It's a Cloaker!",
 										"We've got a Cloaker!",
@@ -3348,7 +3355,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Cloaker",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Oh, shit! Cloaker!",
@@ -3360,7 +3367,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Spotted a Cloaker!",
 										"It's a Cloaker!",
 										"We've got a Cloaker!",
@@ -3377,14 +3384,14 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Sniper",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Sniper!"
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Look out! Sniper!",
 										"Stay back! Sniper!",
 										"Watch out! Sniper!",
@@ -3401,14 +3408,14 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Sniper",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Sniper!"
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Look out! Sniper!",
 										"Stay back! Sniper!",
 										"Watch out! Sniper!",
@@ -3425,9 +3432,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted SWAT Turret",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"They've got a turret!",
 										"Oh no! Turret!",
 										"Turret!",
@@ -3447,7 +3454,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"SWAT Turret!",
 										"Turret!",
 										"Fuck! Turret!",
@@ -3464,9 +3471,9 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Look out!",
 										"Watch out!",
 										"Oh, shit!"
@@ -3487,9 +3494,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Captain",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Oh, shit, a Captain!",
 										"Oh, shit! (Captain)",
 										"Look out! (Captain)",
@@ -3506,7 +3513,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Watch out! Captain!",
 										"It's a Captain!"
 									},
@@ -3521,7 +3528,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Medic",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"They've got a Medic!",
@@ -3531,7 +3538,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"It's an enemy Medic!",
 										"Look out! Medic!", --should these have "enemy" in front of them for clarity?
 										"Enemy Medic!",
@@ -3548,9 +3555,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Killed Bulldozer",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Bulldozer down.",
 										"Bulldozer down!",
 										"Bulldozer's history."
@@ -3563,7 +3570,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Bulldozer down.",
 										"Fuck off, dozer.",
 										"Dozer's history.",
@@ -3588,9 +3595,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Killed Shield",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Shield down.",
 										"Shield's history.",
 										"Shield taken care of.",
@@ -3605,7 +3612,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Killed a Shield.",
 										"Bye-bye, arsehole Shield.",
 										"Got the fuckin' Shield.",
@@ -3623,7 +3630,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Killed Taser",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Taser down.",
@@ -3634,7 +3641,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"I got the Taser.",
 										"Fuck off, Taser.",
 										"Taser's dead.",
@@ -3652,7 +3659,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Killed Cloaker",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = { --no assault specific lines?
 										"Cloaker down.",
@@ -3663,7 +3670,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Cloaker's dead.",
 										"Eat that, Cloaker fuck.",
 										"Get stuffed, Cloaker.",
@@ -3681,9 +3688,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Killed Sniper",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Got a sniper.",
 										"Took care of the sniper.",
 										"Sniper got what he deserved.",
@@ -3704,7 +3711,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Took care of the Sniper.",
 										"Sniper's dead.",
 										"Get stuffed, Sniper fuck.",
@@ -3722,7 +3729,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Killed Medic",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Killed the Medic.",
@@ -3732,7 +3739,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Fuck off, Medic.",
 										"Try an' heal any of those wounds, ya pussy. (Medic)",
 										"Bye-bye, Medic fuck."										
@@ -3752,7 +3759,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Flashbanged",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Flashbang! I'm fucking blind!",
@@ -3762,7 +3769,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"FUCK, I TOOK A FLASHBANG IN THE FACE!",
 										"BLOODY HELL, I'VE BEEN FLASHED!",
 										"AAAGH, WHAT THE FUCK!",
@@ -3779,7 +3786,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Teargassed",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"AAGH, TEARGAS!",
@@ -3787,7 +3794,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"AAGH, TEARGAS! [coughing] I'LL BLOODY KILL THE BASTARD WHO THREW THAT!",
 										"FUCK, TEARGAS! [coughing] THESE FUCKWITS ARE USING GAS!",
 										"TEARGAS! [coughing] WE NEED GAS MASKS, NOT CLOWN MASKS!",
@@ -3804,101 +3811,63 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Need Medic Bag",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = { --unfinished
-										"I don't feel too good. Anybody got a Medic Bag?",
-										"I don't feel too good. Anybody got a Medic Bag to offer?",
-										"I don't feel too good. Anybody got a Medic Bag to share?",
-										"I don't feel too good. Any one of you want to share a Medic Bag?",
-										"I don't feel too good. I could sure use a Medic Bag. Anyone got one?",
-										"They got me! Anyone got a Medic Bag?",
-										"They got me! Anyone got a Medic Bag to offer?",
-										"They got me! Anyone got a Medic Bag to share?",
-										"They got me! Any one of you want to share a Medic Bag?",
-										"They got me! I could sure use a Medic Bag. Anyone got one?",
-										"They got me good! Anyone got a Medic Bag?",
-										"They got me good! Anyone got a Medic Bag to offer?",
-										"They got me good! Anyone got a Medic Bag to share?",
-										"They got me good! Any one of you want to share a Medic Bag?",
-										"They got me good! I could sure use a Medic Bag. Anyone got one?",
-										"[screams in pain] I'm hurt bad. Anyone got a Medic Bag?",
-										"[screams in pain] I'm hurt bad. Anyone got a Medic Bag to offer?",
-										"[screams in pain] I'm hurt bad. Anyone got a Medic Bag to share?",
-										"[screams in pain] I'm hurt bad. Any one of you want to share a Medic Bag?",
-										"[screams in pain] I'm hurt bad. I could sure use a Medic Bag. Anyone got one?",
-										"Oh, I'm not feeling too well. Anyone got a Medic Bag?",
-										"Oh, I'm not feeling too well. Anyone got a Medic Bag to offer?",
-										"Oh, I'm not feeling too well. Anyone got a Medic Bag to share?",
-										"Oh, I'm not feeling too well. Any one of you want to share a Medic Bag?",
-										"Oh, I'm not feeling too well. I could sure use a Medic Bag. Anyone got one?",
-										"Oh, I'm hurt, I'm hurt bad! Anyone got a Medic Bag?",
-										"Oh, I'm hurt, I'm hurt bad! Anyone got a Medic Bag to offer?",
-										"Oh, I'm hurt, I'm hurt bad! Anyone got a Medic Bag to share?",
-										"Oh, I'm hurt, I'm hurt bad! Any one of you want to share a Medic Bag?",
-										"Oh, I'm hurt, I'm hurt bad! I could sure use a Medic Bag. Anyone got one?"
+									recombinable = true,
+									standard_mode = { --unfinished
+										{
+											"I don't feel too good.",
+											"They got me!",
+											"They got me good!",
+											"[screams in pain] I'm hurt bad.",
+											"Oh, I'm not feeling too well.",
+											"Oh, I'm hurt, I'm hurt bad!"
+										},
+										{	
+											 "Anybody got a Medic Bag?",
+											 "Anybody got a Medic Bag to offer?",
+											 "Anybody got a Medic Bag to share?",
+											 "Any one of you want to share a Medic Bag?",
+											 "I could sure use a Medic Bag. Anyone got one?"
+										}
 									},
 									assault_mode = {
-										"I'm hurt! Somebody drop a Medic Bag!",
-										"I'm hurt! I need a Medic Bag!",
-										"I'm hurt! Anybody got a Medic Bag?",
-										"[screams in pain] I'm hurt! Somebody drop a Medic Bag!",
-										"[screams in pain] I'm hurt! I need a Medic Bag!",
-										"[screams in pain] I'm hurt! Anybody got a Medic Bag?",
-										"[screams in pain] I'm dying! Anybody got a Medic Bag?",
-										"[screams in pain] I'm dying! Medic Bag! Anyone?!",
-										"[screams in pain] I'm dying! Somebody drop a Medic Bag!",
-										"[screams in pain] I'm dying! I need a Medic Bag!",
-										"[screams in pain] I need a Medic Bag!",
-										"[screams in pain] Anybody got a Medic Bag?!"
+										{
+											"I'm hurt!",
+											"[screams in pain] I'm hurt!",
+											"[screams in pain] I'm dying!",
+											"[screams in pain]"
+										},
+										{
+											"Anybody got a Medic Bag?",
+											"Medic Bag! Anyone?!",
+											"Somebody drop a Medic Bag!",
+											"I need a Medic Bag!"
+										}
 									}
 								},
 								rb15 = {
-									whisper_mode = {
-										"I'm such a drongo, I should NOT have been hit! Who's got a Medic Bag?",
-										"I'm such a drongo, I should NOT have been hit! Anybody got a Medic Bag?",
-										"I'm such a drongo, I should NOT have been hit! Can someone spare a Medic Bag?",
-										"I'm such a drongo, I should NOT have been hit! I could really use a Medic Bag!",
-										"Those fuckwits got me good! Who's got a Medic Bag?",
-										"Those fuckwits got me good! Anybody got a Medic Bag?",
-										"Those fuckwits got me good! Can someone spare a Medic Bag?",
-										"Those fuckwits got me good! I could really use a Medic Bag!",
-										"Crikey, how many bullets did I eat? Who's got a Medic Bag?",
-										"Crikey, how many bullets did I eat? Anybody got a Medic Bag?",
-										"Crikey, how many bullets did I eat? Can someone spare a Medic Bag?",
-										"Crikey, how many bullets did I eat? I could really use a Medic Bag!",
-										"Fuckin' cowards got me! Who's got a Medic Bag?",
-										"Fuckin' cowards got me! Anybody got a Medic Bag?",
-										"Fuckin' cowards got me! Can someone spare a Medic Bag?",
-										"Fuckin' cowards got me! I could really use a Medic Bag!",
-										"Can't take much more of this! Who's got a Medic Bag?",
-										"Can't take much more of this! Anybody got a Medic Bag?",
-										"Can't take much more of this! Can someone spare a Medic Bag?",
-										"Can't take much more of this! I could really use a Medic Bag!",
-										"[screaming in pain] Fuck! Who's got a Medic Bag?",
-										"[screaming in pain] Fuck! Can someone spare a Medic Bag?",
-										"[screaming in pain] Fuck! Can someone spare a Medic Bag?",
-										"[screaming in pain] Fuck! I could really use a Medic Bag!",
-										"Fuck, this hurts! Who's got a Medic Bag?",
-										"Fuck, this hurts! I could really use a Medic Bag!",
-										"Fuck, this hurts! Can someone spare a Medic Bag?",
-										"Fuck, this hurts! I could really use a Medic Bag!",
-										"Shit, I'm hurting bad! Who's got a Medic Bag?",
-										"Shit, I'm hurting bad! Anybody got a Medic Bag?",
-										"Shit, I'm hurting bad! Can someone spare a Medic Bag?",
-										"Shit, I'm hurting bad! I could really use a Medic Bag!",
-										"Fuckin' dipshits got me good! Who's got a Medic Bag?",
-										"Fuckin' dipshits got me good! Anybody got a Medic Bag?",
-										"Fuckin' dipshits got me good! Can someone spare a Medic Bag?",
-										"Fuckin' dipshits got me good! I could really use a Medic Bag!",
-										"Fuck me, that bullet hurts! Who's got a Medic Bag?",
-										"Fuck me, that bullet hurts! Anybody got a Medic Bag?",
-										"Fuck me, that bullet hurts! Can someone spare a Medic Bag?",
-										"Fuck me, that bullet hurts! I could really use a Medic Bag!",
-										"[groaning in pain] Christ, this shit hurts! Who's got a Medic Bag?",
-										"[groaning in pain] Christ, this shit hurts! Anybody got a Medic Bag?",
-										"[groaning in pain] Christ, this shit hurts! Can someone spare a Medic Bag?",
-										"[groaning in pain] Christ, this shit hurts! I could really use a Medic Bag!"
+									recombinable = true,
+									standard_mode = {
+										{
+											"I'm such a drongo, I should NOT have been hit!",
+											"Those fuckwits got me good!",
+											"Crikey, how many bullets did I eat?",
+											"Fuckin' cowards got me!"
+										},
+										{
+											"Who's got a Medic Bag?",
+											"Anybody got a Medic Bag?",
+											"Can someone spare a Medic Bag?",
+											"I could really use a Medic Bag!",
+											"Can't take much more of this!",
+											"[screaming in pain] Fuck!",
+											"Fuck, this hurts!",
+											"Shit, I'm hurting bad!",
+											"Fuckin' dipshits got me good!",
+											"Fuck me, that bullet hurts!",
+											"[groaning in pain] Christ, this shit hurts!"
+										}
 									},
 									assault_mode = {}
 								}
@@ -3911,70 +3880,54 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Need Ammo Bag",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = { --these ones may not be complete
-										"I almost got no ammo left! Anybody got an Ammo Bag left to share?",
-										"I almost got no ammo left! Anybody got some extra ammo to spare?",
-										"I almost got no ammo left! You guys got an Ammo Bag left to share?",
-										"I almost got no ammo left! Any of you guys got an Ammo Bag?",
-										"I almost got no ammo left! Ammo Bag! Anyone?!",
-										"I'm almost out of ammo! Anybody got an Ammo Bag left to share?",
-										"I'm almost out of ammo! Anybody got some extra ammo to spare?",
-										"I'm almost out of ammo! You guys got an Ammo Bag left to share?",
-										"I'm almost out of ammo! Any of you guys got an Ammo Bag?",
-										"I'm almost out of ammo! Ammo Bag! Anyone?!",
-										"I'm running out of ammo! Anybody got an Ammo Bag left to share?",
-										"I'm running low on ammo! Anybody got an ammo bag?",
-										"I'm running out of ammo! Any of you guys got an Ammo Bag?",
-										"I'm running low on ammo! Ammo Bag! Anyone?!",
-										"I don't have much ammo left now! Anybody got an Ammo Bag left to share?",
-										"I don't have much ammo left now! Anybody got some extra ammo to spare?",
-										"I don't have much ammo left now! You guys got an Ammo Bag left to share?",
-										"I don't have much ammo left now! Any of you guys got an Ammo Bag?",
-										"I don't have much ammo left now! Ammo Bag! Anyone?!"
+									recombinable = true,
+									standard_mode = { --these ones may not be complete
+										{
+											"I almost got no ammo left!",
+											"I'm almost out of ammo!",
+											"I'm running out of ammo!",
+											"I don't have much ammo left now!"
+										},
+										{
+											"Anybody got an Ammo Bag left to share?",
+											"Anybody got some extra ammo to spare?",
+											"You guys got an Ammo Bag left to share?",
+											"Any of you guys got an Ammo Bag?",
+											"Ammo Bag! Anyone?!"
+										}
 									},
 									assault_mode = {
-										"Running low on bullets! Anyone got an extra bag?",
-										"Running low on bullets! Anybody got some?",
-										"Running low on bullets! Get me some ammo!",
-										"Running low on bullets! Got some?",
-										"Almost out of ammo! Anyone got an extra bag?",
-										"Almost out of ammo! Anybody got some?",
-										"Almost out of ammo! Get me some ammo!",
-										"Almost out of ammo! Got some?",
-										"Not much ammo left! Anyone got an extra bag?",
-										"Not much ammo left! Anybody got some?",
-										"Not much ammo left! Get me some ammo!",
-										"Not much ammo left! Got some?",
-										"Ammo low! Anyone got an extra bag?",
-										"Ammo low! Anybody got some?",
-										"Ammo low! Get me some ammo!",
-										"Ammo low! Got some?"
+										{
+											"Running low on bullets!",
+											"Almost out of ammo!",
+											"Not much ammo left!",
+											"Ammo low!"
+										},
+										{
+											"Anyone got an extra bag?",
+											"Anybody got some?",
+											"Get me some ammo!",
+											"Got some?",
+										}
 									}
 								},
 								rb15 = {
-									whisper_mode = {
-										"I'm almost out of ammo! I need some bloody ammo!",
-										"I'm almost out of ammo! Get me some bloody bullets!",
-										"I'm almost out of ammo! Get me some fucking ammo!",
-										"I'm almost out of ammo! Get me some ammo!",
-										"I'm low on ammo! I need some bloody ammo!",
-										"I'm low on ammo! Get me some bloody bullets!",
-										"I'm low on ammo! Get me some fucking ammo!",
-										"I'm low on ammo! Get me some ammo!",
-										"I'm running out of ammo! I need some bloody ammo!",
-										"I'm running out of ammo! Get me some bloody bullets!",
-										"I'm running out of ammo! Get me some fucking ammo!",
-										"I'm running out of ammo! Get me some ammo!",
-										"I'm almost out of ammo! I need some bloody ammo!",
-										"I'm almost out of ammo! Get me some bloody bullets!",
-										"I'm almost out of ammo! Get me some fucking ammo!",
-										"I'm almost out of ammo! Get me some ammo!",
-										"Mag's almost empty! I need some bloody ammo!",
-										"Mag's almost empty! Get me some bloody bullets!",
-										"Mag's almost empty! Get me some fucking ammo!",
-										"Mag's almost empty! Get me some ammo!"
+									standard_mode = {
+										{
+											"I'm almost out of ammo!",
+											"I'm low on ammo!",
+											"I'm running out of ammo!",
+											"I'm almost out of ammo!",
+											"Mag's almost empty!"
+										},
+										{
+											"I need some bloody ammo!",
+											"Get me some bloody bullets!",
+											"Get me some fucking ammo!",
+											"Get me some ammo!"
+										}
 									},
 									assault_mode = {}
 								}
@@ -3987,9 +3940,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Placed Ammo Bag",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I've placed an Ammo Bag over here.",
 										"There's an Ammo Bag over here.",
 										"Come fill up your ammo supplies.",
@@ -4011,7 +3964,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"More ammo over here.",
 										"There's ammo over here.",
 										"Extra ammo over here.",
@@ -4028,9 +3981,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Placed Medic Bag",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I've dropped a Medic Bag over here.",
 										"Medic Bag! Come get patched up.",
 										"There's a Medic Bag over here!.",
@@ -4050,7 +4003,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"I got a Medic Bag right here.",
 										"Medic Bag over here.",
 										"Medic Bag over here.", --two soundfile variations
@@ -4067,9 +4020,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Thanks for reviving me",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Thanks, friend.",
 										"Thanks, my friend.",
 										"[grunts] Thanks, friend.",
@@ -4085,7 +4038,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"[groans] I guess I should say 'thanks.'",
 										"[groans] I guess I owe you one.",
 										"[groans] Finally!",
@@ -4100,7 +4053,7 @@ ClosedCaptions._sounds = {
 				s07x_sin = {
 					variants = {
 						criminal = {
-							variations = {
+							subvariants = {
 								rb3 = {
 									text_variations = {									
 										"[electrocuted gibberish]"
@@ -4115,9 +4068,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Reviving teammate",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Let's fix you up.",
 										"Let's get you fixed up.",
 										"I've got you.",
@@ -4139,7 +4092,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"You'll be up in no time.",
 										"Lemme get you up.",
 										"I'll get you back up.",
@@ -4156,9 +4109,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Placed First Aid Kit",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"First Aid Kit! Get your band-aid here!",
 										"First Aid Kit! Get your band-aid here.",
 										"First Aid Kit here, anyone who needs it!",
@@ -4171,7 +4124,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Here's a First Aid Kit.", --three variations on this line
 										"Here's a First Aid Kit.",
 										"Here's a First Aid Kit!",
@@ -4188,9 +4141,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Placed a Bodybag Case here.",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Bodybag Case right here.",
 										"Bodybag Case right here!",
 										"Bodybag Case, right here.",
@@ -4202,7 +4155,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Bodybag Case!",
 										"Got a Bodybag Case here!"
 									},
@@ -4221,9 +4174,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Out of Cable Ties",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"That was the last of my Cable Ties.",
 										"That was the last Cable Tie I had.",
 										"Okay, that was the last of my Cable Ties.",
@@ -4246,65 +4199,46 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Need help",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
-										"Guys! Help me up!",
-										"Guys! Help me!",
-										"Guys! HELP!",
-										"Guys! Gimme a hand!",
-										"Guys! Over here!",
-										"Guys! I need help!",
-										"Guys! You gotta help me!",
-										"Guys! You gotta help me up!",
-										"Hey guys! Help me up!",
-										"Hey guys! Help me!",
-										"Hey guys! HELP!",
-										"Hey guys! Gimme a hand!",
-										"Hey guys! Over here!",
-										"Hey guys! I need help!",
-										"Hey guys! You gotta help me!",
-										"Hey guys! You gotta help me up!",
-										"Somebody! Help me up!",
-										"Somebody! Help me!",
-										"Somebody! HELP!",
-										"Somebody! Gimme a hand!",
-										"Somebody! Over here!",
-										"Somebody! I need help!",
-										"Somebody! You gotta help me!"
-										
+									recombinable = true,
+									standard_mode = {
+										{
+											"Guys!",
+											"Hey guys!",
+											"Somebody!"
+										},
+										{
+											"Help me up!",
+											"Help me!",
+											"HELP!",
+											"Gimme a hand!",
+											"Over here!",
+											"I need help!",
+											"You gotta help me!",
+											"You gotta help me up!"
+										}
 									},
 									assault_mode = {
-										"SOMEBODY! Help me!",
-										"SOMEBODY! HELP!",
-										"SOMEBODY! Gimme a hand!",
-										"SOMEBODY! You gotta help me!",
-										"SOMEBODY! Over here!",
-										"SOMEBODY! I need help!",
-										"SOMEBODY! Help me up!",
-										"Friends! Help me!",
-										"Friends! HELP!",
-										"Friends! Gimme a hand!",
-										"Friends! Help me up!",
-										"Friends! I need help!",
-										"Friends! Over here!",
-										"Friends! Give a friend a hand!",
-										"Hey guys! HELP ME!",
-										"Hey guys! HELP!",
-										"Hey guys! Gimme a hand!",
-										"Hey guys! You gotta help me!",
-										"Hey guys! OVER HERE!",
-										"Hey guys! Help me up!",
-										"Hey, my friends! Help me!",
-										"Hey, my friends! HELP!",
-										"Hey, my friends! Gimme a hand!",
-										"Hey, my friends! You gotta help me!",
-										"Hey, my friends! OVER HERE!",
-										"Hey, my friends! Help me up!"
+										{
+											"SOMEBODY!",
+											"Friends!",
+											"Hey guys!",
+											"Hey, my friends!"
+										},
+										{
+											"Help me!",
+											"HELP!",
+											"Gimme a hand!",
+											"You gotta help me!",
+											"Over here!",
+											"I need help!",
+											"Help me up!"
+										}
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"HELP ME!",
 										"Get me up!",
 										"Help!",
@@ -4321,9 +4255,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Picking handcuffs",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"This ain't gonna take long.",
 										"Gonna slip these.",
 										"[chuckles] They didn't think I could get out.",
@@ -4348,9 +4282,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Escaped handcuffs",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"[laughs] Cuffs off, let's ride!",
 										"[laughs] I'm outta the barn!",
 										"[chuckles] Cuffs open!",
@@ -4377,9 +4311,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Get down",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Everybody, on the ground!",
 										"On the ground, all of you!",
 										"Down on the ground, all of you!",
@@ -4400,7 +4334,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Down.",
 										"Down on the ground.",
 										"On the ground.",
@@ -4418,7 +4352,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Get down",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Get down!",
@@ -4431,7 +4365,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Hit the floor.",
 										"Down.",
 										"Get down.",
@@ -4450,9 +4384,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Get down",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I said, down on the ground!",
 										"I said, GET DOWN ON THE GROUND.",
 										"You heard what I just said?!",
@@ -4489,7 +4423,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Get down, or get killed.",
 										"I said, 'down.'",
 										"Don't make me say it again.",
@@ -4506,9 +4440,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Stay down",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Stay down, everybody!",
 										"Stay down, people!",
 										"Stay down, all of you!",
@@ -4527,7 +4461,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Stay down.",
 										"Stay.",
 										"Stay still.",
@@ -4547,9 +4481,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Stay down",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Stay low!",
 										"Stay still!",
 										"Stay down!",
@@ -4559,7 +4493,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Stay put.",
 										"Stay still.",
 										"Kiss the fucking ground.",
@@ -4591,9 +4525,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "And stay down",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"And stay there!",
 										"And stay put.",
 										"And stay down.",
@@ -4603,7 +4537,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"And stay down.",
 										"And don't fucking move.",
 										"And stay there!",
@@ -4621,9 +4555,9 @@ ClosedCaptions._sounds = {
 						criminal = { --priority
 							text = "Get the fuck up!",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Get off your ass!",
 										"Up, buddy!",
 										"You! Get back up and fight!",
@@ -4637,7 +4571,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {} --we need you, buddy! Stand up!
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Get the fuck up.",
 										"Get the fuck up, I'm not kiddin'.",
 										"Get on ya' feet!",
@@ -4660,7 +4594,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted a Guard",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									whisper_mode = {
 										"[whispering] I see a Guard.",
@@ -4677,8 +4611,7 @@ ClosedCaptions._sounds = {
 										"[whispering] Stay low and quiet.",
 										"[whispering] We're good.",
 										"[whispering] Stay back."
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4690,8 +4623,7 @@ ClosedCaptions._sounds = {
 										"[whispering] Guard! Stay quiet.",
 										"[whispering] Don't bloody alert the Guard.",
 										"[whispering] Guard! Stay alert!"
-									},
-									assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4702,9 +4634,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Follow me",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"C'mon, c'mon!",
 										"C'mon.",
 										"Come with me, move it!",
@@ -4714,7 +4646,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Come with me!",
 										"Follow me!",
 										"Follow me!",
@@ -4731,7 +4663,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted Camera",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									whisper_mode = {
 										"[whispering] Stay low and quiet.",
@@ -4741,8 +4673,7 @@ ClosedCaptions._sounds = {
 										"[whispering] Stay back.",
 										"[whispering] Watch it, guys.",
 										"[whispering] Keep track, guys."	
-									},
-									assault_mode = {}
+									}
 								},
 								rb15 = {
 									whisper_mode = {
@@ -4753,8 +4684,7 @@ ClosedCaptions._sounds = {
 										"[whispering] Watch out! (Camera)",
 										"[whispering] Don't get caught on tape.",
 										"[whispering] Camera over there!"
-									},
-									assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4765,9 +4695,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Move Faster",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Get a move on!",
 										"Get moving!",
 										"Move!",
@@ -4776,7 +4706,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Run faster, dipshit!",
 										"Move it!",
 										"Move it, you drongo!",
@@ -4793,16 +4723,16 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Taxman revive",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Up.",
 										"Up!"
 									},
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Get the fuck up, I'm not kiddin'.",
 										"Get back in the fight, ya' tosser.",
 										"Get the fuck up.",
@@ -4820,16 +4750,16 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Taxman revive",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Up.",
 										"Up!"
 									},
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Get up and fight!",
 										"Get the fuck up!",
 										"Get back in the fight, ya' tosser.",
@@ -4848,9 +4778,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Taxman interrogation",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"I got a bullet here with your name on it.",
 										"You're fuckin' pushing it!",
 										"LET IT OUT! Right fucking now!",
@@ -4870,7 +4800,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Tell us what we need to know!",
 										"Fuckin' answer!",
 										"I'll break your fuckin' face!",
@@ -4900,9 +4830,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Wait over there.",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Don't move!",
 										"Stay still!",
 										"Stay where you are!"
@@ -4910,7 +4840,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Just stay there.",
 										"Hey, wait over there.",
 										"Wait over there.",
@@ -4926,46 +4856,40 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted jammed drill",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
-										"Drill got jammed right up, I think. We have to fix it.",
-										"Drill got jammed right up, I think. We need to get it fixed!",
-										"Drill got jammed right up, I think. One of us has to fix it!",
-										"Drill got jammed right up, I think. Somebody gotta restart it.",
-										"You hear that? The drill is jammed. We have to fix it.",
-										"You hear that? The drill is jammed. We need to get it fixed!",
-										"You hear that? The drill is jammed. One of us has to fix it!",
-										"You hear that? The drill is jammed. Somebody gotta restart it.",
-										"Ain't that a jammed drill sound? We have to fix it.",
-										"Ain't that a jammed drill sound? We need to get it fixed!",
-										"Ain't that a jammed drill sound? One of us has to fix it!",
-										"Ain't that a jammed drill sound? Somebody gotta restart it.",
-										"What I hear right now sounds like a jammed drill. We have to fix it.",
-										"What I hear right now sounds like a jammed drill. We need to get it fixed!",
-										"What I hear right now sounds like a jammed drill. One of us has to fix it!",
-										"What I hear right now sounds like a jammed drill. Somebody gotta restart it.",
-										"Aw, man, I can hear the drill got stuck. We have to fix it.",
-										"Aw, man, I can hear the drill got stuck. We need to get it fixed!",
-										"Aw, man, I can hear the drill got stuck. One of us has to fix it!",
-										"Aw, man, I can hear the drill got stuck. Somebody gotta restart it."
+									recombinable = true,
+									standard_mode = {
+										{
+											"Drill got jammed right up, I think.",
+											"You hear that? The drill is jammed.",
+											"Ain't that a jammed drill sound?",
+											"What I hear right now sounds like a jammed drill.",
+											"Aw, man, I can hear the drill got stuck."
+										},
+										{
+											"We have to fix it.",
+											"We need to get it fixed!",
+											"One of us has to fix it!",
+											"Somebody gotta restart it."
+										}
 									},
-									whisper_mode = {}
+									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
-										"The drill's jammed! Someone's gotta fix it!",
-										"The drill's jammed! We need to get it fixed!",
-										"The drill's jammed! We have to fix it!",
-										"The drill's jammed! We've gotta get it fixed!",
-										"We've got a jammed drill on our hands! Someone's gotta fix it!",
-										"We've got a jammed drill on our hands! We need to get it fixed!",
-										"We've got a jammed drill on our hands! We have to fix it!",
-										"We've got a jammed drill on our hands! We've gotta get it fixed!",
-										"I think the drill is stuck! Someone's gotta fix it!",
-										"I think the drill is stuck! We need to get it fixed!",
-										"I think the drill is stuck! We have to fix it!",
-										"I think the drill is stuck! We've gotta get it fixed!"
+									recombinable = true,
+									standard_mode = {
+										{
+											"The drill's jammed!",
+											"We've got a jammed drill on our hands!",
+											"I think the drill is stuck!"
+										},
+										{
+											"Someone's gotta fix it!",
+											"We need to get it fixed!",
+											"We have to fix it!",
+											"We've gotta get it fixed!",
+										}
 									},
 									assault_mode = {}
 								}
@@ -4978,50 +4902,40 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted jammed drill",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
+									recombinable = true,
 									text_variations = {
-										"The drill's squeaking again. Somebody gotta fix it!",
-										"The drill's squeaking again. Somebody gotta restart it!",
-										"The drill's squeaking again. We have to restart it!",
-										"The drill's squeaking again. One of us has to fix it!",
-										"The drill's squeaking again. We need to get it fixed!",
-										"The drill's stuck again. Somebody gotta fix it!",
-										"The drill's stuck again. Somebody gotta restart it!",
-										"The drill's stuck again. We have to restart it!",
-										"The drill's stuck again. One of us has to fix it!",
-										"The drill's stuck again. We need to get it fixed!",
-										"The drill got stuck again. Somebody gotta fix it!",
-										"The drill got stuck again. Somebody gotta restart it!",
-										"The drill got stuck again. We have to restart it!",
-										"The drill got stuck again. One of us has to fix it!",
-										"The drill got stuck again. We need to get it fixed!",
-										"The drill seems to have jammed again. Somebody gotta fix it!",
-										"The drill seems to have jammed again. Somebody gotta restart it!",
-										"The drill seems to have jammed again. We have to restart it!",
-										"The drill seems to have jammed again. One of us has to fix it!",
-										"The drill seems to have jammed again. We need to get it fixed!",
-										"Here we go again, the drill's stuck. Somebody gotta fix it!",
-										"Here we go again, the drill's stuck. Somebody gotta restart it!",
-										"Here we go again, the drill's stuck. We have to restart it!",
-										"Here we go again, the drill's stuck. One of us has to fix it!",
-										"Here we go again, the drill's stuck. We need to get it fixed!"
+										{
+											"The drill's squeaking again.",
+											"The drill's stuck again.",
+											"The drill got stuck again.",
+											"The drill seems to have jammed again.",
+											"Here we go again, the drill's stuck."
+										},
+										{
+											"Somebody gotta fix it!",
+											"Somebody gotta restart it!",
+											"We have to restart it!",
+											"One of us has to fix it!",
+											"We need to get it fixed!"
+										}
 									}
 								},
 								rb15 = {
+									recombinable = true,
 									text_variations = {
-										"The drill's jammed! Someone's gotta fix it!",
-										"The drill's jammed! We need to get it fixed!",
-										"The drill's jammed! We have to fix it!",
-										"The drill's jammed! We've gotta get it fixed!",
-										"We've got a jammed drill on our hands! Someone's gotta fix it!",
-										"We've got a jammed drill on our hands! We need to get it fixed!",
-										"We've got a jammed drill on our hands! We have to fix it!",
-										"We've got a jammed drill on our hands! We've gotta get it fixed!",
-										"I think the drill is stuck! Someone's gotta fix it!",
-										"I think the drill is stuck! We need to get it fixed!",
-										"I think the drill is stuck! We have to fix it!",
-										"I think the drill is stuck! We've gotta get it fixed!"
+										{
+											"The drill's jammed!",
+											"We've got a jammed drill on our hands!",
+											"I think the drill is stuck!"
+										},
+										{
+											"Someone's gotta fix it!",
+											"We need to get it fixed!",
+											"We have to fix it!",
+											"We've gotta get it fixed!"
+										}
 									}
 								}
 							}
@@ -5034,9 +4948,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Spotted jammed computer",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Computer's beepin'- never good!",
 										"Sounds like we need some tech help!",
 										"Sounds like the computer's all fouled up!",
@@ -5046,7 +4960,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Why is the computer beeping?!",
 										"Fuck, something's not right with the computer!",
 										"The computer process is jammed!",
@@ -5062,9 +4976,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Thermal Lance is broken",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"That there is the sound of a stuck Thermal Lance.",
 										"Appears that the Thermal Lance has melted. I hear it!.",
 										"You hear the Thermal Lance. Sounds right... stuck!",
@@ -5082,7 +4996,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Computer's beeping again!",
@@ -5102,7 +5016,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Someone go take a look at the drill, huh?",
@@ -5125,46 +5039,40 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "It's broken",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
-										"It's stuck! One of us has to fix it!",
-										"It's stuck! Somebody gotta fix it!",
-										"It's stuck! Somebody gotta restart it!",
-										"It's stuck! We have to fix it!",
-										"It's stuck! We need to get it fixed!",
-										"Something's not right! One of us has to fix it!",
-										"Something's not right! Somebody gotta fix it!",
-										"Something's not right! Somebody gotta restart it!",
-										"Something's not right! We have to fix it!",
-										"Something's not right! We need to get it fixed!",
-										"What's that? One of us has to fix it!",
-										"What's that? Somebody gotta fix it!",
-										"What's that? Somebody gotta restart it!",
-										"What's that? We have to fix it!",
-										"What's that? We need to get it fixed!",
-										"It's jammed! One of us has to fix it!",
-										"It's jammed! Somebody gotta fix it!",
-										"It's jammed! Somebody gotta restart it!",
-										"It's jammed! We have to fix it!",
-										"It's jammed! We need to get it fixed!"
+									recombinable = true,
+									standard_mode = {
+										{
+											"It's stuck!",
+											"Something's not right!",
+											"What's that?",
+											"It's jammed!"
+										},
+										{
+											"One of us has to fix it!",
+											"Somebody gotta fix it!",
+											"Somebody gotta restart it!",
+											"We have to fix it!",
+											"We need to get it fixed!"
+										}
 									},
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
-										"It's stuck! We need to get it fixed!",
-										"It's stuck! We have to fix it!",
-										"It's stuck! Someone's gotta fix it!",
-										"Something's not right! We need to get it fixed!",
-										"Something's not right! We have to fix it!",
-										"Something's not right! Someone's gotta fix it!",
-										"It's jammed! We need to get it fixed!",
-										"It's jammed! We have to fix it!",
-										"It's jammed! Someone's gotta fix it!",
-										"What's that? We need to get it fixed!",
-										"What's that? We have to fix it!",
-										"What's that? Someone's gotta fix it!"
+									recombinable = true,
+									standard_mode = {
+										{
+											"It's stuck!",
+											"Something's not right!",
+											"It's jammed!",
+											"What's that?"
+										},
+										{
+											 "We need to get it fixed!",
+											 "We have to fix it!",
+											 "Someone's gotta fix it!"
+										}
 									},
 									assault_mode = {}
 								}
@@ -5177,7 +5085,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Masked up",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Going to work...",
@@ -5187,7 +5095,8 @@ ClosedCaptions._sounds = {
 										"Let's make that money.",
 										"Ready up.",
 										"Okay, let's do this.",
-										"Let's break bad."
+										"Let's break bad.",
+										"Get your game face on, buddies."
 									}
 								},
 								rb7 = {
@@ -5231,7 +5140,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Gotcha.",
 							priority = 15,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Got it.",
@@ -5269,19 +5178,19 @@ ClosedCaptions._sounds = {
 								}
 							},
 							rb15 = {
+								recombinable = true,
 								text_variations = {
-									"I'm comin'. Hang in there!",
-									"I'm comin'. Bloody hang in there!",
-									"I'm comin'. Just hang on!",
-									"On the way. Hang in there!",
-									"On the way. Bloody hang in there!",
-									"On the way. Just hang on!",
-									"As soon as I can. Hang in there!",
-									"As soon as I can. Bloody hang in there!",
-									"As soon as I can. Just hang on!",
-									"I'm right there. Hang in there!",
-									"I'm right there. Bloody hang in there!",
-									"I'm right there. Just hang on!"
+									{
+										"I'm comin'.",
+										"On the way.",
+										"As soon as I can.",
+										"I'm right there."
+									},
+									{
+										"Hang in there!",
+										"Bloody hang in there!",
+										"Just hang on!"
+									}
 								}
 							}
 						}
@@ -5306,7 +5215,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Just a few minutes left.",
 							priority = 15,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text_variations = {
 										"Only a few minutes left!",
@@ -5324,7 +5233,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 15,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text = "Halfway there.",
 									text_variations = {
@@ -5344,7 +5253,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							priority = 15,
-							variations = {
+							subvariants = {
 								rb4 = {
 									text = "Almost there.",
 									text_variations = {
@@ -5366,9 +5275,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Intimidation stage 1",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Hands up!",
 										"Put 'em up!",
 										"Put 'em up.",
@@ -5391,7 +5300,7 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Put your hands up.",
 										"Put 'em up, fuckwit!",
 										"Drop your weapon!",
@@ -5420,9 +5329,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Intimidation stage 2",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Down on your knees!",
 										"ON YOUR KNEES!",
 										"On your knees!",
@@ -5432,7 +5341,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Get down on your knees.",
 										"Kneel down.",
 										"On your fuckin' knees.",
@@ -5459,9 +5368,9 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Now put your cuffs on.",
 							priority = 5,
-							variations = {
+							subvariants = {
 								rb4 = {
-									whisper_mode = {
+									standard_mode = {
 										"Now handcuff yourself!",
 										"Now put your cuffs on!",
 										"Now cuff yourself!",
@@ -5473,7 +5382,7 @@ ClosedCaptions._sounds = {
 									assault_mode = {}
 								},
 								rb15 = {
-									whisper_mode = {
+									standard_mode = {
 										"Cuffs on!",
 										"Cuffs! Put 'em on!",
 										"Get your cuffs on!",
@@ -5500,7 +5409,8 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "[answering pager]",
-							variations = {
+							duration = 10, --default pager answer time is 10s
+							subvariants = {
 								rb4 = { --incomplete
 									text_variations = {
 										"Um, all good, sometimes I just see things. Not to alarm you!",
@@ -5623,20 +5533,20 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[spotted alerted Civilian]",
-							variations = {
-								text_variations = {
-									"Two-Three here. Uh, reporting in. We got a situation",
-									"Two-Three here. Uh, reporting in. Something's up.",
-									"Two-Three here. Uh, reporting in. There's something going on here.",
-									"Two-Three, reporting in. We got a situation",
-									"Two-Three, reporting in. Something's up.",
-									"Two-Three, reporting in. There's something going on here.",
-									"Two-Three over here. Reporting in. We got a situation",
-									"Two-Three over here. Reporting in. Something's up.",
-									"Two-Three over here. Reporting in. There's something going on here.",
-									"This is, uh, Two-Three reporting in. We got a situation.",
-									"This is, uh, Two-Three reporting in. Something's up.",
-									"This is, uh, Two-Three reporting in. There's something going on here."
+							subvariants = {
+								recombinable = true,
+								whisper_mode = {
+									{
+										"Two-Three here.",
+										"Two-Three, reporting in.",
+										"Two-Three over here. Reporting in.",
+										"This is, uh, Two-Three reporting in."
+									},
+									{
+										"We got a situation.",
+										"Something's up.",
+										"There's something going on here."
+									}
 								}
 							}
 						}
@@ -5646,7 +5556,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[idle pager chatter]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two-Three here. Reporting in. All's clear over here. Out.",
 									"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
@@ -5664,7 +5574,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[spots suspicious object]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"What the heck...?",
 									"Who was that?",
@@ -5682,7 +5592,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Entrance]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Entrance is clear." 
 								}
@@ -5694,7 +5604,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Hall A]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Hall A is clear." 
 								}
@@ -5706,7 +5616,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Hall B]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Hall B is clear." 
 								}
@@ -5718,7 +5628,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Hall C]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Hall C is clear." 
 								}
@@ -5730,7 +5640,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Hall D]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Hall C is clear." 
 								}
@@ -5742,7 +5652,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Roof]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Roof is clear." 
 								}
@@ -5754,7 +5664,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Basement]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Roof is clear." 
 								}
@@ -5766,7 +5676,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear First Floor]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. First Floor is clear." 
 								}
@@ -5778,7 +5688,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Second Floor]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Second Floor is clear." 
 								}
@@ -5790,7 +5700,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Third Floor]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Third Floor is clear." 
 								}
@@ -5802,7 +5712,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Pool]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Pool Area is clear." 
 								}
@@ -5814,7 +5724,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Balcony]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Balcony is clear." 
 								}
@@ -5826,7 +5736,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Living Room]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Living Room is clear." 
 								}
@@ -5838,7 +5748,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Corridor]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Corridor is clear." 
 								}
@@ -5850,7 +5760,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Lobby]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Lobby is clear." 
 								}
@@ -5862,7 +5772,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Security Door]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. Security Door is shut and locked. No sign of criminal activity." 
 								}
@@ -5874,7 +5784,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear GenSec Room]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting in. GenSec room is clear." 
 								}
@@ -5886,7 +5796,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Camera]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting. Camera operational. This place no signs of suspicious activity. Repeat, no sign of tampering. Over." 
 								}
@@ -5898,7 +5808,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Staircase]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting. Staircase is clear. Everything's clear here. Over." 
 								}
@@ -5910,7 +5820,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Penthouse]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting. Penthouse is clear. Over." 
 								}
@@ -5922,7 +5832,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting clear Garage]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two three, reporting. Garage is clear. Over." 
 								}
@@ -5934,7 +5844,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting proceeding with sweep]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Proceeding" 
 								}
@@ -5946,7 +5856,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[request gate access]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"This is Two-Three. Can you buzz me in? Over." 
 								}
@@ -5958,7 +5868,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[reporting finished clear sweep]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Two-Three reporting. This place is clear from top to bottom. I'm outta here. Over and out." 
 								}
@@ -5970,7 +5880,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							text = "[attempting arrest]",
-							variations = {
+							subvariants = {
 								text_variations = {
 									"No sudden movements!"
 								}
@@ -6005,8 +5915,8 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "Rescue the hostages",
 							priority = 5,
-							variations = {
-								whisper_mode = {
+							subvariants = {
+								standard_mode = {
 									"Get the civilians!",
 									"Get the canaries!",
 									"Get the hostages!",
@@ -6023,8 +5933,8 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "Rescue the hostages",
 							priority = 5,
-							variations = {
-								whisper_mode = {
+							subvariants = {
+								standard_mode = {
 									"Deploy smoke!",
 									"Smoke 'em!",
 									"Smoke 'em out!",
@@ -6332,10 +6242,7 @@ ClosedCaptions._sounds = {
 				},
 				["911_call"] = {
 					variants = {
-						cf1 = {
-							text = "Hello? 911? I need help, there's armed robbers here!"
-						},
-						cm1 = {
+						civilian = {
 							text = "Hello? 911? I need help, there's armed robbers here!"
 						}
 					}
@@ -6350,11 +6257,7 @@ ClosedCaptions._sounds = {
 				},
 				a03x_any = {
 					variants = {
-						cm1 = {
-							text = "(screaming in fear)",
-							disabled = "whisper_mode"
-						},
-						cf1 = {
+						civilian = {
 							text = "(screaming in fear)",
 							disabled = "whisper_mode"
 						}
@@ -6490,7 +6393,7 @@ ClosedCaptions._sounds = {
 --					text = "Wha-?", --see something suspicious
 					variants = {
 						cop = {
-							variations = {
+							subvariants = {
 								whisper_mode = {
 									"Wha-?"
 								}
@@ -6938,7 +6841,7 @@ ClosedCaptions._sounds = {
 				lt2_c01 = {
 					variants = {
 						cop = {
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Mira, mira, there he is!",
 									"I see one!",
@@ -6955,7 +6858,7 @@ ClosedCaptions._sounds = {
 				lt2_g90 = {
 					variants = {
 						cop = {
-							variations = {
+							subvariants = {
 								text_variations = {
 									"I'm gonna fuck you up, man!",
 									"These fuckers are going down!",
@@ -6973,23 +6876,621 @@ ClosedCaptions._sounds = {
 				
 --mission specific dialogue				
 			--no mercy
-				Play_doc_nmh_run_01 = {
+				Play_bil_nmh_01_01 = {
 					variants = {
 						civilian = {
-							duration = 20,
-							variations = {
+							override_name = "Bill",
+							subvariants = {
 								text_variations = {
-									"boy i sure  am a doctor who knows stuff"
+									"Come on, ya stinkin' elevator...",
+									"Don't break down on me, elevator...",
+									"Alright, let's go!",
+									"Let's move, people!"
 								}
 							}
 						}
 					}
-				}
+				},
+				Play_bil_nmh_01_02 = {
+					variants = {
+						civilian = {
+							override_name = "Bill",
+							subvariants = {
+								text_variations = {
+									"They'd better let me smoke up there.",
+									"Come, on, come on...",
+									"Come, on, come on!",
+									"Close, dammit!",
+									"Let's go, let's go!"
+								}
+							}
+						}
+					}
+				},
+				Play_bil_nmh_01_03 = {
+					variants = {
+						civilian = {
+							override_name = "Bill",
+							subvariants = {
+								text_variations = {
+									"They'd better let me smoke up there.",
+									"Don't break down on me, elevator...",
+									"Close, dammit!",
+									"Close, dammit.",
+									"Let's go, let's go!"
+								}
+							}
+						}
+					}
+				},
+				Play_bil_nmh_01_04 = {
+					variants = {
+						civilian = {
+							override_name = "Bill",
+							subvariants = {
+								text_variations = {
+									"Let's go, people!",
+									"Move it out!",
+									"Let's move it out, people!",
+									"Come on, let's go!",
+									"Let's GO!",
+									"Come on, let's go!"
+								}
+							}
+						}
+					}
+				},
+				Play_bil_nmh_01_05 = {
+					variants = {
+						civilian = {
+							override_name = "Bill",
+							subvariants = {
+								text_variations = {
+									"Excuse me, sirs, this is your floor, so can you kindly get the HELL off of my elevator?",
+									"Well come on, I don't have all day, get the hell off!",
+									"This is your floor, not mine, hurry up and get the hell off.",
+									"I think this is your floor."
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_a = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								text_variations = {
+									"Welcome. Let's start the round.",
+									"I see you have your gloves on already. Great.",
+									"Welcome. We've been expecting you. Shall we start the round?"
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_b = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 4,
+							text = "First, let's look at Isolation B." --no variations for these
+						}
+					}
+				},
+				Play_doc_nmh_c = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 4,
+							text = "Now, let's look at Isolation A."
+						}
+					}
+				},
+				--not sure what happened to c
+				Play_doc_nmh_d = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 4,
+							text = "Finally, let's look at Isolation C."
+						}
+					}
+				},
+				Play_doc_nmh_e = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 4,
+							subvariants = {
+								text_variations = {
+									"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+									"This man was brought in, seemingly suffering from sun-stroke.",
+									"This man was bit by a monkey at the Fairfield Zoo.",
+									"This man was found unconscious in the street today.",
+									"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from.",
+									"This man was in a single-car accident on the road to Riverside.",
+									"This man collapsed during his morning jog.",
+									"This man seems to be suffering from a severe type of food poisoning.",
+									"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+									"This man came in this afternoon complaining of a strange rash on his neck.",
+									"This man came back from a trip to Haiti feeling very ill.",
+									"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest."
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_f = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								text_variations = {
+									"Let's check the blood pressures as well.",
+									"Let's take another lap and check each patient's blood pressure, too.",
+									"Let's take another round and look at the blood pressure of the patients, as well.",
+									"Let's take another loop for a blood pressure check-up."
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_g = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								text_variations = {
+									"This patient has a blood pressure of 119 over 80.",
+									"This patient has a blood pressure of 117 over 79.",
+									"This patient has a blood pressure of 115 over 78.",
+									"This patient has a blood pressure of 114 over 77.",
+									"This patient has a blood pressure of 112 above 75.",
+									"This patient has a blood pressure of 104 over 73.",
+									"This patient has a blood pressure of 98 over 61.",
+									"This patient has a blood pressure of 96 over 72.",
+									"This patient has blood pressure of 95 over 66."
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_h = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 5,
+							text = "If you need me, I'll be over there." --no variations
+						}
+					}
+				},
+				Play_doc_nmh_i = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 5,
+							subvariants = {
+								text_variations = {
+									"That's all I can tell you about the patients, doctor.", --two variations with only slight differences
+									"That's all I can tell you about the patients, doctor..."
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_run_01 = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								recombinable = true,
+								text_variations = {
+									{
+										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+										"This man was brought in, seemingly suffering from sun-stroke.",
+										"This man was bit by a monkey at the Fairfield Zoo.",
+										"This man was found unconscious in the street today.",
+										"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from.",
+										"This man was in a single-car accident on the road to Riverside.",
+										"This man collapsed during his morning jog.",
+										"This man seems to be suffering from a severe type of food poisoning.",
+										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+										"This man came in this afternoon complaining of a strange rash on his neck.",
+										"This man came back from a trip to Haiti feeling very ill.",
+										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest."
+									},
+									{
+										"Whatever he is suffering from, it is definitely not the Green Flu.",
+										"Whatever he is suffering from, is definitely isn't any form of sepsis.",
+										"We found traces of methamphetamine in his blood.",
+										"We found traces of amphetamine in his blood.",
+										"We found traces of several psychoactive substances in his blood.",
+										"We found traces of cocaine in his blood.",
+										"We detected abnormal levels of histamines in his blood. We haven't identified the allergy yet.",
+										"He is suffering from epidural hematoma.",
+										"He is suffering from cerebral edema.",
+										"He is suffering from encephalitis.",
+										"He is suffering from narcolepsy.",
+										"He is suffering from epilepsy.",
+										"He is showing symptoms of temporal arthritis.",
+										"He is showing symptoms of temporal meningitis.",
+										"He is showing symptoms of extreme exhaustion.",
+										"He's probably suffered subarachnoid hemorrhage.",
+										"He has recently been exposed to high levels of ionizing radiation.",
+										"He's got SAH.",
+										"I have reason to believe he has a brain tumor."
+									},
+									{
+										"He's in a state of hypertensive emergency.",
+										"His heart rate is abnormal.",
+										"He has malignant hypertension.",
+										"His heart rate is well above normal.",
+										"His heart rate is well below normal.",
+										"His heart rate is well above 140.",
+										"His resting heart rate is 140.",
+										"His resting heart rate is 130.",
+										"His resting heart rate is 120.",
+										"His resting heart rate is as high as 100, and rising steadily.",
+										"His resting heart rate is 110.",
+										"His heart rate is well below 30."
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_run_02 = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								recombinable = true,
+								text_variations = {
+									{
+										"This man was bit by a monkey at the Fairfield Zoo.",
+										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
+										"This man seems to be suffering from a severe type of food poisoning.",
+										"This man was brought in, seemingly suffering from sun-stroke.",
+										"This man was found unconscious in the street today.",
+										"This man came in this afternoon complaining of a strange rash on his neck.",
+										"This man was in a single-car accident on the road to Riverside.",
+										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+										"This man collapsed during his morning jog.",
+										"This man came back from a trip to Haiti feeling very ill.",
+										"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
+									},
+									{
+										"We'll have to keep him in isolation a while longer, but he'll have recovered soon.",
+										"He has to stay isolated a little longer, but he will be okay.",
+										"He is currently recovering and can be moved from the ICU quite soon.",
+										"He won't have to remain under medical treatment for too long.",
+										"While he isn't fully diagnosed yet, I am confident that he will be fully recovered shortly.",
+										"He is responding well to the treatment, and will be out of the hospital in a matter of days."
+									},
+									{
+										"His heart rate remains stable.",
+										"His heart rate is stable.",
+										"His heart rate is normal.",
+										"His resting heart rate is stable.",
+										"His resting heart rate is 60, and remains stable.",
+										"His resting heart rate is 65.",
+										"His resting heart rate is 70.",
+										"His resting heart rate is 75.",
+										"His resting heart rate is 80.",
+										"His resting heart rate is 85.",
+										"His resting heart rate is 90, but remains stable."
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_run_03 = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								recombinable = true,
+								text_variations = {
+									{
+										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
+										"This man was brought in, seemingly suffering from sun-stroke.",
+										"This man was bit by a monkey at the Fairfield Zoo.",
+										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+										"This man seems to be suffering from a severe type of food poisoning.",
+										"This man was found unconscious in the street today.",
+										"This man came in this afternoon complaining of a strange rash on his neck.",
+										"This man was in a single-car accident on the road to Riverside.",
+										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+										"This man collapsed during his morning jog.",
+										"This man came back from a trip to Haiti feeling very ill.",
+										"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
+									},
+									{
+										"We found traces of botulinum toxin in his bloodstream.",
+										"We found traces of tetrodotoxin in his blood.",
+										"We found traces of tetraodontidae neurotoxin in his blood.",
+										"We found traces of tetanus toxin in his bloodstream.",
+										"We found traces of bufotoxin in his blood.",
+										"We found traces of some advanced disassociative drugs in his blood.",
+										"We found traces of fugu neurotoxin in his blood.",
+										"We found traces of diphtheria venom in his bloodstream."
+									},
+									{
+										"He also has an elevated white blood cell count.",
+										"He also has a very low white blood cell count.",
+										"He is also suffering from leukopenia.",
+										"He is also suffering from leukocytosis.",
+										"We've been giving him Fampridine, but his condition is deteriorating."
+									},
+									{
+										"This is severe sepsis, no doubt.",
+										"He's in full SIRS.",
+										"He is not responding to any medical treatment.",
+										"We're slowly losing him.",
+										"All things combined, it's a medical condition I've never seen before."
+									},
+									{
+										"He has malignant hypertension.",
+										"His resting heart rate is well above 140.",
+										"His resting heart rate is 140.",
+										"His resting heart rate is 130.",
+										"His resting heart rate is 120.",
+										"His resting heart rate is 110.",
+										"His resting heart rate is as high as 100, and rising steadily.",
+										"His resting heart rate is well below normal.",
+										"His heart rate is abnormal."
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_run_04 = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								recombinable = true,
+								text_variations = {
+									{
+										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
+										"This man was brought in, seemingly suffering from sun-stroke.",
+										"This man was bit by a monkey at the Fairfield Zoo.",
+										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+										"This man seems to be suffering from a severe type of food poisoning.",
+										"This man was found unconscious in the street today.",
+										"This man came in this afternoon complaining of a strange rash on his neck.",
+										"This man was in a single-car accident on the road to Riverside.",
+										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+										"This man collapsed during his morning jog.",
+										"This man came back from a trip to Haiti feeling very ill.",
+										"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
+									},
+									{
+										"We found traces of bufotoxin in his blood.",
+										"We found traces of botulinum toxin in his bloodstream.",
+										"We found traces of tetrodotoxin in his blood.",
+										"We found traces of tetraodontidae neurotoxin in his blood.",
+										"We found traces of tetanus toxin in his bloodstream.",
+										"We found traces of some advanced disassociative drugs in his blood.",
+										"We found traces of fugu neurotoxin in his blood.",
+										"We found traces of diphtheria venom in his bloodstream."
+									},
+									{
+										"We've been giving him Fampridine, but his condition is deteriorating.",
+										"We're slowly losing him.",
+										"He's in full SIRS.",
+										"He is not responding to any treatment.",
+										"He is not responding to any medical treatment.",
+										"All things combined, it's a medical condition I've never seen before.",
+										"This is severe sepsis, no doubt."
+									},
+									{ --always ends with this
+										"This could be what we call 'The Green Flu.'"
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_run_05 = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								recombinable = true,
+								text_variations = {
+									{
+										"This patient has a blood pressure of 119 over 80.",
+										"This patient has a blood pressure of 117 over 79.",
+										"This patient has a blood pressure of 115 over 78.",
+										"This patient has a blood pressure of 114 over 77.",
+										"This patient has a blood pressure of 112 above 75.",
+										"This patient has a blood pressure of 104 over 73.",
+										"This patient has a blood pressure of 98 over 61.",
+										"This patient has a blood pressure of 96 over 72.",
+										"This patient has blood pressure of 95 over 66."
+									},
+									{
+										"Whatever he is suffering from, it is definitely not the Green Flu.",
+										"We're dealing with cancer metastasis in the brain, spreading from the lungs.",
+										"Whatever he is suffering from, is definitely isn't any form of sepsis.",
+										"We found traces of methamphetamine in his blood.",
+										"We found traces of amphetamine in his blood.",
+										"We found traces of several psychoactive substances in his blood.",
+										"We found traces of cocaine in his blood.",
+										"We detected abnormal levels of histamines in his blood. We haven't identified the allergy yet.",
+										"He is suffering from epidural hematoma.",
+										"He is suffering from cerebral edema.",
+										"He is suffering from encephalitis.",
+										"He is suffering from narcolepsy.",
+										"He is suffering from epilepsy.",
+										"He is showing symptoms of temporal arthritis.",
+										"He is showing symptoms of temporal meningitis.",
+										"He is showing symptoms of extreme exhaustion.",
+										"He's probably suffered subarachnoid hemorrhage.",
+										"He has recently been exposed to high levels of ionizing radiation.",
+										"He's got SAH.",
+										"I have reason to believe he has a brain tumor."
+									},
+									{
+										"His condition is improving, thanks to the antibiotics.",
+										"We've been giving him Fampridine, and his condition is steadily improving.",
+										"We've given him Fampridine, and he's reacting positively to the treatment.",
+										"The symptoms are not undeniable, though.",
+										"However, the symptoms are not undeniable.",
+										"He is slowly regaining consciousness, and I think his vital signs will be back to normal within hours."
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_run_06 = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								recombinable = true,
+								text_variations = {
+									{
+										"This patient has a blood pressure of 119 over 80.",
+										"This patient has a blood pressure of 117 over 79.",
+										"This patient has a blood pressure of 115 over 78.",
+										"This patient has a blood pressure of 114 over 77.",
+										"This patient has a blood pressure of 112 above 75.",
+										"This patient has a blood pressure of 104 over 73.",
+										"This patient has a blood pressure of 98 over 61.",
+										"This patient has a blood pressure of 96 over 72.",
+										"This patient has blood pressure of 95 over 66."
+									},
+									{
+										"We'll have to keep him in isolation a while longer, but he'll have recovered soon.",
+										"He has to stay isolated a little longer, but he will be okay.",
+										"He is currently recovering and can be moved from the ICU quite soon.",
+										"He won't have to remain under medical treatment for too long.",
+										"While he isn't fully diagnosed yet, I am confident that he will be fully recovered shortly.",
+										"He is responding well to the treatment, and will be out of the hospital in a matter of days."
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_run_07 = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								recombinable = true,
+								text_variations = {
+									{
+										"This patient has a blood pressure of 119 over 80.",
+										"This patient has a blood pressure of 117 over 79.",
+										"This patient has a blood pressure of 115 over 78.",
+										"This patient has a blood pressure of 114 over 77.",
+										"This patient has a blood pressure of 112 above 75.",
+										"This patient has a blood pressure of 104 over 73.",
+										"This patient has a blood pressure of 98 over 61.",
+										"This patient has a blood pressure of 96 over 72.",
+										"This patient has blood pressure of 95 over 66."
+									},
+									{
+										"The sepsis in him is causing acute encephalitis.",
+										"If I didn't know better, I'd say he is showing signs of early stage rabies.",
+										"He is suffering from a combination of symptoms that I've never encountered before.",
+										"Lately, he's been complaining about a headache, and has high fever. He's progressing into delirium."
+									},
+									{
+										"We have reason to believe his condition is highly contagious, so he definitely stays in the ward.",
+										"He has to remain isolated and we need to keep testing. Chest x-rays, stool analysis, spinal fluids...",
+										"We have to keep him in isolation indefinitely and keep testing. Blood tests, urine, sputum cultures...",
+										"Whatever he has, I suspect that it's airborne, so he stays in isolation."
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_doc_nmh_run_08 = {
+					variants = {
+						civilian = {
+							override_name = "Dr. Schneider",
+							duration = 20,
+							subvariants = {
+								recombinable = true,
+								text_variations = {
+									{
+										"This patient has a blood pressure of 119 over 80.",
+										"This patient has a blood pressure of 117 over 79.",
+										"This patient has a blood pressure of 115 over 78.",
+										"This patient has a blood pressure of 114 over 77.",
+										"This patient has a blood pressure of 112 above 75.",
+										"This patient has a blood pressure of 104 over 73.",
+										"This patient has a blood pressure of 98 over 61.",
+										"This patient has a blood pressure of 96 over 72.",
+										"This patient has blood pressure of 95 over 66."
+									},
+									{
+										"The sepsis in him is causing acute encephalitis.",
+										"If I didn't know better, I'd say he is showing signs of early stage rabies.",
+										"He is suffering from a combination of symptoms that I've never encountered before.",
+										"Lately, he's been complaining about a headache, and has high fever. He's progressing into delirium."
+									},
+									{
+										"He's in a state of hypertensive emergency.",
+										"His heart rate is abnormal.",
+										"He has malignant hypertension.",
+										"His heart rate is well above normal.",
+										"His heart rate is well below normal.",
+										"His resting heart rate is well above 140.",
+										"His resting heart rate is 140.",
+										"His resting heart rate is 130.",
+										"His resting heart rate is 120.",
+										"His resting heart rate is as high as 100, and rising steadily.",
+										"His resting heart rate is 110.",
+										"His heart rate is well below 30."
+									}
+								}
+							}
+						}
+					}
+				},
+				l1n_a03 = {
+					variants = {
+						civilian = {
+							override_name = "Doctor",
+						--variants not included
+							subvariants = {
+								text_variations = {
+									"Only employees are allowed here.",
+									"I'm sorry. This area is only for personnel.",
+									"Please. Only staff are allowed here.", 
+									"This area is staff only, I'm afraid."
+								}
+							}
+						}
+					}
+				},
 				
+			--panic room	
 				Play_bnc_flt_01 = {
 					variants = {
 						cop = {
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Get inside. It's straight ahead.",
 									"[whistle] Hey, open up!"
@@ -7003,7 +7504,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							duration = 5,
-							variations = {
+							subvariants = {
 								text_variations = {
 									"Gentlemen.",
 									"They're here.",
@@ -7025,7 +7526,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							duration = 5,
-							variations = {
+							subvariants = {
 								text_variations = {
 									"You're messin' with me? Show me the money!",
 									"Put your bag on the table, I'm waiting."
@@ -7042,6 +7543,10 @@ ClosedCaptions._sounds = {
 						}
 					}
 				}
+				
+				--todo fwb
+				
+				
 			}
 		}
 	},
