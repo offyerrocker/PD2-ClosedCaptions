@@ -94,6 +94,12 @@ ClosedCaptions._sounds = {
 							text = "Go upstairs",
 							priority = 5,
 							variations = {
+								rb4 = {
+									text_variations = {
+										"Up, up!",
+										"Keep going up!"
+									}
+								},
 								rb15 = {
 									text_variations = {
 										"Upstairs!",
@@ -6356,11 +6362,13 @@ ClosedCaptions._sounds = {
 				},
 				dsp_radio_buzz = {
 					disabled = "whisper_mode",
-					text = "[pager buzz]"
+					text = "[pager buzz]",
+					duration = 5
 				},
 				dsp_radio_query_1 = {
 					text = "[pager ring]",
-					disabled = "whisper_mode"
+					disabled = "whisper_mode",
+					duration = 5
 				},
 				dsp_fooled_1 = {
 					text = "[pager operator fooled]",
@@ -6479,8 +6487,16 @@ ClosedCaptions._sounds = {
 					variants = {}
 				},
 				a07a = {
-					text = "Wha-?", --see something suspicious
-					variants = {}
+--					text = "Wha-?", --see something suspicious
+					variants = {
+						cop = {
+							variations = {
+								whisper_mode = {
+									"Wha-?"
+								}
+							}
+						}
+					}
 				},
 				a07b = {
 					text = "That's weird...", --see something suspicious
@@ -6919,20 +6935,112 @@ ClosedCaptions._sounds = {
 						--
 					}
 				},
+				lt2_c01 = {
+					variants = {
+						cop = {
+							variations = {
+								text_variations = {
+									"Mira, mira, there he is!",
+									"I see one!",
+									"Okay, I see one!",
+									"I got one!",
+									"I see one of 'em!",
+									"Yo, there's one!",
+									"Here!"
+								}
+							}
+						}
+					}
+				},
+				lt2_g90 = {
+					variants = {
+						cop = {
+							variations = {
+								text_variations = {
+									"I'm gonna fuck you up, man!",
+									"These fuckers are going down!",
+									"You must have shit for brains, coming here!",
+									"I oughta kill you twice, gringo!",
+									"This is the wrong town for you, amigo!",
+--									"Blood coming out your ears, fucker!",
+									"I'm gonna make you bleed!",
+									"[angry Spanish]"
+								}
+							}
+						}
+					}
+				},
+				
+--mission specific dialogue				
+			--no mercy
+				Play_doc_nmh_run_01 = {
+					variants = {
+						civilian = {
+							duration = 20,
+							variations = {
+								text_variations = {
+									"boy i sure  am a doctor who knows stuff"
+								}
+							}
+						}
+					}
+				}
+				
 				Play_bnc_flt_01 = {
-					text = "[whistle] Hey, open up!"
+					variants = {
+						cop = {
+							variations = {
+								text_variations = {
+									"Get inside. It's straight ahead.",
+									"[whistle] Hey, open up!"
+								}
+							}
+						}
+						
+					}
 				},
 				Play_bnc_flt_02 = {
-					text = "Gentlemen."
+					variants = {
+						cop = {
+							duration = 5,
+							variations = {
+								text_variations = {
+									"Gentlemen.",
+									"They're here.",
+									"You can go inside now. They're expecting you."
+								}
+							}
+						}
+					}
 				},
 				Play_dlr_flt_01 = {
-					text = "Welcome. Put the money by the table."
+					variants = {
+						cop = {
+							duration = 5,
+							text = "Welcome. Put the money by the table."
+						}
+					}
 				},
 				Play_dlr_flt_02 = {
-					text = "You messin' with me? Show me the money!"
+					variants = {
+						cop = {
+							duration = 5,
+							variations = {
+								text_variations = {
+									"You're messin' with me? Show me the money!",
+									"Put your bag on the table, I'm waiting."
+								}
+							}
+						}
+					}
 				},
 				Play_dlr_flt_03 = {
-					text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around."
+					variants = {
+						cop = {
+							duration = 6,
+							text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around."
+						}
+					}
 				}
 			}
 		}

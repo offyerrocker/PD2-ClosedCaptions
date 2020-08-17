@@ -20,13 +20,13 @@
 					"Uh, this is Two-Three, reporting in.",
 					"Two-Three here, reporting in.",
 					"This is Two-Three, uh, checking in."
-				}
+				},
 				{
 					"All clear here. Everything is A-OK.",
 					"Nothing suspicious here. Repeat, no suspicious activity.",
 					"Everything is fine. Repeat, no signs of criminal activity.",
 					"Clean as a whistle here. Everything is fine.",
-				}
+				},
 				{
 					"Over.",
 					"Over!",
@@ -633,8 +633,8 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 		panel:remove(item_panel)
 --		return item_panel,true
 	end
-	local hor_text_margin = 8
-	local ver_text_margin = 20
+	local hor_text_margin = 20
+	local ver_text_margin = 8
 	local w = self.hud_data.subtitle_w
 	local h = 100  --default
 	item_panel = self._panel:panel({
