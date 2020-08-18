@@ -602,9 +602,9 @@ ClosedCaptions._sounds = {
 					}
 				},
 				g23 = {
-					text = "Shoot them!",
 					variants = {
 						criminal = {
+							text = "Shoot them!",
 							rb4 = {
 								line_variations = {
 									any_mode = {
@@ -625,10 +625,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										whisper_mode = {
-
-										},
-										assault_mode = {
+										any_mode = { --no loud/stealth variations
 											"I almost can't believe we did it!",
 											"Yeah! We pulled that off! Fantastic!",
 											"Fantastic! Just fantastic!",
@@ -2400,7 +2397,7 @@ ClosedCaptions._sounds = {
 				v13 = {
 					variants = {
 						criminal = {
-							text = "Planted C4",
+							text = "C4 planted, explosion incoming",
 							priority = 5,
 							subvariants = {
 								rb4 = {
@@ -4570,6 +4567,8 @@ ClosedCaptions._sounds = {
 				s07x_sin = {
 					variants = {
 						criminal = {
+							source = "SFX",
+							text = "tased",
 							subvariants = {
 								rb3 = {
 									text = "[electrocuted gibberish]"
@@ -5270,7 +5269,7 @@ ClosedCaptions._sounds = {
 				f40_any = { --taxman go faster
 					variants = {
 						criminal = {
-							text = "Move Faster",
+							text = "Rushing the Taxman",
 							priority = 5,
 							subvariants = {
 								rb4 = {
@@ -5281,7 +5280,12 @@ ClosedCaptions._sounds = {
 											"Move!",
 											"GET A MOVE ON!"
 										},
-										assault_mode = {}
+										assault_mode = {
+											"MOVE IT!",
+											"GET A MOVE ON!",
+											"MOVE!",
+											"Get moving!"
+										}
 									}
 								},
 								rb15 = {
@@ -5370,7 +5374,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"I got a bullet here with your name on it.",
 											"You're fuckin' pushing it!",
 											"LET IT OUT! Right fucking now!",
@@ -5386,13 +5390,12 @@ ClosedCaptions._sounds = {
 											"You hear what I'm saying?!",
 											"DON'T TRY MY PATIENCE!",
 											"You want to live until tomorrow?!"
-										},
-										assault_mode = {}
+										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Tell us what we need to know!",
 											"Fuckin' answer!",
 											"I'll break your fuckin' face!",
@@ -5410,8 +5413,7 @@ ClosedCaptions._sounds = {
 											"Listen up, tosser!",
 											"Spit it out!",
 											"I'll rip your fuckin' face off!"
-										},
-										assault_mode = {}
+										}
 									}
 								}
 							}
@@ -7853,7 +7855,8 @@ cop = {
 					disabled = false
 				},
 				cloaker_presence_loop = {
-					text = "[Cloaker idle]"
+					text = "[Cloaker idle]",
+					duration = 10000
 				},
 				cloaker_presence_stop = {
 					text = "[Cloaker idle stops]",
@@ -9201,17 +9204,86 @@ cop = {
 				},
 				
 		--counterfeit
-				Play_bkn_pal_04 = { --bikini civ
+				Play_bkn_pal_01 = {
 					variants = {
 						civilian = {
-							text = "Mitchell, can you take me shopping again?"
+							text = "Ugh, what are you looking at?",
+							line_variations = {
+								"Ugh, what are you looking at?",
+								"Get out of there, you're blocking the sun...",
+								"Get out of there, you're blocking the sun!"
+							}
+						}
+					}
+				},
+				Play_bkn_pal_02 = {
+					variants = {
+						civilian = {
+							text = "Get me some tanning lotion.",
+							line_variations = {
+								"Get me some tanning lotion, will ya?",
+								"Get me some tanning lotion, baby.",
+								"Get me some tanning lotion."
+							}
+						}
+					}
+				},
+				Play_bkn_pal_03 = {
+					variants = {
+						civilian = {
+							text = "You should get us some weed, too.",
+							line_variations = {
+								"[flirtatious] Ooh, you should totally get us some weed, as well.",
+								"Oh, and you should probably get us some weed, too."
+							}
+						}
+					}
+				},
+				Play_bkn_pal_04 = {
+					variants = {
+						civilian = {
+							text = "Mitchell, can we go shopping again?",
+							line_variations = {
+								any_mode = {
+									"Hey, Mitchell, can I go shopping again?",
+									"Mitchell, can we go shopping again?"									
+								}
+							}
 						}
 					}
 				},
 				Play_bkn_pal_05 = {
 					variants = {
 						civilian = {
-							text = "Mitchell, can you take me shopping again?"
+							text = "Mitchell, fix the pool, already!",
+							line_variations = {
+								any_mode = {
+									"Hey, Mitchell? When will the pool be ready?",
+									"Fix that pool! I wanna take a swim!",
+									"Fix that pool! I wanna take a swim! YESTERDAY!",
+									"Mitchell! Get that pool fixed, okay?"
+								}
+							}
+						}
+					}
+				},
+				Play_mch_pal_01 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "How do I make my money? Uh...",
+							line_variations = {
+								any_mode = {
+									"How do I make my money? ...publishing. [nervous chuckle] Yeah, publishing...",
+									"I'm a self-made millionaire. When I run dry, well... I just make another million.",
+									"[pensive] How do I make my money? Well, you could say I make a lot of it.",
+									"[pensive] How do I make my money? Well, let's just say... let's just say I make a lot of it.",
+									"You know wanna know how I make my money? Hard work. Right through the night.",
+									"My money comes from... well, a sort of trust fund. I'd let you in, but I'd have to trust you.",
+									"Eh, my work is pretty dull, like a machine, but it pays well.",
+									"How do I make my money? I just keep pressing. Yeah."
+								}
+							}
 						}
 					}
 				},
@@ -9219,7 +9291,52 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "[chitchat]"
+							text = "[boasting about his money]",
+							line_variations = {
+								recombinable = true,
+								any_mode = {
+									{
+										"Yeah, yeah. The way I see it, I really wanted it, so I really deserved it, too. You know?",
+										"Eh, I kinda like what I do, you know? And when I'm creative, I feel like I'm on top of the world, really, because, you know, how many guys can do what I do?",
+										"Ever since I was a little kid, I always wanted to be a player.",
+										"And I had this guy come up, you know, he wanted to buy the whole thing, but... I said, 'It's just money. it's not 'me,' you know?",
+										"It was really just a matter of getting all my ducks in a row, you know?",
+										"Getting all the pieces in place wasn't hard.",
+										"Listen, you know, getting paid to do something you love? It's a dream, man.",
+										"Making money ain't that hard."
+									},
+									{									
+										"And you know, for a while, making money wasn't the problem- spending it was.",
+										"You can make opportunities, but you need also to know when to swing for that once in a lifetime chance... and I. Swung. HARD.",
+										"And when I cashed out, every other asshole did the same thing. But I was smart. First out of the game. Made a million bucks in a flash.",
+										"But making money ain't about hard work. It's about knowing when to call your banker and say, 'sell.'",
+										"Man, I love the smell of a fresh $100 bill, you know?",
+										"I cashed OUT! Made a fucking million! two million! [scoffs] More!",
+										"You see that movie where the guy has to spend like a billion dollars in a day? Something like that. Well, that motherfucker was me!",
+										"For a while there, I was earning more per hour than the Benevolent Bank."
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_mch_pal_03 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "[boasting about expensive hookers]",
+							line_variations = {
+								any_mode = {
+									"I could have put the money in real estate. Instead, I'm putting it in real ASState.",
+									"This is just one of the properties. I mean, of course, it's just a small thing I picked up on my way here once. You know, two or three years ago, whatever.",
+									"These chicks... do you know how much that is, each day? But hey, it's worth it.",
+									"We're gonna sail around the world. You see the boat over there? You know, put out a mil' for it. I dunno. Maybe we'll put it out to see this year. Eh, we'll see.",
+									"...and I realized, what use is money if you ain't rollin' it up and sniffing powder off a hooker's ass?",
+									"It's Mitchell! MITCHELL! Mitch! Ell! Now lemme hear you say it!",
+									"So then I said to him, 'It's Mitchell! MITCHELL! Not 'Michelle'! I'm not fucking Canadian!",
+									"All this ass around here. You know how much that is? But, uh... they're worth it. I mean, they can DANCE. And by 'dance'..."
+								}
+							}
 						}
 					}
 				},
@@ -9227,7 +9344,57 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_04"
+							text = "[boasting about The King]",
+							line_variations = {
+								recombinable = true,
+								any_mode = {
+									{
+										"The King leans over, he says: 'Two for you, two for me.', You know, he's talking about super bowls, sweet sweet love.",
+										"The king was the Top Dog! The Big Kahuna! The fucking KING, man!",
+										"You know The King, right? Well if you need to ask, you don't know him.",
+										"One supermodel on the 'D', another supermodel mixin' me a fine 'G&T'.",
+										"Bought an original Gustav. The King rolled it and used powder to snort off of this hooker's ass. You know?",
+										"I had myself a new Falcogini. Scratched it up driving out of a Time-Out!, left it by the road and walked away. [chuckles] Ain't no-one got time for a scratched up ride!",
+										"The King.. you know The King. Man, that fat bastard sure loved to snort blow.",
+										"Oh, you know me and the King? Yeah, we flew around town, picked up chicks left and right. You know? I was paying for most of the stuff, obviously."
+									},
+									{
+										"This was the sort of shit that only money brings. It's a lifestyle!",
+										"It was like that, from the moment we woke. All day, every day. Hookers and blow, hookers and blow.",
+										"We rolled the year back! It was like '69 on the strip! The Caddy was low-riding 'cause of all the ass in the back.",
+										"The King looks over and winks.",
+										"That's how we rolled!",
+										"Yeah, he was The King, but I was the fucking Caesar, you know?",
+										"I mean, hey, he was royalty, you know?",
+										"You gotta be a player, but you gotta rig the game, man!",
+										"It was like the fucking 70s, man, you know? Blow, hookers... we had everything."
+									},
+									{
+										"Fucking Homeric, man!",
+										"Great days, you know?",
+										"Out fucking standing!",
+										"EPIC days.",
+										"The times are a ragin', yeah?",
+										"What a time to be alive.",
+										"OVERKILL, man!",
+										"Rocked my soul, you know?"
+									}
+								}
+							}
+						}
+					}
+				},
+				Play_mch_pal_05 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags. I'll show you the leak.",
+							line_variations = {
+								any_mode = {
+									"You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags. I'll show you the leak.",
+									"Pretty sharp threads for pool repair guys. [to party guests] Guys, hang on, guys, I gotta show these guys down to the basement. [to heisters] Follow me."
+								}
+							}
 						}
 					}
 				},
@@ -9235,7 +9402,14 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_06"
+							text = "It's just down here.",
+							line_variations = {
+								any_mode = {
+									"It's just down here.",
+									"Watch your step down here.",
+									"Alright, down here."									
+								}
+							}
 						}
 					}
 				},
@@ -9243,7 +9417,13 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_07"
+							text = "See those pipes, leaking down the walls! It's fucked! This is a $10,000 carpet!",
+							line_variations = {
+								any_mode = {
+									"You see it? Water, fuckin' running down the wall! Totally fucked, man!",
+									"There! Fuckin' pissing all down the wall!"
+								}
+							}
 						}
 					}
 				},
@@ -9251,7 +9431,13 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_08"
+							text = "Hey, I'm not paying you guys to hang around! Get down there!",
+							line_variations = {
+								any_mode = {
+									"Hey, I'm not paying you guys to hang around! Get down there!",
+									"Hey, I'm not paying you guys to hang around! Get the FUCK down in the basement!"									
+								}
+							}
 						}
 					}
 				},
@@ -9259,7 +9445,23 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_09"
+							text = "Play_mch_pal_09",
+							line_variations = {
+								recombinable = true,
+								any_mode = {
+									{
+										"C'mon, just do your thing and do it right.",
+										"Look at this carpet! Just fucked, man!",
+										"This is a $10,000 carpet, man, fix it!"
+									},
+									{
+										"Alright. I got steaks on the barbie, chicks in the pool, no action. Come see me when you guys are done, okay?",
+										"Alright, I gotta get back to the steaks. You know, it's like a hundred dollars a pop up there. Come see me when you're done, okay? And hurry up.",
+										"Listen, the chicks wanna take a swim! Hurry the fuck up!",
+										"The party's waiting for you jokers to fix your shit, okay?"
+									}
+								}
+							}
 						}
 					}
 				},
@@ -9267,7 +9469,14 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_10"
+							text = "I hope it's free service.",
+							line_variations = {
+								any_mode = {
+									"And I don't wanna see no bills written up for this.",
+									"[annoyed] Oh, guys? I hope it's free service.",
+									"And don't think about billing me for this shit."
+								}
+							}
 						}
 					}
 				},
@@ -9275,7 +9484,14 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_11"
+							text = "Aw, fuck!",
+							line_variations = {
+								any_mode = {
+									"Oh, fuck!",
+									"Okay, you got me, you got me good.",
+									"[groans] Shit! I guess I had it coming."
+								}
+							}
 						}
 					}
 				},
@@ -9283,7 +9499,17 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_12"
+							text = "Play_mch_pal_12",
+							line_variations = {
+								any_mode = {
+									"[groans, scoffs] 'Bodhi's Pool Repair'... Fuck, I should've known!",
+									"It's the Feds, man! ...isn't it?",
+									"[groans] COME ON!",
+									"Shit! How did they get to us?",
+									"I had a bad feeling about these guys.",
+									"What gave us away?"
+								}
+							}
 						}
 					}
 				},
@@ -9291,213 +9517,396 @@ cop = {
 					variants = {
 						civilian = {
 							override_name = "Mitchell",
-							text = "Play_mch_pal_13"
+							text = "Fucking clowns!",
+							line_variations = {
+								any_mode = {
+									"Fucking clowns! You shouldn't be here!",
+									"[angry laugh] Fucking clowns!",
+									"[angry laugh]"
+								}
+							}
 						}
 					}
 				},
 				Play_bqg_pal_01 = {
 					variants = {
 						civilian = {
-							override_name = "Mitchell",
-							text = "Play_bqg_pal_01"
+							override_name = "Party 'Guest'",
+							text = "It's only $10,000 a day.",
+							line_variations = {
+								any_mode = {
+									"[sultry] Yeah, it's $10,000 a day.",
+									"[sultry] Yeah, it's only $10,000 a day."
+								}
+							}
+						}
+					}
+				},
+				Play_bqg_pal_02 = {
+					variants = {
+						civilian = {
+							override_name = "Party 'Guest'",
+							text = "You don't want us to leave, do you?",
+							line_variations = {
+								any_mode = {
+									"You don't want us to... leave, do you? We're having so much fun together!",
+									"You don't want us to leave, do you?"
+								}
+							}
+						}
+					}
+				},
+				Play_bqg_pal_03 = {
+					variants = {
+						civilian = {
+							override_name = "Party 'Guest'",
+							text = "When these plumbers are gone, we can get this party started for real!",
+							line_variations = {
+								any_mode = {
+									"When these plumbers are gone, we can get this party started for real!",
+									"Once pool fixers are gone, we can get this party started for real!"
+								}
+							}
+						}
+					}
+				},
+				Play_bqg_pal_04 = {
+					variants = {
+						civilian = {
+							override_name = "Party 'Guest'",
+							text = "I'm fed up waiting for that meat!",
+							line_variations = {
+								any_mode = {
+									"I'm fed up waiting for that meat!",
+									"[impatiently] Will those steaks ever be ready?",
+									"Hey Mitchell?! I said 'medium rare', not 'well done'! How long could it take?!"
+								}
+							}
 						}
 					}
 				},
 				Play_cm1_pal_01 = {
 					variants = {
 						civilian = {
-							text = "Play_cm1_pal_01"
+							override_name = "Party 'Guest'",
+							text = "My friend wants another $10k for the party supplies.",
+							line_variations = {
+								any_mode = {
+									"She, uh, wants another $10k to do... that thing.",
+									"Hey, uh, my buddy has the blow. Wants $10k for it."
+								}
+							}
 						}
 					}
 				},
 				Play_cm1_pal_02 = {
 					variants = {
 						civilian = {
-							text = "Play_cm1_pal_02"
+							override_name = "Party 'Guest'",
+							text = "Someone's gonna notice all this spending.",
+							line_variations = {
+								any_mode = {
+									"Someone's gonna notice all this spending.",
+									"Oh, we shouldn't have spent so much money so quickly...",
+									"We're pissing a lot of cash. Someone's gonna notice."
+								}
+							}
 						}
 					}
 				},
 				Play_cm1_pal_03 = {
 					variants = {
 						civilian = {
-							text = "Play_cm1_pal_03"
+							override_name = "Party 'Guest'",
+							text = "Yeah, so... anyway...",
+							line_variations = {
+								any_mode = {
+									"Yeah, so... anyway...",
+									"Man..."
+								}
+							}
 						}
 					}
 				},
 				Play_cm2_pal_01 = {
 					variants = {
 						civilian = {
-							text = "Play_cm2_pal_01"
+							override_name = "Mitchell's friend",
+							text = "It's all in the basement, man. Go on, help yourself.",
+							line_variations = {
+								any_mode = {
+									"It's all in the basement, man. Go on, help yourself.",
+									"It's all in the base. Man, c'mon, help yourself."
+								}
+							}
 						}
 					}
 				},
 				Play_cm2_pal_02 = {
 					variants = {
 						civilian = {
-							text = "Play_cm2_pal_02"
+							override_name = "Mitchell's friend",
+							text = "Play_cm2_pal_02",
+							line_variations = {
+								any_mode = {
+									"It's free money, brother!",
+									"It's not like we, uh... can't get more, right?",
+									"Hey, stay cool, brother!"
+								}
+							}
+						}
+					}
+				},
+				Play_pil_pal_01 = {
+					variants = {
+						civilian = {
+							text = "Who are those people?",
+							line_variations = {
+								any_mode = {
+									"[Russian accent] What the hell are you doing here?",
+									"[Russian accent] Who the fuck are those people?",
+									"[Russian accent] Who are those people?",
+									"[Russian accent] You better hurry up and fix that leakage!",
+									"[Russian accent] You better hurry up and fix that leakage... [mujik]!"
+								}
+							}
+						}
+					}
+				},
+				Play_pil_pal_02 = {
+					variants = {
+						civilian = {
+							text = "Somebody fetch me a drink.",
+							line_variations = {
+								any_mode = {
+									"[Russian accent] Somebody fetch me a drink.",
+									"[Russian accent] Do you have anything stronger, 'homie'?"
+								}
+							}
 						}
 					}
 				},
 				Play_pil_pal_03 = {
 					variants = {
 						civilian = {
-							text = "Play_pil_pal_03"
-						}
-					}
-				},
-				Play_pil_pal_03 = {
-					variants = {
-						civilian = {
-							text = "Play_pil_pal_03"
-						}
-					}
-				},
-				Play_pil_pal_03 = {
-					variants = {
-						civilian = {
-							text = "Play_pil_pal_03"
-						}
-					}
-				},
-				Play_pil_pal_03 = {
-					variants = {
-						civilian = {
-							text = "Play_pil_pal_03"
-						}
-					}
-				},
-				Play_pil_pal_03 = {
-					variants = {
-						civilian = {
-							text = "Play_pil_pal_03"
-						}
-					}
-				},
-				Play_pil_pal_03 = {
-					variants = {
-						civilian = {
-							text = "Play_pil_pal_03"
-						}
-					}
-				},
-				Play_pil_pal_03 = {
-					variants = {
-						civilian = {
-							text = "Play_pil_pal_03"
+							text = "[angry Russian]"
 						}
 					}
 				},
 				
 		--undercover		
+				Play_txm_man_01 = {
+					variants = {
+						civilian = {
+							override_name = "Taxman",
+							text = "It's close by, but I want to see the funds.",
+							line_variations = {
+								any_mode = {
+									"It's close by, but I want to see the funds.",
+									"It's... it's somewhere close, but I want to see the funds.",
+									"It's... it's somewhere close. I want to see the funds.",
+									"It's nearby. Can I see the funds?"
+								}
+							}
+						}
+					}
+				},
+				Play_txm_man_02 = {
+					variants = {
+						civilian = {
+							override_name = "Taxman",
+							text = "Great. I'll go get the server.",
+							line_variations = {
+								any_mode = {
+									"Nice. I'll get the server.",
+									"Excellent. I'll get the server.",
+									"Great. I'll go get the server."
+								}
+							}
+						}
+					}
+				},
 				Play_txm_man_03 = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_03"
+							override_name = "Taxman",
+							text = "Where are you taking me?",
+							line_variations = {
+								any_mode = {
+									"Huh? Where the fuck am I?",
+									"Where are you taking me?"
+								}
+							}
 						}
 					}
 				},
-				Play_txm_man_10 = {
+				Play_txm_man_04 = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_10"
-						}
-					}
-				},
-				Play_txm_man_12 = {
-					variants = {
-						override_name = "Taxman",
-						civilian = {
-							text = "Play_txm_man_12"
+							override_name = "Taxman",
+							text = "No, I won't move! Too much shooting!",
+							line_variations = {
+								any_mode = {
+									"No, I won't move! Too much shooting!",
+									"No! Too much firing!",
+									"No! I'm afraid!",
+									"They're shooting at me!",
+									"No, there's too much shooting!"
+								}
+							}
 						}
 					}
 				},
 				Play_txm_man_05 = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_05"
+							override_name = "Taxman",
+							text = "I know what you guys are after but I won't give it to you."
 						}
 					}
 				},
 				Play_txm_man_06 = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_06"
-						}
-					}
-				},
-				Play_txm_man_13 = {
-					variants = {
-						override_name = "Taxman",
-						civilian = {
-							text = "Play_txm_man_13"
+							override_name = "Taxman",
+							text = "Resisting interrogation",
+							line_variations = {
+								any_mode = {
+									"[teeth gritted in pain] Fuck you guys!",
+									"[teeth gritted in pain] The Feds are here, you can fuck off!",
+									"Hey, fuck you!",
+									"Do your worst!",
+									"Fuck you! Fuck ALL OF YOU!",
+									"[laughs mockingly] It's binary! 101110010101001!",
+									"I'll NEVER tell you!",
+									"I'll never tell you!",
+									"[groans in pain] Fuck... you!",
+									"Nothing! I'll say NOTHING!",
+									"[groans in pain] Fuck you!",
+									"You won't get a WORD out of me!",
+									"No fucking way!",
+									"You won't make it anyway!",
+									"[groans in pain] ...No!",
+									"You'll never get out! Feds are everywhere!",
+									"NO!",
+									"No you won't! I ain't sayin' nada!"
+								}
+							}
 						}
 					}
 				},
 				Play_txm_man_07 = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_07"
+							override_name = "Taxman",
+							text = "Giving in to interrogation",
+							line_variations = {
+								any_mode = {
+									"[weakly] Enough!",
+									"[coughs] Okay! [continues coughing] Okay, okay...",
+									"[hoarsely] Okay... easy, easy!"
+								}
+							}
 						}
 					}
 				},
 				Play_txm_man_08a = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_08a"
-						}
-					}
-				},
-				Play_txm_man_09 = {
-					variants = {
-						override_name = "Taxman",
-						civilian = {
-							text = "Play_txm_man_09"
+							duration = 6,
+							override_name = "Taxman",
+							text = "The login... is MercyKill. Capital'M', capital 'K'."
 						}
 					}
 				},
 				Play_txm_man_08b = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_08b"
+							duration = 7,
+							override_name = "Taxman",
+							text = "The account is 'Starbreezer'! It's 'Starbreezer'! [gritting teeth in pain] FUCK!"
 						}
 					}
 				},
 				Play_txm_man_08c = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_08c"
-						}
-					}
-				},
-				Play_txm_man_01 = {
-					variants = {
-						override_name = "Taxman",
-						civilian = {
-							text = "Play_txm_man_01"
-						}
-					}
-				},
-				Play_txm_man_03 = {
-					variants = {
-						override_name = "Taxman",
-						civilian = {
-							text = "Play_txm_man_03"
+							duration = 8,
+							override_name = "Taxman",
+							text = "[hoarsely] The password is SYGON. All... capital letters. [groaning in pain] Agh, FUUUCK!"
 						}
 					}
 				},
 				Play_txm_man_09 = {
 					variants = {
-						override_name = "Taxman",
 						civilian = {
-							text = "Play_txm_man_09"
+							override_name = "Taxman",
+							text = "Resistance failing",
+							line_variations = {
+								any_mode = {
+									"[groaning in pain] I won't... say... another... syllable!",
+									"[groaning in pain] You won't get another WORD out of me!",
+									"[groaning in pain] I told you too much already!",
+									"[groaning in pain] You hit like a girl!"
+								}
+							}
+						}
+					}
+				},
+				Play_txm_man_10 = {
+					variants = {
+						civilian = {
+							override_name = "Taxman",
+							text = "Being interrogated",
+							line_variations = {
+								any_mode = {
+									"No more!",
+									"[cries out in pain]",
+									"Guys, can't we work something out?",
+									"Stop it!",
+									"What? Just leave me alone!",
+									"D-don't kill me!",
+									"Please!"
+								}
+							}
+						}
+					}
+				},
+				Play_txm_man_11 = {
+					variants = {
+						civilian = {
+							override_name = "Taxman",
+							text = "[burning alive]",
+							line_variations = {
+								any_mode = {
+									"[burning alive inside limo, pounding on doors]",
+									"[muffled screaming]",
+									"[screaming in excruciating pain]"
+								}
+							}
+						}
+					}
+				},
+				Play_txm_man_12 = {
+					variants = {
+						civilian = {
+							override_name = "Taxman",
+							text = "[coughing]",
+							line_variations = {
+								any_mode = {
+									"[coughing]",
+									"[violent coughing]",
+									"[weakly coughing]"
+								}
+							}
+						}
+					}
+				},
+				Play_txm_man_13 = {
+					variants = {
+						civilian = {
+							override_name = "Taxman",
+							text = "[cries out in pain]"
 						}
 					}
 				}

@@ -501,7 +501,6 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		sound_id = self:reverse_lookup_event_id(sound_id)
 	end
 	
-	Log(tostring(variant) .. " said line " .. tostring(sound_id),{color=Color.yellow})
 	local text_color = Color.white
 	local is_whisper_mode = managers.groupai:state():whisper_mode()
 	local all_sounds_data = self:GetSoundTable()
@@ -588,7 +587,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 				text = get_random_variation(variations.any_mode,is_recombinable)
 			end
 		end
-		text = text or sound_data.text
+		text = text or subvariant_data.text or sound_data.text
 		
 		if subvariant_data.disabled == true then 
 			return
