@@ -6324,7 +6324,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b02 = {
 					variants = {
-cop = {
+						cop = {
 							text = "Two-Three to Control. Hall A is clear.",
 							line_variations = {
 								recombinable = true,
@@ -6392,6 +6392,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. Hall B is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -6457,6 +6458,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. Hall C is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -6523,6 +6525,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. Hall D is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -6595,6 +6598,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. Roof is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -6668,6 +6672,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. Basement is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -6735,6 +6740,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. First Floor is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -6802,6 +6808,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. Second Floor is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -6876,6 +6883,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. Third Floor is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -6943,6 +6951,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. The Pool Area is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7015,6 +7024,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. The Balcony is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7081,6 +7091,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. The Living Room is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7145,6 +7156,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. The Corridor is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7212,6 +7224,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. The Lobby is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7287,6 +7300,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. No sign of tampering with the Security Door.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7360,6 +7374,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. GenSec Room is clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7435,6 +7450,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. No signs of tampering with the Camera.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7447,7 +7463,16 @@ cop = {
 										"This is Two-Three."
 									},
 									{
-										"Camera looks okay i guess"
+										"Camera operational.",
+										"Camera is in order.",
+										"This place looks fine.",
+										"Camera is working.",
+										"Camera looks fine.",
+									},
+									{
+										"No sign of tampering.",
+										"",
+										""
 									},
 									{
 										"No sign of trespassers here.",
@@ -7472,6 +7497,7 @@ cop = {
 										"This place is 10-26.",
 										"This place is A-OK.",
 										"All is clear.",
+										"Clear as glass here.",
 										"Not a mouse is stirring.",
 										"No sign of trespassing.",
 										"No sign of suspicious activity here.",
@@ -7487,7 +7513,10 @@ cop = {
 										"" 
 									},
 									{
-										"Repeat, camera looks ok i guess",
+										"I repeat, Camera is in order.",
+										"Repeat, Camera looks fine.",
+										"Repeat, Camera operational.",
+										"This place is 10-26.",
 										"",
 										"",
 										"",
@@ -7508,6 +7537,7 @@ cop = {
 						cop = {
 							text = "Two-Three to Control. The Staircase looks clear.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
 									{
 										"Two-Three to Control.",
@@ -7520,7 +7550,7 @@ cop = {
 										"This is Two-Three."
 									},
 									{
-										"Staircase looks clear."
+										"Staircase is clear."
 									},
 									{
 										"No sign of trespassers here.",
@@ -7560,8 +7590,7 @@ cop = {
 										"" 
 									},
 									{
-										"Repeat, the Staircase looks clear.",
-										"",
+										"Repeat, Staircase is clear.",
 										"",
 										"",
 										"",
@@ -7581,8 +7610,71 @@ cop = {
 						cop = {
 							text = "[reporting clear Penthouse]",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
-									"Two three, reporting. Penthouse is clear. Over."
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"The Penthouse is clear."
+										"Penthouse is clear."
+									},
+									{
+										"No sign of trespassers here.",
+										"Nothing suspicious here.",
+										"No sign of break-in here.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"Nothing out of the ordinary here.",
+										"Everything's fine here.",
+										"Everything's clear here.",
+										"Everything's in order.",
+										"Everything's in order here.",
+										"Everything's peaches and cream.",
+										"This place shows no sign of break-in.",
+										"This place has no signs of trespassing.",
+										"This place shows no sign of suspicious activity.",
+										"This place shows no signs of trespassers.",
+										"This place has no signs of trespassing.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"All is clear.",
+										"Not a mouse is stirring.",
+										"No sign of trespassing.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of break-in.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, the Penthouse is clear.",
+										"Repeat, Penthouse is clear.",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -7593,8 +7685,73 @@ cop = {
 						cop = {
 							text = "[reporting clear Garage]",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
-									"Two three, reporting. Garage is clear. Over."
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"The Garage is clear."
+										"Garage is clear."
+									},
+									{
+										"No sign of trespassers here.",
+										"Nothing suspicious here.",
+										"No sign of break-in here.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"Nothing out of the ordinary here.",
+										"Everything's fine here.",
+										"Everything's clear here.",
+										"Everything's in order.",
+										"Everything's in order here.",
+										"Everything's peaches and cream.",
+										"This place shows no sign of break-in.",
+										"This place has no signs of trespassing.",
+										"This place shows no sign of suspicious activity.",
+										"This place shows no signs of trespassers.",
+										"This place has no signs of trespassing.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"All is clear.",
+										"Clear as glass here.",
+										"Not a mouse is stirring.",
+										"No sign of trespassing.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of break-in.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"I repeat, the Garage is clear.",
+										"Repeat, the Garage is clear.",
+										"All is clear.",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -7603,10 +7760,14 @@ cop = {
 				l2n_b22 = {
 					variants = {
 						cop = {
-							text = "[reporting proceeding with sweep]",
+							text = "Two-Three to Control. Proceeding with search.",
 							line_variations = {
 								any_mode = {
-									"Proceeding"
+									"I'll move on.",
+									"Heading on.",
+									"Moving on.",
+									"Movin' on.",
+									"Onto the next."
 								}
 							}
 						}
@@ -7615,10 +7776,29 @@ cop = {
 				l2n_b23 = {
 					variants = {
 						cop = {
-							text = "[request gate access]",
+							text = "This is Two-Three. Can you buzz me in? Over.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
-									"This is Two-Three. Can you buzz me in? Over."
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Can you buzz me in?",
+										"Open sesame!",
+										"Buzz me in to the lobby, please.",
+										"Can one of you guys buzz me in? Thanks."
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -7627,10 +7807,48 @@ cop = {
 				l2n_b24 = {
 					variants = {
 						cop = {
-							text = "[reporting finished clear sweep]",
+							text = "This is Two-Three. Sweep finished, all is clear. Over and out.",
 							line_variations = {
+								recombinable = true,
 								any_mode = {
-									"Two-Three reporting. This place is clear from top to bottom. I'm outta here. Over and out."
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"My gut feeling says no-one's breaking into this place. [chuckles] My gut feeling's never wrong.",
+										"This place is clear all over.",
+										"This place is clear, inside and outside.",
+										"This place is clear, from top to bottom.",
+										"This place is clear, through and through.",
+										"To be honest, I don't even know why we bother to do patrols 'round here.",
+										"This entire place is tip-top.",
+										"This entire place is in mint condition."
+									},
+									{
+										"[exhales] I'm heading back.",
+										"[relieved sigh] I'm outta here!",
+										"I'm off!",
+--										"I'm heading back to my bed.",
+										"I'm heading back to station.",
+										"Heading back to station.",
+										"I'm headin' home.",
+										"This place is dead anyways.",
+										"I'm heading back to GenSec.",
+										"Heading back to the GenSec station."
+									},
+									{
+										"Ooover'n'out.",
+										"Over and out.",
+										"Over... and... out!",
+										"Over and out!"
+									}
 								}
 							}
 						}
@@ -7640,9 +7858,18 @@ cop = {
 					variants = {
 						cop = {
 							line_variations = {
-								text = "[attempting arrest]",
+								text = "attempting arrest",
 								any_mode = {
-									"No sudden movements!"
+									"Hold still!",
+									"No sudden movements!",
+									"NO SUDDEN MOVEMENT.",
+									"Don't move a muscle!",
+									"DON'T MOVE A MUSCLE!",
+									"Don't even breathe!",
+									"No sudden moves!",
+									"NO SUDDEN MOVES!",
+									"STAY WHERE YOU ARE!",
+									"Don't even look at me!"
 								}
 							}
 						}

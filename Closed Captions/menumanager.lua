@@ -189,7 +189,9 @@ ClosedCaptions.settings = {
 	language = 1,
 	box_y = 200,
 	box_w = 600,
-	font_size = 24
+	max_num_boxes = 5,
+	box_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
+	font_size = 16
 }
 
 ClosedCaptions.hud_data = {
@@ -242,6 +244,8 @@ function ClosedCaptions:init_captions()
 	self._panel:set_layer(1000)
 	if BeardLib then 
 		BeardLib:AddUpdater("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
+	elseif managers.hud then 
+		managers.hud:add_updator("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
 	end
 end
 
@@ -414,7 +418,7 @@ function ClosedCaptions:Update(t,dt)
 	local angle_threshold = 45
 	local y = self.settings.box_y --starting position
 	local n = 0
-	local MAX_SUBTITLES = 16
+	local MAX_SUBTITLES = self.settings.max_num_boxes
 	local player = managers.player:local_player()
 	local viewport_cam = managers.viewport:get_current_camera()
 	local player_aim = viewport_cam and viewport_cam:rotation():yaw() or 0
@@ -430,7 +434,8 @@ function ClosedCaptions:Update(t,dt)
 --					self:remove_line(i)
 				else
 				--todo fadeout in x seconds, starting at duration-x seconds
-					item.panel:set_alpha(((item.expire_t - t) / (item.expire_t - item.start_t) * 2) + 0.5)
+					item.panel:set_alpha(math.min(1,(item.expire_t - t) / self.settings.box_fadeout_time))
+--					item.panel:set_alpha(((item.expire_t - t) / (item.expire_t - item.start_t) * 2) + 0.5)
 					
 					local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
 					if item.source ~= player then 
@@ -501,6 +506,7 @@ function ClosedCaptions:LocalizeSourceName(source_name) --not used
 	return source_name
 end
 
+--caution: here be dragons
 function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire_t)
 	if expire_t == 0 or expire_t <= Application:time() then 
 		expire_t = nil
@@ -615,6 +621,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	local panel_text = tostring(source_name) .. ": " .. tostring(text)
 	--if source type is unit, use unit key
 	
+	text_color = sound_data.override_text_color or text_color
 	
 	
 	if not text then 
@@ -658,7 +665,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 	local ver_text_margin = 8
 	local w = self.settings.box_w
 	local h = 100  --default
-	item_panel = self._panel:panel({
+	item_panel = panel:panel({
 		name = panel_name,
 		y = panel:h(),
 		w = w,
