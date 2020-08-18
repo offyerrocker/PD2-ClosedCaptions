@@ -17,6 +17,10 @@
 			"script_path" : "dialogmanager.lua"
 		},
 		{
+			"hook_id" : "core/lib/managers/mission/coreelementplaysound",
+			"script_path" : "coreelementplaysound.lua"
+		},
+		{
 			"hook_id" : "lib/network/handlers/unitnetworkhandler",
 			"script_path" : "unitnetworkhandler.lua"
 		},

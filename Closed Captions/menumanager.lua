@@ -2,32 +2,34 @@
 * todo adjust horizontal position of subtitles
 * todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
-
-* todo aldstone lines
+* alpha fadeout for expired captions
 
 * todo re-make and re-center text (currently left-aligned)
 * todo sort voicelines by type (source)
-* todo figure out a cloaker static nearby system
 * todo filter out voicelines by local-player only (eg. for pickups/uppers ace)?
 	* can_say filter per type of character?
 	* per faction disabling?
 		* cops saying stuff but criminals cannot
 * todo layer custom user settings over sound_data
 	* todo documented custom template for those things
+* fix sfx source lines such as ammo_pickup	
+	
+known issues:
+	cloaker static persists for 1000 seconds only, and is interrupted by any other cloaker line
+	Taxman lines may cut off prematurely (reason unknown)
 --]]
 --[[
 calling out guards, deploying, grenades, calling bots, inspiring downed heisters
 guard pager timer having noises
 mission dialogue:
 	- first world bank insider dialogue
-	- heat street dipshit dialogue
+	- heat street matt roscoe dialogue
 	- diamond heist ceo dialogue/ceo son dialogue
 	- rats gangster dialogue
 	- green bridge prisoner dialogue
 	- hell's island bain dialogue/dentist dialogue
 	- hoxrev hector dialogue
 	
-	- undercover taxman dialogue
 	- framing frame buyer dialogue
 	
 	- hotline miami commissar taunts
@@ -36,12 +38,18 @@ mission dialogue:
 	- scarface mansion sosa dialogue
 	- breakin' feds garrett dialogue
 	
+	- brooklyn 10/10 charon?
+	- necrocloaker dialogue on cursed kill room/prison nightmare?
+	- GO Bank phone calls?
+	- Goat simulator d2 doctor?
+	- hoxton breakout hoxton dialogue?
 	- beneath the mountain locke dialogue?
 	- stealing xmas almir dialogue
 	- murky station radio (loop)
 	- Car shop chatter
 	- goat simulator dialogue
 	- border crossing...?
+* aldstone lines?
 --]]
 
 
