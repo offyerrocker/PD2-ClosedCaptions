@@ -1,53 +1,47 @@
 --[[
 * todo adjust horizontal position of subtitles
+* todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
 
+* todo aldstone lines
+
 * todo re-make and re-center text (currently left-aligned)
-* todo address dialog manager text;
-	* check certain lines even if contractor lines are disabled
-		* camera countdown for no mercy is not considered an exception
 * todo sort voicelines by type (source)
 * todo figure out a cloaker static nearby system
 * todo filter out voicelines by local-player only (eg. for pickups/uppers ace)?
 	* can_say filter per type of character?
 	* per faction disabling?
 		* cops saying stuff but criminals cannot
-* rename "text_variations" to "any" to reflect lack of required conditions
-* rename "variations" to something reflecting the presence of required conditions as well as variations
-* add macroized variants
-	* table structure to automate variations; 
-		* eg. 
-			combinable_variations {
-				{
-					"Two-Three, reporting in.",
-					"Uh, this is Two-Three, reporting in.",
-					"Two-Three here, reporting in.",
-					"This is Two-Three, uh, checking in."
-				},
-				{
-					"All clear here. Everything is A-OK.",
-					"Nothing suspicious here. Repeat, no suspicious activity.",
-					"Everything is fine. Repeat, no signs of criminal activity.",
-					"Clean as a whistle here. Everything is fine.",
-				},
-				{
-					"Over.",
-					"Over!",
-					"Over and out.",
-					"Over and out, heading back to base."
-				}
-			}
 * todo layer custom user settings over sound_data
 	* todo documented custom template for those things
 --]]
 --[[
 calling out guards, deploying, grenades, calling bots, inspiring downed heisters
 guard pager timer having noises
-bain counting down on No Mercy
 mission dialogue:
-	- gangster dialogue on PANIK (not kalm) Room
-	- gangster dialogue on rats
-	- ceo dialogue on the diamond heist
+	- first world bank insider dialogue
+	- heat street dipshit dialogue
+	- diamond heist ceo dialogue/ceo son dialogue
+	- rats gangster dialogue
+	- green bridge prisoner dialogue
+	- hell's island bain dialogue/dentist dialogue
+	- hoxrev hector dialogue
+	
+	- undercover taxman dialogue
+	- framing frame buyer dialogue
+	
+	- hotline miami commissar taunts
+	- biker heist mechanic?
+	- reservoir dogs mr purple dialogue?
+	- scarface mansion sosa dialogue
+	- breakin' feds garrett dialogue
+	
+	- beneath the mountain locke dialogue?
+	- stealing xmas almir dialogue
+	- murky station radio (loop)
+	- Car shop chatter
+	- goat simulator dialogue
+	- border crossing...?
 --]]
 
 
@@ -185,8 +179,9 @@ ClosedCaptions.color_data = {
 
 ClosedCaptions.settings = {
 	language = 1,
-	box_y = 150,
-	box_w = 600
+	box_y = 200,
+	box_w = 600,
+	font_size = 24
 }
 
 ClosedCaptions.hud_data = {
@@ -432,7 +427,7 @@ function ClosedCaptions:Update(t,dt)
 					local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
 					if item.source ~= player then 
 						if source_position then -- source_position and mvector3.distance_sq(player_pos,source_position) < snd_dist_max_sq then 
-							local angle_to = 90 + ClosedCaptions.angle_from(player_pos,source_position) - player_aim
+							local angle_to = ((ClosedCaptions.angle_from(player_pos,source_position) - player_aim + 270) % 360) - 180
 							item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
 							item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
 						else
@@ -465,7 +460,7 @@ function ClosedCaptions:Update(t,dt)
 end
 
 
-function ClosedCaptions:GetTextColorByUnit(unit)
+function ClosedCaptions:GetTextColorByUnit(unit) --todo
 	return self.color_data.generic
 end
 
@@ -505,6 +500,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	if type(sound_id) == "number" then 
 		sound_id = self:reverse_lookup_event_id(sound_id)
 	end
+	
+	Log(tostring(variant) .. " said line " .. tostring(sound_id),{color=Color.yellow})
 	local text_color = Color.white
 	local is_whisper_mode = managers.groupai:state():whisper_mode()
 	local all_sounds_data = self:GetSoundTable()
@@ -529,11 +526,11 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	
 	local text
 	local subvariant_data
-	--local variations
+	local variations
 	
 	local sound_data = all_sounds_data.vo[sound_id]
 	if not sound_data then 
---		self:log(tostring(source_name) .. " said [" .. tostring(sound_id) .. "] - unknown sound_id in Closed Captions:add_line()",{color=Color.yellow})
+		self:log(tostring(source_name) .. " said [" .. tostring(sound_id) .. "] - unknown sound_id in Closed Captions:add_line()",{color=Color.yellow})
 		self:AddToDebug(sound_id,source_name)
 		return
 	else
@@ -556,12 +553,15 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			if is_recombinable then
 				local variation_text
 				for _,combinable_parts in pairs(variations_tbl) do 
-					if variation_text then
-						variation_text = variation_text .. " "
-					else
-						variation_text = ""
+					local new_text = combinable_parts[math.random(#combinable_parts)]
+					if new_text ~= "" then 
+						if variation_text then
+							variation_text = variation_text .. " "
+						else
+							variation_text = ""
+						end
+						variation_text = variation_text .. new_text
 					end
-					variation_text = variation_text .. combinable_parts[math.random(#combinable_parts)]
 				end
 				return variation_text
 			else
@@ -572,31 +572,31 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			end
 		end
 		
+		subvariant_data = subvariant_data or sound_data
 		
-		--untested
-		--todo check recombinable flag 
-		--vvv this thing (requires refactoring sound_data again)
---		variations = subvariant_data.variations or sound_data.variations
-		if is_whisper_mode and (sound_data.whisper_mode or subvariant_data.whisper_mode) then --whisper_mode indicates the requirement that the heist is currently in stealth mode
-			text = get_random_variation(sound_data.whisper_mode or subvariant_data.whisper_mode)
-		elseif not is_whisper_mode and(sound_data.assault_mode or subvariant_data.assault_mode) then --assault_mode indicates the requirement that an assault is present
-			text = get_random_variation(sound_data.assault_mode or subvariant_data.assault_mode)
-		elseif (sound_data.standard_mode or subvariant_data.standard_mode) then --no assault
-			text = get_random_variation(sound_data.standard_mode or subvariant_data.standard_mode)
-		elseif (sound_data.text_variations or subvariant_data.text_variations) then --no conditional requirements for these lines
+		variations = subvariant_data.line_variations or sound_data.line_variations
+		if variations then 
+			local is_recombinable = variations.recombinable
 			
-			text = get_random_variation(sound_data.standard_mode or subvariant_data.standard_mode)
+			if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
+				text = get_random_variation(variations.whisper_mode,is_recombinable)
+			elseif not is_whisper_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
+				text = get_random_variation(variations.assault_mode,is_recombinable)
+			elseif variations.standard_mode then --no assault
+				text = get_random_variation(variations.standard_mode,is_recombinable)
+			elseif variations.any_mode then --no conditional requirements for these lines
+				text = get_random_variation(variations.any_mode,is_recombinable)
+			end
 		end
-		
 		text = text or sound_data.text
 		
-		if sound_data.disabled == true then 
+		if subvariant_data.disabled == true then 
 			return
-		elseif sound_data.disabled == "whisper_mode" then 
+		elseif subvariant_data.disabled == "whisper_mode" then 
 			if not is_whisper_mode then
 				return
 			end
-		elseif sound_data.disabled == "local_player" then --todo split into separate filter
+		elseif subvariant_data.disabled == "local_player" then --todo split into separate filter
 			if not (alive(source) and (source == managers.player:local_player()) ) then 
 				return
 			end
@@ -611,13 +611,12 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	
 	
 	if not text then 
-		debugbird = sound_data
 		self:log("Error: No valid text in add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
 	else
 		self:log("add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=text_color})
 	end
 	
-	local priority = sound_data.priority or 1
+	local priority = subvariant_data.priority or sound_data.priority or 1
 	
 	
 	
@@ -631,7 +630,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			priority = priority,
 			panel = panel,
 			start_t = t,
-			expire_t = (sound_data.duration and (sound_data.duration + t)) or expire_t or (t + 3)
+			expire_t = (subvariant_data.duration and (subvariant_data.duration + t)) or expire_t or (t + 3)
 		}
 		table.insert(self.active_lines,data)
 	elseif not panel then 
@@ -648,7 +647,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 		panel:remove(item_panel)
 --		return item_panel,true
 	end
-	local hor_text_margin = 20
+	local hor_text_margin = 8 + self.settings.font_size
 	local ver_text_margin = 8
 	local w = self.settings.box_w
 	local h = 100  --default
@@ -659,20 +658,6 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 		h = 100,
 		visible = true
 	})
-	
-	local arrow_left = item_panel:text({
-		name = "arrow_left",
-		text = is_locationless and "" or "<",
-		x = 0,
-		y = 0,
-		align = "left",
-		vertical = "center",
-		font = tweak_data.hud_players.ammo_font,
-		font_size = 16,
-		color = text_color,
-		layer = 2,
-		visible = is_locationless
-	})
 	local subtitle = item_panel:text({
 		name = "subtitle",
 		text = text,
@@ -681,7 +666,7 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 --		w = item_panel:w(),
 --		align = "center", --todo
 		font = tweak_data.hud_players.ammo_font,
-		font_size = 16,
+		font_size = self.settings.font_size,
 		color = text_color,
 		layer = 2,
 		visible = true
@@ -693,43 +678,6 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 		return s_w >= (self.settings.box_w)--horizontal margin
 	end
 
-	--[[ pseudo
-
---	local w_r = s_w / panel:w() 
---	if w_r > 1 then 
-		--todo resize?
---	end	
-	
-	if check_text_over_threshold() then 
-		local words_in_text = string.split(text," ")
-		local words_remaining = #words_in_text
-		repeat 
-			words_remaining = words_remaining / 2
-			for i = 1,#words_in_text - math.ceil(words_remaining),1 do 
-				s = s .. words_in_text[i]
-				subtitle_set_text(s)
-				
-			end
-		until ((words_remaining / 2) < 1)
-	end	
-		
-	check text over threshold 
-	if text over threshold then 
-		get all words in text -> table
-		get num words in table
-		if half_words >= 1 then 
-			compilate half of words in table
-			set text to new compilate
-				goto check text over threshold again		
-		else
-			add remaining word
-			if text over threshold then 
-				split word in half?
-			end
-		end
-	--]]
-	
-	
 	--this multi-line spillover capability does not cover cases where a single word (where a "word" is any string of characters delimited by a single space character " ")
 	--so uh. todo
 	if check_text_spillover() then 
@@ -762,19 +710,35 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 	subtitle:set_h(s_h)
 	
 	item_panel:set_size(s_w + hor_text_margin,s_h + ver_text_margin)
+
+	local arrow_left = item_panel:text({
+		name = "arrow_left",
+		text = is_locationless and "" or "<",
+		visible = is_locationless,
+		x = 0,
+		y = 0,
+		align = "left",
+		vertical = "center",
+		font = tweak_data.hud_players.ammo_font,
+		font_size = self.settings.font_size,
+		color = text_color,
+		layer = 2
+	})
+	
 	local arrow_right = item_panel:text({
 		name = "arrow_right",
 		text = is_locationless and "" or ">",
+		visible = is_locationless,
 		x = 0,
 		y = 0,
 		align = "right",
 		vertical = "center",
 		font = tweak_data.hud_players.ammo_font,
-		font_size = 16,
+		font_size = self.settings.font_size,
 		color = text_color,
-		layer = 2,
-		visible = is_locationless
+		layer = 2
 	})
+	
 	local bg = item_panel:bitmap({
 		name = "bg",
 		layer = 1,

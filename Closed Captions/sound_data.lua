@@ -1,5 +1,5 @@
 ClosedCaptions._sounds = {
---return {
+	--return {
 	languages = {
 		english = {
 			vo_special = {
@@ -7,7 +7,7 @@ ClosedCaptions._sounds = {
 					text = "$CHARACTER_NAME! Help me up!",
 					caps = true,
 					macro = "character_name"
-				}, 
+				},
 				["f13@_sin"] = { --macroized
 					text = "$CHARACTER_NAME, come uncuff me!",
 					macro = "character_name"
@@ -17,7 +17,7 @@ ClosedCaptions._sounds = {
 					macro = "character_name"
 				}
 			},
-			vo = {	
+			vo = {
 				pickup_ammo = {
 					override_name = "SFX",
 					text = "picked up ammo",
@@ -84,15 +84,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Down the stairs",
-										"Downstairs."
+									line_variations = {
+										any_mode = {
+											"Down the stairs",
+											"Downstairs."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = { --technically has loud/stealth sound variants
-										"Downstairs!",
-										"Down the stairs!"
+									line_variations = {
+										any_mode = { --technically has loud/stealth sound variants
+											"Downstairs!",
+											"Down the stairs!"
+										}
 									}
 								}
 							}
@@ -106,15 +110,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Up, up!",
-										"Keep going up!"
+									line_variations = {
+										any_mode = {
+											"Up, up!",
+											"Keep going up!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Upstairs!",
-										"Up the stairs!"
+									line_variations = {
+										any_mode = {
+											"Upstairs!",
+											"Up the stairs!"
+										}
 									}
 								}
 							}
@@ -126,9 +134,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Go left",
 							priority = 5,
-							text_variations = {
-								"To the left!",
-								"Left!"
+							line_variations = {
+								any_mode = {
+									"To the left!",
+									"Left!"
+								}
 							}
 						}
 					}
@@ -138,9 +148,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Go right",
 							priority = 5,
-							text_variations = {
-								"To the right!",
-								"Right!"
+							line_variations = {
+								any_mode = {
+									"To the right!",
+									"Right!"
+								}
 							}
 						}
 					}
@@ -152,13 +164,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								criminal = {
-									standard_mode = {
-										"Up, up!",
-										"Keep going up!"
-									},
-									assault_mode = {
-										"Up, up!",
-										"Up!"
+									line_variations = {
+										standard_mode = {
+											"Up, up!",
+											"Keep going up!"
+										},
+										assault_mode = {
+											"Up, up!",
+											"Up!"
+										}
 									}
 								}
 							}
@@ -170,13 +184,15 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Go down",
 							priority = 5,
-							standard_mode = {
-								"Down!",
-								"Keep going down!"
-							},
-							assault_mode = {
-								"Down, down!",
-								"Keep going down!"
+							line_variations = {
+								standard_mode = {
+									"Down!",
+									"Keep going down!"
+								},
+								assault_mode = {
+									"Down, down!",
+									"Keep going down!"
+								}
 							}
 						}
 					}
@@ -188,16 +204,20 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"We've got to get out.",
-										"We've got to get out!",
-										"Get out!"
+									line_variations = {
+										any_mode = {
+											"We've got to get out.",
+											"We've got to get out!",
+											"Get out!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Get out!",
-										"We've gotta get out!"
+									line_variations = {
+										any_mode = {
+											"Get out!",
+											"We've gotta get out!"
+										}
 									}
 								}
 							}
@@ -209,9 +229,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Get in",
 							priority = 5,
-							text_variations = {
-								"Inside!",
-								"Get in!"
+							line_variations = {
+								any_mode = {
+									"Inside!",
+									"Get in!"
+								}
 							}
 						}
 					}
@@ -223,19 +245,23 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"C'mon, faster!",
-										"Double time!",
-										"Hurry up!",
-										"Hurry, hurry!"
+									line_variations = {
+										any_mode = {
+											"C'mon, faster!",
+											"Double time!",
+											"Hurry up!",
+											"Hurry, hurry!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Hurry, hurry!",
-										"HURRY!",
-										"Hurry up!",
-										"C'mon, faster!"
+									line_variations = {
+										any_mode = {
+											"Hurry, hurry!",
+											"HURRY!",
+											"Hurry up!",
+											"C'mon, faster!"
+										}
 									}
 								}
 							}
@@ -247,9 +273,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Careful",
 							priority = 5,
-							text_variations = {
-								"Careful, now!",
-								"Careful!"
+							line_variations = {
+								any_mode = {
+									"Careful, now!",
+									"Careful!"
+								}
 							}
 						}
 					}
@@ -259,9 +287,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Wrong way",
 							priority = 5,
-							text_variations = {
-								"This is the wrong way",
-								"Not this way!"
+							line_variations = {
+								any_mode = {
+									"This is the wrong way",
+									"Not this way!"
+								}
 							}
 						}
 					}
@@ -273,15 +303,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"This way!",
-										"We're on the right track."
+									line_variations = {
+										any_mode = {
+											"This way!",
+											"We're on the right track."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"This is right!",
-										"This way!"
+									line_variations = {
+										any_mode = {
+											"This is right!",
+											"This way!"
+										}
 									}
 								}
 							}
@@ -295,15 +329,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Come on.",
-										"Let's go."
+									line_variations = {
+										any_mode = {
+											"Come on.",
+											"Let's go."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Come on!",
-										"Let's go!"
+									line_variations = {
+										any_mode = {
+											"Come on!",
+											"Let's go!"
+										}
 									}
 								}
 							}
@@ -317,15 +355,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"This is it.",
-										"This is the place."
+									line_variations = {
+										any_mode = {
+											"This is it.",
+											"This is the place."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"This is it!",
-										"This is the place!"
+									line_variations = {
+										any_mode = {
+											"This is it!",
+											"This is the place!"
+										}
 									}
 								}
 							}
@@ -337,9 +379,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Look there",
 							priority = 5,
-							text_variations = {
-								"Over there!",
-								"There!"
+							line_variations = {
+								any_mode = {
+									"Over there!",
+									"There!"
+								}
 							}
 						}
 					}
@@ -350,17 +394,21 @@ ClosedCaptions._sounds = {
 							text = "Keep defending",
 							priority = 5,
 							subvariants = {
-								rb4 = { --!
-									assault_mode = {
-										"Keep defending!",
-										"Keep 'em away!",
-										"Hold the fort!"
+								rb4 = {
+									line_variations = {
+										assault_mode = {
+											"Keep defending!",
+											"Keep 'em away!",
+											"Hold the fort!"
+										}
 									}
 								},
 								rb15 = {
-									assault_mode = {
-										"Keep defending!",
-										"Left!"
+									line_variations = {
+										assault_mode = {
+											"Keep defending!",
+											"Left!"
+										}
 									}
 								}
 							}
@@ -374,23 +422,27 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									assault_mode = {
-									},
-									standard_mode = {
-										"We've got to get out of here.",
-										"Time to go."
+									line_variations = {
+										assault_mode = {
+										},
+										standard_mode = {
+											"We've got to get out of here.",
+											"Time to go."
+										}
 									}
 								},
 								rb15 = {
-									assault_mode = {
-										"Let's be off!",
-										"Let's head out!",
-										"Time to go!",
-										"We gotta get outta here!"
-									},
-									standard_mode = {
-										"We've got to get out of here.",
-										"Time to go."
+									line_variations = {
+										assault_mode = {
+											"Let's be off!",
+											"Let's head out!",
+											"Time to go!",
+											"We gotta get outta here!"
+										},
+										standard_mode = {
+											"We've got to get out of here.",
+											"Time to go."
+										}
 									}
 								}
 							}
@@ -404,34 +456,38 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Move!",
-										"Move it."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Move!",
+											"Move it."
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									assault_mode = {
-										"Faster, faster!",
-										"MOVE!",
-										"Shift it!",
-										"Let's go, let's GO!",
-										"Faster, c'mon!",
-										"Move it!",
-										"Come on!",
-										"Get a move on!",
-										"Leg it, drongo!",
-									},
-									standard_mode = {
-										"Move your arse, you tosser!",
-										"Move, move!",
-										"You're not jogging in the park, ya idiot!",
-										"Move it!",
-										"Crikey, get a move on, then!",
-										"Move!",
-										"Run faster, dipshit!",
-										"Christ, can you move any SLOWER!?",
-										"Move it, you drongo!"
+									line_variations = {
+										assault_mode = {
+											"Faster, faster!",
+											"MOVE!",
+											"Shift it!",
+											"Let's go, let's GO!",
+											"Faster, c'mon!",
+											"Move it!",
+											"Come on!",
+											"Get a move on!",
+											"Leg it, drongo!",
+										},
+										standard_mode = {
+											"Move your arse, you tosser!",
+											"Move, move!",
+											"You're not jogging in the park, ya idiot!",
+											"Move it!",
+											"Crikey, get a move on, then!",
+											"Move!",
+											"Run faster, dipshit!",
+											"Christ, can you move any SLOWER!?",
+											"Move it, you drongo!"
+										}
 									}
 								}
 							}
@@ -443,9 +499,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Go straight",
 							priority = 5,
-							text_variations = {
-								"Straight on!",
-								"Straight ahead!"
+							line_variations = {
+								any_mode = {
+									"Straight on!",
+									"Straight ahead!"
+								}
 							}
 						}
 					}
@@ -457,20 +515,24 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Jump down!",
-										"Down here!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Jump down!",
+											"Down here!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Jump down!",
-										"Down there!"
-									},
-									assault_mode = {
-										"Jump down!",
-										"Down here!"
+									line_variations = {
+										standard_mode = {
+											"Jump down!",
+											"Down there!"
+										},
+										assault_mode = {
+											"Jump down!",
+											"Down here!"
+										}
 									}
 								}
 							}
@@ -485,25 +547,29 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Drill's in place.",
-										"Drill in place.",
-										"Drill mounted."
-									},
-									assault_mode = {
+									line_variations = {
+										standard_mode = {
+											"Drill's in place.",
+											"Drill in place.",
+											"Drill mounted."
+										},
+										assault_mode = {
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Drilling!",
-										"Got the drill up.",
-										"Drill placed.",
-										"I've put up the drill."
-									},
-									assault_mode = {
-										"Drill in place!",
-										"Drill up!",
-										"We're drilling!"
+									line_variations = {
+										standard_mode = {
+											"Drilling!",
+											"Got the drill up.",
+											"Drill placed.",
+											"I've put up the drill."
+										},
+										assault_mode = {
+											"Drill in place!",
+											"Drill up!",
+											"We're drilling!"
+										}
 									}
 								}
 							}
@@ -515,16 +581,20 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = nil, --only houston and chains have sound vo for this, so do not display cc for anyone else for this line
 							subvariants = {
-								rb222 = {
-									text_variations = {	
-										"Piece of shit drill!",
-										"Broke-dick piece of shit drill!"
+								rb222 = { --!
+									line_variations = {
+										any_mode = {
+											"Piece of shit drill!",
+											"Broke-dick piece of shit drill!"
+										}
 									}
 								},
 								rb555 = { --!
-									text_variations = {	
-										"Piece of shit drill!",
-										"This drill is a piece of shit!"
+									line_variations = {
+										any_mode = {
+											"Piece of shit drill!",
+											"This drill is a piece of shit!"
+										}
 									}
 								}
 							}
@@ -536,12 +606,14 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							rb4 = {
-								text_variations = {
-									"Shoot 'em!",
-									"Shoot!"
+								line_variations = {
+									any_mode = {
+										"Shoot 'em!",
+										"Shoot!"
+									}
 								}
 							}
-							--sydney does not have this line
+						--sydney does not have this line
 						}
 					}
 				},
@@ -552,45 +624,49 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									whisper_mode = {
-										
-									},
-									assault_mode = {
-										"I almost can't believe we did it!",
-										"Yeah! We pulled that off! Fantastic!",
-										"Fantastic! Just fantastic!",
-										"Haha! We're in the clear!",
-										"Great work, my friends, great work!",
-										"Yes! Tightest crew ever!",
+									line_variations = {
+										whisper_mode = {
+
+										},
+										assault_mode = {
+											"I almost can't believe we did it!",
+											"Yeah! We pulled that off! Fantastic!",
+											"Fantastic! Just fantastic!",
+											"Haha! We're in the clear!",
+											"Great work, my friends, great work!",
+											"Yes! Tightest crew ever!",
+										}
 									}
 								},
 								rb15 = {
-									whisper_mode = {
-										"Yeah, I'll admit, that was smooth.",
-										"That was a ripper!",
-										"[sarcastic] Hooraaay, we did the job SILENTLY. I'm still bored as batshit.",
-										"The Dingos wouldn't believe their eyes if they saw me do this!", --"The Dingos" is the name of Sydney's former gang
-										"Silent and deadly, fascinating combo!",
-										"Perfect execution! Can't say otherwise.",
-										"Well bugger  me, that was easy!",
-										"No wuckin' forries whatsoever!",
-										"That was easy enough, but not as much fun!",
-										"I guess that's how the pros do it!",
-										"I guess that's one way of doing things!"
-									},
-									assault_mode = {
-										"That's how we do it!",
-										"We did it, nice!",
-										"THIS is how legends are made!",
-										"Crikey, that was close, but we fuckin' did it!",
-										"Fuck me, that was SO much fun!",
-										"Get stuffed, no-one can stop us!",
-										"That was fuckin' fat!",
-										"[laughter] And that's how we fuckin' do it!",
-										"It's a ripper of a day, yes it is!",
-										"I had my doubts coming to America, but this was SO fucking worth it!",
-										"No wuckin' forries, we're unstoppable!",
-										"That was fun and all, but now I'm buggered!"
+									line_variations = {
+										whisper_mode = {
+											"Yeah, I'll admit, that was smooth.",
+											"That was a ripper!",
+											"[sarcastic] Hooraaay, we did the job SILENTLY. I'm still bored as batshit.",
+											"The Dingos wouldn't believe their eyes if they saw me do this!", --"The Dingos" is the name of Sydney's former gang
+											"Silent and deadly, fascinating combo!",
+											"Perfect execution! Can't say otherwise.",
+											"Well bugger  me, that was easy!",
+											"No wuckin' forries whatsoever!",
+											"That was easy enough, but not as much fun!",
+											"I guess that's how the pros do it!",
+											"I guess that's one way of doing things!"
+										},
+										assault_mode = {
+											"That's how we do it!",
+											"We did it, nice!",
+											"THIS is how legends are made!",
+											"Crikey, that was close, but we fuckin' did it!",
+											"Fuck me, that was SO much fun!",
+											"Get stuffed, no-one can stop us!",
+											"That was fuckin' fat!",
+											"[laughter] And that's how we fuckin' do it!",
+											"It's a ripper of a day, yes it is!",
+											"I had my doubts coming to America, but this was SO fucking worth it!",
+											"No wuckin' forries, we're unstoppable!",
+											"That was fun and all, but now I'm buggered!"
+										}
 									}
 								}
 							}
@@ -601,9 +677,11 @@ ClosedCaptions._sounds = {
 					text = "Take out the cameras!",
 					variants = {
 						criminal = {
-							text_variations = {
-								"Take out the cameras!",
-								"Remember, take out the cameras!"
+							line_variations = {
+								any_mode = {
+									"Take out the cameras!",
+									"Remember, take out the cameras!"
+								}
 							}
 						}
 					}
@@ -615,18 +693,22 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Rope down the people with the Cable Ties.",
-										"Remember the Cable Ties.",
-										"Use those Cable Ties!",
-										"Cable Ties- make use of 'em!"
+									line_variations = {
+										standard_mode = {
+											"Rope down the people with the Cable Ties.",
+											"Remember the Cable Ties.",
+											"Use those Cable Ties!",
+											"Cable Ties- make use of 'em!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Tie 'em up.",
-										"Tie everybody down.",
-										"Well, how about using the cable ties, dipshit?"
+									line_variations = {
+										standard_mode = {
+											"Tie 'em up.",
+											"Tie everybody down.",
+											"Well, how about using the cable ties, dipshit?"
+										}
 									}
 								}
 							}
@@ -640,17 +722,21 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Careful with the people!",
-										"Watch the crowd!",
-										"Watch the civvies!",
-										"Keep the crowds in check."
+									line_variations = {
+										standard_mode = {
+											"Careful with the people!",
+											"Watch the crowd!",
+											"Watch the civvies!",
+											"Keep the crowds in check."
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Hey, watch the bloody civilians!",
-										"Crikey, keep the civvies in check!"
+									line_variations = {
+										standard_mode = {
+											"Hey, watch the bloody civilians!",
+											"Crikey, keep the civvies in check!"
+										}
 									}
 								}
 							}
@@ -663,9 +749,11 @@ ClosedCaptions._sounds = {
 						criminal = {
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"We're gonna make it!",
-										"Almost there, almost there!",
+									line_variations = {
+										standard_mode = {
+											"We're gonna make it!",
+											"Almost there, almost there!",
+										}
 									}
 								}
 							}
@@ -679,27 +767,31 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Aw, shit!",
-										"FUCK! Oh, FUCK!",
-										"Shit!",
-										"Damn!"
+									line_variations = {
+										standard_mode = {
+											"Aw, shit!",
+											"FUCK! Oh, FUCK!",
+											"Shit!",
+											"Damn!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"SHIT!",
-										"Aw, shit!",
-										"Aw, SHIT!",
-										"Fuckin' 'ell!",
-										"Aw, fuck!",
-										"Aw, FUCK!"
-									},
-									assault_mode = {
-										"Fuckin' 'ell!",
-										"Aw, shit!",
-										"Aw, FUCK!",
-										"Fuck me!"
+									line_variations = {
+										standard_mode = {
+											"SHIT!",
+											"Aw, shit!",
+											"Aw, SHIT!",
+											"Fuckin' 'ell!",
+											"Aw, fuck!",
+											"Aw, FUCK!"
+										},
+										assault_mode = {
+											"Fuckin' 'ell!",
+											"Aw, shit!",
+											"Aw, FUCK!",
+											"Fuck me!"
+										}
 									}
 								}
 							}
@@ -712,30 +804,34 @@ ClosedCaptions._sounds = {
 							text = "Killed Bulldozer",
 							priority = 5,
 							rb4 = {
-								standard_mode = { --! check whisper variant for get stuffed
-									"Bulldozer down!",
-									"Bulldozer eliminated!",
-									"Bulldozer taken care of!",
-									"Bulldozer's history!"
-								},
-								assault_mode = {
+								line_variations = {
+									standard_mode = { --! check whisper variant for get stuffed
+										"Bulldozer down!",
+										"Bulldozer eliminated!",
+										"Bulldozer taken care of!",
+										"Bulldozer's history!"
+									},
+									assault_mode = {
+									}
 								}
 							},
 							rb15 = {
-								standard_mode = { --! check whisper variant for get stuffed
-									"Bulldozer down!",
-									"Fuck off, dozer!",
-									"Fuck you, Bulldozer!",
-									"Dozer's history!",
-									"Killed a dozer!"
-								},
-								assault_mode = {
-									"Bulldozer down!",
-									"Fuck off, dozer!",
-									"Fuck you, Bulldozer!",
-									"Dozer's history!",
-									"Killed a dozer!",
-									"Get stuffed, dozer fuck!"
+								line_variations = {
+									standard_mode = { --! check whisper variant for get stuffed
+										"Bulldozer down!",
+										"Fuck off, dozer!",
+										"Fuck you, Bulldozer!",
+										"Dozer's history!",
+										"Killed a dozer!"
+									},
+									assault_mode = {
+										"Bulldozer down!",
+										"Fuck off, dozer!",
+										"Fuck you, Bulldozer!",
+										"Dozer's history!",
+										"Killed a dozer!",
+										"Get stuffed, dozer fuck!"
+									}
 								}
 							}
 						}
@@ -747,31 +843,35 @@ ClosedCaptions._sounds = {
 							text = "Throwing grenade",
 							priority = 5,
 							rb4 = {
-								text_variations = {
-									"Grenade!",
-									"GRENADE!",
-									"Fire in the hole!",
-									"Hit the ground!",
-									"Sit on this, Cinderella!",
-									"Duck!",
-									"Dive for cover!",
-									"Let's blow shit up!",
-									"Duck and cover, campers!",
-									"Time to shake the ground!",
-									"Look out, losers!",
-									"Frag away!",
-									"Grenade away!"
+								line_variations = {
+									any_mode = {
+										"Grenade!",
+										"GRENADE!",
+										"Fire in the hole!",
+										"Hit the ground!",
+										"Sit on this, Cinderella!",
+										"Duck!",
+										"Dive for cover!",
+										"Let's blow shit up!",
+										"Duck and cover, campers!",
+										"Time to shake the ground!",
+										"Look out, losers!",
+										"Frag away!",
+										"Grenade away!"
+									}
 								}
 							},
 							rb15 = {
-								text_variations = {
-									"Grenade!",
-									"GRENADE!",
-									"Haha, BOOM!",
-									"Hahaha, BOOM!",
-									"Grenade out!",
-									"Haha, GRENADE!",
-									"Take that, you arseholes!",
+								line_variations = {
+									any_mode = {
+										"Grenade!",
+										"GRENADE!",
+										"Haha, BOOM!",
+										"Hahaha, BOOM!",
+										"Grenade out!",
+										"Haha, GRENADE!",
+										"Take that, you arseholes!",
+									}
 								}
 							}
 						}
@@ -779,7 +879,11 @@ ClosedCaptions._sounds = {
 				},
 				g50 = {
 					text = "Get ready for action.",
-					variants = {}
+					disabled = true
+				},
+				g51 = { --unknown
+					text = "G51.",
+					disabled = true
 				},
 				g60 = {
 					variants = {
@@ -788,27 +892,31 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Oh, fuck...",
-										"Fuck me...",
-										"[chuckles] Oho, shit...",
-										"Sheeit!",
-										"Fuck...!",
-										"Damn..."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Oh, fuck...",
+											"Fuck me...",
+											"[chuckles] Oho, shit...",
+											"Sheeit!",
+											"Fuck...!",
+											"Damn..."
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"[chuckles] I like it.",
-										"Hah, well bugger me!",
-										"Hahaha, fuckin' look at that!"
-									},
-									assault_mode = {
-										"Aw, shit!",
-										"Aw, fuck!",
-										"Fuck me!",
-										"Fuckin' hell!"
+									line_variations = {
+										standard_mode = {
+											"[chuckles] I like it.",
+											"Hah, well bugger me!",
+											"Hahaha, fuckin' look at that!"
+										},
+										assault_mode = {
+											"Aw, shit!",
+											"Aw, fuck!",
+											"Fuck me!",
+											"Fuckin' hell!"
+										}
 									}
 								}
 							}
@@ -822,9 +930,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I got the drill.",
-										"I got the drill!"
+									line_variations = {
+										standard_mode = {
+											"I got the drill.",
+											"I got the drill!"
+										}
 									}
 								}
 							}
@@ -899,22 +1009,26 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Any second now.",
-										"Any second...",
-										"Steady now! Hold it...",
-										"Wait for it, wait for it..."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Any second now.",
+											"Any second...",
+											"Steady now! Hold it...",
+											"Wait for it, wait for it..."
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Let's just fucking go!",
-										"Time to dance!",
-										"Get fucking ready.",
-										"Any second now, c'mon!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Let's just fucking go!",
+											"Time to dance!",
+											"Get fucking ready.",
+											"Any second now, c'mon!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}}
@@ -925,13 +1039,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're everywhere!",
-										"They're EVERYWHERE!",
-										"Cops! This place is filled with 'em!",
-										"This place is flooded with cops!",
-										"Cops everywhere!",
-										"They're all over the place!"
+									line_variations = {
+										any_mode = {
+											"They're everywhere!",
+											"They're EVERYWHERE!",
+											"Cops! This place is filled with 'em!",
+											"This place is flooded with cops!",
+											"Cops everywhere!",
+											"They're all over the place!"
+										}
 									}
 								}
 							}
@@ -944,9 +1060,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"We're easy targets here...",
-										"We're easy targets, this place is no good."
+									line_variations = {
+										any_mode = {
+											"We're easy targets here...",
+											"We're easy targets, this place is no good."
+										}
 									}
 								}
 							}
@@ -955,11 +1073,11 @@ ClosedCaptions._sounds = {
 				},
 				g70 = {
 					text = "Cops just got here.",
-					variants = {}
+					disabled = true
 				},
 				g72 = {
 					text = "I'm on it!",
-					variants = {}
+					disabled = true
 				},
 				g92 = {
 					variants = {
@@ -968,24 +1086,28 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Gotcha!",
-										"Gotcha.",
-										"Alriiight!",
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Gotcha!",
+											"Gotcha.",
+											"Alriiight!",
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Got it!",
-										"It's secured.",
-										"I got it!",
-										"Got it."
-									},
-									assault_mode = {
-										"Here's one!",
-										"Got one!",
-										"One down!"
+									line_variations = {
+										standard_mode = {
+											"Got it!",
+											"It's secured.",
+											"I got it!",
+											"Got it."
+										},
+										assault_mode = {
+											"Here's one!",
+											"Got one!",
+											"One down!"
+										}
 									}
 								}
 							}
@@ -998,13 +1120,16 @@ ClosedCaptions._sounds = {
 							text = "They have hostages! We need to delay the assault!"
 						},
 						criminal = {
+							text = "Alright, let's do this.",
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Alright, let's do this.",
-										"Okay, let's do this.",
-										"'kay, let's do this, buddies."
+									line_variations = {
+										any_mode = {
+											"Alright, let's do this.",
+											"Okay, let's do this.",
+											"'kay, let's do this, buddies."
+										}
 									}
 								}
 							}
@@ -1020,10 +1145,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Time to make that money.",
-										"Going to work.",
-										"Let's make that money"
+									line_variations = {
+										any_mode = {
+											"Time to make that money.",
+											"Going to work.",
+											"Let's make that money"
+										}
 									}
 								}
 							}
@@ -1039,9 +1166,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Time to break a little bad.",
-										"Let's break bad."
+									line_variations = {
+										any_mode = {
+											"Time to break a little bad.",
+											"Let's break bad."
+										}
 									}
 								}
 							}
@@ -1054,12 +1183,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"C'mon, c'mon!",
-										"Little bit more, that's right!",
-										"That's right, that's right...",
-										"C'mon now.",
-										"Hurry! C'mon!"
+									line_variations = {
+										any_mode = {
+											"C'mon, c'mon!",
+											"Little bit more, that's right!",
+											"That's right, that's right...",
+											"C'mon now.",
+											"Hurry! C'mon!"
+										}
 									}
 								}
 							}
@@ -1072,33 +1203,37 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"The cops have arrived!",
-										"The cops are on the scene!",
-										"The cops are here!",
-										"Okay, we've got company... the police are here!",
-										"The police just arrived!",
-										"Alright, we got visitors- the cops are here!",
-										"How nice of the cops to come and keep us company!",
-										
+									line_variations = {
+										any_mode = {
+											"The cops have arrived!",
+											"The cops are on the scene!",
+											"The cops are here!",
+											"Okay, we've got company... the police are here!",
+											"The police just arrived!",
+											"Alright, we got visitors- the cops are here!",
+											"How nice of the cops to come and keep us company!",
+
+										}
 									}
 								}
 							}
 						}
 					}
 				},
-				p06 = {	
+				p06 = {
 					variants = {
 						criminal = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Okay!",
-										"Okay.",
-										"Alright!",
-										"Alright.",
-										"Gotcha!"
+									line_variations = {
+										any_mode = {
+											"Okay!",
+											"Okay.",
+											"Alright!",
+											"Alright.",
+											"Gotcha!"
+										}
 									}
 								}
 							}
@@ -1111,12 +1246,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"We got a hostage lined up already. Let's trade!",
-										"We have to let that hostage go in exchange for our friend!",
-										"We already have a hostage ready to be tradeed!",
-										"We gotta follow through with that hostage trade!",
-										"We gotta release that hostage!"
+									line_variations = {
+										any_mode = {
+											"We got a hostage lined up already. Let's trade!",
+											"We have to let that hostage go in exchange for our friend!",
+											"We already have a hostage ready to be tradeed!",
+											"We gotta follow through with that hostage trade!",
+											"We gotta release that hostage!"
+										}
 									}
 								}
 							}
@@ -1129,12 +1266,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Computer's beepin'- never good!",
-										"Sounds like we need some tech help!",
-										"Sounds like the computer's all fouled up!",
-										"Appears like the computer's busted!",
-										"Appears like the computer ain't workin' right!"
+									line_variations = {
+										any_mode = {
+											"Computer's beepin'- never good!",
+											"Sounds like we need some tech help!",
+											"Sounds like the computer's all fouled up!",
+											"Appears like the computer's busted!",
+											"Appears like the computer ain't workin' right!"
+										}
 									}
 								}
 							}
@@ -1147,14 +1286,16 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Computer's beeping again!",
-										"We gotta fix the computer again!",
-										"A machine ain't workin' again!",
-										"Wondering if it's the OS, or what?",
-										"[chuckles] Another technical problem with the computer.",
-										"[chuckles] Wonder if it's the software.",
-										"Wonder whether it's software or hardware failures."
+									line_variations = {
+										any_mode = {
+											"Computer's beeping again!",
+											"We gotta fix the computer again!",
+											"A machine ain't workin' again!",
+											"Wondering if it's the OS, or what?",
+											"[chuckles] Another technical problem with the computer.",
+											"[chuckles] Wonder if it's the software.",
+											"Wonder whether it's software or hardware failures."
+										}
 									}
 								}
 							}
@@ -1162,8 +1303,7 @@ ClosedCaptions._sounds = {
 					}
 				},
 				p10 = {
-					text = "Broke-dick piece of shit drill!",
-					variants = {}
+					text = "Broke-dick piece of shit drill!"
 				},
 				p12 = {
 					variants = {
@@ -1171,9 +1311,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Go, go!",
-										"GO, GO!"
+									line_variations = {
+										any_mode = {
+											"Go, go!",
+											"GO, GO!"
+										}
 									}
 								}
 							}
@@ -1186,9 +1328,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Get a move on!",
-										"GET A MOVE ON!"
+									line_variations = {
+										any_mode = {
+											"Get a move on!",
+											"GET A MOVE ON!"
+										}
 									}
 								}
 							}
@@ -1201,9 +1345,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Move it!",
-										"MOVE IT!"
+									line_variations = {
+										any_mode = {
+											"Move it!",
+											"MOVE IT!"
+										}
 									}
 								}
 							}
@@ -1216,8 +1362,10 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Get moving!"
+									line_variations = {
+										any_mode = {
+											"Get moving!"
+										}
 									}
 								}
 							}
@@ -1230,10 +1378,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Move!",
-										"Go!",
-										"GO!"
+									line_variations = {
+										any_mode = {
+											"Move!",
+											"Go!",
+											"GO!"
+										}
 									}
 								}
 							}
@@ -1246,14 +1396,16 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Only seconds away!",
-										"Any moment now!",
-										"Any second!",
-										"Any second...",
-										"Any second now!",
-										"We're almost done!",
-										"Just a couple more seconds!"
+									line_variations = {
+										any_mode = {
+											"Only seconds away!",
+											"Any moment now!",
+											"Any second!",
+											"Any second...",
+											"Any second now!",
+											"We're almost done!",
+											"Just a couple more seconds!"
+										}
 									}
 								}
 							}
@@ -1271,13 +1423,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"I'm coming!",
-										"Be right there!",
-										"As fast as I can!",
-										"I'm comin' for ya!",
-										"I'll be there in a flash!",
-										"I'll be there in an instant!"
+									line_variations = {
+										any_mode = {
+											"I'm coming!",
+											"Be right there!",
+											"As fast as I can!",
+											"I'm comin' for ya!",
+											"I'll be there in a flash!",
+											"I'll be there in an instant!"
+										}
 									}
 								}
 							}
@@ -1290,11 +1444,13 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Follow me!",
-										"Follow me.",
-										"Come with me!",
-										"Come with me."
+									line_variations = {
+										any_mode = {
+											"Follow me!",
+											"Follow me.",
+											"Come with me!",
+											"Come with me."
+										}
 									}
 								}
 							}
@@ -1307,11 +1463,13 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Ah, fuck it. I never liked 'Plan A' anyway!",
-										"Let's fuck shit up!",
-										"Looks like we'll have to 'Plan B' it!",
-										"Let's go to 'Plan B'!"
+									line_variations = {
+										any_mode = {
+											"Ah, fuck it. I never liked 'Plan A' anyway!",
+											"Let's fuck shit up!",
+											"Looks like we'll have to 'Plan B' it!",
+											"Let's go to 'Plan B'!"
+										}
 									}
 								}
 							}
@@ -1324,13 +1482,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Dig in! Get ready for the storm!",
-										"Get ready to fight!",
-										"We got police stormin' in any second!",
-										"Get ready for action!",
-										"We got a police assault comin' any second!",
-										"This place is about to get hot!"
+									line_variations = {
+										any_mode = {
+											"Dig in! Get ready for the storm!",
+											"Get ready to fight!",
+											"We got police stormin' in any second!",
+											"Get ready for action!",
+											"We got a police assault comin' any second!",
+											"This place is about to get hot!"
+										}
 									}
 								}
 							}
@@ -1340,13 +1500,16 @@ ClosedCaptions._sounds = {
 				p23 = {
 					variants = {
 						criminal = {
+							text = "Get ready for action.",
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Get ready for action!",
-										"Get ready for action.",
-										"Get ready now!"
+									line_variations = {
+										any_mode = {
+											"Get ready for action!",
+											"Get ready for action.",
+											"Get ready now!"
+										}
 									}
 								}
 							}
@@ -1360,32 +1523,36 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's get our eyes back on the prize!",
-										"So much for distractions! Let's finish.",
-										"Don't let it go to your head! We got work to do.",
-										"Alright, alright! Enough playing around- let's finish it.",
-										"'nough said. Now back to work.",
-										"Good job! Now let's finish what we started.",
-										"Now... where were we?",
-										"They're gone, but we still got a job to finish!",
-										"Hah, they won't try that again! Back on task."
+									line_variations = {
+										any_mode = {
+											"Let's get our eyes back on the prize!",
+											"So much for distractions! Let's finish.",
+											"Don't let it go to your head! We got work to do.",
+											"Alright, alright! Enough playing around- let's finish it.",
+											"'nough said. Now back to work.",
+											"Good job! Now let's finish what we started.",
+											"Now... where were we?",
+											"They're gone, but we still got a job to finish!",
+											"Hah, they won't try that again! Back on task."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"C'mon, fuckwits, back to work!",
-										"Let's get back to work while they cry in defeat!",
-										"Back to what we were doing!",
-										"Time to finish this up!",
-										"We're here to do a job, so get it done!",
-										"Those drongos are regrouping, so let's finish this shit!",
-										"GET BACK TO WORK!",
-										"Back to business, then!",
-										"Alright, time to finish the job.",
-										"ALRIGHT! Where were we?",
-										"We've still got a job to do!",
-										"Right! Back to work!"
+									line_variations = {
+										any_mode = {
+											"C'mon, fuckwits, back to work!",
+											"Let's get back to work while they cry in defeat!",
+											"Back to what we were doing!",
+											"Time to finish this up!",
+											"We're here to do a job, so get it done!",
+											"Those drongos are regrouping, so let's finish this shit!",
+											"GET BACK TO WORK!",
+											"Back to business, then!",
+											"Alright, time to finish the job.",
+											"ALRIGHT! Where were we?",
+											"We've still got a job to do!",
+											"Right! Back to work!"
+										}
 									}
 								}
 							}
@@ -1398,12 +1565,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Flashbang! I'm fucking blind!",
-										"I'm blind! I'M BLIND!",
-										"Flashbang! My eyes! MY EYES!",
-										"Aagh, fuckin' flashbang!",
-										"Agh, I can't see fucking SHIT!"
+									line_variations = {
+										any_mode = {
+											"Flashbang! I'm fucking blind!",
+											"I'm blind! I'M BLIND!",
+											"Flashbang! My eyes! MY EYES!",
+											"Aagh, fuckin' flashbang!",
+											"Agh, I can't see fucking SHIT!"
+										}
 									}
 								}
 							}
@@ -1416,11 +1585,13 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Don't get loose with it now!",
-										"Cover the flanks!",
-										"Watch your tails!",
-										"Don't let 'em get cagey on us!"
+									line_variations = {
+										any_mode = {
+											"Don't get loose with it now!",
+											"Cover the flanks!",
+											"Watch your tails!",
+											"Don't let 'em get cagey on us!"
+										}
 									}
 								}
 							}
@@ -1434,26 +1605,30 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Lootbag secured.",
-										"Got a bag.",
-										"One down.",
-										"And another one!",
-										"I got a lootbag.",
-										"And another!",
-										"One bag down!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Lootbag secured.",
+											"Got a bag.",
+											"One down.",
+											"And another one!",
+											"I got a lootbag.",
+											"And another!",
+											"One bag down!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"It's secured.",
-										"It's at the drop.",
-										"One lootbag, at the drop.",
-										"It's delivered!",
-										"One lootbag, stashed."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"It's secured.",
+											"It's at the drop.",
+											"One lootbag, at the drop.",
+											"It's delivered!",
+											"One lootbag, stashed."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -1466,19 +1641,23 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"That's all of 'em!",
-										"Haha, that's all of 'em!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"That's all of 'em!",
+											"Haha, that's all of 'em!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"We got 'em all.",
-										"That's all of 'em!",
-										"That's all the bags!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"We got 'em all.",
+											"That's all of 'em!",
+											"That's all the bags!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -1490,10 +1669,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Picking the lock.",
-										"I'm picking the lock!",
-										"Springing this damned lock. C'mon!"
+									line_variations = {
+										any_mode = {
+											"Picking the lock.",
+											"I'm picking the lock!",
+											"Springing this damned lock. C'mon!"
+										}
 									}
 								}
 							}
@@ -1506,12 +1687,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Yeah, using a keycard...",
-										"Using a keycard.",
-										"Using a keycard!",
-										"Using a key.",
-										"Yep, using a key."
+									line_variations = {
+										any_mode = {
+											"Yeah, using a keycard...",
+											"Using a keycard.",
+											"Using a keycard!",
+											"Using a key.",
+											"Yep, using a key."
+										}
 									}
 								}
 							}
@@ -1525,20 +1708,24 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"These dirty fucking cops are stealing our loot!",
-										"Pay attention! Cops are stealing our stuff!",
-										"Goddamned cops! Can't even keep their hands off our hard-earned loot!",
-										"Hey! Look at what those cops are doing!",
-										"HEY! They're stealin' our shit!",
-										"[chuckles] Look at these cops! Even dirtier than I thought!"
+									line_variations = {
+										any_mode = {
+											"These dirty fucking cops are stealing our loot!",
+											"Pay attention! Cops are stealing our stuff!",
+											"Goddamned cops! Can't even keep their hands off our hard-earned loot!",
+											"Hey! Look at what those cops are doing!",
+											"HEY! They're stealin' our shit!",
+											"[chuckles] Look at these cops! Even dirtier than I thought!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Hey, those pigs are grubbin' our shit!",
-										"They're takin' our bags, KILL 'EM!",
-										"Those FUCKWITS are stealing our loot!"
+									line_variations = {
+										any_mode = {
+											"Hey, those pigs are grubbin' our shit!",
+											"They're takin' our bags, KILL 'EM!",
+											"Those FUCKWITS are stealing our loot!"
+										}
 									}
 								}
 							}
@@ -1552,46 +1739,50 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"You case the joint. I'll be here.",
-										"You go ahead. I'll stay out of your way until you need another guy.",
-										"You go ahead. Look, I'll be right here. I'm not going in.",
-										"You go ahead, buddy. I'll wait here.",
-										"You go and recon the place. I'll wait for the action to start.",
-										"You go case the place. I'll jump in when the shooting starts.",
-										"You go handle it for now. When 'Plan B' kicks in, so do I.",
-										"You go. I'll wait until the action starts.",
-										"You got this, buddy. I'll wait right here for now.",
-										"You'd better do this on your own. I'll watch your back.",
-										"You've got this covered. I'll wait around here until alarms start beeping.",
-										"Alright, I'll wait right here.",
-										"Case the area. I'll be right here.",
-										"Do a little recon mission. I'll be with you shortly.",
-										"I'll be right here, bud. You do the recon thingy.",
-										"I'll catch up with you later.",
-										"I'll wait here, you case the joint.",
-										"I'll wait right here, you go ahead. We'll catch up later.",
-										"I'll wait here. I got your back once the action starts.",
-										"I'll stay here, buddy. [chuckles] I'm no good with 'Plan A's anyway.",
-										"Better if you do this. If you need help, just fire your gun.",
-										"Better that you handle this for now. I'll come and save you if things go south.",
-										"[chuckles] I've got all these cigarettes to smoke. You go on without me, I'll catch up."
+									line_variations = {
+										any_mode = {
+											"You case the joint. I'll be here.",
+											"You go ahead. I'll stay out of your way until you need another guy.",
+											"You go ahead. Look, I'll be right here. I'm not going in.",
+											"You go ahead, buddy. I'll wait here.",
+											"You go and recon the place. I'll wait for the action to start.",
+											"You go case the place. I'll jump in when the shooting starts.",
+											"You go handle it for now. When 'Plan B' kicks in, so do I.",
+											"You go. I'll wait until the action starts.",
+											"You got this, buddy. I'll wait right here for now.",
+											"You'd better do this on your own. I'll watch your back.",
+											"You've got this covered. I'll wait around here until alarms start beeping.",
+											"Alright, I'll wait right here.",
+											"Case the area. I'll be right here.",
+											"Do a little recon mission. I'll be with you shortly.",
+											"I'll be right here, bud. You do the recon thingy.",
+											"I'll catch up with you later.",
+											"I'll wait here, you case the joint.",
+											"I'll wait right here, you go ahead. We'll catch up later.",
+											"I'll wait here. I got your back once the action starts.",
+											"I'll stay here, buddy. [chuckles] I'm no good with 'Plan A's anyway.",
+											"Better if you do this. If you need help, just fire your gun.",
+											"Better that you handle this for now. I'll come and save you if things go south.",
+											"[chuckles] I've got all these cigarettes to smoke. You go on without me, I'll catch up."
+										}
 									}
 								},
 								rb15 = {
-									recombinable = true,
-									text_variations = {
-										{
-											"You go ahead.",
-											"Go on, then.",
-											"Check the place out.",
-											"Yeah, yeah- I'll wait here."
-										},
-										{
-											"I'll be ready when things go crazy.",
-											"Call me when the fun begins.",
-											"I'm here for the exciting bit.",
-											"I'll turn the head up when it's time."
+									line_variations = {
+										recombinable = true,
+										any_mode = {
+											{
+												"You go ahead.",
+												"Go on, then.",
+												"Check the place out.",
+												"Yeah, yeah- I'll wait here."
+											},
+											{
+												"I'll be ready when things go crazy.",
+												"Call me when the fun begins.",
+												"I'm here for the exciting bit.",
+												"I'll turn the head up when it's time."
+											}
 										}
 									}
 								}
@@ -1605,10 +1796,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're coming through the skylights!",
-										"They're coming from the ceiling!",
-										"They're coming through the panels above!"										
+									line_variations = {
+										any_mode = {
+											"They're coming through the skylights!",
+											"They're coming from the ceiling!",
+											"They're coming through the panels above!"
+										}
 									}
 								}
 							}
@@ -1621,9 +1814,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're coming in from above!",
-										"They're on the roof!"
+									line_variations = {
+										any_mode = {
+											"They're coming in from above!",
+											"They're on the roof!"
+										}
 									}
 								}
 							}
@@ -1636,9 +1831,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're coming down the walls!",
-										"They're coming down the sides!"
+									line_variations = {
+										any_mode = {
+											"They're coming down the walls!",
+											"They're coming down the sides!"
+										}
 									}
 								}
 							}
@@ -1651,10 +1848,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're coming through the wall!",
-										"They're coming through the wall panels!",
-										"They're coming through the windows!"
+									line_variations = {
+										any_mode = {
+											"They're coming through the wall!",
+											"They're coming through the wall panels!",
+											"They're coming through the windows!"
+										}
 									}
 								}
 							}
@@ -1667,13 +1866,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're coming up through the manholes!",
-										"They're coming in from below!",
-										"They're under the floors!",
-										"They're coming through the floor panels!",
-										"They're coming up through the floor!",
-										"They're coming up through the ground!"
+									line_variations = {
+										any_mode = {
+											"They're coming up through the manholes!",
+											"They're coming in from below!",
+											"They're under the floors!",
+											"They're coming through the floor panels!",
+											"They're coming up through the floor!",
+											"They're coming up through the ground!"
+										}
 									}
 								}
 							}
@@ -1686,9 +1887,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're coming in from outside!",
-										"They're climbing in from outside!"
+									line_variations = {
+										any_mode = {
+											"They're coming in from outside!",
+											"They're climbing in from outside!"
+										}
 									}
 								}
 							}
@@ -1701,8 +1904,10 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're climbing down on the outside!"
+									line_variations = {
+										any_mode = {
+											"They're climbing down on the outside!"
+										}
 									}
 								}
 							}
@@ -1715,8 +1920,10 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're climbing up on the outside!"
+									line_variations = {
+										any_mode = {
+											"They're climbing up on the outside!"
+										}
 									}
 								}
 							}
@@ -1730,13 +1937,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									"SWAT chopper incoming!",
-									"We got a helicopter inbound!"
+									line_variations = {
+										any_mode = {
+											"SWAT chopper incoming!",
+											"We got a helicopter inbound!"
+										}
+									}
 								},
 								rb15 = {
-									text_variations = {
-										"A bloody helicopter, inbound!",
-										"SWAT chopper, incoming!"
+									line_variations = {
+										any_mode = {
+											"A bloody helicopter, inbound!",
+											"SWAT chopper, incoming!"
+										}
 									}
 								}
 							}
@@ -1750,12 +1963,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									"SWAT insertion! Van coming in!"
+									line_variations = {
+										any_mode = {
+											"SWAT insertion! Van coming in!"
+										}
+									}
 								},
 								rb15 = {
-									text_variations = {
-										"We got a SWAT van incoming!",
-										"SWAT van, approaching!"
+									line_variations = {
+										any_mode = {
+											"We got a SWAT van incoming!",
+											"SWAT van, approaching!"
+										}
 									}
 								}
 							}
@@ -1768,10 +1987,12 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Snipers!",
-										"Heads down! Sniper!",
-										"Watch out! Sniper!"
+									line_variations = {
+										any_mode = {
+											"Snipers!",
+											"Heads down! Sniper!",
+											"Watch out! Sniper!"
+										}
 									}
 								}
 							}
@@ -1784,9 +2005,11 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They're coming from the forest!",
-										"They're coming out of the woods!"
+									line_variations = {
+										any_mode = {
+											"They're coming from the forest!",
+											"They're coming out of the woods!"
+										}
 									}
 								}
 							}
@@ -1799,15 +2022,17 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Friends, help!",
-										"Friends, help me up!",
-										"SOMEBODY! Help me!",
-										"SOMEBODY! HELP!",
-										"Somebody! I need help!",
-										"Somebody! Help me up!",
-										"Hey guys! You gotta help me!",
-										"Hey, my friends! Help me!"
+									line_variations = {
+										any_mode = {
+											"Friends, help!",
+											"Friends, help me up!",
+											"SOMEBODY! Help me!",
+											"SOMEBODY! HELP!",
+											"Somebody! I need help!",
+											"Somebody! Help me up!",
+											"Hey guys! You gotta help me!",
+											"Hey, my friends! Help me!"
+										}
 									}
 								}
 							}
@@ -1820,9 +2045,7 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Jump!"
-									}
+									text = "Jump!"
 								}
 							}
 						}
@@ -1834,15 +2057,17 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"[laughs] It's on now!",
-										"Let's get the party started, for real!",
-										"Alright, let's get it on!",
-										"Okay, let's get it on!",
-										"Let's fuck shit up!",
-										"Alright, let's do this!",
-										"Alright! It's game time!",
-										"THIS is what I've been waitin' for!"
+									line_variations = {
+										any_mode = {
+											"[laughs] It's on now!",
+											"Let's get the party started, for real!",
+											"Alright, let's get it on!",
+											"Okay, let's get it on!",
+											"Let's fuck shit up!",
+											"Alright, let's do this!",
+											"Alright! It's game time!",
+											"THIS is what I've been waitin' for!"
+										}
 									}
 								}
 							}
@@ -1856,35 +2081,39 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									recombinable = true,
-									text_variations = {
-										{
-											"Okay,",
-											"Alright,",
-											"Acknowledged,"
-										},
-										{
-											"we're on it!"
-											"on it!",
-											"we'll take care of it!",
-											"will do!"
+									line_variations = {
+										recombinable = true,
+										any_mode = {
+											{
+												"Okay,",
+												"Alright,",
+												"Acknowledged,"
+											},
+											{
+												"we're on it!",
+												"on it!",
+												"we'll take care of it!",
+												"will do!"
+											}
 										}
 									}
 								},
 								rb15 = {
-									recombinable = true,
-									text_variations = {
-										{
-											"Alright,",
-											"Okay,",
-											"Got it,",
-											"I hear you,"
-										},
-										{
-											"we're on it!",
-											"on it!",
-											"will do.",
-											"we'll take care of it."
+									line_variations = {
+										recombinable = true,
+										any_mode = {
+											{
+												"Alright,",
+												"Okay,",
+												"Got it,",
+												"I hear you,"
+											},
+											{
+												"we're on it!",
+												"on it!",
+												"will do.",
+												"we'll take care of it."
+											}
 										}
 									}
 								}
@@ -1899,19 +2128,23 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"We're in.",
-										"We're through!",
-										"We're inside!",
-										"It's open!"
+									line_variations = {
+										any_mode = {
+											"We're in.",
+											"We're through!",
+											"We're inside!",
+											"It's open!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"We're inside.",
-										"It's open!",
-										"We're in!",
-										"We're through!"
+									line_variations = {
+										any_mode = {
+											"We're inside.",
+											"It's open!",
+											"We're in!",
+											"We're through!"
+										}
 									}
 								}
 							}
@@ -1926,21 +2159,25 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"It's here!",
-										"Here it is!",
-										"Found it!",
-										"We got it!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"It's here!",
+											"Here it is!",
+											"Found it!",
+											"We got it!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"We got it!",
-										"Here it is!",
-										"Found it!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"We got it!",
+											"Here it is!",
+											"Found it!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -1953,16 +2190,20 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Found one!",
-										"Got one!"
+									line_variations = {
+										any_mode = {
+											"Found one!",
+											"Got one!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"We got one!",
-										"Here's one!",
-										"Found one!"
+									line_variations = {
+										any_mode = {
+											"We got one!",
+											"Here's one!",
+											"Found one!"
+										}
 									}
 								}
 							}
@@ -1976,19 +2217,23 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Got one more.",
-										"We got one.",
-										"Found another one.",
-										"Here's another!"
+									line_variations = {
+										any_mode = {
+											"Got one more.",
+											"We got one.",
+											"Found another one.",
+											"Here's another!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Got one more.",
-										"We got one.",
-										"Found another one!",
-										"Here's another!"
+									line_variations = {
+										any_mode = {
+											"Got one more.",
+											"We got one.",
+											"Found another one!",
+											"Here's another!"
+										}
 									}
 								}
 							}
@@ -2002,15 +2247,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"It's done!",
-										"It's finished!"
+									line_variations = {
+										any_mode = {
+											"It's done!",
+											"It's finished!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"It's done!",
-										"Done!"
+									line_variations = {
+										any_mode = {
+											"It's done!",
+											"Done!"
+										}
 									}
 								}
 							}
@@ -2024,15 +2273,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"We're done!",
-										"DONE!"
+									line_variations = {
+										any_mode = {
+											"We're done!",
+											"DONE!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"We're done!",
-										"DONE!"
+									line_variations = {
+										any_mode = {
+											"We're done!",
+											"DONE!"
+										}
 									}
 								}
 							}
@@ -2046,22 +2299,26 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Hey, don't pat yourself on the back, we aren't finished yet.",
-										"No time to get cocky, ladies.",
-										"Keep up the pace, we ain't done yet.",
-										"Don't get cocky, we got more to do!",
-										"C'mon, focus on the next one.",
-										"Keep going, this ain't the finish line."
+									line_variations = {
+										any_mode = {
+											"Hey, don't pat yourself on the back, we aren't finished yet.",
+											"No time to get cocky, ladies.",
+											"Keep up the pace, we ain't done yet.",
+											"Don't get cocky, we got more to do!",
+											"C'mon, focus on the next one.",
+											"Keep going, this ain't the finish line."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"What next?",
-										"Yeah, and what now?",
-										"Keep going, what's next?",
-										"Keep it bloody going, we're not done!",
-										"Stay focused!"
+									line_variations = {
+										any_mode = {
+											"What next?",
+											"Yeah, and what now?",
+											"Keep going, what's next?",
+											"Keep it bloody going, we're not done!",
+											"Stay focused!"
+										}
 									}
 								}
 							}
@@ -2075,15 +2332,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"I found a keycard!",
-										"I got a keycard."
+									line_variations = {
+										any_mode = {
+											"I found a keycard!",
+											"I got a keycard."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"I found a keycard!",
-										"I found a keycard."
+									line_variations = {
+										any_mode = {
+											"I found a keycard!",
+											"I found a keycard."
+										}
 									}
 								}
 							}
@@ -2097,15 +2358,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"I got the keycard!",
-										"I found the keycard!"
+									line_variations = {
+										any_mode = {
+											"I got the keycard!",
+											"I found the keycard!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"I got the keycard!",
-										"I found the keycard!"
+									line_variations = {
+										any_mode = {
+											"I got the keycard!",
+											"I found the keycard!"
+										}
 									}
 								}
 							}
@@ -2119,11 +2384,13 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb15 = {
-									text_variations = {
-										"Fucking hell, these things make it too easy!",
-										"Almost too easy, yeah?",
-										"Well, bugger me, this is easy!",
-										"This makes shit too easy!"
+									line_variations = {
+										any_mode = {
+											"Fucking hell, these things make it too easy!",
+											"Almost too easy, yeah?",
+											"Well, bugger me, this is easy!",
+											"This makes shit too easy!"
+										}
 									}
 								}
 							}
@@ -2137,15 +2404,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Alright, back up!",
-										"Duck and cover, ladies!"
+									line_variations = {
+										any_mode = {
+											"Alright, back up!",
+											"Duck and cover, ladies!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Get the fuck back!",
-										"Cover ya' ears!"
+									line_variations = {
+										any_mode = {
+											"Get the fuck back!",
+											"Cover ya' ears!"
+										}
 									}
 								}
 							}
@@ -2159,15 +2430,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Oops! Forgot to knock!",
-										"We make our own fucking door!"
+									line_variations = {
+										any_mode = {
+											"Oops! Forgot to knock!",
+											"We make our own fucking door!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Fuck keycards when you can blow shit up!",
-										"We're through!"
+									line_variations = {
+										any_mode = {
+											"Fuck keycards when you can blow shit up!",
+											"We're through!"
+										}
 									}
 								}
 							}
@@ -2182,16 +2457,20 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"C'mon! Let's open the fucking door!",
-										"Get this motherfucking door open!"
+									line_variations = {
+										any_mode = {
+											"C'mon! Let's open the fucking door!",
+											"Get this motherfucking door open!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Let's open this fuckin' door!",
-										"Someone get the door open!",
-										"Get the bloody door open!"
+									line_variations = {
+										any_mode = {
+											"Let's open this fuckin' door!",
+											"Someone get the door open!",
+											"Get the bloody door open!"
+										}
 									}
 								}
 							}
@@ -2205,17 +2484,21 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's open this sucker up!",
-										"Let's get this fucking thing open!",
-										"Let's open this motherfucker!"
+									line_variations = {
+										any_mode = {
+											"Let's open this sucker up!",
+											"Let's get this fucking thing open!",
+											"Let's open this motherfucker!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Let's OPEN this shit!",
-										"Crack it open!",
-										"Let's open this motherfucker up!"
+									line_variations = {
+										any_mode = {
+											"Let's OPEN this shit!",
+											"Crack it open!",
+											"Let's open this motherfucker up!"
+										}
 									}
 								}
 							}
@@ -2229,14 +2512,10 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's go, team!"
-									}
+									text = "Let's go, team!"
 								},
 								rb15 = {
-									text_variations = {
-										"Let's fuckin' go!"
-									}
+									text = "Let's fuckin' go!"
 								}
 							}
 						}
@@ -2249,15 +2528,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Wipe 'em out!",
-										"Kill 'em all!"
+									line_variations = {
+										any_mode = {
+											"Wipe 'em out!",
+											"Kill 'em all!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"GET 'EM!",
-										"KILL 'EM ALL!"
+									line_variations = {
+										any_mode = {
+											"GET 'EM!",
+											"KILL 'EM ALL!"
+										}
 									}
 								}
 							}
@@ -2271,15 +2554,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"INCOMING!",
-										"Here it comes!"
+									line_variations = {
+										any_mode = {
+											"INCOMING!",
+											"Here it comes!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"INCOMING!",
-										"Here it comes!"
+									line_variations = {
+										any_mode = {
+											"INCOMING!",
+											"Here it comes!"
+										}
 									}
 								}
 							}
@@ -2293,20 +2580,24 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"It's arrived!",
-										"It's here, it's here!",
-										"Okay, it's here!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"It's arrived!",
+											"It's here, it's here!",
+											"Okay, it's here!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"We got it!",
-										"It's here!",
-										"It's here, it's here!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"We got it!",
+											"It's here!",
+											"It's here, it's here!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -2319,15 +2610,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"PAYDAY!",
-										"Yessir, this is it, my friends!"
+									line_variations = {
+										any_mode = {
+											"PAYDAY!",
+											"Yessir, this is it, my friends!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"EMPTY this place!",
-										"Get fuckin' all of it!"
+									line_variations = {
+										any_mode = {
+											"EMPTY this place!",
+											"Get fuckin' all of it!"
+										}
 									}
 								}
 							}
@@ -2341,17 +2636,21 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"We got all of it, awesome!",
-										"And the mice got all of the cheese!",
-										"That's it!"
+									line_variations = {
+										any_mode = {
+											"We got all of it, awesome!",
+											"And the mice got all of the cheese!",
+											"That's it!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Well, bugger me, that's bloody nice!",
-										"That's all of it!",
-										"Now, THIS is a PAYDAY!"
+									line_variations = {
+										any_mode = {
+											"Well, bugger me, that's bloody nice!",
+											"That's all of it!",
+											"Now, THIS is a PAYDAY!"
+										}
 									}
 								}
 							}
@@ -2365,15 +2664,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Drill's done.",
-										"Drill's done!"
+									line_variations = {
+										any_mode = {
+											"Drill's done.",
+											"Drill's done!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"That's the drill done!",
-										"Drill's done!"
+									line_variations = {
+										any_mode = {
+											"That's the drill done!",
+											"Drill's done!"
+										}
 									}
 								}
 							}
@@ -2387,15 +2690,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Computer's done!",
-										"The computer's done."
+									line_variations = {
+										any_mode = {
+											"Computer's done!",
+											"The computer's done."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Computer is finally fuckin' finished!",
-										"Bloody hell, computer is FINALLY done!"
+									line_variations = {
+										any_mode = {
+											"Computer is finally fuckin' finished!",
+											"Bloody hell, computer is FINALLY done!"
+										}
 									}
 								}
 							}
@@ -2409,15 +2716,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"It's done, c'mon!",
-										"It's finished, let's get on with it!"
+									line_variations = {
+										any_mode = {
+											"It's done, c'mon!",
+											"It's finished, let's get on with it!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Finally, fuckin' done!",
-										"It's finished!"
+									line_variations = {
+										any_mode = {
+											"Finally, fuckin' done!",
+											"It's finished!"
+										}
 									}
 								}
 							}
@@ -2431,15 +2742,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"There's the ride!",
-										"There's the getaway!"
+									line_variations = {
+										any_mode = {
+											"There's the ride!",
+											"There's the getaway!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"We're gettin' out this way.",
-										"Time to go, that's the way!"
+									line_variations = {
+										any_mode = {
+											"We're gettin' out this way.",
+											"Time to go, that's the way!"
+										}
 									}
 								}
 							}
@@ -2453,15 +2768,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"I thought I heard them in the ventilation shafts- watch out!",
-										"Hey! They're in the ventilation!"
+									line_variations = {
+										any_mode = {
+											"I thought I heard them in the ventilation shafts- watch out!",
+											"Hey! They're in the ventilation!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Those fuckwits are in the vents!",
-										"Well, bugger me, the fuckers are in the vents!"
+									line_variations = {
+										any_mode = {
+											"Those fuckwits are in the vents!",
+											"Well, bugger me, the fuckers are in the vents!"
+										}
 									}
 								}
 							}
@@ -2475,15 +2794,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"The mark's in sight!",
-										"Got my eyes on the mark!"
+									line_variations = {
+										any_mode = {
+											"The mark's in sight!",
+											"Got my eyes on the mark!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Alright, I see the mark!",
-										"Right, got the mark!"
+									line_variations = {
+										any_mode = {
+											"Alright, I see the mark!",
+											"Right, got the mark!"
+										}
 									}
 								}
 							}
@@ -2497,14 +2820,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"There she is!"
+									line_variations = {
+										any_mode = {
+											"There she is!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"She's there!",
-										"She's there."
+									line_variations = {
+										any_mode = {
+											"She's there!",
+											"She's there."
+										}
 									}
 								}
 							}
@@ -2518,14 +2845,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"There he is!"
+									line_variations = {
+										any_mode = {
+											"There he is!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"He's there!",
-										"He's there."
+									line_variations = {
+										any_mode = {
+											"He's there!",
+											"He's there."
+										}
 									}
 								}
 							}
@@ -2539,14 +2870,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"There they are!"
+									line_variations = {
+										any_mode = {
+											"There they are!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"They're there!",
-										"They're there."
+									line_variations = {
+										any_mode = {
+											"They're there!",
+											"They're there."
+										}
 									}
 								}
 							}
@@ -2560,14 +2895,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"There it is!"
+									line_variations = {
+										any_mode = {
+											"There it is!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"It's over there.",
-										"It's over there!"
+									line_variations = {
+										any_mode = {
+											"It's over there.",
+											"It's over there!"
+										}
 									}
 								}
 							}
@@ -2581,14 +2920,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Where's the goddamn manager?"
+									line_variations = {
+										any_mode = {
+											"Where's the goddamn manager?"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Find that bloody bastard!",
-										"FIND that bloody bastard!"
+									line_variations = {
+										any_mode = {
+											"Find that bloody bastard!",
+											"FIND that bloody bastard!"
+										}
 									}
 								}
 							}
@@ -2600,16 +2943,21 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "{heat speech}",
 							priority = 5,
-							duration = 22,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your beloved ones, don't try to be a hero. Just shut up, and stay down, and this'll be over in no time."
+									duration = 22,
+									line_variations = {
+										any_mode = {
+											"Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your beloved ones, don't try to be a hero. Just shut up, and stay down, and this'll be over in no time."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = { 
-										"Listen up, you bloody drongos! This is a robbery! We're not here to hurt you, but that can quickly change dependin' on your FUCKIN' actions, got it? We're after this BANK'S money, not yours, all your BLOODY money's insured by the FUCKIN' government, alright? You won't lose a FUCKIN' penny so think of your dipshit FAMILIES, now, your fat spouses and your ugly kids, you just KEEP IT SHUT like the good tools you are and STAY DOWN, and this'll be over in a bloody heartbeat."
+									duration = 30,
+									line_variations = {
+										any_mode = {
+											"Listen up, you bloody drongos! This is a robbery! We're not here to hurt you, but that can quickly change dependin' on your FUCKIN' actions, got it? We're after this BANK'S money, not yours, all your BLOODY money's insured by the FUCKIN' government, alright? You won't lose a FUCKIN' penny so think of your dipshit FAMILIES, now, your fat spouses and your ugly kids, you just KEEP IT SHUT like the good tools you are and STAY DOWN, and this'll be over in a bloody heartbeat."
+										}
 									}
 								}
 							}
@@ -2623,14 +2971,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"BAIN!?"
+									line_variations = {
+										any_mode = {
+											"BAIN!?"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"BAIN!?",
-										"BAIN?!"
+									line_variations = {
+										any_mode = {
+											"BAIN!?",
+											"BAIN?!"
+										}
 									}
 								}
 							}
@@ -2644,15 +2996,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"What do we do now?",
-										"The fuck do we do now?"
+									line_variations = {
+										any_mode = {
+											"What do we do now?",
+											"The fuck do we do now?"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Well, now bloody what?",
-										"So what the fuck do we do now, then?"
+									line_variations = {
+										any_mode = {
+											"Well, now bloody what?",
+											"So what the fuck do we do now, then?"
+										}
 									}
 								}
 							}
@@ -2666,13 +3022,17 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"I've got a bad feeling about this."
+									line_variations = {
+										any_mode = {
+											"I've got a bad feeling about this."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"I'm gettin' a bad feelin' about this!"
+									line_variations = {
+										any_mode = {
+											"I'm gettin' a bad feelin' about this!"
+										}
 									}
 								}
 							}
@@ -2686,14 +3046,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Sweep the place."
+									line_variations = {
+										any_mode = {
+											"Sweep the place."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Search the place!",
-										"Search the place."
+									line_variations = {
+										any_mode = {
+											"Search the place!",
+											"Search the place."
+										}
 									}
 								}
 							}
@@ -2707,14 +3071,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's find that mark."
+									line_variations = {
+										any_mode = {
+											"Let's find that mark."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Find the fucking mark!",
-										"Find the fuckin' mark."
+									line_variations = {
+										any_mode = {
+											"Find the fucking mark!",
+											"Find the fuckin' mark."
+										}
 									}
 								}
 							}
@@ -2728,14 +3096,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's find her!"
+									line_variations = {
+										any_mode = {
+											"Let's find her!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Find her!",
-										"Find her."
+									line_variations = {
+										any_mode = {
+											"Find her!",
+											"Find her."
+										}
 									}
 								}
 							}
@@ -2749,14 +3121,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's find him!"
+									line_variations = {
+										any_mode = {
+											"Let's find him!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Find that bloody bastard.",
-										"Find that BLOODY bastard!"
+									line_variations = {
+										any_mode = {
+											"Find that bloody bastard.",
+											"Find that BLOODY bastard!"
+										}
 									}
 								}
 							}
@@ -2770,14 +3146,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's find them!"
+									line_variations = {
+										any_mode = {
+											"Let's find them!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Let's find 'em!",
-										"Let's find 'em."
+									line_variations = {
+										any_mode = {
+											"Let's find 'em!",
+											"Let's find 'em."
+										}
 									}
 								}
 							}
@@ -2791,14 +3171,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's find it, now!"
+									line_variations = {
+										any_mode = {
+											"Let's find it, now!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Find it, now!",
-										"Find it, NOW!"	
+									line_variations = {
+										any_mode = {
+											"Find it, now!",
+											"Find it, NOW!"
+										}
 									}
 								}
 							}
@@ -2812,14 +3196,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Keep looking!"
-									}
+									text = "Keep looking!"
 								},
 								rb15 = {
-									text_variations = {
-										"Keep looking!",
-										"Keep looking."
+									line_variations = {
+										any_mode = {
+											"Keep looking!",
+											"Keep looking."
+										}
 									}
 								}
 							}
@@ -2833,12 +3217,16 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									"They brought in a turret",
-									"SWAT Turret!",
-									"Turret! Stay clear!",
-									"Turret!",
-									"Oh no! Turret!",
-									"Turret! Watch out!"
+									line_variations = {
+										any_mode = {
+											"They brought in a turret",
+											"SWAT Turret!",
+											"Turret! Stay clear!",
+											"Turret!",
+											"Oh no! Turret!",
+											"Turret! Watch out!"
+										}
+									}
 								}
 							}
 						}
@@ -2851,16 +3239,20 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"That's what I'm talking about!",
-										"Yes! YES!",
+									line_variations = {
+										any_mode = {
+											"That's what I'm talking about!",
+											"Yes! YES!",
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Take that!",
-										"Hah, take that!",
-										"Hahaha, fuck yes!"
+									line_variations = {
+										any_mode = {
+											"Take that!",
+											"Hah, take that!",
+											"Hahaha, fuck yes!"
+										}
 									}
 								}
 							}
@@ -2874,14 +3266,10 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Is that enough?"
-									}
+									text = "Is that enough?"
 								},
 								rb15 = {
-									text_variations = {
-										"Have we got enough?"
-									}
+									text = "Have we got enough?"
 								}
 							}
 						}
@@ -2894,14 +3282,10 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Nah, get all of it!"
-									}
+									text = "Nah, get all of it!"
 								},
 								rb15 = {
-									text_variations = {
-										"Fuck no, take it all!"
-									}
+									text = "Fuck no, take it all!"
 								}
 							}
 						}
@@ -2914,14 +3298,10 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Fire at it!"
-									}
+									text = "Fire at it!"
 								},
 								rb15 = {
-									text_variations = {
-										"Shoot it down!"
-									}
+									text = "Shoot it down!"
 								}
 							}
 						}
@@ -2934,15 +3314,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"We got murkies here!",
-										"Murkies!"
+									line_variations = {
+										any_mode = {
+											"We got murkies here!",
+											"Murkies!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Bunch a' bloody murkies!",
-										"Fuckin' murkies over here!"
+									line_variations = {
+										any_mode = {
+											"Bunch a' bloody murkies!",
+											"Fuckin' murkies over here!"
+										}
 									}
 								}
 							}
@@ -2956,15 +3340,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Let's get this stuff moving!",
-										"Let's carry this stuff the fuck out of here!"
+									line_variations = {
+										any_mode = {
+											"Let's get this stuff moving!",
+											"Let's carry this stuff the fuck out of here!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Grab a bag and go!",
-										"Grab a fuckin' bag and move it!"
+									line_variations = {
+										any_mode = {
+											"Grab a bag and go!",
+											"Grab a fuckin' bag and move it!"
+										}
 									}
 								}
 							}
@@ -2978,15 +3366,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"It's fucking stuck!",
-										"Shit, she's stuck!"
+									line_variations = {
+										any_mode = {
+											"It's fucking stuck!",
+											"Shit, she's stuck!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Can't move the fucker!",
-										"Fucker's stuck!"
+									line_variations = {
+										any_mode = {
+											"Can't move the fucker!",
+											"Fucker's stuck!"
+										}
 									}
 								}
 							}
@@ -3000,15 +3392,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"That fucking smell!",
-										"Holy fuck, that smell is killing me!"
+									line_variations = {
+										any_mode = {
+											"That fucking smell!",
+											"Holy fuck, that smell is killing me!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"What is that fuckin' smell?!",
-										"What is that bloody stench?!"
+									line_variations = {
+										any_mode = {
+											"What is that fuckin' smell?!",
+											"What is that bloody stench?!"
+										}
 									}
 								}
 							}
@@ -3022,15 +3418,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Damn, that was loud!",
-										"[chuckles] What a bang!"
+									line_variations = {
+										any_mode = {
+											"Damn, that was loud!",
+											"[chuckles] What a bang!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"You tosser, could you have warned us?!",
-										"Aw, shit, that was loud!"
+									line_variations = {
+										any_mode = {
+											"You tosser, could you have warned us?!",
+											"Aw, shit, that was loud!"
+										}
 									}
 								}
 							}
@@ -3044,19 +3444,23 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"YIPPIE-KI-YAY, MOTHERFUCKER!",
-										"FUCKIN' AWESOME!",
-										"GERONIMO, MOTHERFUCKERS!"
+									line_variations = {
+										any_mode = {
+											"YIPPIE-KI-YAY, MOTHERFUCKER!",
+											"FUCKIN' AWESOME!",
+											"GERONIMO, MOTHERFUCKERS!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"[exhilarated screaming]",
-										"FUCK YEAAAAH!",
-										"WHOO-HOOO, SHIT!",
-										"WHOO-HOOOOOO!",
-										"WHOO-HOOOOOOOOOOOO!"
+									line_variations = {
+										any_mode = {
+											"[exhilarated screaming]",
+											"FUCK YEAAAAH!",
+											"WHOO-HOOO, SHIT!",
+											"WHOO-HOOOOOO!",
+											"WHOO-HOOOOOOOOOOOO!"
+										}
 									}
 								}
 							}
@@ -3070,15 +3474,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Hi.",
-										"Hi!"
+									line_variations = {
+										any_mode = {
+											"Hi.",
+											"Hi!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Hi.",
-										"What's up?"
+									line_variations = {
+										any_mode = {
+											"Hi.",
+											"What's up?"
+										}
 									}
 								}
 							}
@@ -3092,15 +3500,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"I found a crowbar!",
-										"I got a crowbar!"
+									line_variations = {
+										any_mode = {
+											"I found a crowbar!",
+											"I got a crowbar!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Found myself a crowbar!",
-										"Got a crowbar!"
+									line_variations = {
+										any_mode = {
+											"Found myself a crowbar!",
+											"Got a crowbar!"
+										}
 									}
 								}
 							}
@@ -3114,15 +3526,19 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"GET IN!",
-										"Get in the chair!"
+									line_variations = {
+										any_mode = {
+											"GET IN!",
+											"Get in the chair!"
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Sit the fuck down!",
-										"Sit your arse down, you tosser!"
+									line_variations = {
+										any_mode = {
+											"Sit the fuck down!",
+											"Sit your arse down, you tosser!"
+										}
 									}
 								}
 							}
@@ -3136,30 +3552,34 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I've spotted a Bulldozer",
-										"Bulldozer!",
-										"BULLDOZER!",
-										"Watch out! Bulldozer!",
-										"It's a Bulldozer!"
-									},
-									assault_mode = {
-										"Oh, SHIT! BULLDOZER!",
-										"Bulldozer!",
-										"BULLDOZER!",
-										"It's a fucking Bulldozer!",
-										"FUCK! BULLDOZER!",
-										"It's a motherfucking Bulldozer!"
+									line_variations = {
+										standard_mode = {
+											"I've spotted a Bulldozer",
+											"Bulldozer!",
+											"BULLDOZER!",
+											"Watch out! Bulldozer!",
+											"It's a Bulldozer!"
+										},
+										assault_mode = {
+											"Oh, SHIT! BULLDOZER!",
+											"Bulldozer!",
+											"BULLDOZER!",
+											"It's a fucking Bulldozer!",
+											"FUCK! BULLDOZER!",
+											"It's a motherfucking Bulldozer!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"I see a Bulldozer!",
-										"It's a Bulldozer!",
-										"Bulldozer!",
-										"Got a Bulldozer!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"I see a Bulldozer!",
+											"It's a Bulldozer!",
+											"Bulldozer!",
+											"Got a Bulldozer!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3172,22 +3592,26 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Oh, shit! Bulldozer!",
-										"BULLDOZER!",
-										"FUCK! BULLDOZER!",
-										"It's a fucking Bulldozer!",
-										"Bulldozer!"
+									line_variations = {
+										any_mode = {
+											"Oh, shit! Bulldozer!",
+											"BULLDOZER!",
+											"FUCK! BULLDOZER!",
+											"It's a fucking Bulldozer!",
+											"Bulldozer!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"I see a Bulldozer!",
-										"It's a Bulldozer!",
-										"Bulldozer!",
-										"Got a Bulldozer!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"I see a Bulldozer!",
+											"It's a Bulldozer!",
+											"Bulldozer!",
+											"Got a Bulldozer!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3200,28 +3624,32 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I've spotted a Shield!",
-										"We've got a Shield over here!",
-										"It's a shield!",
-										"Shield!"
-									},
-									assault_mode = {
-										"Oh, shit! SHIELD!",
-										"We've got a Shield!",
-										"It's a fucking Shield!",
-										"Shield!",
-										"SHIELD!"
+									line_variations = {
+										standard_mode = {
+											"I've spotted a Shield!",
+											"We've got a Shield over here!",
+											"It's a shield!",
+											"Shield!"
+										},
+										assault_mode = {
+											"Oh, shit! SHIELD!",
+											"We've got a Shield!",
+											"It's a fucking Shield!",
+											"Shield!",
+											"SHIELD!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"I've spotted a Shield!",
-										"We've got a Shield over here!",
-										"We've got a Shield!",
-										"Shield!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"I've spotted a Shield!",
+											"We've got a Shield over here!",
+											"We've got a Shield!",
+											"Shield!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3234,22 +3662,26 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"It's a fucking Shield!",
-										"Shield!",
-										"SHIELD!",
-										"Oh, shit! SHIELD!",
-										"We've got a Shield!"
+									line_variations = {
+										any_mode = {
+											"It's a fucking Shield!",
+											"Shield!",
+											"SHIELD!",
+											"Oh, shit! SHIELD!",
+											"We've got a Shield!"
+										} --assault mode lines are identical
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"I've spotted a Shield!",
-										"We've got a Shield over here!",
-										"We've got a Shield!",
-										"Shield!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"I've spotted a Shield!",
+											"We've got a Shield over here!",
+											"We've got a Shield!",
+											"Shield!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3262,27 +3694,31 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I've spotted a Taser!",
-										"I've spotted a Taser, look out!",
-										"Taser!",
-										"It's a Taser, watch out!"
-									},
-									assault_mode = {
-										"Taser!",
-										"TASER!",
-										"It's a fucking Taser!",
-										"Oh, shit! Taser!"
+									line_variations = {
+										standard_mode = {
+											"I've spotted a Taser!",
+											"I've spotted a Taser, look out!",
+											"Taser!",
+											"It's a Taser, watch out!"
+										},
+										assault_mode = {
+											"Taser!",
+											"TASER!",
+											"It's a fucking Taser!",
+											"Oh, shit! Taser!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Taser spotted, look out!",
-										"Taser spotted!",
-										"We've got a taser!",
-										"Taser!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Taser spotted, look out!",
+											"Taser spotted!",
+											"We've got a taser!",
+											"Taser!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3295,21 +3731,25 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Taser!",
-										"TASER!",
-										"It's a fucking Taser!",
-										"Oh, shit! Taser!"
+									line_variations = {
+										any_mode = {
+											"Taser!",
+											"TASER!",
+											"It's a fucking Taser!",
+											"Oh, shit! Taser!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Taser spotted!",
-										"Taser spotted, look out!",
-										"We've got a taser!",
-										"Taser!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Taser spotted!",
+											"Taser spotted, look out!",
+											"We've got a taser!",
+											"Taser!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3322,29 +3762,33 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I've spotted a Cloaker!",
-										"We've got a Cloaker over here!",
-										"Cloaker!",
-										"It's a Cloaker!"
-									},
-									assault_mode = {
-										"Oh, shit! Cloaker!",
-										"Fucking CLOAKER!",
-										"Fucking Cloaker!",
-										"Cloaker!",
-										"CLOAKER!",
-										"Cloaker son of a bitch!"
+									line_variations = {
+										standard_mode = {
+											"I've spotted a Cloaker!",
+											"We've got a Cloaker over here!",
+											"Cloaker!",
+											"It's a Cloaker!"
+										},
+										assault_mode = {
+											"Oh, shit! Cloaker!",
+											"Fucking CLOAKER!",
+											"Fucking Cloaker!",
+											"Cloaker!",
+											"CLOAKER!",
+											"Cloaker son of a bitch!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Spotted a Cloaker!",
-										"It's a Cloaker!",
-										"We've got a Cloaker!",
-										"Cloaker!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Spotted a Cloaker!",
+											"It's a Cloaker!",
+											"We've got a Cloaker!",
+											"Cloaker!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3357,23 +3801,27 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Oh, shit! Cloaker!",
-										"Fucking CLOAKER!",
-										"Fucking Cloaker!",
-										"Cloaker!",
-										"CLOAKER!",
-										"Cloaker son of a bitch!"
+									line_variations = {
+										any_mode = {
+											"Oh, shit! Cloaker!",
+											"Fucking CLOAKER!",
+											"Fucking Cloaker!",
+											"Cloaker!",
+											"CLOAKER!",
+											"Cloaker son of a bitch!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Spotted a Cloaker!",
-										"It's a Cloaker!",
-										"We've got a Cloaker!",
-										"Cloaker!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Spotted a Cloaker!",
+											"It's a Cloaker!",
+											"We've got a Cloaker!",
+											"Cloaker!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3386,18 +3834,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Sniper!"
-									}
+									text = "Sniper!"
 								},
 								rb15 = {
-									standard_mode = {
-										"Look out! Sniper!",
-										"Stay back! Sniper!",
-										"Watch out! Sniper!",
-										"Sniper!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Look out! Sniper!",
+											"Stay back! Sniper!",
+											"Watch out! Sniper!",
+											"Sniper!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3410,18 +3858,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Sniper!"
-									}
+									text = "Sniper!"
 								},
 								rb15 = {
-									standard_mode = {
-										"Look out! Sniper!",
-										"Stay back! Sniper!",
-										"Watch out! Sniper!",
-										"Sniper!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Look out! Sniper!",
+											"Stay back! Sniper!",
+											"Watch out! Sniper!",
+											"Sniper!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3434,34 +3882,38 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"They've got a turret!",
-										"Oh no! Turret!",
-										"Turret!",
-										"Turret! Watch out!",
-										"Argh, turret!",
-										"They brought in a turret!",
-										"SWAT Turret!"
-									},
-									assault_mode = {
-										"Ah, shit, Turret!",
-										"Turret!",
-										"Fuck me! Turret!",
-										"They brought a Turret!",
-										"Turret son of a bitch!",
-										"It's a goddamn turret!",
-										"Motherfucking Turret!"
+									line_variations = {
+										standard_mode = {
+											"They've got a turret!",
+											"Oh no! Turret!",
+											"Turret!",
+											"Turret! Watch out!",
+											"Argh, turret!",
+											"They brought in a turret!",
+											"SWAT Turret!"
+										},
+										assault_mode = {
+											"Ah, shit, Turret!",
+											"Turret!",
+											"Fuck me! Turret!",
+											"They brought a Turret!",
+											"Turret son of a bitch!",
+											"It's a goddamn turret!",
+											"Motherfucking Turret!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"SWAT Turret!",
-										"Turret!",
-										"Fuck! Turret!",
-										"Turret! Watch out!",
-										"Turret! Bloody careful, now!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"SWAT Turret!",
+											"Turret!",
+											"Fuck! Turret!",
+											"Turret! Watch out!",
+											"Turret! Bloody careful, now!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3473,16 +3925,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Look out!",
-										"Watch out!",
-										"Oh, shit!"
-									},
-									assault_mode = {
-										"FUCK!",
-										"Oh, shit!",
-										"Aw, shit!",
-										"Shit!"
+									line_variations = {
+										standard_mode = {
+											"Look out!",
+											"Watch out!",
+											"Oh, shit!"
+										},
+										assault_mode = {
+											"FUCK!",
+											"Oh, shit!",
+											"Aw, shit!",
+											"Shit!"
+										}
 									}
 								}
 							}
@@ -3496,28 +3950,32 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Oh, shit, a Captain!",
-										"Oh, shit! (Captain)",
-										"Look out! (Captain)",
-										"Watch out! (Captain)",
-										"Watch out! Captain!"
-									},
-									assault_mode = {
-										"Watch out! Captain!",
-										"FUCK! (Captain)",
-										"SHIT! (Captain)",
-										"Oh, SHIT! (Captain)",
-										"Oh, shit! A Captain!",
-										"Fuck! (Captain)",
+									line_variations = {
+										standard_mode = {
+											"Oh, shit, a Captain!",
+											"Oh, shit! (Captain)",
+											"Look out! (Captain)",
+											"Watch out! (Captain)",
+											"Watch out! Captain!"
+										},
+										assault_mode = {
+											"Watch out! Captain!",
+											"FUCK! (Captain)",
+											"SHIT! (Captain)",
+											"Oh, SHIT! (Captain)",
+											"Oh, shit! A Captain!",
+											"Fuck! (Captain)",
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Watch out! Captain!",
-										"It's a Captain!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Watch out! Captain!",
+											"It's a Captain!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3530,21 +3988,25 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"They've got a Medic!",
-										"Police Medic in the house!",
-										"Cops got a Medic!",
-										"Look out! Medic!"
+									line_variations = {
+										any_mode = {
+											"They've got a Medic!",
+											"Police Medic in the house!",
+											"Cops got a Medic!",
+											"Look out! Medic!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"It's an enemy Medic!",
-										"Look out! Medic!", --should these have "enemy" in front of them for clarity?
-										"Enemy Medic!",
-										"Shit, Medic!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"It's an enemy Medic!",
+											"Look out! Medic!", --should these have "enemy" in front of them for clarity?
+											"Enemy Medic!",
+											"Shit, Medic!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3557,33 +4019,37 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Bulldozer down.",
-										"Bulldozer down!",
-										"Bulldozer's history."
-									},
-									assault_mode = {
-										"Bulldozer eliminated!",
-										"Bulldozer down!",
-										"Bulldozer taken care of!",
-										"Bulldozer's history.",
+									line_variations = {
+										standard_mode = {
+											"Bulldozer down.",
+											"Bulldozer down!",
+											"Bulldozer's history."
+										},
+										assault_mode = {
+											"Bulldozer eliminated!",
+											"Bulldozer down!",
+											"Bulldozer taken care of!",
+											"Bulldozer's history.",
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Bulldozer down.",
-										"Fuck off, dozer.",
-										"Dozer's history.",
-										"Fuck you, Bulldozer.",
-										"Killed a dozer.",
-									},
-									assault_mode = { --check for assault/whisper get stuffed line
-										"Bulldozer down!",
-										"Fuck off, dozer!",
-										"Fuck you, Bulldozer!",
-										"Dozer's history!",
-										"Killed a dozer!",
-										"Get stuffed, dozer fuck!"
+									line_variations = {
+										standard_mode = {
+											"Bulldozer down.",
+											"Fuck off, dozer.",
+											"Dozer's history.",
+											"Fuck you, Bulldozer.",
+											"Killed a dozer.",
+										},
+										assault_mode = { --check for assault/whisper get stuffed line
+											"Bulldozer down!",
+											"Fuck off, dozer!",
+											"Fuck you, Bulldozer!",
+											"Dozer's history!",
+											"Killed a dozer!",
+											"Get stuffed, dozer fuck!"
+										}
 									}
 								}
 							}
@@ -3597,29 +4063,33 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Shield down.",
-										"Shield's history.",
-										"Shield taken care of.",
-										"Shield's eliminated.",
-										"Shield down!"
-									},
-									assault_mode = {
-										"Shield eliminated!",
-										"Shield taken care of!",
-										"Shield's history!",
-										"Shield down!"
+									line_variations = {
+										standard_mode = {
+											"Shield down.",
+											"Shield's history.",
+											"Shield taken care of.",
+											"Shield's eliminated.",
+											"Shield down!"
+										},
+										assault_mode = {
+											"Shield eliminated!",
+											"Shield taken care of!",
+											"Shield's history!",
+											"Shield down!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Killed a Shield.",
-										"Bye-bye, arsehole Shield.",
-										"Got the fuckin' Shield.",
-										"Get stuffed, Shield fuck.",
-										"Fuck off, drongo Shield."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Killed a Shield.",
+											"Bye-bye, arsehole Shield.",
+											"Got the fuckin' Shield.",
+											"Get stuffed, Shield fuck.",
+											"Fuck off, drongo Shield."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3632,23 +4102,27 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Taser down.",
-										"Taser down!",
-										"Taser taken care of.",
-										"Taser eliminated.",
-										"Taser's history."										
+									line_variations = {
+										any_mode = {
+											"Taser down.",
+											"Taser down!",
+											"Taser taken care of.",
+											"Taser eliminated.",
+											"Taser's history."
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"I got the Taser.",
-										"Fuck off, Taser.",
-										"Taser's dead.",
-										"Get stuffed, Taser fuck.",
-										"Eat that, you tosser. (Taser)"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"I got the Taser.",
+											"Fuck off, Taser.",
+											"Taser's dead.",
+											"Get stuffed, Taser fuck.",
+											"Eat that, you tosser. (Taser)"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3661,23 +4135,27 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = { --no assault specific lines?
-										"Cloaker down.",
-										"Cloaker down!",
-										"Cloaker's history.",
-										"Cloaker eliminated",
-										"Cloaker taken care of."
+									line_variations = {
+										any_mode = { --no assault specific lines?
+											"Cloaker down.",
+											"Cloaker down!",
+											"Cloaker's history.",
+											"Cloaker eliminated",
+											"Cloaker taken care of."
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Cloaker's dead.",
-										"Eat that, Cloaker fuck.",
-										"Get stuffed, Cloaker.",
-										"Sleep tight, Cloaker.",
-										"Sit on my dick, Cloaker."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Cloaker's dead.",
+											"Eat that, Cloaker fuck.",
+											"Get stuffed, Cloaker.",
+											"Sleep tight, Cloaker.",
+											"Sit on my dick, Cloaker."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3690,35 +4168,39 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Got a sniper.",
-										"Took care of the sniper.",
-										"Sniper got what he deserved.",
-										"Sniper's pushing up daisies.",
-										"One sniper less in the world."
-									},
-									assault_mode = {
-										"Sniper down!",
-										"SNIPER DOWN!",
-										"Sniper killed!",
-										"Sniper dead!",
-										"Sniper DEAD!",
-										"One sniper less!",
-										"Got him! (Sniper)",
-										"Took him out.",
-										"Sniper out!",
-										"Sniper taken care of!"
+									line_variations = {
+										standard_mode = {
+											"Got a sniper.",
+											"Took care of the sniper.",
+											"Sniper got what he deserved.",
+											"Sniper's pushing up daisies.",
+											"One sniper less in the world."
+										},
+										assault_mode = {
+											"Sniper down!",
+											"SNIPER DOWN!",
+											"Sniper killed!",
+											"Sniper dead!",
+											"Sniper DEAD!",
+											"One sniper less!",
+											"Got him! (Sniper)",
+											"Took him out.",
+											"Sniper out!",
+											"Sniper taken care of!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Took care of the Sniper.",
-										"Sniper's dead.",
-										"Get stuffed, Sniper fuck.",
-										"Fuck off, Sniper.",
-										"Got a Sniper."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Took care of the Sniper.",
+											"Sniper's dead.",
+											"Get stuffed, Sniper fuck.",
+											"Fuck off, Sniper.",
+											"Got a Sniper."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3731,28 +4213,31 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Killed the Medic.",
-										"Killed the Medic!",
-										"Medic is dead.",
-										"Got the Medic."
+									line_variations = {
+										any_mode = {
+											"Killed the Medic.",
+											"Killed the Medic!",
+											"Medic is dead.",
+											"Got the Medic."
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Fuck off, Medic.",
-										"Try an' heal any of those wounds, ya pussy. (Medic)",
-										"Bye-bye, Medic fuck."										
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Fuck off, Medic.",
+											"Try an' heal any of those wounds, ya pussy. (Medic)",
+											"Bye-bye, Medic fuck."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
 					}
 				},
 				g40x_any = {
-					text = "SMOKE!",
-					variants = {}
+					text = "SMOKE!"
 				},
 				g41x_any = {
 					variants = {
@@ -3761,21 +4246,25 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Flashbang! I'm fucking blind!",
-										"Flashbang! My eyes! MY EYES!",
-										"Aagh, fuckin' flashbang!",
-										"Agh, I can't see fucking SHIT!"
+									line_variations = {
+										any_mode = {
+											"Flashbang! I'm fucking blind!",
+											"Flashbang! My eyes! MY EYES!",
+											"Aagh, fuckin' flashbang!",
+											"Agh, I can't see fucking SHIT!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"FUCK, I TOOK A FLASHBANG IN THE FACE!",
-										"BLOODY HELL, I'VE BEEN FLASHED!",
-										"AAAGH, WHAT THE FUCK!",
-										"CRIKEY, I'M COMPLETELY BLIND!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"FUCK, I TOOK A FLASHBANG IN THE FACE!",
+											"BLOODY HELL, I'VE BEEN FLASHED!",
+											"AAAGH, WHAT THE FUCK!",
+											"CRIKEY, I'M COMPLETELY BLIND!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3788,19 +4277,23 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"AAGH, TEARGAS!",
-										"AAGH, IT BURNS! IT BURNS!"
+									line_variations = {
+										any_mode = {
+											"AAGH, TEARGAS!",
+											"AAGH, IT BURNS! IT BURNS!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"AAGH, TEARGAS! [coughing] I'LL BLOODY KILL THE BASTARD WHO THREW THAT!",
-										"FUCK, TEARGAS! [coughing] THESE FUCKWITS ARE USING GAS!",
-										"TEARGAS! [coughing] WE NEED GAS MASKS, NOT CLOWN MASKS!",
-										"FUCK, TEARGAS! [coughing] FUCK, THAT STINGS BAD!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"AAGH, TEARGAS! [coughing] I'LL BLOODY KILL THE BASTARD WHO THREW THAT!",
+											"FUCK, TEARGAS! [coughing] THESE FUCKWITS ARE USING GAS!",
+											"TEARGAS! [coughing] WE NEED GAS MASKS, NOT CLOWN MASKS!",
+											"FUCK, TEARGAS! [coughing] FUCK, THAT STINGS BAD!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3813,63 +4306,69 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									recombinable = true,
-									standard_mode = { --unfinished
-										{
-											"I don't feel too good.",
-											"They got me!",
-											"They got me good!",
-											"[screams in pain] I'm hurt bad.",
-											"Oh, I'm not feeling too well.",
-											"Oh, I'm hurt, I'm hurt bad!"
+									duration = 6,
+									line_variations = {
+										recombinable = true,
+										standard_mode = { --unfinished
+											{
+												"I don't feel too good.",
+												"They got me!",
+												"They got me good!",
+												"[screams in pain] I'm hurt bad.",
+												"Oh, I'm not feeling too well.",
+												"Oh, I'm hurt, I'm hurt bad!"
+											},
+											{
+												"Anybody got a Medic Bag?",
+												"Anybody got a Medic Bag to offer?",
+												"Anybody got a Medic Bag to share?",
+												"Any one of you want to share a Medic Bag?",
+												"I could sure use a Medic Bag. Anyone got one?"
+											}
 										},
-										{	
-											 "Anybody got a Medic Bag?",
-											 "Anybody got a Medic Bag to offer?",
-											 "Anybody got a Medic Bag to share?",
-											 "Any one of you want to share a Medic Bag?",
-											 "I could sure use a Medic Bag. Anyone got one?"
-										}
-									},
-									assault_mode = {
-										{
-											"I'm hurt!",
-											"[screams in pain] I'm hurt!",
-											"[screams in pain] I'm dying!",
-											"[screams in pain]"
-										},
-										{
-											"Anybody got a Medic Bag?",
-											"Medic Bag! Anyone?!",
-											"Somebody drop a Medic Bag!",
-											"I need a Medic Bag!"
+										assault_mode = {
+											{
+												"I'm hurt!",
+												"[screams in pain] I'm hurt!",
+												"[screams in pain] I'm dying!",
+												"[screams in pain]"
+											},
+											{
+												"Anybody got a Medic Bag?",
+												"Medic Bag! Anyone?!",
+												"Somebody drop a Medic Bag!",
+												"I need a Medic Bag!"
+											}
 										}
 									}
 								},
 								rb15 = {
-									recombinable = true,
-									standard_mode = {
-										{
-											"I'm such a drongo, I should NOT have been hit!",
-											"Those fuckwits got me good!",
-											"Crikey, how many bullets did I eat?",
-											"Fuckin' cowards got me!"
+									duration = 6,
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"I'm such a drongo, I should NOT have been hit!",
+												"Those fuckwits got me good!",
+												"Crikey, how many bullets did I eat?",
+												"Fuckin' cowards got me!"
+											},
+											{
+												"Who's got a Medic Bag?",
+												"Anybody got a Medic Bag?",
+												"Can someone spare a Medic Bag?",
+												"I could really use a Medic Bag!",
+												"Can't take much more of this!",
+												"[screaming in pain] Fuck!",
+												"Fuck, this hurts!",
+												"Shit, I'm hurting bad!",
+												"Fuckin' dipshits got me good!",
+												"Fuck me, that bullet hurts!",
+												"[groaning in pain] Christ, this shit hurts!"
+											}
 										},
-										{
-											"Who's got a Medic Bag?",
-											"Anybody got a Medic Bag?",
-											"Can someone spare a Medic Bag?",
-											"I could really use a Medic Bag!",
-											"Can't take much more of this!",
-											"[screaming in pain] Fuck!",
-											"Fuck, this hurts!",
-											"Shit, I'm hurting bad!",
-											"Fuckin' dipshits got me good!",
-											"Fuck me, that bullet hurts!",
-											"[groaning in pain] Christ, this shit hurts!"
-										}
-									},
-									assault_mode = {}
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3882,13 +4381,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									recombinable = true,
-									standard_mode = { --these ones may not be complete
-										{
-											"I almost got no ammo left!",
-											"I'm almost out of ammo!",
-											"I'm running out of ammo!",
-											"I don't have much ammo left now!"
+									duration = 6,
+									line_variations = {
+										recombinable = true,
+										standard_mode = { --these ones may not be complete
+											{
+												"I almost got no ammo left!",
+												"I'm almost out of ammo!",
+												"I'm running out of ammo!",
+												"I don't have much ammo left now!"
 										},
 										{
 											"Anybody got an Ammo Bag left to share?",
@@ -3897,39 +4398,43 @@ ClosedCaptions._sounds = {
 											"Any of you guys got an Ammo Bag?",
 											"Ammo Bag! Anyone?!"
 										}
-									},
-									assault_mode = {
-										{
-											"Running low on bullets!",
-											"Almost out of ammo!",
-											"Not much ammo left!",
-											"Ammo low!"
 										},
-										{
-											"Anyone got an extra bag?",
-											"Anybody got some?",
-											"Get me some ammo!",
-											"Got some?",
+										assault_mode = {
+											{
+												"Running low on bullets!",
+												"Almost out of ammo!",
+												"Not much ammo left!",
+												"Ammo low!"
+											},
+											{
+												"Anyone got an extra bag?",
+												"Anybody got some?",
+												"Get me some ammo!",
+												"Got some?",
+											}
 										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										{
-											"I'm almost out of ammo!",
-											"I'm low on ammo!",
-											"I'm running out of ammo!",
-											"I'm almost out of ammo!",
-											"Mag's almost empty!"
+									duration = 6,
+									line_variations = {
+										standard_mode = {
+											{
+												"I'm almost out of ammo!",
+												"I'm low on ammo!",
+												"I'm running out of ammo!",
+												"I'm almost out of ammo!",
+												"Mag's almost empty!"
+											},
+											{
+												"I need some bloody ammo!",
+												"Get me some bloody bullets!",
+												"Get me some fucking ammo!",
+												"Get me some ammo!"
+											}
 										},
-										{
-											"I need some bloody ammo!",
-											"Get me some bloody bullets!",
-											"Get me some fucking ammo!",
-											"Get me some ammo!"
-										}
-									},
-									assault_mode = {}
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3942,35 +4447,39 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I've placed an Ammo Bag over here.",
-										"There's an Ammo Bag over here.",
-										"Come fill up your ammo supplies.",
-										"I've dropped an Ammo Bag over here.",
-										"I got extra ammo over here.",
-										"Come get some! (Ammo)", 
-										"Anyone need ammo?"
-									},
-									assault_mode = {
-										"Come fill up your ammo!",
-										"Fill up your ammo, guys!",
-										"Come get some ammo!",
-										"Ammo Bag!",
-										"Ammo Bag, over here!",
-										"Extra ammo, up for grabs!",
-										"Come fill up!",
-										"Ammo Bag, right here!",
-										"Extra ammo, over here!"
+									line_variations = {
+										standard_mode = {
+											"I've placed an Ammo Bag over here.",
+											"There's an Ammo Bag over here.",
+											"Come fill up your ammo supplies.",
+											"I've dropped an Ammo Bag over here.",
+											"I got extra ammo over here.",
+											"Come get some! (Ammo)",
+											"Anyone need ammo?"
+										},
+										assault_mode = {
+											"Come fill up your ammo!",
+											"Fill up your ammo, guys!",
+											"Come get some ammo!",
+											"Ammo Bag!",
+											"Ammo Bag, over here!",
+											"Extra ammo, up for grabs!",
+											"Come fill up!",
+											"Ammo Bag, right here!",
+											"Extra ammo, over here!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"More ammo over here.",
-										"There's ammo over here.",
-										"Extra ammo over here.",
-										"I dropped an Ammo Bag over here."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"More ammo over here.",
+											"There's ammo over here.",
+											"Extra ammo over here.",
+											"I dropped an Ammo Bag over here."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -3983,33 +4492,37 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I've dropped a Medic Bag over here.",
-										"Medic Bag! Come get patched up.",
-										"There's a Medic Bag over here!.",
-										"Medic Bag here! Anyone need patching up?",
-										"Get over here if you need a Medic Bag!",
-										"Medic Bag, up for grabs!"
-									},
-									assault_mode = {
-										"Medical Bag, up for grabs!",
-										"Medical Bag, right here!",
-										"Medical Bag over here!",
-										"Medical Bag, come get patched up!",
-										"Medical Bag, guys!",
-										"Medic Bag, right here!",
-										"Come replenish your health!",
-										"Come patch yourselves up!"
+									line_variations = {
+										standard_mode = {
+											"I've dropped a Medic Bag over here.",
+											"Medic Bag! Come get patched up.",
+											"There's a Medic Bag over here!.",
+											"Medic Bag here! Anyone need patching up?",
+											"Get over here if you need a Medic Bag!",
+											"Medic Bag, up for grabs!"
+										},
+										assault_mode = {
+											"Medical Bag, up for grabs!",
+											"Medical Bag, right here!",
+											"Medical Bag over here!",
+											"Medical Bag, come get patched up!",
+											"Medical Bag, guys!",
+											"Medic Bag, right here!",
+											"Come replenish your health!",
+											"Come patch yourselves up!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"I got a Medic Bag right here.",
-										"Medic Bag over here.",
-										"Medic Bag over here.", --two soundfile variations
-										"Some medic supplies here."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"I got a Medic Bag right here.",
+											"Medic Bag over here.",
+											"Medic Bag over here.", --two soundfile variations
+											"Some medic supplies here."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4022,29 +4535,33 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Thanks, friend.",
-										"Thanks, my friend.",
-										"[grunts] Thanks, friend.",
-										"[groans] Thanks a lot, my friend.",
-										"[grunts] Thanks."
-									},
-									assault_mode = {
-										"Thanks, man!",
-										"Thanks, buddy!",
-										"Thanks!",
-										"Thanks.",
-										"Thanks, pal."
+									line_variations = {
+										standard_mode = {
+											"Thanks, friend.",
+											"Thanks, my friend.",
+											"[grunts] Thanks, friend.",
+											"[groans] Thanks a lot, my friend.",
+											"[grunts] Thanks."
+										},
+										assault_mode = {
+											"Thanks, man!",
+											"Thanks, buddy!",
+											"Thanks!",
+											"Thanks.",
+											"Thanks, pal."
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"[groans] I guess I should say 'thanks.'",
-										"[groans] I guess I owe you one.",
-										"[groans] Finally!",
-										"[groans] Thanks for that."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"[groans] I guess I should say 'thanks.'",
+											"[groans] I guess I owe you one.",
+											"[groans] Finally!",
+											"[groans] Thanks for that."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4055,9 +4572,7 @@ ClosedCaptions._sounds = {
 						criminal = {
 							subvariants = {
 								rb3 = {
-									text_variations = {									
-										"[electrocuted gibberish]"
-									}
+									text = "[electrocuted gibberish]"
 								}
 							}
 						}
@@ -4070,35 +4585,39 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Let's fix you up.",
-										"Let's get you fixed up.",
-										"I've got you.",
-										"I'll get you fixed.",
-										"It's alright, I'm here to help.",
-										"I can get you patched up.",
-										"It's okay, I'm covering you.",
-										"I got ya.",
-										"Don't you worry, I'll fix you right up.",
-										"Come on, now!"										
-									},
-									assault_mode = {
-										"I'll help you up!",
-										"I'll get you back up!",
-										"I'll get you up!",
-										"You'll be up in a sec!",
-										"Let's get you back in business!",
-										"Let's get you back up and running!"
+									line_variations = {
+										standard_mode = {
+											"Let's fix you up.",
+											"Let's get you fixed up.",
+											"I've got you.",
+											"I'll get you fixed.",
+											"It's alright, I'm here to help.",
+											"I can get you patched up.",
+											"It's okay, I'm covering you.",
+											"I got ya.",
+											"Don't you worry, I'll fix you right up.",
+											"Come on, now!"
+										},
+										assault_mode = {
+											"I'll help you up!",
+											"I'll get you back up!",
+											"I'll get you up!",
+											"You'll be up in a sec!",
+											"Let's get you back in business!",
+											"Let's get you back up and running!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"You'll be up in no time.",
-										"Lemme get you up.",
-										"I'll get you back up.",
-										"Let's get you up."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"You'll be up in no time.",
+											"Lemme get you up.",
+											"I'll get you back up.",
+											"Let's get you up."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4111,26 +4630,30 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"First Aid Kit! Get your band-aid here!",
-										"First Aid Kit! Get your band-aid here.",
-										"First Aid Kit here, anyone who needs it!",
-										"Right there! There's a First Aid Kit here."
-									},
-									assault_mode = {
-										"First Aid Kit here!",
-										"Got a First Aid Kit here!",
-										"Here's a First Aid Kit!"
+									line_variations = {
+										standard_mode = {
+											"First Aid Kit! Get your band-aid here!",
+											"First Aid Kit! Get your band-aid here.",
+											"First Aid Kit here, anyone who needs it!",
+											"Right there! There's a First Aid Kit here."
+										},
+										assault_mode = {
+											"First Aid Kit here!",
+											"Got a First Aid Kit here!",
+											"Here's a First Aid Kit!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Here's a First Aid Kit.", --three variations on this line
-										"Here's a First Aid Kit.",
-										"Here's a First Aid Kit!",
-										"First Aid Kit here."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Here's a First Aid Kit.", --three variations on this line
+											"Here's a First Aid Kit.",
+											"Here's a First Aid Kit!",
+											"First Aid Kit here."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4143,23 +4666,27 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Bodybag Case right here.",
-										"Bodybag Case right here!",
-										"Bodybag Case, right here.",
-										"Bodybag Case deployed!"
-									},
-									assault_mode = { --why were assault variants recorded
-										"Got a Bodybag Case here!",
-										"Bodybag Case"
+									line_variations = {
+										standard_mode = {
+											"Bodybag Case right here.",
+											"Bodybag Case right here!",
+											"Bodybag Case, right here.",
+											"Bodybag Case deployed!"
+										},
+										assault_mode = { --why were assault variants recorded
+											"Got a Bodybag Case here!",
+											"Bodybag Case"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Bodybag Case!",
-										"Got a Bodybag Case here!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Bodybag Case!",
+											"Got a Bodybag Case here!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4176,18 +4703,20 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"That was the last of my Cable Ties.",
-										"That was the last Cable Tie I had.",
-										"Okay, that was the last of my Cable Ties.",
-										"Alright, that was the last Cable Tie.",
-										"Now I'm all out of Cable Ties."
-									},
-									assault_mode = {
-										"That was the last of my Cable Ties.",
-										"Okay, that was the last Cable Tie I had.",
-										"Alright, that was my last Cable Tie.",
-										"Now I'm all out of Cable Ties."										
+									line_variations = {
+										standard_mode = {
+											"That was the last of my Cable Ties.",
+											"That was the last Cable Tie I had.",
+											"Okay, that was the last of my Cable Ties.",
+											"Alright, that was the last Cable Tie.",
+											"Now I'm all out of Cable Ties."
+										},
+										assault_mode = {
+											"That was the last of my Cable Ties.",
+											"Okay, that was the last Cable Tie I had.",
+											"Alright, that was my last Cable Tie.",
+											"Now I'm all out of Cable Ties."
+										}
 									}
 								}
 							}
@@ -4201,50 +4730,54 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									recombinable = true,
-									standard_mode = {
-										{
-											"Guys!",
-											"Hey guys!",
-											"Somebody!"
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"Guys!",
+												"Hey guys!",
+												"Somebody!"
+											},
+											{
+												"Help me up!",
+												"Help me!",
+												"HELP!",
+												"Gimme a hand!",
+												"Over here!",
+												"I need help!",
+												"You gotta help me!",
+												"You gotta help me up!"
+											}
 										},
-										{
-											"Help me up!",
-											"Help me!",
-											"HELP!",
-											"Gimme a hand!",
-											"Over here!",
-											"I need help!",
-											"You gotta help me!",
-											"You gotta help me up!"
-										}
-									},
-									assault_mode = {
-										{
-											"SOMEBODY!",
-											"Friends!",
-											"Hey guys!",
-											"Hey, my friends!"
-										},
-										{
-											"Help me!",
-											"HELP!",
-											"Gimme a hand!",
-											"You gotta help me!",
-											"Over here!",
-											"I need help!",
-											"Help me up!"
+										assault_mode = {
+											{
+												"SOMEBODY!",
+												"Friends!",
+												"Hey guys!",
+												"Hey, my friends!"
+											},
+											{
+												"Help me!",
+												"HELP!",
+												"Gimme a hand!",
+												"You gotta help me!",
+												"Over here!",
+												"I need help!",
+												"Help me up!"
+											}
 										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"HELP ME!",
-										"Get me up!",
-										"Help!",
-										"You gotta help me!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"HELP ME!",
+											"Get me up!",
+											"Help!",
+											"You gotta help me!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4257,20 +4790,22 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"This ain't gonna take long.",
-										"Gonna slip these.",
-										"[chuckles] They didn't think I could get out.",
-										"No problem, I know how these go.",
-										"[chuckles] These are easy to get out of."
-									},
-									assault_mode = {
-										"I'm gonna pick these handcuffs.",
-										"I'll get out of these cuffs in a jiffy.",
-										"I'm gonna get out of these cuffs.",
-										"Time to make use of those old lockpicking skills.",
-										"I'll pick these cuffs in no time.",
-										"[chuckles] Like I haven't picked a pair of these before."
+									line_variations = {
+										standard_mode = {
+											"This ain't gonna take long.",
+											"Gonna slip these.",
+											"[chuckles] They didn't think I could get out.",
+											"No problem, I know how these go.",
+											"[chuckles] These are easy to get out of."
+										},
+										assault_mode = {
+											"I'm gonna pick these handcuffs.",
+											"I'll get out of these cuffs in a jiffy.",
+											"I'm gonna get out of these cuffs.",
+											"Time to make use of those old lockpicking skills.",
+											"I'll pick these cuffs in no time.",
+											"[chuckles] Like I haven't picked a pair of these before."
+										}
 									}
 								}
 							}
@@ -4284,22 +4819,24 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"[laughs] Cuffs off, let's ride!",
-										"[laughs] I'm outta the barn!",
-										"[chuckles] Cuffs open!",
-										"[laughs] Slippery as a greased weasel!",
-										"[laughs] I'm doin' what I was born to do!",
-										"[laughs] What'd I say?"
-									},
-									assault_mode = {
-										"Okay, I picked the cuffs.",
-										"[chuckles] They thought these cuffs could hold me.",
-										"[chuckles] I'm a bona fide escape artist.",
-										"[quiet chuckle] The cuffs are off.",
-										"Alright, I'm free.",
-										"Alright, the cuffs are off.",
-										"Okay, I got rid of the cuffs."
+									line_variations = {
+										standard_mode = {
+											"[laughs] Cuffs off, let's ride!",
+											"[laughs] I'm outta the barn!",
+											"[chuckles] Cuffs open!",
+											"[laughs] Slippery as a greased weasel!",
+											"[laughs] I'm doin' what I was born to do!",
+											"[laughs] What'd I say?"
+										},
+										assault_mode = {
+											"Okay, I picked the cuffs.",
+											"[chuckles] They thought these cuffs could hold me.",
+											"[chuckles] I'm a bona fide escape artist.",
+											"[quiet chuckle] The cuffs are off.",
+											"Alright, I'm free.",
+											"Alright, the cuffs are off.",
+											"Okay, I got rid of the cuffs."
+										}
 									}
 								}
 							}
@@ -4313,35 +4850,39 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Everybody, on the ground!",
-										"On the ground, all of you!",
-										"Down on the ground, all of you!",
-										"Down on the ground, people!",
-										"Down, all of you!",
-										"Down, people!",
-										"Everyone, down!",
-										"ON THE GROUND, people!"
-									},
-									assault_mode = {
-										"On the ground, people!",
-										"EVERYBODY. DOWN.",
-										"EVERYBODY DOWN!",
-										"Everybody down!",
-										"Down!",
-										"DOWN!",
-										"Down, all of you!"
+									line_variations = {
+										standard_mode = {
+											"Everybody, on the ground!",
+											"On the ground, all of you!",
+											"Down on the ground, all of you!",
+											"Down on the ground, people!",
+											"Down, all of you!",
+											"Down, people!",
+											"Everyone, down!",
+											"ON THE GROUND, people!"
+										},
+										assault_mode = {
+											"On the ground, people!",
+											"EVERYBODY. DOWN.",
+											"EVERYBODY DOWN!",
+											"Everybody down!",
+											"Down!",
+											"DOWN!",
+											"Down, all of you!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Down.",
-										"Down on the ground.",
-										"On the ground.",
-										"Get down on the ground.",
-										"Ge'down."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Down.",
+											"Down on the ground.",
+											"On the ground.",
+											"Get down on the ground.",
+											"Ge'down."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4354,26 +4895,30 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Get down!",
-										"Down on the ground!",
-										"Get down on the ground!",
-										"Get down on the ground.",
-										"Down!",
-										"DOWN!",
-										"On the ground!"
+									line_variations = {
+										any_mode = {
+											"Get down!",
+											"Down on the ground!",
+											"Get down on the ground!",
+											"Get down on the ground.",
+											"Down!",
+											"DOWN!",
+											"On the ground!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Hit the floor.",
-										"Down.",
-										"Get down.",
-										"Ge'down.",
-										"On the ground.",
-										"On the ground."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Hit the floor.",
+											"Down.",
+											"Get down.",
+											"Ge'down.",
+											"On the ground.",
+											"On the ground."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4386,50 +4931,54 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I said, down on the ground!",
-										"I said, GET DOWN ON THE GROUND.",
-										"You heard what I just said?!",
-										"You do what I tell you!",
-										"NOW!",
-										"You're pushing it!",
-										"Don't try to be a hero!",
-										"Don't test my patience!",
-										"Don't make me say it again!",
-										"I'm not gonna say it again!"
-									},
-									assault_mode = {
-										"I SAID GET THE FUCK DOWN!",
-										"I SAID DOWN, ON THE GROUND!",
-										"I SAID ON THE GROUND!",
-										"I. SAID. DOWN!",
-										"I TOLD YOU, DOWN!",
-										"I'M NOT SAYING IT AGAIN!",
-										"I TOLD YOU, GET DOWN ON THE GROUND!",
-										"DON'T TEST MY PATIENCE!",
-										"DON'T TRY TO BE A HERO!",
-										"DO WHAT I FUCKING SAY!",
-										"ON THE GROUND, YOU PIECE OF SHIT!",
-										"ON THE FUCKING GROUND, YOU SON OF A BITCH!",
-										"RIGHT NOW, MOTHERFUCKER!",
-										"RIGHT FUCKING NOW!",
-										"WHAT ARE YOU, A FUCKIN' HERO?",
-										"YOU'RE PUSHING IT!",
-										"YOU HEAR WHAT I'M FUCKING SAYING?",
-										"YOU HEARD WHAT I FUCKIN' SAID?",
-										"YOU DO WHAT I FUCKING TELL YOU!",
-										"YOU FUCKING HEARING ME?!",
-										"YOU. DO WHAT I FUCKING SAY!"
+									line_variations = {
+										standard_mode = {
+											"I said, down on the ground!",
+											"I said, GET DOWN ON THE GROUND.",
+											"You heard what I just said?!",
+											"You do what I tell you!",
+											"NOW!",
+											"You're pushing it!",
+											"Don't try to be a hero!",
+											"Don't test my patience!",
+											"Don't make me say it again!",
+											"I'm not gonna say it again!"
+										},
+										assault_mode = {
+											"I SAID GET THE FUCK DOWN!",
+											"I SAID DOWN, ON THE GROUND!",
+											"I SAID ON THE GROUND!",
+											"I. SAID. DOWN!",
+											"I TOLD YOU, DOWN!",
+											"I'M NOT SAYING IT AGAIN!",
+											"I TOLD YOU, GET DOWN ON THE GROUND!",
+											"DON'T TEST MY PATIENCE!",
+											"DON'T TRY TO BE A HERO!",
+											"DO WHAT I FUCKING SAY!",
+											"ON THE GROUND, YOU PIECE OF SHIT!",
+											"ON THE FUCKING GROUND, YOU SON OF A BITCH!",
+											"RIGHT NOW, MOTHERFUCKER!",
+											"RIGHT FUCKING NOW!",
+											"WHAT ARE YOU, A FUCKIN' HERO?",
+											"YOU'RE PUSHING IT!",
+											"YOU HEAR WHAT I'M FUCKING SAYING?",
+											"YOU HEARD WHAT I FUCKIN' SAID?",
+											"YOU DO WHAT I FUCKING TELL YOU!",
+											"YOU FUCKING HEARING ME?!",
+											"YOU. DO WHAT I FUCKING SAY!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Get down, or get killed.",
-										"I said, 'down.'",
-										"Don't make me say it again.",
-										"Did I stutter?"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Get down, or get killed.",
+											"I said, 'down.'",
+											"Don't make me say it again.",
+											"Did I stutter?"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4442,35 +4991,39 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Stay down, everybody!",
-										"Stay down, people!",
-										"Stay down, all of you!",
-										"Everybody stay down!",
-										"Everybody, stay down!",
-										"Nobody move!"
-									},
-									assault_mode = {
-										"Stay where you are!",
-										"STAY WHERE YOU ARE!",
-										"NOBODY MOVE!",
-										"Everybody, stay DOWN!",
-										"Everybody stay down!",
-										"Everybody stay down.",
-										"Stay! DOWN!"
+									line_variations = {
+										standard_mode = {
+											"Stay down, everybody!",
+											"Stay down, people!",
+											"Stay down, all of you!",
+											"Everybody stay down!",
+											"Everybody, stay down!",
+											"Nobody move!"
+										},
+										assault_mode = {
+											"Stay where you are!",
+											"STAY WHERE YOU ARE!",
+											"NOBODY MOVE!",
+											"Everybody, stay DOWN!",
+											"Everybody stay down!",
+											"Everybody stay down.",
+											"Stay! DOWN!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Stay down.",
-										"Stay.",
-										"Stay still.",
-										"Stay down, little doggy.",
-										"Stay put.",
-										"Don't move.",
-										"Don't move."										
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Stay down.",
+											"Stay.",
+											"Stay still.",
+											"Stay down, little doggy.",
+											"Stay put.",
+											"Don't move.",
+											"Don't move."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4483,38 +5036,42 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Stay low!",
-										"Stay still!",
-										"Stay down!",
-										"Don't move!",
-										"Stay where you are!"										
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Stay low!",
+											"Stay still!",
+											"Stay down!",
+											"Don't move!",
+											"Stay where you are!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Stay put.",
-										"Stay still.",
-										"Kiss the fucking ground.",
-										"Don't move.",
-										"Stay down, little doggy.",
-										"I had a good burger before I came here. That honestly might be the only reason I haven't killed you yet.",
-										"Aren't you enjoying this, you bloody tool?",
-										"I'm thinkin' of eatin' a good steak after this. I deserve it, don't I?",
-										"Consider yourselves lucky that I woke up in good spirits today! Christ, I woulda fuckin' killed you all otherwise.",
-										"Ya fuckwit, I should just kill ya based off your stupid face!",
-										"Don't act stupid, and I won't kill ya. Simple!",
-										"[laughs] it's fuckin' pathetic how scared you look. Christ, how can anyone be such a coward?",
-										"Don't try to be a fuckin' hero.",
-										"I'll stomp your face if you move, got it?",
-										"Crikey, I'm getting bored. I might just kill one of you for fun.",
-										"Don't test me, you hear?",
-										"Just lay still and shut your mouth!",
-										"I can't imagine you've ever been a part of anything as remotely exciting as this!",
-										"Pretend you're dead, and you'll keep living, got it?",
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Stay put.",
+											"Stay still.",
+											"Kiss the fucking ground.",
+											"Don't move.",
+											"Stay down, little doggy.",
+											"I had a good burger before I came here. That honestly might be the only reason I haven't killed you yet.",
+											"Aren't you enjoying this, you bloody tool?",
+											"I'm thinkin' of eatin' a good steak after this. I deserve it, don't I?",
+											"Consider yourselves lucky that I woke up in good spirits today! Christ, I woulda fuckin' killed you all otherwise.",
+											"Ya fuckwit, I should just kill ya based off your stupid face!",
+											"Don't act stupid, and I won't kill ya. Simple!",
+											"[laughs] it's fuckin' pathetic how scared you look. Christ, how can anyone be such a coward?",
+											"Don't try to be a fuckin' hero.",
+											"I'll stomp your face if you move, got it?",
+											"Crikey, I'm getting bored. I might just kill one of you for fun.",
+											"Don't test me, you hear?",
+											"Just lay still and shut your mouth!",
+											"I can't imagine you've ever been a part of anything as remotely exciting as this!",
+											"Pretend you're dead, and you'll keep living, got it?",
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4527,24 +5084,28 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"And stay there!",
-										"And stay put.",
-										"And stay down.",
-										"And don't you dare move.",
-										"And don't move."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"And stay there!",
+											"And stay put.",
+											"And stay down.",
+											"And don't you dare move.",
+											"And don't move."
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"And stay down.",
-										"And don't fucking move.",
-										"And stay there!",
-										"Stay down.",
-										"And don't move."
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"And stay down.",
+											"And don't fucking move.",
+											"And stay there!",
+											"Stay down.",
+											"And don't move."
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4557,33 +5118,37 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Get off your ass!",
-										"Up, buddy!",
-										"You! Get back up and fight!",
-										"We need you, buddy! Get up!",
-										"Get back in the fight, buddy!",
-										"Get back up and fight, buddy!",
-										"You can do it!",
-										"Stand up!",
-										"Pain is just mental! Get back up!"
-									},
-									assault_mode = {} --we need you, buddy! Stand up!
+									line_variations = {
+										standard_mode = {
+											"Get off your ass!",
+											"Up, buddy!",
+											"You! Get back up and fight!",
+											"We need you, buddy! Get up!",
+											"Get back in the fight, buddy!",
+											"Get back up and fight, buddy!",
+											"You can do it!",
+											"Stand up!",
+											"Pain is just mental! Get back up!"
+										},
+										assault_mode = {} --we need you, buddy! Stand up!
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Get the fuck up.",
-										"Get the fuck up, I'm not kiddin'.",
-										"Get on ya' feet!",
-										"You can do better than that!",
-										"Up with ya!",
-										"Rise and shine, fuckwit!",
-										"Get up and fight!",
-										"You're not bloody done yet!",
-										"Get on ya' fuckin feet!",
-										"Get back in the fight, ya' tosser!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Get the fuck up.",
+											"Get the fuck up, I'm not kiddin'.",
+											"Get on ya' feet!",
+											"You can do better than that!",
+											"Up with ya!",
+											"Rise and shine, fuckwit!",
+											"Get up and fight!",
+											"You're not bloody done yet!",
+											"Get on ya' fuckin feet!",
+											"Get back in the fight, ya' tosser!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4596,33 +5161,37 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									whisper_mode = {
-										"[whispering] I see a Guard.",
-										"[whispering] They're everywhere.",
-										"[whispering] Guard over here.",
-										"[whispering] Got a Guard over here.",
-										"[whispering] Got a Guard.",
-										"[whispering] They haven't seen us.",
-										"[whispering] Careful...",
-										"[whispering] Guard!",
-										"[whispering] Guard.",
-										"[whispering] Keep track, guys.",
-										"[whispering] Watch it, guys.",
-										"[whispering] Stay low and quiet.",
-										"[whispering] We're good.",
-										"[whispering] Stay back."
+									line_variations = {
+										whisper_mode = {
+											"[whispering] I see a Guard.",
+											"[whispering] They're everywhere.",
+											"[whispering] Guard over here.",
+											"[whispering] Got a Guard over here.",
+											"[whispering] Got a Guard.",
+											"[whispering] They haven't seen us.",
+											"[whispering] Careful...",
+											"[whispering] Guard!",
+											"[whispering] Guard.",
+											"[whispering] Keep track, guys.",
+											"[whispering] Watch it, guys.",
+											"[whispering] Stay low and quiet.",
+											"[whispering] We're good.",
+											"[whispering] Stay back."
+										}
 									}
 								},
 								rb15 = {
-									whisper_mode = {
-										"[whispering] Look out! Guard!",
-										"[whispering] Guard! Watch it.",
-										"[whispering] Guard! Stay back.",
-										"[whispering] Careful! Guard!",
-										"[whispering] Guard!",
-										"[whispering] Guard! Stay quiet.",
-										"[whispering] Don't bloody alert the Guard.",
-										"[whispering] Guard! Stay alert!"
+									line_variations = {
+										whisper_mode = {
+											"[whispering] Look out! Guard!",
+											"[whispering] Guard! Watch it.",
+											"[whispering] Guard! Stay back.",
+											"[whispering] Careful! Guard!",
+											"[whispering] Guard!",
+											"[whispering] Guard! Stay quiet.",
+											"[whispering] Don't bloody alert the Guard.",
+											"[whispering] Guard! Stay alert!"
+										}
 									}
 								}
 							}
@@ -4636,23 +5205,27 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"C'mon, c'mon!",
-										"C'mon.",
-										"Come with me, move it!",
-										"Come along, now.",
-										"Come along, now!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"C'mon, c'mon!",
+											"C'mon.",
+											"Come with me, move it!",
+											"Come along, now.",
+											"Come along, now!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Come with me!",
-										"Follow me!",
-										"Follow me!",
-										"Come on!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Come with me!",
+											"Follow me!",
+											"Follow me!",
+											"Come on!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4665,25 +5238,29 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									whisper_mode = {
-										"[whispering] Stay low and quiet.",
-										"[whispering] They're everywhere.",
-										"[whispering] Careful...",
-										"[whispering] We're good.",
-										"[whispering] Stay back.",
-										"[whispering] Watch it, guys.",
-										"[whispering] Keep track, guys."	
+									line_variations = {
+										whisper_mode = {
+											"[whispering] Stay low and quiet.",
+											"[whispering] They're everywhere.",
+											"[whispering] Careful...",
+											"[whispering] We're good.",
+											"[whispering] Stay back.",
+											"[whispering] Watch it, guys.",
+											"[whispering] Keep track, guys."
+										}
 									}
 								},
 								rb15 = {
-									whisper_mode = {
-										"[whispering] Watch out! Camera!",
-										"[whispering] Smile for the Camera.",
-										"[whispering] Camera!.",
-										"[whispering] CCTV!",
-										"[whispering] Watch out! (Camera)",
-										"[whispering] Don't get caught on tape.",
-										"[whispering] Camera over there!"
+									line_variations = {
+										whisper_mode = {
+											"[whispering] Watch out! Camera!",
+											"[whispering] Smile for the Camera.",
+											"[whispering] Camera!.",
+											"[whispering] CCTV!",
+											"[whispering] Watch out! (Camera)",
+											"[whispering] Don't get caught on tape.",
+											"[whispering] Camera over there!"
+										}
 									}
 								}
 							}
@@ -4697,22 +5274,26 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Get a move on!",
-										"Get moving!",
-										"Move!",
-										"GET A MOVE ON!"										
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Get a move on!",
+											"Get moving!",
+											"Move!",
+											"GET A MOVE ON!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Run faster, dipshit!",
-										"Move it!",
-										"Move it, you drongo!",
-										"Move!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Run faster, dipshit!",
+											"Move it!",
+											"Move it, you drongo!",
+											"Move!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4725,21 +5306,25 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Up.",
-										"Up!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Up.",
+											"Up!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Get the fuck up, I'm not kiddin'.",
-										"Get back in the fight, ya' tosser.",
-										"Get the fuck up.",
-										"Get on your feet!",
-										"Get up and fight!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Get the fuck up, I'm not kiddin'.",
+											"Get back in the fight, ya' tosser.",
+											"Get the fuck up.",
+											"Get on your feet!",
+											"Get up and fight!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4752,22 +5337,26 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Up.",
-										"Up!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Up.",
+											"Up!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Get up and fight!",
-										"Get the fuck up!",
-										"Get back in the fight, ya' tosser.",
-										"Get the fuck up, I'm not kiddin'.",
-										"Get on your feet!",
-										"Up with ya'!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Get up and fight!",
+											"Get the fuck up!",
+											"Get back in the fight, ya' tosser.",
+											"Get the fuck up, I'm not kiddin'.",
+											"Get on your feet!",
+											"Up with ya'!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4780,46 +5369,50 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"I got a bullet here with your name on it.",
-										"You're fuckin' pushing it!",
-										"LET IT OUT! Right fucking now!",
-										"Right now, motherfucker!",
-										"Speak up, fuckface!",
-										"What are you, a fucking hero?!",
-										"Answer, dammit!",
-										"Don't try to be a fucking hero!",
-										"You fucking listening?",
-										"ANSWER!",
-										"You got a fucking death wish?!",
-										"I'm getting tired of this!",
-										"You hear what I'm saying?!",
-										"DON'T TRY MY PATIENCE!",
-										"You want to live until tomorrow?!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"I got a bullet here with your name on it.",
+											"You're fuckin' pushing it!",
+											"LET IT OUT! Right fucking now!",
+											"Right now, motherfucker!",
+											"Speak up, fuckface!",
+											"What are you, a fucking hero?!",
+											"Answer, dammit!",
+											"Don't try to be a fucking hero!",
+											"You fucking listening?",
+											"ANSWER!",
+											"You got a fucking death wish?!",
+											"I'm getting tired of this!",
+											"You hear what I'm saying?!",
+											"DON'T TRY MY PATIENCE!",
+											"You want to live until tomorrow?!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Tell us what we need to know!",
-										"Fuckin' answer!",
-										"I'll break your fuckin' face!",
-										"I'll fuckin' kill ya!",
-										"I'll make ya wish you were dead, you understand?!",
-										"Don't make me bring out the fury!",
-										"Answer me, fucker!",
-										"I'll stomp your bloody throat!",
-										"COCKSUCKER!",
-										"Right now, dipshit!",
-										"TOSSER!",
-										"Don't play tough with me!",
-										"You wish to see tomorrow, you bastard?!",
-										"Don't make me crush your fuckin' head!",
-										"Listen up, tosser!",
-										"Spit it out!",
-										"I'll rip your fuckin' face off!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Tell us what we need to know!",
+											"Fuckin' answer!",
+											"I'll break your fuckin' face!",
+											"I'll fuckin' kill ya!",
+											"I'll make ya wish you were dead, you understand?!",
+											"Don't make me bring out the fury!",
+											"Answer me, fucker!",
+											"I'll stomp your bloody throat!",
+											"COCKSUCKER!",
+											"Right now, dipshit!",
+											"TOSSER!",
+											"Don't play tough with me!",
+											"You wish to see tomorrow, you bastard?!",
+											"Don't make me crush your fuckin' head!",
+											"Listen up, tosser!",
+											"Spit it out!",
+											"I'll rip your fuckin' face off!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4832,20 +5425,24 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Don't move!",
-										"Stay still!",
-										"Stay where you are!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Don't move!",
+											"Stay still!",
+											"Stay where you are!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Just stay there.",
-										"Hey, wait over there.",
-										"Wait over there.",
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Just stay there.",
+											"Hey, wait over there.",
+											"Wait over there.",
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4858,40 +5455,44 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									recombinable = true,
-									standard_mode = {
-										{
-											"Drill got jammed right up, I think.",
-											"You hear that? The drill is jammed.",
-											"Ain't that a jammed drill sound?",
-											"What I hear right now sounds like a jammed drill.",
-											"Aw, man, I can hear the drill got stuck."
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"Drill got jammed right up, I think.",
+												"You hear that? The drill is jammed.",
+												"Ain't that a jammed drill sound?",
+												"What I hear right now sounds like a jammed drill.",
+												"Aw, man, I can hear the drill got stuck."
+											},
+											{
+												"We have to fix it.",
+												"We need to get it fixed!",
+												"One of us has to fix it!",
+												"Somebody gotta restart it."
+											}
 										},
-										{
-											"We have to fix it.",
-											"We need to get it fixed!",
-											"One of us has to fix it!",
-											"Somebody gotta restart it."
-										}
-									},
-									assault_mode = {}
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									recombinable = true,
-									standard_mode = {
-										{
-											"The drill's jammed!",
-											"We've got a jammed drill on our hands!",
-											"I think the drill is stuck!"
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"The drill's jammed!",
+												"We've got a jammed drill on our hands!",
+												"I think the drill is stuck!"
+											},
+											{
+												"Someone's gotta fix it!",
+												"We need to get it fixed!",
+												"We have to fix it!",
+												"We've gotta get it fixed!",
+											}
 										},
-										{
-											"Someone's gotta fix it!",
-											"We need to get it fixed!",
-											"We have to fix it!",
-											"We've gotta get it fixed!",
-										}
-									},
-									assault_mode = {}
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -4904,43 +5505,47 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									recombinable = true,
-									text_variations = {
-										{
-											"The drill's squeaking again.",
-											"The drill's stuck again.",
-											"The drill got stuck again.",
-											"The drill seems to have jammed again.",
-											"Here we go again, the drill's stuck."
-										},
-										{
-											"Somebody gotta fix it!",
-											"Somebody gotta restart it!",
-											"We have to restart it!",
-											"One of us has to fix it!",
-											"We need to get it fixed!"
+									line_variations = {
+										recombinable = true,
+										any_mode = {
+											{
+												"The drill's squeaking again.",
+												"The drill's stuck again.",
+												"The drill got stuck again.",
+												"The drill seems to have jammed again.",
+												"Here we go again, the drill's stuck."
+											},
+											{
+												"Somebody gotta fix it!",
+												"Somebody gotta restart it!",
+												"We have to restart it!",
+												"One of us has to fix it!",
+												"We need to get it fixed!"
+											}
 										}
 									}
 								},
 								rb15 = {
-									recombinable = true,
-									text_variations = {
-										{
-											"The drill's jammed!",
-											"We've got a jammed drill on our hands!",
-											"I think the drill is stuck!"
-										},
-										{
-											"Someone's gotta fix it!",
-											"We need to get it fixed!",
-											"We have to fix it!",
-											"We've gotta get it fixed!"
+									line_variations = {
+										recombinable = true,
+										any_mode = {
+											{
+												"The drill's jammed!",
+												"We've got a jammed drill on our hands!",
+												"I think the drill is stuck!"
+											},
+											{
+												"Someone's gotta fix it!",
+												"We need to get it fixed!",
+												"We have to fix it!",
+												"We've gotta get it fixed!"
+											}
 										}
 									}
 								}
 							}
 						}
-					
+
 					}
 				},
 				d03_plu = {
@@ -4950,34 +5555,39 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Computer's beepin'- never good!",
-										"Sounds like we need some tech help!",
-										"Sounds like the computer's all fouled up!",
-										"Appears like the computer's busted!",
-										"Appears like the computer ain't workin' right!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Computer's beepin'- never good!",
+											"Sounds like we need some tech help!",
+											"Sounds like the computer's all fouled up!",
+											"Appears like the computer's busted!",
+											"Appears like the computer ain't workin' right!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Why is the computer beeping?!",
-										"Fuck, something's not right with the computer!",
-										"The computer process is jammed!",
-										"The bloody computer is stuck!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Why is the computer beeping?!",
+											"Fuck, something's not right with the computer!",
+											"The computer process is jammed!",
+											"The bloody computer is stuck!"
+										},
+										assault_mode = {}
+									}
 								}
 							}
 						}
 					}
 				},
 				d03_sin = {
-						criminal = {
-							text = "Thermal Lance is broken",
-							priority = 5,
-							subvariants = {
-								rb4 = {
+					criminal = {
+						text = "Thermal Lance is broken",
+						priority = 5,
+						subvariants = {
+							rb4 = {
+								line_variations = {
 									standard_mode = {
 										"That there is the sound of a stuck Thermal Lance.",
 										"Appears that the Thermal Lance has melted. I hear it!.",
@@ -4985,12 +5595,13 @@ ClosedCaptions._sounds = {
 										"Pretty sure that noise means the Thermal Lance stopped.",
 										"Sounds like the Lance is misfiring.",
 										"Yeah, that's an overheated Thermal Lance, alright." --dallas pronounces it "overhead" so ovk probably made a typo in the script
---										"Another computer needs fixing!", --uhh... not sure why this sound variant can play from d03_sin
+									--										"Another computer needs fixing!", --uhh... not sure why this sound variant can play from d03_sin
 									},
 									assault_mode = {}
 								}
 							}
 						}
+					}
 				},
 				d04_plu = {
 					variants = {
@@ -4998,14 +5609,16 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Computer's beeping again!",
-										"We gotta fix the computer again!",
-										"A machine ain't workin' again!",
-										"Wondering if it's the OS, or what?",
-										"[chuckles] Another technical problem with the computer.",
-										"[chuckles] Wonder if it's the software.",
-										"Wonder whether it's software or hardware failures."
+									line_variations = {
+										any_mode = {
+											"Computer's beeping again!",
+											"We gotta fix the computer again!",
+											"A machine ain't workin' again!",
+											"Wondering if it's the OS, or what?",
+											"[chuckles] Another technical problem with the computer.",
+											"[chuckles] Wonder if it's the software.",
+											"Wonder whether it's software or hardware failures."
+										}
 									}
 								}
 							}
@@ -5018,16 +5631,18 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Someone go take a look at the drill, huh?",
-										"The Thermal Drill just isn't sounding good!",
-										"Here we go again! The Lance ain't working!",
-										"Once more, time to fetch the drill a kick!",
-										"Appears the Thermal is broken again!",
-										"We gotta get that Thermal Drill working again!",
-										"Thermal Drill ain't up to snuff!",
-										"'fraid Drill is out of whack again!",
-										"Appears the Thermal Drill is out of order, again!"
+									line_variations = {
+										any_mode = {
+											"Someone go take a look at the drill, huh?",
+											"The Thermal Drill just isn't sounding good!",
+											"Here we go again! The Lance ain't working!",
+											"Once more, time to fetch the drill a kick!",
+											"Appears the Thermal is broken again!",
+											"We gotta get that Thermal Drill working again!",
+											"Thermal Drill ain't up to snuff!",
+											"'fraid Drill is out of whack again!",
+											"Appears the Thermal Drill is out of order, again!"
+										}
 									}
 								}
 							}
@@ -5041,40 +5656,44 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									recombinable = true,
-									standard_mode = {
-										{
-											"It's stuck!",
-											"Something's not right!",
-											"What's that?",
-											"It's jammed!"
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"It's stuck!",
+												"Something's not right!",
+												"What's that?",
+												"It's jammed!"
+											},
+											{
+												"One of us has to fix it!",
+												"Somebody gotta fix it!",
+												"Somebody gotta restart it!",
+												"We have to fix it!",
+												"We need to get it fixed!"
+											}
 										},
-										{
-											"One of us has to fix it!",
-											"Somebody gotta fix it!",
-											"Somebody gotta restart it!",
-											"We have to fix it!",
-											"We need to get it fixed!"
-										}
-									},
-									assault_mode = {}
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									recombinable = true,
-									standard_mode = {
-										{
-											"It's stuck!",
-											"Something's not right!",
-											"It's jammed!",
-											"What's that?"
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"It's stuck!",
+												"Something's not right!",
+												"It's jammed!",
+												"What's that?"
+											},
+											{
+												"We need to get it fixed!",
+												"We have to fix it!",
+												"Someone's gotta fix it!"
+											}
 										},
-										{
-											 "We need to get it fixed!",
-											 "We have to fix it!",
-											 "Someone's gotta fix it!"
-										}
-									},
-									assault_mode = {}
+										assault_mode = {}
+									}
 								}
 							}
 						}
@@ -5087,32 +5706,36 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Going to work...",
-										"[chuckles] It's on now...",
-										"Good luck, buddies.",
-										"'kay, let's do this, buddies.",
-										"Let's make that money.",
-										"Ready up.",
-										"Okay, let's do this.",
-										"Let's break bad.",
-										"Get your game face on, buddies."
+									line_variations = {
+										any_mode = {
+											"Going to work...",
+											"[chuckles] It's on now...",
+											"Good luck, buddies.",
+											"'kay, let's do this, buddies.",
+											"Let's make that money.",
+											"Ready up.",
+											"Okay, let's do this.",
+											"Let's break bad.",
+											"Get your game face on, buddies."
+										}
 									}
 								},
 								rb7 = {
 									text = "It's showtime, you shites..."
 								},
 								rb15 = {
-									text_variations = {
-										"These fuckers will learn my name...",
-										"[chuckles] It's gonna be a ripper of a day...",
-										"Time to cement my place in this crew.",
-										"Let's bloody go.",
-										"I'll go down in history as one of the greatest.",
-										"I was born for this.",
-										"Time to show I belong in the big leagues.",
-										"Time to build my legacy.",
-										"Time to make the world burn."
+									line_variations = {
+										any_mode = {
+											"These fuckers will learn my name...",
+											"[chuckles] It's gonna be a ripper of a day...",
+											"Time to cement my place in this crew.",
+											"Let's bloody go.",
+											"I'll go down in history as one of the greatest.",
+											"I was born for this.",
+											"Time to show I belong in the big leagues.",
+											"Time to build my legacy.",
+											"Time to make the world burn."
+										}
 									}
 								}
 							}
@@ -5142,20 +5765,24 @@ ClosedCaptions._sounds = {
 							priority = 15,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Got it.",
-										"I got it!",
-										"Right on it."
+									line_variations = {
+										any_mode = {
+											"Got it.",
+											"I got it!",
+											"Right on it."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Gotcha!",
-										"Okay!",
-										"I'm comin'!",
-										"Okay.",
-										"Alright!",
-										"Alright."
+									line_variations = {
+										any_mode = {
+											"Gotcha!",
+											"Okay!",
+											"I'm comin'!",
+											"Okay.",
+											"Alright!",
+											"Alright."
+										}
 									}
 								}
 							}
@@ -5168,28 +5795,32 @@ ClosedCaptions._sounds = {
 							text = "I'm on my way",
 							priority = 15,
 							rb4 = {
-								text_variations = {
-									"I'm coming!",
-									"Be right there!",
-									"As fast as I can!",
-									"I'm comin' for ya!",
-									"I'll be there in a flash!",
-									"I'll be there in an instant!"
+								line_variations = {
+									any_mode = {
+										"I'm coming!",
+										"Be right there!",
+										"As fast as I can!",
+										"I'm comin' for ya!",
+										"I'll be there in a flash!",
+										"I'll be there in an instant!"
+									}
 								}
 							},
 							rb15 = {
-								recombinable = true,
-								text_variations = {
-									{
-										"I'm comin'.",
-										"On the way.",
-										"As soon as I can.",
-										"I'm right there."
-									},
-									{
-										"Hang in there!",
-										"Bloody hang in there!",
-										"Just hang on!"
+								line_variations = {
+									recombinable = true,
+									any_mode = {
+										{
+											"I'm comin'.",
+											"On the way.",
+											"As soon as I can.",
+											"I'm right there."
+										},
+										{
+											"Hang in there!",
+											"Bloody hang in there!",
+											"Just hang on!"
+										}
 									}
 								}
 							}
@@ -5202,9 +5833,11 @@ ClosedCaptions._sounds = {
 							text = "Gotcha!",
 							priority = 15,
 							rb4 = {
-								text_variations = {
-									"Gotcha!",
-									"Gotcha."
+								line_variations = {
+									any_mode = {
+										"Gotcha!",
+										"Gotcha."
+									}
 								}
 							}
 						}
@@ -5217,12 +5850,14 @@ ClosedCaptions._sounds = {
 							priority = 15,
 							subvariants = {
 								rb4 = {
-									text_variations = {
-										"Only a few minutes left!",
-										"A few minutes left still.",
-										"Only a couple of minutes left now.",
-										"We still got a few more minutes to go!",
-										"Just a few minutes left now."
+									line_variations = {
+										any_mode = {
+											"Only a few minutes left!",
+											"A few minutes left still.",
+											"Only a couple of minutes left now.",
+											"We still got a few more minutes to go!",
+											"Just a few minutes left now."
+										}
 									}
 								}
 							}
@@ -5236,13 +5871,15 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									text = "Halfway there.",
-									text_variations = {
-										"We're halfway through!",
-										"We're halfway now!",
-										"We're about halfway through now!",
-										"We should be about halfway by now!",
-										"We should be halfway through by now.",
-										"Halfway! We're halfway!"
+									line_variations = {
+										any_mode = {
+											"We're halfway through!",
+											"We're halfway now!",
+											"We're about halfway through now!",
+											"We should be about halfway by now!",
+											"We should be halfway through by now.",
+											"Halfway! We're halfway!"
+										}
 									}
 								}
 							}
@@ -5256,14 +5893,16 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									text = "Almost there.",
-									text_variations = {
-										"Only seconds away!",
-										"Any moment now!",
-										"Any second!",
-										"Any second...",
-										"Any second now!",
-										"We're almost done!",
-										"Just a couple more seconds!"
+									line_variations = {
+										any_mode = {
+											"Only seconds away!",
+											"Any moment now!",
+											"Any second!",
+											"Any second...",
+											"Any second now!",
+											"We're almost done!",
+											"Just a couple more seconds!"
+										}
 									}
 								}
 							}
@@ -5277,47 +5916,51 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Hands up!",
-										"Put 'em up!",
-										"Put 'em up.",
-										"Reach for the sky!",
-										"Put your hands in the air!",
-										"Drop your weapon!",
-										"Stick 'em up!",
-										"Stick 'em up.",
-										"Hands where I can see them!"
-									},
-									assault_mode = {
-										"No sudden movements!",
-										"Put your hands up!",
-										"Drop your piece!",
-										"Hands in the air!",
-										"Hands up!",
-										"Stick em up!",
-										"Put your fuckin' hands up!",
-										"Hands up, mothafucka!"
+									line_variations = {
+										standard_mode = {
+											"Hands up!",
+											"Put 'em up!",
+											"Put 'em up.",
+											"Reach for the sky!",
+											"Put your hands in the air!",
+											"Drop your weapon!",
+											"Stick 'em up!",
+											"Stick 'em up.",
+											"Hands where I can see them!"
+										},
+										assault_mode = {
+											"No sudden movements!",
+											"Put your hands up!",
+											"Drop your piece!",
+											"Hands in the air!",
+											"Hands up!",
+											"Stick em up!",
+											"Put your fuckin' hands up!",
+											"Hands up, mothafucka!"
+										}
 									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Put your hands up.",
-										"Put 'em up, fuckwit!",
-										"Drop your weapon!",
-										"Drop your gun.",
-										"Hands in the fuckin' air!",
-										"Hands up, ya fucker!",
-										"Lower ya weapon!",
-										"Hands where I can see them."
-									},
-									assault_mode = {
-										"Put your bloody hands up!",
-										"Get your hands up!",
-										"Hands up, fucker!",
-										"Drop it!",
-										"Get your hands up, dipshit!",
-										"Drop the gun!",
-										"Drop the weapon now!"
+									line_variations = {
+										standard_mode = {
+											"Put your hands up.",
+											"Put 'em up, fuckwit!",
+											"Drop your weapon!",
+											"Drop your gun.",
+											"Hands in the fuckin' air!",
+											"Hands up, ya fucker!",
+											"Lower ya weapon!",
+											"Hands where I can see them."
+										},
+										assault_mode = {
+											"Put your bloody hands up!",
+											"Get your hands up!",
+											"Hands up, fucker!",
+											"Drop it!",
+											"Get your hands up, dipshit!",
+											"Drop the gun!",
+											"Drop the weapon now!"
+										}
 									}
 								}
 							}
@@ -5330,33 +5973,37 @@ ClosedCaptions._sounds = {
 							text = "Intimidation stage 2",
 							priority = 5,
 							subvariants = {
-								rb15 = {
-									standard_mode = {
-										"Down on your knees!",
-										"ON YOUR KNEES!",
-										"On your knees!",
-										"Get on your knees!",
-										"Get down on your knees!"
-									},
-									assault_mode = {}
+								line_variations = {
+									rb15 = {
+										standard_mode = {
+											"Down on your knees!",
+											"ON YOUR KNEES!",
+											"On your knees!",
+											"Get on your knees!",
+											"Get down on your knees!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Get down on your knees.",
-										"Kneel down.",
-										"On your fuckin' knees.",
-										"Down on your knees.",
-										"Kneel.",
-										"Drop on your knees.",
-										"Kneel, dipshit.",
-										"Hit the ground, fucker."
-									},
-									assault_mode = {
-										"Get on your knees!",
-										"Down on your knees!",
-										"Get down on your knees!",
-										"On your knees!",
-										"Kneel!"
+									line_variations = {
+										standard_mode = {
+											"Get down on your knees.",
+											"Kneel down.",
+											"On your fuckin' knees.",
+											"Down on your knees.",
+											"Kneel.",
+											"Drop on your knees.",
+											"Kneel, dipshit.",
+											"Hit the ground, fucker."
+										},
+										assault_mode = {
+											"Get on your knees!",
+											"Down on your knees!",
+											"Get down on your knees!",
+											"On your knees!",
+											"Kneel!"
+										}
 									}
 								}
 							}
@@ -5370,30 +6017,34 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb4 = {
-									standard_mode = {
-										"Now handcuff yourself!",
-										"Now put your cuffs on!",
-										"Now cuff yourself!",
-										"Cuff yourself!",
-										"Cuff yourself.",
-										"Put your cuffs on!",
-										"Handcuff yourself!"
-									},
-									assault_mode = {}
+									line_variations = {
+										standard_mode = {
+											"Now handcuff yourself!",
+											"Now put your cuffs on!",
+											"Now cuff yourself!",
+											"Cuff yourself!",
+											"Cuff yourself.",
+											"Put your cuffs on!",
+											"Handcuff yourself!"
+										},
+										assault_mode = {}
+									}
 								},
 								rb15 = {
-									standard_mode = {
-										"Cuffs on!",
-										"Cuffs! Put 'em on!",
-										"Get your cuffs on!",
-										"Cuff yourself!",
-										"Put your cuffs on!"
-									},
-									assault_mode = {
-										"Put your cuffs on!",
-										"Put your handcuffs on!",
-										"Now, cuffs!",
-										"Cuffs on!",
+									line_variations = {
+										standard_mode = {
+											"Cuffs on!",
+											"Cuffs! Put 'em on!",
+											"Get your cuffs on!",
+											"Cuff yourself!",
+											"Put your cuffs on!"
+										},
+										assault_mode = {
+											"Put your cuffs on!",
+											"Put your handcuffs on!",
+											"Now, cuffs!",
+											"Cuffs on!",
+										}
 									}
 								}
 							}
@@ -5402,87 +6053,91 @@ ClosedCaptions._sounds = {
 				}, --intimidate
 				whistling_attention = {
 					text = "[whistle]",
-					variants = {},
 					priority = 5
 				},
 				dsp_radio_checking_1 = {
 					variants = {
 						criminal = {
 							text = "[answering pager]",
-							duration = 10, --default pager answer time is 10s
 							subvariants = {
 								rb4 = { --incomplete
-									text_variations = {
-										"Um, all good, sometimes I just see things. Not to alarm you!",
-										"[embarassed chuckle] I think maybe I'm standing on a magnet. That might be the problem.",
-										"Everything's peachy, over.",
-										"I mean, I didn't see anything.",
-										"I don't know what you heard, but everything's cool over here.",
-										"Not much going on over here, ma'am. Sorry- 'sir.'",
-										"I saw a cockroach. That's it.",
-										"Can't say anything is happening, to be honest.",
-										"Um, I think I got the radio wet when I was washing my hands.",
-										"Things are cool, over.",
-										"Just swatted a fly sitting on the radio.",
-										"No issues, except that I got a hiccup. [hiccups]",
-										"Can't say much is going on.",
-										"Oh yeah, we're perfectly perfect over here.",
-										"Uh... I thought I saw a ghost, but I'm getting tired, don't listen to me.",
-										"Nothing really to speak of. All's well, buddy.",
-										"Nah, situation normal, if you wanna know.",
-										"No problem, except... [sniffling] I got a nasty cold! [coughing violently]",
-										"Uh, hey buddy! Everything's just fine!",
-										"I gotta say, I don't like these radios. They're just no goddamn good.",
-										"I think it's the radio. It's gotta be a short.",
-										"Uh, it's hard to say. Um, everything's in order over here. Over.",
-										"Um, ahh, uhh... I don't... [imitates radio static]",
-										"Everything's good, except the parts that aren't.",
-										"I think the fillings in my teeth are interfering with the radio signals.",
-										"No real issues, except I slammed my toe into a chair.",
-										"Everything is A-OK, over."
+									duration = 10, --default pager answer time is 10s
+									line_variations = {
+										any_mode = {
+											"Um, all good, sometimes I just see things. Not to alarm you!",
+											"[embarassed chuckle] I think maybe I'm standing on a magnet. That might be the problem.",
+											"Everything's peachy, over.",
+											"I mean, I didn't see anything.",
+											"I don't know what you heard, but everything's cool over here.",
+											"Not much going on over here, ma'am. Sorry- 'sir.'",
+											"I saw a cockroach. That's it.",
+											"Can't say anything is happening, to be honest.",
+											"Um, I think I got the radio wet when I was washing my hands.",
+											"Things are cool, over.",
+											"Just swatted a fly sitting on the radio.",
+											"No issues, except that I got a hiccup. [hiccups]",
+											"Can't say much is going on.",
+											"Oh yeah, we're perfectly perfect over here.",
+											"Uh... I thought I saw a ghost, but I'm getting tired, don't listen to me.",
+											"Nothing really to speak of. All's well, buddy.",
+											"Nah, situation normal, if you wanna know.",
+											"No problem, except... [sniffling] I got a nasty cold! [coughing violently]",
+											"Uh, hey buddy! Everything's just fine!",
+											"I gotta say, I don't like these radios. They're just no goddamn good.",
+											"I think it's the radio. It's gotta be a short.",
+											"Uh, it's hard to say. Um, everything's in order over here. Over.",
+											"Um, ahh, uhh... I don't... [imitates radio static]",
+											"Everything's good, except the parts that aren't.",
+											"I think the fillings in my teeth are interfering with the radio signals.",
+											"No real issues, except I slammed my toe into a chair.",
+											"Everything is A-OK, over."
+										}
 									}
 								},
 								rb15 = {
-									text_variations = {
-										"Nah, we're good. Just a random... man, walking around. I gave him a slice of cheddar, and sent him away.",
-										"[singing] Never gonna give you up, never gonna let you down, never gonna run around and desert you- oh, sorry, is this on?",
-										"[singing] Can't touch this! ...oh, sorry Control, I pressed the button!",
-										"[singing] I come from a land down under... where beer flows, and men chunder- oh, sorry, is this on? Hello?",
-										"I just can't get over the season finale on The Walking Dead! I need to talk to someone about it.",
-										"Leroy is being a fucking drongo. Can we switch partners?",
-										"It's a ripper of a day, isn't it Control? Life's good, yeah?",
-										"Well, bugger me! I think I left me' stove on at home. Well, nothing to do about that now.",
-										"Crikey, I'm bored as batshit. You seen any action? Control?",
-										"How's it going over there, Control? You good? We're fine over here, just checking in.",
-										"So tell me, Control. Jared Leto as the new Joker: Yea or Nay? I think he'll pull it off, I must say.",
-										"Uhh, no, everything is clear here Control. Nothing weird happening. Nothing at all.",
-										"Sorry to disturb you, Control. I thought I saw something suspicious, but it was nothing.",
-										"Sorry, Control, I must have pressed the wrong button.",
-										"Sorry, Control, I'm just really craving some good pudding. You got any?",
-										"Sorry, Control, did you hear any of that? Just my... pet rat, Ernie, attacking Leroy. But we're fine now.",
-										"Sorry to disturb you, Control. I thought I saw something suspicious, but it was nothing.",
-										"HAH, Leroy is such a tosser! He thinks he can out-drink me! Yeah, right, like that would ever happen!",
-										"HAH, Leroy is such a tosser! I ate his Snickers, and now he's crying about it! Get some bollocks, man! I'll get you another one!",
-										"If I don't see some action soon, I'll turn into a fucking basket case.",
-										"I'm making some vegemite sandwiches for the lads. You want some, Control?",
-										"So, this Saturday. Are we gonna party or what? I'm looking to get my groove on.",
-										"[yawns] God, I'm buggered. Can I get off my shift early?",
-										"Uh, what? No, no. I mean, yes! No, everything is fine here, okay?",
-										"This might actually be the world's most boring job.",
-										"Don't you just love watching panicked people running for their lives? No? I'm just joking, mate! Loosen up! You think I'm off my rocker?",
-										"Don't get your panties in a bunch, Control! We're fine and dandy over here.",
-										"When I was a young girl, they used to call me 'biscuit mama.' Ah,  I miss that nickname. Can you start calling me that?",
-										"I'm thinking of getting myself a dog, and naming him 'Blood Lord.' 'Come here, Blood lord! That's right, that's a good boy!'",
-										"[high pitched voice] No problem here Control, everything is aaaalright! [giggles] I'm good at doing different voices, right?",
-										"I don't want to put you on the spot, but I've gotta ask: Vampires or werewolves- who wins in a battle? Me and Leroy can't decide.",
-										"I had the WEIRDEST dream last night. I dreamt that my head was replaced by an actual hamburger, and then people started calling me 'hamburger head'.",
-										"No, no real problem, Control. Leroy is upset because I said I don't believe he would last long if a zombie outbreak happened.",
-										"No wuckin' forries, Control. We're all good here.",
-										"Nope! No problem over here, Control. Everything is A-OK.",
-										"Hey Control, my band, The Sandwich Babies, are playing on Friday. You REALLY need to come check us out, it's gonna be a ripper of a show.",
-										"Hey Control, come over here after your shift ends. I'll show you my sweet Melbourne Shuffle moves!",
-										"I'm thinking of writing a novel about a woman hunting dragons to eat 'em. The title could be: 'Moira the Dragon Eater.' What do you think?",
-										"You know, I could really go for a croc burger right now. A good and juicy croc burger. That'd be something, yeah?"
+									duration = 10,
+									line_variations = {
+										any_mode = {
+											"Nah, we're good. Just a random... man, walking around. I gave him a slice of cheddar, and sent him away.",
+											"[singing] Never gonna give you up, never gonna let you down, never gonna run around and desert you- oh, sorry, is this on?",
+											"[singing] Can't touch this! ...oh, sorry Control, I pressed the button!",
+											"[singing] I come from a land down under... where beer flows, and men chunder- oh, sorry, is this on? Hello?",
+											"I just can't get over the season finale on The Walking Dead! I need to talk to someone about it.",
+											"Leroy is being a fucking drongo. Can we switch partners?",
+											"It's a ripper of a day, isn't it Control? Life's good, yeah?",
+											"Well, bugger me! I think I left me' stove on at home. Well, nothing to do about that now.",
+											"Crikey, I'm bored as batshit. You seen any action? Control?",
+											"How's it going over there, Control? You good? We're fine over here, just checking in.",
+											"So tell me, Control. Jared Leto as the new Joker: Yea or Nay? I think he'll pull it off, I must say.",
+											"Uhh, no, everything is clear here Control. Nothing weird happening. Nothing at all.",
+											"Sorry to disturb you, Control. I thought I saw something suspicious, but it was nothing.",
+											"Sorry, Control, I must have pressed the wrong button.",
+											"Sorry, Control, I'm just really craving some good pudding. You got any?",
+											"Sorry, Control, did you hear any of that? Just my... pet rat, Ernie, attacking Leroy. But we're fine now.",
+											"Sorry to disturb you, Control. I thought I saw something suspicious, but it was nothing.",
+											"HAH, Leroy is such a tosser! He thinks he can out-drink me! Yeah, right, like that would ever happen!",
+											"HAH, Leroy is such a tosser! I ate his Snickers, and now he's crying about it! Get some bollocks, man! I'll get you another one!",
+											"If I don't see some action soon, I'll turn into a fucking basket case.",
+											"I'm making some vegemite sandwiches for the lads. You want some, Control?",
+											"So, this Saturday. Are we gonna party or what? I'm looking to get my groove on.",
+											"[yawns] God, I'm buggered. Can I get off my shift early?",
+											"Uh, what? No, no. I mean, yes! No, everything is fine here, okay?",
+											"This might actually be the world's most boring job.",
+											"Don't you just love watching panicked people running for their lives? No? I'm just joking, mate! Loosen up! You think I'm off my rocker?",
+											"Don't get your panties in a bunch, Control! We're fine and dandy over here.",
+											"When I was a young girl, they used to call me 'biscuit mama.' Ah,  I miss that nickname. Can you start calling me that?",
+											"I'm thinking of getting myself a dog, and naming him 'Blood Lord.' 'Come here, Blood lord! That's right, that's a good boy!'",
+											"[high pitched voice] No problem here Control, everything is aaaalright! [giggles] I'm good at doing different voices, right?",
+											"I don't want to put you on the spot, but I've gotta ask: Vampires or werewolves- who wins in a battle? Me and Leroy can't decide.",
+											"I had the WEIRDEST dream last night. I dreamt that my head was replaced by an actual hamburger, and then people started calling me 'hamburger head'.",
+											"No, no real problem, Control. Leroy is upset because I said I don't believe he would last long if a zombie outbreak happened.",
+											"No wuckin' forries, Control. We're all good here.",
+											"Nope! No problem over here, Control. Everything is A-OK.",
+											"Hey Control, my band, The Sandwich Babies, are playing on Friday. You REALLY need to come check us out, it's gonna be a ripper of a show.",
+											"Hey Control, come over here after your shift ends. I'll show you my sweet Melbourne Shuffle moves!",
+											"I'm thinking of writing a novel about a woman hunting dragons to eat 'em. The title could be: 'Moira the Dragon Eater.' What do you think?",
+											"You know, I could really go for a croc burger right now. A good and juicy croc burger. That'd be something, yeah?"
+										}
 									}
 								}
 							}
@@ -5490,19 +6145,28 @@ ClosedCaptions._sounds = {
 					}
 				},
 				--[[
+
 				fri_dsp_stop_all = {
+
 					disabled = true
+
 				},
+
 				dsp_radio_russian = {
+
 					disabled = true
+
 				},
+
 				--]]
 				dsp_radio_reminder_1 = {
 					variants = {
 						security = {
 							text = "[pager buzz]",
-							text_variations = {
-								"[pager operator] This is dispatch. PICK UP THE PAGER.",
+							line_variations = {
+								any_mode = {
+									"[pager operator] This is dispatch. PICK UP THE PAGER.",
+								}
 							}
 						}
 					}
@@ -5511,16 +6175,16 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[pager operator fooled]",
-							--text_variations = {
-							--	"Okay, I guess I'll see you for bowling later.",
-							--}
+						--any_mode = {
+						--	"Okay, I guess I'll see you for bowling later.",
+						--}
 						}
 					}
 				},
 				dsp_radio_fooled_4 = { --"no pagers remaining" warning
 					variants = {
 						security = {
-							text = "[pager operator warning]"
+							text = "[pager operator warning: NO PAGERS REMAINING]"
 						}
 					}
 				},
@@ -5534,18 +6198,20 @@ ClosedCaptions._sounds = {
 						security = {
 							text = "[spotted alerted Civilian]",
 							subvariants = {
-								recombinable = true,
-								whisper_mode = {
-									{
-										"Two-Three here.",
-										"Two-Three, reporting in.",
-										"Two-Three over here. Reporting in.",
-										"This is, uh, Two-Three reporting in."
-									},
-									{
-										"We got a situation.",
-										"Something's up.",
-										"There's something going on here."
+								line_variations = {
+									recombinable = true,
+									whisper_mode = {
+										{
+											"Two-Three here.",
+											"Two-Three, reporting in.",
+											"Two-Three over here. Reporting in.",
+											"This is, uh, Two-Three reporting in."
+										},
+										{
+											"We got a situation.",
+											"Something's up.",
+											"There's something going on here."
+										}
 									}
 								}
 							}
@@ -5557,14 +6223,16 @@ ClosedCaptions._sounds = {
 						security = {
 							text = "[idle pager chatter]",
 							subvariants = {
-								text_variations = {
-									"Two-Three here. Reporting in. All's clear over here. Out.",
-									"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
-									"Two-Three, reporting in. All is quiet on the western front. Out.",
-									"Feels like another boring evening.",
-									"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
-									"Seems like a good day for something to happen... right?",
-									"This is, uh, Two-Three reporting in. All clear. Over and out."
+								line_variations = {
+									any_mode = {
+										"Two-Three here. Reporting in. All's clear over here. Out.",
+										"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
+										"Two-Three, reporting in. All is quiet on the western front. Out.",
+										"Feels like another boring evening.",
+										"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
+										"Seems like a good day for something to happen... right?",
+										"This is, uh, Two-Three reporting in. All clear. Over and out."
+									}
 								}
 							}
 						}
@@ -5575,14 +6243,16 @@ ClosedCaptions._sounds = {
 						security = {
 							text = "[spots suspicious object]",
 							subvariants = {
-								text_variations = {
-									"What the heck...?",
-									"Who was that?",
-									"That's weird...",
-									"What on earth...?",
-									"What's going on here...?",
-									"That's strange...",
-									"What the hell...?"
+								line_variations = {
+									any_mode = {
+										"What the heck...?",
+										"Who was that?",
+										"That's weird...",
+										"What on earth...?",
+										"What's going on here...?",
+										"That's strange...",
+										"What the hell...?"
+									}
 								}
 							}
 						}
@@ -5590,11 +6260,61 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b01 = {
 					variants = {
-						security = {
-							text = "[reporting clear Entrance]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Entrance is clear." 
+						cop = {
+							text = "Two-Three to Control. Entrance is clear.",
+							line_variations = {
+								recombinable = true,
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{	
+										"Entrance is 10-26.",
+										"Entrance is all clear.",
+										"Entrance is clear.",
+										"Entrance is A-OK.",
+										"Nothing to report."
+									},
+									{
+										"Everything's fine here.",
+										"All is clear.",
+										"This place is A-OK.",
+										"This place is all clear.",
+										"Nothing out of the ordinary.",
+										"Nothing suspicious here.",
+										"This place is 10-26.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in here.",
+										"No signs of trespassing here.",
+										"Everything's in order.",
+										"This place is clear of trespassers.",
+										"Clear as glass here.",
+										"Not a mouse is stirring.",
+										"Everything's ice cream and meringue.",
+										"", --no extra line here
+										"" --extra blank to increase chance of no extra line
+									},
+									{
+										"Repeat, Entrance is all clear.",
+										"I repeat, Entrance is clear.",
+										"Repeat, Entrance is 10-26.",
+										"Repeat, Entrance is A-OK.",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5602,11 +6322,64 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b02 = {
 					variants = {
-						security = {
-							text = "[reporting clear Hall A]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Hall A is clear." 
+cop = {
+							text = "Two-Three to Control. Hall A is clear.",
+							line_variations = {
+								recombinable = true,
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Hall A is clear.",
+										"Hall A is 10-26.",
+										"Hall A is A-OK."
+									},
+									{
+										"Everything's fine here.",
+										"All is clear.",
+										"This place is A-OK.",
+										"This place is all clear.",
+										"Nothing out of the ordinary.",
+										"Nothing suspicious here.",
+										"This place is 10-26.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in here.",
+										"No signs of trespassing here.",
+										"Everything's in order.",
+										"This place is clear of trespassers.",
+										"Clear as glass here.",
+										"Not a mouse is stirring.",
+										"Everything's ice cream and meringue.",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, Hall A is A-OK.",
+										"I repeat, Hall A is all clear.",
+										"I repeat, Hall A is A-OK.",
+										"Repeat, Hall A is all clear.",
+										"I repeat, Hall A is clear.",
+										"Repeat, Hall A is 10-26.",										
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5614,11 +6387,64 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b03 = {
 					variants = {
-						security = {
-							text = "[reporting clear Hall B]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Hall B is clear." 
+						cop = {
+							text = "Two-Three to Control. Hall B is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Hall B is clear as glass.",
+										"Hall B is clear.",
+										"Hall B is 10-26.",
+										"Hall B is A-OK."
+									},
+									{
+										"This place has no signs of trespassing.",
+										"This place shows no sign of break-in.",
+										"This place shows no signs of trespassers.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is A-OK.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing to report.",
+										"No sign of break-in.",
+										"No sign of break-in here.",
+										"Not a mouse is stirring.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"Everything's in order here.",
+										"Everything's clear here.",
+										"Everything's peaches and cream.",
+										"Nothing unusual in this area.",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, Hall B is clear.",
+										"Repeat, Hall B is A-OK.",
+										"I repeat, Hall B is 10-26.",
+										"Repeat, Hall B is 10-26.",
+										"I repeat, Hall B is A-OK.",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5626,11 +6452,65 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b04 = {
 					variants = {
-						security = {
-							text = "[reporting clear Hall C]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Hall C is clear." 
+						cop = {
+							text = "Two-Three to Control. Hall C is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Hall C is clear as glass.",
+										"Hall C is clear.",
+										"Hall C is 10-26.",
+										"Hall C is A-OK."
+									},
+									{
+										"This place has no signs of trespassing.",
+										"This place shows no sign of break-in.",
+										"This place shows no signs of trespassers.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing to report.",
+										"Nothing unusual in this area.",
+										"Not a mouse is stirring.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in.",
+										"No sign of break-in here.",
+										"Everything's in order here.",
+										"Everything's clear here.",
+										"Everything's peaches and cream.",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, Hall C is clear.",
+										"Repeat, Hall C is A-OK.",
+										"I repeat, Hall C is 10-26.",
+										"Repeat, Hall C is 10-26.",
+										"I repeat, Hall C is A-OK.",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5638,11 +6518,71 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b05 = {
 					variants = {
-						security = {
-							text = "[reporting clear Hall D]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Hall C is clear." 
+						cop = {
+							text = "Two-Three to Control. Hall D is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Nothing to report in Hall D.",
+										"Hall D is A-OK.",
+										"Hall D is clear.",
+										"Hall D is 10-26."
+									},
+									{	
+										"No sign of break-in here.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of trespassing.",
+										"Nothing out of the ordinary here.",
+										"Nothing out of the ordinary.",
+										"Nothing suspicious here.",
+										"Everything's clear here.",
+										"Everything's fine here.",
+										"Everything's peaches and cream.",
+										"Everything's in order.",
+										"Everything is A-OK here.",
+										"All's clear.",
+										"Clear as glass here.",
+										"This place has no signs of trespassing.",
+										"This place is A-OK.",
+										"This place is all clear.",
+										"This place is as tidy as ever.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"I repeat, nothing to report in Hall D.",
+										"Repeat, nothing to report in Hall D.",
+										"Repeat, Hall D is A-OK.",
+										"I repeat, Hall D is 10-26.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5650,11 +6590,72 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b06 = {
 					variants = {
-						security = {
-							text = "[reporting clear Roof]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Roof is clear." 
+						cop = {
+							text = "Two-Three to Control. Roof is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Roof is A-OK.",
+										"No danger on the Roof.",
+										"Roof is clear.",
+										"Roof is 10-26.",
+										"The Roof is A-OK."
+									},
+									{	
+										"No sign of break-in.",
+										"No sign of trespassers here.",
+										"No signs of trespassing here.",
+										"No sign of suspicious activity here.",
+										"Nothing out of the ordinary here.",
+										"Nothing to report.",
+										"Not a mouse is stirring.",
+										"This place is clear of trespassers.",
+										"Everything's peaches and cream.",
+										"Everything's in order.",
+										"Everything's fine here.",
+										"Everything's clear here.",
+										"This place is tidy as ever.",
+										"This place shows no sign of suspicious activity.",
+										"This place is all clear.",
+										"This place is clear.",
+										"This place is 10-26.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, Roof is A-OK.",
+										"Repeat, no danger on the Roof.",
+										"I repeat, Roof is A-OK.",
+										"I repeat, no danger on the Roof.",
+										"I repeat, Roof is clear.",
+										"I repeat, Roof is 10-26.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5662,11 +6663,66 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b07 = {
 					variants = {
-						security = {
-							text = "[reporting clear Basement]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Roof is clear." 
+						cop = {
+							text = "Two-Three to Control. Basement is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"The Basement is 10-26.",
+										"Basement is clear.",
+										"No signs of trespassing in the Basement.",
+										"Basement is 10-26.",
+										"Basement is A-OK."
+									},
+									{	
+										"Nothing out of the ordinary.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"No sign of break-in.",
+										"This place is A-OK.",
+										"This place is tidy as ever.",
+										"This place shows no sign of break-in.",
+										"All is clear.",
+										"Clear as glass here.",
+										"Not a mouse is stirring.",
+										"Everything's clear here.",
+										"Everything's peaches and cream.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"I repeat, Basement is A-OK.",
+										"Repeat, Basement is A-OK.",
+										"Repeat, Basement is clear.",
+										"Repeat, no signs of trespassing in the Basement.",
+										"Repeat, this place is A-OK.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5674,11 +6730,66 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b08 = {
 					variants = {
-						security = {
-							text = "[reporting clear First Floor]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. First Floor is clear." 
+						cop = {
+							text = "Two-Three to Control. First Floor is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Ground Floor is 10-26.",
+										"Ground Floor is clear.",
+										"First Floor is A-OK.",
+										"Ground Floor is A-OK.",
+										"First Floor is all clear.",
+										"Ground Floor is all clear."
+									},
+									{
+										"Everything's fine here.",
+										"Everything's in order.",
+										"Everything's ice cream and meringue.",
+										"All is clear.",
+										"This place is A-OK.",
+										"This place is all clear.",
+										"This place is clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"Nothing out of the ordinary.",
+										"Nothing suspicious here.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in here.",
+										"No signs of trespassing here.",
+										"Not a mouse is stirring.",
+										"Clear as glass here.",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, First Floor is A-OK.",
+										"I repeat, First Floor is 10-26.",
+										"I repeat, Ground Floor is all clear.",
+										"Repeat, First Floor is clear.",
+										"Repeat, Ground Floor is 10-26.",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5686,23 +6797,140 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b09 = {
 					variants = {
-						security = {
-							text = "[reporting clear Second Floor]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Second Floor is clear." 
+						cop = {
+							text = "Two-Three to Control. Second Floor is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Second Floor is A-OK.",
+										"Second Floor is all clear.",
+										"Second Floor is clear.",
+										"Second Floor is 10-26.",
+										"Floor Two is 10-26.",
+										"Floor Two is all clear.",
+										"Floor Two is A-OK.",
+										"Floor Two is clear.",
+										"Floor Two is clear of trespassers."
+									},
+									{
+										"Everything's fine here.",
+										"Everything's in order.",
+										"Everything's ice cream and meringue.",
+										"All is clear.",
+										"This place is A-OK.",
+										"This place is all clear.",
+										"This place is clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"Nothing out of the ordinary.",
+										"Nothing suspicious here.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in here.",
+										"No signs of trespassing here.",
+										"No sign of suspicious activity here.",
+										"Nothing to report.",
+										"Not a mouse is stirring.",
+										"Clear as glass here.",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"I repeat, Second Floor is 10-26.",
+										"I repeat, Second Floor is clear.",
+										"Repeat, Floor Two is all clear.",
+										"I repeat, Floor Two is clear.",
+										"I repeat, Floor Two is A-OK.",
+										"I repeat, Second Floor is A-OK.",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
 					}
 				},
-				l2n_b09 = {
+				l2n_b10 = {
 					variants = {
-						security = {
-							text = "[reporting clear Third Floor]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Third Floor is clear." 
+						cop = {
+							text = "Two-Three to Control. Third Floor is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Floor Three is all clear.",
+										"Floor Three is clear.",
+										"Third Floor is 10-26.",
+										"Third Floor is A-OK.",
+										"Third Floor is all clear."
+									},
+									{
+										"This place has no signs of trespassing.",
+										"This place shows no sign of break-in.",
+										"This place shows no signs of trespassers.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"Nothing suspicious here.",
+										"Nothing unusual in this area.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in.",
+										"No sign of break-in here.",
+										"Not a mouse is stirring.",
+										"Everything's in order here.",
+										"Everything's clear here.",
+										"Everything's ice cream and meringue.",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"I repeat, Third Floor is all clear.",
+										"I repeat, Third Floor is A-OK.",
+										"I repeat, Floor Three is clear.",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5710,11 +6938,71 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b11 = {
 					variants = {
-						security = {
-							text = "[reporting clear Pool]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Pool Area is clear." 
+						cop = {
+							text = "Two-Three to Control. The Pool Area is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"The Pool Area is A-OK.",
+										"The Pool Area is clear.",
+										"The Pool Area is 10-26.",
+										"The Pool is cool.",
+									},
+									{
+										"Everything's fine here.",
+										"All is clear.",
+										"This place is A-OK.",
+										"This place is all clear.",
+										"This place is as tidy as ever.",
+										"This place shows no sign of suspicious activity.",
+										"This place is 10-26.",
+										"This place is clear of trespassers.",
+										"Nothing out of the ordinary.",
+										"Nothing suspicious here.",
+										"Nothing unusual in this area.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in.",
+										"No signs of trespassing here.",
+										"No sign of break-in here.",
+										"Not a mouse is stirring.",
+										"Everything's in order.",
+										"Clear as glass here.",
+										"Everything's ice cream and meringue.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, the Pool Area is OK.",
+										"Repeat, the Pool Area is A-OK.",
+										"I repeat, the Pool is cool.",
+										"Repeat, the Pool Area is clear.",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5722,11 +7010,65 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b12 = {
 					variants = {
-						security = {
-							text = "[reporting clear Balcony]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Balcony is clear." 
+						cop = {
+							text = "Two-Three to Control. The Balcony is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"The Balcony is A-OK.",
+										"The Balcony is clear.",
+										"The Balcony is 10-26.",
+										"No sign of break-in on the Balcony.",
+									},
+									{
+										"Nothing to report here.",
+										"Nothing suspicious here.",
+										"Nothing out of the ordinary.",
+										"Not a mouse is stirring.",
+										"No sign of break-in.",
+										"No signs of trespassing here.",
+										"Everything's clear.",
+										"Everything's in order here.",
+										"Everything's ice cream and meringue.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"This place has no signs of trespassing.",
+										"This place shows no sign of suspicious activity.",
+										"This place shows no sign of trespassers.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"I repeat, no break-in on the Balcony.",
+										"I repeat, the Balcony is 10-26.",
+										"I repeat, the Balcony is A-OK.",
+										"I repeat, no sign of break-in on the Balcony.",
+										"Repeat, no sign of break-in on the Balcony.",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5734,11 +7076,63 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b13 = {
 					variants = {
-						security = {
-							text = "[reporting clear Living Room]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Living Room is clear." 
+						cop = {
+							text = "Two-Three to Control. The Living Room is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"The Living Room is in order.",
+										"The Living Room is clear.",
+										"The Living Room is A-OK.",
+										"The Living Room is 10-26."
+									},
+									{
+										"This place has no signs of trespassing.",
+										"This place shows no sign of break-in.",
+										"This place shows no signs of trespassers.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"Everything's in order here.",
+										"Everything's clear here.",
+										"Everything's peaches and cream.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"No sign of trespassing.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in.",
+										"No sign of break-in here.",
+										"Not a mouse is stirring.",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, the Living Room is 10-26.",
+										"I repeat, the Living Room is A-OK.",
+										"I repeat, the Living Room is clear.",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5746,11 +7140,66 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b14 = {
 					variants = {
-						security = {
-							text = "[reporting clear Corridor]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Corridor is clear." 
+						cop = {
+							text = "Two-Three to Control. The Corridor is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"The Corridor is in order.",
+										"The Corridor is clear.",
+										"The Corridor is A-OK.",
+										"The Corridor is 10-26."
+									},
+									{
+										"Everything's in order.",
+										"Everything's in order here.",
+										"Everything's clear here.",
+										"Everything's peaches and cream.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"This place has no signs of trespassing.",
+										"This place shows no sign of break-in.",
+										"This place shows no signs of trespassers.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"Not a mouse is stirring.",
+										"No sign of trespassing.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in.",
+										"No sign of break-in here.",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, the Corridor is 10-26.",
+										"I repeat, the Corridor is A-OK.",
+										"I repeat, the Corridor is in order.",
+										"I repeat, the Corridor is clear.",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5758,11 +7207,74 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b15 = {
 					variants = {
-						security = {
-							text = "[reporting clear Lobby]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Lobby is clear." 
+						cop = {
+							text = "Two-Three to Control. The Lobby is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"I'm in the Lobby. This place is A-OK.",
+										"I'm inside the Lobby.",
+										"I'm in the Lobby."
+									},
+									{
+										"Nothing suspicious here.",
+										"No sign of break-in here.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"Nothing out of the ordinary here.",
+										"This place has no signs of trespassing.",
+										"Everything's clear here.",
+										"Everything's in order.",
+										"Everything's in order here.",
+										"Everything's peaches and cream.",
+										"This place shows no sign of break-in.",
+										"This place shows no signs of trespassers.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"Not a mouse is stirring.",
+										"No sign of trespassing.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of trespassers here.",
+										"No sign of break-in.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, I'm inside the Lobby.",
+										"I repeat, the Lobby is A-OK.",
+										"I repeat, the Lobby is in order.",
+										"I repeat, the Lobby is clear.",
+										"I repeat, I'm inside the Lobby.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5770,11 +7282,72 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b16 = {
 					variants = {
-						security = {
-							text = "[reporting clear Security Door]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. Security Door is shut and locked. No sign of criminal activity." 
+						cop = {
+							text = "Two-Three to Control. No sign of tampering with the Security Door.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"The Security Door is shut and locked.",
+										"The Security Door here is closed and sealed."
+									},
+									{
+										"No sign of trespassers here.",
+										"Nothing suspicious here.",
+										"No sign of break-in here.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"Nothing out of the ordinary here.",
+										"This place has no signs of trespassing.",
+										"Everything's fine here.",
+										"Everything's clear here.",
+										"Everything's in order.",
+										"Everything's in order here.",
+										"Everything's peaches and cream.",
+										"This place shows no sign of break-in.",
+										"This place has no signs of trespassing.",
+										"This place shows no signs of trespassers.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"Not a mouse is stirring.",
+										"No sign of trespassing.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of break-in.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, the Security Door is shut and locked.",
+										"Repeat, the Security Door here is closed and sealed.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5782,11 +7355,74 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b17 = {
 					variants = {
-						security = {
-							text = "[reporting clear GenSec Room]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting in. GenSec room is clear." 
+						cop = {
+							text = "Two-Three to Control. GenSec Room is clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"GenSec Room looks clear.",
+										"The Security Room is all clear."
+									},
+									{
+										"No sign of trespassers here.",
+										"Nothing suspicious here.",
+										"No sign of break-in here.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"Nothing out of the ordinary here.",
+										"Everything's fine here.",
+										"Everything's clear here.",
+										"Everything's in order.",
+										"Everything's in order here.",
+										"Everything's peaches and cream.",
+										"This place shows no sign of break-in.",
+										"This place has no signs of trespassing.",
+										"This place shows no sign of suspicious activity.",
+										"This place shows no signs of trespassers.",
+										"This place has no signs of trespassing.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"All is clear.",
+										"Not a mouse is stirring.",
+										"No sign of trespassing.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of break-in.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, the Security Room is all clear.",
+										"I repeat, the Security Room is all clear.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5794,11 +7430,72 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b18 = {
 					variants = {
-						security = {
-							text = "[reporting clear Camera]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting. Camera operational. This place no signs of suspicious activity. Repeat, no sign of tampering. Over." 
+						cop = {
+							text = "Two-Three to Control. No signs of tampering with the Camera.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Camera looks okay i guess"
+									},
+									{
+										"No sign of trespassers here.",
+										"Nothing suspicious here.",
+										"No sign of break-in here.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"Nothing out of the ordinary here.",
+										"Everything's fine here.",
+										"Everything's clear here.",
+										"Everything's in order.",
+										"Everything's in order here.",
+										"Everything's peaches and cream.",
+										"This place shows no sign of break-in.",
+										"This place has no signs of trespassing.",
+										"This place shows no sign of suspicious activity.",
+										"This place shows no signs of trespassers.",
+										"This place has no signs of trespassing.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"All is clear.",
+										"Not a mouse is stirring.",
+										"No sign of trespassing.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of break-in.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, camera looks ok i guess",
+										"",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5806,11 +7503,72 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b19 = {
 					variants = {
-						security = {
-							text = "[reporting clear Staircase]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting. Staircase is clear. Everything's clear here. Over." 
+						cop = {
+							text = "Two-Three to Control. The Staircase looks clear.",
+							line_variations = {
+								any_mode = {
+									{
+										"Two-Three to Control.",
+										"Two-Three to Dispatch.",
+										"Two-Three reporting.",
+										"Two-Three here, reporting in.",
+										"This is Two-Three, reporting in.",
+										"Report.",
+										"Reporting in.",
+										"This is Two-Three."
+									},
+									{
+										"Staircase looks clear."
+									},
+									{
+										"No sign of trespassers here.",
+										"Nothing suspicious here.",
+										"No sign of break-in here.",
+										"Nothing to report.",
+										"Nothing to report here.",
+										"Nothing unusual in this area.",
+										"Nothing out of the ordinary here.",
+										"Everything's fine here.",
+										"Everything's clear here.",
+										"Everything's in order.",
+										"Everything's in order here.",
+										"Everything's peaches and cream.",
+										"This place shows no sign of break-in.",
+										"This place has no signs of trespassing.",
+										"This place shows no sign of suspicious activity.",
+										"This place shows no signs of trespassers.",
+										"This place has no signs of trespassing.",
+										"This place is all clear.",
+										"This place is clear of trespassers.",
+										"This place is 10-26.",
+										"This place is A-OK.",
+										"All is clear.",
+										"Not a mouse is stirring.",
+										"No sign of trespassing.",
+										"No sign of suspicious activity here.",
+										"No sign of trespassers.",
+										"No sign of break-in.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+										"" 
+									},
+									{
+										"Repeat, the Staircase looks clear.",
+										"",
+										"",
+										"",
+										"",
+										"",
+										""
+									},
+									{
+										"Over."
+									}
 								}
 							}
 						}
@@ -5818,11 +7576,11 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b20 = {
 					variants = {
-						security = {
+						cop = {
 							text = "[reporting clear Penthouse]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting. Penthouse is clear. Over." 
+							line_variations = {
+								any_mode = {
+									"Two three, reporting. Penthouse is clear. Over."
 								}
 							}
 						}
@@ -5830,11 +7588,11 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b21 = {
 					variants = {
-						security = {
+						cop = {
 							text = "[reporting clear Garage]",
-							subvariants = {
-								text_variations = {
-									"Two three, reporting. Garage is clear. Over." 
+							line_variations = {
+								any_mode = {
+									"Two three, reporting. Garage is clear. Over."
 								}
 							}
 						}
@@ -5842,11 +7600,11 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b22 = {
 					variants = {
-						security = {
+						cop = {
 							text = "[reporting proceeding with sweep]",
-							subvariants = {
-								text_variations = {
-									"Proceeding" 
+							line_variations = {
+								any_mode = {
+									"Proceeding"
 								}
 							}
 						}
@@ -5854,11 +7612,11 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b23 = {
 					variants = {
-						security = {
+						cop = {
 							text = "[request gate access]",
-							subvariants = {
-								text_variations = {
-									"This is Two-Three. Can you buzz me in? Over." 
+							line_variations = {
+								any_mode = {
+									"This is Two-Three. Can you buzz me in? Over."
 								}
 							}
 						}
@@ -5866,11 +7624,11 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b24 = {
 					variants = {
-						security = {
+						cop = {
 							text = "[reporting finished clear sweep]",
-							subvariants = {
-								text_variations = {
-									"Two-Three reporting. This place is clear from top to bottom. I'm outta here. Over and out." 
+							line_variations = {
+								any_mode = {
+									"Two-Three reporting. This place is clear from top to bottom. I'm outta here. Over and out."
 								}
 							}
 						}
@@ -5879,9 +7637,9 @@ ClosedCaptions._sounds = {
 				l2n_i02 = {
 					variants = {
 						cop = {
-							text = "[attempting arrest]",
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								text = "[attempting arrest]",
+								any_mode = {
 									"No sudden movements!"
 								}
 							}
@@ -5889,33 +7647,28 @@ ClosedCaptions._sounds = {
 					}
 				},
 				s09a = {
-					text = "[reviving] Hey, man, you're not looking too good...",
-					variants = {}
+					text = "[reviving] Hey, man, you're not looking too good..."
 				},
 				s09b = {
-					text = "[reviving] Woah, you look even worse than before.",
-					variants = {}
+					text = "[reviving] Woah, you look even worse than before."
 				},
 				s09c = {
-					text = "[reviving] You're looking really beat up, use a doctor bag!",
-					variants = {}
+					text = "[reviving] You're looking really beat up, use a doctor bag!"
 				},
 				s05a_sin = {
-					text = "I feel terrible, heal me!",
-					variants = {}
+					text = "I feel terrible, heal me!"
 				}, --! bad
 				s05b_sin = {
-					text = "Whew, thanks.",
-					variants = {}
+					text = "Whew, thanks."
 				},
-				
-		--cops
+
+				--cops
 				l3n_civ = {
 					variants = {
 						cop = {
 							text = "Rescue the hostages",
 							priority = 5,
-							subvariants = {
+							line_variations = {
 								standard_mode = {
 									"Get the civilians!",
 									"Get the canaries!",
@@ -5933,7 +7686,7 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "Rescue the hostages",
 							priority = 5,
-							subvariants = {
+							line_variations = {
 								standard_mode = {
 									"Deploy smoke!",
 									"Smoke 'em!",
@@ -5951,15 +7704,17 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "[spotted heister]",
 							priority = 5,
-							text_variations = {
-								"He's armed!",
-								"FREEZE!",
-								"STOP IT!",
-								"He's got a gun!",
-								"HOLD IT!",
-								"Gun! GUN!",
-								"He's got a weapon!",
-								"He has a gun!"
+							line_variations = {
+								any_mode = {
+									"He's armed!",
+									"FREEZE!",
+									"STOP IT!",
+									"He's got a gun!",
+									"HOLD IT!",
+									"Gun! GUN!",
+									"He's got a weapon!",
+									"He has a gun!"
+								}
 							}
 						}
 					}
@@ -5969,10 +7724,12 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "[panicked chatter]",
 							priority = 5,
-							text_variations = {
-								"Christ!",
-								"Fuckin' hell!",
-								"Christ almighty!"								
+							line_variations = {
+								any_mode = {
+									"Christ!",
+									"Fuckin' hell!",
+									"Christ almighty!"
+								}
 							}
 						}
 					}
@@ -5982,11 +7739,13 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "[panicked chatter]",
 							priority = 5,
-							text_variations = { --non-exhaustive 
-								"CHRIST!",
-								"INSANE!",
-								"HOLY SHIT!",
-								"JEEZ!"
+							line_variations = {
+								any_mode = { --non-exhaustive
+									"CHRIST!",
+									"INSANE!",
+									"HOLY SHIT!",
+									"JEEZ!"
+								}
 							}
 						}
 					},
@@ -5997,13 +7756,15 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "[arrested heister]",
 							priority = 5,
-							text_variations = {
-								"It's over now, scumbag! I hope you like prison food.",
-								"This ends now, scumbag. I hope you drop the soap, a lot.",
-								"It's over now, dirtbag! You're going away for a loooong time.",
-								"It's over... scumbag! Get ready to do some hard time.",
-								"It's over, dirtbag! I hope you drop the soap... a lot.",
-								"It's over... you son of a bitch!",
+							line_variations = {
+								any_mode = {
+									"It's over now, scumbag! I hope you like prison food.",
+									"This ends now, scumbag. I hope you drop the soap, a lot.",
+									"It's over now, dirtbag! You're going away for a loooong time.",
+									"It's over... scumbag! Get ready to do some hard time.",
+									"It's over, dirtbag! I hope you drop the soap... a lot.",
+									"It's over... you son of a bitch!",
+								}
 							}
 						}
 					}
@@ -6013,45 +7774,47 @@ ClosedCaptions._sounds = {
 						cop = {
 							text = "Tactical chatter",
 							priority = 5,
-							text_variations = {
-								"I see one of 'em!",
-								"I got contact!",
-								"Contact!",
-								"HARD contact!",
-								"Takedown!",
-								"DROP 'EM!",
-								"FIIIRE!",
-								"Fire at will!",
-								"Take 'em down!",
-								"LIGHT 'EM UP!",									
-								"HELP!",
-								"Help!",
-								"Let 'er rip!",
-								"Go, GO!",
-								"GO!",
-								"Go, go, GO!",
-								"Move!",
-								"Move out!",
-								"Shred 'em!",
-								"Move, MOVE!",
-								"Move, now!",
-								"Move it!",
-								"Forward!",
-								"Cover me!",
-								"Gimme cover!",
-								"Formation!",
-								"Take positions!",
-								"Get ready!",
-								"Ready up!",
-								"Ready now!",
-								"Ready!",
-								"...Insane!",
-								"Oh... SHIT!",
-								"CHRIST ALMIGHTY!",
-								"I'll be damned!",
-								"Fuckin' hell!",
-								"Holy SHIT!",
-								"FUCK!"
+							line_variations = {
+								any_mode = {
+									"I see one of 'em!",
+									"I got contact!",
+									"Contact!",
+									"HARD contact!",
+									"Takedown!",
+									"DROP 'EM!",
+									"FIIIRE!",
+									"Fire at will!",
+									"Take 'em down!",
+									"LIGHT 'EM UP!",
+									"HELP!",
+									"Help!",
+									"Let 'er rip!",
+									"Go, GO!",
+									"GO!",
+									"Go, go, GO!",
+									"Move!",
+									"Move out!",
+									"Shred 'em!",
+									"Move, MOVE!",
+									"Move, now!",
+									"Move it!",
+									"Forward!",
+									"Cover me!",
+									"Gimme cover!",
+									"Formation!",
+									"Take positions!",
+									"Get ready!",
+									"Ready up!",
+									"Ready now!",
+									"Ready!",
+									"...Insane!",
+									"Oh... SHIT!",
+									"CHRIST ALMIGHTY!",
+									"I'll be damned!",
+									"Fuckin' hell!",
+									"Holy SHIT!",
+									"FUCK!"
+								}
 							}
 						}
 					},
@@ -6105,7 +7868,7 @@ ClosedCaptions._sounds = {
 				},
 				entrance = {
 					variants = {
-						bdz = {	
+						bdz = {
 							text = "Bulldozer, COMING THROUGH!"
 						},
 						tsr = {
@@ -6116,17 +7879,21 @@ ClosedCaptions._sounds = {
 						},
 						mdc = {
 							text = "[Medic spawned]",
-							text_variations = {
-								"Somebody order a Medic?",
-								"Medic in the house!",
-								"There's blood all over!"
+							line_variations = {
+								any_mode = {
+									"Somebody order a Medic?",
+									"Medic in the house!",
+									"It looks like a surgery ward in here, there's blood all over!"
+								}
 							}
 						},
 						shld = {
 							text = "[Shield spawned]",
-							text_variations = {
-								"Shield coming through.",
-								"[Shield clanking]"
+							line_variations = {
+								any_mode = {
+									"Shield coming through.",
+									"[Shield clanking]"
+								}
 							}
 						}
 					}
@@ -6252,7 +8019,7 @@ ClosedCaptions._sounds = {
 					disabled = false
 				},
 				a02x_any = {
-					text = "(fearful screaming)",
+					text = "(panic)", --not kalm
 					disabled = "whisper_mode"
 				},
 				a03x_any = {
@@ -6278,122 +8045,94 @@ ClosedCaptions._sounds = {
 					disabled = "whisper_mode"
 				},
 				mga_death_scream = {
-					text = "[megaphone feedback]",
-					variants = {}
+					text = "[megaphone feedback]"
 				},
 				mga_deploy_snipers = {
-					text = "Deploying snipers!",
-					variants = {}
+					text = "Deploying snipers!"
 				},
 				mga_generic_a = {
-					text = "How's it going? Is everyone alright?",
-					variants = {}
+					text = "How's it going? Is everyone alright?"
 				},
 				mga_generic_b = {
-					text = "Give up! There's no way you'll get away with this!",
-					variants = {}
+					text = "Give up! There's no way you'll get away with this!"
 				},
 				mga_generic_c = {
-					text = "We're past negotiations- you die tonight!",
-					variants = {}
+					text = "We're past negotiations- you die tonight!"
 				},
 				mga_hostage_assault_delay = {
-					text = "We know you took hostages!", --alt. "very clever, we're delayed"
-					variants = {}
+					text = "We know you took hostages!" --alt. "very clever, we're delayed"
 				},
 				mga_intro = {
-					text = "This is the Washington Police, there is no way out!",
-					variants = {}
+					text = "This is the Washington Police, there is no way out!"
 				},
 				mga_killed_civ_1st = {
-					text = "You've killed a civilian! You're not helping me or yourself.",
-					variants = {}
+					text = "You've killed a civilian! You're not helping me or yourself."
 				},
 				mga_killed_civ_2nd = {
-					text = "Multiple kills, you're way outta line! This is madness!",
-					variants = {}
+					text = "Multiple kills, you're way outta line! This is madness!"
 				},
 				mga_leave = {
-					text = "Fuck this, I'm hitting the golf course!",
-					variants = {}
+					text = "Fuck this, I'm hitting the golf course!"
 				},
 				mga_robbers_clever = {
-					text = "Impressive! But you still won't get away!",
-					variants = {}
+					text = "Impressive! But you still won't get away!"
 				},
 				mga_thermite = {
-					text = "Thermite to get into the vault? Ha! But now we have you trapped!",
-					variants = {}
+					text = "Thermite to get into the vault? Ha! But now we have you trapped!"
 				},
 				mga_vault_a = {
-					text = "There's no way into the vault, give up!",
-					variants = {}
+					text = "There's no way into the vault, give up!"
 				},
 				mga_vault_b = {
-					text = "That's a multilayer vault! Didn't think it'd be that easy did you?",
-					variants = {}
+					text = "That's a multilayer vault! Didn't think it'd be that easy did you?"
 				},
 				mga_vault_c = {
-					text = "You've breached the vault, but now you're heavy and we're fast.",
-					variants = {}
+					text = "You've breached the vault, but now you're heavy and we're fast."
 				},
 				mga_t01a_con_plu = {
-					text = "We're willing to do a hostage trade.",
-					variants = {}
+					text = "We're willing to do a hostage trade."
 				},
 				mga_s01 = {
-					text = "Listen up! This is the police!",
-					variants = {}
+					text = "Listen up! This is the police!"
 				},
 				mga_s02 = {
-					text = "We know you're in there",
-					variants = {}
+					text = "We know you're in there"
 				},
 				mga_s03 = {
-					text = "We have you surrounded",
-					variants = {}
+					text = "We have you surrounded"
 				},
 				mga_s04 = {
-					text = "Make no mistake, we're in charge of this situation!",
-					variants = {}
+					text = "Make no mistake, we're in charge of this situation!"
 				},
 				mga_s05 = {
-					text = "Resistance is futile, give up!",
-					variants = {}
+					text = "Resistance is futile, give up!"
 				},
 				mga_s06 = {
-					text = "This is your last warning!",
-					variants = {}
+					text = "This is your last warning!"
 				},
 				mga_s07 = {
-					text = "We will not give up until all the hostages are released!",
-					variants = {}
+					text = "We will not give up until all the hostages are released!"
 				},
 				a01 = {
-					text = "They've got a gun!",
-					variants = {}
+					text = "They've got a gun!"
 				},
 				a02 = {
-					text = "Please stay back.",
-					variants = {}
+					text = "Please stay back."
 				},
 				a03 = {
-					text = "Sorry, this area is for personnel only.",
-					variants = {}
+					text = "Sorry, this area is for personnel only."
 				},
 				a05 = {
-					text = "Two-Four reporting in, all quiet here.",
-					variants = {}
+					text = "Two-Four reporting in, all quiet here."
 				},
 				a06 = {
-					text = "[idle]",
-					variants = {}
+					text = "[idle]"
 				},
 				a07a = {
---					text = "Wha-?", --see something suspicious
+					text = "Alerted",
 					variants = {
 						cop = {
-							subvariants = {
+							line_variations = {
 								whisper_mode = {
 									"Wha-?"
 								}
@@ -6402,208 +8141,157 @@ ClosedCaptions._sounds = {
 					}
 				},
 				a07b = {
-					text = "That's weird...", --see something suspicious
-					variants = {}
+					text = "That's weird..." --see something suspicious
 				},
 				a08 = {
-					text = "Intruder!",
-					variants = {}
+					text = "Intruder!"
 				},
 				a09 = {
-					text = "Sound the alarm!",
-					variants = {}
+					text = "Sound the alarm!"
 				},
 				a10 = {
-					text = "Two-Four reporting in, there's a broken window here...",
-					variants = {}
+					text = "Two-Four reporting in, there's a broken window here..."
 				},
 				a11 = {
-					text = "Two-Four reporting in, there's a dead body here...",
-					variants = {}
+					text = "Two-Four reporting in, there's a dead body here..."
 				},
 				a12 = {
-					text = "Two-Four reporting in, I've spotted a dead officer...",
-					variants = {}
+					text = "Two-Four reporting in, I've spotted a dead officer..."
 				},
 				a13 = {
-					text = "Two-Four reporting in, I've spotted a tied up civilian...",
-					variants = {}
+					text = "Two-Four reporting in, I've spotted a tied up civilian..."
 				},
 				a14 = {
-					text = "Two-Four reporting in, I've spotted a tied up officer...",
-					variants = {}
+					text = "Two-Four reporting in, I've spotted a tied up officer..."
 				},
 				a15 = {
-					text = "Two-Four reporting in, we've got a situation here...",
-					variants = {}
+					text = "Two-Four reporting in, we've got a situation here..."
 				},
 				a16 = {
-					text = "Two-Four reporting in, we've got an officer signalling for help...",
-					variants = {}
+					text = "Two-Four reporting in, we've got an officer signalling for help..."
 				},
 				a17 = {
-					text = "Two-Four reporting in, there's a security door that shouldn't be open here...",
-					variants = {}
+					text = "Two-Four reporting in, there's a security door that shouldn't be open here..."
 				},
 				a18 = {
-					text = "Two-Four reporting in, somebody set a fire over here...",
-					variants = {}
+					text = "Two-Four reporting in, somebody set a fire over here..."
 				},
 				a19 = {
-					text = "Two-Four reporting in, I've got a bodybag over here...",
-					variants = {}
+					text = "Two-Four reporting in, I've got a bodybag over here..."
 				},
 				a20 = {
-					text = "Two-Four reporting in, I've spotted some kind of sentry gun over here...",
-					variants = {}
+					text = "Two-Four reporting in, I've spotted some kind of sentry gun over here..."
 				},
 				a21 = {
-					text = "Two-Four reporting in, I've spotted a trip mine...",
-					variants = {}
+					text = "Two-Four reporting in, I've spotted a trip mine..."
 				},
 				a22 = {
-					text = "Two-Four reporting in, I've spotted a suspicious bag...",
-					variants = {}
+					text = "Two-Four reporting in, I've spotted a suspicious bag..."
 				},
 				a23 = {
-					text = "Two-Four reporting in, there's signs of intruders here...",
-					variants = {}
+					text = "Two-Four reporting in, there's signs of intruders here..."
 				},
 				a24 = {
-					text = "Two-Four reporting in, somebody's been messing with the computer here...",
-					variants = {}
+					text = "Two-Four reporting in, somebody's been messing with the computer here..."
 				},
 				a25 = {
-					text = "Two-Four reporting in, I've spotted some heavy drilling equipment here...",
-					variants = {}
+					text = "Two-Four reporting in, I've spotted some heavy drilling equipment here..."
 				},
 				amm = {
-					text = "They've brought extra ammo with them!",
-					variants = {}
+					text = "They've brought extra ammo with them!"
 				},
 				att = {
-					text = "Weapons hot!", --fire at will, gogogo!
-					variants = {}
+					text = "Weapons hot!" --fire at will, gogogo!
 				},
 				b01 = {
-					text = "Two-Three reporting in, Entrance is A-OK. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Entrance is A-OK. Over."
 				},
 				b02 = {
-					text = "Two-Three reporting in, Hall A is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Hall A is all clear. Over."
 				},
 				b03 = {
-					text = "Two-Three reporting in, Hall B is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Hall B is all clear. Over."
 				},
 				b04 = {
-					text = "Two-Three reporting in, Hall C is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Hall C is all clear. Over."
 				},
 				b05 = {
-					text = "Two-Three reporting in, Hall D is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Hall D is all clear. Over."
 				},
 				b06 = {
-					text = "Two-Three reporting in, Roof is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Roof is all clear. Over."
 				},
 				b07 = {
-					text = "Two-Three reporting in, Basement is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Basement is all clear. Over."
 				},
 				b08 = {
-					text = "Two-Three reporting in, Ground Floor is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Ground Floor is all clear. Over."
 				},
 				b09 = {
-					text = "Two-Three reporting in, Second Floor is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Second Floor is all clear. Over."
 				},
 				b10 = {
-					text = "Two-Three reporting in, Third Floor is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Third Floor is all clear. Over."
 				},
 				b11 = {
-					text = "Two-Three reporting in, Pool Area is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Pool Area is all clear. Over."
 				},
 				b12 = {
-					text = "Two-Three reporting in, Balcony is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Balcony is all clear. Over."
 				},
 				b13 = {
-					text = "Two-Three reporting in, Living Room is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Living Room is all clear. Over."
 				},
 				b14 = {
-					text = "Two-Three reporting in, Corridor is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Corridor is all clear. Over."
 				},
 				b15 = {
-					text = "Two-Three reporting in, Lobby is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Lobby is all clear. Over."
 				},
 				b16 = {
-					text = "Two-Three reporting in, Security Door is shut and locked, everything's fine. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Security Door is shut and locked, everything's fine. Over."
 				},
 				b17 = {
-					text = "Two-Three reporting in, Security Room is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Security Room is all clear. Over."
 				},
 				b18 = {
-					text = "Two-Three reporting in, camera is working fine, no sign of tampering. Over.",
-					variants = {}
+					text = "Two-Three reporting in, camera is working fine, no sign of tampering. Over."
 				},
 				b19 = {
-					text = "Two-Three reporting in, Staircase is all clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Staircase is all clear. Over."
 				},
 				b20 = {
-					text = "Two-Three reporting in, Penthouse is clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Penthouse is clear. Over."
 				},
 				b21 = {
-					text = "Two-Three reporting in, Garage is clear. Over.",
-					variants = {}
+					text = "Two-Three reporting in, Garage is clear. Over."
 				},
 				b22 = {
-					text = "Moving on.",
-					variants = {}
+					text = "Moving on."
 				},
 				b23 = {
-					text = "Two-Three to Control, could someone buzz me through the door?.",
-					variants = {}
+					text = "Two-Three to Control, could someone buzz me through the door?."
 				},
 				b24 = {
-					text = "Two-Three to Control, this whole place is clear, I'm going home. Over and out.",
-					variants = {}
+					text = "Two-Three to Control, this whole place is clear, I'm going home. Over and out."
 				},
 				b25 = {
-					text = "Reporting in, glass shards everywhere! Signs of break in! Send reinforcements!",
-					variants = {}
+					text = "Reporting in, glass shards everywhere! Signs of break in! Send reinforcements!"
 				},
 				b26 = {
-					text = "Two-Three reporting in, someone's been fiddling with this camera. Send backup!",
-					variants = {}
+					text = "Two-Three reporting in, someone's been fiddling with this camera. Send backup!"
 				},
 				b27 = {
-					text = "Two-Three reporting in, I hear some kind of noise. Send backup!",
-					variants = {}
+					text = "Two-Three reporting in, I hear some kind of noise. Send backup!"
 				},
 				b28 = {
-					text = "Two-Three reporting in, I'm outside the lobby. Over.",
-					variants = {}
-				},	
+					text = "Two-Three reporting in, I'm outside the lobby. Over."
+				},
 				bak = {
-					text = "Watch your background, civilians on scene!",
-					variants = {}
+					text = "Watch your background, civilians on scene!"
 				},
 				burndeath = {
-					text = "[fire death]",
-					variants = {}
+					text = "[fire death]"
 				},
 				burnhurt = {
 					variants = {
@@ -6628,72 +8316,55 @@ ClosedCaptions._sounds = {
 					}
 				},
 				c01 = {
-					text = "Contact!",
-					variants = {}
+					text = "Contact!"
 				}, --spotted criminal
 				ch1 = {
-					text = "Watch out for the trip mines!",
-					variants = {}
+					text = "Watch out for the trip mines!"
 				},
 				ch2 = {
-					text = "Watch out for the sentry gun!",
-					variants = {}
+					text = "Watch out for the sentry gun!"
 				},
 				ch3 = {
-					text = "Argh! Some kind of jammer!",
-					variants = {}
+					text = "Argh! Some kind of jammer!"
 				}, --ecm feedback
 				ch4 = {
-					text = "That maniac has a fucking SAW!",
-					variants = {}
+					text = "That maniac has a fucking SAW!"
 				},
 				civ = {
-					text = "Get the hostages!",
-					variants = {}
+					text = "Get the hostages!"
 				},
 				clr = {
-					text = "Area clear.",
-					variants = {}
+					text = "Area clear."
 				},
 				cn1 = {
-					text = "[converted to joker]",
-					variants = {}
+					text = "[converted to joker]"
 				},
 				cr1 = {
-					text = "Hey, stay calm, we're getting you out.",
-					variants = {}
+					text = "Hey, stay calm, we're getting you out."
 				}, --to hostage
 				d01 = {
-					text = "Deploy smoke.",
-					variants = {}
+					text = "Deploy smoke."
 				},
 				d02 = {
-					text = "Throwing a flashbang!",
-					variants = {}
+					text = "Throwing a flashbang!"
 				},
 				e01 = {
-					text = "Disable that drill!",
-					variants = {}
+					text = "Disable that drill!"
 				},
 				e02 = {
-					text = "Disable their gear!",
-					variants = {}
+					text = "Disable their gear!"
 				},
 				e03 = {
-					text = "Disabling the power!",
-					variants = {}
+					text = "Disabling the power!"
 				},
 				e04 = {
-					text = "Do what you can to slow them down.",
-					variants = {}
+					text = "Do what you can to slow them down."
 				},
 				e05 = {
-					text = "Drill is disabled, over.",
-					variants = {}
+					text = "Drill is disabled, over."
 				},
 				e06 = {
-					text = "Disabled their gear.",
-					variants = {}
+					text = "Disabled their gear."
 				},
 				g90 = {
 					text = "[chatter]",
@@ -6721,128 +8392,98 @@ ClosedCaptions._sounds = {
 					}
 				}, --it's the clowns from tv!
 				gr1a = {
-					text = "Rescue team Alpha going in.",
-					variants = {}
+					text = "Rescue team Alpha going in."
 				},
 				gr1b = {
-					text = "Rescue team Bravo going in.",
-					variants = {}
+					text = "Rescue team Bravo going in."
 				},
 				gr1c = {
-					text = "Rescue team Charlie going in.",
-					variants = {}
+					text = "Rescue team Charlie going in."
 				},
 				gr1d = {
-					text = "Rescue team Delta going in.",
-					variants = {}
+					text = "Rescue team Delta going in."
 				},
 				gr2a = {
-					text = "Assault team Alpha going in.",
-					variants = {}
+					text = "Assault team Alpha going in."
 				},
 				gr2b = {
-					text = "Assault team Bravo going in.",
-					variants = {}
+					text = "Assault team Bravo going in."
 				},
 				gr2c = {
-					text = "Assault team Charlie going in.",
-					variants = {}
+					text = "Assault team Charlie going in."
 				},
 				gr2d = {
-					text = "Assault team Delta going in",
-					variants = {}
+					text = "Assault team Delta going in"
 				},
 				h01 = {
-					text = "Freeing hostage",
-					variants = {}
+					text = "Freeing hostage"
 				},
 				hlp = {
 					text = "HELP!",
-					disabled = "whisper_mode",
-					variants = {}
+					disabled = "whisper_mode"
 				},
 				i01 = {
-					text = "Freeze!", --or "Hold it!"
-					variants = {}
+					text = "Freeze!" --or "Hold it!"
 				},
 				i02 = {
-					text = "No sudden movements!",
-					variants = {}
+					text = "No sudden movements!"
 				},
 				i03 = {
-					text = "This ends now!",
-					variants = {}
+					text = "This ends now!"
 				},
 				l01 = {
-					text = "Get those bags!",
-					variants = {}
+					text = "Get those bags!"
 				},
 				lk3a = {
-					text = "Jeez!",
-					variants = {}
+					text = "Jeez!"
 				},
 				lk3b = {
-					text = "Fucking hell!",
-					variants = {}
-				},	
+					text = "Fucking hell!"
+				},
 				m01 = {
-					text = "Cease fire, exit point!",
-					variants = {}
+					text = "Cease fire, exit point!"
 				},
 				med = {
-					text = "There's a doctor bag! They must have a field medic!",
-					variants = {}
+					text = "There's a doctor bag! They must have a field medic!"
 				},
 				mov = {
 					text = "Move!",
-					disabled = "whisper_mode",
-					variants = {}
+					disabled = "whisper_mode"
 				},
 				pos = {
-					text = "I'm in position.",
-					variants = {}
+					text = "I'm in position."
 				},
 				prm = {
-					text = "Wait for my signal.",
-					variants = {}
+					text = "Wait for my signal."
 				},
 				pus = {
-					text = "Rush them!",
-					variants = {}
+					text = "Rush them!"
 				},
 				r01 = {
-					text = "Roger that.",
-					variants = {}
+					text = "Roger that."
 				},
 				rdy = {
 					text = "Ready!",
-					disabled = true,
-					variants = {}
+					disabled = true
 				},
 				rrl = {
-					text = "He's reloading!",
-					variants = {}
+					text = "He's reloading!"
 				},
 				s01x = {
-					text = "Okay, okay! Just don't shoot!",
-					variants = {}
+					text = "Okay, okay! Just don't shoot!"
 				},
 				t01 = {
-					text = "Looking for another way in.",
-					variants = {}
+					text = "Looking for another way in."
 				},
 				x01a_any_3p = {
 					text = "[pain]",
-					disabled = true,
-					variants = {
-						--
-					}
+					disabled = true
 				},
 				lt2_c01 = {
 					variants = {
 						cop = {
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"Mira, mira, there he is!",
 									"I see one!",
 									"Okay, I see one!",
@@ -6858,14 +8499,14 @@ ClosedCaptions._sounds = {
 				lt2_g90 = {
 					variants = {
 						cop = {
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"I'm gonna fuck you up, man!",
 									"These fuckers are going down!",
 									"You must have shit for brains, coming here!",
 									"I oughta kill you twice, gringo!",
 									"This is the wrong town for you, amigo!",
---									"Blood coming out your ears, fucker!",
+									--									"Blood coming out your ears, fucker!",
 									"I'm gonna make you bleed!",
 									"[angry Spanish]"
 								}
@@ -6873,15 +8514,30 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				
---mission specific dialogue				
-			--no mercy
+				lt1_aes = {
+					variants = {
+						cop = {
+							line_variations = {
+								any_mode = {
+									"What the fuck is this?!",
+									"Oh, fuck me sideways!",
+									"Who let them in, eh, what the fuck?",
+									"Shit!",
+									"Who the hell do you think you are?",
+									"Who is this, who the fuck are you?!"
+								}
+							}
+						}
+					}
+				},
+				--mission specific dialogue
+				--no mercy
 				Play_bil_nmh_01_01 = {
 					variants = {
 						civilian = {
 							override_name = "Bill",
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"Come on, ya stinkin' elevator...",
 									"Don't break down on me, elevator...",
 									"Alright, let's go!",
@@ -6895,8 +8551,8 @@ ClosedCaptions._sounds = {
 					variants = {
 						civilian = {
 							override_name = "Bill",
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"They'd better let me smoke up there.",
 									"Come, on, come on...",
 									"Come, on, come on!",
@@ -6911,8 +8567,8 @@ ClosedCaptions._sounds = {
 					variants = {
 						civilian = {
 							override_name = "Bill",
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"They'd better let me smoke up there.",
 									"Don't break down on me, elevator...",
 									"Close, dammit!",
@@ -6927,8 +8583,8 @@ ClosedCaptions._sounds = {
 					variants = {
 						civilian = {
 							override_name = "Bill",
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"Let's go, people!",
 									"Move it out!",
 									"Let's move it out, people!",
@@ -6944,8 +8600,8 @@ ClosedCaptions._sounds = {
 					variants = {
 						civilian = {
 							override_name = "Bill",
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"Excuse me, sirs, this is your floor, so can you kindly get the HELL off of my elevator?",
 									"Well come on, I don't have all day, get the hell off!",
 									"This is your floor, not mine, hurry up and get the hell off.",
@@ -6960,8 +8616,8 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"Welcome. Let's start the round.",
 									"I see you have your gloves on already. Great.",
 									"Welcome. We've been expecting you. Shall we start the round?"
@@ -7003,8 +8659,8 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 4,
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
 									"This man was brought in, seemingly suffering from sun-stroke.",
 									"This man was bit by a monkey at the Fairfield Zoo.",
@@ -7027,8 +8683,8 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"Let's check the blood pressures as well.",
 									"Let's take another lap and check each patient's blood pressure, too.",
 									"Let's take another round and look at the blood pressure of the patients, as well.",
@@ -7043,8 +8699,8 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"This patient has a blood pressure of 119 over 80.",
 									"This patient has a blood pressure of 117 over 79.",
 									"This patient has a blood pressure of 115 over 78.",
@@ -7073,8 +8729,8 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 5,
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"That's all I can tell you about the patients, doctor.", --two variations with only slight differences
 									"That's all I can tell you about the patients, doctor..."
 								}
@@ -7087,9 +8743,9 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
+							line_variations = {
 								recombinable = true,
-								text_variations = {
+								any_mode = {
 									{
 										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
 										"This man was brought in, seemingly suffering from sun-stroke.",
@@ -7149,9 +8805,9 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
+							line_variations = {
 								recombinable = true,
-								text_variations = {
+								any_mode = {
 									{
 										"This man was bit by a monkey at the Fairfield Zoo.",
 										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
@@ -7197,9 +8853,9 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
+							line_variations = {
 								recombinable = true,
-								text_variations = {
+								any_mode = {
 									{
 										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
 										"This man was brought in, seemingly suffering from sun-stroke.",
@@ -7259,9 +8915,9 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
+							line_variations = {
 								recombinable = true,
-								text_variations = {
+								any_mode = {
 									{
 										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
 										"This man was brought in, seemingly suffering from sun-stroke.",
@@ -7308,9 +8964,9 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
+							line_variations = {
 								recombinable = true,
-								text_variations = {
+								any_mode = {
 									{
 										"This patient has a blood pressure of 119 over 80.",
 										"This patient has a blood pressure of 117 over 79.",
@@ -7362,9 +9018,9 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
+							line_variations = {
 								recombinable = true,
-								text_variations = {
+								any_mode = {
 									{
 										"This patient has a blood pressure of 119 over 80.",
 										"This patient has a blood pressure of 117 over 79.",
@@ -7394,9 +9050,9 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
+							line_variations = {
 								recombinable = true,
-								text_variations = {
+								any_mode = {
 									{
 										"This patient has a blood pressure of 119 over 80.",
 										"This patient has a blood pressure of 117 over 79.",
@@ -7430,9 +9086,9 @@ ClosedCaptions._sounds = {
 						civilian = {
 							override_name = "Dr. Schneider",
 							duration = 20,
-							subvariants = {
+							line_variations = {
 								recombinable = true,
-								text_variations = {
+								any_mode = {
 									{
 										"This patient has a blood pressure of 119 over 80.",
 										"This patient has a blood pressure of 117 over 79.",
@@ -7473,39 +9129,39 @@ ClosedCaptions._sounds = {
 					variants = {
 						civilian = {
 							override_name = "Doctor",
-						--variants not included
-							subvariants = {
-								text_variations = {
+							--variants not included
+							line_variations = {
+								any_mode = {
 									"Only employees are allowed here.",
 									"I'm sorry. This area is only for personnel.",
-									"Please. Only staff are allowed here.", 
+									"Please. Only staff are allowed here.",
 									"This area is staff only, I'm afraid."
 								}
 							}
 						}
 					}
 				},
-				
-			--panic room	
+
+				--panic room
 				Play_bnc_flt_01 = {
 					variants = {
 						cop = {
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"Get inside. It's straight ahead.",
 									"[whistle] Hey, open up!"
 								}
 							}
 						}
-						
+
 					}
 				},
 				Play_bnc_flt_02 = {
 					variants = {
 						cop = {
 							duration = 5,
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"Gentlemen.",
 									"They're here.",
 									"You can go inside now. They're expecting you."
@@ -7526,8 +9182,8 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							duration = 5,
-							subvariants = {
-								text_variations = {
+							line_variations = {
+								any_mode = {
 									"You're messin' with me? Show me the money!",
 									"Put your bag on the table, I'm waiting."
 								}
@@ -7542,11 +9198,310 @@ ClosedCaptions._sounds = {
 							text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around."
 						}
 					}
+				},
+				
+		--counterfeit
+				Play_bkn_pal_04 = { --bikini civ
+					variants = {
+						civilian = {
+							text = "Mitchell, can you take me shopping again?"
+						}
+					}
+				},
+				Play_bkn_pal_05 = {
+					variants = {
+						civilian = {
+							text = "Mitchell, can you take me shopping again?"
+						}
+					}
+				},
+				Play_mch_pal_02 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "[chitchat]"
+						}
+					}
+				},
+				Play_mch_pal_04 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_04"
+						}
+					}
+				},
+				Play_mch_pal_06 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_06"
+						}
+					}
+				},
+				Play_mch_pal_07 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_07"
+						}
+					}
+				},
+				Play_mch_pal_08 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_08"
+						}
+					}
+				},
+				Play_mch_pal_09 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_09"
+						}
+					}
+				},
+				Play_mch_pal_10 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_10"
+						}
+					}
+				},
+				Play_mch_pal_11 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_11"
+						}
+					}
+				},
+				Play_mch_pal_12 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_12"
+						}
+					}
+				},
+				Play_mch_pal_13 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_mch_pal_13"
+						}
+					}
+				},
+				Play_bqg_pal_01 = {
+					variants = {
+						civilian = {
+							override_name = "Mitchell",
+							text = "Play_bqg_pal_01"
+						}
+					}
+				},
+				Play_cm1_pal_01 = {
+					variants = {
+						civilian = {
+							text = "Play_cm1_pal_01"
+						}
+					}
+				},
+				Play_cm1_pal_02 = {
+					variants = {
+						civilian = {
+							text = "Play_cm1_pal_02"
+						}
+					}
+				},
+				Play_cm1_pal_03 = {
+					variants = {
+						civilian = {
+							text = "Play_cm1_pal_03"
+						}
+					}
+				},
+				Play_cm2_pal_01 = {
+					variants = {
+						civilian = {
+							text = "Play_cm2_pal_01"
+						}
+					}
+				},
+				Play_cm2_pal_02 = {
+					variants = {
+						civilian = {
+							text = "Play_cm2_pal_02"
+						}
+					}
+				},
+				Play_pil_pal_03 = {
+					variants = {
+						civilian = {
+							text = "Play_pil_pal_03"
+						}
+					}
+				},
+				Play_pil_pal_03 = {
+					variants = {
+						civilian = {
+							text = "Play_pil_pal_03"
+						}
+					}
+				},
+				Play_pil_pal_03 = {
+					variants = {
+						civilian = {
+							text = "Play_pil_pal_03"
+						}
+					}
+				},
+				Play_pil_pal_03 = {
+					variants = {
+						civilian = {
+							text = "Play_pil_pal_03"
+						}
+					}
+				},
+				Play_pil_pal_03 = {
+					variants = {
+						civilian = {
+							text = "Play_pil_pal_03"
+						}
+					}
+				},
+				Play_pil_pal_03 = {
+					variants = {
+						civilian = {
+							text = "Play_pil_pal_03"
+						}
+					}
+				},
+				Play_pil_pal_03 = {
+					variants = {
+						civilian = {
+							text = "Play_pil_pal_03"
+						}
+					}
+				},
+				
+		--undercover		
+				Play_txm_man_03 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_03"
+						}
+					}
+				},
+				Play_txm_man_10 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_10"
+						}
+					}
+				},
+				Play_txm_man_12 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_12"
+						}
+					}
+				},
+				Play_txm_man_05 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_05"
+						}
+					}
+				},
+				Play_txm_man_06 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_06"
+						}
+					}
+				},
+				Play_txm_man_13 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_13"
+						}
+					}
+				},
+				Play_txm_man_07 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_07"
+						}
+					}
+				},
+				Play_txm_man_08a = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_08a"
+						}
+					}
+				},
+				Play_txm_man_09 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_09"
+						}
+					}
+				},
+				Play_txm_man_08b = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_08b"
+						}
+					}
+				},
+				Play_txm_man_08c = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_08c"
+						}
+					}
+				},
+				Play_txm_man_01 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_01"
+						}
+					}
+				},
+				Play_txm_man_03 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_03"
+						}
+					}
+				},
+				Play_txm_man_09 = {
+					variants = {
+						override_name = "Taxman",
+						civilian = {
+							text = "Play_txm_man_09"
+						}
+					}
 				}
-				
-				--todo fwb
-				
-				
+
 			}
 		}
 	},
