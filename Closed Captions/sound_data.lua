@@ -21,52 +21,86 @@ ClosedCaptions._sounds = {
 				pickup_ammo = {
 					override_name = "SFX",
 					text = "picked up ammo",
-					source = "sfx",
-					disabled = true
+					source_id = "sfx",
+					duration = 1,
+					priority = 1,
+					disabled = false
 				},
 				pickup_ammo_health_boost = {
 					override_name = "SFX",
 					text = "(Gambler) picked up ammo",
-					source = "sfx",
+					source_id = "sfx",
+					priority = 1,
+					duration = 2,
 					disabled = true
 				},
 				pickup_fak_skill = {
 					override_name = "SFX",
 					text = "activated Uppers Ace",
-					source = "sfx"
+					source_id = "sfx"
 				},
 				wp_four_pick_up = {
 					override_name = "SFX",
 					text = "picked up Throwing Card",
-					source = "sfx"
+					source_id = "sfx"
 				},
 				wp_jav_pick_up = {
 					override_name = "SFX",
 					text = "picked up Javelin",
-					source = "sfx"
+					source_id = "sfx"
 				},
 				flashbang_beep = {
 					override_name = "SFX",
 					text = "flashbang beeping",
-					source = "sfx",
+					source_id = "sfx",
 					disabled = true
 				},
 				tasered_loop = {
 					override_name = "SFX",
 					text = "tased",
-					source = "sfx",
+					source_id = "sfx",
 					disabled = true
 				},
 				melee_hit_body = {
 					override_name = "SFX",
 					text = "melee impact",
-					source = "sfx",
+					source_id = "sfx",
 					disabled = true
 				},
 				player_hit = {
 					override_name = "SFX",
 					text = "armor damage",
-					source = "sfx",
+					source_id = "sfx",
+					disabled = true
+				},
+				alarm_museum_on_slow_fade = {
+					override_name = "SFX",
+					text = "[ALARM KLAXON]",
+					duration = 30,
+					source_id = "sfx"
+				},
+				card_reader_first_card = {
+					override_name = "SFX",
+					text = "keycard machine beeps",
+					duration = 3,
+					source_id = "sfx"
+				},
+				card_reader_second_card = {
+					override_name = "SFX",
+					text = "keycard machine beeps rapidly",
+					duration = 3,
+					source_id = "sfx"
+				},
+				alarm_countdown_loop = {
+					override_name = "SFX",
+					text = "[Alarm countdown]",
+					source_id = "sfx",
+					duration = 60
+				},
+				alarm_countdown_loop_stop = {
+					override_name = "SFX",
+					text = "[Alarm countdown stops]",
+					source_id = "sfx",
 					disabled = true
 				},
 				vo_special = {
@@ -579,7 +613,7 @@ ClosedCaptions._sounds = {
 				g22 = {
 					variants = {
 						criminal = {
-							text = nil, --only houston and chains have sound vo for this, so do not display cc for anyone else for this line
+							--only houston and chains have sound vo for this, so do not display cc for anyone else for this line
 							subvariants = {
 								rb222 = { --!
 									line_variations = {
@@ -1084,17 +1118,16 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Gotcha!",
 											"Gotcha.",
 											"Alriiight!",
-										},
-										assault_mode = {}
+										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Got it!",
 											"It's secured.",
 											"I got it!",
@@ -2965,6 +2998,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Bain?!",
+							duration = 2,
 							priority = 5,
 							subvariants = {
 								rb4 = {
@@ -4181,7 +4215,7 @@ ClosedCaptions._sounds = {
 											"Sniper DEAD!",
 											"One sniper less!",
 											"Got him! (Sniper)",
-											"Took him out.",
+											"Took him out. (Sniper)",
 											"Sniper out!",
 											"Sniper taken care of!"
 										}
@@ -4567,7 +4601,7 @@ ClosedCaptions._sounds = {
 				s07x_sin = {
 					variants = {
 						criminal = {
-							source = "SFX",
+							source_id = "SFX",
 							text = "tased",
 							subvariants = {
 								rb3 = {
@@ -5757,8 +5791,7 @@ ClosedCaptions._sounds = {
 					}
 				}, --mask up
 				i01x_any = {
-					text = "[Anticipation phase]",
-					variants = {}
+					text = "[Anticipation phase]" --!
 				},
 				r01x_sin = { --bot 'follow me' response; short delay
 					variants = {
@@ -5984,7 +6017,15 @@ ClosedCaptions._sounds = {
 											"Get on your knees!",
 											"Get down on your knees!"
 										},
-										assault_mode = {}
+										assault_mode = {
+											"Kneel!",
+											"KNEEL!",
+											"On your fucking knees!",
+											"Down on your knees!",
+											"Get on your knees, fuck it!",
+											"Get down on your fucking knees!",
+											"GET ON YOUR KNEES!"
+										}
 									}
 								},
 								rb15 = {
@@ -7623,7 +7664,7 @@ ClosedCaptions._sounds = {
 										"This is Two-Three."
 									},
 									{
-										"The Penthouse is clear."
+										"The Penthouse is clear.",
 										"Penthouse is clear."
 									},
 									{
@@ -7698,7 +7739,7 @@ ClosedCaptions._sounds = {
 										"This is Two-Three."
 									},
 									{
-										"The Garage is clear."
+										"The Garage is clear.",
 										"Garage is clear."
 									},
 									{
@@ -8137,25 +8178,52 @@ ClosedCaptions._sounds = {
 				entrance_elite = {
 					text = "ELITE BULLDOZER, COMING THROUGH!"
 				},
+				cpa_a02_01 = {
+					override_name = "[megaphone cop]",
+					text = "Captain's just got here, time to turn this around!",
+					line_variations = {
+						any_mode = {
+							"The Captain has arrived in the AO!",
+							"Captain's just got here, time to turn this around!",
+							"Captain's got here, time to turn this around!",
+							"The Captain how has operational control!",
+							"The Captain is here! He has his operation!",
+							"It's the Captain! Follow his lead!",
+							"The Captain's here!"
+						}
+					}
+				},
 				cpa_a03_01 = {
-					text = "Turret'll be here any second!"
+					override_name = "[megaphone cop]",
+					text = "Turret'll be here any second!",
+					line_variations = {
+						any_mode = {
+							"Just keep 'em occupied 'til the Turret gets here!",
+							"Time to put the firepower on! Turret is en route!",
+							"Turret's gonna be here any second!",
+							"We got a Turret on the way!",
+							"Alright! Got a Turret rolling in! This situation is about to change!"
+						}
+					}
 				},
 				cpa_a04_01 = {
+					override_name = "[megaphone cop]",
 					text = "Turret's arrived!"
 				},
-				cpa_a02_01 = {
-					text = "Captain's just got here, time to turn this around!"
-				},
 				cpw_a01 = {
+					override_name = "[megaphone cop]",
 					text = "(winters noise???)"
 				},
 				cpw_a02 = {
+					override_name = "[megaphone cop]",
 					text = "(winters noise 2???)"
 				},
 				cpw_a04 = {
+					override_name = "[megaphone cop]",
 					text = "(Winters retreat)"
 				},
 				cpw_a05 = {
+					override_name = "[megaphone cop]",
 					text = "(Winters battle cry)"
 				},
 				hr01 = {
@@ -8176,6 +8244,10 @@ ClosedCaptions._sounds = {
 					text = "[death]",
 					disabled = "whisper_mode",
 					variants = {
+						cop = {
+							text = "[death]",
+							disabled = "whisper_mode"
+						},
 						bdz = {
 							text = "[Bulldozer death]",
 							disabled = false
@@ -8760,614 +8832,522 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				--mission specific dialogue
+	--mission specific dialogue; i removed the variant/subvariant tables for these since they will play from any source, and don't require a specific voice prefix.
 				--no mercy
 				Play_bil_nmh_01_01 = {
-					variants = {
-						civilian = {
-							override_name = "Bill",
-							line_variations = {
-								any_mode = {
-									"Come on, ya stinkin' elevator...",
-									"Don't break down on me, elevator...",
-									"Alright, let's go!",
-									"Let's move, people!"
-								}
-							}
+					override_name = "Bill",
+					line_variations = {
+						any_mode = {
+							"Come on, ya stinkin' elevator...",
+							"Don't break down on me, elevator...",
+							"Alright, let's go!",
+							"Let's move, people!"
 						}
 					}
 				},
 				Play_bil_nmh_01_02 = {
-					variants = {
-						civilian = {
-							override_name = "Bill",
-							line_variations = {
-								any_mode = {
-									"They'd better let me smoke up there.",
-									"Come, on, come on...",
-									"Come, on, come on!",
-									"Close, dammit!",
-									"Let's go, let's go!"
-								}
-							}
+					override_name = "Bill",
+					line_variations = {
+						any_mode = {
+							"They'd better let me smoke up there.",
+							"Come, on, come on...",
+							"Come, on, come on!",
+							"Close, dammit!",
+							"Let's go, let's go!"
 						}
 					}
 				},
 				Play_bil_nmh_01_03 = {
-					variants = {
-						civilian = {
-							override_name = "Bill",
-							line_variations = {
-								any_mode = {
-									"They'd better let me smoke up there.",
-									"Don't break down on me, elevator...",
-									"Close, dammit!",
-									"Close, dammit.",
-									"Let's go, let's go!"
-								}
-							}
+					override_name = "Bill",
+					line_variations = {
+						any_mode = {
+							"They'd better let me smoke up there.",
+							"Don't break down on me, elevator...",
+							"Close, dammit!",
+							"Close, dammit.",
+							"Let's go, let's go!"
 						}
 					}
 				},
 				Play_bil_nmh_01_04 = {
-					variants = {
-						civilian = {
-							override_name = "Bill",
-							line_variations = {
-								any_mode = {
-									"Let's go, people!",
-									"Move it out!",
-									"Let's move it out, people!",
-									"Come on, let's go!",
-									"Let's GO!",
-									"Come on, let's go!"
-								}
-							}
+					override_name = "Bill",
+					line_variations = {
+						any_mode = {
+							"Let's go, people!",
+							"Move it out!",
+							"Let's move it out, people!",
+							"Come on, let's go!",
+							"Let's GO!",
+							"Come on, let's go!"
 						}
 					}
 				},
 				Play_bil_nmh_01_05 = {
-					variants = {
-						civilian = {
-							override_name = "Bill",
-							line_variations = {
-								any_mode = {
-									"Excuse me, sirs, this is your floor, so can you kindly get the HELL off of my elevator?",
-									"Well come on, I don't have all day, get the hell off!",
-									"This is your floor, not mine, hurry up and get the hell off.",
-									"I think this is your floor."
-								}
-							}
+					override_name = "Bill",
+					line_variations = {
+						any_mode = {
+							"Excuse me, sirs, this is your floor, so can you kindly get the HELL off of my elevator?",
+							"Well come on, I don't have all day, get the hell off!",
+							"This is your floor, not mine, hurry up and get the hell off.",
+							"I think this is your floor."
 						}
 					}
 				},
 				Play_doc_nmh_a = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								any_mode = {
-									"Welcome. Let's start the round.",
-									"I see you have your gloves on already. Great.",
-									"Welcome. We've been expecting you. Shall we start the round?"
-								}
-							}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						any_mode = {
+							"Welcome. Let's start the round.",
+							"I see you have your gloves on already. Great.",
+							"Welcome. We've been expecting you. Shall we start the round?"
 						}
 					}
 				},
 				Play_doc_nmh_b = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 4,
-							text = "First, let's look at Isolation B." --no variations for these
-						}
-					}
+					override_name = "Dr. Schneider",
+					duration = 4,
+					text = "First, let's look at Isolation B." --no variations for these
 				},
 				Play_doc_nmh_c = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 4,
-							text = "Now, let's look at Isolation A."
-						}
-					}
+					override_name = "Dr. Schneider",
+					duration = 4,
+					text = "Now, let's look at Isolation A."
 				},
 				--not sure what happened to c
 				Play_doc_nmh_d = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 4,
-							text = "Finally, let's look at Isolation C."
-						}
-					}
+					override_name = "Dr. Schneider",
+					duration = 4,
+					text = "Finally, let's look at Isolation C."
 				},
 				Play_doc_nmh_e = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 4,
-							line_variations = {
-								any_mode = {
-									"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
-									"This man was brought in, seemingly suffering from sun-stroke.",
-									"This man was bit by a monkey at the Fairfield Zoo.",
-									"This man was found unconscious in the street today.",
-									"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from.",
-									"This man was in a single-car accident on the road to Riverside.",
-									"This man collapsed during his morning jog.",
-									"This man seems to be suffering from a severe type of food poisoning.",
-									"This man came running into the hospital reception during lunch, and collapsed on the floor.",
-									"This man came in this afternoon complaining of a strange rash on his neck.",
-									"This man came back from a trip to Haiti feeling very ill.",
-									"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest."
-								}
-							}
+					override_name = "Dr. Schneider",
+					duration = 4,
+					line_variations = {
+						any_mode = {
+							"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+							"This man was brought in, seemingly suffering from sun-stroke.",
+							"This man was bit by a monkey at the Fairfield Zoo.",
+							"This man was found unconscious in the street today.",
+							"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from.",
+							"This man was in a single-car accident on the road to Riverside.",
+							"This man collapsed during his morning jog.",
+							"This man seems to be suffering from a severe type of food poisoning.",
+							"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+							"This man came in this afternoon complaining of a strange rash on his neck.",
+							"This man came back from a trip to Haiti feeling very ill.",
+							"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest."
 						}
 					}
 				},
 				Play_doc_nmh_f = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								any_mode = {
-									"Let's check the blood pressures as well.",
-									"Let's take another lap and check each patient's blood pressure, too.",
-									"Let's take another round and look at the blood pressure of the patients, as well.",
-									"Let's take another loop for a blood pressure check-up."
-								}
-							}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						any_mode = {
+							"Let's check the blood pressures as well.",
+							"Let's take another lap and check each patient's blood pressure, too.",
+							"Let's take another round and look at the blood pressure of the patients, as well.",
+							"Let's take another loop for a blood pressure check-up."
 						}
 					}
 				},
 				Play_doc_nmh_g = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								any_mode = {
-									"This patient has a blood pressure of 119 over 80.",
-									"This patient has a blood pressure of 117 over 79.",
-									"This patient has a blood pressure of 115 over 78.",
-									"This patient has a blood pressure of 114 over 77.",
-									"This patient has a blood pressure of 112 above 75.",
-									"This patient has a blood pressure of 104 over 73.",
-									"This patient has a blood pressure of 98 over 61.",
-									"This patient has a blood pressure of 96 over 72.",
-									"This patient has blood pressure of 95 over 66."
-								}
-							}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						any_mode = {
+							"This patient has a blood pressure of 119 over 80.",
+							"This patient has a blood pressure of 117 over 79.",
+							"This patient has a blood pressure of 115 over 78.",
+							"This patient has a blood pressure of 114 over 77.",
+							"This patient has a blood pressure of 112 above 75.",
+							"This patient has a blood pressure of 104 over 73.",
+							"This patient has a blood pressure of 98 over 61.",
+							"This patient has a blood pressure of 96 over 72.",
+							"This patient has blood pressure of 95 over 66."
 						}
 					}
 				},
 				Play_doc_nmh_h = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 5,
-							text = "If you need me, I'll be over there." --no variations
-						}
-					}
+					override_name = "Dr. Schneider",
+					duration = 5,
+					text = "If you need me, I'll be over there." --no variations
 				},
 				Play_doc_nmh_i = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 5,
-							line_variations = {
-								any_mode = {
-									"That's all I can tell you about the patients, doctor.", --two variations with only slight differences
-									"That's all I can tell you about the patients, doctor..."
-								}
-							}
+					override_name = "Dr. Schneider",
+					duration = 5,
+					line_variations = {
+						any_mode = {
+							"That's all I can tell you about the patients, doctor.", --two variations with only slight differences
+							"That's all I can tell you about the patients, doctor..."
 						}
 					}
 				},
 				Play_doc_nmh_run_01 = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
-										"This man was brought in, seemingly suffering from sun-stroke.",
-										"This man was bit by a monkey at the Fairfield Zoo.",
-										"This man was found unconscious in the street today.",
-										"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from.",
-										"This man was in a single-car accident on the road to Riverside.",
-										"This man collapsed during his morning jog.",
-										"This man seems to be suffering from a severe type of food poisoning.",
-										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
-										"This man came in this afternoon complaining of a strange rash on his neck.",
-										"This man came back from a trip to Haiti feeling very ill.",
-										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest."
-									},
-									{
-										"Whatever he is suffering from, it is definitely not the Green Flu.",
-										"Whatever he is suffering from, is definitely isn't any form of sepsis.",
-										"We found traces of methamphetamine in his blood.",
-										"We found traces of amphetamine in his blood.",
-										"We found traces of several psychoactive substances in his blood.",
-										"We found traces of cocaine in his blood.",
-										"We detected abnormal levels of histamines in his blood. We haven't identified the allergy yet.",
-										"He is suffering from epidural hematoma.",
-										"He is suffering from cerebral edema.",
-										"He is suffering from encephalitis.",
-										"He is suffering from narcolepsy.",
-										"He is suffering from epilepsy.",
-										"He is showing symptoms of temporal arthritis.",
-										"He is showing symptoms of temporal meningitis.",
-										"He is showing symptoms of extreme exhaustion.",
-										"He's probably suffered subarachnoid hemorrhage.",
-										"He has recently been exposed to high levels of ionizing radiation.",
-										"He's got SAH.",
-										"I have reason to believe he has a brain tumor."
-									},
-									{
-										"He's in a state of hypertensive emergency.",
-										"His heart rate is abnormal.",
-										"He has malignant hypertension.",
-										"His heart rate is well above normal.",
-										"His heart rate is well below normal.",
-										"His heart rate is well above 140.",
-										"His resting heart rate is 140.",
-										"His resting heart rate is 130.",
-										"His resting heart rate is 120.",
-										"His resting heart rate is as high as 100, and rising steadily.",
-										"His resting heart rate is 110.",
-										"His heart rate is well below 30."
-									}
-								}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+								"This man was brought in, seemingly suffering from sun-stroke.",
+								"This man was bit by a monkey at the Fairfield Zoo.",
+								"This man was found unconscious in the street today.",
+								"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from.",
+								"This man was in a single-car accident on the road to Riverside.",
+								"This man collapsed during his morning jog.",
+								"This man seems to be suffering from a severe type of food poisoning.",
+								"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+								"This man came in this afternoon complaining of a strange rash on his neck.",
+								"This man came back from a trip to Haiti feeling very ill.",
+								"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest."
+							},
+							{
+								"Whatever he is suffering from, it is definitely not the Green Flu.",
+								"Whatever he is suffering from, is definitely isn't any form of sepsis.",
+								"We found traces of methamphetamine in his blood.",
+								"We found traces of amphetamine in his blood.",
+								"We found traces of several psychoactive substances in his blood.",
+								"We found traces of cocaine in his blood.",
+								"We detected abnormal levels of histamines in his blood. We haven't identified the allergy yet.",
+								"He is suffering from epidural hematoma.",
+								"He is suffering from cerebral edema.",
+								"He is suffering from encephalitis.",
+								"He is suffering from narcolepsy.",
+								"He is suffering from epilepsy.",
+								"He is showing symptoms of temporal arthritis.",
+								"He is showing symptoms of temporal meningitis.",
+								"He is showing symptoms of extreme exhaustion.",
+								"He's probably suffered subarachnoid hemorrhage.",
+								"He has recently been exposed to high levels of ionizing radiation.",
+								"He's got SAH.",
+								"I have reason to believe he has a brain tumor."
+							},
+							{
+								"He's in a state of hypertensive emergency.",
+								"His heart rate is abnormal.",
+								"He has malignant hypertension.",
+								"His heart rate is well above normal.",
+								"His heart rate is well below normal.",
+								"His heart rate is well above 140.",
+								"His resting heart rate is 140.",
+								"His resting heart rate is 130.",
+								"His resting heart rate is 120.",
+								"His resting heart rate is as high as 100, and rising steadily.",
+								"His resting heart rate is 110.",
+								"His heart rate is well below 30."
 							}
 						}
 					}
 				},
 				Play_doc_nmh_run_02 = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"This man was bit by a monkey at the Fairfield Zoo.",
-										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
-										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
-										"This man seems to be suffering from a severe type of food poisoning.",
-										"This man was brought in, seemingly suffering from sun-stroke.",
-										"This man was found unconscious in the street today.",
-										"This man came in this afternoon complaining of a strange rash on his neck.",
-										"This man was in a single-car accident on the road to Riverside.",
-										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
-										"This man collapsed during his morning jog.",
-										"This man came back from a trip to Haiti feeling very ill.",
-										"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
-									},
-									{
-										"We'll have to keep him in isolation a while longer, but he'll have recovered soon.",
-										"He has to stay isolated a little longer, but he will be okay.",
-										"He is currently recovering and can be moved from the ICU quite soon.",
-										"He won't have to remain under medical treatment for too long.",
-										"While he isn't fully diagnosed yet, I am confident that he will be fully recovered shortly.",
-										"He is responding well to the treatment, and will be out of the hospital in a matter of days."
-									},
-									{
-										"His heart rate remains stable.",
-										"His heart rate is stable.",
-										"His heart rate is normal.",
-										"His resting heart rate is stable.",
-										"His resting heart rate is 60, and remains stable.",
-										"His resting heart rate is 65.",
-										"His resting heart rate is 70.",
-										"His resting heart rate is 75.",
-										"His resting heart rate is 80.",
-										"His resting heart rate is 85.",
-										"His resting heart rate is 90, but remains stable."
-									}
-								}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"This man was bit by a monkey at the Fairfield Zoo.",
+								"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+								"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
+								"This man seems to be suffering from a severe type of food poisoning.",
+								"This man was brought in, seemingly suffering from sun-stroke.",
+								"This man was found unconscious in the street today.",
+								"This man came in this afternoon complaining of a strange rash on his neck.",
+								"This man was in a single-car accident on the road to Riverside.",
+								"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+								"This man collapsed during his morning jog.",
+								"This man came back from a trip to Haiti feeling very ill.",
+								"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
+							},
+							{
+								"We'll have to keep him in isolation a while longer, but he'll have recovered soon.",
+								"He has to stay isolated a little longer, but he will be okay.",
+								"He is currently recovering and can be moved from the ICU quite soon.",
+								"He won't have to remain under medical treatment for too long.",
+								"While he isn't fully diagnosed yet, I am confident that he will be fully recovered shortly.",
+								"He is responding well to the treatment, and will be out of the hospital in a matter of days."
+							},
+							{
+								"His heart rate remains stable.",
+								"His heart rate is stable.",
+								"His heart rate is normal.",
+								"His resting heart rate is stable.",
+								"His resting heart rate is 60, and remains stable.",
+								"His resting heart rate is 65.",
+								"His resting heart rate is 70.",
+								"His resting heart rate is 75.",
+								"His resting heart rate is 80.",
+								"His resting heart rate is 85.",
+								"His resting heart rate is 90, but remains stable."
 							}
 						}
 					}
 				},
 				Play_doc_nmh_run_03 = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
-										"This man was brought in, seemingly suffering from sun-stroke.",
-										"This man was bit by a monkey at the Fairfield Zoo.",
-										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
-										"This man seems to be suffering from a severe type of food poisoning.",
-										"This man was found unconscious in the street today.",
-										"This man came in this afternoon complaining of a strange rash on his neck.",
-										"This man was in a single-car accident on the road to Riverside.",
-										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
-										"This man collapsed during his morning jog.",
-										"This man came back from a trip to Haiti feeling very ill.",
-										"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
-									},
-									{
-										"We found traces of botulinum toxin in his bloodstream.",
-										"We found traces of tetrodotoxin in his blood.",
-										"We found traces of tetraodontidae neurotoxin in his blood.",
-										"We found traces of tetanus toxin in his bloodstream.",
-										"We found traces of bufotoxin in his blood.",
-										"We found traces of some advanced disassociative drugs in his blood.",
-										"We found traces of fugu neurotoxin in his blood.",
-										"We found traces of diphtheria venom in his bloodstream."
-									},
-									{
-										"He also has an elevated white blood cell count.",
-										"He also has a very low white blood cell count.",
-										"He is also suffering from leukopenia.",
-										"He is also suffering from leukocytosis.",
-										"We've been giving him Fampridine, but his condition is deteriorating."
-									},
-									{
-										"This is severe sepsis, no doubt.",
-										"He's in full SIRS.",
-										"He is not responding to any medical treatment.",
-										"We're slowly losing him.",
-										"All things combined, it's a medical condition I've never seen before."
-									},
-									{
-										"He has malignant hypertension.",
-										"His resting heart rate is well above 140.",
-										"His resting heart rate is 140.",
-										"His resting heart rate is 130.",
-										"His resting heart rate is 120.",
-										"His resting heart rate is 110.",
-										"His resting heart rate is as high as 100, and rising steadily.",
-										"His resting heart rate is well below normal.",
-										"His heart rate is abnormal."
-									}
-								}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
+								"This man was brought in, seemingly suffering from sun-stroke.",
+								"This man was bit by a monkey at the Fairfield Zoo.",
+								"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+								"This man seems to be suffering from a severe type of food poisoning.",
+								"This man was found unconscious in the street today.",
+								"This man came in this afternoon complaining of a strange rash on his neck.",
+								"This man was in a single-car accident on the road to Riverside.",
+								"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+								"This man collapsed during his morning jog.",
+								"This man came back from a trip to Haiti feeling very ill.",
+								"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
+							},
+							{
+								"We found traces of botulinum toxin in his bloodstream.",
+								"We found traces of tetrodotoxin in his blood.",
+								"We found traces of tetraodontidae neurotoxin in his blood.",
+								"We found traces of tetanus toxin in his bloodstream.",
+								"We found traces of bufotoxin in his blood.",
+								"We found traces of some advanced disassociative drugs in his blood.",
+								"We found traces of fugu neurotoxin in his blood.",
+								"We found traces of diphtheria venom in his bloodstream."
+							},
+							{
+								"He also has an elevated white blood cell count.",
+								"He also has a very low white blood cell count.",
+								"He is also suffering from leukopenia.",
+								"He is also suffering from leukocytosis.",
+								"We've been giving him Fampridine, but his condition is deteriorating."
+							},
+							{
+								"This is severe sepsis, no doubt.",
+								"He's in full SIRS.",
+								"He is not responding to any medical treatment.",
+								"We're slowly losing him.",
+								"All things combined, it's a medical condition I've never seen before."
+							},
+							{
+								"He has malignant hypertension.",
+								"His resting heart rate is well above 140.",
+								"His resting heart rate is 140.",
+								"His resting heart rate is 130.",
+								"His resting heart rate is 120.",
+								"His resting heart rate is 110.",
+								"His resting heart rate is as high as 100, and rising steadily.",
+								"His resting heart rate is well below normal.",
+								"His heart rate is abnormal."
 							}
 						}
 					}
 				},
 				Play_doc_nmh_run_04 = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
-										"This man was brought in, seemingly suffering from sun-stroke.",
-										"This man was bit by a monkey at the Fairfield Zoo.",
-										"This man came running into the hospital reception during lunch, and collapsed on the floor.",
-										"This man seems to be suffering from a severe type of food poisoning.",
-										"This man was found unconscious in the street today.",
-										"This man came in this afternoon complaining of a strange rash on his neck.",
-										"This man was in a single-car accident on the road to Riverside.",
-										"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
-										"This man collapsed during his morning jog.",
-										"This man came back from a trip to Haiti feeling very ill.",
-										"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
-									},
-									{
-										"We found traces of bufotoxin in his blood.",
-										"We found traces of botulinum toxin in his bloodstream.",
-										"We found traces of tetrodotoxin in his blood.",
-										"We found traces of tetraodontidae neurotoxin in his blood.",
-										"We found traces of tetanus toxin in his bloodstream.",
-										"We found traces of some advanced disassociative drugs in his blood.",
-										"We found traces of fugu neurotoxin in his blood.",
-										"We found traces of diphtheria venom in his bloodstream."
-									},
-									{
-										"We've been giving him Fampridine, but his condition is deteriorating.",
-										"We're slowly losing him.",
-										"He's in full SIRS.",
-										"He is not responding to any treatment.",
-										"He is not responding to any medical treatment.",
-										"All things combined, it's a medical condition I've never seen before.",
-										"This is severe sepsis, no doubt."
-									},
-									{ --always ends with this
-										"This could be what we call 'The Green Flu.'"
-									}
-								}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
+								"This man was brought in, seemingly suffering from sun-stroke.",
+								"This man was bit by a monkey at the Fairfield Zoo.",
+								"This man came running into the hospital reception during lunch, and collapsed on the floor.",
+								"This man seems to be suffering from a severe type of food poisoning.",
+								"This man was found unconscious in the street today.",
+								"This man came in this afternoon complaining of a strange rash on his neck.",
+								"This man was in a single-car accident on the road to Riverside.",
+								"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
+								"This man collapsed during his morning jog.",
+								"This man came back from a trip to Haiti feeling very ill.",
+								"This man was being treated for pulmonary emphysema, when we discovered that this was not all he was suffering from."
+							},
+							{
+								"We found traces of bufotoxin in his blood.",
+								"We found traces of botulinum toxin in his bloodstream.",
+								"We found traces of tetrodotoxin in his blood.",
+								"We found traces of tetraodontidae neurotoxin in his blood.",
+								"We found traces of tetanus toxin in his bloodstream.",
+								"We found traces of some advanced disassociative drugs in his blood.",
+								"We found traces of fugu neurotoxin in his blood.",
+								"We found traces of diphtheria venom in his bloodstream."
+							},
+							{
+								"We've been giving him Fampridine, but his condition is deteriorating.",
+								"We're slowly losing him.",
+								"He's in full SIRS.",
+								"He is not responding to any treatment.",
+								"He is not responding to any medical treatment.",
+								"All things combined, it's a medical condition I've never seen before.",
+								"This is severe sepsis, no doubt."
+							},
+							{ --always ends with this
+								"This could be what we call 'The Green Flu.'"
 							}
 						}
 					}
 				},
 				Play_doc_nmh_run_05 = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"This patient has a blood pressure of 119 over 80.",
-										"This patient has a blood pressure of 117 over 79.",
-										"This patient has a blood pressure of 115 over 78.",
-										"This patient has a blood pressure of 114 over 77.",
-										"This patient has a blood pressure of 112 above 75.",
-										"This patient has a blood pressure of 104 over 73.",
-										"This patient has a blood pressure of 98 over 61.",
-										"This patient has a blood pressure of 96 over 72.",
-										"This patient has blood pressure of 95 over 66."
-									},
-									{
-										"Whatever he is suffering from, it is definitely not the Green Flu.",
-										"We're dealing with cancer metastasis in the brain, spreading from the lungs.",
-										"Whatever he is suffering from, is definitely isn't any form of sepsis.",
-										"We found traces of methamphetamine in his blood.",
-										"We found traces of amphetamine in his blood.",
-										"We found traces of several psychoactive substances in his blood.",
-										"We found traces of cocaine in his blood.",
-										"We detected abnormal levels of histamines in his blood. We haven't identified the allergy yet.",
-										"He is suffering from epidural hematoma.",
-										"He is suffering from cerebral edema.",
-										"He is suffering from encephalitis.",
-										"He is suffering from narcolepsy.",
-										"He is suffering from epilepsy.",
-										"He is showing symptoms of temporal arthritis.",
-										"He is showing symptoms of temporal meningitis.",
-										"He is showing symptoms of extreme exhaustion.",
-										"He's probably suffered subarachnoid hemorrhage.",
-										"He has recently been exposed to high levels of ionizing radiation.",
-										"He's got SAH.",
-										"I have reason to believe he has a brain tumor."
-									},
-									{
-										"His condition is improving, thanks to the antibiotics.",
-										"We've been giving him Fampridine, and his condition is steadily improving.",
-										"We've given him Fampridine, and he's reacting positively to the treatment.",
-										"The symptoms are not undeniable, though.",
-										"However, the symptoms are not undeniable.",
-										"He is slowly regaining consciousness, and I think his vital signs will be back to normal within hours."
-									}
-								}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"This patient has a blood pressure of 119 over 80.",
+								"This patient has a blood pressure of 117 over 79.",
+								"This patient has a blood pressure of 115 over 78.",
+								"This patient has a blood pressure of 114 over 77.",
+								"This patient has a blood pressure of 112 above 75.",
+								"This patient has a blood pressure of 104 over 73.",
+								"This patient has a blood pressure of 98 over 61.",
+								"This patient has a blood pressure of 96 over 72.",
+								"This patient has blood pressure of 95 over 66."
+							},
+							{
+								"Whatever he is suffering from, it is definitely not the Green Flu.",
+								"We're dealing with cancer metastasis in the brain, spreading from the lungs.",
+								"Whatever he is suffering from, is definitely isn't any form of sepsis.",
+								"We found traces of methamphetamine in his blood.",
+								"We found traces of amphetamine in his blood.",
+								"We found traces of several psychoactive substances in his blood.",
+								"We found traces of cocaine in his blood.",
+								"We detected abnormal levels of histamines in his blood. We haven't identified the allergy yet.",
+								"He is suffering from epidural hematoma.",
+								"He is suffering from cerebral edema.",
+								"He is suffering from encephalitis.",
+								"He is suffering from narcolepsy.",
+								"He is suffering from epilepsy.",
+								"He is showing symptoms of temporal arthritis.",
+								"He is showing symptoms of temporal meningitis.",
+								"He is showing symptoms of extreme exhaustion.",
+								"He's probably suffered subarachnoid hemorrhage.",
+								"He has recently been exposed to high levels of ionizing radiation.",
+								"He's got SAH.",
+								"I have reason to believe he has a brain tumor."
+							},
+							{
+								"His condition is improving, thanks to the antibiotics.",
+								"We've been giving him Fampridine, and his condition is steadily improving.",
+								"We've given him Fampridine, and he's reacting positively to the treatment.",
+								"The symptoms are not undeniable, though.",
+								"However, the symptoms are not undeniable.",
+								"He is slowly regaining consciousness, and I think his vital signs will be back to normal within hours."
 							}
 						}
 					}
 				},
 				Play_doc_nmh_run_06 = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"This patient has a blood pressure of 119 over 80.",
-										"This patient has a blood pressure of 117 over 79.",
-										"This patient has a blood pressure of 115 over 78.",
-										"This patient has a blood pressure of 114 over 77.",
-										"This patient has a blood pressure of 112 above 75.",
-										"This patient has a blood pressure of 104 over 73.",
-										"This patient has a blood pressure of 98 over 61.",
-										"This patient has a blood pressure of 96 over 72.",
-										"This patient has blood pressure of 95 over 66."
-									},
-									{
-										"We'll have to keep him in isolation a while longer, but he'll have recovered soon.",
-										"He has to stay isolated a little longer, but he will be okay.",
-										"He is currently recovering and can be moved from the ICU quite soon.",
-										"He won't have to remain under medical treatment for too long.",
-										"While he isn't fully diagnosed yet, I am confident that he will be fully recovered shortly.",
-										"He is responding well to the treatment, and will be out of the hospital in a matter of days."
-									}
-								}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"This patient has a blood pressure of 119 over 80.",
+								"This patient has a blood pressure of 117 over 79.",
+								"This patient has a blood pressure of 115 over 78.",
+								"This patient has a blood pressure of 114 over 77.",
+								"This patient has a blood pressure of 112 above 75.",
+								"This patient has a blood pressure of 104 over 73.",
+								"This patient has a blood pressure of 98 over 61.",
+								"This patient has a blood pressure of 96 over 72.",
+								"This patient has blood pressure of 95 over 66."
+							},
+							{
+								"We'll have to keep him in isolation a while longer, but he'll have recovered soon.",
+								"He has to stay isolated a little longer, but he will be okay.",
+								"He is currently recovering and can be moved from the ICU quite soon.",
+								"He won't have to remain under medical treatment for too long.",
+								"While he isn't fully diagnosed yet, I am confident that he will be fully recovered shortly.",
+								"He is responding well to the treatment, and will be out of the hospital in a matter of days."
 							}
 						}
 					}
 				},
 				Play_doc_nmh_run_07 = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"This patient has a blood pressure of 119 over 80.",
-										"This patient has a blood pressure of 117 over 79.",
-										"This patient has a blood pressure of 115 over 78.",
-										"This patient has a blood pressure of 114 over 77.",
-										"This patient has a blood pressure of 112 above 75.",
-										"This patient has a blood pressure of 104 over 73.",
-										"This patient has a blood pressure of 98 over 61.",
-										"This patient has a blood pressure of 96 over 72.",
-										"This patient has blood pressure of 95 over 66."
-									},
-									{
-										"The sepsis in him is causing acute encephalitis.",
-										"If I didn't know better, I'd say he is showing signs of early stage rabies.",
-										"He is suffering from a combination of symptoms that I've never encountered before.",
-										"Lately, he's been complaining about a headache, and has high fever. He's progressing into delirium."
-									},
-									{
-										"We have reason to believe his condition is highly contagious, so he definitely stays in the ward.",
-										"He has to remain isolated and we need to keep testing. Chest x-rays, stool analysis, spinal fluids...",
-										"We have to keep him in isolation indefinitely and keep testing. Blood tests, urine, sputum cultures...",
-										"Whatever he has, I suspect that it's airborne, so he stays in isolation."
-									}
-								}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"This patient has a blood pressure of 119 over 80.",
+								"This patient has a blood pressure of 117 over 79.",
+								"This patient has a blood pressure of 115 over 78.",
+								"This patient has a blood pressure of 114 over 77.",
+								"This patient has a blood pressure of 112 above 75.",
+								"This patient has a blood pressure of 104 over 73.",
+								"This patient has a blood pressure of 98 over 61.",
+								"This patient has a blood pressure of 96 over 72.",
+								"This patient has blood pressure of 95 over 66."
+							},
+							{
+								"The sepsis in him is causing acute encephalitis.",
+								"If I didn't know better, I'd say he is showing signs of early stage rabies.",
+								"He is suffering from a combination of symptoms that I've never encountered before.",
+								"Lately, he's been complaining about a headache, and has high fever. He's progressing into delirium."
+							},
+							{
+								"We have reason to believe his condition is highly contagious, so he definitely stays in the ward.",
+								"He has to remain isolated and we need to keep testing. Chest x-rays, stool analysis, spinal fluids...",
+								"We have to keep him in isolation indefinitely and keep testing. Blood tests, urine, sputum cultures...",
+								"Whatever he has, I suspect that it's airborne, so he stays in isolation."
 							}
 						}
 					}
 				},
 				Play_doc_nmh_run_08 = {
-					variants = {
-						civilian = {
-							override_name = "Dr. Schneider",
-							duration = 20,
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"This patient has a blood pressure of 119 over 80.",
-										"This patient has a blood pressure of 117 over 79.",
-										"This patient has a blood pressure of 115 over 78.",
-										"This patient has a blood pressure of 114 over 77.",
-										"This patient has a blood pressure of 112 above 75.",
-										"This patient has a blood pressure of 104 over 73.",
-										"This patient has a blood pressure of 98 over 61.",
-										"This patient has a blood pressure of 96 over 72.",
-										"This patient has blood pressure of 95 over 66."
-									},
-									{
-										"The sepsis in him is causing acute encephalitis.",
-										"If I didn't know better, I'd say he is showing signs of early stage rabies.",
-										"He is suffering from a combination of symptoms that I've never encountered before.",
-										"Lately, he's been complaining about a headache, and has high fever. He's progressing into delirium."
-									},
-									{
-										"He's in a state of hypertensive emergency.",
-										"His heart rate is abnormal.",
-										"He has malignant hypertension.",
-										"His heart rate is well above normal.",
-										"His heart rate is well below normal.",
-										"His resting heart rate is well above 140.",
-										"His resting heart rate is 140.",
-										"His resting heart rate is 130.",
-										"His resting heart rate is 120.",
-										"His resting heart rate is as high as 100, and rising steadily.",
-										"His resting heart rate is 110.",
-										"His heart rate is well below 30."
-									}
-								}
+					override_name = "Dr. Schneider",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"This patient has a blood pressure of 119 over 80.",
+								"This patient has a blood pressure of 117 over 79.",
+								"This patient has a blood pressure of 115 over 78.",
+								"This patient has a blood pressure of 114 over 77.",
+								"This patient has a blood pressure of 112 above 75.",
+								"This patient has a blood pressure of 104 over 73.",
+								"This patient has a blood pressure of 98 over 61.",
+								"This patient has a blood pressure of 96 over 72.",
+								"This patient has blood pressure of 95 over 66."
+							},
+							{
+								"The sepsis in him is causing acute encephalitis.",
+								"If I didn't know better, I'd say he is showing signs of early stage rabies.",
+								"He is suffering from a combination of symptoms that I've never encountered before.",
+								"Lately, he's been complaining about a headache, and has high fever. He's progressing into delirium."
+							},
+							{
+								"He's in a state of hypertensive emergency.",
+								"His heart rate is abnormal.",
+								"He has malignant hypertension.",
+								"His heart rate is well above normal.",
+								"His heart rate is well below normal.",
+								"His resting heart rate is well above 140.",
+								"His resting heart rate is 140.",
+								"His resting heart rate is 130.",
+								"His resting heart rate is 120.",
+								"His resting heart rate is as high as 100, and rising steadily.",
+								"His resting heart rate is 110.",
+								"His heart rate is well below 30."
 							}
 						}
 					}
 				},
 				l1n_a03 = {
-					variants = {
-						civilian = {
-							override_name = "Doctor",
-							--variants not included
-							line_variations = {
-								any_mode = {
-									"Only employees are allowed here.",
-									"I'm sorry. This area is only for personnel.",
-									"Please. Only staff are allowed here.",
-									"This area is staff only, I'm afraid."
-								}
-							}
+					override_name = "Doctor",
+					--variants not included
+					line_variations = {
+						any_mode = {
+							"Only employees are allowed here.",
+							"I'm sorry. This area is only for personnel.",
+							"Please. Only staff are allowed here.",
+							"This area is staff only, I'm afraid."
 						}
 					}
 				},
@@ -9432,712 +9412,652 @@ ClosedCaptions._sounds = {
 				
 		--counterfeit
 				Play_bkn_pal_01 = {
-					variants = {
-						civilian = {
-							text = "Ugh, what are you looking at?",
-							line_variations = {
-								"Ugh, what are you looking at?",
-								"Get out of there, you're blocking the sun...",
-								"Get out of there, you're blocking the sun!"
-							}
-						}
+					override_name = "Sunbathing Party Guest",
+					text = "Ugh, what are you looking at?",
+					line_variations = {
+						"Ugh, what are you looking at?",
+						"Get out of there, you're blocking the sun...",
+						"Get out of there, you're blocking the sun!"
 					}
 				},
 				Play_bkn_pal_02 = {
-					variants = {
-						civilian = {
-							text = "Get me some tanning lotion.",
-							line_variations = {
-								"Get me some tanning lotion, will ya?",
-								"Get me some tanning lotion, baby.",
-								"Get me some tanning lotion."
-							}
-						}
+					override_name = "Sunbathing Party Guest",
+					text = "Get me some tanning lotion.",
+					override_text_color = ClosedCaptions.color_data.neutral1, --this field is necessary for when voicelines are set to play through a source that is not a unit's sound() extension 
+					line_variations = {
+						"Get me some tanning lotion, will ya?",
+						"Get me some tanning lotion, baby.",
+						"Get me some tanning lotion."
 					}
 				},
 				Play_bkn_pal_03 = {
-					variants = {
-						civilian = {
-							text = "You should get us some weed, too.",
-							line_variations = {
-								"[flirtatious] Ooh, you should totally get us some weed, as well.",
-								"Oh, and you should probably get us some weed, too."
-							}
-						}
+					override_name = "Party 'Guest'",
+					text = "You should get us some weed, too.",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					line_variations = {
+						"[flirtatious] Ooh, you should totally get us some weed, as well.",
+						"Oh, and you should probably get us some weed, too."
 					}
 				},
 				Play_bkn_pal_04 = {
-					variants = {
-						civilian = {
-							text = "Mitchell, can we go shopping again?",
-							line_variations = {
-								any_mode = {
-									"Hey, Mitchell, can I go shopping again?",
-									"Mitchell, can we go shopping again?"									
-								}
-							}
+					override_name = "Party 'Guest'",
+					text = "Mitchell, can we go shopping again?",
+					line_variations = {
+						any_mode = {
+							"Hey, Mitchell, can I go shopping again?",
+							"Mitchell, can we go shopping again?"									
 						}
 					}
 				},
 				Play_bkn_pal_05 = {
-					variants = {
-						civilian = {
-							text = "Mitchell, fix the pool, already!",
-							line_variations = {
-								any_mode = {
-									"Hey, Mitchell? When will the pool be ready?",
-									"Fix that pool! I wanna take a swim!",
-									"Fix that pool! I wanna take a swim! YESTERDAY!",
-									"Mitchell! Get that pool fixed, okay?"
-								}
-							}
+					override_name = "Party 'Guest'",
+					text = "Mitchell, fix the pool, already!",
+					line_variations = {
+						any_mode = {
+							"Hey, Mitchell? When will the pool be ready?",
+							"Fix that pool! I wanna take a swim!",
+							"Fix that pool! I wanna take a swim! YESTERDAY!",
+							"Mitchell! Get that pool fixed, okay?"
 						}
 					}
 				},
 				Play_mch_pal_01 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "How do I make my money? Uh...",
-							line_variations = {
-								any_mode = {
-									"How do I make my money? ...publishing. [nervous chuckle] Yeah, publishing...",
-									"I'm a self-made millionaire. When I run dry, well... I just make another million.",
-									"[pensive] How do I make my money? Well, you could say I make a lot of it.",
-									"[pensive] How do I make my money? Well, let's just say... let's just say I make a lot of it.",
-									"You know wanna know how I make my money? Hard work. Right through the night.",
-									"My money comes from... well, a sort of trust fund. I'd let you in, but I'd have to trust you.",
-									"Eh, my work is pretty dull, like a machine, but it pays well.",
-									"How do I make my money? I just keep pressing. Yeah."
-								}
-							}
+					override_name = "Mitchell",
+					text = "How do I make my money? Uh...",
+					line_variations = {
+						any_mode = {
+							"How do I make my money? ...publishing. [nervous chuckle] Yeah, publishing...",
+							"I'm a self-made millionaire. When I run dry, well... I just make another million.",
+							"[pensive] How do I make my money? Well, you could say I make a lot of it.",
+							"[pensive] How do I make my money? Well, let's just say... let's just say I make a lot of it.",
+							"You know wanna know how I make my money? Hard work. Right through the night.",
+							"My money comes from... well, a sort of trust fund. I'd let you in, but I'd have to trust you.",
+							"Eh, my work is pretty dull, like a machine, but it pays well.",
+							"How do I make my money? I just keep pressing. Yeah."
 						}
 					}
 				},
 				Play_mch_pal_02 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "[boasting about his money]",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Yeah, yeah. The way I see it, I really wanted it, so I really deserved it, too. You know?",
-										"Eh, I kinda like what I do, you know? And when I'm creative, I feel like I'm on top of the world, really, because, you know, how many guys can do what I do?",
-										"Ever since I was a little kid, I always wanted to be a player.",
-										"And I had this guy come up, you know, he wanted to buy the whole thing, but... I said, 'It's just money. it's not 'me,' you know?",
-										"It was really just a matter of getting all my ducks in a row, you know?",
-										"Getting all the pieces in place wasn't hard.",
-										"Listen, you know, getting paid to do something you love? It's a dream, man.",
-										"Making money ain't that hard."
-									},
-									{									
-										"And you know, for a while, making money wasn't the problem- spending it was.",
-										"You can make opportunities, but you need also to know when to swing for that once in a lifetime chance... and I. Swung. HARD.",
-										"And when I cashed out, every other asshole did the same thing. But I was smart. First out of the game. Made a million bucks in a flash.",
-										"But making money ain't about hard work. It's about knowing when to call your banker and say, 'sell.'",
-										"Man, I love the smell of a fresh $100 bill, you know?",
-										"I cashed OUT! Made a fucking million! two million! [scoffs] More!",
-										"You see that movie where the guy has to spend like a billion dollars in a day? Something like that. Well, that motherfucker was me!",
-										"For a while there, I was earning more per hour than the Benevolent Bank."
-									}
-								}
+					override_name = "Mitchell",
+					text = "[boasting about his money]",
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Yeah, yeah. The way I see it, I really wanted it, so I really deserved it, too. You know?",
+								"Eh, I kinda like what I do, you know? And when I'm creative, I feel like I'm on top of the world, really, because, you know, how many guys can do what I do?",
+								"Ever since I was a little kid, I always wanted to be a player.",
+								"And I had this guy come up, you know, he wanted to buy the whole thing, but... I said, 'It's just money. it's not 'me,' you know?",
+								"It was really just a matter of getting all my ducks in a row, you know?",
+								"Getting all the pieces in place wasn't hard.",
+								"Listen, you know, getting paid to do something you love? It's a dream, man.",
+								"Making money ain't that hard."
+							},
+							{									
+								"And you know, for a while, making money wasn't the problem- spending it was.",
+								"You can make opportunities, but you need also to know when to swing for that once in a lifetime chance... and I. Swung. HARD.",
+								"And when I cashed out, every other asshole did the same thing. But I was smart. First out of the game. Made a million bucks in a flash.",
+								"But making money ain't about hard work. It's about knowing when to call your banker and say, 'sell.'",
+								"Man, I love the smell of a fresh $100 bill, you know?",
+								"I cashed OUT! Made a fucking million! two million! [scoffs] More!",
+								"You see that movie where the guy has to spend like a billion dollars in a day? Something like that. Well, that motherfucker was me!",
+								"For a while there, I was earning more per hour than the Benevolent Bank."
 							}
 						}
 					}
 				},
 				Play_mch_pal_03 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "[boasting about expensive hookers]",
-							line_variations = {
-								any_mode = {
-									"I could have put the money in real estate. Instead, I'm putting it in real ASState.",
-									"This is just one of the properties. I mean, of course, it's just a small thing I picked up on my way here once. You know, two or three years ago, whatever.",
-									"These chicks... do you know how much that is, each day? But hey, it's worth it.",
-									"We're gonna sail around the world. You see the boat over there? You know, put out a mil' for it. I dunno. Maybe we'll put it out to see this year. Eh, we'll see.",
-									"...and I realized, what use is money if you ain't rollin' it up and sniffing powder off a hooker's ass?",
-									"It's Mitchell! MITCHELL! Mitch! Ell! Now lemme hear you say it!",
-									"So then I said to him, 'It's Mitchell! MITCHELL! Not 'Michelle'! I'm not fucking Canadian!",
-									"All this ass around here. You know how much that is? But, uh... they're worth it. I mean, they can DANCE. And by 'dance'..."
-								}
-							}
+					override_name = "Mitchell",
+					text = "[boasting about expensive hookers]",
+					line_variations = {
+						any_mode = {
+							"I could have put the money in real estate. Instead, I'm putting it in real ASState.",
+							"This is just one of the properties. I mean, of course, it's just a small thing I picked up on my way here once. You know, two or three years ago, whatever.",
+							"These chicks... do you know how much that is, each day? But hey, it's worth it.",
+							"We're gonna sail around the world. You see the boat over there? You know, put out a mil' for it. I dunno. Maybe we'll put it out to see this year. Eh, we'll see.",
+							"...and I realized, what use is money if you ain't rollin' it up and sniffing powder off a hooker's ass?",
+							"It's Mitchell! MITCHELL! Mitch! Ell! Now lemme hear you say it!",
+							"So then I said to him, 'It's Mitchell! MITCHELL! Not 'Michelle'! I'm not fucking Canadian!",
+							"All this ass around here. You know how much that is? But, uh... they're worth it. I mean, they can DANCE. And by 'dance'..."
 						}
 					}
 				},
 				Play_mch_pal_04 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "[boasting about The King]",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"The King leans over, he says: 'Two for you, two for me.', You know, he's talking about super bowls, sweet sweet love.",
-										"The king was the Top Dog! The Big Kahuna! The fucking KING, man!",
-										"You know The King, right? Well if you need to ask, you don't know him.",
-										"One supermodel on the 'D', another supermodel mixin' me a fine 'G&T'.",
-										"Bought an original Gustav. The King rolled it and used powder to snort off of this hooker's ass. You know?",
-										"I had myself a new Falcogini. Scratched it up driving out of a Time-Out!, left it by the road and walked away. [chuckles] Ain't no-one got time for a scratched up ride!",
-										"The King.. you know The King. Man, that fat bastard sure loved to snort blow.",
-										"Oh, you know me and the King? Yeah, we flew around town, picked up chicks left and right. You know? I was paying for most of the stuff, obviously."
-									},
-									{
-										"This was the sort of shit that only money brings. It's a lifestyle!",
-										"It was like that, from the moment we woke. All day, every day. Hookers and blow, hookers and blow.",
-										"We rolled the year back! It was like '69 on the strip! The Caddy was low-riding 'cause of all the ass in the back.",
-										"The King looks over and winks.",
-										"That's how we rolled!",
-										"Yeah, he was The King, but I was the fucking Caesar, you know?",
-										"I mean, hey, he was royalty, you know?",
-										"You gotta be a player, but you gotta rig the game, man!",
-										"It was like the fucking 70s, man, you know? Blow, hookers... we had everything."
-									},
-									{
-										"Fucking Homeric, man!",
-										"Great days, you know?",
-										"Out fucking standing!",
-										"EPIC days.",
-										"The times are a ragin', yeah?",
-										"What a time to be alive.",
-										"OVERKILL, man!",
-										"Rocked my soul, you know?"
-									}
-								}
+					override_name = "Mitchell",
+					text = "[boasting about The King]",
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"The King leans over, he says: 'Two for you, two for me.', You know, he's talking about super models, sweet sweet love.",
+								"The king was the Top Dog! The Big Kahuna! The fucking KING, man!",
+								"You know The King, right? Well if you need to ask, you don't know him.",
+								"One supermodel on the 'D', another supermodel mixin' me a fine 'G&T'.",
+								"Bought an original Gustav. The King rolled it and used powder to snort off of this hooker's ass. You know?",
+								"I had myself a new Falcogini. Scratched it up driving out of a Time-Out!, left it by the road and walked away. [chuckles] Ain't no-one got time for a scratched up ride!",
+								"The King.. you know The King. Man, that fat bastard sure loved to snort blow.",
+								"Oh, you know me and the King? Yeah, we flew around town, picked up chicks left and right. You know? I was paying for most of the stuff, obviously."
+							},
+							{
+								"This was the sort of shit that only money brings. It's a lifestyle!",
+								"It was like that, from the moment we woke. All day, every day. Hookers and blow, hookers and blow.",
+								"We rolled the year back! It was like '69 on the strip! The Caddy was low-riding 'cause of all the ass in the back.",
+								"The King looks over and winks.",
+								"That's how we rolled!",
+								"Yeah, he was The King, but I was the fucking Caesar, you know?",
+								"I mean, hey, he was royalty, you know?",
+								"You gotta be a player, but you gotta rig the game, man!",
+								"It was like the fucking 70s, man, you know? Blow, hookers... we had everything."
+							},
+							{
+								"Fucking Homeric, man!",
+								"Great days, you know?",
+								"Out fucking standing!",
+								"EPIC days.",
+								"The times are a ragin', yeah?",
+								"What a time to be alive.",
+								"OVERKILL, man!",
+								"Rocked my soul, you know?"
 							}
 						}
 					}
 				},
 				Play_mch_pal_05 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags. I'll show you the leak.",
-							line_variations = {
-								any_mode = {
-									"You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags. I'll show you the leak.",
-									"Pretty sharp threads for pool repair guys. [to party guests] Guys, hang on, guys, I gotta show these guys down to the basement. [to heisters] Follow me."
-								}
+					override_name = "Mitchell",
+					text = "You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags. I'll show you the leak.",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags.",
+								"Pretty well dressed for repair guys. I guess you'll change before getting to work, huh?",
+								"Pretty sharp threads for pool repair guys. [to party guests] Guys, hang on, I gotta show these guys down to the basement. [to heisters]"
+							},
+							{
+								"Come with me.",
+								"Follow me.",
+								"I'll show you the leak."
 							}
 						}
 					}
 				},
 				Play_mch_pal_06 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "It's just down here.",
-							line_variations = {
-								any_mode = {
-									"It's just down here.",
-									"Watch your step down here.",
-									"Alright, down here."									
-								}
-							}
+					override_name = "Mitchell",
+					text = "It's just down here.",
+					line_variations = {
+						any_mode = {
+							"It's just down here.",
+							"Watch your step down here.",
+							"Alright, down here."									
 						}
 					}
 				},
 				Play_mch_pal_07 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "See those pipes, leaking down the walls! It's fucked! This is a $10,000 carpet!",
-							line_variations = {
-								any_mode = {
-									"You see it? Water, fuckin' running down the wall! Totally fucked, man!",
-									"There! Fuckin' pissing all down the wall!"
-								}
-							}
+					override_name = "Mitchell",
+					duration = 7,
+					text = "See those pipes, leaking down the walls! It's fucked! This is a $10,000 carpet!",
+					line_variations = {
+						any_mode = {
+							"You see it? Water, fuckin' running down the wall! Totally fucked, man!",
+							"There! Fuckin' pissing all down the wall!",
+							"Alright, you see those pipes? You know, leaking down the wall? Fucked!"
 						}
 					}
 				},
 				Play_mch_pal_08 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "Hey, I'm not paying you guys to hang around! Get down there!",
-							line_variations = {
-								any_mode = {
-									"Hey, I'm not paying you guys to hang around! Get down there!",
-									"Hey, I'm not paying you guys to hang around! Get the FUCK down in the basement!"									
-								}
-							}
+					override_name = "Mitchell",
+					text = "Hey, I'm not paying you guys to hang around! Get down there!",
+					duration = 7,
+					line_variations = {
+						any_mode = {
+							"Hey, I'm not paying you guys to hang around! Get down there!",
+							"Hey, I'm not paying you guys to hang around! Get the FUCK down in the basement!",
+							"Hey, stop scratching your balls and get down here!"
 						}
 					}
 				},
 				Play_mch_pal_09 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "Play_mch_pal_09",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"C'mon, just do your thing and do it right.",
-										"Look at this carpet! Just fucked, man!",
-										"This is a $10,000 carpet, man, fix it!"
-									},
-									{
-										"Alright. I got steaks on the barbie, chicks in the pool, no action. Come see me when you guys are done, okay?",
-										"Alright, I gotta get back to the steaks. You know, it's like a hundred dollars a pop up there. Come see me when you're done, okay? And hurry up.",
-										"Listen, the chicks wanna take a swim! Hurry the fuck up!",
-										"The party's waiting for you jokers to fix your shit, okay?"
-									}
-								}
+					override_name = "Mitchell",
+					text = "Fix it, already!",
+					duration = 20,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"C'mon, just do your thing and do it right.",
+								"Look at this carpet! Just fucked, man!",
+								"This is a $10,000 carpet, man, fix it!"
+							},
+							{
+								"Alright. I got steaks on the barbie, chicks in the pool, no action. Come see me when you guys are done, okay?",
+								"Alright, I gotta get back to the steaks. You know, it's like a hundred dollars a pop up there. Come see me when you're done, okay? And hurry up.",
+								"Listen, the chicks wanna take a swim! Hurry the fuck up!",
+								"The party's waiting for you jokers to fix your shit, okay?"
 							}
 						}
 					}
 				},
 				Play_mch_pal_10 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "I hope it's free service.",
-							line_variations = {
-								any_mode = {
-									"And I don't wanna see no bills written up for this.",
-									"[annoyed] Oh, guys? I hope it's free service.",
-									"And don't think about billing me for this shit."
-								}
-							}
+					override_name = "Mitchell",
+					text = "I hope it's free service.",
+					line_variations = {
+						any_mode = {
+							"And I don't wanna see no bills written up for this.",
+							"[annoyed] Oh, guys? I hope it's free service.",
+							"And don't think about billing me for this shit."
 						}
 					}
 				},
 				Play_mch_pal_11 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "Aw, fuck!",
-							line_variations = {
-								any_mode = {
-									"Oh, fuck!",
-									"Okay, you got me, you got me good.",
-									"[groans] Shit! I guess I had it coming."
-								}
-							}
+					override_name = "Mitchell",
+					text = "Aw, fuck!",
+					line_variations = {
+						any_mode = {
+							"Oh, fuck!",
+							"Okay, you got me, you got me good.",
+							"[groans] Shit! I guess I had it coming."
 						}
 					}
 				},
 				Play_mch_pal_12 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "Play_mch_pal_12",
-							line_variations = {
-								any_mode = {
-									"[groans, scoffs] 'Bodhi's Pool Repair'... Fuck, I should've known!",
-									"It's the Feds, man! ...isn't it?",
-									"[groans] COME ON!",
-									"Shit! How did they get to us?",
-									"I had a bad feeling about these guys.",
-									"What gave us away?"
-								}
-							}
+					override_name = "Mitchell",
+					text = "Play_mch_pal_12",
+					line_variations = {
+						any_mode = {
+							"[groans, scoffs] 'Bodhi's Pool Repair'... Fuck, I should've known!",
+							"It's the Feds, man! ...isn't it?",
+							"[groans] COME ON!",
+							"Shit! How did they get to us?",
+							"I had a bad feeling about these guys.",
+							"What gave us away?"
 						}
 					}
 				},
 				Play_mch_pal_13 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell",
-							text = "Fucking clowns!",
-							line_variations = {
-								any_mode = {
-									"Fucking clowns! You shouldn't be here!",
-									"[angry laugh] Fucking clowns!",
-									"[angry laugh]"
-								}
-							}
+					override_name = "Mitchell",
+					text = "Fucking clowns!",
+					line_variations = {
+						any_mode = {
+							"Fucking clowns! You shouldn't be here!",
+							"[angry laugh] Fucking clowns!",
+							"[angry laugh]"
 						}
 					}
 				},
 				Play_bqg_pal_01 = {
-					variants = {
-						civilian = {
-							override_name = "Party 'Guest'",
-							text = "It's only $10,000 a day.",
-							line_variations = {
-								any_mode = {
-									"[sultry] Yeah, it's $10,000 a day.",
-									"[sultry] Yeah, it's only $10,000 a day."
-								}
-							}
+					override_name = "Party 'Guest'",
+					text = "It's only $10,000 a day.",
+					line_variations = {
+						any_mode = {
+							"[flirtatious] C'mon, you can afford it, I'm sure!",
+							"[sultry] Yeah, it's $10,000 a day.",
+							"[sultry] Yeah, it's only $10,000 a day."
 						}
 					}
 				},
 				Play_bqg_pal_02 = {
-					variants = {
-						civilian = {
-							override_name = "Party 'Guest'",
-							text = "You don't want us to leave, do you?",
-							line_variations = {
-								any_mode = {
-									"You don't want us to... leave, do you? We're having so much fun together!",
-									"You don't want us to leave, do you?"
-								}
-							}
+					override_name = "Party 'Guest'",
+					text = "You don't want us to leave, do you?",
+					line_variations = {
+						any_mode = {
+							"You don't want us to... leave, do you? We're having so much fun together!",
+							"You don't want us to leave, do you?"
 						}
 					}
 				},
 				Play_bqg_pal_03 = {
-					variants = {
-						civilian = {
-							override_name = "Party 'Guest'",
-							text = "When these plumbers are gone, we can get this party started for real!",
-							line_variations = {
-								any_mode = {
-									"When these plumbers are gone, we can get this party started for real!",
-									"Once pool fixers are gone, we can get this party started for real!"
-								}
-							}
+					override_name = "Party 'Guest'",
+					text = "When these plumbers are gone, we can get this party started for real!",
+					duration = 6,
+					line_variations = {
+						any_mode = {
+							"When these plumbers are gone, we can get this party started for real!",
+							"Once pool fixers are gone, we can get this party started for real!"
 						}
 					}
 				},
 				Play_bqg_pal_04 = {
-					variants = {
-						civilian = {
-							override_name = "Party 'Guest'",
-							text = "I'm fed up waiting for that meat!",
-							line_variations = {
-								any_mode = {
-									"I'm fed up waiting for that meat!",
-									"[impatiently] Will those steaks ever be ready?",
-									"Hey Mitchell?! I said 'medium rare', not 'well done'! How long could it take?!"
-								}
-							}
+					override_name = "Party 'Guest'",
+					text = "I'm fed up waiting for that meat!",
+					duration = 6,
+					line_variations = {
+						any_mode = {
+							"I'm fed up waiting for that meat!",
+							"[impatiently] Will those steaks ever be ready?",
+							"Hey Mitchell?! I said 'medium rare', not 'well done'! How long could it take?!"
 						}
 					}
 				},
 				Play_cm1_pal_01 = {
-					variants = {
-						civilian = {
-							override_name = "Party 'Guest'",
-							text = "My friend wants another $10k for the party supplies.",
-							line_variations = {
-								any_mode = {
-									"She, uh, wants another $10k to do... that thing.",
-									"Hey, uh, my buddy has the blow. Wants $10k for it."
-								}
-							}
+					override_name = "Party 'Guest'",
+					duration = 6,
+					text = "My friend wants another $10k for the party supplies.",
+					line_variations = {
+						any_mode = {
+							"She, uh, wants another $10k to do... that thing.",
+							"Hey, uh, my buddy has the blow. Wants $10k for it.",
+							"THAT chick? She'll do it, but wants another $10k."
 						}
 					}
 				},
 				Play_cm1_pal_02 = {
-					variants = {
-						civilian = {
-							override_name = "Party 'Guest'",
-							text = "Someone's gonna notice all this spending.",
-							line_variations = {
-								any_mode = {
-									"Someone's gonna notice all this spending.",
-									"Oh, we shouldn't have spent so much money so quickly...",
-									"We're pissing a lot of cash. Someone's gonna notice."
-								}
-							}
+					override_name = "Party 'Guest'",
+					duration = 6,
+					text = "Someone's gonna notice all this spending.",
+					line_variations = {
+						any_mode = {
+							"Someone's gonna notice all this spending.",
+							"Oh, we shouldn't have spent so much money so quickly...",
+							"We're pissing a lot of cash. Someone's gonna notice."
 						}
 					}
 				},
 				Play_cm1_pal_03 = {
-					variants = {
-						civilian = {
-							override_name = "Party 'Guest'",
-							text = "Yeah, so... anyway...",
-							line_variations = {
-								any_mode = {
-									"Yeah, so... anyway...",
-									"Man..."
-								}
-							}
+					override_name = "Party 'Guest'",
+					text = "Yeah, so... anyway...",
+					line_variations = {
+						any_mode = {
+							"Yeah, so... anyway...",
+							"[groans] Shit...",
+							"Man..."
 						}
 					}
 				},
 				Play_cm2_pal_01 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell's friend",
-							text = "It's all in the basement, man. Go on, help yourself.",
-							line_variations = {
-								any_mode = {
-									"It's all in the basement, man. Go on, help yourself.",
-									"It's all in the base. Man, c'mon, help yourself."
-								}
-							}
+					override_name = "Mitchell's friend",
+					text = "It's all in the basement, man. Go on, help yourself.",
+					line_variations = {
+						any_mode = {
+							"It's all in the basement, man. Go on, help yourself.",
+							"Downstairs, brother. Go get a loan.",
+							"It's all in the base. Man, c'mon, help yourself."
 						}
 					}
 				},
 				Play_cm2_pal_02 = {
-					variants = {
-						civilian = {
-							override_name = "Mitchell's friend",
-							text = "Play_cm2_pal_02",
-							line_variations = {
-								any_mode = {
-									"It's free money, brother!",
-									"It's not like we, uh... can't get more, right?",
-									"Hey, stay cool, brother!"
-								}
-							}
+					override_name = "Mitchell's friend",
+					text = "Play_cm2_pal_02",
+					line_variations = {
+						any_mode = {
+							"It's free money, brother!",
+							"It's not like we, uh... can't get more, right?",
+							"Hey, stay cool, brother!"
 						}
 					}
 				},
 				Play_pil_pal_01 = {
-					variants = {
-						civilian = {
-							text = "Who are those people?",
-							line_variations = {
-								any_mode = {
-									"[Russian accent] What the hell are you doing here?",
-									"[Russian accent] Who the fuck are those people?",
-									"[Russian accent] Who are those people?",
-									"[Russian accent] You better hurry up and fix that leakage!",
-									"[Russian accent] You better hurry up and fix that leakage... [mujik]!"
-								}
-							}
+					text = "Who are those people?",
+					line_variations = {
+						any_mode = {
+							"[Russian accent] What the hell are you doing here?",
+							"[Russian accent] Who the fuck are those people?",
+							"[Russian accent] Who are those people?",
+							"[Russian accent] You better hurry up and fix that leakage!",
+							"[Russian accent] You better hurry up and fix that leakage... [mujik]!"
 						}
 					}
 				},
 				Play_pil_pal_02 = {
-					variants = {
-						civilian = {
-							text = "Somebody fetch me a drink.",
-							line_variations = {
-								any_mode = {
-									"[Russian accent] Somebody fetch me a drink.",
-									"[Russian accent] Do you have anything stronger, 'homie'?"
-								}
-							}
+					text = "Somebody fetch me a drink.",
+					line_variations = {
+						any_mode = {
+							"[Russian accent] Somebody fetch me a drink.",
+							"[Russian accent] Do you have anything stronger, 'homie'?"
 						}
 					}
 				},
 				Play_pil_pal_03 = {
-					variants = {
-						civilian = {
-							text = "[angry Russian]"
-						}
-					}
+					text = "[angry Russian]"
+				},
+				cft_piano_music = {
+					override_name = "SFX",
+					source_id = "sfx",
+					text = "[classical piano music]"
 				},
 				
 		--undercover		
 				Play_txm_man_01 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "It's close by, but I want to see the funds.",
-							line_variations = {
-								any_mode = {
-									"It's close by, but I want to see the funds.",
-									"It's... it's somewhere close, but I want to see the funds.",
-									"It's... it's somewhere close. I want to see the funds.",
-									"It's nearby. Can I see the funds?"
-								}
-							}
+					override_name = "Taxman",
+					text = "It's close by, but I want to see the funds.",
+					line_variations = {
+						any_mode = {
+							"It's close by, but I want to see the funds.",
+							"It's... it's somewhere close, but I want to see the funds.",
+							"It's... it's somewhere close. I want to see the funds.",
+							"It's nearby. Can I see the funds?"
 						}
 					}
 				},
 				Play_txm_man_02 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "Great. I'll go get the server.",
-							line_variations = {
-								any_mode = {
-									"Nice. I'll get the server.",
-									"Excellent. I'll get the server.",
-									"Great. I'll go get the server."
-								}
-							}
+					override_name = "Taxman",
+					text = "Great. I'll go get the server.",
+					line_variations = {
+						any_mode = {
+							"Nice. I'll get the server.",
+							"Excellent. I'll get the server.",
+							"Great. I'll go get the server."
 						}
 					}
 				},
 				Play_txm_man_03 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "Where are you taking me?",
-							line_variations = {
-								any_mode = {
-									"Huh? Where the fuck am I?",
-									"Where are you taking me?"
-								}
-							}
+					override_name = "Taxman",
+					text = "Where are you taking me?",
+					line_variations = {
+						any_mode = {
+							"Huh? Where the fuck am I?",
+							"Where are you taking me?"
 						}
 					}
 				},
 				Play_txm_man_04 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "No, I won't move! Too much shooting!",
-							line_variations = {
-								any_mode = {
-									"No, I won't move! Too much shooting!",
-									"No! Too much firing!",
-									"No! I'm afraid!",
-									"They're shooting at me!",
-									"No, there's too much shooting!"
-								}
-							}
+					override_name = "Taxman",
+					text = "No, I won't move! Too much shooting!",
+					line_variations = {
+						any_mode = {
+							"No, I won't move! Too much shooting!",
+							"No! Too much firing!",
+							"No! I'm afraid!",
+							"They're shooting at me!",
+							"No, there's too much shooting!"
 						}
 					}
 				},
 				Play_txm_man_05 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "I know what you guys are after but I won't give it to you."
-						}
-					}
+					override_name = "Taxman",
+					text = "I know what you guys are after, but I won't give it to you."
 				},
 				Play_txm_man_06 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "Resisting interrogation",
-							line_variations = {
-								any_mode = {
-									"[teeth gritted in pain] Fuck you guys!",
-									"[teeth gritted in pain] The Feds are here, you can fuck off!",
-									"Hey, fuck you!",
-									"Do your worst!",
-									"Fuck you! Fuck ALL OF YOU!",
-									"[laughs mockingly] It's binary! 101110010101001!",
-									"I'll NEVER tell you!",
-									"I'll never tell you!",
-									"[groans in pain] Fuck... you!",
-									"Nothing! I'll say NOTHING!",
-									"[groans in pain] Fuck you!",
-									"You won't get a WORD out of me!",
-									"No fucking way!",
-									"You won't make it anyway!",
-									"[groans in pain] ...No!",
-									"You'll never get out! Feds are everywhere!",
-									"NO!",
-									"No you won't! I ain't sayin' nada!"
-								}
-							}
+					override_name = "Taxman",
+					text = "Resisting interrogation",
+					line_variations = {
+						any_mode = {
+							"[teeth gritted in pain] Fuck you guys!",
+							"[teeth gritted in pain] The Feds are here, you can fuck off!",
+							"Hey, fuck you!",
+							"Do your worst!",
+							"Fuck you! Fuck ALL OF YOU!",
+							"[laughs mockingly] It's binary! 101110010101001!",
+							"I'll NEVER tell you!",
+							"I'll never tell you!",
+							"[groans in pain] Fuck... you!",
+							"Nothing! I'll say NOTHING!",
+							"[groans in pain] Fuck you!",
+							"You won't get a WORD out of me!",
+							"No fucking way!",
+							"You won't make it anyway!",
+							"[groans in pain] ...No!",
+							"You'll never get out! Feds are everywhere!",
+							"NO!",
+							"No you won't! I ain't sayin' nada!"
 						}
 					}
 				},
 				Play_txm_man_07 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "Giving in to interrogation",
-							line_variations = {
-								any_mode = {
-									"[weakly] Enough!",
-									"[coughs] Okay! [continues coughing] Okay, okay...",
-									"[hoarsely] Okay... easy, easy!"
-								}
-							}
+					override_name = "Taxman",
+					text = "Giving in to interrogation",
+					line_variations = {
+						any_mode = {
+							"[weakly] Enough!",
+							"[coughs] Okay! [continues coughing] Okay, okay...",
+							"[hoarsely] Okay... easy, easy!"
 						}
 					}
 				},
 				Play_txm_man_08a = {
-					variants = {
-						civilian = {
-							duration = 6,
-							override_name = "Taxman",
-							text = "The login... is MercyKill. Capital'M', capital 'K'."
-						}
-					}
+					duration = 6,
+					override_name = "Taxman",
+					text = "The login... is MercyKill. Capital'M', capital 'K'."
 				},
 				Play_txm_man_08b = {
-					variants = {
-						civilian = {
-							duration = 7,
-							override_name = "Taxman",
-							text = "The account is 'Starbreezer'! It's 'Starbreezer'! [gritting teeth in pain] FUCK!"
-						}
-					}
+					duration = 7,
+					override_name = "Taxman",
+					text = "The account is 'Starbreezer'! It's 'Starbreezer'! [gritting teeth in pain] FUCK!"
 				},
 				Play_txm_man_08c = {
-					variants = {
-						civilian = {
-							duration = 8,
-							override_name = "Taxman",
-							text = "[hoarsely] The password is SYGON. All... capital letters. [groaning in pain] Agh, FUUUCK!"
-						}
-					}
+					duration = 8,
+					override_name = "Taxman",
+					text = "[hoarsely] The password is SYGON. All... capital letters. [groaning in pain] Agh, FUUUCK!"
 				},
 				Play_txm_man_09 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "Resistance failing",
-							line_variations = {
-								any_mode = {
-									"[groaning in pain] I won't... say... another... syllable!",
-									"[groaning in pain] You won't get another WORD out of me!",
-									"[groaning in pain] I told you too much already!",
-									"[groaning in pain] You hit like a girl!"
-								}
-							}
+					override_name = "Taxman",
+					text = "Resistance failing",
+					line_variations = {
+						any_mode = {
+							"[groaning in pain] I won't... say... another... syllable!",
+							"[groaning in pain] You won't get another WORD out of me!",
+							"[groaning in pain] I told you too much already!",
+							"[groaning in pain] You hit like a girl!"
 						}
 					}
 				},
 				Play_txm_man_10 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "Being interrogated",
-							line_variations = {
-								any_mode = {
-									"No more!",
-									"[cries out in pain]",
-									"Guys, can't we work something out?",
-									"Stop it!",
-									"What? Just leave me alone!",
-									"D-don't kill me!",
-									"Please!"
-								}
-							}
+					override_name = "Taxman",
+					text = "Being interrogated",
+					line_variations = {
+						any_mode = {
+							"No more!",
+							"[cries out in pain]",
+							"Guys, can't we work something out?",
+							"Stop it!",
+							"What? Just leave me alone!",
+							"D-don't kill me!",
+							"Please!"
 						}
 					}
 				},
 				Play_txm_man_11 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "[burning alive]",
-							line_variations = {
-								any_mode = {
-									"[burning alive inside limo, pounding on doors]",
-									"[muffled screaming]",
-									"[screaming in excruciating pain]"
-								}
-							}
+					override_name = "Taxman",
+					text = "[burning alive]",
+					line_variations = {
+						any_mode = {
+							"[burning alive inside limo, pounding on doors]",
+							"[muffled screaming]",
+							"[screaming in excruciating pain]"
 						}
 					}
 				},
 				Play_txm_man_12 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "[coughing]",
-							line_variations = {
-								any_mode = {
-									"[coughing]",
-									"[violent coughing]",
-									"[weakly coughing]"
-								}
-							}
+					override_name = "Taxman",
+					text = "[coughing]",
+					line_variations = {
+						any_mode = {
+							"[coughing]",
+							"[violent coughing]",
+							"[weakly coughing]"
 						}
 					}
 				},
 				Play_txm_man_13 = {
-					variants = {
-						civilian = {
-							override_name = "Taxman",
-							text = "[cries out in pain]"
+					override_name = "Taxman",
+					text = "[cries out in pain]"
+				},
+				
+			--hoxton revenge
+				Play_hct_hb3_01 = {
+					override_name = "The Rat",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "Finally, you're opening the timelock!",
+					line_variations = {
+						any_mode = {
+							"Are you guys finally bringing me some real food, instead of these fried pig assholes? I'm fucking starving in here!",
+							"Finally! Did you bring me some magazines? There's not a whole lot to do in here.",
+							"Goddammit, are you farting in the air supply? Can I come out now?"
+						}
+					}
+				},
+				Play_hct_hb3_02 = {
+					override_name = "The Rat",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "Impatiently waiting for timelock",
+					line_variations = {
+						any_mode = {
+							"Fuck the timelock! Let me out already, I need a goddamn smoke! [smoker's cough]",
+							"Tick-tock... [scoffs] You fancy you endless layers of bullshit! I want some fresh air, dammit!",
+							"[frustrated groan] Stupid timelock. You feds are paranoid motherfuckers. I'm tired of sitting in this fucking metal box."
+						}
+					}
+				},
+				Play_hct_hb3_03 = {
+					override_name = "Hector",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "No... it can't be you!",
+					line_variations = {
+						any_mode = {
+							"No... it can't be you!",
+							"How did you...?! Cocksuckers!",
+							"Oh, shit... it's YOU!"							
+						}
+					}
+				},
+				Play_hct_hb3_04 = {
+					override_name = "The Rat",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(swearing at heisters)",
+					line_variations = {
+						any_mode = {
+							"Alright then... I'll slit your fucking throats, you clown assholes!",
+							"Oh, so the clowns have come to play? Well, I'm not scared! You're going to die here, you know!",
+							"[singsong] Come to me, clowns... you think I'm scared of you?! Fuck you! [voice cracks] Fuck you!"					
+						}
+					}
+				},
+				Play_hct_hb3_05 = {
+					override_name = "The Rat",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting heisters)",
+					line_variations = {
+						any_mode = {
+							"Time to say adios... adios to you! To that fuckface, Bain... say... 'ADIOS!'",
+							"Time to say goodbye! You were useful... for a while. But now? ADIOS, clown fucks!",
+							"It's a shame we had to part this way. You were good tools, I'll give you that. But in the end... just tools."
+						}
+					}
+				},
+				Play_hct_hb3_06 = {
+					override_name = "The Rat",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "Come! Come on! Open the door! I have a 'surprise' for you!",
+					line_variations = {
+						any_mode = {
+							"Come! Come on! Open the door! I have a 'surprise' for you!",
+							"Alright then! [deep sniffing] All fucking right then!",
+							"You know, if you even manage to take this door down, I got a little surprise for you 'putas'!"
+						}
+					}
+				},
+				Play_hct_hb3_07 = {
+					override_name = "The Rat",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "HEEEEERE'S HECTOR!",
+					line_variations = {
+						any_mode = {
+							"SAY 'HOLA' TO MY LITTLE FRIENDS!",
+							"HEEEEEEE'S HECTOR!",
+							"READY OR NOT, HERE I COME!"
 						}
 					}
 				}
-
 			}
 		}
 	},

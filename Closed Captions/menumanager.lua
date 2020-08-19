@@ -2,20 +2,21 @@
 * todo adjust horizontal position of subtitles
 * todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
-* alpha fadeout for expired captions
 
-* todo re-make and re-center text (currently left-aligned)
+* todo lifetime multiplier for captions
+
 * todo sort voicelines by type (source)
 * todo filter out voicelines by local-player only (eg. for pickups/uppers ace)?
-	* can_say filter per type of character?
-	* per faction disabling?
-		* cops saying stuff but criminals cannot
 * todo layer custom user settings over sound_data
 	* todo documented custom template for those things
 * fix sfx source lines such as ammo_pickup	
+
+* figure out how long alarm museum slow fade is or whatever it's called
+* g22 played nil instead of quitting bc no variant	
 	
 known issues:
-	cloaker static persists for 1000 seconds only, and is interrupted by any other cloaker line
+	cloaker static persists for 1000 seconds only, and MIGHT be interrupted by any other cloaker line
+	some captions for sounds that are played via mission core ElementPlaySound may cut off prematurely
 	Taxman lines may cut off prematurely (reason unknown)
 --]]
 --[[
@@ -46,11 +47,14 @@ mission dialogue:
 	- beneath the mountain locke dialogue?
 	- stealing xmas almir dialogue
 	- murky station radio (loop)
-	- Car shop chatter
+	- Car shop manager chatter
 	- goat simulator dialogue
 	- border crossing...?
 * aldstone lines?
+* C4 beeps
 --]]
+
+--note: custom colors from settings MUST LOAD BEFORE LoadSounds() !!!
 
 
 ClosedCaptions = ClosedCaptions or {
@@ -158,7 +162,7 @@ ClosedCaptions.unit_names = {
 	heavy_swat_sniper = "Heavy SWAT Sniper",
 	fbi_swat = "FBI SWAT",
 	fbi_heavy_swat = "FBI Heavy SWAT",
-	city_swat = "City SWAT",
+	city_swat = "Murkywater",
 	gangster = "Gangster",
 	biker = "Biker",
 	biker_escape = "Biker2",
@@ -179,6 +183,7 @@ ClosedCaptions.color_data = {
 	criminal1 = Color(0,1,1),
 	neutral1 = Color(0,1,0),
 	law1 = Color(1,0,0),
+	boss = Color(1,0.5,0),
 	peer1 = Color.green,
 	peer2 = Color.blue,
 	peer3 = Color.red,
@@ -214,6 +219,8 @@ ClosedCaptions.active_lines = {
 ClosedCaptions.languages = {
 	"english"
 }
+
+ClosedCaptions.num_unnamed_caption = 0 --used for incrementing/generated non-conflicting panel ids if no name is provided
 
 function ClosedCaptions:LoadSounds()	
 	if SystemFS:exists( Application:nice_path( SavePath .. self._sound_data_filename, true )) then
@@ -437,8 +444,8 @@ function ClosedCaptions:Update(t,dt)
 					item.panel:set_alpha(math.min(1,(item.expire_t - t) / self.settings.box_fadeout_time))
 --					item.panel:set_alpha(((item.expire_t - t) / (item.expire_t - item.start_t) * 2) + 0.5)
 					
-					local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
-					if item.source ~= player then 
+					if not item.is_locationless then 
+						local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
 						if source_position then -- source_position and mvector3.distance_sq(player_pos,source_position) < snd_dist_max_sq then 
 							local angle_to = ((ClosedCaptions.angle_from(player_pos,source_position) - player_aim + 270) % 360) - 180
 							item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
@@ -472,11 +479,6 @@ function ClosedCaptions:Update(t,dt)
 	end
 end
 
-
-function ClosedCaptions:GetTextColorByUnit(unit) --todo
-	return self.color_data.generic
-end
-
 function ClosedCaptions:apply_macro(text,macros)
 	local result = text
 	for i,macro_data in pairs(macros or {}) do 
@@ -507,12 +509,16 @@ function ClosedCaptions:LocalizeSourceName(source_name) --not used
 end
 
 --caution: here be dragons
-function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire_t)
-	if expire_t == 0 or expire_t <= Application:time() then 
+function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire_t,position) --evaluates line's data
+	if expire_t and (expire_t == 0 or expire_t <= Application:time()) then 
 		expire_t = nil
 	end
 	if type(sound_id) == "number" then 
 		sound_id = self:reverse_lookup_event_id(sound_id)
+	end
+	if not sound_id then 
+		--invalid sound_id
+		return
 	end
 	
 	local text_color = Color.white
@@ -521,13 +527,13 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	
 	local source_name = tostring(variant)
 	if variant == "criminal" then
-		local color_id = managers.criminals:character_color_id_by_unit(source)
+		local color_id = source and managers.criminals:character_color_id_by_unit(source)
 		text_color = (color_id and tweak_data.chat_colors[color_id]) or text_color
-		local char_name = managers.criminals:character_name_by_unit(source)
+		local char_name = source and managers.criminals:character_name_by_unit(source)
 		source_name = (char_name and managers.localization:text("menu_" .. tostring(char_name))) or source_name
 	else
 		if variant == "cop" then 
-			source_name = self.unit_names[source:base()._tweak_table] or variant
+			source_name = source and self.unit_names[source:base()._tweak_table] or variant
 --			source_name = source:base()._tweak_table
 			text_color = Color(0.3,0.5,1)
 		elseif variant == "civilian" then 
@@ -551,7 +557,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			if sound_data.variants[variant] then 
 				sound_data = sound_data.variants[variant]
 				
-				if sound_data.subvariants then 
+				if prefix and sound_data.subvariants then 
 					subvariant_data = sound_data.subvariants[prefix]
 				end
 				
@@ -623,34 +629,49 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	
 	text_color = sound_data.override_text_color or text_color
 	
-	
 	if not text then 
 		self:log("Error: No valid text in add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
 	else
 		self:log("add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=text_color})
 	end
 	
-	local priority = subvariant_data.priority or sound_data.priority or 1
-	
-	
-	
 	local t = Application:time()
-	local panel,already_exists = self:_create_line(panel_text,tostring(source_id),text_color,source == managers.player:local_player())
+	local data = {
+		position = position,
+		source = source,
+		sound_id = sound_id,
+		priority = subvariant_data.priority or sound_data.priority or 1,
+		start_t = t,
+		is_locationless = source == managers.player:local_player(), --todo locationless from sfx source/data override
+		expire_t = (subvariant_data.duration and (subvariant_data.duration + t)) or expire_t
+	}
+	self:_add_line(panel_text,source_id,text_color,data)
+end
+
+function ClosedCaptions:_add_line(panel_text,panel_id,text_color,data) --creates panel from data, adds line's data to data structure
+	if not panel_text then 
+		self:log("Error: No valid text in _add_line()",{color=Color.red})
+		return
+	end
+	if not panel_id then 
+		panel_id = "UNNAMED_PANEL_" .. tostring(self.num_unnamed_caption)
+	end
+	data = data or {}
+	local t = Application:time()
+	data.start_t = data.start_t or t
+	data.expire_t = data.expire_t or (t + 3)
+	data.priority = data.priority or 1
+	if not (data.position or data.source) then 
+		data.is_locationless = true
+	end
+	text_color = text_color or self.color_data.generic
 	
-	if panel and not already_exists then 
-		local data = {
-			source = source,
-			sound_id = sound_id,
-			priority = priority,
-			panel = panel,
-			start_t = t,
-			expire_t = (subvariant_data.duration and (subvariant_data.duration + t)) or expire_t or (t + 3)
-		}
+	local panel = self:_create_line(panel_text,panel_id,text_color,data.is_locationless)
+	data.panel = panel
+	if panel then 
 		table.insert(self.active_lines,data)
 	elseif not panel then 
-		self:log("ERROR: ClosedCaptions:add_line(" .. ClosedCaptions.concat(sound_id,source,source_name) .. ") Could not create subtitle panel")
-	elseif already_exists then 
-		self:log("Panel: " .. tostring(panel_text) .. " Already exists")
+		self:log("REAL BAD ERROR: ClosedCaptions:_add_line(" .. ClosedCaptions.concat(sound_id,source,source_name) .. ") Could not create caption panel")
 	end
 end
 
@@ -659,7 +680,6 @@ function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
 	local item_panel = panel:child(panel_name)
 	if item_panel and alive(item_panel) then 
 		panel:remove(item_panel)
---		return item_panel,true
 	end
 	local hor_text_margin = 8 + self.settings.font_size
 	local ver_text_margin = 8
@@ -770,9 +790,29 @@ function ClosedCaptions:remove_line(i)
 	if item and item.panel and alive(item.panel) then 
 		item.panel:parent():remove(item.panel)
 	end
+	return item
 end
 
-function ClosedCaptions:_remove_line(id,source) --unused; intended for a by-source reference/called from outside of direct reference 
+function ClosedCaptions:_remove_line(params,greedy_match) --intended for a by-source reference/called from outside of direct reference 
+--greedy_match requires all params to match instead of just one
+	for i,data in pairs(self.active_lines) do 
+		local is_it
+		for j,k in pairs(params) do 
+			if data[j] == k then 
+				is_it = true
+				if not greedy_match then 
+					break
+				end
+			elseif data[j] and data[j] ~= k then 
+				is_it = false
+				break
+			end
+		end
+		if is_it then 
+			self:remove_line(i)
+			return
+		end
+	end
 end
 
 --todo check menu options
