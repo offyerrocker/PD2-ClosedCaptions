@@ -3,43 +3,17 @@ core:import("CoreMissionScriptElement")
 
 ElementPlaySound = ElementPlaySound or class(CoreMissionScriptElement.MissionScriptElement)
 
-
 local playsound = ElementPlaySound._play_sound
 function ElementPlaySound:_play_sound(...)
 	local result = {playsound(self,...)}
-	--[[
-	if _G.Log then 
-		_G.Log("Played " .. tostring(self._values.sound_event) .. " at " .. tostring(self._values.position))
-		_G.logall(self._values)
-		_G.Log(self._source)
-	end
-	--]]
 	if _G.ClosedCaptions then 
 		local source_id = tostring(self._source)
 		local source = nil -- = self._source --not used for this; we want to use a custom position instead
-		local variant = ""
+		local variant = "element" --indicates that the sound is playing from an element
 		local prefix = ""
 		local expire_t = Application:time() + 60 --this sound does not give expire_t or duration naturally; instead, it supplies a callback for when the sound ends, so let's rely on that
 		_G.ClosedCaptions:add_line(self._values.sound_event,source,source_id,variant,prefix,expire_t,self._values.position)
 	end
---[[
-	if self._values.sound_event then
-		if self._source then
-			self._source:stop()
-		end
-
-		self._source = SoundDevice:create_source(self._editor_name)
-
-		self._source:set_position(self._values.position)
-		self._source:set_orientation(self._values.rotation)
-
-		if self._source:post_event(self._values.sound_event, callback(self, self, "sound_ended"), nil, "end_of_event") then
-			self._mission_script:add_save_state_cb(self._id)
-		end
-	elseif Application:editor() then
-		managers.editor:output_error("Cant play sound event nil [" .. self._editor_name .. "]")
-	end
-	--]]
 	return unpack(result)
 end
 
@@ -51,6 +25,24 @@ function ElementPlaySound:sound_ended(...)
 	end
 	return soundended(self,...)
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if true then return end
 
 local onexecuted = ElementPlaySound.on_executed
 function ElementPlaySound:on_executed(instigator,...)
@@ -95,11 +87,20 @@ function ElementPlaySound:on_executed(instigator,...)
 	return onexecuted(self,instigator,...)
 end
 
-if true then return end
-
+--[[
+local operationremove = ElementPlaySound.operation_remove
+function ElementPlaySound:operation_remove(...)
+--this calls sound_ended() so that method does not need its own hook
+	if self._source and _G.ClosedCaptions then 
+		_G.ClosedCaptions:_remove_line({source_id = tostring(self._source)})
+	end
+	return operationremove(self,...)
+end
+--]]
 
 local playsoundonelements = ElementPlaySound._play_sound_on_elements
 function ElementPlaySound:_play_sound_on_elements(...)
+--this method just goes through the unit sound() extension, which is already caught by ClosedCaption's other hooks in playersound and copsound
 --[[
 	local function f(unit)
 		if unit:id() ~= -1 then
@@ -115,14 +116,7 @@ function ElementPlaySound:_play_sound_on_elements(...)
 	--]]
 	return playsoundonelements(self,...)
 end
-
 --[[
-Hooks:PreHook(ElementPlaySound,"operation_remove","closedcaptions_elementplaysound_operation_remove",function(self)
-	if self._source then
-		self._source:stop()
-		self:sound_ended()
-	end
-end)
 Hooks:PreHook(ElementPlaySound,"sound_ended","closedcaptions_elementplaysound_sound_ended",function(self,...)
 --	self._mission_script:remove_save_state_cb(self._id)
 end)

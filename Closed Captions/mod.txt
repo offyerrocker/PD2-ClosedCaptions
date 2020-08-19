@@ -25,6 +25,10 @@
 			"script_path" : "unitnetworkhandler.lua"
 		},
 		{
+			"hook_id" : "lib/units/weapons/trip_mine/tripminebase",
+			"script_path" : "tripminebase.lua"
+		},
+		{
 			"hook_id" : "lib/units/beings/player/playersound",
 			"script_path" : "playersound.lua"
 		},

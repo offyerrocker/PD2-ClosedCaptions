@@ -3,19 +3,24 @@
 * todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
 
+* fadeout dialogue from elements instead of instant removal
 * todo lifetime multiplier for captions
 
+* MOD OPTIONS MENU
 * todo sort voicelines by type (source)
 * todo filter out voicelines by local-player only (eg. for pickups/uppers ace)?
 * todo layer custom user settings over sound_data
 	* todo documented custom template for those things
 * fix sfx source lines such as ammo_pickup	
 
+* teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
 * figure out how long alarm museum slow fade is or whatever it's called
-* g22 played nil instead of quitting bc no variant	
+* element: whistle	
+* pickup_ammo overrides other lines; implement source_id override
+* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
 	
 known issues:
-	cloaker static persists for 1000 seconds only, and MIGHT be interrupted by any other cloaker line
+	cloaker static persists for 1000 seconds only, and MIGHT be interrupted by any other cloaker line, and is not interrupted by death
 	some captions for sounds that are played via mission core ElementPlaySound may cut off prematurely
 	Taxman lines may cut off prematurely (reason unknown)
 --]]
@@ -23,15 +28,12 @@ known issues:
 calling out guards, deploying, grenades, calling bots, inspiring downed heisters
 guard pager timer having noises
 mission dialogue:
-	- first world bank insider dialogue
 	- heat street matt roscoe dialogue
 	- diamond heist ceo dialogue/ceo son dialogue
-	- rats gangster dialogue
+	- rats day 3 c4 sound? rats d2 doublecross dialogue?
 	- green bridge prisoner dialogue
 	- hell's island bain dialogue/dentist dialogue
-	- hoxrev hector dialogue
-	
-	- framing frame buyer dialogue
+	- hoxton breakout hoxton dialogue? (DAY 2)
 	
 	- hotline miami commissar taunts
 	- biker heist mechanic?
@@ -43,15 +45,14 @@ mission dialogue:
 	- necrocloaker dialogue on cursed kill room/prison nightmare?
 	- GO Bank phone calls?
 	- Goat simulator d2 doctor?
-	- hoxton breakout hoxton dialogue?
 	- beneath the mountain locke dialogue?
 	- stealing xmas almir dialogue
 	- murky station radio (loop)
 	- Car shop manager chatter
-	- goat simulator dialogue
 	- border crossing...?
 * aldstone lines?
-* C4 beeps
+* tripmine beeps
+* ecm sounds
 --]]
 
 --note: custom colors from settings MUST LOAD BEFORE LoadSounds() !!!
@@ -178,6 +179,8 @@ ClosedCaptions.unit_names = {
 	drug_lord_boss_stealth = "Sosa" --stealth
 }
 
+ClosedCaptions.num_unnamed_caption = 0 --used for incrementing/generated non-conflicting panel ids if no name is provided
+
 ClosedCaptions.color_data = {
 	generic = Color(1,1,1),
 	criminal1 = Color(0,1,1),
@@ -196,20 +199,19 @@ ClosedCaptions.settings = {
 	box_w = 600,
 	max_num_boxes = 5,
 	box_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
-	font_size = 16
+	font_size = 20
 }
 
 ClosedCaptions.hud_data = {
 }
 
 ClosedCaptions.active_lines = {
-	--[[ ex:
+	--[[ ex: (out of date example)
 	{
-		sound_name = "butt",
+		sound_id = "butt",
 		event_id = [generally, some inscrutable and very small number],
 		source_unit = [Unit],
-		start_t = 4,
-		lifetime = 10
+		start_t = 4
 	}
 	
 	
@@ -219,8 +221,6 @@ ClosedCaptions.active_lines = {
 ClosedCaptions.languages = {
 	"english"
 }
-
-ClosedCaptions.num_unnamed_caption = 0 --used for incrementing/generated non-conflicting panel ids if no name is provided
 
 function ClosedCaptions:LoadSounds()	
 	if SystemFS:exists( Application:nice_path( SavePath .. self._sound_data_filename, true )) then
@@ -509,6 +509,19 @@ function ClosedCaptions:LocalizeSourceName(source_name) --not used
 end
 
 --caution: here be dragons
+
+--[[
+Given input parameters from playing a sound, finds the correct caption (if any) and creates a caption hud/text object to display, and adds it to the queue to update.
+If no caption data exists for the given sound_id, logs it to a file (if logging is enabled) for later cataloguing.
+
+sound_id: [string] event identifier
+source: [Unit] unit whose sound() extension is responsible for playing the sound. Used to determine position for directional arrows.
+source_id: [string] unique identifier used for the caption instance's panel. If left blank, is auto-generated with a numerical identifier.
+variant: [string] used to identify the variant of unit saying the line, and thereby find the correct version of the caption to show.
+prefix: [string] used to identify the subvariant of unit saying the line (eg. different heisters) and thereby find the correct version of the caption to show.
+expire_t: [number] the time at which the caption will expire and disappear. usually returned by the sound() extension, but sometimes this number is not consistent with the audio file's actual duration, so it may be overridden on a per-line basis by the duration field in sound_data.
+position: [Vector3] the location in 3d space in the world to play the line from. Used to determine position for directional arrows, in case there is no unit specified for this purpose (eg sound played from elements).
+--]]
 function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire_t,position) --evaluates line's data
 	if expire_t and (expire_t == 0 or expire_t <= Application:time()) then 
 		expire_t = nil
@@ -623,19 +636,25 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	end
 	
 	source_name = sound_data.override_name or source_name
-	
-	local panel_text = tostring(source_name) .. ": " .. tostring(text)
-	--if source type is unit, use unit key
-	
 	text_color = sound_data.override_text_color or text_color
 	
-	if not text then 
-		self:log("Error: No valid text in add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
-	else
-		self:log("add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(panel_text) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=text_color})
+	local t = Application:time()
+	local debug_duration = "nil"
+	if subvariant_data.duration then 
+		debug_duration = string.format(subvariant_data.duration,"%.02f")
+	elseif expire_t then 
+		debug_duration = string.format(expire_t - t,"%0.2f")
 	end
 	
-	local t = Application:time()
+	if not text then 
+		self:log("Error: No valid text in add_line() for variant: [" .. tostring(variant) .. "]. Unit " .. tostring(prefix) .. " played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
+		return
+	else
+		self:log("add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t) .. " (effective duration " .. debug_duration .. ")",{color=text_color})
+	end
+	
+	local panel_text = tostring(source_name) .. ": " .. tostring(text)
+
 	local data = {
 		position = position,
 		source = source,
@@ -648,13 +667,13 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	self:_add_line(panel_text,source_id,text_color,data)
 end
 
-function ClosedCaptions:_add_line(panel_text,panel_id,text_color,data) --creates panel from data, adds line's data to data structure
+function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --creates panel from data, adds line's data to data structure
 	if not panel_text then 
 		self:log("Error: No valid text in _add_line()",{color=Color.red})
 		return
 	end
-	if not panel_id then 
-		panel_id = "UNNAMED_PANEL_" .. tostring(self.num_unnamed_caption)
+	if not source_id then --used as panel_id
+		source_id = "UNNAMED_PANEL_" .. tostring(self.num_unnamed_caption)
 	end
 	data = data or {}
 	local t = Application:time()
@@ -666,7 +685,7 @@ function ClosedCaptions:_add_line(panel_text,panel_id,text_color,data) --creates
 	end
 	text_color = text_color or self.color_data.generic
 	
-	local panel = self:_create_line(panel_text,panel_id,text_color,data.is_locationless)
+	local panel = self:_create_line(panel_text,source_id,text_color,data.is_locationless)
 	data.panel = panel
 	if panel then 
 		table.insert(self.active_lines,data)

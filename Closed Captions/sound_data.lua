@@ -32,28 +32,79 @@ ClosedCaptions._sounds = {
 					source_id = "sfx",
 					priority = 1,
 					duration = 2,
-					disabled = true
+					disabled = false
 				},
 				pickup_fak_skill = {
 					override_name = "SFX",
 					text = "activated Uppers Ace",
+					duration = 1,
 					source_id = "sfx"
 				},
 				wp_four_pick_up = {
 					override_name = "SFX",
 					text = "picked up Throwing Card",
+					duration = 1,
 					source_id = "sfx"
 				},
 				wp_jav_pick_up = {
 					override_name = "SFX",
 					text = "picked up Javelin",
+					duration = 1,
 					source_id = "sfx"
+				},
+				trip_mine_sensor_alarm = {
+					override_name = "SFX",
+					source_id = "sfx",
+					duration = 1,
+					text = "[Trip mine sensor triggered]"
+				},
+				trip_mine_explode = {
+					override_name = "SFX",
+					source_id = "sfx",
+					duration = 1,
+					text = "[Trip mine explosion]"
+				},
+				trip_mine_beep_armed = {
+					override_name = "SFX",
+					source_id = "sfx",
+					duration = 1,
+					text = "[Trip mine activated]"
+				},
+				trip_mine_arm = {
+					override_name = "SFX",
+					source_id = "sfx",
+					duration = 1,
+					text = "[Trip mine set to Explosive Mode]"
+				},
+				trip_mine_disarm = {
+					override_name = "SFX",
+					source_id = "sfx",
+					duration = 1,
+					text = "[Trip mine set to Sensor Mode]"
+				},
+				trip_mine_attach = {
+					override_name = "SFX",
+					source_id = "sfx",
+					duration = 1,
+					text = "[Trip mine placed/warmup]"
+				},
+				trip_mine_beep_explode = {
+					override_text = "SFX",
+					source_id = "sfx",
+					duration = 1,
+					text = "[Trip mine explosion triggered!]"
 				},
 				flashbang_beep = {
 					override_name = "SFX",
 					text = "flashbang beeping",
+					duration = 1,
 					source_id = "sfx",
-					disabled = true
+					disabled = false
+				},
+				toilet_flush = {
+					override_name = "SFX",
+					text = "[toilet flushing]",
+					source_id = "sfx"
 				},
 				tasered_loop = {
 					override_name = "SFX",
@@ -93,13 +144,113 @@ ClosedCaptions._sounds = {
 				},
 				alarm_countdown_loop = {
 					override_name = "SFX",
-					text = "[Alarm countdown]",
+					text = "[Slow alarm countdown ticking]",
 					source_id = "sfx",
 					duration = 60
 				},
 				alarm_countdown_loop_stop = {
 					override_name = "SFX",
 					text = "[Alarm countdown stops]",
+					source_id = "sfx",
+					disabled = true
+				},
+				hitec_lotec_alarm_slow_fade = {
+					override_name = "SFX",
+					text = "[alarm]",
+					source_id = "sfx",
+					duration = 3
+				},
+				bag_light_drop = {
+					override_name = "SFX",
+					text = "[light bag placed]",
+					source_id = "sfx",
+					duration = 3
+				},
+				bag_medium_drop = {
+					override_name = "SFX",
+					text = "[medium bag placed]",
+					source_id = "sfx",
+					duration = 3
+				},
+				bag_heavy_drop = {
+					override_name = "SFX",
+					text = "[heavy bag placed]",
+					source_id = "sfx",
+					duration = 3
+				},
+				phone_01_no_answer = {
+					override_name = "SFX",
+					text = "[phone ringing]",
+					source_id = "sfx",
+					duration = 30
+				},
+				phone_02_no_answer = {
+					override_name = "SFX",
+					text = "[phone ringing]",
+					source_id = "sfx",
+					duration = 30
+				},
+				phone_03_no_answer = {
+					override_name = "SFX",
+					text = "[phone ringing]",
+					source_id = "sfx",
+					duration = 30
+				},
+				phone_04_no_answer = {
+					override_name = "SFX",
+					text = "[phone ringing]",
+					source_id = "sfx",
+					duration = 30
+				},
+				cellphone_01_no_answer = {
+					override_name = "SFX", --looped
+					text = "[phone ringing]",
+					source_id = "sfx"
+				},
+				cellphone_01_answer = {
+					override_name = "SFX",
+					text = "[phone answered]",
+					source_id = "sfx"
+				},
+				keypad_wrong_code = {
+					override_name = "SFX",
+					text = "keypad wrong code",
+					source_id = "sfx",
+					duration = 3
+				},
+				keypad_correct_code = {
+					override_name = "SFX",
+					text = "keypad correct code",
+					source_id = "sfx",
+					duration = 3
+				},
+				laser_shutdown_left = {
+					override_name = "SFX",
+					text = "[left laser deactivates]",
+					source_id = "sfx",
+					duration = 3
+				},
+				laser_shutdown_right = {
+					override_name = "SFX",
+					text = "[right laser deactivates]",
+					source_id = "sfx",
+					duration = 3
+				},
+				laser_warning_on_left = {
+					override_name = "SFX",
+					text = "[left laser activates]",
+					source_id = "sfx",
+					duration = 3
+				},
+				laser_warning_on_right = {
+					override_name = "SFX",
+					text = "[right laser activates]",
+					source_id = "sfx",
+					duration = 3
+				},
+				hacking_device = {
+					override_name = "SFX", --looped
+					text = "[hacking noise]",
 					source_id = "sfx",
 					disabled = true
 				},
@@ -110,6 +261,181 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[swat_explosion ???]",
 					disabled = false
+				},
+				server_noise_loop = {
+					override_name = "SFX",
+					text = "[server noise]",
+					disabled = true
+				},
+				Play_pln_spawn_01 = {
+					override_name = "Bain",
+					text = "Security just dispatched another shift! Stay alert!",
+					line_variations = {
+						any_mode = {
+							"Keep it dark and silent, gang! More security is incoming!",
+							"Uhh- I didn't expect this! Gang, more security is arriving!",
+							"Keep an eye out, clowns! They just ramped up the security!",
+							"Stay cool, clowns, but they're beefing up the security here.",
+							"Look sharp, gang! More security on the way!",
+							"Wait, what the- more security is on its way! This was not scheduled!",
+							"Security just dispatched another shift! Stay alert!",
+							"I'm picking up increased radio traffic! Security is on its way to the scene!"
+						}
+					}
+				},
+				cop_car_01 = {
+					override_name = "SFX",
+					text = "[police sirens approaching]"
+				},
+				cop_car_02 = {
+					override_name = "SFX",
+					text = "[police sirens approaching]"
+				},
+				birds_fly_away = {
+					override_name = "SFX",
+					source_id = "sfx",
+					text = "[birds squawk, fly away]"
+				},
+				l4n_x01a_any_3p = {
+					override_name = "Cooks",
+					"[screams, death gurgles]"
+				},
+				cooking_meth = {
+					override_name = "SFX",
+					source_id = "sfx",
+					text = "[cooking meth]"
+				},
+				cooking_meth_stop = {
+					override_name = "SFX",
+					source_id = "sfx",
+					text = "[meth cooking stops]",
+					disabled = true
+				},
+				c45_fire = {
+					override_name = "SFX",
+					text = "[gunshot]"
+				},
+				c45_npc1a_1shot = {
+					override_name = "SFX",
+					text = "[gunshot]"
+				},
+				c45_npc1b_1shot = {
+					override_name = "SFX",
+					text = "[gunshot]"
+				},
+				c45_npc1c_1shot = {
+					override_name = "SFX",
+					text = "[gunshot]"
+				},
+				whistling_attention = {
+					text = "[whistle]",
+					priority = 5
+				},
+				play_pln_gen_count_01 = {
+					override_name = "Bain",
+					text = "That's one!",
+				},
+				play_pln_gen_count_02 = {
+					override_name = "Bain",
+					text = "That's two!",
+				},
+				play_pln_gen_count_03 = {
+					override_name = "Bain",
+					text = "That's three!",
+				},
+				play_pln_gen_count_04 = {
+					override_name = "Bain",
+					text = "That's four!",
+				},
+				play_pln_gen_count_05 = {
+					override_name = "Bain",
+					text = "That's five!",
+				},
+				play_pln_gen_count_06 = {
+					override_name = "Bain",
+					text = "That's six!",
+				},
+				play_pln_gen_count_07 = {
+					override_name = "Bain",
+					text = "That's seven!",
+				},
+				play_pln_gen_count_08 = {
+					override_name = "Bain",
+					text = "That's eight!",
+				},
+				play_pln_gen_count_09 = {
+					override_name = "Bain",
+					text = "That's all of them. Let's get out of here!",
+				},
+				play_pln_gen_count_10 = {
+					override_name = "Bain",
+					text = "That's enough, if you want to leave!",
+				},
+				play_pln_gen_count_11 = {
+					override_name = "Bain",
+					text = "Nice, that's a quarter!",
+				},
+				play_pln_gen_count_12 = {
+					override_name = "Bain",
+					text = "Cool, that's half of it!",
+				},
+				play_pln_gen_count_13 = {
+					override_name = "Bain",
+					text = "Halfway there!",
+				},
+				play_pln_gen_count_14 = {
+					override_name = "Bain",
+					text = "Almost got it all!",
+				},
+				play_pln_gen_count_15 = {
+					override_name = "Bain",
+					text = "Just two more!",
+				},
+				play_pln_gen_count_16 = {
+					override_name = "Bain",
+					text = "One more!",
+				},
+				play_pln_gen_count_17 = {
+					override_name = "Bain",
+					text = "Keep 'em coming!",
+				},
+				play_pln_gen_lkgo_01 = {
+					override_name = "Bain",
+					text = "Keep it up and we're going to pull it off!",
+					line_variations = {
+						any_mode = {
+							"Good, you're on track! Keep going!",
+							"Keep it up and we're going to pull it off!",
+							"Good job! Carry on!",
+							"Things are looking very good for now.",
+							"Really great so far.",
+							"I admit, I thought it would go this well.",
+							"We're following the plan. Good so far.",
+							"Really, really impressive.",
+							"I think you're gonna do this if you keep it up!",
+							"Everything's going to plan.",
+							"Plan looks good so far. Just stay the course.",
+							"I believe you can do this.",
+							"Keep it together, keep it up!",
+							"We're making progress.",
+							"Right now, you're succeeding.",
+							"You guys are nailing it!",
+							"Keep it up, people!",
+							"I'm pleased, but I'm not surprised.",
+							"Right now, you're making me look very smart!",
+							"You guys are doing great!",
+							
+							
+							
+							"Keep it dark and silent, gang! More security is incoming!",
+							"Uhh- I didn't expect this! Gang, more security is arriving!",
+							"Keep an eye out, clowns! They just ramped up the security!",
+							"Look sharp, gang! More security on the way!",
+							"Wait, what the- more security is on its way! This was not scheduled!",
+							"Security just dispatched another shift! Stay alert!",
+							"I'm picking up increased radio traffic! Security is on its way to the scene!"
+						}
+					}
 				},
 				g01 = {
 					variants = {
@@ -6008,8 +6334,8 @@ ClosedCaptions._sounds = {
 							text = "Intimidation stage 2",
 							priority = 5,
 							subvariants = {
-								line_variations = {
-									rb15 = {
+								rb15 = {
+									line_variations = {
 										standard_mode = {
 											"Down on your knees!",
 											"ON YOUR KNEES!",
@@ -6094,10 +6420,6 @@ ClosedCaptions._sounds = {
 						}
 					}
 				}, --intimidate
-				whistling_attention = {
-					text = "[whistle]",
-					priority = 5
-				},
 				dsp_radio_checking_1 = {
 					variants = {
 						criminal = {
@@ -6240,6 +6562,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[spotted alerted Civilian]",
+							duration = 4,
 							subvariants = {
 								line_variations = {
 									recombinable = true,
@@ -6264,18 +6587,17 @@ ClosedCaptions._sounds = {
 				l2n_a05 = {
 					variants = {
 						security = {
+							duration = 6,
 							text = "[idle pager chatter]",
-							subvariants = {
-								line_variations = {
-									any_mode = {
-										"Two-Three here. Reporting in. All's clear over here. Out.",
-										"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
-										"Two-Three, reporting in. All is quiet on the western front. Out.",
-										"Feels like another boring evening.",
-										"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
-										"Seems like a good day for something to happen... right?",
-										"This is, uh, Two-Three reporting in. All clear. Over and out."
-									}
+							line_variations = {
+								any_mode = {
+									"Two-Three here. Reporting in. All's clear over here. Out.",
+									"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
+									"Two-Three, reporting in. All is quiet on the western front. Out.",
+									"Feels like another boring evening.",
+									"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
+									"Seems like a good day for something to happen... right?",
+									"This is, uh, Two-Three reporting in. All clear. Over and out."
 								}
 							}
 						}
@@ -6285,1634 +6607,1557 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "[spots suspicious object]",
-							subvariants = {
-								line_variations = {
-									any_mode = {
-										"What the heck...?",
-										"Who was that?",
-										"That's weird...",
-										"What on earth...?",
-										"What's going on here...?",
-										"That's strange...",
-										"What the hell...?"
-									}
+							line_variations = {
+								any_mode = {
+									"What the heck...?",
+									"Who was that?",
+									"That's weird...",
+									"What on earth...?",
+									"What's going on here...?",
+									"That's strange...",
+									"What the hell...?"
 								}
 							}
 						}
 					}
 				},
 				l2n_b01 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Entrance is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{	
-										"Entrance is 10-26.",
-										"Entrance is all clear.",
-										"Entrance is clear.",
-										"Entrance is A-OK.",
-										"Nothing to report."
-									},
-									{
-										"Everything's fine here.",
-										"All is clear.",
-										"This place is A-OK.",
-										"This place is all clear.",
-										"Nothing out of the ordinary.",
-										"Nothing suspicious here.",
-										"This place is 10-26.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in here.",
-										"No signs of trespassing here.",
-										"Everything's in order.",
-										"This place is clear of trespassers.",
-										"Clear as glass here.",
-										"Not a mouse is stirring.",
-										"Everything's ice cream and meringue.",
-										"", --no extra line here
-										"" --extra blank to increase chance of no extra line
-									},
-									{
-										"Repeat, Entrance is all clear.",
-										"I repeat, Entrance is clear.",
-										"Repeat, Entrance is 10-26.",
-										"Repeat, Entrance is A-OK.",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Entrance is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{	
+								"Entrance is 10-26.",
+								"Entrance is all clear.",
+								"Entrance is clear.",
+								"Entrance is A-OK.",
+								"Nothing to report."
+							},
+							{
+								"Everything's fine here.",
+								"All is clear.",
+								"This place is A-OK.",
+								"This place is all clear.",
+								"Nothing out of the ordinary.",
+								"Nothing suspicious here.",
+								"This place is 10-26.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in here.",
+								"No signs of trespassing here.",
+								"Everything's in order.",
+								"This place is clear of trespassers.",
+								"Clear as glass here.",
+								"Not a mouse is stirring.",
+								"Everything's ice cream and meringue.",
+								"", --no extra line here
+								"" --extra blank to increase chance of no extra line
+							},
+							{
+								"Repeat, Entrance is all clear.",
+								"I repeat, Entrance is clear.",
+								"Repeat, Entrance is 10-26.",
+								"Repeat, Entrance is A-OK.",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b02 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Hall A is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Hall A is clear.",
-										"Hall A is 10-26.",
-										"Hall A is A-OK."
-									},
-									{
-										"Everything's fine here.",
-										"All is clear.",
-										"This place is A-OK.",
-										"This place is all clear.",
-										"Nothing out of the ordinary.",
-										"Nothing suspicious here.",
-										"This place is 10-26.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in here.",
-										"No signs of trespassing here.",
-										"Everything's in order.",
-										"This place is clear of trespassers.",
-										"Clear as glass here.",
-										"Not a mouse is stirring.",
-										"Everything's ice cream and meringue.",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, Hall A is A-OK.",
-										"I repeat, Hall A is all clear.",
-										"I repeat, Hall A is A-OK.",
-										"Repeat, Hall A is all clear.",
-										"I repeat, Hall A is clear.",
-										"Repeat, Hall A is 10-26.",										
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Hall A is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Hall A is clear.",
+								"Hall A is 10-26.",
+								"Hall A is A-OK."
+							},
+							{
+								"Everything's fine here.",
+								"All is clear.",
+								"This place is A-OK.",
+								"This place is all clear.",
+								"Nothing out of the ordinary.",
+								"Nothing suspicious here.",
+								"This place is 10-26.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in here.",
+								"No signs of trespassing here.",
+								"Everything's in order.",
+								"This place is clear of trespassers.",
+								"Clear as glass here.",
+								"Not a mouse is stirring.",
+								"Everything's ice cream and meringue.",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, Hall A is A-OK.",
+								"I repeat, Hall A is all clear.",
+								"I repeat, Hall A is A-OK.",
+								"Repeat, Hall A is all clear.",
+								"I repeat, Hall A is clear.",
+								"Repeat, Hall A is 10-26.",										
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b03 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Hall B is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Hall B is clear as glass.",
-										"Hall B is clear.",
-										"Hall B is 10-26.",
-										"Hall B is A-OK."
-									},
-									{
-										"This place has no signs of trespassing.",
-										"This place shows no sign of break-in.",
-										"This place shows no signs of trespassers.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is A-OK.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing to report.",
-										"No sign of break-in.",
-										"No sign of break-in here.",
-										"Not a mouse is stirring.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"Everything's in order here.",
-										"Everything's clear here.",
-										"Everything's peaches and cream.",
-										"Nothing unusual in this area.",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, Hall B is clear.",
-										"Repeat, Hall B is A-OK.",
-										"I repeat, Hall B is 10-26.",
-										"Repeat, Hall B is 10-26.",
-										"I repeat, Hall B is A-OK.",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Hall B is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Hall B is clear as glass.",
+								"Hall B is clear.",
+								"Hall B is 10-26.",
+								"Hall B is A-OK."
+							},
+							{
+								"This place has no signs of trespassing.",
+								"This place shows no sign of break-in.",
+								"This place shows no signs of trespassers.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is A-OK.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing to report.",
+								"No sign of break-in.",
+								"No sign of break-in here.",
+								"Not a mouse is stirring.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"Everything's in order here.",
+								"Everything's clear here.",
+								"Everything's peaches and cream.",
+								"Nothing unusual in this area.",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, Hall B is clear.",
+								"Repeat, Hall B is A-OK.",
+								"I repeat, Hall B is 10-26.",
+								"Repeat, Hall B is 10-26.",
+								"I repeat, Hall B is A-OK.",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b04 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Hall C is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Hall C is clear as glass.",
-										"Hall C is clear.",
-										"Hall C is 10-26.",
-										"Hall C is A-OK."
-									},
-									{
-										"This place has no signs of trespassing.",
-										"This place shows no sign of break-in.",
-										"This place shows no signs of trespassers.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing to report.",
-										"Nothing unusual in this area.",
-										"Not a mouse is stirring.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in.",
-										"No sign of break-in here.",
-										"Everything's in order here.",
-										"Everything's clear here.",
-										"Everything's peaches and cream.",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, Hall C is clear.",
-										"Repeat, Hall C is A-OK.",
-										"I repeat, Hall C is 10-26.",
-										"Repeat, Hall C is 10-26.",
-										"I repeat, Hall C is A-OK.",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Hall C is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Hall C is clear as glass.",
+								"Hall C is clear.",
+								"Hall C is 10-26.",
+								"Hall C is A-OK."
+							},
+							{
+								"This place has no signs of trespassing.",
+								"This place shows no sign of break-in.",
+								"This place shows no signs of trespassers.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing to report.",
+								"Nothing unusual in this area.",
+								"Not a mouse is stirring.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in.",
+								"No sign of break-in here.",
+								"Everything's in order here.",
+								"Everything's clear here.",
+								"Everything's peaches and cream.",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, Hall C is clear.",
+								"Repeat, Hall C is A-OK.",
+								"I repeat, Hall C is 10-26.",
+								"Repeat, Hall C is 10-26.",
+								"I repeat, Hall C is A-OK.",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b05 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Hall D is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Nothing to report in Hall D.",
-										"Hall D is A-OK.",
-										"Hall D is clear.",
-										"Hall D is 10-26."
-									},
-									{	
-										"No sign of break-in here.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of trespassing.",
-										"Nothing out of the ordinary here.",
-										"Nothing out of the ordinary.",
-										"Nothing suspicious here.",
-										"Everything's clear here.",
-										"Everything's fine here.",
-										"Everything's peaches and cream.",
-										"Everything's in order.",
-										"Everything is A-OK here.",
-										"All's clear.",
-										"Clear as glass here.",
-										"This place has no signs of trespassing.",
-										"This place is A-OK.",
-										"This place is all clear.",
-										"This place is as tidy as ever.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"I repeat, nothing to report in Hall D.",
-										"Repeat, nothing to report in Hall D.",
-										"Repeat, Hall D is A-OK.",
-										"I repeat, Hall D is 10-26.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Hall D is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Nothing to report in Hall D.",
+								"Hall D is A-OK.",
+								"Hall D is clear.",
+								"Hall D is 10-26."
+							},
+							{	
+								"No sign of break-in here.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of trespassing.",
+								"Nothing out of the ordinary here.",
+								"Nothing out of the ordinary.",
+								"Nothing suspicious here.",
+								"Everything's clear here.",
+								"Everything's fine here.",
+								"Everything's peaches and cream.",
+								"Everything's in order.",
+								"Everything is A-OK here.",
+								"All's clear.",
+								"Clear as glass here.",
+								"This place has no signs of trespassing.",
+								"This place is A-OK.",
+								"This place is all clear.",
+								"This place is as tidy as ever.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"I repeat, nothing to report in Hall D.",
+								"Repeat, nothing to report in Hall D.",
+								"Repeat, Hall D is A-OK.",
+								"I repeat, Hall D is 10-26.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b06 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Roof is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Roof is A-OK.",
-										"No danger on the Roof.",
-										"Roof is clear.",
-										"Roof is 10-26.",
-										"The Roof is A-OK."
-									},
-									{	
-										"No sign of break-in.",
-										"No sign of trespassers here.",
-										"No signs of trespassing here.",
-										"No sign of suspicious activity here.",
-										"Nothing out of the ordinary here.",
-										"Nothing to report.",
-										"Not a mouse is stirring.",
-										"This place is clear of trespassers.",
-										"Everything's peaches and cream.",
-										"Everything's in order.",
-										"Everything's fine here.",
-										"Everything's clear here.",
-										"This place is tidy as ever.",
-										"This place shows no sign of suspicious activity.",
-										"This place is all clear.",
-										"This place is clear.",
-										"This place is 10-26.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, Roof is A-OK.",
-										"Repeat, no danger on the Roof.",
-										"I repeat, Roof is A-OK.",
-										"I repeat, no danger on the Roof.",
-										"I repeat, Roof is clear.",
-										"I repeat, Roof is 10-26.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Roof is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Roof is A-OK.",
+								"No danger on the Roof.",
+								"Roof is clear.",
+								"Roof is 10-26.",
+								"The Roof is A-OK."
+							},
+							{	
+								"No sign of break-in.",
+								"No sign of trespassers here.",
+								"No signs of trespassing here.",
+								"No sign of suspicious activity here.",
+								"Nothing out of the ordinary here.",
+								"Nothing to report.",
+								"Not a mouse is stirring.",
+								"This place is clear of trespassers.",
+								"Everything's peaches and cream.",
+								"Everything's in order.",
+								"Everything's fine here.",
+								"Everything's clear here.",
+								"This place is tidy as ever.",
+								"This place shows no sign of suspicious activity.",
+								"This place is all clear.",
+								"This place is clear.",
+								"This place is 10-26.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, Roof is A-OK.",
+								"Repeat, no danger on the Roof.",
+								"I repeat, Roof is A-OK.",
+								"I repeat, no danger on the Roof.",
+								"I repeat, Roof is clear.",
+								"I repeat, Roof is 10-26.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b07 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Basement is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"The Basement is 10-26.",
-										"Basement is clear.",
-										"No signs of trespassing in the Basement.",
-										"Basement is 10-26.",
-										"Basement is A-OK."
-									},
-									{	
-										"Nothing out of the ordinary.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"No sign of break-in.",
-										"This place is A-OK.",
-										"This place is tidy as ever.",
-										"This place shows no sign of break-in.",
-										"All is clear.",
-										"Clear as glass here.",
-										"Not a mouse is stirring.",
-										"Everything's clear here.",
-										"Everything's peaches and cream.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"I repeat, Basement is A-OK.",
-										"Repeat, Basement is A-OK.",
-										"Repeat, Basement is clear.",
-										"Repeat, no signs of trespassing in the Basement.",
-										"Repeat, this place is A-OK.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Basement is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"The Basement is 10-26.",
+								"Basement is clear.",
+								"No signs of trespassing in the Basement.",
+								"Basement is 10-26.",
+								"Basement is A-OK."
+							},
+							{	
+								"Nothing out of the ordinary.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"No sign of break-in.",
+								"This place is A-OK.",
+								"This place is tidy as ever.",
+								"This place shows no sign of break-in.",
+								"All is clear.",
+								"Clear as glass here.",
+								"Not a mouse is stirring.",
+								"Everything's clear here.",
+								"Everything's peaches and cream.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"I repeat, Basement is A-OK.",
+								"Repeat, Basement is A-OK.",
+								"Repeat, Basement is clear.",
+								"Repeat, no signs of trespassing in the Basement.",
+								"Repeat, this place is A-OK.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b08 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. First Floor is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Ground Floor is 10-26.",
-										"Ground Floor is clear.",
-										"First Floor is A-OK.",
-										"Ground Floor is A-OK.",
-										"First Floor is all clear.",
-										"Ground Floor is all clear."
-									},
-									{
-										"Everything's fine here.",
-										"Everything's in order.",
-										"Everything's ice cream and meringue.",
-										"All is clear.",
-										"This place is A-OK.",
-										"This place is all clear.",
-										"This place is clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"Nothing out of the ordinary.",
-										"Nothing suspicious here.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in here.",
-										"No signs of trespassing here.",
-										"Not a mouse is stirring.",
-										"Clear as glass here.",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, First Floor is A-OK.",
-										"I repeat, First Floor is 10-26.",
-										"I repeat, Ground Floor is all clear.",
-										"Repeat, First Floor is clear.",
-										"Repeat, Ground Floor is 10-26.",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. First Floor is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Ground Floor is 10-26.",
+								"Ground Floor is clear.",
+								"First Floor is A-OK.",
+								"Ground Floor is A-OK.",
+								"First Floor is all clear.",
+								"Ground Floor is all clear."
+							},
+							{
+								"Everything's fine here.",
+								"Everything's in order.",
+								"Everything's ice cream and meringue.",
+								"All is clear.",
+								"This place is A-OK.",
+								"This place is all clear.",
+								"This place is clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"Nothing out of the ordinary.",
+								"Nothing suspicious here.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in here.",
+								"No signs of trespassing here.",
+								"Not a mouse is stirring.",
+								"Clear as glass here.",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, First Floor is A-OK.",
+								"I repeat, First Floor is 10-26.",
+								"I repeat, Ground Floor is all clear.",
+								"Repeat, First Floor is clear.",
+								"Repeat, Ground Floor is 10-26.",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b09 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Second Floor is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Second Floor is A-OK.",
-										"Second Floor is all clear.",
-										"Second Floor is clear.",
-										"Second Floor is 10-26.",
-										"Floor Two is 10-26.",
-										"Floor Two is all clear.",
-										"Floor Two is A-OK.",
-										"Floor Two is clear.",
-										"Floor Two is clear of trespassers."
-									},
-									{
-										"Everything's fine here.",
-										"Everything's in order.",
-										"Everything's ice cream and meringue.",
-										"All is clear.",
-										"This place is A-OK.",
-										"This place is all clear.",
-										"This place is clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"Nothing out of the ordinary.",
-										"Nothing suspicious here.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in here.",
-										"No signs of trespassing here.",
-										"No sign of suspicious activity here.",
-										"Nothing to report.",
-										"Not a mouse is stirring.",
-										"Clear as glass here.",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"I repeat, Second Floor is 10-26.",
-										"I repeat, Second Floor is clear.",
-										"Repeat, Floor Two is all clear.",
-										"I repeat, Floor Two is clear.",
-										"I repeat, Floor Two is A-OK.",
-										"I repeat, Second Floor is A-OK.",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Second Floor is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Second Floor is A-OK.",
+								"Second Floor is all clear.",
+								"Second Floor is clear.",
+								"Second Floor is 10-26.",
+								"Floor Two is 10-26.",
+								"Floor Two is all clear.",
+								"Floor Two is A-OK.",
+								"Floor Two is clear.",
+								"Floor Two is clear of trespassers."
+							},
+							{
+								"Everything's fine here.",
+								"Everything's in order.",
+								"Everything's ice cream and meringue.",
+								"All is clear.",
+								"This place is A-OK.",
+								"This place is all clear.",
+								"This place is clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"Nothing out of the ordinary.",
+								"Nothing suspicious here.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in here.",
+								"No signs of trespassing here.",
+								"No sign of suspicious activity here.",
+								"Nothing to report.",
+								"Not a mouse is stirring.",
+								"Clear as glass here.",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"I repeat, Second Floor is 10-26.",
+								"I repeat, Second Floor is clear.",
+								"Repeat, Floor Two is all clear.",
+								"I repeat, Floor Two is clear.",
+								"I repeat, Floor Two is A-OK.",
+								"I repeat, Second Floor is A-OK.",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b10 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Third Floor is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Floor Three is all clear.",
-										"Floor Three is clear.",
-										"Third Floor is 10-26.",
-										"Third Floor is A-OK.",
-										"Third Floor is all clear."
-									},
-									{
-										"This place has no signs of trespassing.",
-										"This place shows no sign of break-in.",
-										"This place shows no signs of trespassers.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"Nothing suspicious here.",
-										"Nothing unusual in this area.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in.",
-										"No sign of break-in here.",
-										"Not a mouse is stirring.",
-										"Everything's in order here.",
-										"Everything's clear here.",
-										"Everything's ice cream and meringue.",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"I repeat, Third Floor is all clear.",
-										"I repeat, Third Floor is A-OK.",
-										"I repeat, Floor Three is clear.",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. Third Floor is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Floor Three is all clear.",
+								"Floor Three is clear.",
+								"Third Floor is 10-26.",
+								"Third Floor is A-OK.",
+								"Third Floor is all clear."
+							},
+							{
+								"This place has no signs of trespassing.",
+								"This place shows no sign of break-in.",
+								"This place shows no signs of trespassers.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"Nothing suspicious here.",
+								"Nothing unusual in this area.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in.",
+								"No sign of break-in here.",
+								"Not a mouse is stirring.",
+								"Everything's in order here.",
+								"Everything's clear here.",
+								"Everything's ice cream and meringue.",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"I repeat, Third Floor is all clear.",
+								"I repeat, Third Floor is A-OK.",
+								"I repeat, Floor Three is clear.",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b11 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. The Pool Area is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"The Pool Area is A-OK.",
-										"The Pool Area is clear.",
-										"The Pool Area is 10-26.",
-										"The Pool is cool.",
-									},
-									{
-										"Everything's fine here.",
-										"All is clear.",
-										"This place is A-OK.",
-										"This place is all clear.",
-										"This place is as tidy as ever.",
-										"This place shows no sign of suspicious activity.",
-										"This place is 10-26.",
-										"This place is clear of trespassers.",
-										"Nothing out of the ordinary.",
-										"Nothing suspicious here.",
-										"Nothing unusual in this area.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in.",
-										"No signs of trespassing here.",
-										"No sign of break-in here.",
-										"Not a mouse is stirring.",
-										"Everything's in order.",
-										"Clear as glass here.",
-										"Everything's ice cream and meringue.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, the Pool Area is OK.",
-										"Repeat, the Pool Area is A-OK.",
-										"I repeat, the Pool is cool.",
-										"Repeat, the Pool Area is clear.",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. The Pool Area is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"The Pool Area is A-OK.",
+								"The Pool Area is clear.",
+								"The Pool Area is 10-26.",
+								"The Pool is cool.",
+							},
+							{
+								"Everything's fine here.",
+								"All is clear.",
+								"This place is A-OK.",
+								"This place is all clear.",
+								"This place is as tidy as ever.",
+								"This place shows no sign of suspicious activity.",
+								"This place is 10-26.",
+								"This place is clear of trespassers.",
+								"Nothing out of the ordinary.",
+								"Nothing suspicious here.",
+								"Nothing unusual in this area.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in.",
+								"No signs of trespassing here.",
+								"No sign of break-in here.",
+								"Not a mouse is stirring.",
+								"Everything's in order.",
+								"Clear as glass here.",
+								"Everything's ice cream and meringue.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, the Pool Area is OK.",
+								"Repeat, the Pool Area is A-OK.",
+								"I repeat, the Pool is cool.",
+								"Repeat, the Pool Area is clear.",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b12 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. The Balcony is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"The Balcony is A-OK.",
-										"The Balcony is clear.",
-										"The Balcony is 10-26.",
-										"No sign of break-in on the Balcony.",
-									},
-									{
-										"Nothing to report here.",
-										"Nothing suspicious here.",
-										"Nothing out of the ordinary.",
-										"Not a mouse is stirring.",
-										"No sign of break-in.",
-										"No signs of trespassing here.",
-										"Everything's clear.",
-										"Everything's in order here.",
-										"Everything's ice cream and meringue.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"This place has no signs of trespassing.",
-										"This place shows no sign of suspicious activity.",
-										"This place shows no sign of trespassers.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"I repeat, no break-in on the Balcony.",
-										"I repeat, the Balcony is 10-26.",
-										"I repeat, the Balcony is A-OK.",
-										"I repeat, no sign of break-in on the Balcony.",
-										"Repeat, no sign of break-in on the Balcony.",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. The Balcony is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"The Balcony is A-OK.",
+								"The Balcony is clear.",
+								"The Balcony is 10-26.",
+								"No sign of break-in on the Balcony.",
+							},
+							{
+								"Nothing to report here.",
+								"Nothing suspicious here.",
+								"Nothing out of the ordinary.",
+								"Not a mouse is stirring.",
+								"No sign of break-in.",
+								"No signs of trespassing here.",
+								"Everything's clear.",
+								"Everything's in order here.",
+								"Everything's ice cream and meringue.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"This place has no signs of trespassing.",
+								"This place shows no sign of suspicious activity.",
+								"This place shows no sign of trespassers.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"I repeat, no break-in on the Balcony.",
+								"I repeat, the Balcony is 10-26.",
+								"I repeat, the Balcony is A-OK.",
+								"I repeat, no sign of break-in on the Balcony.",
+								"Repeat, no sign of break-in on the Balcony.",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b13 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. The Living Room is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"The Living Room is in order.",
-										"The Living Room is clear.",
-										"The Living Room is A-OK.",
-										"The Living Room is 10-26."
-									},
-									{
-										"This place has no signs of trespassing.",
-										"This place shows no sign of break-in.",
-										"This place shows no signs of trespassers.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"Everything's in order here.",
-										"Everything's clear here.",
-										"Everything's peaches and cream.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"No sign of trespassing.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in.",
-										"No sign of break-in here.",
-										"Not a mouse is stirring.",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, the Living Room is 10-26.",
-										"I repeat, the Living Room is A-OK.",
-										"I repeat, the Living Room is clear.",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. The Living Room is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"The Living Room is in order.",
+								"The Living Room is clear.",
+								"The Living Room is A-OK.",
+								"The Living Room is 10-26."
+							},
+							{
+								"This place has no signs of trespassing.",
+								"This place shows no sign of break-in.",
+								"This place shows no signs of trespassers.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"Everything's in order here.",
+								"Everything's clear here.",
+								"Everything's peaches and cream.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"No sign of trespassing.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in.",
+								"No sign of break-in here.",
+								"Not a mouse is stirring.",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, the Living Room is 10-26.",
+								"I repeat, the Living Room is A-OK.",
+								"I repeat, the Living Room is clear.",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b14 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. The Corridor is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"The Corridor is in order.",
-										"The Corridor is clear.",
-										"The Corridor is A-OK.",
-										"The Corridor is 10-26."
-									},
-									{
-										"Everything's in order.",
-										"Everything's in order here.",
-										"Everything's clear here.",
-										"Everything's peaches and cream.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"This place has no signs of trespassing.",
-										"This place shows no sign of break-in.",
-										"This place shows no signs of trespassers.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"Not a mouse is stirring.",
-										"No sign of trespassing.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in.",
-										"No sign of break-in here.",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, the Corridor is 10-26.",
-										"I repeat, the Corridor is A-OK.",
-										"I repeat, the Corridor is in order.",
-										"I repeat, the Corridor is clear.",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. The Corridor is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"The Corridor is in order.",
+								"The Corridor is clear.",
+								"The Corridor is A-OK.",
+								"The Corridor is 10-26."
+							},
+							{
+								"Everything's in order.",
+								"Everything's in order here.",
+								"Everything's clear here.",
+								"Everything's peaches and cream.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"This place has no signs of trespassing.",
+								"This place shows no sign of break-in.",
+								"This place shows no signs of trespassers.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"Not a mouse is stirring.",
+								"No sign of trespassing.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in.",
+								"No sign of break-in here.",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, the Corridor is 10-26.",
+								"I repeat, the Corridor is A-OK.",
+								"I repeat, the Corridor is in order.",
+								"I repeat, the Corridor is clear.",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b15 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. The Lobby is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"I'm in the Lobby. This place is A-OK.",
-										"I'm inside the Lobby.",
-										"I'm in the Lobby."
-									},
-									{
-										"Nothing suspicious here.",
-										"No sign of break-in here.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"Nothing out of the ordinary here.",
-										"This place has no signs of trespassing.",
-										"Everything's clear here.",
-										"Everything's in order.",
-										"Everything's in order here.",
-										"Everything's peaches and cream.",
-										"This place shows no sign of break-in.",
-										"This place shows no signs of trespassers.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"Not a mouse is stirring.",
-										"No sign of trespassing.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of trespassers here.",
-										"No sign of break-in.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, I'm inside the Lobby.",
-										"I repeat, the Lobby is A-OK.",
-										"I repeat, the Lobby is in order.",
-										"I repeat, the Lobby is clear.",
-										"I repeat, I'm inside the Lobby.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. The Lobby is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"I'm in the Lobby. This place is A-OK.",
+								"I'm inside the Lobby.",
+								"I'm in the Lobby."
+							},
+							{
+								"Nothing suspicious here.",
+								"No sign of break-in here.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"Nothing out of the ordinary here.",
+								"This place has no signs of trespassing.",
+								"Everything's clear here.",
+								"Everything's in order.",
+								"Everything's in order here.",
+								"Everything's peaches and cream.",
+								"This place shows no sign of break-in.",
+								"This place shows no signs of trespassers.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"Not a mouse is stirring.",
+								"No sign of trespassing.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of trespassers here.",
+								"No sign of break-in.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, I'm inside the Lobby.",
+								"I repeat, the Lobby is A-OK.",
+								"I repeat, the Lobby is in order.",
+								"I repeat, the Lobby is clear.",
+								"I repeat, I'm inside the Lobby.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b16 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. No sign of tampering with the Security Door.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"The Security Door is shut and locked.",
-										"The Security Door here is closed and sealed."
-									},
-									{
-										"No sign of trespassers here.",
-										"Nothing suspicious here.",
-										"No sign of break-in here.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"Nothing out of the ordinary here.",
-										"This place has no signs of trespassing.",
-										"Everything's fine here.",
-										"Everything's clear here.",
-										"Everything's in order.",
-										"Everything's in order here.",
-										"Everything's peaches and cream.",
-										"This place shows no sign of break-in.",
-										"This place has no signs of trespassing.",
-										"This place shows no signs of trespassers.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"Not a mouse is stirring.",
-										"No sign of trespassing.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of break-in.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, the Security Door is shut and locked.",
-										"Repeat, the Security Door here is closed and sealed.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. No sign of tampering with the Security Door.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"The Security Door is shut and locked.",
+								"The Security Door here is closed and sealed."
+							},
+							{
+								"No sign of trespassers here.",
+								"Nothing suspicious here.",
+								"No sign of break-in here.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"Nothing out of the ordinary here.",
+								"This place has no signs of trespassing.",
+								"Everything's fine here.",
+								"Everything's clear here.",
+								"Everything's in order.",
+								"Everything's in order here.",
+								"Everything's peaches and cream.",
+								"This place shows no sign of break-in.",
+								"This place has no signs of trespassing.",
+								"This place shows no signs of trespassers.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"Not a mouse is stirring.",
+								"No sign of trespassing.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of break-in.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, the Security Door is shut and locked.",
+								"Repeat, the Security Door here is closed and sealed.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b17 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. GenSec Room is clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"GenSec Room looks clear.",
-										"The Security Room is all clear."
-									},
-									{
-										"No sign of trespassers here.",
-										"Nothing suspicious here.",
-										"No sign of break-in here.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"Nothing out of the ordinary here.",
-										"Everything's fine here.",
-										"Everything's clear here.",
-										"Everything's in order.",
-										"Everything's in order here.",
-										"Everything's peaches and cream.",
-										"This place shows no sign of break-in.",
-										"This place has no signs of trespassing.",
-										"This place shows no sign of suspicious activity.",
-										"This place shows no signs of trespassers.",
-										"This place has no signs of trespassing.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"All is clear.",
-										"Not a mouse is stirring.",
-										"No sign of trespassing.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of break-in.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, the Security Room is all clear.",
-										"I repeat, the Security Room is all clear.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. GenSec Room is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"GenSec Room looks clear.",
+								"The Security Room is all clear."
+							},
+							{
+								"No sign of trespassers here.",
+								"Nothing suspicious here.",
+								"No sign of break-in here.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"Nothing out of the ordinary here.",
+								"Everything's fine here.",
+								"Everything's clear here.",
+								"Everything's in order.",
+								"Everything's in order here.",
+								"Everything's peaches and cream.",
+								"This place shows no sign of break-in.",
+								"This place has no signs of trespassing.",
+								"This place shows no sign of suspicious activity.",
+								"This place shows no signs of trespassers.",
+								"This place has no signs of trespassing.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"All is clear.",
+								"Not a mouse is stirring.",
+								"No sign of trespassing.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of break-in.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, the Security Room is all clear.",
+								"I repeat, the Security Room is all clear.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b18 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. No signs of tampering with the Camera.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Camera operational.",
-										"Camera is in order.",
-										"This place looks fine.",
-										"Camera is working.",
-										"Camera looks fine.",
-									},
-									{
-										"No sign of tampering.",
-										"",
-										""
-									},
-									{
-										"No sign of trespassers here.",
-										"Nothing suspicious here.",
-										"No sign of break-in here.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"Nothing out of the ordinary here.",
-										"Everything's fine here.",
-										"Everything's clear here.",
-										"Everything's in order.",
-										"Everything's in order here.",
-										"Everything's peaches and cream.",
-										"This place shows no sign of break-in.",
-										"This place has no signs of trespassing.",
-										"This place shows no sign of suspicious activity.",
-										"This place shows no signs of trespassers.",
-										"This place has no signs of trespassing.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"All is clear.",
-										"Clear as glass here.",
-										"Not a mouse is stirring.",
-										"No sign of trespassing.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of break-in.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"I repeat, Camera is in order.",
-										"Repeat, Camera looks fine.",
-										"Repeat, Camera operational.",
-										"This place is 10-26.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. No signs of tampering with the Camera.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Camera operational.",
+								"Camera is in order.",
+								"This place looks fine.",
+								"Camera is working.",
+								"Camera looks fine.",
+							},
+							{
+								"No sign of tampering.",
+								"",
+								""
+							},
+							{
+								"No sign of trespassers here.",
+								"Nothing suspicious here.",
+								"No sign of break-in here.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"Nothing out of the ordinary here.",
+								"Everything's fine here.",
+								"Everything's clear here.",
+								"Everything's in order.",
+								"Everything's in order here.",
+								"Everything's peaches and cream.",
+								"This place shows no sign of break-in.",
+								"This place has no signs of trespassing.",
+								"This place shows no sign of suspicious activity.",
+								"This place shows no signs of trespassers.",
+								"This place has no signs of trespassing.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"All is clear.",
+								"Clear as glass here.",
+								"Not a mouse is stirring.",
+								"No sign of trespassing.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of break-in.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"I repeat, Camera is in order.",
+								"Repeat, Camera looks fine.",
+								"Repeat, Camera operational.",
+								"This place is 10-26.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b19 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. The Staircase looks clear.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Staircase is clear."
-									},
-									{
-										"No sign of trespassers here.",
-										"Nothing suspicious here.",
-										"No sign of break-in here.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"Nothing out of the ordinary here.",
-										"Everything's fine here.",
-										"Everything's clear here.",
-										"Everything's in order.",
-										"Everything's in order here.",
-										"Everything's peaches and cream.",
-										"This place shows no sign of break-in.",
-										"This place has no signs of trespassing.",
-										"This place shows no sign of suspicious activity.",
-										"This place shows no signs of trespassers.",
-										"This place has no signs of trespassing.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"All is clear.",
-										"Not a mouse is stirring.",
-										"No sign of trespassing.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of break-in.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, Staircase is clear.",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. The Staircase looks clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Staircase is clear."
+							},
+							{
+								"No sign of trespassers here.",
+								"Nothing suspicious here.",
+								"No sign of break-in here.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"Nothing out of the ordinary here.",
+								"Everything's fine here.",
+								"Everything's clear here.",
+								"Everything's in order.",
+								"Everything's in order here.",
+								"Everything's peaches and cream.",
+								"This place shows no sign of break-in.",
+								"This place has no signs of trespassing.",
+								"This place shows no sign of suspicious activity.",
+								"This place shows no signs of trespassers.",
+								"This place has no signs of trespassing.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"All is clear.",
+								"Not a mouse is stirring.",
+								"No sign of trespassing.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of break-in.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, Staircase is clear.",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b20 = {
-					variants = {
-						cop = {
-							text = "[reporting clear Penthouse]",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"The Penthouse is clear.",
-										"Penthouse is clear."
-									},
-									{
-										"No sign of trespassers here.",
-										"Nothing suspicious here.",
-										"No sign of break-in here.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"Nothing out of the ordinary here.",
-										"Everything's fine here.",
-										"Everything's clear here.",
-										"Everything's in order.",
-										"Everything's in order here.",
-										"Everything's peaches and cream.",
-										"This place shows no sign of break-in.",
-										"This place has no signs of trespassing.",
-										"This place shows no sign of suspicious activity.",
-										"This place shows no signs of trespassers.",
-										"This place has no signs of trespassing.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"All is clear.",
-										"Not a mouse is stirring.",
-										"No sign of trespassing.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of break-in.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"Repeat, the Penthouse is clear.",
-										"Repeat, Penthouse is clear.",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. The Penthouse is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"The Penthouse is clear.",
+								"Penthouse is clear."
+							},
+							{
+								"No sign of trespassers here.",
+								"Nothing suspicious here.",
+								"No sign of break-in here.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"Nothing out of the ordinary here.",
+								"Everything's fine here.",
+								"Everything's clear here.",
+								"Everything's in order.",
+								"Everything's in order here.",
+								"Everything's peaches and cream.",
+								"This place shows no sign of break-in.",
+								"This place has no signs of trespassing.",
+								"This place shows no sign of suspicious activity.",
+								"This place shows no signs of trespassers.",
+								"This place has no signs of trespassing.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"All is clear.",
+								"Not a mouse is stirring.",
+								"No sign of trespassing.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of break-in.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"Repeat, the Penthouse is clear.",
+								"Repeat, Penthouse is clear.",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b21 = {
-					variants = {
-						cop = {
-							text = "[reporting clear Garage]",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"The Garage is clear.",
-										"Garage is clear."
-									},
-									{
-										"No sign of trespassers here.",
-										"Nothing suspicious here.",
-										"No sign of break-in here.",
-										"Nothing to report.",
-										"Nothing to report here.",
-										"Nothing unusual in this area.",
-										"Nothing out of the ordinary here.",
-										"Everything's fine here.",
-										"Everything's clear here.",
-										"Everything's in order.",
-										"Everything's in order here.",
-										"Everything's peaches and cream.",
-										"This place shows no sign of break-in.",
-										"This place has no signs of trespassing.",
-										"This place shows no sign of suspicious activity.",
-										"This place shows no signs of trespassers.",
-										"This place has no signs of trespassing.",
-										"This place is all clear.",
-										"This place is clear of trespassers.",
-										"This place is 10-26.",
-										"This place is A-OK.",
-										"All is clear.",
-										"Clear as glass here.",
-										"Not a mouse is stirring.",
-										"No sign of trespassing.",
-										"No sign of suspicious activity here.",
-										"No sign of trespassers.",
-										"No sign of break-in.",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										"" 
-									},
-									{
-										"I repeat, the Garage is clear.",
-										"Repeat, the Garage is clear.",
-										"All is clear.",
-										"",
-										"",
-										"",
-										"",
-										""
-									},
-									{
-										"Over."
-									}
-								}
+					text = "Two-Three to Control. The Garage is clear.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"The Garage is clear.",
+								"Garage is clear."
+							},
+							{
+								"No sign of trespassers here.",
+								"Nothing suspicious here.",
+								"No sign of break-in here.",
+								"Nothing to report.",
+								"Nothing to report here.",
+								"Nothing unusual in this area.",
+								"Nothing out of the ordinary here.",
+								"Everything's fine here.",
+								"Everything's clear here.",
+								"Everything's in order.",
+								"Everything's in order here.",
+								"Everything's peaches and cream.",
+								"This place shows no sign of break-in.",
+								"This place has no signs of trespassing.",
+								"This place shows no sign of suspicious activity.",
+								"This place shows no signs of trespassers.",
+								"This place has no signs of trespassing.",
+								"This place is all clear.",
+								"This place is clear of trespassers.",
+								"This place is 10-26.",
+								"This place is A-OK.",
+								"All is clear.",
+								"Clear as glass here.",
+								"Not a mouse is stirring.",
+								"No sign of trespassing.",
+								"No sign of suspicious activity here.",
+								"No sign of trespassers.",
+								"No sign of break-in.",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"",
+								"" 
+							},
+							{
+								"I repeat, the Garage is clear.",
+								"Repeat, the Garage is clear.",
+								"All is clear.",
+								"",
+								"",
+								"",
+								"",
+								""
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b22 = {
-					variants = {
-						cop = {
-							text = "Two-Three to Control. Proceeding with search.",
-							line_variations = {
-								any_mode = {
-									"I'll move on.",
-									"Heading on.",
-									"Moving on.",
-									"Movin' on.",
-									"Onto the next."
-								}
-							}
+					text = "Two-Three to Control. Proceeding with search.",
+					duration = 3,
+					line_variations = {
+						any_mode = {
+							"I'll move on.",
+							"Heading on.",
+							"Moving on.",
+							"Movin' on.",
+							"Onto the next."
 						}
 					}
 				},
 				l2n_b23 = {
-					variants = {
-						cop = {
-							text = "This is Two-Three. Can you buzz me in? Over.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"Can you buzz me in?",
-										"Open sesame!",
-										"Buzz me in to the lobby, please.",
-										"Can one of you guys buzz me in? Thanks."
-									},
-									{
-										"Over."
-									}
-								}
+					text = "This is Two-Three. Can you buzz me in? Over.",
+					duration = 7,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Can you buzz me in?",
+								"Open sesame!",
+								"Buzz me in to the lobby, please.",
+								"Can one of you guys buzz me in? Thanks."
+							},
+							{
+								"Over."
 							}
 						}
 					}
 				},
 				l2n_b24 = {
-					variants = {
-						cop = {
-							text = "This is Two-Three. Sweep finished, all is clear. Over and out.",
-							line_variations = {
-								recombinable = true,
-								any_mode = {
-									{
-										"Two-Three to Control.",
-										"Two-Three to Dispatch.",
-										"Two-Three reporting.",
-										"Two-Three here, reporting in.",
-										"This is Two-Three, reporting in.",
-										"Report.",
-										"Reporting in.",
-										"This is Two-Three."
-									},
-									{
-										"My gut feeling says no-one's breaking into this place. [chuckles] My gut feeling's never wrong.",
-										"This place is clear all over.",
-										"This place is clear, inside and outside.",
-										"This place is clear, from top to bottom.",
-										"This place is clear, through and through.",
-										"To be honest, I don't even know why we bother to do patrols 'round here.",
-										"This entire place is tip-top.",
-										"This entire place is in mint condition."
-									},
-									{
-										"[exhales] I'm heading back.",
-										"[relieved sigh] I'm outta here!",
-										"I'm off!",
+					text = "This is Two-Three. Sweep finished, all is clear. Over and out.",
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"My gut feeling says no-one's breaking into this place. [chuckles] My gut feeling's never wrong.",
+								"This place is clear all over.",
+								"This place is clear, inside and outside.",
+								"This place is clear, from top to bottom.",
+								"This place is clear, through and through.",
+								"To be honest, I don't even know why we bother to do patrols 'round here.",
+								"This entire place is tip-top.",
+								"This entire place is in mint condition."
+							},
+							{
+								"[exhales] I'm heading back.",
+								"[relieved sigh] I'm outta here!",
+								"I'm off!",
 --										"I'm heading back to my bed.",
-										"I'm heading back to station.",
-										"Heading back to station.",
-										"I'm headin' home.",
-										"This place is dead anyways.",
-										"I'm heading back to GenSec.",
-										"Heading back to the GenSec station."
-									},
-									{
-										"Ooover'n'out.",
-										"Over and out.",
-										"Over... and... out!",
-										"Over and out!"
-									}
-								}
+								"I'm heading back to station.",
+								"Heading back to station.",
+								"I'm headin' home.",
+								"This place is dead anyways.",
+								"I'm heading back to GenSec.",
+								"Heading back to the GenSec station."
+							},
+							{
+								"Ooover'n'out.",
+								"Over and out.",
+								"Over... and... out!",
+								"Over and out!"
 							}
 						}
 					}
 				},
 				l2n_i02 = {
-					variants = {
-						cop = {
-							line_variations = {
-								text = "attempting arrest",
-								any_mode = {
-									"Hold still!",
-									"No sudden movements!",
-									"NO SUDDEN MOVEMENT.",
-									"Don't move a muscle!",
-									"DON'T MOVE A MUSCLE!",
-									"Don't even breathe!",
-									"No sudden moves!",
-									"NO SUDDEN MOVES!",
-									"STAY WHERE YOU ARE!",
-									"Don't even look at me!"
-								}
-							}
+					text = "attempting arrest",
+					duration = 10,
+					line_variations = {
+						any_mode = {
+							"Hold still!",
+							"No sudden movements!",
+							"NO SUDDEN MOVEMENT.",
+							"Don't move a muscle!",
+							"DON'T MOVE A MUSCLE!",
+							"Don't even breathe!",
+							"No sudden moves!",
+							"NO SUDDEN MOVES!",
+							"STAY WHERE YOU ARE!",
+							"Don't even look at me!"
 						}
 					}
 				},
@@ -7936,6 +8181,7 @@ ClosedCaptions._sounds = {
 				l3n_civ = {
 					variants = {
 						cop = {
+--							duration = 5,
 							text = "Rescue the hostages",
 							priority = 5,
 							line_variations = {
@@ -8173,10 +8419,60 @@ ClosedCaptions._sounds = {
 					text = "Somebody order a Medic?"
 				},
 				rmdc_entrance = {
-					text = "rmedic entrance ???"
+					text = "[enters in Russian]" --haha i am funni 
+				},
+				bdz_entrance = {
+					text = "Bulldozer spawn",
+					line_variations = {
+						any_mode = {
+							"WHO WANTS A PIECE OF ME?",
+							"GONNA BREAK SOME SHIT!",
+--							"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
+							"GET. OUT. OF. THE. WAY!",
+							"DOZER'S HERE, AND READY FOR ACTION!",
+							"CLOBBERIN' TIME!",
+							"MAKE WAY FOR THE BULLDOZER!",
+							"STAND BACK!",
+							"OKAY, I'M HERE... WHO WANTS TO DIE?!"
+						},
+						assault_mode = {
+							"BULLDOZER! GET OUT OF THE WAY!",
+							"BULLDOZER! MOVE ASIDE!",
+							"BULLDOZER! MAKE WAY!",
+							"BULLDOZER GOIN' IN!",
+							"BULLDOZER TIME!",
+							"SHOW ME WHERE THEY ARE!",
+							"BULLDOZER, COMING THROUGH!",
+							"BULLDOZER IN THE HOUSE!",
+							"DOZER IN THE HOUSE!",
+							"DOZER! MOVE ASIDE!",
+							"DOZER! STAND BACK!",
+							"DOZER! STAY BACK!",
+							"DOZER! GET OUT OF THE WAY!",
+							"STAY BACK!",
+							"STAND BACK!",
+							"GOING TO WORK!",
+							"GIVE ME SOME TIME TO WORK!", --unsure
+							"ALRIGHT, WHERE ARE THEY?!",
+							"ALRIGHT! WATCH... AND LEARN!",
+							"ASS-KICKIN' TIME!",
+							"MAKE WAY FOR THE DOZER!",
+							"MAKE WAY FOR THE BULLDOZER!",
+							"MOVE ASIDE! I GOT THIS!",
+							"TIME FOR SOME PAYBACK!",
+							"WHO WANTS A PIECE OF ME?!",
+							"WHERE ARE YOU?!",
+							"MOVE ASIDE!",
+							"I GOT THIS!",
+							"COME ON OUT WHEREVER YOU ARE!",
+							"SHOW ME WHERE THEY ARE!",
+							"OKAY, I'M HERE! WHO WANTS TO DIE?!"							
+						}
+					}
 				},
 				entrance_elite = {
-					text = "ELITE BULLDOZER, COMING THROUGH!"
+					text = "ELITE BULLDOZER, COMING THROUGH!", --not sure what this is?
+					disabled = true
 				},
 				cpa_a02_01 = {
 					override_name = "[megaphone cop]",
@@ -8208,23 +8504,109 @@ ClosedCaptions._sounds = {
 				},
 				cpa_a04_01 = {
 					override_name = "[megaphone cop]",
-					text = "Turret's arrived!"
+					text = "Turret's arrived!",
+					line_variations = {
+						any_mode = {
+							"Guys, let the Turret cut them down!",
+							"Turret is here! Time to change the game!",
+							"It's the Turret!",
+							"And now we have an Armored Turret!",
+							"Turret got here!",
+							"Turret is here! Advantage is ours now!",
+							"The Turret arrived!",
+							"Guys, the Turret's arrived!",
+							"Here's the Turret!",
+							"The Turret is here, and bringing the pain!"
+						}
+					}
 				},
 				cpw_a01 = {
-					override_name = "[megaphone cop]",
-					text = "(winters noise???)"
+					override_name = "Captain Winters",
+					text = "Contact!",
+					line_variations = {
+						any_mode = {
+							"Target in sight!",
+							"Target ahead!",
+							"Target spotted!",
+							"Targets confirmed!",
+							"There! The PAYDAY Gang!",
+							"That's a confirmed sighting!",
+							"That's them, all right!",
+							"They won't escape this time!",
+							"They're in the AO!",
+							"Eyes on contact!",
+							"Got eyes on contact!",
+							"Contact made!",
+							"Green light to engage!",
+							"Contact made, I repeat, contact is made!",
+							"Confirmed contact, I repeat, confirmed contact!",
+							"Positive ID!",
+							"Positive contact!",
+							"ID made! It's them!",
+							"I got visual on the targets!"
+						}
+					}
 				},
 				cpw_a02 = {
-					override_name = "[megaphone cop]",
-					text = "(winters noise 2???)"
+					override_name = "Captain Winters",
+					text = "Criminal down!",
+					line_variations = {
+						any_mode = {
+							"I got the robber.",
+							"Robber's down!",
+							"Justice served.",
+							"I knew we'd get them.",
+							"Commissioner... we got one.",
+							"Target down!",
+							"No-one cheats justice for long.",
+							"You got what you deserved.",
+							"That's one of the PAYDAY Gang down!",
+							
+	--							"I thought you'd be tougher.", --not sure
+							
+							"You're just a footnote in history.",
+							"Let that be a lesson.",
+							"One down.",
+							"I expected more resistance.",
+							"I expected a tougher fight.",
+							"It always ends the same.",
+						}
+					}
 				},
 				cpw_a04 = {
-					override_name = "[megaphone cop]",
-					text = "(Winters retreat)"
+					override_name = "Captain Winters",
+					text = "Retreat!",
+					line_variations = {
+						any_mode = {
+							"Retreating! Cover me!",
+							"Don't break! Ease back.",
+							"Back! Fall back!",
+							"I'm falling back!",
+							"Pulling back!",
+							"Pull back!",
+							"Tactical withdrawal!"
+						}
+					}
 				},
 				cpw_a05 = {
-					override_name = "[megaphone cop]",
-					text = "(Winters battle cry)"
+					override_name = "Captain Winters",
+					text = "Taking fire!",
+					line_variations = {
+						any_mode = {
+							"All elements, close your profile!",
+							"You guys trained for this!",
+							"Tactical advance, watch your angles!",
+							"Move in cover! Move in cover!",
+							"Close the formation!",
+							"Stay with your unit!",
+							"Watch their fire!",
+							"Watch your spacing!",
+							"Tactical spacing!",
+							"Tactical awareness at all times!",
+							"Support your unit!",
+							"I want to hear you men communicate!"
+						}
+					}
 				},
 				hr01 = {
 					text = "[hurt]",
@@ -10057,6 +10439,603 @@ ClosedCaptions._sounds = {
 							"READY OR NOT, HERE I COME!"
 						}
 					}
+				},
+			--first world bank
+				Play_ism_fwb_01 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "You need to find another code. We can't use mine, or they'll know it was me.",
+					line_variations = {
+						any_mode = {
+							"Uhhh, is this thing on? [pause] I can get you through the gates, but only after you find a four-digit keycode. We can't use mine, or they'll know it was me.",
+							"Hello? [pause] I can open the gates, but we can't go using my code on the keypad. You need to find another.",
+							"Can you hear me? [pause] The gates require a keycode. Can't use mine, or I'm dead, so you need to find a four-digit code."
+						}
+					}
+				},
+				Play_ism_fwb_02 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Coming from Floor 2, heading to the gates. See you there." --no variations
+				},
+				Play_ism_fwb_03 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[to guards] My clients are ready to enter the vault. You're not needed here right now. Go for a walk, or something.",
+					line_variations = {
+						any_mode = {
+							"[to guards] The manager asked me to tell you to do the rounds. I'll be here for a while. Go on, now.",
+							"[to guards] My clients are ready to enter the vault. You're not needed here right now. Go for a walk, or something.",							
+							"[to guards] You guys can take a smoke break, or grab a coffee. I'll be here for a while."
+						}
+					}
+				},
+				Play_ism_fwb_04 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "I'm waiting at the gates! Hurry up!",
+					line_variations = {
+						any_mode = {
+							"The guards are gone. Get to the gates!",
+							"[impatiently] I'm waiting at the gates! Hurry up!",
+							"Get over to the gates. Let's get this done.",
+							"Right, the gates are clear. Get over here!",
+							"Okay, I'm at the gates. Meet me there.",
+							"Ready whenever you are. I'm at the gates.",
+							"Hey, I'm at the gates. Get over here!"
+						}
+					}
+				},
+				Play_ism_fwb_05 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "The vault is just beyond here. You got that code?",
+					line_variations = {
+						any_mode = {
+							"Okay, the code will open these gates. The vault is on the other side.",
+							"The gates protect the vault area. You have the code, right?",
+							"The vault is just beyond here. You got that code?"
+						}
+					}
+				},
+				Play_ism_fwb_06 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Looks good.", --opened the gate
+					line_variations = {
+						any_mode = {
+							"It's an older code, but it checks out.",
+							"So far so good!",
+							"Looks good."
+						}
+					}
+				},
+				Play_ism_fwb_07 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Looks good.", --opened the gate
+					line_variations = {
+						any_mode = {
+							"You're through. But I saw nothing, right?",
+							"Okay. Time to get to the front, and act normal.",
+							"It's open. And I didn't see anything.",
+						}
+					}
+				},
+				Play_ism_fwb_08 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "You guys all done? Alright. Follow me.",
+					line_variations = {
+						any_mode = {
+							"You guys all done? Alright. Follow me.",
+							"Right. Follow me and I'll get you out. Hope you got what you wanted.",
+							"So, that's it? You got what you came for? C'mon, follow me."
+						}
+					}
+				},
+				Play_ism_fwb_09 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "I guess that you... wait, wait, tell me nothing. I'm just an innocent bystander. This way.",
+					line_variations = {
+						any_mode = {
+							"[whisper] You got it? Nevermind, I don't want to know. Just... follow me.",
+							"I guess that you... wait, wait, tell me nothing. I'm just an innocent bystander. This way.",
+							"So did you... uhh, better not tell me. Less I know, you know? [pause] C'mon."
+						}
+					}
+				},
+				Play_ism_fwb_10 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Alright. Head through the opposite office, and head down. C'mon, get out of here!",
+					line_variations = {
+						any_mode = {
+							"Through here. Through the next office, and work your way down. Good luck.",
+							"Just head through here, and pass through the office on the other side. Make your way down to the basement. Hurry!",
+							"Alright. Head through the opposite office, and head down. C'mon, get out of here!"
+						}
+					}
+				},
+				Play_ism_fwb_11 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "What?! Oh, come on! I'm out of here!",
+					line_variations = {
+						any_mode = {
+							"What the fuck! We didn't even get close...",
+							"I- I didn't agree to this! And I'm out of here!",
+							"What?! Oh, come on! I'm out of here!",
+							
+						}
+					}
+				},
+				Play_ism_fwb_12 = {
+					override_name = "Insider",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "We were close, but... time to bail. [pause] I still get my cut, right?",
+					line_variations = {
+						any_mode = {
+							"We were close, but... time to bail. [pause] I still get my cut, right?",
+							"We got pretty far, but... I gotta scram. [pause] You guys give me my cut later, right?"
+						}
+					}
+				},
+			--framing frame
+				--day 2
+				Play_dlr_framing_stage2_01 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] Good day. [pause] Uh, we're pleased to negotiate with you, but... you're gonna do it our way, or not at all."
+				},
+				Play_dlr_framing_stage2_02 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] Put all the paintings on the table in the train car. Stand by for my contact."
+				},
+				Play_dlr_framing_stage2_03 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] Nine paintings! Excellent."
+				},
+				Play_dlr_framing_stage2_04 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] We count eight paintings! Very, very good."
+				},
+				Play_dlr_framing_stage2_05 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] We count seven paintings. Good, good."
+				},
+				Play_dlr_framing_stage2_06 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] So that's six paintings. Good."
+				},
+				Play_dlr_framing_stage2_07 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] Okay, we got five paintings here. Good."
+				},
+				Play_dlr_framing_stage2_08 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] Four paintings... that's, uh, not much, but we'll take it."
+				},
+				Play_dlr_framing_stage2_09 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] Great. Now, our client, he prefers not to take any chances when it comes to things of a 'legally questionable' nature. So, if you could just all get into the train car... thank you."
+				},
+				Play_dlr_framing_stage2_10 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] It's not that we don't trust you. We just need to be sure that nothing... untoward... would happen."
+				},
+				Play_dlr_framing_stage2_11 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] This is purely a safety precaution."
+				},
+				Play_dlr_framing_stage2_12 = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "[over phone] Alright. Our dealer is here. Hold on for a second."
+				},
+				Play_ph1_trade1_loud = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Okay! Throw me the paintings, and you'll get your money!"
+				},
+				Play_ph1_trade2_loud = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Alright! Throw me the bags, and you'll get your money!",
+					line_variations = {
+						any_mode = {
+							"Alright! Throw me the bags, and you'll get your money!",
+							"Okay! Throw me the bags, and you get the delivery!",
+							"Okay! Let's trade!"
+						}
+					}
+				},
+				Play_ph1_trade3_loud = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "You deliver, then I deliver!",
+					line_variations = {
+						any_mode = {
+							"You deliver, then I deliver!",
+							"Get the bags to me!",
+							"Throw me the bags!",
+							
+						}
+					}
+				},
+				Play_ph1_trade4_loud = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "C'mon, already! We need more bags!",
+					line_variations = {
+						any_mode = {
+							"We're wasting our time! This is less than we agreed on!",
+							"C'mon, already! We need more bags!",
+							"C'mon! We need more than that!"
+						}
+					}
+				},
+				Play_ph1_trade5_loud = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Great! Money's coming down!",
+					line_variations = {
+						any_mode = {
+							"Great! Money's coming down!",
+							"Great! We got it!",
+							"Thanks! Here's your cash!"							
+						}
+					}
+				},
+				Play_ph1_trade6_loud = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Doors are open for you! Me, I'm leaving!"
+				},
+				Play_ph1_trade7_loud = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Oh, SHIT! This wasn't the deal! We are OUTTA HERE!",
+					line_variations = {
+						any_mode = {
+							"Oh, SHIT! This wasn't the deal! We are OUTTA HERE!",
+							"Ah, SHIT! This wasn't the deal! We're outta here!"
+						}
+					}
+				}, 
+				--8 doesn't exist
+				Play_ph1_trade9_loud = {
+					override_name = "Art Buyer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "That's everything! Nice doing business with you, gentlemen!"
+				},
+				
+--hoxton breakout
+
+				Play_rb5_hb1_01 = {
+					override_name = "Hoxton",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Fuck me, talk about making an entrance!",
+					duration = 7,
+					line_variations = {
+						any_mode = {
+							"Ye bloody wankers, you took your time, didn't ya?",
+							"Fuck me, talk about making an entrance!",
+							"Well, fuck me sideways! It's the motherfucking PAYDAY Gang!",
+							"Yes! YES! Now it's time to see helmets flying!",
+							"I recognize the two of you. But where's my old fucking mask!",
+							"Fuck, that was some explosion!",
+							"Fuck me, me ears are bollocksed! Was that C4 or a demolition charge?!",
+							"To quote Churchill: 'Fuckin' 'ell, that was loud!'"
+						}
+					}
+				},
+				Play_rb5_hb1_02 = {
+					override_name = "Hoxton",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Bollocks to the Safehouse! We're going somewhere else- trust me.",
+					duration = 5,
+					line_variations = {
+						any_mode = {
+							"Bollocks to the Safehouse! We're going somewhere else- trust me.",
+							"Dunno what Bain was thinking, but we're making a detour. I've got something in mind.",
+							"Nevermind the sodding Safehouse. I've got a plan, and you lads want to help me, RIGHT?"
+						}
+					}
+				},
+				Play_rb5_hb1_03 = {
+					override_name = "Hoxton",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Some Judas fuck sold me- I know they did. But who?!",
+					duration = 7,
+					line_variations = {
+						any_mode = {
+							"I'm sure someone betrayed me. It had to be an informer. But who?!",
+							"I was set up, lads, I know it. Someone ratted me out.",
+							"Someone ratted me out, and I know it wasn't Matt, because I know all of his secrets by now.",
+							"Some fucking cunt snitched! I need to find out who!",
+							"Some twat sold me to the feds, fellas, I'm sure of it!",
+							"There's a traitor! Close to the group- or INS it! I know there is.",
+							"Some shitbag ratted on me! Don't know who, but I'm sure.",
+							"I know I was betrayed. I'll FIND who fucking did it."							
+						}
+					}
+				},
+				Play_rb5_hb1_04 = {
+					override_name = "Hoxton",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "I said, IT'S FUCKING PAYDAY MOTHERFU-",
+					duration = 15,
+					line_variations = {
+						any_mode = {
+							"Well, well, well. So who's the fourth musketeer? This wanker's your little brother, Dallas?",
+							"Wolf- what you did with that Bulldozer back there was a bit... I think you need help, mate.",
+							"I dunno how many times I've saved your life, Chains, and this is how you repay me? You could get me a limo, at the very fuckin' least.",
+							"Dallas, your little brother should give my name back, and call himself 'Houston!'",
+							"Dallas, I thought we were pals! Does a pal leave his BFF in jail? Wanker!",
+							"At least in the nick I didn't have Bain yapping in my ear like a lil' needy dog! 'Get the drill,' my arse!",
+							"Couldn't get a proper brew in that place- all 'green tea' and 'earl grey' bollocks. Where's the GOLD?!",
+							"Fuckin 'ell lads. Think about going straight! You don't want to be around Hazelton on Thursdays. Two words: fucking kinky night.",
+							"John motherfuckin' Wick! Didn't think I'd see your face again.",
+							"You call yourself 'Hoxton,' right? More like 'Houston'- cause you've just got a fuckin' problem!",
+							"Well, fuck me sideways, if it isn't John Wick! I thought you'd got out...? How's the family? ...what, did I say something bad?",
+							"Ah, I'll miss the sleight I left behind. Mickey the Squid, Dirty Alan, heh, Fish Fingers- good lads.",
+							"Someone remind me to send some ciggies back to the sleight in Hazelton- and a cake of shite for the guards. Wankers!",
+							"Admit it- you tossers missed my beautiful English accent, didn't you? [mockingly] Did you? Wankers!",
+							"So, what'd I miss while I was away?",
+							"Chains, I thought I could count on you! Wanker!",
+							"Second, I want a proper bath! Third, a beer! Fourth- the cathouse! But first- well, keep driving!",
+							"I'm gonna missing givin' that arsehole Roscoe a sound thrashing! Hey, maybe we could break him out, too!",
+							"Glad to be out of that shit hole. Fuckin' Hazelton. No place for a proper English gentleman, you know?",
+							"Feels good to be outside. The fresh air, the birds... the bullets and explosions, and all that shite.",
+							"I'm not gonna miss that prison food, I'll tell you that much. Shite on a fucking shingle!", 
+							"Wolf- you've been barking up the wrong tree for years! And NOW you find me!",
+							"Did me first dint at Strangeways... just got me last. I'm not going back, lads.",
+							"How's Sheffield Wednesday doing? All we got in there was news about HOCKEY. Fucking girls' game, that is.",
+							"Dallas? Where the fuck were YOU? I was waiting like a princess in a goddamn tower!"
+						}
+					}
+				},
+				Play_rb5_hb1_05 = {
+					override_name = "Hoxton",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "I said, IT'S FUCKING PAYDAY MOTHERFU-"
+				},
+				Play_dr1_hb1_01 = {
+					override_name = "Twitch",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Gotcha! Movin'!",
+					duration = 3,
+					line_variations = {
+						any_mode = {
+							"Here we go!",
+							"Gotcha! Movin'!",
+							"Okay, okay, I'm on it!",
+							"It took you long enough! Let's go!"
+						}
+					}
+				},
+				Play_dr1_hb1_02 = {
+					override_name = "Twitch",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Can you guys move that?!",
+					duration = 3,
+					line_variations = {
+						any_mode = {
+							"God DAMMIT! Can you guys move that?!",
+							"Can't move forward! What do we do?",
+							"What the hell?! A little help?!"							
+						}
+					}
+				},
+				Play_dr1_hb1_03 = { --unused afaik
+					override_name = "Twitch",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Keep 'em offa me!",
+					duration = 6,
+					line_variations = {
+						any_mode = {
+							"You gotta keep 'em offa me, goddammit!",
+							"They're shootin' me up over here!",
+							"I told you to fuckin' PROTECT ME! I'm gettin' fired at, here!"
+						}
+					}
+				},
+				Play_dr1_hb1_04 = {
+					override_name = "Twitch",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Get this gate open!",
+					duration = 4,
+					line_variations = {
+						any_mode = {
+							"[impatient] Get this SHIT open!",
+							"Hey! Get this gate open!",
+							"Hurry and open the gate!"
+						}
+					}
+				},
+				Play_dr1_hb1_05 = {
+					override_name = "Twitch",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Get these bollards OUTTA MY WAY!",
+					duration = 4,
+					line_variations = {
+						any_mode = {
+							"Shit, bollards are up?! Fix it!",
+							"Get these bollards OUTTA MY WAY!",
+							"We gotta clear these bollards! And be 'we,' I mean 'you!' and by 'you,' I mean 'HEY, ASSHOLES!'"
+						}
+					}
+				},
+				Play_dr1_hb1_06 = {
+					override_name = "Twitch",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Get him in the back!",
+					duration = 3,
+					line_variations = {
+						any_mode = {
+							"Get him in the back!",
+							"C'MON, GET HIM IN!",
+							"I'm here, get him in!",
+							
+						}
+					}
+				},
+				Play_dr1_hb1_07 = {
+					override_name = "Twitch",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Cops ahead!",
+					duration = 3,
+					line_variations = {
+						any_mode = {
+							"Christ! We got cops!",
+							"[exasperated] Fucking cops!",
+							"Cops ahead!"
+						}
+					}
+				},
+				Play_dr1_hb1_08 = {
+					override_name = "Twitch",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "Keepin' my foot off the gas. Make sure you guys keep the road safe and clear.",
+					duration = 6,
+					line_variations = {
+						any_mode = {
+							"Gonna keep it slow, so you guys with the guns can stay with me.",
+							"Keepin' my foot off the gas. Make sure you guys keep the road safe and clear.",
+							"We'll move at your pace. Just keep the road clear of cops!",
+							
+						}
+					}
+				},
+				
+			--rats (day 2)
+				--some of these aren't used, i think, but may as well
+				ict1_tra = {
+					text = "'ey, yo, what up. Aight, here's the deal. Put the stuff in the car, THEN we'll give you what you're after.",
+					duration = 7,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Yo, sup homes.",
+								"Yo, yo, YO, what's up?",
+								"Ay, yo, what up?",
+								"Ay, yo."
+							},
+							{
+								"Yo, listen here.",
+								"Aight, check it out, here's what I want you to do:",
+								"Aight, check it, this is what the deal is:",
+								"This is the deal, right here:"
+							},
+							{
+								"Put the delivery in the car...",
+								"Put the stuff in the car.",
+								"Put the wares in the car.",
+								"Put the product in the car"
+							},
+							{
+								"Then, we'll trade.",
+								"Then, you get what you came here for. Aight?",
+								"Then, when it's done, we'll give you what you want.",
+								"THEN, we'll give you what you came here for."
+							}
+						}
+					}
+				},
+				ict2_tra = {
+					text = "Put the bags in the pickup truck, and we'll do the trade.",
+					duration = 5,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Hey, let's skip the formalities.",
+								"Hey, yo!",
+								"Sup, homes."
+							},
+							{
+								"Here's what I want you to do:",
+								"Here's the deal:",
+								"Listen here:"
+							},
+							{
+								"Put the stuff in the car,",
+								"Put the wares in the car,",
+								"Put the delivery in the car...",
+								"Put the product in the car,"
+							},
+							{
+								"then we'll trade.",
+								"when it's done, we'll give you what you want.",
+								"and you'll get what you came here for.",
+								"and we'll give you what you're after."
+							}
+						}
+					}
+				},
+				ict2_lsc = {
+					text = "Hey, yo! You got no business here, this is OUR place!",
+					duration = 5,
+					line_variations = {
+						any_mode = {
+							"Hey, man! The deal ain't here! Turn around! This place is ours!",
+							"Hey! The deal's not goin' down in here! So get lost.",
+							"Hey, yo! You got no business here, this is OUR place!",
+							"[chuckles] Oho, no! You ain't comin' in here! Nah, nah. We do our deals outside."
+						}
+					}
+				},
+				ict2_lsc_2 = {
+					text = "My associate is ready for you. Just go to the apartment to make the deal.",
+					duration = 5
+				},
+				ict2_lsc_3 = {
+					text = "We got your money right here. The info is in the safe. I'll open it! No funny shit, or you die.",
+					duration = 5
+				},
+				ict2_lsc_4 = {
+					text = "Head up to the apartment. My associate has the info, and the cash to pay for the extra meth.",
+					duration = 5
+				},
+				ict2_lsc_5 = {
+					text = "Yo! The info is in the safe. I'll open it for you!",
+					duration = 5
+				},
+				Play_ga2_rats_stage2_01 = {
+					text = "They're trying to fuck with us! Take 'em down!",
+					duration = 4
+				},
+				Play_ga2_rats_stage2_02 = {
+					text = "NOW! Hit these bastards!",
+					duration = 3
+				},
+				Play_ga2_rats_stage2_03 = {
+					text = "Shit! What was the code for the safe? We need to burn those files!",
+				},
+				Play_ga2_rats_stage2_04 = {
+					text = "Hey, man, the deal ain't here! Turn around! This place is ours!", --thanks rex, i could not decipher this line for the life of me
+					duration = 4
+				},
+				Play_ga2_rats_stage2_05 = {
+					text = "Man, we got your money right here. The info is in the safe. I'll open it! No funny shit, or you die.",
+					duration = 7
+				},
+				Play_ga2_rats_stage2_06 = {
+					text = "Yo! The info is in the safe. I'll get it open for you.",
+					duration = 5
 				}
 			}
 		}
