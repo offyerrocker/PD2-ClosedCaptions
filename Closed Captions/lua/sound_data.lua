@@ -1,5 +1,4 @@
 ClosedCaptions._sounds = {
-	--return {
 	languages = {
 		english = {
 			vo_special = {

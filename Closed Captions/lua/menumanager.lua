@@ -8,16 +8,18 @@
 * update process_special_vo() for line variations
 	* implement apply_macro() as iterable functor 
 
-* todo layer custom user settings over sound_data
-	* todo documented custom template for those things
-
-* teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
-* figure out how long alarm museum slow fade is or whatever it's called
-* element: whistle
-* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
-* goat sfx do not play in goat sim day 1; todo figure out where they're playing from
+	* todo generic text descriptions for each line
+	* todo layer custom user settings over sound_data
+		* todo documented custom template for those things
+		
+ISSUES
+	* "element" may appear as the source name, since some lines do not/should not have override_names "element: whistle"
+	* teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
+	* figure out how long alarm museum slow fade is or whatever it's called
+	* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
+	* goat sfx do not play in goat sim day 1; todo figure out where they're playing from
 	
-known issues:
+	
 	cloaker static persists for 1000 seconds only, and MIGHT be interrupted by any other cloaker line, and is not interrupted by death
 	some captions for sounds that are played via mission core ElementPlaySound may cut off prematurely
 	Taxman lines may cut off prematurely (reason unknown)
@@ -171,7 +173,7 @@ ClosedCaptions.unit_names = {
 	city_swat = "Murkywater",
 	gangster = "Gangster",
 	biker = "Biker",
-	biker_escape = "Biker2",
+	biker_escape = "Biker",
 	mobster = "Mobster",
 	mobster_boss = "Mobster Boss",
 	biker_boss = "Biker Boss",
@@ -338,7 +340,7 @@ function ClosedCaptions:LoadSounds(skip_processing)
 		self:log("Closed Captions: Reading " .. self._sound_data_filename .. " override from user save")
 		dofile(SavePath .. self._sound_data_filename)
 	else
-		dofile(self._mod_path .. self._sound_data_filename)
+		dofile(self._mod_path .. "lua/" .. self._sound_data_filename)
 	end	
 	if not skip_processing then 
 		self:process_special_vo()

@@ -10,35 +10,35 @@
 	"hooks" : [
 		{
 			"hook_id" : "lib/managers/menumanager",
-			"script_path" : "menumanager.lua"
+			"script_path" : "lua/menumanager.lua"
 		},
 		{
 			"hook_id" : "lib/managers/dialogmanager",
-			"script_path" : "dialogmanager.lua"
+			"script_path" : "lua/dialogmanager.lua"
 		},
 		{
 			"hook_id" : "core/lib/managers/mission/coreelementplaysound",
-			"script_path" : "coreelementplaysound.lua"
+			"script_path" : "lua/coreelementplaysound.lua"
 		},
 		{
 			"hook_id" : "lib/network/handlers/unitnetworkhandler",
-			"script_path" : "unitnetworkhandler.lua"
+			"script_path" : "lua/unitnetworkhandler.lua"
 		},
 		{
 			"hook_id" : "lib/units/weapons/trip_mine/tripminebase",
-			"script_path" : "tripminebase.lua"
+			"script_path" : "lua/tripminebase.lua"
 		},
 		{
 			"hook_id" : "lib/units/beings/player/playersound",
-			"script_path" : "playersound.lua"
+			"script_path" : "lua/playersound.lua"
 		},
 		{
 			"hook_id" : "lib/units/enemies/cop/copsound",
-			"script_path" : "copsound.lua"
+			"script_path" : "lua/copsound.lua"
 		},
 		{
 			"hook_id" : "lib/units/weapons/grenades/quickflashgrenade",
-			"script_path" : "quickflashgrenade.lua"
+			"script_path" : "lua/quickflashgrenade.lua"
 		}
 	]
 }

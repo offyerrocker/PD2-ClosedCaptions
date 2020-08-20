@@ -9,7 +9,7 @@ function ElementPlaySound:_play_sound(...)
 	if _G.ClosedCaptions then 
 		local source_id = tostring(self._source)
 		local source = nil -- = self._source --not used for this; we want to use a custom position instead
-		local variant = "element" --indicates that the sound is playing from an element
+		local variant = ""
 		local prefix = ""
 		local expire_t = Application:time() + 60 --this sound does not give expire_t or duration naturally; instead, it supplies a callback for when the sound ends, so let's rely on that
 		_G.ClosedCaptions:add_line(self._values.sound_event,source,source_id,variant,prefix,expire_t,self._values.position)
