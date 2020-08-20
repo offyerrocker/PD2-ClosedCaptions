@@ -54,6 +54,33 @@ ClosedCaptions._sounds = {
 					duration = 1,
 					category = "sfx"
 				},
+				radio = {
+					override_name = "SFX",
+					text = "(radio plays)",
+					category = "sfx"
+				},
+				ammo_bag_drop = {
+					override_name = "SFX",
+					text = "(bag placed)",
+					category = "sfx"
+				},
+				door_wooden_kicked_in = {
+					override_name = "SFX",
+					text = "(door kicked open)",
+					category = "sfx"
+				},
+				metal_door_knock = {
+					override_name = "SFX",
+					text = "(door knocking)",
+					override_source_id = "metal_door",
+					category = "sfx"
+				},
+				metal_door_open = {
+					override_name = "SFX",
+					text = "(door opens)",
+					override_source_id = "metal_door",
+					category = "sfx"
+				},
 				wp_hur_pick_up = {
 					override_name = "SFX",
 					text = "picked up Throwing Axe",
@@ -78,7 +105,7 @@ ClosedCaptions._sounds = {
 				trip_mine_sensor_alarm = {
 					override_name = "SFX",
 					category = "sfx",
-					duration = 1,
+					duration = 2,
 					text = "[Trip mine sensor triggered]"
 				},
 				trip_mine_explode = {
@@ -127,6 +154,18 @@ ClosedCaptions._sounds = {
 				toilet_flush = {
 					override_name = "SFX",
 					text = "(toilet flushing)",
+					category = "sfx"
+				},
+				hand_dryer_on = {
+					override_name = "SFX",
+					override_source_id = "handdryer",
+					text = "(hand dryer whirring)",
+					category = "sfx"
+				},
+				hand_dryer_off = {
+					override_name = "SFX",
+					override_source_id = "handdryer",
+					text = "(hand dryer deactivates)",
 					category = "sfx"
 				},
 				fire_sprinkler_start = {
@@ -186,6 +225,12 @@ ClosedCaptions._sounds = {
 					text = "armor damage",
 					category = "sfx",
 					disabled = true
+				},
+				art_galley_alarm_on_slow_fade = {
+					override_name = "SFX",
+					text = "[ALARM KLAXON]",
+					duration = 60,
+					category = "sfx"					
 				},
 				alarm_museum_on_slow_fade = {
 					override_name = "SFX",
@@ -350,24 +395,29 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				policecar_approaching = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "(police car approaching)"
+				},
 				cop_car_01 = {
 					override_name = "SFX",
 					category = "sfx",
-					text = "[police sirens approaching]"
+					text = "(police sirens approaching)"
 				},
 				cop_car_02 = {
 					override_name = "SFX",
 					category = "sfx",
-					text = "[police sirens approaching]"
+					text = "(police sirens approaching)"
 				},
 				birds_fly_away = {
 					override_name = "SFX",
 					category = "sfx",
-					text = "[birds squawk, fly away]"
+					text = "(birds squawk, fly away)"
 				},
 				l4n_x01a_any_3p = {
 					override_name = "Cooks",
-					text = "[screams, death gurgles]",
+					text = "(screams, death gurgles)",
 					category = "mission_dialogue"
 				},
 				cooking_meth = {
@@ -1576,24 +1626,26 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							text = "{g90}",
-							category = "chatter",
-							line_variations = {
-								any_mode = { --non exhaustive
-									"Three assailants confirmed! There might be more of them!",
-									"Two assailants confirmed! There might be more of them!",
-									"I know there's at least two of them! At LEAST!",
-									"Jesus, are these the guys?",
-									"No takin' these assholes alive!",
-									"It's the clowns! The clowns from TV!",
-									"It's that crew! It's definitely them!",
-									"There are at least two of 'em!",
-									"Someone get us a fucking assault team, on the double!",
-									"We're gonna get murdered!",
-									"It's the PAYDAY Gang! They're CRAZY!",
-									"Can anyone see anything? I got nothin'!"
-								}
-							},
+							category = "enemy_chatter",
 							subvariants = {
+								cop = {
+									line_variations = {
+										any_mode = { --non exhaustive
+											"Three assailants confirmed! There might be more of them!",
+											"Two assailants confirmed! There might be more of them!",
+											"I know there's at least two of them! At LEAST!",
+											"Jesus, are these the guys?",
+											"No takin' these assholes alive!",
+											"It's the clowns! The clowns from TV!",
+											"It's that crew! It's definitely them!",
+											"There are at least two of 'em!",
+											"Someone get us a fucking assault team, on the double!",
+											"We're gonna get murdered!",
+											"It's the PAYDAY Gang! They're CRAZY!",
+											"Can anyone see anything? I got nothin'!"
+										}
+									}
+								},
 								tsr = {
 									text = "(Taser taunt)",
 									category = "enemy_taunts",
@@ -1758,7 +1810,7 @@ ClosedCaptions._sounds = {
 											"I'LL TAKE THIS ONE!",
 											"I'LL TAKE CARE OF THIS ONE MYSELF!",
 											"I'LL TAKE THIS ONE ALL ON MY OWN!",
-											"I'LL PICK THESE SUCKERS APART!"
+											"I'LL PICK THESE SUCKERS APART!",
 											"I'M THEIR PROBLEM NOW!",
 											"I'M UNSTOPPABLE!",
 											"I'MMA KICK YOUR ASS!",
@@ -7079,7 +7131,7 @@ ClosedCaptions._sounds = {
 				dsp_radio_reminder_1 = {
 					variants = {
 						security = {
-							text = "[pager buzz]",
+							text = "[pager rings!]",
 							category = "enemy_callouts", --! not sure what to categorize
 							line_variations = {
 								any_mode = {
@@ -9256,7 +9308,7 @@ ClosedCaptions._sounds = {
 				},
 				x02a_any_3p = {
 					text = "[death]",
-					category = "UNKNOWN",
+					category = "killed_enemy",
 					variants = {
 						cop = {
 							text = "[death]",
@@ -9956,23 +10008,6 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				lt1_aes = {
-					variants = {
-						cop = {
-							category = "enemy_chatter",
-							line_variations = {
-								any_mode = {
-									"What the fuck is this?!",
-									"Oh, fuck me sideways!",
-									"Who let them in, eh, what the fuck?",
-									"Shit!",
-									"Who the hell do you think you are?",
-									"Who is this, who the fuck are you?!"
-								}
-							}
-						}
-					}
-				},
 	--mission specific dialogue; i removed the variant/subvariant tables for these since they will play from any source, and don't require a specific voice prefix.
 				--no mercy
 				Play_bil_nmh_01_01 = {
@@ -10555,7 +10590,65 @@ ClosedCaptions._sounds = {
 				Play_dlr_flt_03 = {
 					category = "mission_dialogue",
 					duration = 6,
-					text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around."
+					override_name = "Gangster",
+					override_text_color = ClosedCaptions.color_data.mobster1, --todo should be something more gangster, less cop
+					text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around.",
+					line_variations = {
+						any_mode = {
+							"I'll get my main man Chavez to hook you guys up. You guys 'ang around.",
+							"I'll get my main man Chavez to fetch you guys' shipment. You guys 'ang around."
+						}
+					}
+				},
+				Play_ths_flt_01 = {
+					category = "mission_dialogue",
+					duration = 6,
+					text = "Stay back, bro! You're not allowed past this point.",
+					line_variations = {
+						any_mode = {
+							"Don't take another step! You need to wait downstairs.",
+							"Stay back, bro! You're not allowed past this point."
+						}
+					}
+				},
+				lt1_aes = {
+					category = "mission_dialogue",
+					line_variations = {
+						any_mode = {
+							"The fuck is happening?!",
+							"Are they cops? They're fucking cops!",
+							"What the fuck is this?!",
+							"Oh, fuck me sideways!",
+							"Who let them in, eh, what the fuck?",
+							"Shit!",
+							"What are you doing here?!",
+							"You the fuck said you could come in here?!",
+							"Fuck!",
+							"Who the hell do you think you are?",
+							"Who is this, who the fuck are you?!"
+						}
+					}
+				},
+				lt2_aes = {
+					category = "mission_dialogue",
+					duration = 6,
+					text = "The fuck is this?!",
+					line_variations = {
+						any_mode = {
+							"Who let them in?! What the fuck!",
+							"What the fuck's happening?!",
+							"Son of a fucking bitch!",
+							"What the FUCK?!",
+							"Fuck you think you're doin', man?!",
+							"Fuck!",
+							"Are they cops?! Are they fucking cops?!",
+							"Shit!",
+							"Who the fuck said you could come in?!",
+							"Fuckin' A!",
+							"Who the hell are you?!",
+							"What the fuck is this!?"
+						}
+					}
 				},
 				
 		--counterfeit
@@ -11914,10 +12007,78 @@ ClosedCaptions._sounds = {
 					duration = 5
 				},
 				
+			--heat street
+				Play_mtt_run_01 = {
+					text = "You're not getting me this time! Fuck you!",
+					category = "mission_dialogue",
+					override_name = "Matt Roscoe",
+					override_text_color = ClosedCaptions.color_data.boss, --should it be neutral1 green to match later?
+					duration = 5,
+					line_variations = {
+						any_mode = {
+							"You're not getting me this time!",
+							"Catch me if you can!",
+							"Fuck you!"
+						}
+					}
+				},
+				Play_mtt_run_02 = {
+					text = "(hacking, coughing) Wait! Don't kill me! I have information about Jiro that he will want to hear!",
+					category = "mission_dialogue",
+					override_name = "Matt Roscoe",
+					override_text_color = ClosedCaptions.color_data.boss,
+					duration = 5,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"(hacking, coughing)"
+							},
+							{
+								"Wait! No! Don't kill me!",
+								"Stop! Don't kill me!"
+							},
+							{
+								"I know stuff! I have information about Jiro's son!",
+								"I have information that Jiro will want to hear!",
+								"I have information! I know someone who Jiro will want to talk to! It's about his son!"
+							}
+						}
+					}
+				},
+				Play_mtt_run_04 = { --3 does not exist
+					text = "[muffled] Forget it! The cops will get you before you get me!",
+					category = "mission_dialogue",
+					override_name = "Matt Roscoe",
+					override_text_color = ClosedCaptions.color_data.boss,
+					duration = 5,
+					line_variations = {
+						any_mode = {
+							"[muffled] Forget it! The cops will get you before you get me!",
+							"[muffled] Fuck you guys! I'll let the cops kill you all!",
+							"[muffled] Kiss my ass, guys! KISS! MY! FUCKIN'! ASS!",
+							"[muffled] Fuck you guys! FUCK! YOU!"
+						}
+					}
+				},
+				Play_mtt_run_06 = { --5 also does not exist
+					text = "[extended muffled screaming, burning]",
+					category = "mission_dialogue",
+					override_name = "Matt Roscoe",
+					override_text_color = ClosedCaptions.color_data.boss,
+					duration = 20
+				},
+				
 			--goat simulator heist day 1		
 				Play_cpg_pt1_01 = {
 					text = "Drop the goats, asshole!",
 					category = "mission_dialogue"
+				},
+				Play_pln_ko1_01 = {
+					text = "All personnel, get ready for drop.",
+					category = "mission_dialogue",
+					duration = 5,
+					override_name = "Murkywater Intercom"
 				}
 			}
 		}

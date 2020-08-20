@@ -19,7 +19,7 @@ ISSUES
 	* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
 	* goat sfx do not play in goat sim day 1; todo figure out where they're playing from
 	
-	
+	using a SoundSource object as a source_id may go wrong and fail to remove any other captions played from that sound source if the soundsource ever moves, because tostring includes its vector position
 	cloaker static persists for 1000 seconds only, and MIGHT be interrupted by any other cloaker line, and is not interrupted by death
 	some captions for sounds that are played via mission core ElementPlaySound may cut off prematurely
 	Taxman lines may cut off prematurely (reason unknown)
@@ -59,8 +59,9 @@ mission dialogue:
 	- Car shop manager chatter
 	- border crossing...?
 * aldstone lines?
-* tripmine beeps
 * ecm sounds
+* cam loop/ cam loop about to end
+* breaking glass
 --]]
 
 
@@ -193,6 +194,7 @@ ClosedCaptions.color_data = {
 	criminal1 = Color(0,1,1),
 	neutral1 = Color(0,1,0),
 	law1 = Color(1,0,0),
+	mobster1 = Color(1,0.3,0),
 	boss = Color(1,0.5,0),
 	peer1 = Color.green,
 	peer2 = Color.blue,
@@ -692,11 +694,13 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			source_name = subvariant and self.unit_names[subvariant] or variant
 			
 --			source_name = source:base()._tweak_table
-			text_color = Color(0.3,0.5,1)
+			text_color = self.color_data.law1 -- Color(0.3,0.5,1)
 		elseif variant == "civilian" then 
 			source_name = self.unit_names[variant] or variant
-			text_color = Color(0.3,1,0.3)
+			text_color = self.color_data.neutral1 --Color(0.3,1,0.3)
 		elseif variant == "sfx" then 
+		elseif variant == "gangster" then
+			text_color = self.color_data.mobster1
 		end
 	end
 	
@@ -819,7 +823,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	end
 	
 	if not text then 
-		self:log("Error: No valid text in add_line() for variant: [" .. tostring(variant) .. "]. Subvariant " .. tostring(subvariant) .. " played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
+		self:log("Error: No valid text in add_line() for sound_id " .. tostring(sound_id) .. " for variant: [" .. tostring(variant) .. "]. Subvariant " .. tostring(subvariant) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
 		return
 	else
 		self:log("add_line(): Subvariant " .. tostring(subvariant) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t) .. " (effective duration " .. debug_duration .. ")",{color=text_color})
