@@ -199,7 +199,9 @@ ClosedCaptions.color_data = {
 	peer1 = Color.green,
 	peer2 = Color.blue,
 	peer3 = Color.red,
-	peer4 = Color(1,1,0)
+	peer4 = Color(1,1,0),
+	l4d_bill = Color("1a821a"),
+	l4d_witch = Color("df9ee3")
 }
 
 ClosedCaptions.settings = {
@@ -698,7 +700,6 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		elseif variant == "civilian" then 
 			source_name = self.unit_names[variant] or variant
 			text_color = self.color_data.neutral1 --Color(0.3,1,0.3)
-		elseif variant == "sfx" then 
 		elseif variant == "gangster" then
 			text_color = self.color_data.mobster1
 		end

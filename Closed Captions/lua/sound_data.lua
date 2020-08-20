@@ -188,10 +188,61 @@ ClosedCaptions._sounds = {
 					text = "(crowd screaming)",
 					category = "sfx"
 				},
+				goat_fan_woosh = {
+					override_name = "SFX",
+					text = "(Goat riding the fan)",
+					category = "sfx"
+				},
+				goat_hang_scaffold = {
+					override_name = "SFX",
+					text = "(Goat bleats from scaffolding)",
+					category = "sfx"
+				},
+				goat_kick = {
+					override_name = "SFX",
+					text = "(Goat kicks!)",
+					category = "sfx"
+				},
+				goat_sleep = {
+					override_name = "SFX",
+					text = "(Goat snores, bleats)",
+					category = "sfx"
+				},
+				goat_says_meh = {
+					override_name = "SFX",
+					text = "(Goat bleats)",
+					category = "sfx"
+				},
+				goat_says_meh_loop = {
+					override_name = "SFX",
+					text = "(Goat bleats repeatedly)",
+					category = "sfx"
+				},
+				goat_lick = {
+					override_name = "SFX",
+					text = "(Goat licks)",
+					category = "sfx"
+				},
 				goat_headbutt = {
 					override_name = "SFX",
 					text = "(Goat headbutts)",
 					category = "sfx"
+				},
+				hos_witch_cry_loop_01 = {
+					override_name = "Witch:",
+					override_text_color = ClosedCaptions.color_data.l4d_witch,
+					text = "[Witch Groans Softly]", --directly from l4d2
+					category = "sfx"
+				},
+				Play_howl_reverb = {
+					override_name = "SFX",
+					text "(spooky howl)",
+					category = "sfx"
+				},
+				city_sounds_basketball_stop = {
+					override_name = "SFX",
+					text = "(ambient: casual basketball game)",
+					category = "UNKNOWN"
 				},
 				inside_container = {
 					override_name = "SFX",
@@ -10012,6 +10063,7 @@ ClosedCaptions._sounds = {
 				--no mercy
 				Play_bil_nmh_01_01 = {
 					override_name = "Bill",
+					override_text_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					line_variations = {
 						any_mode = {
@@ -10024,6 +10076,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bil_nmh_01_02 = {
 					override_name = "Bill",
+					override_text_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					line_variations = {
 						any_mode = {
@@ -10037,6 +10090,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bil_nmh_01_03 = {
 					override_name = "Bill",
+					override_text_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					line_variations = {
 						any_mode = {
@@ -10050,6 +10104,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bil_nmh_01_04 = {
 					override_name = "Bill",
+					override_text_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					line_variations = {
 						any_mode = {
@@ -10064,6 +10119,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bil_nmh_01_05 = {
 					override_name = "Bill",
+					override_text_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					line_variations = {
 						any_mode = {
@@ -10591,7 +10647,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 6,
 					override_name = "Gangster",
-					override_text_color = ClosedCaptions.color_data.mobster1, --todo should be something more gangster, less cop
+					override_text_color = ClosedCaptions.color_data.mobster1,
 					text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around.",
 					line_variations = {
 						any_mode = {
