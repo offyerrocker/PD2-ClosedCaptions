@@ -4,11 +4,12 @@ end)
 
 Hooks:PreHook(DialogManager,"_stop_dialog","closedcaptions_dialogmanager_stopdialog",function(self)
 	if self._current_dialog and self._current_dialog.unit then 
-		ClosedCaptions:_remove_line({source = self._current_dialog.unit})
+		ClosedCaptions:end_line({source = self._current_dialog.unit})
 	end
 end)
 Hooks:PreHook(DialogManager,"_play_dialog","closedcaptions_dialogmanager_startdialog",function(self,dialog, params, line)
 	if dialog then 
+	--[[
 		local paramstolog = {
 			"string_id",
 			"sound",
@@ -24,7 +25,8 @@ Hooks:PreHook(DialogManager,"_play_dialog","closedcaptions_dialogmanager_startdi
 				s = s .. a .. " = " .. tostring(dialog[a]) .. " "
 			end
 		end
-		ClosedCaptions:log(s,{color=Color.yellow})
+		--]]
+		ClosedCaptions:log("DialogManager:_play_dialog() sound " .. tostring(dialog.sound) .. ", string_id " .. tostring(dialog.string_id),{color=Color.yellow})
 		
 		if dialog.sound then 
 			local all_sounds_data = ClosedCaptions:GetSoundTable()

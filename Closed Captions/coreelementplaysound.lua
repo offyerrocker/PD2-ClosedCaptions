@@ -21,7 +21,7 @@ local soundended = ElementPlaySound.sound_ended
 function ElementPlaySound:sound_ended(...)
 	if _G.ClosedCaptions then 
 --		_G.Log("ElementPlaySound:sound_ended() " .. tostring(self._values.sound_event),{color=Color(1,0.3,0)})
-		_G.ClosedCaptions:_remove_line({sound_id = self._values.sound_event,source_id = tostring(self._source)})
+		_G.ClosedCaptions:end_line({sound_id = self._values.sound_event,source_id = tostring(self._source)})
 	end
 	return soundended(self,...)
 end
@@ -37,12 +37,8 @@ end
 
 
 
-
-
-
-
-
 if true then return end
+
 
 local onexecuted = ElementPlaySound.on_executed
 function ElementPlaySound:on_executed(instigator,...)
@@ -86,6 +82,10 @@ function ElementPlaySound:on_executed(instigator,...)
 	--]]
 	return onexecuted(self,instigator,...)
 end
+
+
+
+
 
 --[[
 local operationremove = ElementPlaySound.operation_remove

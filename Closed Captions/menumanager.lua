@@ -3,21 +3,19 @@
 * todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
 
-* fadeout dialogue from elements instead of instant removal
 * todo lifetime multiplier for captions
 
-* MOD OPTIONS MENU
-* todo sort voicelines by type (source)
-* todo filter out voicelines by local-player only (eg. for pickups/uppers ace)?
+* update process_special_vo() for line variations
+	* implement apply_macro() as iterable functor 
+
 * todo layer custom user settings over sound_data
 	* todo documented custom template for those things
-* fix sfx source lines such as ammo_pickup	
 
 * teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
 * figure out how long alarm museum slow fade is or whatever it's called
-* element: whistle	
-* pickup_ammo overrides other lines; implement source_id override
+* element: whistle
 * hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
+* goat sfx do not play in goat sim day 1; todo figure out where they're playing from
 	
 known issues:
 	cloaker static persists for 1000 seconds only, and MIGHT be interrupted by any other cloaker line, and is not interrupted by death
@@ -25,6 +23,14 @@ known issues:
 	Taxman lines may cut off prematurely (reason unknown)
 --]]
 --[[
+
+Style guidelines:
+[square brackets] convey a tone or action
+(parentheses) aim to convey the meaning or description of the phrase foremost, not necessarily the exact wording
+
+
+
+PROMPT:
 calling out guards, deploying, grenades, calling bots, inspiring downed heisters
 guard pager timer having noises
 mission dialogue:
@@ -55,22 +61,22 @@ mission dialogue:
 * ecm sounds
 --]]
 
---note: custom colors from settings MUST LOAD BEFORE LoadSounds() !!!
 
+--note: custom colors from settings MUST LOAD BEFORE LoadSounds() !!!
 
 ClosedCaptions = ClosedCaptions or {
 	_ws = nil,
 	_panel = nil
 }
-ClosedCaptions.LOG_ENABLED = true
 
 ClosedCaptions._mod_path = ClosedCaptions._mod_path or ModPath
+ClosedCaptions._save_path = ClosedCaptions._save_path or SavePath .. "closedcaptions_settings.txt"
 ClosedCaptions._debug_list_path = SavePath .. "CLOSEDCAPTIONS_FOUND_MISSING_LINES.txt"
 
 ClosedCaptions._sound_data_filename = "sound_data.lua"
 
 ClosedCaptions.sounds = nil --"processed" sounds with appropriate data
-ClosedCaptions._sounds = {} --read through separate file for organization, called through LoadSounds()
+ClosedCaptions._sounds = {} --these are later read through separate file for organization, called through LoadSounds()
 
 ClosedCaptions.debug_missing_lines = {}
 ClosedCaptions.debug_mission_name = nil --evaluated once per level, for debug tracking reasons
@@ -79,7 +85,7 @@ ClosedCaptions.character_prefixes = {
 	a = "russian", --dallas 1 / 4
 	b = "spanish", --chains 2
 	c = "german", --wolf 3
-	d = "old_hoxton", --hoxton 4
+	d = "old_hoxton", --hoxton 4 / 5
 	l = "american", --houston 5
 	m = "jowi", --wick 6
 	n = "clover", --clover 7
@@ -100,13 +106,12 @@ ClosedCaptions.character_prefixes = {
 	ac = "myh" --duke 22
 }
 
---[[
-	speech_prefix_p1 
+--[[ speech_prefix_p1 data:
 	
 	--normal
 	cop = "l", --as in lowercase "L"
-	swat = "l",
-	heavy_swat = "l",
+	swat = "l", --same
+	heavy_swat = "l", --same
 	taser = "tsr",
 	cloaker = "clk",
 	bulldozer = "bdz",
@@ -194,18 +199,31 @@ ClosedCaptions.color_data = {
 }
 
 ClosedCaptions.settings = {
+	master_enabled = true,
+	logging_enabled = true,
 	language = 1,
-	box_y = 200,
-	box_w = 600,
-	max_num_boxes = 5,
-	box_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
-	font_size = 20
+	caption_x = 200,
+	caption_y = 200,
+	caption_w = 600,
+	captions_max_count = 5,
+	caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
+	caption_font_size = 20,
+	category_heister_callouts = true,
+	category_mission_dialogue = true,
+	category_sfx = true,
+	category_contractor_vo = true,
+	category_enemy_callouts = 3,
+	category_enemy_chatter = 2,
+	category_enemy_taunts = true,
+	category_spotted_enemy = true,
+	category_killed_enemy = true,
+	category_civilian_callouts = 3
 }
 
 ClosedCaptions.hud_data = {
 }
 
-ClosedCaptions.active_lines = {
+ClosedCaptions.active_lines = { --tracks currently active captions
 	--[[ ex: (out of date example)
 	{
 		sound_id = "butt",
@@ -222,17 +240,9 @@ ClosedCaptions.languages = {
 	"english"
 }
 
-function ClosedCaptions:LoadSounds()	
-	if SystemFS:exists( Application:nice_path( SavePath .. self._sound_data_filename, true )) then
-		self:log("Closed Captions: Reading " .. self._sound_data_filename .. " override from user save")
-		dofile(SavePath .. self._sound_data_filename)
-	else
-		dofile(self._mod_path .. self._sound_data_filename)
-	end
-end
 
 function ClosedCaptions:log(...)
-	if not self.LOG_ENABLED then 
+	if not self:IsLoggingEnabled() then 
 		return
 	end
 	if Console then 
@@ -242,85 +252,7 @@ function ClosedCaptions:log(...)
 	end
 end
 
-function ClosedCaptions:init_captions()
-	self:process_special_vo()
-	self:process_lookup_table()
-	
-	self._ws = managers.gui_data:create_fullscreen_workspace()
-	self._panel = self._ws and self._ws:panel()
-	self._panel:set_layer(1000)
-	if BeardLib then 
-		BeardLib:AddUpdater("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
-	elseif managers.hud then 
-		managers.hud:add_updator("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
-	end
-end
-
-function ClosedCaptions:process_special_vo()
-	local sound_table = self:GetSoundTable()
-	for sound_name_raw,vo_data in pairs(sound_table.vo_special) do 
-		if vo_data.macro == "character_name" then 
-			for prefix,char_name in pairs(self.character_prefixes) do 
-				local data = table.deep_map_copy(vo_data)
-				local character_name = managers.localization:text("menu_" .. char_name)
-				if vo_data.caps then 
-					character_name = utf8.to_upper(character_name)
-				end
-				data.text = string.gsub(vo_data.text,"$CHARACTER_NAME",character_name)
-				
-				sound_table.vo[string.gsub(sound_name_raw,"@",prefix)] = data
-	--			self:log("Added item " .. string.gsub(sound_name_raw,"@",prefix) .. " with text " .. tostring(data.text))
-			end
-		end
-	end
-	sound_table.vo_special = {}
-end
-
-function ClosedCaptions:GetSoundTable()
-	if self.sounds then 
-		return self.sounds
-	else
-		self:LoadSounds()
-		local lang = self:GetLanguage()
-		local all_sounds_data = lang and self._sounds.languages[lang]
-		if not all_sounds_data then 
-			return
-		end
-		self.sounds = all_sounds_data
-		return all_sounds_data
-	end
-end
-
-function ClosedCaptions:process_lookup_table(wipe_clean)
-	if wipe_clean then 
-		self._sounds.event_ids = {}
-	end
-	
-	local sound_table = self:GetSoundTable()
-	if sound_table then 
-		for sound_id,data in pairs(sound_table or {}) do 
-			local event_id = SoundDevice:string_to_id(sound_id)
-			if event_id then 
-				self._sounds.event_ids[event_id] = sound_id
-			end
-		end
-	else
-		self:log("ERROR: process_lookup_table(" .. tostring(wipe_clean) .. "): invalid lang [" .. tostring(lang) .. "]")
-	end
-
-end
-
-function ClosedCaptions:reverse_lookup_event_id(event_id)
-	return self._sounds.event_ids[event_id]
-end
-
-function ClosedCaptions:GetLanguage()
-	local langnum = self.settings.language
-	return (langnum and self.languages[langnum]) or "english"
-end
-
-function ClosedCaptions.angle_from(a,b,c,d) -- converts to angle with ranges (-180 , 180); for result range 0-360, do +180 to result
---mvector3.angle() is a big fat meanie zucchini;
+function ClosedCaptions.angle_from(a,b,c,d) -- converts to angle with ranges (-180 , 180); for result range 0-360, do +180 to result, or modulo 360
 	a = a or "nil"
 	b = b or "nil"
 	c = c or "nil"
@@ -360,62 +292,158 @@ function ClosedCaptions.angle_from(a,b,c,d) -- converts to angle with ranges (-1
 	end
 end
 
-function ClosedCaptions:ReadFromDebug() --reads existing "missing lines" into memory so that duplicate lines are not created
-
-	local file = io.open(self._debug_list_path,"r")
-	if file then
---		for k,line in pairs(file:read("*all")) do 
-		for line in file:lines() do
-			local sound_name,source_name
-			local split_lines = string.split(line," : ") or {}
-			sound_name = split_lines[1]
-			source_name = split_lines[2]
-			if sound_name and source_name then 
-				self.debug_missing_lines[sound_name] = {[source_name] = true}
-			end
-		end
-		file:close()
-	end
-	
-end
---local file = io.open(ClosedCaptions._debug_list_path,"a+"); if file then for sound,source in pairs(ClosedCaptions.debug_missing_lines) do file:write(sound .. " : " .. source .. "\n") end end 
---used to convert FOUND_MISSING_LINES from versions 0.1 and earlier, since those versions did not have duplicate line protection
-function ClosedCaptions:AddToDebug(sound_name,source_name)
-	if not self.debug_mission_name then 
-		local level_data = managers.job:current_level_data()
-		local level_name = level_data and level_data.name_id
-		self.debug_mission_name = level_name and managers.localization:text(level_name)
-		
-		--write the mission name once in the file, for easier replication later
-		if self.debug_mission_name then 
-			local file = io.open(self._debug_list_path,"a+")
-			if file then
-				file:write(tostring(level_name) .. " | " .. tostring(self.debug_mission_name) .. "\n")
-				file:close()
-			end
-		end
-	end
-	
-	sound_name = tostring(sound_name)
-	source_name = tostring(source_name)
-	if self.debug_missing_lines[sound_name] then 
-		if self.debug_missing_lines[sound_name][source_name] then 
-			--don't write to file
-			return
+function ClosedCaptions.concat(...)
+	local s
+	for _,v in pairs({...}) do
+		if s then 
+			s = s .. ", " .. tostring(v)
 		else
-			self.debug_missing_lines[sound_name][source_name] = true
+			s = tostring(v)
+		end
+	end
+	return tostring(s or "")
+end
+
+function ClosedCaptions:IsEnabled()
+	return self.settings.master_enabled
+end
+
+function ClosedCaptions:IsLoggingEnabled()
+	return self.settings.logging_enabled
+end
+
+function ClosedCaptions:IsCaptionCategoryEnabled(category)
+	local category_names = {
+		heister_callouts = "category_heister_callouts",
+		mission_dialogue = "category_mission_dialogue",
+		sfx = "category_sfx",
+		contractor_vo = "category_contractor_vo",
+		enemy_callouts = "category_enemy_callouts",
+		enemy_chatter = "category_enemy_chatter",
+		enemy_taunts = "category_enemy_taunts",
+		spotted_enemy = "category_spotted_enemy",
+		killed_enemy = "category_killed_enemy",
+		civilian_callouts = "category_civilian_callouts"
+	}
+	if category_names[category] then 
+		return self.settings[category_names[category]]
+	elseif category and category ~= "UNKNOWN" then
+		self:log("IsCaptionCategoryEnabled() Unknown category " .. tostring(category),{color=Color.yellow})
+		return nil
+	end
+end
+
+function ClosedCaptions:LoadSounds(skip_processing)
+	if SystemFS:exists( Application:nice_path( SavePath .. self._sound_data_filename, true )) then
+		self:log("Closed Captions: Reading " .. self._sound_data_filename .. " override from user save")
+		dofile(SavePath .. self._sound_data_filename)
+	else
+		dofile(self._mod_path .. self._sound_data_filename)
+	end	
+	if not skip_processing then 
+		self:process_special_vo()
+		self:process_lookup_table()
+	end
+end
+
+function ClosedCaptions:GetSoundTable()
+	if self.sounds then 
+		return self.sounds
+	else
+		self:LoadSounds(true)
+		local lang = self:GetLanguage()
+		local all_sounds_data = lang and self._sounds.languages[lang]
+		if not all_sounds_data then 
+			return
+		end
+		self.sounds = all_sounds_data
+		return all_sounds_data
+	end
+end
+
+function ClosedCaptions:process_special_vo()
+	local sound_table = self:GetSoundTable()
+	for sound_name_raw,vo_data in pairs(sound_table.vo_special) do 
+		if vo_data.macro == "character_name" then 
+			for prefix,char_name in pairs(self.character_prefixes) do 
+				local data = table.deep_map_copy(vo_data)
+				local character_name = managers.localization:text("menu_" .. char_name)
+				if vo_data.caps then 
+					character_name = utf8.to_upper(character_name)
+				end
+				data.text = string.gsub(vo_data.text,"$CHARACTER_NAME",character_name)
+				
+				sound_table.vo[string.gsub(sound_name_raw,"@",prefix)] = data
+	--			self:log("Added item " .. string.gsub(sound_name_raw,"@",prefix) .. " with text " .. tostring(data.text))
+			end
+		end
+	end
+	sound_table.vo_special = {}
+end
+
+function ClosedCaptions:process_lookup_table(wipe_clean)
+	if wipe_clean then 
+		self._sounds.event_ids = {}
+	end
+	
+	local sound_table = self:GetSoundTable()
+	if sound_table then 
+		for sound_id,data in pairs(sound_table or {}) do 
+			local event_id = SoundDevice:string_to_id(sound_id)
+			if event_id then 
+				self._sounds.event_ids[event_id] = sound_id
+			end
 		end
 	else
-		self.debug_missing_lines[sound_name] = {
-			[source_name] = true
-		}
+		self:log("ERROR: process_lookup_table(" .. tostring(wipe_clean) .. "): invalid lang [" .. tostring(lang) .. "]")
 	end
-	
-	--append to list
-	local file = io.open(self._debug_list_path,"a+")
-	if file then
-		file:write(sound_name .. " : " .. source_name .. "\n")
-		file:close()
+
+end
+
+function ClosedCaptions:reverse_lookup_event_id(event_id)
+	return self._sounds.event_ids[event_id]
+end
+
+function ClosedCaptions:apply_macro(text,macros) -- not used
+	local result = text
+	for i,macro_data in pairs(macros or {}) do 
+		local replacement = macro_data.replacement
+		if replacement then 
+			if macro_data.caps then 
+				replacement = utf8.to_upper(replacement)
+			end
+			text = string.gsub(text,"@" .. i,replacement)
+		end
+	end
+end
+
+function ClosedCaptions:GetLanguage()
+	local langnum = self.settings.language
+	return (langnum and self.languages[langnum]) or "english"
+end
+
+function ClosedCaptions:SetPanelX(x)
+	if alive(self._panel) then 
+		self._panel:set_x(x)
+	end
+end
+
+
+
+
+--caution: here be dragons; lines related to creation or management of active displayed captions 
+
+function ClosedCaptions:init_captions()
+	self:LoadSounds()
+	self._ws = managers.gui_data:create_fullscreen_workspace()
+	self._panel = self._ws and self._ws:panel()
+	self._panel:set_layer(1000)
+
+	self:SetPanelX(self.settings.caption_x)
+	if BeardLib then 
+		BeardLib:AddUpdater("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
+	elseif managers.hud then 
+		managers.hud:add_updator("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
 	end
 end
 
@@ -423,9 +451,9 @@ function ClosedCaptions:Update(t,dt)
 	local snd_dist_max_sq = 2000 * 2000
 	local panel = self._panel
 	local angle_threshold = 45
-	local y = self.settings.box_y --starting position
+	local y = self.settings.caption_y --starting position
 	local n = 0
-	local MAX_SUBTITLES = self.settings.max_num_boxes
+	local MAX_SUBTITLES = self.settings.captions_max_count
 	local player = managers.player:local_player()
 	local viewport_cam = managers.viewport:get_current_camera()
 	local player_aim = viewport_cam and viewport_cam:rotation():yaw() or 0
@@ -438,10 +466,9 @@ function ClosedCaptions:Update(t,dt)
 				if t >= item.expire_t then 
 					is_hidden = false
 					table.insert(queued_remove,i)
---					self:remove_line(i)
 				else
 				--todo fadeout in x seconds, starting at duration-x seconds
-					item.panel:set_alpha(math.min(1,(item.expire_t - t) / self.settings.box_fadeout_time))
+					item.panel:set_alpha(math.min(1,(item.expire_t - t) / self.settings.caption_fadeout_time))
 --					item.panel:set_alpha(((item.expire_t - t) / (item.expire_t - item.start_t) * 2) + 0.5)
 					
 					if not item.is_locationless then 
@@ -475,40 +502,145 @@ function ClosedCaptions:Update(t,dt)
 		end
 	end
 	for _,i in pairs(queued_remove) do 
-		self:remove_line(i)
+		self:_remove_line(i)
 	end
 end
 
-function ClosedCaptions:apply_macro(text,macros)
-	local result = text
-	for i,macro_data in pairs(macros or {}) do 
-		local replacement = macro_data.replacement
-		if replacement then 
-			if macro_data.caps then 
-				replacement = utf8.to_upper(replacement)
+
+function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locationless)
+	local panel = self._panel
+	local item_panel = panel:child(panel_name)
+	if item_panel and alive(item_panel) then 
+		panel:remove(item_panel)
+	end
+	local hor_text_margin = 8 + self.settings.caption_font_size
+	local ver_text_margin = 8
+	local w = self.settings.caption_w
+	local h = 100  --default
+	item_panel = panel:panel({
+		name = panel_name,
+		y = panel:h(),
+		w = w,
+		h = 100,
+		visible = true
+	})
+	local subtitle = item_panel:text({
+		name = "subtitle",
+		text = text,
+		x = hor_text_margin / 2,
+		y = ver_text_margin / 2,
+--		w = item_panel:w(),
+--		align = "center", --todo
+		font = tweak_data.hud_players.ammo_font,
+		font_size = self.settings.caption_font_size,
+		color = text_color,
+		layer = 2,
+		visible = true
+	})
+
+	local function check_text_spillover()
+	--returns true if it is too large
+		local s_x,s_y,s_w,s_h = subtitle:text_rect()
+		return s_w >= (self.settings.caption_w)--horizontal margin
+	end
+
+	--this multi-line spillover capability does not cover cases where a single word (where a "word" is any string of characters delimited by a single space character " ")
+	--so uh. todo
+	if check_text_spillover() then 
+		local words = string.split(text," ")
+		if #words > 0 then 
+			local new_text
+			for i = 1,#words,1 do 
+				if words[i] and words[i] ~= "" then
+	--			for i = #words,1,-1 do 
+					if new_text then 
+						new_text = new_text .. " "
+					else
+						new_text = ""
+					end
+					subtitle:set_text(new_text .. words[i])
+					if check_text_spillover() then 
+						new_text = new_text .. "\n"
+					end
+					new_text = new_text .. words[i]
+				end
 			end
-			text = string.gsub(text,"@" .. i,replacement)
-		end
-	end
-end
-
-function ClosedCaptions.concat(...)
-	local s
-	for _,v in pairs({...}) do
-		if s then 
-			s = s .. ", " .. tostring(v)
 		else
-			s = tostring(v)
+			--todo that thing i just said
+		end		
+	end
+	
+	
+	local s_x,s_y,s_w,s_h = subtitle:text_rect()
+	subtitle:set_w(s_w)
+	subtitle:set_h(s_h)
+	
+	item_panel:set_size(s_w + hor_text_margin,s_h + ver_text_margin)
+
+	local arrow_left = item_panel:text({
+		name = "arrow_left",
+		text = is_locationless and "" or "<",
+		visible = is_locationless,
+		x = 0,
+		y = 0,
+		align = "left",
+		vertical = "center",
+		font = tweak_data.hud_players.ammo_font,
+		font_size = self.settings.caption_font_size,
+		color = text_color,
+		layer = 2
+	})
+	
+	local arrow_right = item_panel:text({
+		name = "arrow_right",
+		text = is_locationless and "" or ">",
+		visible = is_locationless,
+		x = 0,
+		y = 0,
+		align = "right",
+		vertical = "center",
+		font = tweak_data.hud_players.ammo_font,
+		font_size = self.settings.caption_font_size,
+		color = text_color,
+		layer = 2
+	})
+	
+	local bg = item_panel:bitmap({
+		name = "bg",
+		layer = 1,
+		texture = "guis/textures/pd2/hud_tabs",
+		texture_rect = {84,0,44,32},
+		w = item_panel:w(),
+		h = item_panel:h(),
+		alpha = 0.75
+	})
+	return item_panel
+end
+
+function ClosedCaptions:find_line(params,greedy_match,f)
+--greedy_match requires all params to match instead of just one
+	for i,data in pairs(self.active_lines) do 
+		local is_it
+		for j,k in pairs(params) do 
+			if data[j] == k then 
+				is_it = true
+				if not greedy_match then 
+					break
+				end
+			elseif data[j] and data[j] ~= k then 
+				is_it = false
+				break
+			end
+		end
+		if is_it then 
+			if f and (type(f) == "function") then 
+				return i,f(i)
+			else
+				return i
+			end
 		end
 	end
-	return tostring(s or "")
 end
-
-function ClosedCaptions:LocalizeSourceName(source_name) --not used
-	return source_name
-end
-
---caution: here be dragons
 
 --[[
 Given input parameters from playing a sound, finds the correct caption (if any) and creates a caption hud/text object to display, and adds it to the queue to update.
@@ -523,11 +655,18 @@ expire_t: [number] the time at which the caption will expire and disappear. usua
 position: [Vector3] the location in 3d space in the world to play the line from. Used to determine position for directional arrows, in case there is no unit specified for this purpose (eg sound played from elements).
 --]]
 function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire_t,position) --evaluates line's data
+	if not self:IsEnabled() then 
+		return
+	end
 	if expire_t and (expire_t == 0 or expire_t <= Application:time()) then 
 		expire_t = nil
 	end
 	if type(sound_id) == "number" then 
 		sound_id = self:reverse_lookup_event_id(sound_id)
+		--!
+		if not sound_id then 
+			self:log("No sound id found for number lookup!" .. tostring(sound_id),{color=Color.red})
+		end
 	end
 	if not sound_id then 
 		--invalid sound_id
@@ -537,16 +676,19 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	local text_color = Color.white
 	local is_whisper_mode = managers.groupai:state():whisper_mode()
 	local all_sounds_data = self:GetSoundTable()
-	
+	local subvariant
 	local source_name = tostring(variant)
 	if variant == "criminal" then
+		subvariant = prefix
 		local color_id = source and managers.criminals:character_color_id_by_unit(source)
 		text_color = (color_id and tweak_data.chat_colors[color_id]) or text_color
 		local char_name = source and managers.criminals:character_name_by_unit(source)
 		source_name = (char_name and managers.localization:text("menu_" .. tostring(char_name))) or source_name
 	else
 		if variant == "cop" then 
-			source_name = source and self.unit_names[source:base()._tweak_table] or variant
+			subvariant = source and source:base()._tweak_table
+			source_name = subvariant and self.unit_names[subvariant] or variant
+			
 --			source_name = source:base()._tweak_table
 			text_color = Color(0.3,0.5,1)
 		elseif variant == "civilian" then 
@@ -569,13 +711,13 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		if sound_data.variants then 
 			if sound_data.variants[variant] then 
 				sound_data = sound_data.variants[variant]
-				
-				if prefix and sound_data.subvariants then 
-					subvariant_data = sound_data.subvariants[prefix]
+				if subvariant and sound_data.subvariants then 
+					subvariant_data = sound_data.subvariants[subvariant]
 				end
 				
 			elseif not sound_data.text then
 				--variants exist, but none for this unit's variant, so do nothing
+				self:log("No variant data exists for " .. tostring(variant) .. " subvariant " .. tostring(subvariant),{color=Color(1,0.3,0)})
 				return
 			end
 		end
@@ -624,14 +766,34 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		
 		if subvariant_data.disabled == true then 
 			return
-		elseif subvariant_data.disabled == "whisper_mode" then 
-			if not is_whisper_mode then
+		end
+	end
+	
+	local category_allowed = self:IsCaptionCategoryEnabled(subvariant_data.category or sound_data.category)
+	if category_allowed == false then 
+		self:log("Category is not allowed! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+		return
+	elseif category_allowed == nil then 
+		--if unknown or undefined category then log the sound (if logging is enabled)
+		if not self:IsLoggingEnabled() then 
+			return
+		end
+		self:log("Category is not set for this line! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+	else
+		if category_allowed == 1 then --always enabled
+		elseif category_allowed == 2 then --stealth-only
+			if not is_whisper_mode then 
+--				self:log("Category requires stealth! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
 				return
 			end
-		elseif subvariant_data.disabled == "local_player" then --todo split into separate filter
-			if not (alive(source) and (source == managers.player:local_player()) ) then 
+		elseif category_allowed == 3 then --loud-only
+			if is_whisper_mode then 
+--				self:log("Category requires loud! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
 				return
 			end
+		elseif category_allowed == 4 then --never allowed
+--			self:log("Category is disabled! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+			return
 		end
 	end
 	
@@ -646,11 +808,19 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		debug_duration = string.format(expire_t - t,"%0.2f")
 	end
 	
+	if subvariant_data.override_source_id then 
+		if subvariant_data.override_source_id == true then 
+			source_id = nil
+		else
+			source_id = subvariant_data.override_source_id
+		end
+	end
+	
 	if not text then 
-		self:log("Error: No valid text in add_line() for variant: [" .. tostring(variant) .. "]. Unit " .. tostring(prefix) .. " played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
+		self:log("Error: No valid text in add_line() for variant: [" .. tostring(variant) .. "]. Subvariant " .. tostring(subvariant) .. " played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
 		return
 	else
-		self:log("add_line(): Unit " .. tostring(prefix) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t) .. " (effective duration " .. debug_duration .. ")",{color=text_color})
+		self:log("add_line(): Subvariant " .. tostring(subvariant) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t) .. " (effective duration " .. debug_duration .. ")",{color=text_color})
 	end
 	
 	local panel_text = tostring(source_name) .. ": " .. tostring(text)
@@ -685,7 +855,7 @@ function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --create
 	end
 	text_color = text_color or self.color_data.generic
 	
-	local panel = self:_create_line(panel_text,source_id,text_color,data.is_locationless)
+	local panel = self:_create_caption_text(panel_text,source_id,text_color,data.is_locationless)
 	data.panel = panel
 	if panel then 
 		table.insert(self.active_lines,data)
@@ -694,117 +864,11 @@ function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --create
 	end
 end
 
-function ClosedCaptions:_create_line(text,panel_name,text_color,is_locationless)
-	local panel = self._panel
-	local item_panel = panel:child(panel_name)
-	if item_panel and alive(item_panel) then 
-		panel:remove(item_panel)
-	end
-	local hor_text_margin = 8 + self.settings.font_size
-	local ver_text_margin = 8
-	local w = self.settings.box_w
-	local h = 100  --default
-	item_panel = panel:panel({
-		name = panel_name,
-		y = panel:h(),
-		w = w,
-		h = 100,
-		visible = true
-	})
-	local subtitle = item_panel:text({
-		name = "subtitle",
-		text = text,
-		x = hor_text_margin / 2,
-		y = ver_text_margin / 2,
---		w = item_panel:w(),
---		align = "center", --todo
-		font = tweak_data.hud_players.ammo_font,
-		font_size = self.settings.font_size,
-		color = text_color,
-		layer = 2,
-		visible = true
-	})
-
-	local function check_text_spillover()
-	--returns true if it is too large
-		local s_x,s_y,s_w,s_h = subtitle:text_rect()
-		return s_w >= (self.settings.box_w)--horizontal margin
-	end
-
-	--this multi-line spillover capability does not cover cases where a single word (where a "word" is any string of characters delimited by a single space character " ")
-	--so uh. todo
-	if check_text_spillover() then 
-		local words = string.split(text," ")
-		if #words > 0 then 
-			local new_text
-			for i = 1,#words,1 do 
-				if words[i] and words[i] ~= "" then
-	--			for i = #words,1,-1 do 
-					if new_text then 
-						new_text = new_text .. " "
-					else
-						new_text = ""
-					end
-					subtitle:set_text(new_text .. words[i])
-					if check_text_spillover() then 
-						new_text = new_text .. "\n"
-					end
-					new_text = new_text .. words[i]
-				end
-			end
-		else
-			--todo that thing i just said
-		end		
-	end
-	
-	
-	local s_x,s_y,s_w,s_h = subtitle:text_rect()
-	subtitle:set_w(s_w)
-	subtitle:set_h(s_h)
-	
-	item_panel:set_size(s_w + hor_text_margin,s_h + ver_text_margin)
-
-	local arrow_left = item_panel:text({
-		name = "arrow_left",
-		text = is_locationless and "" or "<",
-		visible = is_locationless,
-		x = 0,
-		y = 0,
-		align = "left",
-		vertical = "center",
-		font = tweak_data.hud_players.ammo_font,
-		font_size = self.settings.font_size,
-		color = text_color,
-		layer = 2
-	})
-	
-	local arrow_right = item_panel:text({
-		name = "arrow_right",
-		text = is_locationless and "" or ">",
-		visible = is_locationless,
-		x = 0,
-		y = 0,
-		align = "right",
-		vertical = "center",
-		font = tweak_data.hud_players.ammo_font,
-		font_size = self.settings.font_size,
-		color = text_color,
-		layer = 2
-	})
-	
-	local bg = item_panel:bitmap({
-		name = "bg",
-		layer = 1,
-		texture = "guis/textures/pd2/hud_tabs",
-		texture_rect = {84,0,44,32},
-		w = item_panel:w(),
-		h = item_panel:h(),
-		alpha = 0.75
-	})
-	return item_panel
+function ClosedCaptions:remove_line(params,greedy_match)
+	self:find_line(params,greedy_match,function(i) self:_remove_line(i) end)
 end
 
-function ClosedCaptions:remove_line(i)
+function ClosedCaptions:_remove_line(i) --intended for a by-source reference/called from outside of direct reference 
 	local item = table.remove(self.active_lines,i)
 	if item and item.panel and alive(item.panel) then 
 		item.panel:parent():remove(item.panel)
@@ -812,32 +876,210 @@ function ClosedCaptions:remove_line(i)
 	return item
 end
 
-function ClosedCaptions:_remove_line(params,greedy_match) --intended for a by-source reference/called from outside of direct reference 
---greedy_match requires all params to match instead of just one
-	for i,data in pairs(self.active_lines) do 
-		local is_it
-		for j,k in pairs(params) do 
-			if data[j] == k then 
-				is_it = true
-				if not greedy_match then 
-					break
-				end
-			elseif data[j] and data[j] ~= k then 
-				is_it = false
-				break
+function ClosedCaptions:end_line(params,greedy_match) --fades the line out
+	self:find_line(params,greedy_match,function(i) self:_end_line(i) end)
+end
+
+function ClosedCaptions:_end_line(i) --fades the line out
+	self.active_lines[i].expire_t = Application:time() + self.settings.caption_fadeout_time
+end
+
+
+--debug/logging missing lines functions here
+
+function ClosedCaptions:ReadFromDebug() --reads existing "missing lines" into memory so that duplicate lines are not created
+
+	local file = io.open(self._debug_list_path,"r")
+	if file then
+--		for k,line in pairs(file:read("*all")) do 
+		for line in file:lines() do
+			local sound_name,source_name
+			local split_lines = string.split(line," : ") or {}
+			sound_name = split_lines[1]
+			source_name = split_lines[2]
+			if sound_name and source_name then 
+				self.debug_missing_lines[sound_name] = {[source_name] = true}
 			end
 		end
-		if is_it then 
-			self:remove_line(i)
-			return
+		file:close()
+	end
+	
+end
+
+--local file = io.open(ClosedCaptions._debug_list_path,"a+"); if file then for sound,source in pairs(ClosedCaptions.debug_missing_lines) do file:write(sound .. " : " .. source .. "\n") end end 
+--used to convert FOUND_MISSING_LINES from versions 0.1 and earlier, since those versions did not have duplicate line protection
+
+function ClosedCaptions:AddToDebug(sound_name,source_name)
+	if not self.debug_mission_name then 
+		local level_data = managers.job:current_level_data()
+		local level_name = level_data and level_data.name_id
+		self.debug_mission_name = level_name and managers.localization:text(level_name)
+		
+		--write the mission name once in the file, for easier replication later
+		if self.debug_mission_name then 
+			local file = io.open(self._debug_list_path,"a+")
+			if file then
+				file:write(tostring(level_name) .. " | " .. tostring(self.debug_mission_name) .. "\n")
+				file:close()
+			end
 		end
+	end
+	
+	sound_name = tostring(sound_name)
+	source_name = tostring(source_name)
+	if self.debug_missing_lines[sound_name] then 
+		if self.debug_missing_lines[sound_name][source_name] then 
+			--don't write to file
+			return
+		else
+			self.debug_missing_lines[sound_name][source_name] = true
+		end
+	else
+		self.debug_missing_lines[sound_name] = {
+			[source_name] = true
+		}
+	end
+	
+	--append to list
+	local file = io.open(self._debug_list_path,"a+")
+	if file then
+		file:write(sound_name .. " : " .. source_name .. "\n")
+		file:close()
 	end
 end
 
---todo check menu options
-if ClosedCaptions.LOG_ENABLED then 
+
+
+
+
+function ClosedCaptions:Load()
+	local file = io.open(self._save_path, "r")
+	if file then
+		for k, v in pairs(json.decode(file:read("*all"))) do
+			self.settings[k] = v
+		end
+	else
+		self:Save()
+	end
+end
+
+function ClosedCaptions:Save()
+	local file = io.open(self._save_path,"w+")
+	if file then
+		file:write(json.encode(self.settings))
+		file:close()
+	end
+end
+
+if ClosedCaptions:IsLoggingEnabled() then 
 	ClosedCaptions:ReadFromDebug()
 end
-ClosedCaptions:LoadSounds()
 
 Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",callback(ClosedCaptions,ClosedCaptions,"init_captions"))
+
+Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_closedcaptions", function( loc )
+	local language_num = ClosedCaptions.settings.language
+	local language_name = ClosedCaptions.languages[language_num]
+	if language_name then 
+		if SystemFS:exists(Application:nice_path(ClosedCaptions._mod_path .. "localization/" .. tostring(language_name) .. ".txt",true)) then 
+			loc:load_localization_file(ClosedCaptions._mod_path .. "localization/" .. tostring(language_name) .. ".txt")
+			return
+		end
+	else
+		ClosedCaptions:log("Language by index " .. tostring(language_num) .. " does not exist. Defaulting to English")
+	end
+	
+	loc:load_localization_file( ClosedCaptions._mod_path .. "localization/english.txt")
+end)
+
+Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", function(menu_manager)
+
+	MenuCallbackHandler.callback_closedcaptions_master_enable = function(self,item)
+		ClosedCaptions.settings.master_enabled = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_y = function(self,item)
+		ClosedCaptions.settings.caption_y = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_w = function(self,item)
+		ClosedCaptions.settings.caption_w = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_x = function(self,item)
+		local x = tonumber(item:value())
+		ClosedCaptions.settings.caption_x = x
+		ClosedCaptions:SetPanelX(x)
+	end
+
+	
+	MenuCallbackHandler.callback_closedcaptions_set_max = function(self,item)
+		ClosedCaptions.settings.captions_max_count = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_fadeout_time = function(self,item)
+		ClosedCaptions.settings.caption_fadeout_time = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_font_size = function(self,item)
+		ClosedCaptions.settings.caption_font_size = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_enable_logging = function(self,item)
+		ClosedCaptions.settings.logging_enabled = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_enable_category_heister_callouts = function(self,item)
+		ClosedCaptions.settings.category_heister_callouts = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_enable_category_mission_dialogue = function(self,item)
+		ClosedCaptions.settings.category_mission_dialogue = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_enable_category_sfx = function(self,item)
+		ClosedCaptions.settings.category_sfx = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_enable_category_civilian_callouts = function(self,item)
+		ClosedCaptions.settings.category_civilian_callouts = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_enable_category_contractor_vo = function(self,item)
+		ClosedCaptions.settings.category_contractor_vo = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_category_enemy_chatter = function(self,item)
+		ClosedCaptions.settings.category_enemy_chatter = tonumber(item:value())
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_category_enemy_taunts = function(self,item)
+		ClosedCaptions.settings.category_enemy_taunts = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_category_enemy_callouts = function(self,item)
+		ClosedCaptions.settings.category_enemy_callouts = tonumber(item:value())
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_category_spotted_enemy = function(self,item)
+		ClosedCaptions.settings.category_spotted_enemy = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_category_killed_enemy = function(self,item)
+		ClosedCaptions.settings.category_killed_enemy = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_language = function(self,item)
+		local lang_num = tonumber(item:value())
+		
+		local lang_id = ClosedCaptions.languages[lang_num]
+		if lang_id then --check valid language before saving just any ol' int in there
+			ClosedCaptions.settings.language = lang_num
+		else
+			ClosedCaptions:log("Error choosing language index: [" .. tostring(lang_num) .. "]; setting has not been changed",{color=Color.red})
+		end
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_close = function(this)
+		--todo confirm save prompt
+		ClosedCaptions:Save()
+	end
+	ClosedCaptions:Load()
+	MenuHelper:LoadFromJsonFile(ClosedCaptions._mod_path .. "menu/options.txt", ClosedCaptions, ClosedCaptions.settings)
+	
+end)
