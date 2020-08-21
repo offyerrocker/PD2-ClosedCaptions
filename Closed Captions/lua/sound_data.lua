@@ -236,7 +236,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_howl_reverb = {
 					override_name = "SFX",
-					text "(spooky howl)",
+					text = "(spooky howl)",
 					category = "sfx"
 				},
 				city_sounds_basketball_stop = {
@@ -638,6 +638,14 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Down the stairs",
+											"Downstairs."
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -665,6 +673,14 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Upstairs!",
+											"Up the stairs!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -691,10 +707,25 @@ ClosedCaptions._sounds = {
 							text = "Go left",
 							category = "heister_callouts",
 							priority = 5,
-							line_variations = {
-								any_mode = {
-									"To the left!",
-									"Left!"
+							subvariants = {
+								rb3 = {
+									text = "To the left!",
+								},
+								rb4 = {
+									line_variations = {
+										any_mode = {
+											"To the left!",
+											"Left!"
+										}
+									}
+								},
+								rb15 = {
+									line_variations = {
+										any_mode = {
+											"To the left!",
+											"Left!"
+										}
+									}
 								}
 							}
 						}
@@ -706,10 +737,25 @@ ClosedCaptions._sounds = {
 							text = "Go right",
 							category = "heister_callouts",
 							priority = 5,
-							line_variations = {
-								any_mode = {
-									"To the right!",
-									"Right!"
+							subvariants = {
+								rb3 = {
+									text = "To the left!",
+								},
+								rb4 = {
+									line_variations = {
+										any_mode = {
+											"To the right!",
+											"Right!"
+										}
+									}
+								},
+								rb15 = {
+									line_variations = {
+										any_mode = {
+											"To the right!",
+											"Right!"
+										}
+									}
 								}
 							}
 						}
@@ -722,7 +768,10 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
-								criminal = {
+								rb3 = {
+									text = "Up, up!"
+								},
+								rb4 = {
 									line_variations = {
 										standard_mode = {
 											"Up, up!",
@@ -733,7 +782,19 @@ ClosedCaptions._sounds = {
 											"Up!"
 										}
 									}
-								}
+								},
+								rb15 = {
+									line_variations = {
+										standard_mode = {
+											"Up, up!",
+											"Keep going up!"
+										},
+										assault_mode = {
+											"Up, up!",
+											"Up!"
+										}
+									}
+								},
 							}
 						}
 					}
@@ -744,14 +805,33 @@ ClosedCaptions._sounds = {
 							text = "Go down",
 							category = "heister_callouts",
 							priority = 5,
-							line_variations = {
-								standard_mode = {
-									"Down!",
-									"Keep going down!"
+							subvariants = {
+								rb3 = {
+									text = "Down, down!"
 								},
-								assault_mode = {
-									"Down, down!",
-									"Keep going down!"
+								rb4 = {
+									line_variations = {
+										standard_mode = {
+											"Down!",
+											"Keep going down!"
+										},
+										assault_mode = {
+											"Down, down!",
+											"Keep going down!"
+										}
+									}
+								},
+								rb15 = {
+									line_variations = {
+										standard_mode = {
+											"Down!",
+											"Keep going down!"
+										},
+										assault_mode = {
+											"Down, down!",
+											"Keep going down!"
+										}
+									}
 								}
 							}
 						}
@@ -764,6 +844,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "Get out!"
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -791,10 +874,25 @@ ClosedCaptions._sounds = {
 							text = "Get in",
 							category = "heister_callouts",
 							priority = 5,
-							line_variations = {
-								any_mode = {
-									"Inside!",
-									"Get in!"
+							subvariants = {
+								rb3 = {
+									text = "Get in!"
+								},
+								rb4 = {
+									line_variations = {
+										any_mode = {
+											"Inside!",
+											"Get in!"
+										}
+									}
+								},
+								rb15 = {
+									line_variations = {
+										any_mode = {
+											"Inside!",
+											"Get in!"
+										}
+									}
 								}
 							}
 						}
@@ -803,10 +901,20 @@ ClosedCaptions._sounds = {
 				g09 = {
 					variants = {
 						criminal = {
-							text = "Hurry",
+							text = "Hurry!",
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"C'mon! Hurry!",
+											"Hurry up!",
+											"Faster, faster!",
+											"Hurry!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -837,10 +945,25 @@ ClosedCaptions._sounds = {
 							text = "Careful",
 							category = "heister_callouts",
 							priority = 5,
-							line_variations = {
-								any_mode = {
-									"Careful, now!",
-									"Careful!"
+							subvariants = {
+								rb3 = {
+									text = "Careful, now!"
+								},
+								rb4 = {
+									line_variations = {
+										any_mode = {
+											"Careful, now!",
+											"Careful!"
+										}
+									}
+								},
+								rb15 = {
+									line_variations = {
+										any_mode = {
+											"Careful, now!",
+											"Careful!"
+										}
+									}
 								}
 							}
 						}
@@ -852,10 +975,30 @@ ClosedCaptions._sounds = {
 							text = "Wrong way",
 							category = "heister_callouts",
 							priority = 5,
-							line_variations = {
-								any_mode = {
-									"This is the wrong way",
-									"Not this way!"
+							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"This is not the way!",
+											"Not this way!"
+										}
+									}
+								},
+								rb4 = {
+									line_variations = {
+										any_mode = {
+											"This is the wrong way!",
+											"Not this way!"
+										}
+									}
+								},
+								rb15 = {
+									line_variations = {
+										any_mode = {
+											"This is the wrong way!",
+											"Not this way!"
+										}
+									}
 								}
 							}
 						}
@@ -868,6 +1011,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "This way!"
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -895,6 +1041,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "Come on."
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -926,6 +1075,14 @@ ClosedCaptions._sounds = {
 									line_variations = {
 										any_mode = {
 											"This is it.",
+											"Here it is!"
+										}
+									}
+								},
+								rb4 = {
+									line_variations = {
+										any_mode = {
+											"This is it.",
 											"This is the place."
 										}
 									}
@@ -948,10 +1105,25 @@ ClosedCaptions._sounds = {
 							text = "Look there",
 							category = "heister_callouts",
 							priority = 5,
-							line_variations = {
-								any_mode = {
-									"Over there!",
-									"There!"
+							subvariants = {
+								rb4 = {
+									text = "Over there!"
+								},
+								rb4 = {
+									line_variations = {
+										any_mode = {
+											"Over there!",
+											"There!"
+										}
+									}
+								},
+								rb15 = {
+									line_variations = {
+										any_mode = {
+											"Over there!",
+											"There!"
+										}
+									}
 								}
 							}
 						}
@@ -964,9 +1136,19 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Hold 'em off!",
+											"Keep 'em away!",
+											"Keep defending!",
+											"Hold the fort!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
-										assault_mode = {
+										any_mode = {
 											"Keep defending!",
 											"Keep 'em away!",
 											"Hold the fort!"
@@ -975,7 +1157,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										assault_mode = {
+										any_mode = {
 											"Keep defending!",
 											"Left!"
 										}
@@ -992,6 +1174,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "We're out of here!"
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -1025,6 +1210,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "Move!"									
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -1069,10 +1257,23 @@ ClosedCaptions._sounds = {
 							text = "Go straight",
 							category = "heister_callouts",
 							priority = 5,
-							line_variations = {
-								any_mode = {
-									"Straight on!",
-									"Straight ahead!"
+							rb3 = {
+								text = "Straight ahead!"							
+							},
+							rb4 = {
+								line_variations = {
+										any_mode = {
+										"Straight on!",
+										"Straight ahead!"
+									}
+								}
+							},
+							rb15 = {
+								line_variations = {
+									any_mode = {
+										"Straight on!",
+										"Straight ahead!"
+									}
 								}
 							}
 						}
@@ -1085,18 +1286,25 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
-								rb4 = {
+								rb3 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Jump down!",
 											"Down here!"
-										},
-										assault_mode = {}
+										}
+									}
+								},
+								rb4 = {
+									line_variations = {
+										any_mode = {
+											"Jump down!",
+											"Down here!"
+										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Jump down!",
 											"Down there!"
 										},
@@ -1117,21 +1325,29 @@ ClosedCaptions._sounds = {
 							text = "Placed drill",
 							category = "heister_callouts",
 							priority = 5,
-							subvariants = {
+							subvariants = { 
+								rb3 = {--1s delay for wolf
+									line_variations = {
+										any_mode = {
+											"Drill's in place.",
+											"Drill's in place!",
+											"Drill up and running!"											
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Drill's in place.",
 											"Drill in place.",
 											"Drill mounted."
 										},
-										assault_mode = {
-										}
+										assault_mode = {}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Drilling!",
 											"Got the drill up.",
 											"Drill placed.",
@@ -1151,17 +1367,11 @@ ClosedCaptions._sounds = {
 				g22 = {
 					variants = {
 						criminal = {
---							text = "Broke-dick piece of shit drill!",
+--							text = "Keep drilling, you piece of shit!!",
 							category = "heister_callouts",
-							--only houston and chains have sound vo for this, so do not display cc for anyone else for this line
 							subvariants = {
-								rb222 = { --!
-									line_variations = {
-										any_mode = {
-											"Piece of shit drill!",
-											"Broke-dick piece of shit drill!"
-										}
-									}
+								rb3 = { --!
+									text = "Keep drilling, you piece of shit!"
 								},
 								rb555 = { --!
 									line_variations = {
@@ -1180,6 +1390,14 @@ ClosedCaptions._sounds = {
 						criminal = {
 							text = "Shoot them!",
 							category = "heister_callouts",
+							rb3 = {
+								line_variations = {
+									any_mode = {
+										"Shoot 'em!",
+										"Get 'em!"
+									}
+								}
+							},
 							rb4 = {
 								line_variations = {
 									any_mode = {
@@ -1187,8 +1405,10 @@ ClosedCaptions._sounds = {
 										"Shoot!"
 									}
 								}
+							},
+							rb15 = { --sydney does not have this line
+								disabled = true
 							}
-						--sydney does not have this line
 						}
 					}
 				},
@@ -1199,6 +1419,23 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = { --no loud/stealth variations
+											"Fantastic! We pulled it off!",
+											"YEAH! We made it!",
+											"We did it!",
+											"We made it!",
+											"Aaaand... SCORE!",
+											"[whoops] We're in the clear!",
+											"[exuberant whooping]",
+											"Checkmate, motherfucker!",
+											"FBI's Most Wanted? Check! Bullet wounds? Check! Rich as a motherfucker? BIG FUCKING CHECK!",
+											"[raucously singing football song] Segern är vår, sergern är vår, vi har vunnit, sergern är vår! (Victory is ours, victory is ours, we've won, victory is ours!)",
+											"Vi klarade! (We managed!)"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = { --no loud/stealth variations
@@ -1252,6 +1489,15 @@ ClosedCaptions._sounds = {
 							text = "Take out the cameras!",
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Cameras!",
+											"Take out the cameras!",
+											"Remember, cameras!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -1271,9 +1517,18 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Use your cable ties, guys!",
+											"Cable ties- use 'em!",
+											"Keep 'em down- tie 'em up!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Rope down the people with the Cable Ties.",
 											"Remember the Cable Ties.",
 											"Use those Cable Ties!",
@@ -1283,7 +1538,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Tie 'em up.",
 											"Tie everybody down.",
 											"Well, how about using the cable ties, dipshit?"
@@ -1297,13 +1552,22 @@ ClosedCaptions._sounds = {
 				g27 = {
 					variants = {
 						criminal = {
-							text = "Watch civilians",
+							text = "Remember, no civilian casualties.",
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"No civilians.",
+											"Remember! No civilians.",
+											"No civilian casualties, now!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Careful with the people!",
 											"Watch the crowd!",
 											"Watch the civvies!",
@@ -1313,7 +1577,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Hey, watch the bloody civilians!",
 											"Crikey, keep the civvies in check!"
 										}
@@ -1329,9 +1593,18 @@ ClosedCaptions._sounds = {
 							text = "We're almost there!",
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Almost there!",
+											"Almost there, almost there...",
+											"We're gonna make it!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"We're gonna make it!",
 											"Almost there, almost there!",
 										}
@@ -1348,6 +1621,20 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"SHIT!",
+											"Fuck!",
+											"Oh, shit!",
+											"Oh, fuck!",
+											"Fuck me!",
+											"O helvete! (Aw, hell!)"
+											"Sjutton! [Swearing in Swedish]",
+											"Tusan också! [Swearing in Swedish]" --doesn't sound like "tusan", more like "wee" but i don't know swedish swears
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										standard_mode = {
@@ -1386,21 +1673,31 @@ ClosedCaptions._sounds = {
 							text = "Killed Bulldozer",
 							category = "special_kills",
 							priority = 5,
+							rb3 = {
+								line_variations = {
+									any_mode = {
+										"The Bulldozer's down!",
+										"The Bulldozer taken care of!",
+										"I took out the Bulldozer!",
+										"The Bulldozer's history!"										
+									},
+									assault_mode = {}
+								}
+							},
 							rb4 = {
 								line_variations = {
-									standard_mode = {
+									any_mode = {
 										"Bulldozer down!",
 										"Bulldozer eliminated!",
 										"Bulldozer taken care of!",
 										"Bulldozer's history!"
 									},
-									assault_mode = {
-									}
+									assault_mode = {}
 								}
 							},
 							rb15 = {
 								line_variations = {
-									standard_mode = { --! check whisper variant for get stuffed
+									any_mode = { --! check whisper variant for get stuffed
 										"Bulldozer down!",
 										"Fuck off, dozer!",
 										"Fuck you, Bulldozer!",
@@ -1426,6 +1723,15 @@ ClosedCaptions._sounds = {
 							text = "Throwing grenade",
 							category = "heister_callouts",
 							priority = 5,
+							rb3 = {
+								line_variations = {
+									any_mode = {
+										"BOMB!",
+										"Bomb!",
+										"GET THE FUCK DOWN!"
+									}
+								}
+							},
 							rb4 = {
 								line_variations = {
 									any_mode = {
@@ -1466,7 +1772,7 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN"
 				},
 				g51 = {
-					text = "{placeholder g51}.",
+					text = "{g51}.",
 					category = "UNKNOWN"
 				},
 				g60 = {
@@ -1476,6 +1782,22 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Oh, fuck...!",
+											"Shiiit!",
+											"Shit...",
+											"Daaamn!",
+--											"Nej, NU, [unknown, phonetically: bla mas var atte]" --laugh as much as you like at these, i don't know swedish
+											--sounds like "Lycka det kock det var aske ste"
+											--nar bla er der bar klenge
+											--er da knows de me kwee, der det no skaap
+											"Vi sotte! (We suck!)"
+										},
+										assault_mode = {}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										standard_mode = {
@@ -1515,6 +1837,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "I got the drill!"
+								},
 								rb4 = {
 									line_variations = {
 										standard_mode = {
@@ -1533,6 +1858,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "Thirty seconds!"
+								},
 								rb4 = {
 									text = "Thirty seconds!"
 								}
@@ -1546,6 +1874,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3= {
+									text = "One minute!"
+								},
 								rb4 = {
 									text = "One minute!"
 								}
@@ -1558,9 +1889,12 @@ ClosedCaptions._sounds = {
 						criminal = {
 							category = "heister_callouts",
 							priority = 5,
-							subvariants = {
+							subvariants = { -- should it be "1:30" ?
+								rb3 = {
+									text = "One-thirty!"
+								},
 								rb4 = {
-									text = "One thirty!" -- should it be "1:30" ?
+									text = "One-thirty!"
 								}
 							}
 						}
@@ -1572,6 +1906,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "Two minutes."
+								},
 								rb4 = {
 									text = "Two minutes."
 								}
@@ -1585,8 +1922,11 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									text = "Two-thirty."
+								},
 								rb4 = {
-									text = "Two thirty."
+									text = "Two-thirty."
 								}
 							}
 						}
@@ -1600,9 +1940,20 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Steady now! Hold it...",
+											"Any second, aaaany second...",
+											"Any second, now...",
+											"Wait for it, wait for it..."
+										},
+										assault_mode = {}
+									}
+								},
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Any second now.",
 											"Any second...",
 											"Steady now! Hold it...",
@@ -1613,7 +1964,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Let's just fucking go!",
 											"Time to dance!",
 											"Get fucking ready.",
@@ -1623,7 +1974,8 @@ ClosedCaptions._sounds = {
 									}
 								}
 							}
-						}}
+						}
+					}
 				},
 				g68 = {
 					variants = {
@@ -1631,6 +1983,9 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									disabled = true
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -1653,6 +2008,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"We're easy targets here, let's move!",
+											"We're sitting ducks in this place."
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -1670,8 +2033,17 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN"
 				},
 				g72 = {
-					text = "I'm on it!",
-					category = "UNKNOWN"
+					variants = {
+						criminal = {
+							priority = 5,
+							category = "heister_callouts",
+							subvariants = {
+								rb3 = {
+									text = "I'm on it!"
+								}
+							}
+						}
+					}
 				},
 				g90 = {
 					variants = {
@@ -1939,6 +2311,15 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"[low voice] Alright.",
+											"Alright.",
+											"[whisper] Alright."											
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -1978,6 +2359,16 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Alright, let's do this.",
+											"Let's do this.",
+											"Let's rock and roll.",
+											"Alright, let's rock and roll."
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -2001,6 +2392,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Alright, let's get rich.",
+											"Now let's get rich.",
+											"Let's get rich..."
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -2024,6 +2424,9 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									disabled = true
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -2042,6 +2445,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"C'mon, c'mon!",
+											"C'mon, c'mon-c'mon-c'mon-c'mon-c'mon..."
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -2063,6 +2474,15 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"How nice of those cops to come and keep us company!",
+											"The police are on the scene!",
+											"Okay, we got company. The police are here!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -2072,8 +2492,7 @@ ClosedCaptions._sounds = {
 											"Okay, we've got company... the police are here!",
 											"The police just arrived!",
 											"Alright, we got visitors- the cops are here!",
-											"How nice of the cops to come and keep us company!",
-
+											"How nice of the cops to come and keep us company!"
 										}
 									}
 								}
@@ -2087,6 +2506,17 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Alright.",
+											"Okay.",
+											"Gotcha.",
+											"Gotcha!",
+											"Okay!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -2108,12 +2538,23 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"We already have a hostage ready to be traded!",
+											"We gotta follow through with that hostage trade!",
+											"We got a hostage lined up already. Let's trade!",
+											"We gotta release that hostage!",
+											"We have to follow through with that hostage trade!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
 											"We got a hostage lined up already. Let's trade!",
 											"We have to let that hostage go in exchange for our friend!",
-											"We already have a hostage ready to be tradeed!",
+											"We already have a hostage ready to be traded!",
 											"We gotta follow through with that hostage trade!",
 											"We gotta release that hostage!"
 										}
