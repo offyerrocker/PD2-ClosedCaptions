@@ -59,6 +59,17 @@ ClosedCaptions._sounds = {
 					text = "(radio plays)",
 					category = "sfx"
 				},
+				christmas_radio = {
+					override_name = "SFX",
+					text = "(radio plays Christmas music)",
+					category = "sfx"
+				},
+				christmas_radio_end = {
+					override_name = "SFX",
+					text = "(radio stops)",
+					duration = 2,
+					category = "sfx"
+				},
 				jukebox_shuffle = {
 					override_name = "SFX",
 					text = "(jukebox plays)",
@@ -67,11 +78,18 @@ ClosedCaptions._sounds = {
 				jukebox_shuffle_stop = {
 					override_name = "SFX",
 					text = "(jukebox stops)",
+					duration = 2,
 					category = "sfx"
 				},
 				table_saw = {
 					override_name = "SFX",
 					text = "(table saw grinding)",
+					category = "sfx"
+				},
+				table_saw_stop = {
+					override_name = "SFX",
+					text = "(table saw stops)",
+					duration = 2,
 					category = "sfx"
 				},
 				blowtorch_guy = {
@@ -386,25 +404,55 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					duration = 30
 				},
+				telephone_booth_ringing = {
+					override_name = "SFX",
+					text = "[telephone booth ringing]",
+					category = "sfx",
+					duration = 30
+				},
+				telephone_booth_ringing_stop = {
+					override_name = "SFX",
+					text = "[telephone booth stops]",
+					category = "sfx",
+					duration = 2
+				},
+				branch_bank_phone_call = {
+					override_name = "SFX",
+					text = "[phone ringing]",
+					category = "sfx",
+					duration = 30
+				},
+				branch_bank_phone_call_pickup = {
+					override_name = "SFX",
+					text = "[phone answered]",
+					category = "sfx",
+					duration = 30
+				},
 				cellphone_01_no_answer = {
 					override_name = "SFX", --looped
-					text = "[phone ringing]",
+					text = "[cellphone ringing]",
 					category = "sfx"
 				},
 				cellphone_01_answer = {
 					override_name = "SFX",
-					text = "[phone answered]",
+					text = "[cellphone answered]",
 					category = "sfx"
 				},
 				keypad_wrong_code = {
 					override_name = "SFX",
-					text = "keypad wrong code",
+					text = "[keypad wrong code]",
 					category = "sfx",
 					duration = 3
 				},
 				keypad_correct_code = {
 					override_name = "SFX",
-					text = "keypad correct code",
+					text = "[keypad correct code]",
+					category = "sfx",
+					duration = 3
+				},
+				server_room_door_open = {
+					override_name = "SFX",
+					text = "[server room door opens]",
 					category = "sfx",
 					duration = 3
 				},
@@ -470,6 +518,12 @@ ClosedCaptions._sounds = {
 							"I'm picking up increased radio traffic! Security is on its way to the scene!"
 						}
 					}
+				},
+				Play_ban_i20c = {
+					--hey wolf it's on you now, the whole crew is counting on you to turn it around!
+				},
+				Play_ban_h01x = {
+--					"you need to take hostages!"
 				},
 				policecar_approaching = {
 					override_name = "SFX",
@@ -656,6 +710,32 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Play_ban_r01 = {
+					override_name = "Bain",
+					category = "contractor_vo",
+					text = "Cops are freeing civilians!",
+					duration = 5,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"Rescue units are on the scene. They're going after the civilians.",
+								"They sent in an extraction team to free the civilians.",
+								"Looks there's an extraction team coming for the civilians, stay sharp!",
+								"Looks like they sent in an extraction team to free the civilians, folks!",
+								"There's an extraction team coming to free the civilians."
+							},
+							{
+								"Make sure they return empty-handed - or in a bag.",
+								"Stay sharp!",
+								"Stay sharp! Let 'em know you're running it!",
+								"Don't let them take a single one!",
+								"Civilians are an asset- you need to protect your assets!",
+								"Watch 'em close."
+							}
+						}
+					}
+				},
 				g01 = {
 					variants = {
 						criminal = {
@@ -666,7 +746,7 @@ ClosedCaptions._sounds = {
 								rb3 = {
 									line_variations = {
 										any_mode = {
-											"Down the stairs",
+											"Down the stairs.",
 											"Downstairs."
 										}
 									}
@@ -674,7 +754,7 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									line_variations = {
 										any_mode = {
-											"Down the stairs",
+											"Down the stairs.",
 											"Downstairs."
 										}
 									}
@@ -764,7 +844,7 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							subvariants = {
 								rb3 = {
-									text = "To the left!",
+									text = "To the right!",
 								},
 								rb4 = {
 									line_variations = {
@@ -2342,6 +2422,10 @@ ClosedCaptions._sounds = {
 											"[low voice] Alright.",
 											"Alright.",
 											"[whisper] Alright."											
+										},
+										assault_mode = {
+											"Gotcha.",
+											"Gotcha!"
 										}
 									}
 								},
@@ -2697,6 +2781,14 @@ ClosedCaptions._sounds = {
 							priority = 5,
 							category = "heister_callouts",
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Get moving!",
+											"MOVE IT!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -3987,6 +4079,13 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"That's one hell of a pile of cash!"
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -4124,6 +4223,9 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									disabled = true --no lines :(
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -4415,6 +4517,9 @@ ClosedCaptions._sounds = {
 							text = "Feeling uneasy",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									disabled = true --no lines :(
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -4637,10 +4742,13 @@ ClosedCaptions._sounds = {
 				v46 = {
 					variants = {
 						criminal = {
-							text = "(battle cry!)",
+							text = "(exhuberant)",
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									disabled = true --no lines :(
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -6304,7 +6412,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Everybody, on the ground!",
 											"On the ground, all of you!",
 											"Down on the ground, all of you!",
@@ -6327,7 +6435,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"Down.",
 											"Down on the ground.",
 											"On the ground.",
@@ -6729,10 +6837,10 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				f40_any = { --taxman go faster
+				f40_any = { --escort go faster
 					variants = {
 						criminal = {
-							text = "(rushing the Taxman forward)",
+							text = "(rushing the escort forward)",
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
@@ -7179,10 +7287,25 @@ ClosedCaptions._sounds = {
 				a01x_any = {
 					variants = { --priority
 						criminal = {
-							text = "Masked up",
+							text = "(Masked up)",
 							category = "heister_callouts",
 							priority = 5,
 							subvariants = {
+								rb3 = {
+									line_variations = {
+										any_mode = {
+											"Let's get it over with.",
+											"Alright. Let's rock 'n' roll.",
+											"Alright. Let's get rich.",
+											"Okay, let's roll.",
+											"Alright, let's roll.",
+											"[whisper] Alright, let's do this.",
+											"Now let's get rich.",
+											"Let's rock 'n' roll.",
+											"Let's do this."
+										}
+									}
+								},
 								rb4 = {
 									line_variations = {
 										any_mode = {
@@ -7222,16 +7345,24 @@ ClosedCaptions._sounds = {
 							text = "a01x_any unknown??? oopsie woopsie!!!",
 							category = "UNKNOWN"
 						},
-						cm1 = {
-							text = "[fear]",
-							priority = 5
-						},
-						cf1 = {
-							text = "[fear]",
-							priority = 5
+						civilian = {
+							text = "(fear)",
+							category = "civilian_callouts"
 						}
 					}
-				}, --mask up
+				}, --mask up				
+				a02x_any = {
+					text = "(panic)", --not kalm
+					category = "civilian_callouts"
+				},
+				a03x_any = {
+					variants = {
+						civilian = {
+							text = "(screaming in fear)",
+							category = "civilian_callouts"
+						}
+					}
+				},
 				i01x_any = {
 					text = "[Anticipation phase]",
 					category = "UNKNOWN"
@@ -9861,9 +9992,10 @@ ClosedCaptions._sounds = {
 				},
 				tsr_elite = {
 					text = "(tsr elite)",
+					--elite taser, make way!
 					category = "UNKNOWN"
 				},
-				tasered_3rd_stop = {
+				tasered_3rd_stop = { --loops
 					text = "tasered_3rd_stop",
 					category = "UNKNOWN"
 				},
@@ -9913,18 +10045,6 @@ ClosedCaptions._sounds = {
 				cm1_911_call = {
 					text = "cm1_911_call",
 					category = "UNKNOWN"
-				},
-				a02x_any = {
-					text = "(panic)", --not kalm
-					category = "civilian_callouts"
-				},
-				a03x_any = {
-					variants = {
-						civilian = {
-							text = "(screaming in fear)",
-							category = "civilian_callouts"
-						}
-					}
 				},
 				dsp_radio_buzz = {
 					override_name = "SFX",
@@ -11879,6 +11999,7 @@ ClosedCaptions._sounds = {
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					text = "You need to find another code. We can't use mine, or they'll know it was me.",
 					category = "mission_dialogue",
+					duration = 10,
 					line_variations = {
 						any_mode = {
 							"Uhhh, is this thing on? [pause] I can get you through the gates, but only after you find a four-digit keycode. We can't use mine, or they'll know it was me.",
@@ -11889,12 +12010,14 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_02 = {
 					override_name = "Insider",
+					duration = 4,
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Coming from Floor 2, heading to the gates. See you there." --no variations
 				},
 				Play_ism_fwb_03 = {
 					override_name = "Insider",
+					duration = 5,
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "[to guards] My clients are ready to enter the vault. You're not needed here right now. Go for a walk, or something.",
@@ -11908,6 +12031,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_04 = {
 					override_name = "Insider",
+					duration = 5,
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "I'm waiting at the gates! Hurry up!",
@@ -11927,6 +12051,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
+					duration = 5,
 					text = "The vault is just beyond here. You got that code?",
 					line_variations = {
 						any_mode = {
@@ -11939,6 +12064,7 @@ ClosedCaptions._sounds = {
 				Play_ism_fwb_06 = {
 					override_name = "Insider",
 					override_text_color = ClosedCaptions.color_data.neutral1,
+					duration = 4,
 					category = "mission_dialogue",
 					text = "Looks good.", --opened the gate
 					line_variations = {
@@ -11953,6 +12079,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
+					duration = 5,
 					text = "Looks good.", --opened the gate
 					line_variations = {
 						any_mode = {
@@ -11966,17 +12093,19 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
+					duration = 5,
 					text = "You guys all done? Alright. Follow me.",
 					line_variations = {
 						any_mode = {
 							"You guys all done? Alright. Follow me.",
-							"Right. Follow me and I'll get you out. Hope you got what you wanted.",
+							"Right. Follow me and we'll get you out. Hope you got what you wanted.",
 							"So, that's it? You got what you came for? C'mon, follow me."
 						}
 					}
 				},
 				Play_ism_fwb_09 = {
 					override_name = "Insider",
+					duration = 10,
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "I guess that you... wait, wait, tell me nothing. I'm just an innocent bystander. This way.",
@@ -11992,6 +12121,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
+					duration = 6,
 					text = "Alright. Head through the opposite office, and head down. C'mon, get out of here!",
 					line_variations = {
 						any_mode = {
@@ -12005,6 +12135,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
+					duration = 4,
 					text = "What?! Oh, come on! I'm out of here!",
 					line_variations = {
 						any_mode = {
@@ -12019,6 +12150,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
+					duration = 5,
 					text = "We were close, but... time to bail. [pause] I still get my cut, right?",
 					line_variations = {
 						any_mode = {
@@ -12027,6 +12159,89 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Play_bm_fwb_01 = { --these three are looped, which i don't have a proper fadein/fadeout system for, or start/stop when out of range
+					override_name = "Bank Manager",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					category = "mission_dialogue",
+					duration = 5,
+					text = "[talking on phone]",
+					line_variations = {
+						any_mode = {
+							"So, uh, they took me into HR at the head office again. It turns out you can't tell a grandmother to suck a bag of- shit, they might be listening.",
+							"She DOESN'T?! Well, how does she keep in touch with the rest of the world?",
+							"Heyyy, good work on that report!",
+							"Spent the weekend polishing the Longfellow. Took the chief's wife out for a spin. Let her polish the... [chuckles] You know it, man.",
+							"Uh, how long did that report take? An hour? [pause] [intense voice] BILL 'EM FOR TEN.",
+							"[condescendingly] A student comes in, looking to RENEGOTIATE their loan! [pause] I know! [laughs] What an idiot.",
+							"First thing I did when that bailout came through was buy a Longfellow! Hey- I'm supporting the auto industry!",
+							"Hey- you see that woman asking for a loan for the pasta restaurant? Sure would like to make a 'deposit' there! [sleazy laugh]",
+							"Well... you know how it is. You smile, nod, tell them to sign on the dotted line, and you have their soul, bro!",
+							"Yeah, yeah- [laughs] told them it was an 'accounting error!'",
+							"Yeah, a loan for HEATING! So I said, 'can't the orphans just huddle closer together?'",
+							"Told a guy who wanted a loan, we couldn't, under FTS regulations. [pause] F.T.S.? 'Fuck That Shit!'"
+						}
+					}
+				},
+				Play_bm_fwb_02 = {
+					override_name = "Bank Manager",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					category = "mission_dialogue",
+					duration = 5,
+					text = "[talking on phone]",
+					line_variations = {
+						any_mode = {
+							"I could give two shits about someone's college tuition! [pause] Well, if you give me $50,000 for shits...",
+							"I don't care if your crippled kids have diph-fucking-theria!",
+							"Look, you pay back the loan, or you lose the house! I mean it, Mom!",
+							"Look, Mother Superior, you either pay the $300, or we're breaking your legs!",
+							"You want charity? You're gonna get it! Cause you're headed right to welfare, sister!",
+							"How many times do I have to tell you? We're a bank! We're not supposed to be 'trusted!'",
+							"I think we can make more cuts, yeah. We don't need all these... [disdainfully] ...tellers. Who gives a rat's ass if people sit in a queue for an hour?",
+							"Yes, I understand, we offered you those terms under the Veteran Program. But we no longer recognize the Vietnam 'Incident' as a real conflict."
+							
+						}
+					}
+				},
+				Play_bm_fwb_03 = {
+					override_name = "Bank Manager",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					category = "mission_dialogue",
+					duration = 5,
+					text = "[talking on phone]",
+					line_variations = {
+						any_mode = {
+							"Investing in banks is as safe as housing! And I mean nice housing, with bricks and everything!",
+							"Well, I would describe my management style as... bringing new synergy to the... boardroom... dynamic... of parallel... styling.",
+							"It's a pleasure to talk to the Financial Times in London! Oh, oh... London, Kentucky.",
+							"Of course! We have a very diverse workforce! In fact, I just got out of a conference with our Latin division! [under breath] 'Empty the bin, Miguel,' I said.",
+							"Our competitors were hit hard in the crunch, but we weathered most of it, since our chairman buried the money in his yard.",
+							"Oh, yes, I assure your readers that the First World Bank is here to stay. We have strong investments in the Columbian submarine industry.",
+							"I'm sorry, I can't comment on the rumors of investment from a Chinese bank. But I, for one, would welcome our Asian overlords.",
+							"The financial world has never been healthier. We only laid off ten employees in the last day."
+						}
+					}
+				},
+				Stop_bm_fwb_01 = {
+					disabled = true
+				},
+				Stop_bm_fwb_02 = {
+					disabled = true
+				},
+				Stop_bm_fwb_03 = {
+					disabled = true
+				},
+				Play_mc1_fwb_01 = { --these three are also looped
+					disabled = true
+				},
+				Play_mc1_fwb_02 = {
+					disabled = true
+					
+				},
+				Play_mc1_fwb_03 = {
+					disabled = true	
+				},
+				
+				
 			--framing frame
 				--day 2
 				Play_dlr_framing_stage2_01 = {
@@ -12187,7 +12402,7 @@ ClosedCaptions._sounds = {
 				},
 				
 --hoxton breakout
-
+		--day 1
 				Play_rb5_hb1_01 = {
 					override_name = "Hoxton",
 					override_text_color = ClosedCaptions.color_data.neutral1,
@@ -12288,6 +12503,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "Gotcha! Movin'!",
 					duration = 3,
+					disabled = true, --this line has in-game subtitles
 					line_variations = {
 						any_mode = {
 							"Here we go!",
@@ -12394,6 +12610,34 @@ ClosedCaptions._sounds = {
 							"Keepin' my foot off the gas. Make sure you guys keep the road safe and clear.",
 							"We'll move at your pace. Just keep the road clear of cops!",
 							
+						}
+					}
+				},
+				Play_rb5_hb2_01 = {
+					override_name = "Hoxton",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					category = "mission_dialogue",
+					text = "Get inside, lads! Got work to do.",
+					duration = 4,
+					line_variations = {
+						any_mode = {
+							"Get inside, lads! Got work to do.",
+							"Get a shufty on, lads. Chop fucking chop.",
+							"Move! Last one in's a knob." -- not quite right
+						}
+					}
+				},
+				Play_rb5_hb2_02 = {
+					override_name = "Hoxton",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					category = "mission_dialogue",
+					text = "Get inside, lads! Got work to do.",
+					duration = 4,
+					line_variations = {
+						any_mode = {
+							"Get inside, lads! Got work to do.",
+							"Get a shufty on, lads. Chop fucking chop.",
+							"Move! Last one in's a knob." -- not quite right
 						}
 					}
 				},
@@ -12549,7 +12793,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					override_name = "Matt Roscoe",
 					override_text_color = ClosedCaptions.color_data.boss,
-					duration = 5,
+					duration = 7,
 					line_variations = {
 						recombinable = true,
 						any_mode = {
@@ -12601,7 +12845,186 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 5,
 					override_name = "Murkywater Intercom"
+				},
+			--go bank
+				Play_btm_cs1_01 = {
+					override_name = "Bank Teller",
+					category = "civilian_callouts",
+					text = "(talking with Roberts Bank customer)",
+					line_variations = {
+						whisper_mode = {
+							"Is there anything else I can help you with, ma'am? Would you be interested in an auto loan?",
+							"Roberts Bank is happy to help you, sir.",
+							"I'm sorry you feel that way, ma'am.",
+							"Good afternoon, sir. How may I help you?",
+							"Absolutely, sir, not a problem. Would you like all of that in twenties?",
+							"And if you could sign here, here, and here... here, and here, and your initials here... and sign here.",
+							"Would you like a zip bag with that, sir? Only $1.50.",
+						}
+					}
+				},
+				Play_btf_cs1_01 = {
+					override_name = "Bank Teller",
+					category = "civilian_callouts",
+					text = "(talking with Roberts Bank customer)",
+					line_variations = {
+						whisper_mode = {
+							"I'm sorry you feel that way, ma'am.",
+							"Is there anything else I can help you with, ma'am? Would you be interested in an auto loan?",
+							"Absolutely, sir, not a problem.",
+							"Roberts Bank is happy to help you, sir.",
+							"And if you could sign here, here, and here... here, and here, and sign here.",
+							"I'd be happy to help you. One moment, please.",
+							"Good afternoon, sir. How may I help you?"
+						}
+					}
+				},
+				Play_bkm_cs1_01 = {
+					override_name = "Bank Teller",
+					category = "civilian_callouts",
+					text = "(talking with Roberts Bank customer)",
+					line_variations = {
+						whisper_mode = {
+							"Yes, ma'am, we offer an international wire transfer at a very reasonable rate.",
+							"Yes, ma'am, we offering international wire transfers at a very reasonable rate.",
+							"A new account! We can, uh, get right on that.",
+							"A new account! We can get that sorted right away."	
+						}
+					}
+				},
+				Play_bkm_cs1_02 = {
+					override_name = "Bank Teller",
+					category = "civilian_callouts",
+					text = "(talking with Roberts Bank customer)",
+					line_variations = {
+						whisper_mode = {
+							"[coughing]",
+							"[coughing]",
+							"[to self] Why do they think I give a fuck about the money? Why do they?",
+							"[to self] Why can't anyone else do shit around here? It's all about 'me, me, me. Money, money, money.'",
+							"[to self] Some people think it's so easy. 'Just open the vault. Just open a valve, for fuck's sake, and the money pours out.' It's not that easy!",
+							
+						}
+					}
+				},
+				Play_gsc_cs1_10 = { --two pager gensec guards, in the event that the gensec loot truck spawns
+					text = "Wait here with the truck. I'll be right back.",
+					category = "mission_dialogue",
+					line_variations = {
+						whisper_mode = {
+							"This won't take long. Don't let anyone borrow the keys to the truck.",
+							"Wait here. I'll be right back.",
+							"It's a quiet neighborhood. You'll be fine. I'll be right back."
+						}
+					}
+				},
+				Play_csf_cs1_01 = {
+					override_name = "Customer on phone",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "(Customer asking for bank assistance)",
+					duration = 7,
+					category = "mission_dialogue",
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"I need to talk to someone about my 401k."
+							}
+						}
+					}
+				},
+				Play_csf_cs1_02 = {
+					override_name = "Customer on phone",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "(Customer asking for bank assistance)",
+					duration = 7,
+					category = "mission_dialogue",
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"Yeah, how much money do I got in there? How much?",
+								"Yeah, how much money do I got there? How much?"
+							}
+						}
+					}
+				},
+				Play_csf_cs1_03 = {
+					override_name = "Customer on phone",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "(Customer asking for bank assistance)",
+					duration = 15,
+					category = "mission_dialogue",
+					line_variations = {
+						whisper_mode = {
+							{
+								"Hi, I just saw a show, and a bank got robbed. And I want to move my money to a bank that doesn't get robbed."
+							}
+						}
+					}
+				},
+				Play_csm_cs1_01 = {
+					override_name = "Customer on phone",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "(Customer asking for bank assistance)",
+					duration = 15,
+					category = "mission_dialogue",
+					line_variations = {
+						whisper_mode = {
+							{
+								"I wanted to ask if you guys offer financing for automobiles."
+							}
+						}
+					}
+				},
+				Play_csm_cs1_02 = {
+					override_name = "Customer on phone",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "(Customer asking for bank assistance)",
+					duration = 5,
+					category = "mission_dialogue",
+					line_variations = {
+						whisper_mode = {
+							{
+								"Hey. I'm having trouble with my account on the computer. Do I... internet?"
+							}
+						}
+					}
+				},
+				Play_csm_cs1_03 = {
+					override_name = "Customer on phone",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "(Customer asking for bank assistance)",
+					category = "mission_dialogue",
+					duration = 15,
+					line_variations = {
+						whisper_mode = {
+							{
+								"Yeah, there's a charge on the credit card the wife can't see. Uhh... I was in Mexico, and...",
+								"Yeah, there's a charge on my credit card the wife can't see. Uhh... I was in Mexico, and... hmm, well...",
+								"Yeah, uh... there's a charge on my credit card the wife can't see. Well, I was in Mexico, and, uh... one thing led to another, well... I gave in.",
+								"Yeah, uh... there's a charge on my credit card the wife can't see. Well, I was in Mexico, and... uh... hm...",
+								"Yeah, there's a charge on the credit card the husband can't see. Uh, I was in Mexico, and... yeah... [stressed sigh]"
+							}
+						}
+					}
+				},
+				Play_csk_cs1_01 = {
+					override_name = "Customer on phone",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					text = "(customer asking for bank assistance)",
+					category = "mission_dialogue",
+					duration = 15,
+					line_variations = {
+						whisper_mode = {
+							{
+								"Hey, I work as a repairman, and... I think I might have left a sandwich in one of your vaults.",
+								"Knock knock. [pause, silence] ...hey. Knock knock. [longer pause, silence] Fuck you guys."
+							}
+						}
+					}
 				}
+				
 			}
 		}
 	},

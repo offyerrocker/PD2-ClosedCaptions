@@ -1,21 +1,27 @@
 --[[
+* todo test in multiplayer
+
 * todo adjust horizontal position of subtitles
 * todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
+* todo option for lifetime multiplier for captions
 
-* todo lifetime multiplier for captions
+
+* todo conditional check for existing vanilla subtitles when logging from DialogManager
+* system for persistent looped sounds (eg. fwb bank manager) 
+* system for sounds which act as "stop" flags for other sounds
+* implement priority system
 
 * update process_special_vo() for line variations
 	* implement apply_macro() as iterable functor 
-
 	* todo generic text descriptions for each line
 	* todo layer custom user settings over sound_data
 		* todo documented custom template for those things
+	* subtitles play during heist planning screen
 		
 ISSUES
 	* "element" may appear as the source name, since some lines do not/should not have override_names "element: whistle"
 	* teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
-	* figure out how long alarm museum slow fade is or whatever it's called
 	* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
 	* goat sfx do not play in goat sim day 1; todo figure out where they're playing from
 	
@@ -31,12 +37,9 @@ Style guidelines:
 (parentheses) aim to convey the meaning or description of the phrase foremost, not necessarily the exact wording
 
 
-
-PROMPT:
-calling out guards, deploying, grenades, calling bots, inspiring downed heisters
-guard pager timer having noises
-mission dialogue:
-	- heat street matt roscoe dialogue
+mission dialogue to check/enter:
+	- GO Bank phone calls?  especially the blackmailer fucker
+	
 	- diamond heist ceo dialogue/ceo son dialogue
 	- rats day 3 c4 sound? rats d2 doublecross dialogue?
 	- green bridge prisoner dialogue
@@ -50,12 +53,10 @@ mission dialogue:
 	- breakin' feds garrett dialogue
 	
 	- brooklyn 10/10 charon?
-	- necrocloaker dialogue on cursed kill room/prison nightmare?
-	- GO Bank phone calls?
 	- Goat simulator d2 doctor?
+	- necrocloaker dialogue on cursed kill room/prison nightmare?
 	- beneath the mountain locke dialogue?
 	- stealing xmas almir dialogue
-	- murky station radio (loop)
 	- Car shop manager chatter
 	- border crossing...?
 * aldstone lines?
@@ -728,7 +729,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 				
 			elseif not sound_data.text then
 				--variants exist, but none for this unit's variant, so do nothing
-				self:log("No variant data exists for " .. tostring(variant) .. " subvariant " .. tostring(subvariant),{color=Color(1,0.3,0)})
+				self:log("No variant data exists for soundfile " .. tostring(sound_id) .. ", " .. tostring(variant) .. " subvariant " .. tostring(subvariant),{color=Color(1,0.3,0)})
 				return
 			end
 		end

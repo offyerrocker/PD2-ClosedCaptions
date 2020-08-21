@@ -31,7 +31,7 @@ Hooks:PreHook(DialogManager,"_play_dialog","closedcaptions_dialogmanager_startdi
 		if dialog.sound then 
 			local all_sounds_data = ClosedCaptions:GetSoundTable()
 			
-			if all_sounds_data.vo[dialog.sound] then 
+			if all_sounds_data.vo[dialog.sound] or ClosedCaptions:IsLoggingEnabled() then 
 				local unit = params.on_unit or params.override_characters and managers.player:player_unit()
 				local position
 				--add line here

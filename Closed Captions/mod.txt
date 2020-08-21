@@ -39,6 +39,14 @@
 		{
 			"hook_id" : "lib/units/weapons/grenades/quickflashgrenade",
 			"script_path" : "lua/quickflashgrenade.lua"
+		},
+		{
+			"hook_id" : "core/lib/managers/subtitle/coresubtitlesequence",
+			"script_path" : "coresubtitlesequence.lua"
+		},
+		{
+			"hook_id" : "core/lib/managers/subtitle/coresubtitlemanager",
+			"script_path" : "coresubtitlemanager.lua"
 		}
 	]
 }
