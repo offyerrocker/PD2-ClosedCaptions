@@ -193,9 +193,9 @@ ClosedCaptions.color_data = {
 	generic = Color(1,1,1),
 	criminal1 = Color(0,1,1),
 	neutral1 = Color(0,1,0),
-	law1 = Color(1,0,0),
-	mobster1 = Color(1,0.3,0),
-	boss = Color(1,0.5,0),
+	law1 = Color(1,0.8,0),
+	mobster1 = Color(1,0.5,0),
+	boss = Color(0.9,0.1,0),
 	peer1 = Color.green,
 	peer2 = Color.blue,
 	peer3 = Color.red,
@@ -515,6 +515,10 @@ end
 
 function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locationless)
 	local panel = self._panel
+	if not alive(panel) then
+		self:log("ERROR: no self._panel! THIS IS ACTUALLY VERY BAD",{color=Color.red})
+		return
+	end
 	local item_panel = panel:child(panel_name)
 	if item_panel and alive(item_panel) then 
 		panel:remove(item_panel)

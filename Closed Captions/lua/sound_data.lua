@@ -59,6 +59,31 @@ ClosedCaptions._sounds = {
 					text = "(radio plays)",
 					category = "sfx"
 				},
+				jukebox_shuffle = {
+					override_name = "SFX",
+					text = "(jukebox plays)",
+					category = "sfx"
+				},
+				jukebox_shuffle_stop = {
+					override_name = "SFX",
+					text = "(jukebox stops)",
+					category = "sfx"
+				},
+				table_saw = {
+					override_name = "SFX",
+					text = "(table saw grinding)",
+					category = "sfx"
+				},
+				blowtorch_guy = {
+					override_name = "SFX",
+					text = "(blowtorch hissing)",
+					category = "sfx"
+				},
+				blowtorch_guy_end_global = {
+					override_name = "SFX",
+					text = "(blowtorch stops)",
+					category = "sfx"
+				},
 				ammo_bag_drop = {
 					override_name = "SFX",
 					text = "(bag placed)",
@@ -229,7 +254,7 @@ ClosedCaptions._sounds = {
 					category = "sfx"
 				},
 				hos_witch_cry_loop_01 = {
-					override_name = "Witch:",
+					override_name = "Witch",
 					override_text_color = ClosedCaptions.color_data.l4d_witch,
 					text = "[Witch Groans Softly]", --directly from l4d2
 					category = "sfx"
@@ -1463,7 +1488,7 @@ ClosedCaptions._sounds = {
 											"I guess that's how the pros do it!",
 											"I guess that's one way of doing things!"
 										},
-										assault_mode = {
+										standard_mode = {
 											"That's how we do it!",
 											"We did it, nice!",
 											"THIS is how legends are made!",
@@ -1629,7 +1654,7 @@ ClosedCaptions._sounds = {
 											"Oh, shit!",
 											"Oh, fuck!",
 											"Fuck me!",
-											"O helvete! (Aw, hell!)"
+											"O helvete! (Aw, hell!)",
 											"Sjutton! [Swearing in Swedish]",
 											"Tusan också! [Swearing in Swedish]" --doesn't sound like "tusan", more like "wee" but i don't know swedish swears
 										}
@@ -1813,7 +1838,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"[chuckles] I like it.",
 											"Hah, well bugger me!",
 											"Hahaha, fuckin' look at that!"
@@ -1842,7 +1867,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										standard_mode = {
+										any_mode = {
 											"I got the drill.",
 											"I got the drill!"
 										}
