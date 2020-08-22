@@ -1,17 +1,29 @@
 --[[
-* todo test in multiplayer
+BEFORE FIRST PUBLIC RELEASE:
+	* todo test in multiplayer
+	
+	* todo separate IsLoggingEnabled() check into "is logging missing lines enabled" and "is logging errors enabled"
+	* todo conditional check for existing vanilla subtitles when logging from DialogManager
+	* system for persistent looped sounds (eg. fwb bank manager) 
+	* system for sounds which act as "stop" flags for other sounds
+
+OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
+
 
 * todo adjust horizontal position of subtitles
 * todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
 * todo option for lifetime multiplier for captions
 
+* additional category for nonspecial unit deaths
+* ambient sfx category
 
-* todo conditional check for existing vanilla subtitles when logging from DialogManager
-* system for persistent looped sounds (eg. fwb bank manager) 
-* system for sounds which act as "stop" flags for other sounds
-* implement priority system
+* enable/disable priority system
 
+* smooth movement for caption lines filling in unused space
+
+	--geiger counter click
+	
 * update process_special_vo() for line variations
 	* implement apply_macro() as iterable functor 
 	* todo generic text descriptions for each line
@@ -20,10 +32,13 @@
 	* subtitles play during heist planning screen
 		
 ISSUES
+	--DUPLICATE LINES ARE NOT REMOVED: queuing second line removes an existing one but doesn't make the current one
+
 	* "element" may appear as the source name, since some lines do not/should not have override_names "element: whistle"
 	* teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
 	* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
 	* goat sfx do not play in goat sim day 1; todo figure out where they're playing from
+	
 	
 	using a SoundSource object as a source_id may go wrong and fail to remove any other captions played from that sound source if the soundsource ever moves, because tostring includes its vector position
 	cloaker static persists for 1000 seconds only, and MIGHT be interrupted by any other cloaker line, and is not interrupted by death
@@ -65,6 +80,34 @@ mission dialogue to check/enter:
 * breaking glass
 --]]
 
+--[[
+priority data cheat sheet:
+	priorities are roughly divided into tiers of 10,
+	so that lines can be consistently ranked separately 
+	between similar lines 
+	
+		--mission dialogue is priority 1-10 so that any longer text isn't constantly moving around the screen
+		--vo is also usually around this range, depending
+		
+		- moment-to-moment important information like Inspire being used, Cloaker Charge, etc. are priority 11-20
+
+		
+		- most standard sfx are anywhere priority 21-40,
+			but may vary widely since that's a broad category
+			mission relevant sfx are usually around 37
+			mission-VITAL sfx are obviously higher
+			ammo pickups are 50-60ish
+		- heister callouts are 40-50
+			-"i need a medic bag" and similar are higher priority, 11-20
+		- special kills and special spotting is 50-60
+		- enemy callouts are 60-70
+			cloaker spawn/idle are 40
+			healed cop is 50
+			surrender/converted cop is 40
+		- enemy chatter is 90-100
+		
+ logall(ClosedCaptions.active_lines[2])
+--]]
 
 --note: custom colors from settings MUST LOAD BEFORE LoadSounds() !!!
 
@@ -455,7 +498,6 @@ function ClosedCaptions:init_captions()
 end
 
 function ClosedCaptions:Update(t,dt)
-	local snd_dist_max_sq = 2000 * 2000
 	local panel = self._panel
 	local angle_threshold = 45
 	local y = self.settings.caption_y --starting position
@@ -466,6 +508,7 @@ function ClosedCaptions:Update(t,dt)
 	local player_aim = viewport_cam and viewport_cam:rotation():yaw() or 0
 	local player_pos = viewport_cam and viewport_cam:position() or Vector3()
 	local queued_remove = {}
+	--todo sort by priority
 	for i,item in ipairs(self.active_lines) do
 		local is_hidden
 		if item and item.panel and alive(item.panel) then 
@@ -480,7 +523,7 @@ function ClosedCaptions:Update(t,dt)
 					
 					if not item.is_locationless then 
 						local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
-						if source_position then -- source_position and mvector3.distance_sq(player_pos,source_position) < snd_dist_max_sq then 
+						if source_position then --and mvector3.distance_sq(player_pos,source_position) < math.pow(data.max_distance,2) then 
 							local angle_to = ((ClosedCaptions.angle_from(player_pos,source_position) - player_aim + 270) % 360) - 180
 							item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
 							item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
@@ -491,21 +534,17 @@ function ClosedCaptions:Update(t,dt)
 				end
 			end
 			
-			if is_hidden == nil then 
+			if is_hidden == nil then
 				item.panel:show()
 				n = n + 1
 				item.panel:set_position((panel:w() - item.panel:w()) / 2,panel:h() - (y + 24))
 				y = y + item.panel:h()
-				
 			elseif is_hidden == false then
 			else
 				item.panel:hide()
---				self:log("Hiding line " .. tostring(item and item.panel and item.panel:child("subtitle"):text()))
 			end
 		else
---			self:log("Removing line " .. tostring(item and item.panel and item.panel:child("subtitle"):text()))
 			table.insert(queued_remove,i)
---			self:remove_line(i)
 		end
 	end
 	for _,i in pairs(queued_remove) do 
@@ -522,7 +561,8 @@ function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locat
 	end
 	local item_panel = panel:child(panel_name)
 	if item_panel and alive(item_panel) then 
-		panel:remove(item_panel)
+		self:find_line({panel = item_panel},nil,"_remove_line")
+--		panel:remove(item_panel)
 	end
 	local hor_text_margin = 8 + self.settings.caption_font_size
 	local ver_text_margin = 8
@@ -646,6 +686,8 @@ function ClosedCaptions:find_line(params,greedy_match,f)
 		if is_it then 
 			if f and (type(f) == "function") then 
 				return i,f(i)
+			elseif f and (type(ClosedCaptions[f]) == "function") then 
+				return i,ClosedCaptions[f](self,i)
 			else
 				return i
 			end
@@ -674,7 +716,6 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	end
 	if type(sound_id) == "number" then 
 		sound_id = self:reverse_lookup_event_id(sound_id)
-		--!
 		if not sound_id then 
 			self:log("No sound id found for number lookup!" .. tostring(sound_id),{color=Color.red})
 		end
@@ -686,6 +727,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	
 	local text_color = Color.white
 	local is_whisper_mode = managers.groupai:state():whisper_mode()
+	local is_assault_mode = managers.groupai:state():get_assault_mode()
+	
 	local all_sounds_data = self:GetSoundTable()
 	local subvariant
 	local source_name = tostring(variant)
@@ -699,6 +742,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		if variant == "cop" then 
 			subvariant = source and source:base()._tweak_table
 			source_name = subvariant and self.unit_names[subvariant] or variant
+			
+--			managers.groupai:state():is_enemy_special(source) then --do category filter here
 			
 --			source_name = source:base()._tweak_table
 			text_color = self.color_data.law1 -- Color(0.3,0.5,1)
@@ -766,9 +811,9 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			
 			if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
 				text = get_random_variation(variations.whisper_mode,is_recombinable)
-			elseif not is_whisper_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
+			elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
 				text = get_random_variation(variations.assault_mode,is_recombinable)
-			elseif variations.standard_mode then --no assault
+			elseif not is_whisper_mode and variations.standard_mode then --if otherwise loud
 				text = get_random_variation(variations.standard_mode,is_recombinable)
 			elseif variations.any_mode then --no conditional requirements for these lines
 				text = get_random_variation(variations.any_mode,is_recombinable)
@@ -842,6 +887,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		source = source,
 		sound_id = sound_id,
 		priority = subvariant_data.priority or sound_data.priority or 1,
+		max_distance = subvariant_data.priority or sound_data.priority,
 		start_t = t,
 		is_locationless = source == managers.player:local_player(), --todo locationless from sfx source/data override
 		expire_t = (subvariant_data.duration and (subvariant_data.duration + t)) or expire_t
@@ -861,25 +907,37 @@ function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --create
 	local t = Application:time()
 	data.start_t = data.start_t or t
 	data.expire_t = data.expire_t or (t + 3)
-	data.priority = data.priority or 1
+	data.priority = data.priority or 1000
 	if not (data.position or data.source) then 
 		data.is_locationless = true
 	end
 	text_color = text_color or self.color_data.generic
 	
 	local panel = self:_create_caption_text(panel_text,source_id,text_color,data.is_locationless)
-	data.panel = panel
 	if panel then 
-		table.insert(self.active_lines,data)
+		data.panel = panel
+		--priority check
+		if data.priority then 
+			for i,active_data in ipairs(self.active_lines) do
+			--lower number is more important
+				if not active_data.priority or (active_data.priority <= data.priority) then
+					table.insert(self.active_lines,i,active_data)
+					return
+				end
+			end
+			table.insert(self.active_lines,data) -- at #self.active_lines ?
+		else
+			table.insert(self.active_lines,data)
+		end
 	elseif not panel then 
 		self:log("REAL BAD ERROR: ClosedCaptions:_add_line(" .. ClosedCaptions.concat(sound_id,source,source_name) .. ") Could not create caption panel")
 	end
 end
 
 function ClosedCaptions:remove_line(params,greedy_match)
-	self:find_line(params,greedy_match,function(i) self:_remove_line(i) end)
+	self:find_line(params,greedy_match,"_remove_line")
 end
-
+--table.remove(ClosedCaptions.active_lines,1)
 function ClosedCaptions:_remove_line(i) --intended for a by-source reference/called from outside of direct reference 
 	local item = table.remove(self.active_lines,i)
 	if item and item.panel and alive(item.panel) then 

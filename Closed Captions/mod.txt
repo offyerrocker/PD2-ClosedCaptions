@@ -41,6 +41,10 @@
 			"script_path" : "lua/quickflashgrenade.lua"
 		},
 		{
+			"hook_id" : "lib/managers/gameplaycentralmanager",
+			"script_path" : "gameplaycentralmanager.lua"
+		},
+		{
 			"hook_id" : "core/lib/managers/subtitle/coresubtitlesequence",
 			"script_path" : "coresubtitlesequence.lua"
 		},
