@@ -41,7 +41,7 @@
 			"script_path" : "lua/quickflashgrenade.lua"
 		},
 		{
-			"hook_id" : "lib/managers/gameplaycentralmanager",
+			"DISABLED_hook_id" : "lib/managers/gameplaycentralmanager",
 			"script_path" : "gameplaycentralmanager.lua"
 		},
 		{

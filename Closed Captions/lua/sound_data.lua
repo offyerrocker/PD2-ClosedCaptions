@@ -1,19 +1,29 @@
 ClosedCaptions._sounds = {
 	languages = {
 		english = {
-			vo_special = {
+			vo_special = { --there exit character-specific variants for most of these, but we'll burn that bridge when we come to it
 				["f11@_sin"] = { --macroized
 					text = "$CHARACTER_NAME! Help me up!",
 					caps = true,
-					macro = "character_name"
+					macro = "character_name",
+					priority = 37
 				},
 				["f13@_sin"] = { --macroized
 					text = "$CHARACTER_NAME, come uncuff me!",
-					macro = "character_name"
+					macro = "character_name",
+					priority = 37
 				},
 				["f21@_sin"] = { --macroized
 					text = "$CHARACTER_NAME, follow me!",
-					macro = "character_name"
+					macro = "character_name",
+					priority = 37
+				},
+				["Play_ban_i20@"] = {
+					override_name = "Bain",
+					category = "contractor_vo",
+					text = "CHARACTER_NAME, you're the last one standing! It's all up to you!",
+					macro = "character_name",
+					priority = 37
 				}
 			},
 			vo = {
@@ -296,9 +306,13 @@ ClosedCaptions._sounds = {
 				},
 				goat_says_meh_loop = {
 					override_name = "SFX",
-					text = "(Goat bleats repeatedly)",
+					text = "(Goat bleating)",
 					priority = 38,
-					category = "sfx"
+					category = "sfx",
+					loop_data = {
+						loop_interval = 5,
+						use_random_loop_interval = true
+					}
 				},
 				goat_lick = {
 					override_name = "SFX",
@@ -317,6 +331,11 @@ ClosedCaptions._sounds = {
 					override_text_color = ClosedCaptions.color_data.l4d_witch,
 					text = "[Witch Groans Softly]", --directly from l4d2
 					priority = 50,
+					is_locationless = true,
+					loop_data = {
+						loop_interval = 3,
+						use_random_loop_interval = true
+					},
 					category = "sfx"
 				},
 				Play_howl_reverb = {
@@ -325,11 +344,15 @@ ClosedCaptions._sounds = {
 					priority = 50,
 					category = "sfx"
 				},
-				city_sounds_basketball_stop = {
+				city_sounds_basketball = { --idk if this works, probably though. panic room 
 					override_name = "SFX",
 					text = "(ambient: casual basketball game)",
 					priority = 50,
 					category = "UNKNOWN"
+				},
+				city_sounds_basketball_stop = {
+					stops = "city_sounds_basketball",
+					category = "stops"
 				},
 				inside_container = {
 					override_name = "SFX",
@@ -354,7 +377,9 @@ ClosedCaptions._sounds = {
 					text = "(being tased!)",
 					priority = 11,
 					category = "sfx",
-					disabled = true
+					loop_data = {
+						loop_interval = -1 --constant
+					}
 				},
 				melee_hit_body = {
 					override_name = "SFX",
@@ -389,16 +414,26 @@ ClosedCaptions._sounds = {
 					priority = 11,
 					category = "sfx"
 				},
-				critical_state_heart_loop = {
+				critical_state_heart_loop = { --! needs a stop
 					override_name = "SFX",
 					text = "(low health heartbeat)",
 					priority = 12,
+					duration = 1,
+					loop_data = {
+						loop_interval = 1
+					},
 					category = "sfx"
 				},
 				vial_break_2d = {
 					override_name = "SFX",
 					text = "(vial breaks)",
 					priority = 20,
+					category = "sfx"
+				},
+				queue_beep = {
+					override_name = "SFX",
+					text = "(bank queue beep)",
+					priority = 50,
 					category = "sfx"
 				},
 				concussion_effect_on = {
@@ -476,15 +511,18 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[Slow alarm countdown ticking]",
 					category = "sfx",
-					priority = 37,
-					duration = 60
+					loop_data = {
+						loop_interval = -1 --constant
+					},
+					priority = 37
 				},
 				alarm_countdown_loop_stop = {
 					override_name = "SFX",
 					text = "[Alarm countdown stops]",
-					category = "sfx",
-					priority = 37,
-					disabled = true
+					category = "stops",
+					stops_line = "alarm_countdown_loop",
+					duration = 2,
+					priority = 37
 				},
 				hitec_lotec_alarm_slow_fade = {
 					override_name = "SFX",
@@ -631,12 +669,20 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					duration = 3
 				},
-				hacking_device = {
+				hacking_device = { --needs max distance
 					override_name = "SFX", --looped
 					text = "[hacking noise]",
 					category = "sfx",
 					priority = 37,
-					disabled = true
+					duration = 10,
+					loop_data = {
+						loop_interval = 5
+					}
+				},
+				hacking_device_stop = {
+					category = "sfx",
+					stops_line = "hacking_device",
+					category = "stops"
 				},
 				vo_special = {
 					category = "UNKNOWN",
@@ -648,12 +694,19 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					text = "(SWAT explosive breaches wall)"
 				},
-				server_noise_loop = { --looped
+				server_noise_loop = { --looped; needs max distance
 					override_name = "SFX",
 					category = "sfx",
 					text = "[server noises]",
 					priority = 37,
-					disabled = true
+					duration = 5,
+					loop_data = {
+						loop_interval = 20
+					}
+				},
+				server_noise_loop_stop = { --no idea if this works
+					stops_line = "server_noise_loop",
+					category = "stops"
 				},
 				Play_pln_spawn_01 = {
 					override_name = "Bain",
@@ -673,21 +726,210 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				Play_ban_i20c = {
-					--hey wolf it's on you now, the whole crew is counting on you to turn it around!
-					disabled = true,
-					priority = 10
+				Play_pln_polin_01 = {
+					text = "Twenty until police arrive!",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"Cops in twenty- gear up!",
+							"Twenty until police arrive!",
+							"Police are closing in- they're here in twenty seconds!",
+							"Twenty seconds- cops closing in!",
+							"Twenty and counting- cops imminent!"
+						}
+					}
+				},
+				Play_pln_polin_02 = {
+					text = "Thirty until police arrive!",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"Police will arrive in approximately thirty seconds!",
+							"Police coming in hot- thirty seconds!",
+							"In thirty seconds you got company- cops incoming!",
+							"Cops are about thirty seconds away!",
+							"About thirty seconds until police arrive!",
+							"Police are closing in- they'll be here in thirty seconds!",
+							"Thirty seconds until the police arrive!"
+						}
+					}
+				},
+				Play_pln_polin_03 = {
+					text = "Cops running up- forty seconds until confrontation!",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"You got the cops coming down on you in forty seconds!",
+							"Police arriving at your location in forty seconds!",
+							"Cops running up- forty seconds until confrontation!"
+						}
+					}
+				},
+				play_pln_gen_snip_01 = {
+					text = "Police are going to snipers!",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"Head down! They're rolling in a Sniper team!",
+							"Be careful! They have Snipers incoming!",
+							"Yeah, they just put Snipers into play!",
+							"They're shifting long-range teams into position!",
+							"They're gonna hit you with Snipers!",
+							"Snipers just got activated- stay sharp!",
+							"Things are heating up- those are Snipers!",
+							"They've had enough- they're going to Snipers!",
+							"They've got Snipers in position!",
+							"They're upping the ante with Snipers!",
+							"Well, those are Snipers!",
+							"They're deploying Snipers- stay low!",
+							"Get your heads down- they've called in Snipers!",
+							"Snipers are almost moved in!"
+						}
+					}
+				},
+				play_pln_gen_pol_01 = {
+					text = "Well, here's our cops!",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"The police are here! Stand 'em down!",
+							"Well, here's our cops!",
+							"Police units just got here!",
+							"And here they are!",
+							"Police!",
+							"They're coming in force!",
+							"Get busy- police are here!",
+							"We got some company, folks!",
+							"Cops responding... here we go!",
+							"Here come the cops!",
+							"Police are on the scene!",
+							"Well, here come the damn cops!"
+						}
+					}
+				},
+				Play_ban_b12 = {
+					text = "(assault finished)",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						recombinable = true,
+						any_mode = {
+							{
+								"You keep doing that, and we'll pull off this caper just fine!",
+								"[triumphant laughter] Gonna be a lot of early retirement forms filed today!",
+								"Kickass, fellas!",
+								"Wow, never seen anything like that!",
+								"That's how you do it, people!",
+								"That oughta teach them some manners!",
+								"Waaay to go! That was seriously inspiring!"
+								"I bet they don't know what hit 'em!",
+								"[incredulous chuckle] I'll be damned... they backed off!",
+								"That was a hell of a beating you just handed out!",
+								"They weren't expecting that, for goddamn sure!",
+								"Bunch of gladiators is what you are!"
+							},	
+							{	
+								"I don't meant holler at you, but you did great back there!",
+								"I'm sure they'll come back for more, so use your time well, now!",
+								"Now don't lose your advantage, guys!",
+								"Now let me give you a tip: Do that again!",
+								"Now make what you did count!",
+								"Now take advantage of the situation- it won't last for long!",
+								"Okay, you earned your chance here- don't waste it!",
+								"Still, you only won the battle, not the war! Back to the plan, guys!",
+								"Take advantage of the situation- it won't last forever!"
+							}
+						}
+					}
+				},
+				Play_pln_ctci_01 = {
+					text = "(keep the civilians down)",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"Keep the people in check!",
+							"Don't let anyone call the cops! Keep them down!",
+							"Get the people on the floor! Keep them down!",
+							"Keep the crowd in control!",
+							"Control your civilians, guys!",
+							"Keep an eye on the civilians!"
+						}
+					}
+				},
+				Play_pln_indif_01 = {
+					text = "(force increase warning)",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"Check your six- tougher SWATs are rolling in!",
+							"Give 'em hell, guys! They sure intend to treat you the same way- new units are rolling in!",
+							"SWAT is stepping up, guys! This will get hairy!",
+							"Shit! Police just called in heavy-duty reinforcements!",
+							"A lot more cops are coming in- seem to have more weaponry as well!",
+							"Okay, the cops, they just stepped up their efforts- tougher units incoming!",
+							"More units! More guns coming your way, gang!",
+							"More cops in heavy gear approaching! Show 'em who's boss!",
+							"Bite down! The cops are throwing in another new gear. Heavy units moving in!",
+							"Shit, we got bad cops moving in! REAL bad cops! Keep your heads down!",
+							"Give them hell, guys! They sure intend to treat you the same way- new units are rolling in!"
+						}
+					}
+				},
+				Play_ban_b02c = {
+					text = "(assault incoming warning)",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"Alright, ramblers, let's get rambling!",
+							"Be ready for anything!",
+							"Brace yourselves!",
+							"Deep breath!",
+							"Don't die!",
+							"Good luck!",
+							"Good luck, everybody!",
+							"Good luck, people!",
+							"Here they come!",
+							"Let 'em have it!",
+							"Now brace for it!",
+							"Now, give them hell!",
+							"Now, give them hell!",
+							"Now...!",
+							"Stay frosty!",
+							"They're coming!",
+							"This is it!",
+							"Watch yourself!",
+							"You got this!"
+						}
+					}
 				},
 				Play_ban_h01x = {
-					disabled = true,
-					priority = 40,
---					"you need to take hostages!"
+					category = "contractor_vo",
+					text = "You need to take hostages- tie them down!",
+					priority = 37,
+					line_variations = {
+						any_mode = {
+							"You need to take hostages! Use your cable ties and tie them down!",
+							"You need to take hostages, tie them down! Or make a law enforcer cuff themself.",
+							"You need to take hostages to be able to trade! Tie someone down with your cable ties!"
+						}
+					}
 				},
-				policecar_approaching = { --looped, i think
+				policecar_approaching = { --looped, i think... --! needs review, i don't need this line on my hud 24/7
 					override_name = "SFX",
 					category = "sfx",
 					priority = 40,
-					text = "(police car approaching)"
+					text = "(police car approaching)",
+					loop_data = {
+						loop_interval = -1 --constant
+					}
 				},
 				cop_car_01 = {
 					override_name = "SFX",
@@ -9880,32 +10122,35 @@ ClosedCaptions._sounds = {
 				},
 				cloaker_detect_christmas_stop = {
 					text = "(Festive Cloaker charge stops)",
-					category = "enemy_callouts",
-					duration = 11,
-					disabled = true
+					category = "stops",
+					duration = 2,
+					stops_line = "cloaker_detect_christmas_mono"
 				},
 				cloaker_detect_mono = {
 					text = "(CLOAKER CHARGE!)", --wololololo
 					priority = 11,
 					category = "enemy_callouts"
 				},
-				cloaker_presence_loop = {
+				cloaker_presence_loop = { --needs max distance
 					text = "(Cloaker idle)",
 					priority = 40,
 					category = "enemy_callouts",
-					duration = 10000
+					loop_data = {
+						loop_interval = -1 --constant
+					}
 				},
 				cloaker_presence_stop = {
 					text = "(Cloaker idle stops)",
-					category = "enemy_callouts",
-					priority = 40,
-					disabled = true
+					category = "stops",
+					duration = 2,
+					priority = 40
 				},
 				cloaker_detect_stop = {
 					text = "(Cloaker charge stops)",
-					category = "enemy_callouts",
-					priority = 40,
-					disabled = true
+					category = "stops",
+					stops_line = "cloaker_detect_mono",
+					duration = 2,
+					priority = 40
 				},
 				visor_lost = { --SEN-I-SOSHITSU
 					text = "[lost visor]",
@@ -10252,14 +10497,17 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN",
 					priority = 55
 				},
-				tasered_3rd = {
+				tasered_3rd = { --loops
 					text = "tasered_3rd",
 					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					},
 					priority = 55
 				},
-				tasered_3rd_stop = { --loops
-					text = "tasered_3rd_stop",
-					category = "sfx",
+				tasered_3rd_stop = {
+					text = "(tasing stops)",
+					category = "stops",
 					priority = 55
 				},
 				post_kill_taunt = {
@@ -10772,7 +11020,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					text = "Contact!",
 					priority = 90
-				}, --spotted criminal
+				},
 				ch1 = {
 					category = "enemy_chatter",
 					text = "Watch out for the trip mines!",
@@ -12654,6 +12902,10 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 37,
+					loop_data = {
+						loop_interval = 10,
+						use_random_loop_interval = true
+					},
 					text = "[talking on phone]",
 					line_variations = {
 						any_mode = {
@@ -12678,6 +12930,10 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 37,
+					loop_data = {
+						loop_interval = 10,
+						use_random_loop_interval = true
+					},
 					text = "[talking on phone]",
 					line_variations = {
 						any_mode = {
@@ -12699,6 +12955,10 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 37,
+					loop_data = {
+						loop_interval = 10,
+						use_random_loop_interval = true
+					},
 					text = "[talking on phone]",
 					line_variations = {
 						any_mode = {
@@ -12714,24 +12974,43 @@ ClosedCaptions._sounds = {
 					}
 				},
 				Stop_bm_fwb_01 = {
-					disabled = true
+					stops_line = "Play_bm_fwb_01",
+					category = "stops"
 				},
 				Stop_bm_fwb_02 = {
-					disabled = true
+					stops_line = "Play_bm_fwb_02",
+					category = "stops"
 				},
 				Stop_bm_fwb_03 = {
-					disabled = true
+					stops_line = "Play_bm_fwb_03",
+					category = "stops"
 				},
 				Play_mc1_fwb_01 = { --these three are also looped
 					disabled = true
 				},
 				Play_mc1_fwb_02 = {
+					loop_data
 					disabled = true
 				},
 				Play_mc1_fwb_03 = {
+					loop_data = {
+						loop_interval = 10,
+						use_random_loop_interval = true
+					},
 					disabled = true	
 				},
-				
+				Stop_mc1_fwb_01 = {
+					stops_line = "Play_mc1_fwb_01",
+					category = "stops"
+				},
+				Stop_mc1_fwb_02 = {
+					stops_line = "Play_mc1_fwb_02",
+					category = "stops"
+				},
+				Stop_mc1_fwb_03 = {
+					stops_line = "Play_mc1_fwb_03",
+					category = "stops"
+				},
 				
 			--framing frame
 				--day 2
