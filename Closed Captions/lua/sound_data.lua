@@ -21,7 +21,7 @@ ClosedCaptions._sounds = {
 				["Play_ban_i20@"] = {
 					override_name = "Bain",
 					category = "contractor_vo",
-					text = "CHARACTER_NAME, you're the last one standing! It's all up to you!",
+					text = "$CHARACTER_NAME, you're the last one standing! It's all up to you!",
 					macro = "character_name",
 					priority = 37
 				}
@@ -68,19 +68,26 @@ ClosedCaptions._sounds = {
 				},
 				radio = {
 					override_name = "SFX",
-					text = "(radio plays)",
+					text = "radio plays",
 					priority = 40,
+					loop_data = {
+						loop_interval = -1
+					},
 					category = "sfx"
 				},
 				christmas_radio = {
 					override_name = "SFX",
-					text = "(radio plays Christmas music)",
+					text = "radio plays Christmas music",
+					loop_data = {
+						loop_interval = -1
+					},
 					priority = 40,
 					category = "sfx"
 				},
 				christmas_radio_end = {
 					override_name = "SFX",
 					text = "(radio stops)",
+					stops_line = "christmas_radio",
 					duration = 2,
 					priority = 40,
 					category = "sfx"
@@ -94,6 +101,7 @@ ClosedCaptions._sounds = {
 				jukebox_shuffle_stop = {
 					override_name = "SFX",
 					text = "(jukebox stops)",
+					stops_line = "christmas_radio",
 					duration = 2,
 					priority = 40,
 					category = "sfx"
@@ -101,12 +109,16 @@ ClosedCaptions._sounds = {
 				table_saw = {
 					override_name = "SFX",
 					text = "(table saw grinding)",
+					loop_data = {
+						loop_interval = -1
+					},
 					priority = 36,
 					category = "sfx"
 				},
 				table_saw_stop = {
 					override_name = "SFX",
 					text = "(table saw stops)",
+					stops_line = "table_saw",
 					duration = 2,
 					priority = 36,
 					category = "sfx"
@@ -114,12 +126,16 @@ ClosedCaptions._sounds = {
 				blowtorch_guy = {
 					override_name = "SFX",
 					text = "(blowtorch hissing)",
+					loop_data = {
+						loop_interval = -1
+					},
 					priority = 36,
 					category = "sfx"
 				},
 				blowtorch_guy_end_global = {
 					override_name = "SFX",
 					text = "(blowtorch stops)",
+					stops_line = "blowtorch_guy",
 					priority = 36,
 					category = "sfx"
 				},
@@ -238,15 +254,18 @@ ClosedCaptions._sounds = {
 				},
 				hand_dryer_on = {
 					override_name = "SFX",
-					override_source_id = "handdryer",
 					text = "(hand dryer whirring)",
+					loop_data = {
+						loop_interval = -1
+					},
 					priority = 38,
 					category = "sfx"
 				},
 				hand_dryer_off = {
 					override_name = "SFX",
-					override_source_id = "handdryer",
 					text = "(hand dryer deactivates)",
+					stops_line = "hand_dryer_on",
+					duration = 2,
 					priority = 38,
 					category = "sfx"
 				},
@@ -262,7 +281,7 @@ ClosedCaptions._sounds = {
 					priority = 38,
 					category = "sfx"
 				},
-				large_fire_stop = {
+				large_fire_stop = { --needs a stops_line
 					override_name = "SFX",
 					text = "(fire stops)",
 					priority = 38,
@@ -826,7 +845,7 @@ ClosedCaptions._sounds = {
 								"Wow, never seen anything like that!",
 								"That's how you do it, people!",
 								"That oughta teach them some manners!",
-								"Waaay to go! That was seriously inspiring!"
+								"Waaay to go! That was seriously inspiring!",
 								"I bet they don't know what hit 'em!",
 								"[incredulous chuckle] I'll be damned... they backed off!",
 								"That was a hell of a beating you just handed out!",
@@ -12031,6 +12050,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "How do I make my money? Uh...",
 					priority = 37,
+--					duration = 10,
 					line_variations = {
 						any_mode = {
 							"How do I make my money? ...publishing. [nervous chuckle] Yeah, publishing...",
@@ -12038,7 +12058,7 @@ ClosedCaptions._sounds = {
 							"[pensive] How do I make my money? Well, you could say I make a lot of it.",
 							"[pensive] How do I make my money? Well, let's just say... let's just say I make a lot of it.",
 							"You know wanna know how I make my money? Hard work. Right through the night.",
-							"My money comes from... well, a sort of trust fund. I'd let you in, but I'd have to trust you.",
+							"My money comes from... well, a sort of trust fund. I'd let you in, but... I don't trust you.",
 							"Eh, my work is pretty dull, like a machine, but it pays well.",
 							"How do I make my money? I just keep pressing. Yeah."
 						}
@@ -12361,6 +12381,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "Yeah, so... anyway...",
 					priority = 37,
+					duration = 5,
 					line_variations = {
 						any_mode = {
 							"Yeah, so... anyway...",
@@ -12374,6 +12395,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "It's all in the basement, man. Go on, help yourself.",
 					priority = 37,
+					duration = 5,
 					line_variations = {
 						any_mode = {
 							"It's all in the basement, man. Go on, help yourself.",
@@ -12387,6 +12409,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "Play_cm2_pal_02",
 					priority = 37,
+					duration = 5,
 					line_variations = {
 						any_mode = {
 							"It's free money, brother!",
@@ -12986,10 +13009,17 @@ ClosedCaptions._sounds = {
 					category = "stops"
 				},
 				Play_mc1_fwb_01 = { --these three are also looped
+					loop_data = {
+						loop_interval = 10,
+						use_random_loop_interval = true
+					},
 					disabled = true
 				},
 				Play_mc1_fwb_02 = {
-					loop_data
+					loop_data = {
+						loop_interval = 10,
+						use_random_loop_interval = true
+					},
 					disabled = true
 				},
 				Play_mc1_fwb_03 = {

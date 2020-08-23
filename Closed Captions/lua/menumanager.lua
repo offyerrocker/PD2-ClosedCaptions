@@ -260,6 +260,7 @@ ClosedCaptions.settings = {
 	captions_max_count = 5,
 	caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 	caption_font_size = 20,
+	caption_randomization = true,
 	caption_priority_enabled = true,
 	category_heister_callouts = true,
 	category_mission_dialogue = true,
@@ -389,6 +390,10 @@ end
 
 function ClosedCaptions:IsPriorityEnabled() 
 	return self.settings.caption_priority_enabled
+end
+
+function ClosedCaptions:IsLineRandomizationEnabled()
+	return self.settings.caption_randomization
 end
 
 function ClosedCaptions:LoadSounds(skip_processing)
@@ -522,21 +527,46 @@ function ClosedCaptions:Update(t,dt)
 		if item and item.panel and alive(item.panel) then 
 			if n < MAX_SUBTITLES then 
 				if not item.loop_data and (t >= item.expire_t) then 
+					--out of time
 					is_hidden = false
 					table.insert(queued_remove,i)
-				else
+				else --not yet out of time
 					if not item.loop_data then 
+						--out of time 
 						item.panel:set_alpha(math.min(1,(item.expire_t - t) / self.settings.caption_fadeout_time))
 					end
+					local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
 					
-					if not item.is_locationless then 
-						local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
-						if source_position then --and mvector3.distance_sq(player_pos,source_position) < math.pow(data.max_distance,2) then 
-							local angle_to = ((ClosedCaptions.angle_from(player_pos,source_position) - player_aim + 270) % 360) - 180
-							item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
-							item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
-						else
+					if item.max_distance then 
+						if mvector3.distance_sq(player_pos,source_position) >= math.pow(item.max_distance,2) then 
 							is_hidden = true
+						end
+					end
+					
+					if not is_hidden and item.loop_data and item.loop_data.loop_interval then 
+						if item.loop_data.loop_interval == -1 then 
+							--always visible (within the correct distance)
+							is_hidden = math.sin((10 * (t - item.start_t)) / (math.pi * item.loop_data.interval))
+							--todo reset start_t?
+						else	
+							if t >= item.expire_t then
+								item.loop_visible = not item.loop_visible
+								is_hidden = item.loop_visible
+								item.expire_t = t + (item.duration or 5) + (item.loop_visible and item.loop_data.loop_interval or 0)
+								--todo soft alpha fade
+							end
+						end
+					end
+
+					if not is_hidden then 
+						if not item.is_locationless then 
+							if source_position then
+								local angle_to = ((ClosedCaptions.angle_from(player_pos,source_position) - player_aim + 270) % 360) - 180
+								item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
+								item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
+							else
+								is_hidden = true
+							end
 						end
 					end
 				end
@@ -764,6 +794,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		end
 	end
 	
+	local text
 	local subvariant_data
 	local sound_data = all_sounds_data.vo[sound_id]
 	if not sound_data then 
@@ -795,9 +826,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 
 		
 		subvariant_data = subvariant_data or sound_data
-		local text
 		local variations = subvariant_data.line_variations or sound_data.line_variations
-		if variations then 
+		if variations and self:IsLineRandomizationEnabled() then 
 		
 			local function get_random_variation(variations_tbl,_is_recombinable)
 				if _is_recombinable then
@@ -843,7 +873,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	end
 	
 	local category = subvariant_data.category or sound_data.category	
-	if category = "stops" then 
+	if category == "stops" then 
+		--exempt from category check since it assumes that the line it's stopping is of the same category... duh
 	else
 		local category_allowed = self:IsCaptionCategoryEnabled(category)
 		if category_allowed == false then 
@@ -922,7 +953,9 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	local data = {
 		position = position,
 		source = source,
---		loop_data = sound_data.loop_data, --haven't tried it, so i ain't pushin' it
+		loop_data = sound_data.loop_data,
+		loop_visible = true, --only used if loop_data is present
+		loop_next_t = 0, --only used if loop_data is present
 		sound_id = sound_id,
 		priority = subvariant_data.priority or sound_data.priority or 1,
 		max_distance = subvariant_data.max_distance or sound_data.max_distance,
@@ -990,6 +1023,7 @@ end
 
 function ClosedCaptions:_end_line(i) --fades the line out
 	self.active_lines[i].expire_t = Application:time() + self.settings.caption_fadeout_time
+	self.active_lines[i].loop_data = nil
 end
 
 
