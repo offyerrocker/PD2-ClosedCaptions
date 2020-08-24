@@ -2,7 +2,7 @@
 BEFORE FIRST PUBLIC RELEASE:
 	* (FINISH AND TEST) system for persistent looped sounds (eg. fwb bank manager) 
 	* (TEST) system for sounds which act as "stop" flags for other sounds
-		* juke box and other sounds shoud not be locationless
+	
 	* todo test in multiplayer
 	
 	* todo separate IsLoggingEnabled() check into "is logging missing lines enabled" and "is logging errors enabled"
@@ -228,7 +228,8 @@ ClosedCaptions.unit_names = {
 	bolivian = "Bolivian Gangster",
 	bolivian_indoors = "Bolivian Security",
 	drug_lord_boss = "Ernesto Sosa",
-	drug_lord_boss_stealth = "Sosa" --stealth
+	drug_lord_boss_stealth = "Sosa", --stealth
+	ecm_jammer = "ECM" --not used since all ecm sounds have an override_name
 }
 
 ClosedCaptions.num_unnamed_caption = 0 --used for incrementing/generated non-conflicting panel ids if no name is provided
@@ -489,7 +490,17 @@ function ClosedCaptions:SetPanelX(x)
 	end
 end
 
-
+function ClosedCaptions:HookSoundSource(soundsource,params)
+	local orig_post_event = soundsource.post_event
+	if type(orig_post_event) == "function" then 
+		soundsource.post_event = function(sound_id,...)
+			ClosedCaptions:add_line(sound_id,unpack(params))
+			return orig_post_event(soundsource,sound_id,...)
+		end
+	else
+		self:log("Error hooking SoundSource " .. tostring(soundsource) .. ": no valid source",{color=Color.red})
+	end
+end
 
 
 --caution: here be dragons; lines related to creation or management of active displayed captions 
@@ -788,7 +799,20 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			source_name = self.unit_names[variant] or variant
 			text_color = self.color_data.neutral1 --Color(0.3,1,0.3)
 		elseif variant == "gangster" then
+			source_name = self.unit_names[variant] or variant
 			text_color = self.color_data.mobster1
+		else
+			source_name = self.unit_names[variant] or variant
+		end
+	end
+	
+	function stop_line(sound_data,f)
+		if sound_data.remove_by_source and sound_data.stops_line then 
+			self:find_line({source = source,sound_id = sound_data.stops_line},sound_data.greedy_match,f)
+		elseif sound_data.remove_by_source then 
+			self:find_line({source = source},sound_data.greedy_match,f)
+		elseif sound_data.stops_line then 
+			self:find_line({sound_id = sound_data.stops_line},sound_data.greedy_match,f)
 		end
 	end
 	
@@ -811,10 +835,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 				--variants exist, but none for this unit's variant, so do nothing
 				self:log("No variant data exists for soundfile " .. tostring(sound_id) .. ", " .. tostring(variant) .. " subvariant " .. tostring(subvariant),{color=Color(1,0.3,0)})
 				
-				if sound_data.stops_line then
+				stop_line(sound_data,"_end_line")
 					-- fadeout specified target line, since the current line isn't replacing it
-					self:find_line({sound_id = sound_data.stops_line},nil,"_end_line")
-				end
 				
 				return
 			end
@@ -873,6 +895,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	local category = subvariant_data.category or sound_data.category	
 	if category == "stops" then 
 		--exempt from category check since it assumes that the line it's stopping is of the same category... duh
+		stop_line(sound_data,"_remove_line")
 	else
 		local category_allowed = self:IsCaptionCategoryEnabled(category)
 		if category_allowed == false then 
@@ -928,19 +951,14 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	end
 	
 	if not text then 
-		if sound_data.stops_line then
-			-- remove specified target line outright, since the current line is replacing it
-			self:find_line({sound_id = sound_data.stops_line},nil,"_remove_line")
-		end
+		stop_line(sound_data,"_remove_line")
+		-- remove specified target line outright, since the current line is replacing it
 				
 		self:log("Error: No valid text in add_line() for sound_id " .. tostring(sound_id) .. " for variant: [" .. tostring(variant) .. "]. Subvariant " .. tostring(subvariant) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
 		return
 	else
-	
-		if sound_data.stops_line then
+		stop_line(sound_data,"_end_line")
 			-- fadeout specified target line, since the current line isn't replacing it
-			self:find_line({sound_id = sound_data.stops_line},nil,"_end_line")
-		end
 		
 		self:log("add_line(): Subvariant " .. tostring(subvariant) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t) .. " (effective duration " .. debug_duration .. ")",{color=text_color})
 	end

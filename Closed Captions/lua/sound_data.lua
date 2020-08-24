@@ -259,6 +259,48 @@ ClosedCaptions._sounds = {
 					priority = 25,
 					text = "[Trip mine explosion triggered!]"
 				},
+				ecm_jammer_ready = {
+					override_text = "SFX",
+					category = "sfx",
+					duration = 2,
+					priority = 25,
+					text = "[ECM Jammer ready]"
+				},
+				ecm_jammer_jam_signal = {
+					override_text = "SFX",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 25,
+					text = "[ECM Jammer active]"
+				},
+				ecm_jammer_jam_signal_stop = {
+					override_text = "SFX",
+					category = "stops",
+					remove_by_source = true, --since multiple ecms may be active at once, but each ecm only plays one sound at a time, ecm sounds should be removed by source
+					stops_line = "ecm_jammer_jam_signal",
+					duration = 2,
+					priority = 25,
+					text = "[ECM Jammer stops]"
+				},
+				ecm_jammer_puke_signal = {
+					override_text = "SFX",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 25,
+					text = "[ECM Feedback active]"
+				},
+				ecm_jammer_puke_signal_stop = {
+					override_text = "SFX",
+					category = "stops",
+					stops_line = "ecm_jammer_puke_signal",
+					duration = 2,
+					priority = 25,
+					text = "[ECM Feedback stops]"
+				},
 				flashbang_beep = {
 					override_name = "SFX",
 					text = "flashbang beeping",
