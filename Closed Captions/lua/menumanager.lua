@@ -32,8 +32,6 @@ OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
 	* subtitles play during heist planning screen
 		
 ISSUES
-	--DUPLICATE LINES ARE NOT REMOVED: queuing second line removes an existing one but doesn't make the current one
-
 	* "element" may appear as the source name, since some lines do not/should not have override_names "element: whistle"
 	* teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
 	* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
@@ -46,10 +44,6 @@ ISSUES
 	Taxman lines may cut off prematurely (reason unknown)
 --]]
 --[[
-
-Style guidelines:
-[square brackets] convey a tone or action
-(parentheses) aim to convey the meaning or description of the phrase foremost, not necessarily the exact wording
 
 
 mission dialogue to check/enter:
@@ -81,9 +75,13 @@ mission dialogue to check/enter:
 * cam loop/ cam loop about to end
 * breaking glass
 --]]
+--[[ Style guidelines:
 
---[[
-priority data cheat sheet:
+[square brackets] convey a tone or action
+(parentheses) aim to convey the meaning or description of the phrase foremost, not necessarily the exact wording
+
+--]]
+--[[ priority data cheat sheet:
 	priorities are roughly divided into tiers of 10,
 	so that lines can be consistently ranked separately 
 	between similar lines 
@@ -546,7 +544,7 @@ function ClosedCaptions:Update(t,dt)
 					if not is_hidden and item.loop_data and item.loop_data.loop_interval then 
 						if item.loop_data.loop_interval == -1 then 
 							--always visible (within the correct distance)
-							is_hidden = math.sin((10 * (t - item.start_t)) / (math.pi * item.loop_data.interval))
+							is_hidden = math.sin((10 * (t - item.start_t)) / (math.pi * item.loop_data.loop_interval))
 							--todo reset start_t?
 						else	
 							if t >= item.expire_t then
@@ -858,10 +856,10 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 				text = get_random_variation(variations.whisper_mode,is_recombinable)
 			elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
 				text = get_random_variation(variations.assault_mode,is_recombinable)
-			elseif not is_whisper_mode and variations.standard_mode then --if otherwise loud
+			elseif not is_whisper_mode and variations.assault_break_mode then --if otherwise loud
+				text = get_random_variation(variations.assault_break_mode,is_recombinable)
+			elseif variations.standard_mode then --no requirements
 				text = get_random_variation(variations.standard_mode,is_recombinable)
-			elseif variations.any_mode then --no conditional requirements for these lines
-				text = get_random_variation(variations.any_mode,is_recombinable)
 			end
 		end
 		

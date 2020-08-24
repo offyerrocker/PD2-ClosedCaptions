@@ -639,6 +639,31 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "sfx"
 				},
+				hos_phone_call = {
+					override_name = "SFX",
+					text = "[hospital phone ringing]",
+					category = "sfx",
+					loop_data = {
+						loop_interval = 2
+					},
+					priority = 37,
+					duration = 2
+				},
+				hos_phone_answer = {
+					override_name = "SFX",
+					text = "[hospital phone answered]",
+					category = "sfx",
+					priority = 38,
+					stops_line = "hos_phone_call",
+					duration = 2
+				},
+				elevator_ding = {
+					override_name = "SFX",
+					text = "[elevator dings]",
+					category = "sfx",
+					priority = 37,
+					duration = 2
+				},
 				keypad_wrong_code = {
 					override_name = "SFX",
 					text = "[keypad wrong code]",
@@ -733,7 +758,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "contractor_vo",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Keep it dark and silent, gang! More security is incoming!",
 							"Uhh- I didn't expect this! Gang, more security is arriving!",
 							"Keep an eye out, clowns! They just ramped up the security!",
@@ -750,7 +775,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Cops in twenty- gear up!",
 							"Twenty until police arrive!",
 							"Police are closing in- they're here in twenty seconds!",
@@ -764,7 +789,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Police will arrive in approximately thirty seconds!",
 							"Police coming in hot- thirty seconds!",
 							"In thirty seconds you got company- cops incoming!",
@@ -780,7 +805,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You got the cops coming down on you in forty seconds!",
 							"Police arriving at your location in forty seconds!",
 							"Cops running up- forty seconds until confrontation!"
@@ -792,7 +817,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Head down! They're rolling in a Sniper team!",
 							"Be careful! They have Snipers incoming!",
 							"Yeah, they just put Snipers into play!",
@@ -815,7 +840,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"The police are here! Stand 'em down!",
 							"Well, here's our cops!",
 							"Police units just got here!",
@@ -837,7 +862,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"You keep doing that, and we'll pull off this caper just fine!",
 								"[triumphant laughter] Gonna be a lot of early retirement forms filed today!",
@@ -871,7 +896,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Keep the people in check!",
 							"Don't let anyone call the cops! Keep them down!",
 							"Get the people on the floor! Keep them down!",
@@ -886,7 +911,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Check your six- tougher SWATs are rolling in!",
 							"Give 'em hell, guys! They sure intend to treat you the same way- new units are rolling in!",
 							"SWAT is stepping up, guys! This will get hairy!",
@@ -906,7 +931,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Alright, ramblers, let's get rambling!",
 							"Be ready for anything!",
 							"Brace yourselves!",
@@ -934,7 +959,7 @@ ClosedCaptions._sounds = {
 					text = "You need to take hostages- tie them down!",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You need to take hostages! Use your cable ties and tie them down!",
 							"You need to take hostages, tie them down! Or make a law enforcer cuff themself.",
 							"You need to take hostages to be able to trade! Tie someone down with your cable ties!"
@@ -1124,7 +1149,7 @@ ClosedCaptions._sounds = {
 					text = "Keep it up and we're going to pull it off!",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Good, you're on track! Keep going!",
 							"Keep it up and we're going to pull it off!",
 							"Good job! Carry on!",
@@ -1156,7 +1181,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Rescue units are on the scene. They're going after the civilians.",
 								"They sent in an extraction team to free the civilians.",
@@ -1184,7 +1209,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Down the stairs.",
 											"Downstairs."
 										}
@@ -1192,7 +1217,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Down the stairs.",
 											"Downstairs."
 										}
@@ -1200,7 +1225,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = { --technically has loud/stealth sound variants
+										standard_mode = { --technically has loud/stealth sound variants
 											"Downstairs!",
 											"Down the stairs!"
 										}
@@ -1219,7 +1244,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Upstairs!",
 											"Up the stairs!"
 										}
@@ -1227,7 +1252,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Up, up!",
 											"Keep going up!"
 										}
@@ -1235,7 +1260,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Upstairs!",
 											"Up the stairs!"
 										}
@@ -1257,7 +1282,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"To the left!",
 											"Left!"
 										}
@@ -1265,7 +1290,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"To the left!",
 											"Left!"
 										}
@@ -1287,7 +1312,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"To the right!",
 											"Right!"
 										}
@@ -1295,7 +1320,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"To the right!",
 											"Right!"
 										}
@@ -1393,7 +1418,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We've got to get out.",
 											"We've got to get out!",
 											"Get out!"
@@ -1402,7 +1427,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Get out!",
 											"We've gotta get out!"
 										}
@@ -1424,7 +1449,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Inside!",
 											"Get in!"
 										}
@@ -1432,7 +1457,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Inside!",
 											"Get in!"
 										}
@@ -1451,7 +1476,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"C'mon! Hurry!",
 											"Hurry up!",
 											"Faster, faster!",
@@ -1461,7 +1486,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"C'mon, faster!",
 											"Double time!",
 											"Hurry up!",
@@ -1471,7 +1496,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Hurry, hurry!",
 											"HURRY!",
 											"Hurry up!",
@@ -1495,7 +1520,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Careful, now!",
 											"Careful!"
 										}
@@ -1503,7 +1528,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Careful, now!",
 											"Careful!"
 										}
@@ -1522,7 +1547,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"This is not the way!",
 											"Not this way!"
 										}
@@ -1530,7 +1555,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"This is the wrong way!",
 											"Not this way!"
 										}
@@ -1538,7 +1563,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"This is the wrong way!",
 											"Not this way!"
 										}
@@ -1560,7 +1585,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"This way!",
 											"We're on the right track."
 										}
@@ -1568,7 +1593,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"This is right!",
 											"This way!"
 										}
@@ -1590,7 +1615,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Come on.",
 											"Let's go."
 										}
@@ -1598,7 +1623,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Come on!",
 											"Let's go!"
 										}
@@ -1617,7 +1642,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"This is it.",
 											"Here it is!"
 										}
@@ -1625,7 +1650,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"This is it.",
 											"This is the place."
 										}
@@ -1633,7 +1658,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"This is it!",
 											"This is the place!"
 										}
@@ -1655,7 +1680,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Over there!",
 											"There!"
 										}
@@ -1663,7 +1688,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Over there!",
 											"There!"
 										}
@@ -1682,7 +1707,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Hold 'em off!",
 											"Keep 'em away!",
 											"Keep defending!",
@@ -1692,7 +1717,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Keep defending!",
 											"Keep 'em away!",
 											"Hold the fort!"
@@ -1701,7 +1726,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Keep defending!",
 											"Left!"
 										}
@@ -1723,7 +1748,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We've got to get out of here.",
 											"Time to go."
 										}
@@ -1737,7 +1762,7 @@ ClosedCaptions._sounds = {
 											"Time to go!",
 											"We gotta get outta here!"
 										},
-										any_mode = {
+										standard_mode = {
 											"We've got to get out of here.",
 											"Time to go."
 										}
@@ -1759,7 +1784,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Move!",
 											"Move it."
 										}
@@ -1778,7 +1803,7 @@ ClosedCaptions._sounds = {
 											"Get a move on!",
 											"Leg it, drongo!",
 										},
-										any_mode = {
+										standard_mode = {
 											"Move your arse, you tosser!",
 											"Move, move!",
 											"You're not jogging in the park, ya idiot!",
@@ -1806,7 +1831,7 @@ ClosedCaptions._sounds = {
 							},
 							rb4 = {
 								line_variations = {
-										any_mode = {
+										standard_mode = {
 										"Straight on!",
 										"Straight ahead!"
 									}
@@ -1814,7 +1839,7 @@ ClosedCaptions._sounds = {
 							},
 							rb15 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"Straight on!",
 										"Straight ahead!"
 									}
@@ -1832,7 +1857,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Jump down!",
 											"Down here!"
 										}
@@ -1840,7 +1865,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Jump down!",
 											"Down here!"
 										}
@@ -1848,7 +1873,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Jump down!",
 											"Down there!"
 										},
@@ -1871,7 +1896,7 @@ ClosedCaptions._sounds = {
 							subvariants = { 
 								rb3 = {--1s delay for wolf
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Drill's in place.",
 											"Drill's in place!",
 											"Drill up and running!"											
@@ -1880,7 +1905,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Drill's in place.",
 											"Drill in place.",
 											"Drill mounted."
@@ -1890,7 +1915,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Drilling!",
 											"Got the drill up.",
 											"Drill placed.",
@@ -1918,7 +1943,7 @@ ClosedCaptions._sounds = {
 								},
 								rb555 = { --!
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Piece of shit drill!",
 											"This drill is a piece of shit!"
 										}
@@ -1936,7 +1961,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							rb3 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"Shoot 'em!",
 										"Get 'em!"
 									}
@@ -1944,7 +1969,7 @@ ClosedCaptions._sounds = {
 							},
 							rb4 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"Shoot 'em!",
 										"Shoot!"
 									}
@@ -1965,7 +1990,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = { --no loud/stealth variations
+										standard_mode = { --no loud/stealth variations
 											"Fantastic! We pulled it off!",
 											"YEAH! We made it!",
 											"We did it!",
@@ -1982,7 +2007,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = { --no loud/stealth variations
+										standard_mode = { --no loud/stealth variations
 											"I almost can't believe we did it!",
 											"Yeah! We pulled that off! Fantastic!",
 											"Fantastic! Just fantastic!",
@@ -1994,7 +2019,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										whisper_mode = {
+										whisper_mode = { --requires stealth
 											"Yeah, I'll admit, that was smooth.",
 											"That was a ripper!",
 											"[sarcastic] Hooraaay, we did the job SILENTLY. I'm still bored as batshit.",
@@ -2007,7 +2032,7 @@ ClosedCaptions._sounds = {
 											"I guess that's how the pros do it!",
 											"I guess that's one way of doing things!"
 										},
-										standard_mode = {
+										standard_mode = { --requires loud
 											"That's how we do it!",
 											"We did it, nice!",
 											"THIS is how legends are made!",
@@ -2036,7 +2061,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Cameras!",
 											"Take out the cameras!",
 											"Remember, cameras!"
@@ -2045,7 +2070,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Take out the cameras!",
 											"Remember, take out the cameras!"
 										}
@@ -2064,7 +2089,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Use your cable ties, guys!",
 											"Cable ties- use 'em!",
 											"Keep 'em down- tie 'em up!"
@@ -2073,7 +2098,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Rope down the people with the Cable Ties.",
 											"Remember the Cable Ties.",
 											"Use those Cable Ties!",
@@ -2083,7 +2108,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Tie 'em up.",
 											"Tie everybody down.",
 											"Well, how about using the cable ties, dipshit?"
@@ -2103,7 +2128,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"No civilians.",
 											"Remember! No civilians.",
 											"No civilian casualties, now!"
@@ -2112,7 +2137,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Careful with the people!",
 											"Watch the crowd!",
 											"Watch the civvies!",
@@ -2122,7 +2147,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Hey, watch the bloody civilians!",
 											"Crikey, keep the civvies in check!"
 										}
@@ -2141,7 +2166,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Almost there!",
 											"Almost there, almost there...",
 											"We're gonna make it!"
@@ -2150,7 +2175,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're gonna make it!",
 											"Almost there, almost there!",
 										}
@@ -2169,7 +2194,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"SHIT!",
 											"Fuck!",
 											"Oh, shit!",
@@ -2221,7 +2246,7 @@ ClosedCaptions._sounds = {
 							priority = 55,
 							rb3 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"The Bulldozer's down!",
 										"The Bulldozer taken care of!",
 										"I took out the Bulldozer!",
@@ -2232,7 +2257,7 @@ ClosedCaptions._sounds = {
 							},
 							rb4 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"Bulldozer down!",
 										"Bulldozer eliminated!",
 										"Bulldozer taken care of!",
@@ -2243,7 +2268,7 @@ ClosedCaptions._sounds = {
 							},
 							rb15 = {
 								line_variations = {
-									any_mode = { --! check whisper variant for get stuffed
+									standard_mode = { --! check whisper variant for get stuffed
 										"Bulldozer down!",
 										"Fuck off, dozer!",
 										"Fuck you, Bulldozer!",
@@ -2271,7 +2296,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							rb3 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"BOMB!",
 										"Bomb!",
 										"GET THE FUCK DOWN!"
@@ -2280,7 +2305,7 @@ ClosedCaptions._sounds = {
 							},
 							rb4 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"Grenade!",
 										"GRENADE!",
 										"Fire in the hole!",
@@ -2299,7 +2324,7 @@ ClosedCaptions._sounds = {
 							},
 							rb15 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"Grenade!",
 										"GRENADE!",
 										"Haha, BOOM!",
@@ -2330,7 +2355,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Oh, fuck...!",
 											"Shiiit!",
 											"Shit...",
@@ -2359,7 +2384,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"[chuckles] I like it.",
 											"Hah, well bugger me!",
 											"Hahaha, fuckin' look at that!"
@@ -2388,7 +2413,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I got the drill.",
 											"I got the drill!"
 										}
@@ -2488,7 +2513,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Steady now! Hold it...",
 											"Any second, aaaany second...",
 											"Any second, now...",
@@ -2499,7 +2524,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Any second now.",
 											"Any second...",
 											"Steady now! Hold it...",
@@ -2510,7 +2535,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's just fucking go!",
 											"Time to dance!",
 											"Get fucking ready.",
@@ -2534,7 +2559,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're everywhere!",
 											"They're EVERYWHERE!",
 											"Cops! This place is filled with 'em!",
@@ -2556,7 +2581,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're easy targets here, let's move!",
 											"We're sitting ducks in this place."
 										}
@@ -2564,7 +2589,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're easy targets here...",
 											"We're easy targets, this place is no good."
 										}
@@ -2600,7 +2625,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								cop = {
 									line_variations = {
-										any_mode = { --non exhaustive
+										standard_mode = { --non exhaustive
 											"Three assailants confirmed! There might be more of them!",
 											"Two assailants confirmed! There might be more of them!",
 											"I know there's at least two of them! At LEAST!",
@@ -2620,7 +2645,7 @@ ClosedCaptions._sounds = {
 									text = "(Taser taunt)",
 									category = "enemy_taunts",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Acquiring targets!",
 											"Almost at full power!",
 											"Amped up!",
@@ -2688,7 +2713,7 @@ ClosedCaptions._sounds = {
 									text = "(Medic taunt)",
 									category = "enemy_taunts",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Don't let them escape!",
 											"Go! Go!",
 											"Get 'em!",
@@ -2727,7 +2752,7 @@ ClosedCaptions._sounds = {
 									text = "(Bulldozer taunt)",
 									category = "enemy_taunts",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"ALRIGHT! HERE, AND READY TO KICK ASS!",
 											"ALRIGHT, WHERE ARE THEY?!",
 											"BACK THE FUCK UP!",
@@ -2860,7 +2885,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"[low voice] Alright.",
 											"Alright.",
 											"[whisper] Alright."											
@@ -2873,7 +2898,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Gotcha!",
 											"Gotcha.",
 											"Alriiight!",
@@ -2882,7 +2907,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Got it!",
 											"It's secured.",
 											"I got it!",
@@ -2912,7 +2937,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Alright, let's do this.",
 											"Let's do this.",
 											"Let's rock and roll.",
@@ -2922,7 +2947,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Alright, let's do this.",
 											"Okay, let's do this.",
 											"'kay, let's do this, buddies."
@@ -2945,7 +2970,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Alright, let's get rich.",
 											"Now let's get rich.",
 											"Let's get rich..."
@@ -2954,7 +2979,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Time to make that money.",
 											"Going to work.",
 											"Let's make that money"
@@ -2980,7 +3005,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Time to break a little bad.",
 											"Let's break bad."
 										}
@@ -2998,7 +3023,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"C'mon, c'mon!",
 											"C'mon, c'mon-c'mon-c'mon-c'mon-c'mon..."
 										}
@@ -3006,7 +3031,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"C'mon, c'mon!",
 											"Little bit more, that's right!",
 											"That's right, that's right...",
@@ -3027,7 +3052,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"How nice of those cops to come and keep us company!",
 											"The police are on the scene!",
 											"Okay, we got company. The police are here!"
@@ -3036,7 +3061,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"The cops have arrived!",
 											"The cops are on the scene!",
 											"The cops are here!",
@@ -3059,7 +3084,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Alright.",
 											"Okay.",
 											"Gotcha.",
@@ -3070,7 +3095,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Okay!",
 											"Okay.",
 											"Alright!",
@@ -3091,7 +3116,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We already have a hostage ready to be traded!",
 											"We gotta follow through with that hostage trade!",
 											"We got a hostage lined up already. Let's trade!",
@@ -3102,7 +3127,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We got a hostage lined up already. Let's trade!",
 											"We have to let that hostage go in exchange for our friend!",
 											"We already have a hostage ready to be traded!",
@@ -3123,7 +3148,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Computer's beepin'- never good!",
 											"Sounds like we need some tech help!",
 											"Sounds like the computer's all fouled up!",
@@ -3144,7 +3169,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Computer's beeping again!",
 											"We gotta fix the computer again!",
 											"A machine ain't workin' again!",
@@ -3171,7 +3196,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Go, go!",
 											"GO, GO!"
 										}
@@ -3189,7 +3214,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Get a move on!",
 											"GET A MOVE ON!"
 										}
@@ -3207,7 +3232,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Move it!",
 											"MOVE IT!"
 										}
@@ -3225,7 +3250,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Get moving!",
 											"MOVE IT!"
 										}
@@ -3233,7 +3258,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Get moving!"
 										}
 									}
@@ -3250,7 +3275,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Move!",
 											"Go!",
 											"GO!"
@@ -3269,7 +3294,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Only seconds away!",
 											"Any moment now!",
 											"Any second!",
@@ -3296,7 +3321,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I'm coming!",
 											"Be right there!",
 											"As fast as I can!",
@@ -3318,7 +3343,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Follow me!",
 											"Follow me.",
 											"Come with me!",
@@ -3338,7 +3363,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Ah, fuck it. I never liked 'Plan A' anyway!",
 											"Let's fuck shit up!",
 											"Looks like we'll have to 'Plan B' it!",
@@ -3358,7 +3383,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Dig in! Get ready for the storm!",
 											"Get ready to fight!",
 											"We got police stormin' in any second!",
@@ -3381,7 +3406,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Get ready for action!",
 											"Get ready for action.",
 											"Get ready now!"
@@ -3401,7 +3426,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's get our eyes back on the prize!",
 											"So much for distractions! Let's finish.",
 											"Don't let it go to your head! We got work to do.",
@@ -3416,7 +3441,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"C'mon, fuckwits, back to work!",
 											"Let's get back to work while they cry in defeat!",
 											"Back to what we were doing!",
@@ -3444,7 +3469,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Flashbang! I'm fucking blind!",
 											"I'm blind! I'M BLIND!",
 											"Flashbang! My eyes! MY EYES!",
@@ -3465,7 +3490,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Don't get loose with it now!",
 											"Cover the flanks!",
 											"Watch your tails!",
@@ -3526,8 +3551,7 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"That's all of 'em!",
 											"Haha, that's all of 'em!"
-										},
-										assault_mode = {}
+										}
 									}
 								},
 								rb15 = {
@@ -3536,8 +3560,7 @@ ClosedCaptions._sounds = {
 											"We got 'em all.",
 											"That's all of 'em!",
 											"That's all the bags!"
-										},
-										assault_mode = {}
+										}
 									}
 								}
 							}
@@ -3552,7 +3575,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Picking the lock.",
 											"I'm picking the lock!",
 											"Springing this damned lock. C'mon!"
@@ -3571,7 +3594,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Yeah, using a keycard...",
 											"Using a keycard.",
 											"Using a keycard!",
@@ -3593,7 +3616,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"These dirty fucking cops are stealing our loot!",
 											"Pay attention! Cops are stealing our stuff!",
 											"Goddamned cops! Can't even keep their hands off our hard-earned loot!",
@@ -3605,7 +3628,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Hey, those pigs are grubbin' our shit!",
 											"They're takin' our bags, KILL 'EM!",
 											"Those FUCKWITS are stealing our loot!"
@@ -3625,7 +3648,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"You case the joint. I'll be here.",
 											"You go ahead. I'll stay out of your way until you need another guy.",
 											"You go ahead. Look, I'll be right here. I'm not going in.",
@@ -3655,7 +3678,7 @@ ClosedCaptions._sounds = {
 								rb15 = {
 									line_variations = {
 										recombinable = true,
-										any_mode = {
+										standard_mode = {
 											{
 												"You go ahead.",
 												"Go on, then.",
@@ -3683,7 +3706,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're coming through the skylights!",
 											"They're coming from the ceiling!",
 											"They're coming through the panels above!"
@@ -3702,7 +3725,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're coming in from above!",
 											"They're on the roof!"
 										}
@@ -3720,7 +3743,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're coming down the walls!",
 											"They're coming down the sides!"
 										}
@@ -3738,7 +3761,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're coming through the wall!",
 											"They're coming through the wall panels!",
 											"They're coming through the windows!"
@@ -3757,7 +3780,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're coming up through the manholes!",
 											"They're coming in from below!",
 											"They're under the floors!",
@@ -3779,7 +3802,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're coming in from outside!",
 											"They're climbing in from outside!"
 										}
@@ -3824,7 +3847,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"SWAT chopper incoming!",
 											"We got a helicopter inbound!"
 										}
@@ -3832,7 +3855,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"A bloody helicopter, inbound!",
 											"SWAT chopper, incoming!"
 										}
@@ -3851,14 +3874,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"SWAT insertion! Van coming in!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We got a SWAT van incoming!",
 											"SWAT van, approaching!"
 										}
@@ -3876,7 +3899,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Snipers!",
 											"Heads down! Sniper!",
 											"Watch out! Sniper!"
@@ -3895,7 +3918,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're coming from the forest!",
 											"They're coming out of the woods!"
 										}
@@ -3913,7 +3936,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Friends, help!",
 											"Friends, help me up!",
 											"SOMEBODY! Help me!",
@@ -3950,7 +3973,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"[laughs] It's on now!",
 											"Let's get the party started, for real!",
 											"Alright, let's get it on!",
@@ -3976,7 +3999,7 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									line_variations = {
 										recombinable = true,
-										any_mode = {
+										standard_mode = {
 											{
 												"Okay,",
 												"Alright,",
@@ -3994,7 +4017,7 @@ ClosedCaptions._sounds = {
 								rb15 = {
 									line_variations = {
 										recombinable = true,
-										any_mode = {
+										standard_mode = {
 											{
 												"Alright,",
 												"Okay,",
@@ -4023,7 +4046,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're in.",
 											"We're through!",
 											"We're inside!",
@@ -4033,7 +4056,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're inside.",
 											"It's open!",
 											"We're in!",
@@ -4087,7 +4110,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Found one!",
 											"Got one!"
 										}
@@ -4095,7 +4118,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We got one!",
 											"Here's one!",
 											"Found one!"
@@ -4115,7 +4138,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Got one more.",
 											"We got one.",
 											"Found another one.",
@@ -4125,7 +4148,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Got one more.",
 											"We got one.",
 											"Found another one!",
@@ -4146,7 +4169,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"It's done!",
 											"It's finished!"
 										}
@@ -4154,7 +4177,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"It's done!",
 											"Done!"
 										}
@@ -4173,7 +4196,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're done!",
 											"DONE!"
 										}
@@ -4181,7 +4204,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're done!",
 											"DONE!"
 										}
@@ -4200,7 +4223,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Hey, don't pat yourself on the back, we aren't finished yet.",
 											"No time to get cocky, ladies.",
 											"Keep up the pace, we ain't done yet.",
@@ -4212,7 +4235,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"What next?",
 											"Yeah, and what now?",
 											"Keep going, what's next?",
@@ -4234,7 +4257,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I found a keycard!",
 											"I got a keycard."
 										}
@@ -4242,7 +4265,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I found a keycard!",
 											"I found a keycard."
 										}
@@ -4261,7 +4284,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I got the keycard!",
 											"I found the keycard!"
 										}
@@ -4269,7 +4292,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I got the keycard!",
 											"I found the keycard!"
 										}
@@ -4288,7 +4311,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Fucking hell, these things make it too easy!",
 											"Almost too easy, yeah?",
 											"Well, bugger me, this is easy!",
@@ -4309,7 +4332,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Alright, back up!",
 											"Duck and cover, ladies!"
 										}
@@ -4317,7 +4340,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Get the fuck back!",
 											"Cover ya' ears!"
 										}
@@ -4336,7 +4359,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Oops! Forgot to knock!",
 											"We make our own fucking door!"
 										}
@@ -4344,7 +4367,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Fuck keycards when you can blow shit up!",
 											"We're through!"
 										}
@@ -4363,7 +4386,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"C'mon! Let's open the fucking door!",
 											"Get this motherfucking door open!"
 										}
@@ -4371,7 +4394,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's open this fuckin' door!",
 											"Someone get the door open!",
 											"Get the bloody door open!"
@@ -4391,7 +4414,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's open this sucker up!",
 											"Let's get this fucking thing open!",
 											"Let's open this motherfucker!"
@@ -4400,7 +4423,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's OPEN this shit!",
 											"Crack it open!",
 											"Let's open this motherfucker up!"
@@ -4437,7 +4460,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Wipe 'em out!",
 											"Kill 'em all!"
 										}
@@ -4445,7 +4468,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"GET 'EM!",
 											"KILL 'EM ALL!"
 										}
@@ -4464,7 +4487,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"INCOMING!",
 											"Here it comes!"
 										}
@@ -4472,7 +4495,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"INCOMING!",
 											"Here it comes!"
 										}
@@ -4522,14 +4545,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"That's one hell of a pile of cash!"
 										}
 									}
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"PAYDAY!",
 											"Yessir, this is it, my friends!"
 										}
@@ -4537,7 +4560,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"EMPTY this place!",
 											"Get fuckin' all of it!"
 										}
@@ -4556,7 +4579,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We got all of it, awesome!",
 											"And the mice got all of the cheese!",
 											"That's it!"
@@ -4565,7 +4588,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Well, bugger me, that's bloody nice!",
 											"That's all of it!",
 											"Now, THIS is a PAYDAY!"
@@ -4585,7 +4608,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Drill's done.",
 											"Drill's done!"
 										}
@@ -4593,7 +4616,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"That's the drill done!",
 											"Drill's done!"
 										}
@@ -4612,7 +4635,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Computer's done!",
 											"The computer's done."
 										}
@@ -4620,7 +4643,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Computer is finally fuckin' finished!",
 											"Bloody hell, computer is FINALLY done!"
 										}
@@ -4639,7 +4662,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"It's done, c'mon!",
 											"It's finished, let's get on with it!"
 										}
@@ -4647,7 +4670,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Finally, fuckin' done!",
 											"It's finished!"
 										}
@@ -4669,7 +4692,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"There's the ride!",
 											"There's the getaway!"
 										}
@@ -4677,7 +4700,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're gettin' out this way.",
 											"Time to go, that's the way!"
 										}
@@ -4696,7 +4719,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I thought I heard them in the ventilation shafts- watch out!",
 											"Hey! They're in the ventilation!"
 										}
@@ -4704,7 +4727,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Those fuckwits are in the vents!",
 											"Well, bugger me, the fuckers are in the vents!"
 										}
@@ -4723,7 +4746,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"The mark's in sight!",
 											"Got my eyes on the mark!"
 										}
@@ -4731,7 +4754,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Alright, I see the mark!",
 											"Right, got the mark!"
 										}
@@ -4750,14 +4773,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"There she is!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"She's there!",
 											"She's there."
 										}
@@ -4776,14 +4799,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"There he is!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"He's there!",
 											"He's there."
 										}
@@ -4805,14 +4828,14 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"There they are!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They're there!",
 											"They're there."
 										}
@@ -4834,14 +4857,14 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"There it is!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"It's over there.",
 											"It's over there!"
 										}
@@ -4866,7 +4889,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Find that bloody bastard!",
 											"FIND that bloody bastard!"
 										}
@@ -4922,7 +4945,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"BAIN!?",
 											"BAIN?!"
 										}
@@ -4941,7 +4964,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"What do we do now?",
 											"The fuck do we do now?"
 										}
@@ -4949,7 +4972,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Well, now bloody what?",
 											"So what the fuck do we do now, then?"
 										}
@@ -4970,14 +4993,14 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I've got a bad feeling about this."
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I'm gettin' a bad feelin' about this!"
 										}
 									}
@@ -4995,14 +5018,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Sweep the place."
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Search the place!",
 											"Search the place."
 										}
@@ -5021,14 +5044,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's find that mark."
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Find the fucking mark!",
 											"Find the fuckin' mark."
 										}
@@ -5047,14 +5070,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's find her!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Find her!",
 											"Find her."
 										}
@@ -5073,14 +5096,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's find him!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Find that bloody bastard.",
 											"Find that BLOODY bastard!"
 										}
@@ -5099,14 +5122,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's find them!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's find 'em!",
 											"Let's find 'em."
 										}
@@ -5125,14 +5148,14 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's find it, now!"
 										}
 									}
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Find it, now!",
 											"Find it, NOW!"
 										}
@@ -5154,7 +5177,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Keep looking!",
 											"Keep looking."
 										}
@@ -5173,7 +5196,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They brought in a turret",
 											"SWAT Turret!",
 											"Turret! Stay clear!",
@@ -5199,7 +5222,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"That's what I'm talking about!",
 											"Yes! YES!",
 										}
@@ -5207,7 +5230,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Take that!",
 											"Hah, take that!",
 											"Hahaha, fuck yes!"
@@ -5278,7 +5301,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We got murkies here!",
 											"Murkies!"
 										}
@@ -5286,7 +5309,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Bunch a' bloody murkies!",
 											"Fuckin' murkies over here!"
 										}
@@ -5305,7 +5328,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's get this stuff moving!",
 											"Let's carry this stuff the fuck out of here!"
 										}
@@ -5313,7 +5336,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Grab a bag and go!",
 											"Grab a fuckin' bag and move it!"
 										}
@@ -5332,7 +5355,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"It's fucking stuck!",
 											"Shit, she's stuck!"
 										}
@@ -5340,7 +5363,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Can't move the fucker!",
 											"Fucker's stuck!"
 										}
@@ -5359,7 +5382,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"That fucking smell!",
 											"Holy fuck, that smell is killing me!"
 										}
@@ -5367,7 +5390,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"What is that fuckin' smell?!",
 											"What is that bloody stench?!"
 										}
@@ -5386,7 +5409,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Damn, that was loud!",
 											"[chuckles] What a bang!"
 										}
@@ -5394,7 +5417,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"You tosser, could you have warned us?!",
 											"Aw, shit, that was loud!"
 										}
@@ -5413,7 +5436,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"YIPPIE-KI-YAY, MOTHERFUCKER!",
 											"FUCKIN' AWESOME!",
 											"GERONIMO, MOTHERFUCKERS!"
@@ -5422,7 +5445,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"[exhilarated screaming]",
 											"FUCK YEAAAAH!",
 											"WHOO-HOOO, SHIT!",
@@ -5444,7 +5467,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Hi.",
 											"Hi!"
 										}
@@ -5452,7 +5475,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Hi.",
 											"What's up?"
 										}
@@ -5471,7 +5494,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I found a crowbar!",
 											"I got a crowbar!"
 										}
@@ -5479,7 +5502,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Found myself a crowbar!",
 											"Got a crowbar!"
 										}
@@ -5498,7 +5521,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"GET IN!",
 											"Get in the chair!"
 										}
@@ -5506,7 +5529,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Sit the fuck down!",
 											"Sit your arse down, you tosser!"
 										}
@@ -5566,7 +5589,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Oh, shit! Bulldozer!",
 											"BULLDOZER!",
 											"FUCK! BULLDOZER!",
@@ -5638,7 +5661,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"It's a fucking Shield!",
 											"Shield!",
 											"SHIELD!",
@@ -5709,7 +5732,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Taser!",
 											"TASER!",
 											"It's a fucking Taser!",
@@ -5781,7 +5804,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Oh, shit! Cloaker!",
 											"Fucking CLOAKER!",
 											"Fucking Cloaker!",
@@ -5974,7 +5997,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"They've got a Medic!",
 											"Police Medic in the house!",
 											"Cops got a Medic!",
@@ -6091,7 +6114,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Taser down.",
 											"Taser down!",
 											"Taser taken care of.",
@@ -6125,7 +6148,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = { --no assault specific lines?
+										standard_mode = { --no assault specific lines?
 											"Cloaker down.",
 											"Cloaker down!",
 											"Cloaker's history.",
@@ -6205,7 +6228,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Killed the Medic.",
 											"Killed the Medic!",
 											"Medic is dead.",
@@ -6240,7 +6263,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Flashbang! I'm fucking blind!",
 											"Flashbang! My eyes! MY EYES!",
 											"Aagh, fuckin' flashbang!",
@@ -6272,7 +6295,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"AAGH, TEARGAS!",
 											"AAGH, IT BURNS! IT BURNS!"
 										}
@@ -6386,14 +6409,14 @@ ClosedCaptions._sounds = {
 												"I'm almost out of ammo!",
 												"I'm running out of ammo!",
 												"I don't have much ammo left now!"
-										},
-										{
-											"Anybody got an Ammo Bag left to share?",
-											"Anybody got some extra ammo to spare?",
-											"You guys got an Ammo Bag left to share?",
-											"Any of you guys got an Ammo Bag?",
-											"Ammo Bag! Anyone?!"
-										}
+											},
+											{
+												"Anybody got an Ammo Bag left to share?",
+												"Anybody got some extra ammo to spare?",
+												"You guys got an Ammo Bag left to share?",
+												"Any of you guys got an Ammo Bag?",
+												"Ammo Bag! Anyone?!"
+											}
 										},
 										assault_mode = {
 											{
@@ -6861,7 +6884,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Everybody, on the ground!",
 											"On the ground, all of you!",
 											"Down on the ground, all of you!",
@@ -6884,7 +6907,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Down.",
 											"Down on the ground.",
 											"On the ground.",
@@ -6907,7 +6930,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Get down!",
 											"Down on the ground!",
 											"Get down on the ground!",
@@ -7398,7 +7421,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"I got a bullet here with your name on it.",
 											"You're fuckin' pushing it!",
 											"LET IT OUT! Right fucking now!",
@@ -7419,7 +7442,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Tell us what we need to know!",
 											"Fuckin' answer!",
 											"I'll break your fuckin' face!",
@@ -7536,7 +7559,7 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									line_variations = {
 										recombinable = true,
-										any_mode = {
+										standard_mode = {
 											{
 												"The drill's squeaking again.",
 												"The drill's stuck again.",
@@ -7557,7 +7580,7 @@ ClosedCaptions._sounds = {
 								rb15 = {
 									line_variations = {
 										recombinable = true,
-										any_mode = {
+										standard_mode = {
 											{
 												"The drill's jammed!",
 												"We've got a jammed drill on our hands!",
@@ -7642,7 +7665,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Computer's beeping again!",
 											"We gotta fix the computer again!",
 											"A machine ain't workin' again!",
@@ -7665,7 +7688,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Someone go take a look at the drill, huh?",
 											"The Thermal Drill just isn't sounding good!",
 											"Here we go again! The Lance ain't working!",
@@ -7742,7 +7765,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb3 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Let's get it over with.",
 											"Alright. Let's rock 'n' roll.",
 											"Alright. Let's get rich.",
@@ -7757,7 +7780,7 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Going to work...",
 											"[chuckles] It's on now...",
 											"Good luck, buddies.",
@@ -7775,7 +7798,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"These fuckers will learn my name...",
 											"[chuckles] It's gonna be a ripper of a day...",
 											"Time to cement my place in this crew.",
@@ -7828,7 +7851,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Got it.",
 											"I got it!",
 											"Right on it."
@@ -7837,7 +7860,7 @@ ClosedCaptions._sounds = {
 								},
 								rb15 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Gotcha!",
 											"Okay!",
 											"I'm comin'!",
@@ -7859,7 +7882,7 @@ ClosedCaptions._sounds = {
 							priority = 20,
 							rb4 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"I'm coming!",
 										"Be right there!",
 										"As fast as I can!",
@@ -7872,7 +7895,7 @@ ClosedCaptions._sounds = {
 							rb15 = {
 								line_variations = {
 									recombinable = true,
-									any_mode = {
+									standard_mode = {
 										{
 											"I'm comin'.",
 											"On the way.",
@@ -7898,7 +7921,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							rb4 = {
 								line_variations = {
-									any_mode = {
+									standard_mode = {
 										"Gotcha!",
 										"Gotcha."
 									}
@@ -7916,7 +7939,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Only a few minutes left!",
 											"A few minutes left still.",
 											"Only a couple of minutes left now.",
@@ -7938,7 +7961,7 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									text = "Halfway there.",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"We're halfway through!",
 											"We're halfway now!",
 											"We're about halfway through now!",
@@ -7961,7 +7984,7 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									text = "Almost there.",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Only seconds away!",
 											"Any moment now!",
 											"Any second!",
@@ -8139,7 +8162,7 @@ ClosedCaptions._sounds = {
 								rb4 = { --incomplete
 									duration = 10, --default pager answer time is 10s
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Um, all good, sometimes I just see things. Not to alarm you!",
 											"[embarassed chuckle] I think maybe I'm standing on a magnet. That might be the problem.",
 											"Everything's peachy, over.",
@@ -8173,7 +8196,7 @@ ClosedCaptions._sounds = {
 								rb15 = {
 									duration = 10,
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Nah, we're good. Just a random... man, walking around. I gave him a slice of cheddar, and sent him away.",
 											"[singing] Never gonna give you up, never gonna let you down, never gonna run around and desert you- oh, sorry, is this on?",
 											"[singing] Can't touch this! ...oh, sorry Control, I pressed the button!",
@@ -8236,7 +8259,7 @@ ClosedCaptions._sounds = {
 							priority = 20,
 							category = "enemy_callouts", --! not sure what to categorize
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"[pager operator] This is dispatch. PICK UP THE PAGER.",
 								}
 							}
@@ -8249,7 +8272,7 @@ ClosedCaptions._sounds = {
 							text = "[pager operator fooled]",
 							priority = 20,
 							category = "enemy_callouts"
-						--any_mode = {
+						--standard_mode = {
 						--	"Okay, I guess I'll see you for bowling later.",
 						--}
 						}
@@ -8305,7 +8328,7 @@ ClosedCaptions._sounds = {
 							category = "enemy_callouts",
 							priority = 37,
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"Two-Three here. Reporting in. All's clear over here. Out.",
 									"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
 									"Two-Three, reporting in. All is quiet on the western front. Out.",
@@ -8325,7 +8348,7 @@ ClosedCaptions._sounds = {
 							category = "enemy_callouts",
 							priority = 37,
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"What the heck...?",
 									"Who was that?",
 									"That's weird...",
@@ -8345,7 +8368,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to dispatch.",
@@ -8406,7 +8429,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to dispatch.",
@@ -8470,7 +8493,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -8535,7 +8558,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -8601,7 +8624,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -8673,7 +8696,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -8746,7 +8769,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -8813,7 +8836,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -8880,7 +8903,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -8954,7 +8977,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9021,7 +9044,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9093,7 +9116,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9159,7 +9182,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9223,7 +9246,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9290,7 +9313,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9365,7 +9388,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9438,7 +9461,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9513,7 +9536,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9599,7 +9622,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9671,7 +9694,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9745,7 +9768,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9819,7 +9842,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_callouts",
 					duration = 3,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"I'll move on.",
 							"Heading on.",
 							"Moving on.",
@@ -9835,7 +9858,7 @@ ClosedCaptions._sounds = {
 					duration = 7,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9865,7 +9888,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Two-Three to Control.",
 								"Two-Three to Dispatch.",
@@ -9913,7 +9936,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Hold still!",
 							"No sudden movements!",
 							"NO SUDDEN MOVEMENT.",
@@ -9993,7 +10016,7 @@ ClosedCaptions._sounds = {
 							category = "enemy_callouts", --chatter?
 							priority = 90,
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"He's armed!",
 									"FREEZE!",
 									"STOP IT!",
@@ -10014,7 +10037,7 @@ ClosedCaptions._sounds = {
 							category = "enemy_chatter",
 							priority = 90,
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"Christ!",
 									"Fuckin' hell!",
 									"Christ almighty!"
@@ -10030,7 +10053,7 @@ ClosedCaptions._sounds = {
 							text = "(very panicked chatter)",
 							priority = 90,
 							line_variations = {
-								any_mode = { --non-exhaustive
+								standard_mode = { --non-exhaustive
 									"CHRIST!",
 									"INSANE!",
 									"HOLY SHIT!",
@@ -10047,7 +10070,7 @@ ClosedCaptions._sounds = {
 							category = "enemy_callouts",
 							priority = 60,
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"It's over now, scumbag! I hope you like prison food.",
 									"This ends now, scumbag. I hope you drop the soap, a lot.",
 									"It's over now, dirtbag! You're going away for a loooong time.",
@@ -10066,7 +10089,7 @@ ClosedCaptions._sounds = {
 							category = "enemy_chatter",
 							priority = 90,
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"I see one of 'em!",
 									"I got contact!",
 									"Contact!",
@@ -10176,7 +10199,7 @@ ClosedCaptions._sounds = {
 					priority = 60,
 					category = "enemy_callouts",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"My visor!",
 							"That won't stop me!",
 							"I'll kick your ass... with or without my visor!"
@@ -10192,7 +10215,7 @@ ClosedCaptions._sounds = {
 									text = "(Bulldozer spawned)",
 									category = "enemy_callouts",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"BULLDOZER! MAKE WAY!"
 										}
 									}
@@ -10201,7 +10224,7 @@ ClosedCaptions._sounds = {
 									text = "(Taser spawned)",
 									category = "enemy_callouts",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Shock treatment prescribed!"
 										}
 									}
@@ -10214,7 +10237,7 @@ ClosedCaptions._sounds = {
 									text = "(Medic spawned)",
 									category = "enemy_callouts",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Somebody order a Medic?",
 											"Medic in the house!",
 											"It looks like a surgery ward in here, there's blood all over!"
@@ -10225,7 +10248,7 @@ ClosedCaptions._sounds = {
 									text = "(Shield spawned)",
 									category = "enemy_callouts",
 									line_variations = {
-										any_mode = {
+										standard_mode = {
 											"Shield coming through.",
 											"[Shield clanking]"
 										}
@@ -10250,7 +10273,7 @@ ClosedCaptions._sounds = {
 					priority = 60,
 					category = "enemy_callouts",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"WHO WANTS A PIECE OF ME?",
 							"GONNA BREAK SOME SHIT!",
 --							"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
@@ -10307,7 +10330,7 @@ ClosedCaptions._sounds = {
 					text = "Captain's just got here, time to turn this around!",
 					category = "enemy_callouts",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"The Captain has arrived in the AO!",
 							"Captain's just got here, time to turn this around!",
 							"Captain's got here, time to turn this around!",
@@ -10324,7 +10347,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_callouts",
 					priority = 60,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Just keep 'em occupied 'til the Turret gets here!",
 							"Time to put the firepower on! Turret is en route!",
 							"Turret's gonna be here any second!",
@@ -10339,7 +10362,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_callouts",
 					priority = 60,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Guys, let the Turret cut them down!",
 							"Turret is here! Time to change the game!",
 							"It's the Turret!",
@@ -10359,7 +10382,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_callouts",
 					priority = 60,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Target in sight!",
 							"Target ahead!",
 							"Target spotted!",
@@ -10388,7 +10411,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_callouts",
 					priority = 60,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"I got the robber.",
 							"Robber's down!",
 							"Justice served.",
@@ -10415,7 +10438,7 @@ ClosedCaptions._sounds = {
 					text = "Retreat!",
 					category = "enemy_callouts",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Retreating! Cover me!",
 							"Don't break! Ease back.",
 							"Back! Fall back!",
@@ -10432,7 +10455,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					priority = 60,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"All elements, close your profile!",
 							"You guys trained for this!",
 							"Tactical advance, watch your angles!",
@@ -11252,7 +11275,7 @@ ClosedCaptions._sounds = {
 					text = "Okay, okay! Just don't shoot!",
 					priority = 40,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Alright! Just don't shoot!",
 							"Okay, okay! Just don't shoot!"
 						}
@@ -11274,7 +11297,7 @@ ClosedCaptions._sounds = {
 							priority = 90,
 							category = "enemy_chatter",
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"Mira, mira, there he is!",
 									"I see one!",
 									"Okay, I see one!",
@@ -11293,7 +11316,7 @@ ClosedCaptions._sounds = {
 							category = "enemy_chatter",
 							priority = 90,
 							line_variations = {
-								any_mode = {
+								standard_mode = {
 									"I'm gonna fuck you up, man!",
 									"These fuckers are going down!",
 									"You must have shit for brains, coming here!",
@@ -11315,7 +11338,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Come on, ya stinkin' elevator...",
 							"Don't break down on me, elevator...",
 							"Alright, let's go!",
@@ -11329,7 +11352,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"They'd better let me smoke up there.",
 							"Come, on, come on...",
 							"Come, on, come on!",
@@ -11344,7 +11367,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"They'd better let me smoke up there.",
 							"Don't break down on me, elevator...",
 							"Close, dammit!",
@@ -11359,7 +11382,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Let's go, people!",
 							"Move it out!",
 							"Let's move it out, people!",
@@ -11375,7 +11398,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Excuse me, sirs, this is your floor, so can you kindly get the HELL off of my elevator?",
 							"Well come on, I don't have all day, get the hell off!",
 							"This is your floor, not mine, hurry up and get the hell off.",
@@ -11389,7 +11412,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 20,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Welcome. Let's start the round.",
 							"I see you have your gloves on already. Great.",
 							"Welcome. We've been expecting you. Shall we start the round?"
@@ -11424,7 +11447,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 4,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
 							"This man was brought in, seemingly suffering from sun-stroke.",
 							"This man was bit by a monkey at the Fairfield Zoo.",
@@ -11446,7 +11469,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 20,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Let's check the blood pressures as well.",
 							"Let's take another lap and check each patient's blood pressure, too.",
 							"Let's take another round and look at the blood pressure of the patients, as well.",
@@ -11460,7 +11483,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 20,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"This patient has a blood pressure of 119 over 80.",
 							"This patient has a blood pressure of 117 over 79.",
 							"This patient has a blood pressure of 115 over 78.",
@@ -11485,7 +11508,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 5,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"That's all I can tell you about the patients, doctor.", --two variations with only slight differences
 							"That's all I can tell you about the patients, doctor..."
 						}
@@ -11498,7 +11521,7 @@ ClosedCaptions._sounds = {
 					duration = 20,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"This man went into a coma-like state, sleeping in his bed last night. His wife brought him in when he didn't wake up this morning.",
 								"This man was brought in, seemingly suffering from sun-stroke.",
@@ -11558,7 +11581,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"This man was bit by a monkey at the Fairfield Zoo.",
 								"This man came running into the hospital reception during lunch, and collapsed on the floor.",
@@ -11604,7 +11627,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
 								"This man was brought in, seemingly suffering from sun-stroke.",
@@ -11664,7 +11687,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"This man miraculously woke up at the morgue, returning from a prolonged cardiac arrest.",
 								"This man was brought in, seemingly suffering from sun-stroke.",
@@ -11711,7 +11734,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"This patient has a blood pressure of 119 over 80.",
 								"This patient has a blood pressure of 117 over 79.",
@@ -11763,7 +11786,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"This patient has a blood pressure of 119 over 80.",
 								"This patient has a blood pressure of 117 over 79.",
@@ -11793,7 +11816,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"This patient has a blood pressure of 119 over 80.",
 								"This patient has a blood pressure of 117 over 79.",
@@ -11827,7 +11850,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"This patient has a blood pressure of 119 over 80.",
 								"This patient has a blood pressure of 117 over 79.",
@@ -11867,7 +11890,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Only employees are allowed here.",
 							"I'm sorry. This area is only for personnel.",
 							"Please. Only staff are allowed here.",
@@ -11881,7 +11904,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Get inside. It's straight ahead.",
 							"[whistle] Hey, open up!"
 						}
@@ -11892,7 +11915,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 5,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Gentlemen.",
 							"They're here.",
 							"You can go inside now. They're expecting you."
@@ -11910,7 +11933,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 5,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You're messin' with me? Show me the money!",
 							"Put your bag on the table, I'm waiting."
 						}
@@ -11924,7 +11947,7 @@ ClosedCaptions._sounds = {
 					override_text_color = ClosedCaptions.color_data.mobster1,
 					text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"I'll get my main man Chavez to hook you guys up. You guys 'ang around.",
 							"I'll get my main man Chavez to fetch you guys' shipment. You guys 'ang around."
 						}
@@ -11936,7 +11959,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "Stay back, bro! You're not allowed past this point.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Don't take another step! You need to wait downstairs.",
 							"Stay back, bro! You're not allowed past this point."
 						}
@@ -11946,7 +11969,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"The fuck is happening?!",
 							"Are they cops? They're fucking cops!",
 							"What the fuck is this?!",
@@ -11967,7 +11990,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "The fuck is this?!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Who let them in?! What the fuck!",
 							"What the fuck's happening?!",
 							"Son of a fucking bitch!",
@@ -12025,7 +12048,7 @@ ClosedCaptions._sounds = {
 					text = "Mitchell, can we go shopping again?",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Hey, Mitchell, can I go shopping again?",
 							"Mitchell, can we go shopping again?"									
 						}
@@ -12037,7 +12060,7 @@ ClosedCaptions._sounds = {
 					text = "Mitchell, fix the pool, already!",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Hey, Mitchell? When will the pool be ready?",
 							"Fix that pool! I wanna take a swim!",
 							"Fix that pool! I wanna take a swim! YESTERDAY!",
@@ -12052,7 +12075,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 --					duration = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"How do I make my money? ...publishing. [nervous chuckle] Yeah, publishing...",
 							"I'm a self-made millionaire. When I run dry, well... I just make another million.",
 							"[pensive] How do I make my money? Well, you could say I make a lot of it.",
@@ -12071,7 +12094,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Yeah, yeah. The way I see it, I really wanted it, so I really deserved it, too. You know?",
 								"Eh, I kinda like what I do, you know? And when I'm creative, I feel like I'm on top of the world, really, because, you know, how many guys can do what I do?",
@@ -12101,7 +12124,7 @@ ClosedCaptions._sounds = {
 					text = "[boasting about expensive hookers]",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"I could have put the money in real estate. Instead, I'm putting it in real ASState.",
 							"This is just one of the properties. I mean, of course, it's just a small thing I picked up on my way here once. You know, two or three years ago, whatever.",
 							"These chicks... do you know how much that is, each day? But hey, it's worth it.",
@@ -12120,7 +12143,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"The King leans over, he says: 'Two for you, two for me.', You know, he's talking about super models, sweet sweet love.",
 								"The king was the Top Dog! The Big Kahuna! The fucking KING, man!",
@@ -12163,7 +12186,7 @@ ClosedCaptions._sounds = {
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags.",
 								"Pretty well dressed for repair guys. I guess you'll change before getting to work, huh?",
@@ -12183,7 +12206,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"It's just down here.",
 							"Watch your step down here.",
 							"Alright, down here."									
@@ -12197,7 +12220,7 @@ ClosedCaptions._sounds = {
 					text = "See those pipes, leaking down the walls! It's fucked! This is a $10,000 carpet!",
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You see it? Water, fuckin' running down the wall! Totally fucked, man!",
 							"There! Fuckin' pissing all down the wall!",
 							"Alright, you see those pipes? You know, leaking down the wall? Fucked!"
@@ -12211,7 +12234,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 7,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Hey, I'm not paying you guys to hang around! Get down there!",
 							"Hey, I'm not paying you guys to hang around! Get the FUCK down in the basement!",
 							"Hey, stop scratching your balls and get down here!"
@@ -12226,7 +12249,7 @@ ClosedCaptions._sounds = {
 					duration = 20,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"C'mon, just do your thing and do it right.",
 								"Look at this carpet! Just fucked, man!",
@@ -12247,7 +12270,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"And I don't wanna see no bills written up for this.",
 							"[annoyed] Oh, guys? I hope it's free service.",
 							"And don't think about billing me for this shit."
@@ -12260,7 +12283,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Oh, fuck!",
 							"Okay, you got me, you got me good.",
 							"[groans] Shit! I guess I had it coming."
@@ -12273,7 +12296,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[groans, scoffs] 'Bodhi's Pool Repair'... Fuck, I should've known!",
 							"It's the Feds, man! ...isn't it?",
 							"[groans] COME ON!",
@@ -12289,7 +12312,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Fucking clowns! You shouldn't be here!",
 							"[angry laugh] Fucking clowns!",
 							"[angry laugh]"
@@ -12302,7 +12325,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[flirtatious] C'mon, you can afford it, I'm sure!",
 							"[sultry] Yeah, it's $10,000 a day.",
 							"[sultry] Yeah, it's only $10,000 a day."
@@ -12315,7 +12338,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You don't want us to... leave, do you? We're having so much fun together!",
 							"You don't want us to leave, do you?"
 						}
@@ -12328,7 +12351,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					duration = 6,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"When these plumbers are gone, we can get this party started for real!",
 							"Once pool fixers are gone, we can get this party started for real!"
 						}
@@ -12341,7 +12364,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					duration = 6,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"I'm fed up waiting for that meat!",
 							"[impatiently] Will those steaks ever be ready?",
 							"Hey Mitchell?! I said 'medium rare', not 'well done'! How long could it take?!"
@@ -12355,7 +12378,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					text = "My friend wants another $10k for the party supplies.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"She, uh, wants another $10k to do... that thing.",
 							"Hey, uh, my buddy has the blow. Wants $10k for it.",
 							"THAT chick? She'll do it, but wants another $10k."
@@ -12369,7 +12392,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					text = "Someone's gonna notice all this spending.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Someone's gonna notice all this spending.",
 							"Oh, we shouldn't have spent so much money so quickly...",
 							"We're pissing a lot of cash. Someone's gonna notice."
@@ -12383,7 +12406,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					duration = 5,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Yeah, so... anyway...",
 							"[groans] Shit...",
 							"Man..."
@@ -12397,7 +12420,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					duration = 5,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"It's all in the basement, man. Go on, help yourself.",
 							"Downstairs, brother. Go get a loan.",
 							"It's all in the base. Man, c'mon, help yourself."
@@ -12411,7 +12434,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					duration = 5,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"It's free money, brother!",
 							"It's not like we, uh... can't get more, right?",
 							"Hey, stay cool, brother!"
@@ -12423,7 +12446,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[Russian accent] What the hell are you doing here?",
 							"[Russian accent] Who the fuck are those people?",
 							"[Russian accent] Who are those people?",
@@ -12437,7 +12460,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 37,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[Russian accent] Somebody fetch me a drink.",
 							"[Russian accent] Do you have anything stronger, 'homie'?"
 						}
@@ -12462,7 +12485,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "It's close by, but I want to see the funds.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"It's close by, but I want to see the funds.",
 							"It's... it's somewhere close, but I want to see the funds.",
 							"It's... it's somewhere close. I want to see the funds.",
@@ -12476,7 +12499,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "Great. I'll go get the server.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Nice. I'll get the server.",
 							"Excellent. I'll get the server.",
 							"Great. I'll go get the server."
@@ -12489,7 +12512,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "Where are you taking me?",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Huh? Where the fuck am I?",
 							"Where are you taking me?"
 						}
@@ -12501,7 +12524,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "No, I won't move! Too much shooting!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"No, I won't move! Too much shooting!",
 							"No! Too much firing!",
 							"No! I'm afraid!",
@@ -12522,7 +12545,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[teeth gritted in pain] Fuck you guys!",
 							"[teeth gritted in pain] The Feds are here, you can fuck off!",
 							"Hey, fuck you!",
@@ -12550,7 +12573,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[weakly] Enough!",
 							"[coughs] Okay! [continues coughing] Okay, okay...",
 							"[hoarsely] Okay... easy, easy!"
@@ -12584,7 +12607,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[groaning in pain] I won't... say... another... syllable!",
 							"[groaning in pain] You won't get another WORD out of me!",
 							"[groaning in pain] I told you too much already!",
@@ -12598,7 +12621,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"No more!",
 							"[cries out in pain]",
 							"Guys, can't we work something out?",
@@ -12615,7 +12638,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[burning alive inside limo, pounding on doors]",
 							"[muffled screaming]",
 							"[screaming in excruciating pain]"
@@ -12628,7 +12651,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[coughing]",
 							"[violent coughing]",
 							"[weakly coughing]"
@@ -12650,7 +12673,7 @@ ClosedCaptions._sounds = {
 					text = "(finally, you're opening the timelock!)",
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Are you guys finally bringing me some real food, instead of these fried pig assholes? I'm fucking starving in here!",
 							"Finally! Did you bring me some magazines? There's not a whole lot to do in here.",
 							"Goddammit, are you farting in the air supply? Can I come out now?"
@@ -12664,7 +12687,7 @@ ClosedCaptions._sounds = {
 					text = "(impatiently waiting for timelock)",
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Fuck the timelock! Let me out already, I need a goddamn smoke! [smoker's cough]",
 							"Tick-tock... [scoffs] You fancy you endless layers of bullshit! I want some fresh air, dammit!",
 							"[frustrated groan] Stupid timelock. You feds are paranoid motherfuckers. I'm tired of sitting in this fucking metal box."
@@ -12678,7 +12701,7 @@ ClosedCaptions._sounds = {
 					text = "No... it can't be you!",
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"No... it can't be you!",
 							"How did you...?! Cocksuckers!",
 							"Oh, shit... it's YOU!"							
@@ -12692,7 +12715,7 @@ ClosedCaptions._sounds = {
 					text = "(swearing at heisters)",
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Alright then... I'll slit your fucking throats, you clown assholes!",
 							"Oh, so the clowns have come to play? Well, I'm not scared! You're going to die here, you know!",
 							"[singsong] Come to me, clowns... you think I'm scared of you?! Fuck you! [voice cracks] Fuck you!"					
@@ -12706,7 +12729,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Time to say adios... adios to you! To that fuckface, Bain... say... 'ADIOS!'",
 							"Time to say goodbye! You were useful... for a while. But now? ADIOS, clown fucks!",
 							"It's a shame we had to part this way. You were good tools, I'll give you that. But in the end... just tools."
@@ -12720,7 +12743,7 @@ ClosedCaptions._sounds = {
 					text = "Come! Come on! Open the door! I have a 'surprise' for you!",
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Come! Come on! Open the door! I have a 'surprise' for you!",
 							"Alright then! [deep sniffing] All fucking right then!",
 							"You know, if you even manage to take this door down, I got a little surprise for you 'putas'!"
@@ -12734,7 +12757,7 @@ ClosedCaptions._sounds = {
 					text = "HEEEEERE'S HECTOR!",
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"SAY 'HOLA' TO MY LITTLE FRIENDS!",
 							"HEEEEEEE'S HECTOR!",
 							"READY OR NOT, HERE I COME!"
@@ -12750,7 +12773,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Uhhh, is this thing on? [pause] I can get you through the gates, but only after you find a four-digit keycode. We can't use mine, or they'll know it was me.",
 							"Hello? [pause] I can open the gates, but we can't go using my code on the keypad. You need to find another.",
 							"Can you hear me? [pause] The gates require a keycode. Can't use mine, or I'm dead, so you need to find a four-digit code."
@@ -12773,7 +12796,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "[to guards] My clients are ready to enter the vault. You're not needed here right now. Go for a walk, or something.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[to guards] The manager asked me to tell you to do the rounds. I'll be here for a while. Go on, now.",
 							"[to guards] My clients are ready to enter the vault. You're not needed here right now. Go for a walk, or something.",							
 							"[to guards] You guys can take a smoke break, or grab a coffee. I'll be here for a while."
@@ -12788,7 +12811,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "I'm waiting at the gates! Hurry up!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"The guards are gone. Get to the gates!",
 							"[impatiently] I'm waiting at the gates! Hurry up!",
 							"Get over to the gates. Let's get this done.",
@@ -12807,7 +12830,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "The vault is just beyond here. You got that code?",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Okay, the code will open these gates. The vault is on the other side.",
 							"The gates protect the vault area. You have the code, right?",
 							"The vault is just beyond here. You got that code?"
@@ -12822,7 +12845,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "Looks good.", --opened the gate
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"It's an older code, but it checks out.",
 							"So far so good!",
 							"Looks good."
@@ -12837,7 +12860,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "Looks good.", --opened the gate
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You're through. But I saw nothing, right?",
 							"Okay. Time to get to the front, and act normal.",
 							"It's open. And I didn't see anything.",
@@ -12852,7 +12875,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "You guys all done? Alright. Follow me.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You guys all done? Alright. Follow me.",
 							"Right. Follow me and we'll get you out. Hope you got what you wanted.",
 							"So, that's it? You got what you came for? C'mon, follow me."
@@ -12867,7 +12890,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "I guess that you... wait, wait, tell me nothing. I'm just an innocent bystander. This way.",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[whisper] You got it? Nevermind, I don't want to know. Just... follow me.",
 							"I guess that you... wait, wait, tell me nothing. I'm just an innocent bystander. This way.",
 							"So did you... uhh, better not tell me. Less I know, you know? [pause] C'mon."
@@ -12882,7 +12905,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "Alright. Head through the opposite office, and head down. C'mon, get out of here!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Through here. Through the next office, and work your way down. Good luck.",
 							"Just head through here, and pass through the office on the other side. Make your way down to the basement. Hurry!",
 							"Alright. Head through the opposite office, and head down. C'mon, get out of here!"
@@ -12897,7 +12920,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					text = "What?! Oh, come on! I'm out of here!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"What the fuck! We didn't even get close...",
 							"I- I didn't agree to this! And I'm out of here!",
 							"What?! Oh, come on! I'm out of here!",
@@ -12913,7 +12936,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					text = "We were close, but... time to bail. [pause] I still get my cut, right?",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"We were close, but... time to bail. [pause] I still get my cut, right?",
 							"We got pretty far, but... I gotta scram. [pause] You guys give me my cut later, right?"
 						}
@@ -12931,7 +12954,7 @@ ClosedCaptions._sounds = {
 					},
 					text = "[talking on phone]",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"So, uh, they took me into HR at the head office again. It turns out you can't tell a grandmother to suck a bag of- shit, they might be listening.",
 							"She DOESN'T?! Well, how does she keep in touch with the rest of the world?",
 							"Heyyy, good work on that report!",
@@ -12959,7 +12982,7 @@ ClosedCaptions._sounds = {
 					},
 					text = "[talking on phone]",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"I could give two shits about someone's college tuition! [pause] Well, if you give me $50,000 for shits...",
 							"I don't care if your crippled kids have diph-fucking-theria!",
 							"Look, you pay back the loan, or you lose the house! I mean it, Mom!",
@@ -12984,7 +13007,7 @@ ClosedCaptions._sounds = {
 					},
 					text = "[talking on phone]",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Investing in banks is as safe as housing! And I mean nice housing, with bricks and everything!",
 							"Well, I would describe my management style as... bringing new synergy to the... boardroom... dynamic... of parallel... styling.",
 							"It's a pleasure to talk to the Financial Times in London! Oh, oh... London, Kentucky.",
@@ -13142,7 +13165,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "Alright! Throw me the bags, and you'll get your money!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Alright! Throw me the bags, and you'll get your money!",
 							"Okay! Throw me the bags, and you get the delivery!",
 							"Okay! Let's trade!"
@@ -13156,7 +13179,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "You deliver, then I deliver!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You deliver, then I deliver!",
 							"Get the bags to me!",
 							"Throw me the bags!",
@@ -13171,7 +13194,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "C'mon, already! We need more bags!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"We're wasting our time! This is less than we agreed on!",
 							"C'mon, already! We need more bags!",
 							"C'mon! We need more than that!"
@@ -13185,7 +13208,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "Great! Money's coming down!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Great! Money's coming down!",
 							"Great! We got it!",
 							"Thanks! Here's your cash!"							
@@ -13206,7 +13229,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					text = "Oh, SHIT! This wasn't the deal! We are OUTTA HERE!",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Oh, SHIT! This wasn't the deal! We are OUTTA HERE!",
 							"Ah, SHIT! This wasn't the deal! We're outta here!"
 						}
@@ -13231,7 +13254,7 @@ ClosedCaptions._sounds = {
 					text = "Fuck me, talk about making an entrance!",
 					duration = 7,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Ye bloody wankers, you took your time, didn't ya?",
 							"Fuck me, talk about making an entrance!",
 							"Well, fuck me sideways! It's the motherfucking PAYDAY Gang!",
@@ -13251,7 +13274,7 @@ ClosedCaptions._sounds = {
 					text = "Bollocks to the Safehouse! We're going somewhere else- trust me.",
 					duration = 5,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Bollocks to the Safehouse! We're going somewhere else- trust me.",
 							"Dunno what Bain was thinking, but we're making a detour. I've got something in mind.",
 							"Nevermind the sodding Safehouse. I've got a plan, and you lads want to help me, RIGHT?"
@@ -13266,7 +13289,7 @@ ClosedCaptions._sounds = {
 					text = "Some Judas fuck sold me- I know they did. But who?!",
 					duration = 7,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"I'm sure someone betrayed me. It had to be an informer. But who?!",
 							"I was set up, lads, I know it. Someone ratted me out.",
 							"Someone ratted me out, and I know it wasn't Matt, because I know all of his secrets by now.",
@@ -13286,7 +13309,7 @@ ClosedCaptions._sounds = {
 					text = "I said, IT'S FUCKING PAYDAY MOTHERFU-",
 					duration = 15,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Well, well, well. So who's the fourth musketeer? This wanker's your little brother, Dallas?",
 							"Wolf- what you did with that Bulldozer back there was a bit... I think you need help, mate.",
 							"I dunno how many times I've saved your life, Chains, and this is how you repay me? You could get me a limo, at the very fuckin' least.",
@@ -13331,7 +13354,7 @@ ClosedCaptions._sounds = {
 					duration = 3,
 					disabled = true, --this line has in-game subtitles
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Here we go!",
 							"Gotcha! Movin'!",
 							"Okay, okay, I'm on it!",
@@ -13347,7 +13370,7 @@ ClosedCaptions._sounds = {
 					text = "Can you guys move that?!",
 					duration = 3,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"God DAMMIT! Can you guys move that?!",
 							"Can't move forward! What do we do?",
 							"What the hell?! A little help?!"							
@@ -13362,7 +13385,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 6,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You gotta keep 'em offa me, goddammit!",
 							"They're shootin' me up over here!",
 							"I told you to fuckin' PROTECT ME! I'm gettin' fired at, here!"
@@ -13377,7 +13400,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 4,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[impatient] Get this SHIT open!",
 							"Hey! Get this gate open!",
 							"Hurry and open the gate!"
@@ -13392,7 +13415,7 @@ ClosedCaptions._sounds = {
 					text = "Get these bollards OUTTA MY WAY!",
 					duration = 4,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Shit, bollards are up?! Fix it!",
 							"Get these bollards OUTTA MY WAY!",
 							"We gotta clear these bollards! And be 'we,' I mean 'you!' and by 'you,' I mean 'HEY, ASSHOLES!'"
@@ -13407,7 +13430,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 3,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Get him in the back!",
 							"C'MON, GET HIM IN!",
 							"I'm here, get him in!",
@@ -13423,7 +13446,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					duration = 3,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Christ! We got cops!",
 							"[exasperated] Fucking cops!",
 							"Cops ahead!"
@@ -13438,7 +13461,7 @@ ClosedCaptions._sounds = {
 					duration = 6,
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Gonna keep it slow, so you guys with the guns can stay with me.",
 							"Keepin' my foot off the gas. Make sure you guys keep the road safe and clear.",
 							"We'll move at your pace. Just keep the road clear of cops!",
@@ -13454,7 +13477,7 @@ ClosedCaptions._sounds = {
 					duration = 4,
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Get inside, lads! Got work to do.",
 							"Get a shufty on, lads. Chop fucking chop.",
 							"Move! Last one in's a knob." -- not quite right
@@ -13469,7 +13492,7 @@ ClosedCaptions._sounds = {
 					duration = 4,
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Get inside, lads! Got work to do.",
 							"Get a shufty on, lads. Chop fucking chop.",
 							"Move! Last one in's a knob." -- not quite right
@@ -13486,7 +13509,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Yo, sup homes.",
 								"Yo, yo, YO, what's up?",
@@ -13521,7 +13544,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"Hey, let's skip the formalities.",
 								"Hey, yo!",
@@ -13553,7 +13576,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					category = "mission_dialogue",
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"Hey, man! The deal ain't here! Turn around! This place is ours!",
 							"Hey! The deal's not goin' down in here! So get lost.",
 							"Hey, yo! You got no business here, this is OUR place!",
@@ -13630,7 +13653,7 @@ ClosedCaptions._sounds = {
 					duration = 5,
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"You're not getting me this time!",
 							"Catch me if you can!",
 							"Fuck you!"
@@ -13646,7 +13669,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					line_variations = {
 						recombinable = true,
-						any_mode = {
+						standard_mode = {
 							{
 								"(hacking, coughing)"
 							},
@@ -13670,7 +13693,7 @@ ClosedCaptions._sounds = {
 					duration = 5,
 					priority = 10,
 					line_variations = {
-						any_mode = {
+						standard_mode = {
 							"[muffled] Forget it! The cops will get you before you get me!",
 							"[muffled] Fuck you guys! I'll let the cops kill you all!",
 							"[muffled] Kiss my ass, guys! KISS! MY! FUCKIN'! ASS!",
