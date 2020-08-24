@@ -2,7 +2,7 @@
 BEFORE FIRST PUBLIC RELEASE:
 	* (FINISH AND TEST) system for persistent looped sounds (eg. fwb bank manager) 
 	* (TEST) system for sounds which act as "stop" flags for other sounds
-	
+		* juke box and other sounds shoud not be locationless
 	* todo test in multiplayer
 	
 	* todo separate IsLoggingEnabled() check into "is logging missing lines enabled" and "is logging errors enabled"
@@ -544,14 +544,14 @@ function ClosedCaptions:Update(t,dt)
 					if not is_hidden and item.loop_data and item.loop_data.loop_interval then 
 						if item.loop_data.loop_interval == -1 then 
 							--always visible (within the correct distance)
-							is_hidden = math.sin((10 * (t - item.start_t)) / (math.pi * item.loop_data.loop_interval))
+--							is_hidden = math.sin((10 * (t - item.start_t)) / (math.pi * item.loop_data.loop_interval)) > 0
 							--todo reset start_t?
 						else	
 							if t >= item.expire_t then
 								item.loop_visible = not item.loop_visible
-								is_hidden = item.loop_visible
+								is_hidden = not item.loop_visible
 								item.expire_t = t + (item.duration or 5) + (item.loop_visible and item.loop_data.loop_interval or 0)
-								--todo soft alpha fade
+								--todo soft alpha fade for out of range
 							end
 						end
 					end
@@ -569,13 +569,13 @@ function ClosedCaptions:Update(t,dt)
 					end
 				end
 			end
-			
 			if is_hidden == nil then
 				item.panel:show()
 				n = n + 1
 				item.panel:set_position((panel:w() - item.panel:w()) / 2,panel:h() - (y + 24))
 				y = y + item.panel:h()
 			elseif is_hidden == false then
+				item.panel:show()
 			else
 				item.panel:hide()
 			end
@@ -958,7 +958,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		priority = subvariant_data.priority or sound_data.priority or 1,
 		max_distance = subvariant_data.max_distance or sound_data.max_distance,
 		start_t = t,
-		is_locationless = (source == managers.player:local_player()) or subvariant_data.is_locationless or sound_data.is_locationless,
+		is_locationless = (source and source == managers.player:local_player()) or subvariant_data.is_locationless or sound_data.is_locationless,
 		expire_t = expire_t
 	}
 	self:_add_line(panel_text,source_id,text_color,data)

@@ -94,21 +94,41 @@ ClosedCaptions._sounds = {
 				},
 				jukebox_shuffle = {
 					override_name = "SFX",
-					text = "(jukebox plays)",
+					text = "(radio music plays)",
+					max_distance = 1500,
+					loop_data = {
+						loop_interval = -1
+					},
 					priority = 40,
 					category = "sfx"
 				},
 				jukebox_shuffle_stop = {
 					override_name = "SFX",
-					text = "(jukebox stops)",
-					stops_line = "christmas_radio",
+					text = "(radio music stops)",
+					stops_line = "jukebox_shuffle",
 					duration = 2,
 					priority = 40,
 					category = "sfx"
 				},
+				server_noise_loop = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "[server noises]",
+					max_distance = 500,
+					priority = 37,
+					duration = 5,
+					loop_data = {
+						loop_interval = 20
+					}
+				},
+--				server_noise_loop_stop = { --this does not, in fact, work
+--					stops_line = "server_noise_loop",
+--					category = "stops"
+--				},
 				table_saw = {
 					override_name = "SFX",
 					text = "(table saw grinding)",
+					max_distance = 1000,
 					loop_data = {
 						loop_interval = -1
 					},
@@ -126,6 +146,7 @@ ClosedCaptions._sounds = {
 				blowtorch_guy = {
 					override_name = "SFX",
 					text = "(blowtorch hissing)",
+					max_distance = 2500,
 					loop_data = {
 						loop_interval = -1
 					},
@@ -343,6 +364,78 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(Goat headbutts)",
 					priority = 38,
+					category = "sfx"
+				},
+				hos_pa_announcement_emergency = {
+					override_name = "SFX", --chatter?
+					text = "(hospital PA announces emergency)",
+					duration = 5,
+					category = "sfx"
+				},
+				hos_pa_announcement_generic = {
+					override_name = "SFX",
+					text = "(hospital PA announcement)",
+					duration = 5,
+					category = "sfx"
+				},
+				hos_alarm = {
+					override_name = "SFX",
+					text = "(hospital alarm!)",
+					category = "sfx",
+					duration = 30
+				},
+				hos_wardrobe_change = {
+					text = "[clothes rustling]",
+					override_name = "SFX",
+					duration = 5
+				},
+				hos_fake_sentry_place = {
+					text = "[fake sentry placed]",
+					override_name = "SFX",
+					duration = 3
+				},
+				hos_crowd_walla = {
+					text = "[hospital din]",
+					override_name = "SFX",
+					duration = 30,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				hos_crowd_walla_stop = {
+					category = "stops",
+					stops_line = "hos_crowd_walla"
+				},
+				hos_pa_announcement_all = {
+					override_name = "SFX",
+					text = "(hospital PA announcement)",
+					duration = 5,
+					category = "sfx"
+				},
+				earthquake_siren_end = {
+					override_name = "SFX",
+					text = "(air raid/earthquake siren ends)",
+					category = "stops",
+					stops_line = "earthquake_siren"
+				},
+				earthquake_siren = {
+					override_name = "SFX",
+					text = "(air raid/earthquake siren)",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				hlp_keycard_box_appear = {
+					override_name = "SFX",
+					text = "(keycard box poof)",
+					duration = 2,
+					category = "sfx"
+				},
+				hlp_poof_big = {
+					override_name = "SFX",
+					text = "(loud poof, sparkles)",
+					duration = 2,
 					category = "sfx"
 				},
 				hos_witch_cry_loop_01 = {
@@ -737,20 +830,6 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN",
 					priority = 37,
 					text = "(SWAT explosive breaches wall)"
-				},
-				server_noise_loop = { --looped; needs max distance
-					override_name = "SFX",
-					category = "sfx",
-					text = "[server noises]",
-					priority = 37,
-					duration = 5,
-					loop_data = {
-						loop_interval = 20
-					}
-				},
-				server_noise_loop_stop = { --no idea if this works
-					stops_line = "server_noise_loop",
-					category = "stops"
 				},
 				Play_pln_spawn_01 = {
 					override_name = "Bain",
@@ -13908,13 +13987,433 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						whisper_mode = {
-							{ --non-exhaustive
-								"Hey, I work as a repairman, and... I think I might have left a sandwich in one of your vaults.",
-								"Knock knock. [pause, silence] ...hey. Knock knock. [longer pause, silence] Fuck you guys."
-							}
+						 --non-exhaustive
+							"Hey, I work as a repairman, and... I think I might have left a sandwich in one of your vaults.",
+							"Knock knock. [pause, silence] ...hey. Knock knock. [longer pause, silence] Fuck you guys."
 						}
 					}
+				},
+			
+			--prison nightmare
+				Play_big_clk_help_01 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(creating fire hazard)",
+					category = "mission_dialogue",
+					duration = 7,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"LET'S CRANK THE HEAT UP!",
+							"HOT FOOT! [laughs evilly]",
+							"COME SIT BY MY FIRE!"
+						}
+					}
+				},
+				Play_big_clk_help_02 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting heisters)",
+					category = "mission_dialogue",
+					duration = 7,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"YOU WON'T LIKE THIS! [laughs evilly]",
+							"DON'T LOOK SO MISTY EYED!",
+							"I HAVE A LITTLE PRESENT FOR YA!"
+						}
+					}
+				},
+				Play_big_clk_help_03 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(creating giant drill hazard)",
+					category = "mission_dialogue",
+					duration = 7,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"I WANT YOU TO THINK OF ME AS YOUR... 'DRILL SERGEANT!' [laughs evilly]",
+							"CAN YOU FEEL THE EARTH MOVING? NO? WELL, WHAT ABOUT NOW!?",
+							"[imitating drill]"
+						}
+					}
+				},
+				Play_big_clk_help_04 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(creating Snipers hazard)",
+					category = "mission_dialogue",
+					duration = 5,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"WELL, LOOK WHAT WE HAVE HERE!",
+							"THIS IS THE LONG ARM OF THE LAW!",
+							"LET ME PULL SOME RABBITS OUT OF MY HAT!",
+							"PETER PIPER PICKED A PECK OF... SNIPERS!"
+						}
+					}
+				},
+				Play_big_clk_help_05 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					category = "mission_dialogue",
+					duration = 3,
+					priority = 37,
+					text = "DOZER... CATCH!" --no variations
+				},
+				Play_big_clk_help_06 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(coming down to be the hazard)",
+					category = "mission_dialogue",
+					duration = 5,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"OKAY, THAT'S IT! I'M COMING DOWN THERE!",
+							"DAMMIT, I NEED SOME EXERCISE!",
+							"I'M COMIIIING!"
+						}
+					}
+				},
+				Play_big_clk_help_07 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting heisters)",
+					category = "mission_dialogue",
+					duration = 5,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"I'M A BULLETSPONGE! CALL ME BOB!",
+							"I'M GONNA GIVE THAT WHEEL A KICK!",
+							"CHANGE YOUR DIAPERS YET?!"
+						}
+					}
+				},
+				Play_big_clk_help_08 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					category = "mission_dialogue",
+					duration = 3,
+					priority = 37,
+					text = "HA! THERE!"
+				},
+				Play_big_clk_help_09 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting heisters about wheel)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"THIS IS GONNA TAKE A WHILE! [laughs evilly]",
+							"IT'S THE WHEEL OF MISFORTUNE!",
+							"YES... YES! PLAY MY LITTLE GAME!",
+							"SO...? YOU WANNA PLAY, THEN?",
+							"KEEP ON SPINNIN'... KEEP ON SPINNIN'!"
+						}
+					}
+				},
+				Play_big_clk_help_10 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting heisters about bad wheel spin)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"OH, THAT REALLY PUT A... 'SPIN' ON THINGS!",
+							"OH... [chuckles] YOU'RE GONNA LIKE THIS!",
+							"SPIN HARDER NEXT TIME! [evil laugh]",
+							"YOU HAVE CHOSEN... POORLY." --funni indiana jones reference
+						}
+					}
+				},
+				Play_big_clk_help_11 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting heisters about broken wheel drill)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"[mockingly] AW... MY WHEEL BROKE! BOOHOOHOO...",
+							"HAHA, YOU CAN'T EVEN DO IT PROPERLY!"
+						}
+					}
+				},
+				Play_big_clk_help_12 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting heisters about surviving halfway)",
+					category = "mission_dialogue",
+					duration = 5,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"HALF TIME NOW... C'MON, MAGGOTS!",
+							"HALFWAY LINE... DON'T STOP NOW! [chuckles]",
+							"YOU LASTED HALFWAY... WILL YOU LAST TIL THE END? I DON'T THINK SO!"
+						}
+					}
+				},
+				Play_big_clk_help_13 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(frustrated about heister success)",
+					category = "mission_dialogue",
+					duration = 5,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"WHAT?! NO! DAMN YOU!",
+							"[screams in frustration] YOU MUST HAVE BEEN CHEATING!",
+							"DAMMIT! SHOWS YOU CAN'T TRUST MACHINERY!",
+							"THE WHEEL BETRAYED ME!",
+							"YOU WON THIS ONE... BUT I'LL GET YOU IN THE END!"
+						}
+					}
+				},
+				Play_big_clk_help_14 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(frustrated about heisters stealing cloaker gold)",
+					category = "mission_dialogue",
+					duration = 3,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"[panicked] WHAT ARE YOU DOING?!",
+							"WHAT?! YOU OPENED IT?!",
+							"THAT'S MINE!",
+							"STOP! NO!"
+						}
+					}
+				},
+				Play_big_clk_help_15 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(vows revenge for stolen cloaker gold)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"I'LL GET YOU FOR THIS!",
+							"YOU DARE STEAL FROM ME?",
+							"HURRY! SOON, YOU DIE!",
+							"BETTER HIDE IT WELL... YOU LITTLE RATS!",
+							"MY MONEY... MY MONEY!",
+							"NO-ONE LIKES THIEVES!",
+							"I'M COMING FOR YOU... SOON!",
+							"[panicked] STOP... STOP!"
+						}
+					}
+				},
+				Play_big_clk_help_16 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(mocking heister failure)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"THAT'S IT... BITCHES! [evil laugh]",
+							"I LOVE TO SEE YOU FAIL!",
+							"[mockingly] AWWW... THAT'S TOO BAD!",
+							"TIME'S UP... LOSERS!",
+							"[mockingly] YOU COULDN'T DO ANY BETTER?!"
+						}
+					}
+				},
+				Play_big_clk_help_17 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting heisters to continue)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"MOUSE OR LION! WHAT'S IT GONNA BE?",
+							"WHO DARES, WINS! ...OR DIES!",
+							"C'MON... STAY AND PLAY!",
+							"WILL YOU RUN AWAY? OR STAY?",
+							"AWWW... DON'T LEAVE ME JUST YET!"
+						}
+					}
+				},
+				Play_big_clk_help_18 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(sending minions after leaving heisters)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"STOP THEM!",
+							"COME BACK AND PLAY!",
+							"DON'T LET THEM ESCAPE!",
+							"KILL THEM, MY MINIONS!",
+							"SURROUND THEM! KILL THEM!",
+							"THERE IS NO WAY OUT!"
+						}
+					}
+				},
+				Play_big_clk_help_19 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(spawning a drill)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"HERE'S A DRILL FOR YA!",
+							"YES! THIS... IS A DRILL!",
+							"[mockingly] GUYS... THE THERMAL DRILL! GO GET IT!"
+						}
+					}
+				},
+				Play_big_clk_help_20 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(threatening heisters with train puns)", --i like the ambiguity of this because he could either be threatening the heisters who are on the train, or threatening the heisters by using the hazard of train puns, even though it's not really a pun
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"YOU'LL NEVER GET ACROSS!",
+							"MIND THE GAP!",
+							"TICKETS PLEASE!",
+							"A BRIDGE TOO FAR, MOTHERFUCKERS!",
+							"LAST STATION... BITCHES!",
+							"ENJOY THE RIDE... [evil laughter]"
+						}
+					}
+				},
+				Play_big_clk_help_21 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting trapped heisters on train)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"UH OH, SEEMS YOU'RE STUCK HERE!",
+							"DON'T GET OFF YET... [evil laughter]",
+							"NO WAY OUT!",
+							"[evil laughter] YOU'RE TRAPPED NOW!",
+							"END OF THE LINE, BITCHES!"
+						}
+					}
+				},
+				Play_big_clk_help_22 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(angry about heisters damaging train)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"YOU FUCKING CHEATS!",
+							"WHAT DID YOU DO TO MY TRAIN?!",
+							"NOOOO!"
+						}
+					}
+				},
+				Play_big_clk_help_23 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(scaring heisters)",
+					category = "mission_dialogue",
+					duration = 5,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"GETTING CATS OUT OF TREES? MORE LIKE RIPPIN' BRAINS OUT OF SKULLS!",
+							"YOU'RE JUST MAGGOTS!",
+							"COME! COME, LITTLE MICE! CAT WANTS TO PLAY!",
+							"YOU REALLY THINK YOU HAVE A CHANCE HERE?",
+							"THIS IS MY WORLD!",
+							"COME TO THE GALLOWS! COME!",
+							"THIS IS WHERE ALL YOUR DREAMS COME TRUE! [evil laughter]",
+							"ARE YOU SCARED YET?",
+							"GET READY FOR CAPITAL PUNISHMENT!",
+							"I'LL MAKE YOU WISH YOU WERE DEAD!",
+							"CRIMINAL FILTH!",
+							"IN MY WORLD, EVERYONE'S IN PRISON!",
+							"CRIME DOESN'T PAY!",
+							"YOU CAN'T ESCAPE FROM HERE!",
+							"THERE'S NO ESCAPE!",
+							"BRING THE PAIN!",
+							"BITCHES!",
+							"YOU REALLY THINK YOU HAVE A CHANCE HRRE?!",
+							"[evil laughter] YOU'LL NEVER GET OUT OF HERE!",
+							"THE LAW... ALWAYS WINS!",
+							"[screaming]", -- ???
+							"[roaring]", --????
+							"THREE STRIKES... YOU'RE OUT!",
+							"I OWN YOU NOW!",
+							"WELCOME TO HELL!",
+							"COME PLAY! [evil laughter]",
+							"YOUR CRIME CAREER IS OVER... OVER!",
+							"THIS IS MY DOMAIN! I RULE HERE!",
+							"THINK THIS IS BAD?! YOU SHOULD SEE THE FOOD!",
+							"FUCK YOU!"
+						}
+					}
+				},
+				Play_big_clk_help_24 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(taunting)",
+					category = "mission_dialogue",
+					duration = 5,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"NOW, WATCH ME MESS UP YOUR FUN!",
+							"(singsong) HEY ASSHOLES! WATCH ME!",
+							"YOU READY FOR A DIFFICULTY TWEAK?"
+						}
+					}
+				},
+				Play_big_clk_help_25 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "(spawning Headless Dozer hazard)",
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"LOOK, MOM- NO HEAD!",
+							"SAY HELLO TO MY HEADLESS LITTLE FRIEND!"
+						}
+					}
+				},
+				Play_big_clk_help_26 = {
+					override_name = "NecroCloaker",
+					override_text_color = ClosedCaptions.color_data.boss,
+					text = "[wailing] YOU'RE USELESS... USELESS!",
+					category = "mission_dialogue",
+					duration = 5,
+					priority = 37
 				}
+				
 				
 			}
 		}
