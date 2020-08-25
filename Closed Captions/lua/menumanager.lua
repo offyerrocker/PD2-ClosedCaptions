@@ -1,7 +1,8 @@
 --[[
 BEFORE FIRST PUBLIC RELEASE:
-	* (FINISH AND TEST) system for persistent looped sounds (eg. fwb bank manager) 
-	* (TEST) system for sounds which act as "stop" flags for other sounds
+	* finish tagging persistent looped sounds (eg. fwb bank manager) 
+	
+	* implement use_random_loop_interval
 	
 	* todo test in multiplayer
 	
@@ -65,7 +66,6 @@ mission dialogue to check/enter:
 	
 	- brooklyn 10/10 charon?
 	- Goat simulator d2 doctor?
-	- necrocloaker dialogue on cursed kill room/prison nightmare?
 	- beneath the mountain locke dialogue?
 	- stealing xmas almir dialogue
 	- Car shop manager chatter
@@ -245,8 +245,13 @@ ClosedCaptions.color_data = {
 	peer2 = Color.blue,
 	peer3 = Color.red,
 	peer4 = Color(1,1,0),
+	contractor_vo = Color.white,
 	l4d_bill = Color("1a821a"),
 	l4d_witch = Color("df9ee3")
+}
+
+ClosedCaptions.caption_distance_presets = {
+	dialogue = 4500
 }
 
 ClosedCaptions.settings = {
@@ -430,10 +435,10 @@ function ClosedCaptions:process_special_vo()
 			for prefix,char_name in pairs(self.character_prefixes) do 
 				local data = table.deep_map_copy(vo_data)
 				local character_name = managers.localization:text("menu_" .. char_name)
-				if vo_data.caps then 
-					character_name = utf8.to_upper(character_name)
-				end
-				data.text = string.gsub(vo_data.text,"$CHARACTER_NAME",character_name)
+
+				data.text = string.gsub(vo_data.text,"$CHARACTER_NAME",utf8.to_upper(character_name))
+				data.text = string.gsub(vo_data.text,"$character_name",character_name)
+				--todo variations
 				
 				sound_table.vo[string.gsub(sound_name_raw,"@",prefix)] = data
 	--			self:log("Added item " .. string.gsub(sound_name_raw,"@",prefix) .. " with text " .. tostring(data.text))
@@ -507,7 +512,7 @@ end
 
 function ClosedCaptions:init_captions()
 	self:LoadSounds()
-	self._ws = managers.gui_data:create_fullscreen_workspace()
+	self._ws = managers.gui_data:create_saferect_workspace() --managers.gui_data:create_fullscreen_workspace()
 	self._panel = self._ws and self._ws:panel()
 	self._panel:set_layer(1000)
 
@@ -547,7 +552,7 @@ function ClosedCaptions:Update(t,dt)
 					local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
 					
 					if item.max_distance then 
-						if mvector3.distance_sq(player_pos,source_position) >= math.pow(item.max_distance,2) then 
+						if not player or (mvector3.distance_sq(player_pos,source_position) >= math.pow(item.max_distance,2)) then 
 							is_hidden = true
 						end
 					end

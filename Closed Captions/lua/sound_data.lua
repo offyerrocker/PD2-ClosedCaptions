@@ -4,25 +4,28 @@ ClosedCaptions._sounds = {
 			vo_special = { --there exit character-specific variants for most of these, but we'll burn that bridge when we come to it
 				["f11@_sin"] = { --macroized
 					text = "$CHARACTER_NAME! Help me up!",
-					caps = true,
 					macro = "character_name",
+					category = "heister_callouts",
 					priority = 37
 				},
 				["f13@_sin"] = { --macroized
-					text = "$CHARACTER_NAME, come uncuff me!",
+					text = "$character_name, come uncuff me!",
 					macro = "character_name",
+					category = "heister_callouts",
 					priority = 37
 				},
 				["f21@_sin"] = { --macroized
-					text = "$CHARACTER_NAME, follow me!",
+					text = "$character_name, follow me!",
 					macro = "character_name",
+					category = "heister_callouts",
 					priority = 37
 				},
 				["Play_ban_i20@"] = {
 					override_name = "Bain",
 					category = "contractor_vo",
-					text = "$CHARACTER_NAME, you're the last one standing! It's all up to you!",
 					macro = "character_name",
+					text = "$character_name, you're the last one standing! It's all up to you!",
+					category = "contractor_vo",
 					priority = 37
 				}
 			},
@@ -66,6 +69,30 @@ ClosedCaptions._sounds = {
 					duration = 25,
 					category = "sfx"
 				},
+				wp_hur_pick_up = {
+					override_name = "SFX",
+					text = "picked up Throwing Axe",
+					override_source_id = true,
+					duration = 1,
+					priority = 25,
+					category = "sfx"
+				},
+				wp_jav_pick_up = {
+					override_name = "SFX",
+					text = "picked up Javelin",
+					override_source_id = true,
+					duration = 1,
+					priority = 25,
+					category = "sfx"
+				},
+				wp_arrow_placeholder_pick_up = {
+					override_name = "SFX",
+					text = "picked up Arrow",
+					override_source_id = true,
+					duration = 1,
+					priority = 25,
+					category = "sfx"
+				},
 				radio = {
 					override_name = "SFX",
 					text = "radio plays",
@@ -75,9 +102,10 @@ ClosedCaptions._sounds = {
 					},
 					category = "sfx"
 				},
-				christmas_radio = {
+				christmas_radio = { --i'm okay with having a larger range for this one because you can always shoot the radio
 					override_name = "SFX",
 					text = "radio plays Christmas music",
+					max_distance = 2000,
 					loop_data = {
 						loop_interval = -1
 					},
@@ -90,6 +118,16 @@ ClosedCaptions._sounds = {
 					stops_line = "christmas_radio",
 					duration = 2,
 					priority = 40,
+					category = "stops"
+				},
+				halloween_radio_loop_2013 = {
+					override_name = "SFX",
+					text = "radio plays spooky music",
+					max_distance = 1000,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 60,
 					category = "sfx"
 				},
 				jukebox_shuffle = {
@@ -163,18 +201,21 @@ ClosedCaptions._sounds = {
 				ammo_bag_drop = {
 					override_name = "SFX",
 					text = "(bag placed)",
+					max_distance = 1500,
 					priority = 37,
 					category = "sfx"
 				},
 				door_wooden_kicked_in = {
 					override_name = "SFX",
 					text = "(door kicked open)",
+					max_distance = 2000,
 					priority = 37,
 					category = "sfx"
 				},
 				metal_door_knock = {
 					override_name = "SFX",
 					text = "(door knocking)",
+					max_distance = 2000,
 					override_source_id = "metal_door",
 					priority = 37,
 					category = "sfx"
@@ -182,32 +223,38 @@ ClosedCaptions._sounds = {
 				metal_door_open = {
 					override_name = "SFX",
 					text = "(door opens)",
+					max_distance = 2000,
 					override_source_id = "metal_door",
 					priority = 37,
 					category = "sfx"
 				},
-				wp_hur_pick_up = {
+				c4_explode_metal = {
 					override_name = "SFX",
-					text = "picked up Throwing Axe",
-					override_source_id = true,
-					duration = 1,
-					priority = 25,
+					max_distance = 5000,
+					text = "(explosion, metal broken)",
+					priority = 37,
 					category = "sfx"
 				},
-				wp_jav_pick_up = {
-					override_name = "SFX",
-					text = "picked up Javelin",
-					override_source_id = true,
-					duration = 1,
-					priority = 25,
+				emitter_rain_tag_open_window_indoor = {
+					override_name = "ambient",
+					override_source_id = "rain_emitter",
+					is_locationless = true,
+					text = "(soft rain, distant thunder outside window)",
+					priority = 90,
 					category = "sfx"
 				},
-				wp_arrow_placeholder_pick_up = {
+				emitter_rain_on_skylight_indoor = {
+					override_name = "ambient",
+					override_source_id = "rain_emitter",
+					is_locationless = true,
+					text = "(soft rain against skylight)",
+					priority = 90,
+					category = "sfx"
+				},
+				npc_typing_on_copy_machine_loop = {
 					override_name = "SFX",
-					text = "picked up Arrow",
-					override_source_id = true,
-					duration = 1,
-					priority = 25,
+					text = "(copy machine typing)",
+					priority = 90,
 					category = "sfx"
 				},
 				trip_mine_sensor_alarm = {
@@ -321,6 +368,7 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
+					max_distance = 1000,
 					priority = 38,
 					category = "sfx"
 				},
@@ -332,28 +380,88 @@ ClosedCaptions._sounds = {
 					priority = 38,
 					category = "sfx"
 				},
+				elevator_doors_open = {
+					override_name = "SFX",
+					text = "(elevator_doors_open)",
+					max_distance = 3000,
+					duration = 4,
+					priority = 37,
+					category = "sfx"
+				},
 				fire_sprinkler_start = {
 					override_name = "SFX",
 					text = "(fire sprinkler activates)",
+					max_distance = 2000,
 					priority = 38,
 					category = "sfx"
 				},
 				fire_hiss = {
 					override_name = "SFX",
 					text = "(fire hisses)",
+					max_distance = 2000,
 					priority = 38,
+					category = "sfx"
+				},
+				large_fire = {
+					override_name = "SFX",
+					text = "(fire burning)",
+					max_distance = 1000,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 60,
 					category = "sfx"
 				},
 				large_fire_stop = { --needs a stops_line
 					override_name = "SFX",
 					text = "(fire stops)",
-					priority = 38,
-					category = "sfx"
+					priority = 60,
+					category = "stops"
+				},
+				police_radio = {
+					override_name = "SFX",
+					text = "(police radio chatter)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_lorry_idle_01 = {
+					override_name = "SFX",
+					text = "(lorry engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_car_idle_01 = {
+					override_name = "SFX",
+					text = "(car engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_car_idle_05 = {
+					override_name = "SFX",
+					text = "(car engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
 				},
 				npc_crowd_scream_01 = {
 					override_name = "SFX",
 					text = "(crowd screaming)",
-					priority = 38,
+					priority = 60,
 					category = "sfx"
 				},
 				goat_fan_woosh = {
@@ -470,7 +578,13 @@ ClosedCaptions._sounds = {
 				},
 				hlp_keycard_box_appear = {
 					override_name = "SFX",
-					text = "(keycard box poof)",
+					text = "(keycard box appears)",
+					duration = 2,
+					category = "sfx"
+				},
+				hlp_keycard_box_disappear = {
+					override_name = "SFX",
+					text = "(keycard box poofs)",
 					duration = 2,
 					category = "sfx"
 				},
@@ -480,11 +594,85 @@ ClosedCaptions._sounds = {
 					duration = 2,
 					category = "sfx"
 				},
+				hlp_green_fire = {
+					override_name = "SFX",
+					text = "(hellfire burning, distant screaming)",
+					max_distance = 5000,
+					loop_data = {
+						loop_interval = -1
+					},
+					category = "sfx"
+				},
+				hlp_green_fire_stop = {
+					override_name = "SFX",
+					stops_line = "hlp_green_fire",
+					category = "stops"
+				},
+				hlp_bag_door_loop_start = {
+					override_name = "SFX",
+					text = "(ambient: loot bag door)",
+					category = "sfx",
+					max_distance = 2500,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				hlp_bag_door_loop_stop = {
+					override_name = "SFX",
+					stops_line = "hlp_bag_door_loop_start",
+					category = "stops"
+				},
+				bell_ring = {
+					override_name = "SFX",
+					text = "(bell ringing)",
+					duration = 5,
+					category = "sfx"
+				},
+				ambience_switch_halloween_2016_state_smoke_to_ext = {
+					disabled = true,
+					text = "ambient outdoor spoopiness",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				ambience_switch_halloween_2016_state_ext_to_smoke = {
+					disabled = true,
+					text = "ambient indoor spoopiness",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				tick_tock_play = {
+					text = "[clock ticking loudly]",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				tick_tock_stop = {
+					category = "stops",
+					stops_line = "tick_tock_play"
+				},
+				hlp_ending_choir_start = {
+					text = "[angelic choir]",
+					category = "sfx",
+					max_distance = 2000,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				hlp_ending_choir_stop = {
+					category = "stops",
+					stops_line = "hlp_ending_choir_start"
+				},
 				hos_witch_cry_loop_01 = {
 					override_name = "Witch",
 					override_text_color = ClosedCaptions.color_data.l4d_witch,
-					text = "[Witch Groans Softly]", --directly from l4d2
-					priority = 50,
+					text = "[Groans Softly]",
+					priority = 99,
+					duration = 3,
 					is_locationless = true,
 					loop_data = {
 						loop_interval = 3,
@@ -588,6 +776,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(bank queue beep)",
 					priority = 50,
+					max_distance = 2000,
 					category = "sfx"
 				},
 				concussion_effect_on = {
@@ -647,28 +836,37 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "sfx"
 				},
-				card_reader_first_card = {
+				card_reader_first_card = { --ovk decided to reuse this sound for hoxton revenge's laser grids activation noises, so... generic descriptions. yay.
 					override_name = "SFX",
-					text = "keycard machine beeps",
+					text = "beeps",
 					duration = 3,
+					max_distance = 1500,
 					priority = 37,
 					category = "sfx"
 				},
 				card_reader_second_card = {
 					override_name = "SFX",
-					text = "keycard machine beeps rapidly",
+					text = "rapid beeps",
 					duration = 3,
+					max_distance = 1500,
 					priority = 37,
 					category = "sfx"
 				},
 				alarm_countdown_loop = {
 					override_name = "SFX",
+					max_distance = 2000,
 					text = "[Slow alarm countdown ticking]",
 					category = "sfx",
 					loop_data = {
 						loop_interval = -1 --constant
 					},
 					priority = 37
+				},
+				alarm_countdown_ticking_down_10sec = {
+					override_name = "SFX",
+					max_distance = 2000,
+					text = "[Slow alarm countdown: 10s left!",
+					category = "sfx"
 				},
 				alarm_countdown_loop_stop = {
 					override_name = "SFX",
@@ -689,6 +887,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[light bag placed]",
 					category = "sfx",
+					max_distance = 1500,
 					priority = 37,
 					duration = 3
 				},
@@ -696,6 +895,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[medium bag placed]",
 					category = "sfx",
+					max_distance = 1500,
 					priority = 37,
 					duration = 3
 				},
@@ -703,12 +903,14 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[heavy bag placed]",
 					category = "sfx",
+					max_distance = 1500,
 					priority = 37,
 					duration = 3
 				},
 				phone_01_no_answer = {
 					override_name = "SFX",
 					text = "[phone ringing]",
+					max_distance = 1000,
 					category = "sfx",
 					priority = 38,
 					duration = 30
@@ -716,6 +918,7 @@ ClosedCaptions._sounds = {
 				phone_02_no_answer = {
 					override_name = "SFX",
 					text = "[phone ringing]",
+					max_distance = 1000,
 					category = "sfx",
 					priority = 38,
 					duration = 30
@@ -723,6 +926,7 @@ ClosedCaptions._sounds = {
 				phone_03_no_answer = {
 					override_name = "SFX",
 					text = "[phone ringing]",
+					max_distance = 1000,
 					category = "sfx",
 					priority = 38,
 					duration = 30
@@ -730,6 +934,7 @@ ClosedCaptions._sounds = {
 				phone_04_no_answer = {
 					override_name = "SFX",
 					text = "[phone ringing]",
+					max_distance = 1000,
 					category = "sfx",
 					priority = 38,
 					duration = 30
@@ -737,6 +942,7 @@ ClosedCaptions._sounds = {
 				telephone_booth_ringing = {
 					override_name = "SFX",
 					text = "[telephone booth ringing]",
+					max_distance = 1000,
 					category = "sfx",
 					priority = 38,
 					duration = 30
@@ -744,13 +950,14 @@ ClosedCaptions._sounds = {
 				telephone_booth_ringing_stop = {
 					override_name = "SFX",
 					text = "[telephone booth stops]",
-					category = "sfx",
+					category = "stops",
 					priority = 38,
 					duration = 2
 				},
 				branch_bank_phone_call = {
 					override_name = "SFX",
 					text = "[phone ringing]",
+					max_distance = 1000,
 					category = "sfx",
 					priority = 38,
 					duration = 30
@@ -758,13 +965,14 @@ ClosedCaptions._sounds = {
 				branch_bank_phone_call_pickup = {
 					override_name = "SFX",
 					text = "[phone answered]",
-					category = "sfx",
+					category = "stops",
 					priority = 38,
 					duration = 30
 				},
 				cellphone_01_no_answer = {
 					override_name = "SFX", --looped
 					text = "[cellphone ringing]",
+					max_distance = 2500,
 					priority = 37,
 					category = "sfx"
 				},
@@ -778,6 +986,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[hospital phone ringing]",
 					category = "sfx",
+					max_distance = 2500,
 					loop_data = {
 						loop_interval = 2
 					},
@@ -787,7 +996,7 @@ ClosedCaptions._sounds = {
 				hos_phone_answer = {
 					override_name = "SFX",
 					text = "[hospital phone answered]",
-					category = "sfx",
+					category = "stops",
 					priority = 38,
 					stops_line = "hos_phone_call",
 					duration = 2
@@ -796,11 +1005,29 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[elevator dings]",
 					category = "sfx",
+					max_distance = 4000,
 					priority = 37,
 					duration = 2
 				},
+				keypad_button_press_03 = {
+					override_name = "SFX",
+					text = "keypad button pressed",
+					max_distance = 1000,
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				keypad_wrong_code_03 = {
+					override_name = "SFX",
+					text = "(wrong keypad code)",
+					max_distance = 1000,
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
 				keypad_wrong_code = {
 					override_name = "SFX",
+					max_distance = 1000,
 					text = "[keypad wrong code]",
 					category = "sfx",
 					priority = 37,
@@ -808,6 +1035,7 @@ ClosedCaptions._sounds = {
 				},
 				keypad_correct_code = {
 					override_name = "SFX",
+					max_distance = 1000,
 					text = "[keypad correct code]",
 					category = "sfx",
 					priority = 37,
@@ -816,6 +1044,7 @@ ClosedCaptions._sounds = {
 				server_room_door_open = {
 					override_name = "SFX",
 					text = "[server room door opens]",
+					max_distance = 1500,
 					category = "sfx",
 					priority = 37,
 					duration = 3
@@ -824,6 +1053,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[left laser deactivates]",
 					category = "sfx",
+					max_distance = 3000,
 					priority = 37,
 					duration = 3
 				},
@@ -831,6 +1061,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[right laser deactivates]",
 					category = "sfx",
+					max_distance = 3000,
 					priority = 37,
 					duration = 3
 				},
@@ -838,6 +1069,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[left laser activates]",
 					category = "sfx",
+					max_distance = 3000,
 					priority = 37,
 					duration = 3
 				},
@@ -845,17 +1077,19 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "[right laser activates]",
 					category = "sfx",
+					max_distance = 3000,
 					priority = 37,
 					duration = 3
 				},
-				hacking_device = { --needs max distance
+				hacking_device = {
 					override_name = "SFX", --looped
 					text = "[hacking noise]",
 					category = "sfx",
+					max_distance = 1500,
 					priority = 37,
 					duration = 10,
 					loop_data = {
-						loop_interval = 5
+						loop_interval = -1
 					}
 				},
 				hacking_device_stop = {
@@ -869,9 +1103,20 @@ ClosedCaptions._sounds = {
 				},
 				swat_explosion = {
 					override_name = "SFX",
-					category = "UNKNOWN",
+					category = "sfx",
 					priority = 37,
+					max_distance = 5000,
 					text = "(SWAT explosive breaches wall)"
+				},
+				Play_pln_drl_wrn_snd = {
+					override_name = "Bain",
+					text = "Remember to keep bystanders away from the drill! They'll get alerted just from the noise!",
+					priority = 39,
+					category = "contractor_vo"
+				},
+				Play_ban_b11 = {
+					disabled = true,
+					text = "asault over kthxssss"
 				},
 				Play_pln_spawn_01 = {
 					override_name = "Bain",
@@ -1124,14 +1369,18 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					category = "sfx",
 					priority = 37,
-					text = "[cooking meth]"
+					max_distance = 500,
+					text = "[cooking meth]",
+					loop_data = {
+						loop_interval = -1
+					}
 				},
 				cooking_meth_stop = {
 					override_name = "SFX",
-					category = "sfx",
-					text = "[meth cooking stops]",
+					category = "stops",
+--					text = "[meth cooking stops]",
 					priority = 37,
-					disabled = true
+					stops_line = "cooking_meth"
 				},
 				c45_fire = {
 					override_name = "SFX",
@@ -1161,7 +1410,7 @@ ClosedCaptions._sounds = {
 					text = "[whistle]",
 					category = "mission_dialogue",
 					priority = 37,
-					priority = 5
+					duration = 2
 				},
 				play_pln_gen_count_01 = {
 					override_name = "Bain",
@@ -1318,6 +1567,44 @@ ClosedCaptions._sounds = {
 								"Civilians are an asset- you need to protect your assets!",
 								"Watch 'em close."
 							}
+						}
+					}
+				},
+				Play_ban_h01a = {
+					override_name = "Bain",
+					category = "contractor_vo",
+					text = "(Good going- take hostages to slow down the cops!)",
+					duration = 4,
+					priority = 10,
+					line_variations = {
+						standard_mode = {
+							"Now that you've taken a hostage, the police assault is going to take more time.",
+							"Every hostage you take slows the cops down.",
+							"That hostage is going to slow the cops down!",
+							"Good thinking! Sometimes, taking a hostage is the only answer!",
+							"I don't have to remind you- every hostage is an asset!",
+							"Good move- that hostage will cost them time!",
+							"I see you took a hostage- that'll slow them down for a little while.",
+							"Good- make the cops think twice about comin' in here!",
+							"That hostage will definitely make them have to regroup- buys you more time!"
+						}
+					}
+				},
+				Play_loc_h01a = {
+					override_name = "Locke",
+					category = "contractor_vo",
+					text = "Kerels work slower when you have civvies!",
+					duration = 4,
+					priority = 10,
+					line_variations = {
+						standard_mode = {
+							"Kerels work slower when you have civvies!",
+							"Great, friends! More hostages will slow the coppers!",
+							"Use the civvies to your advantage!",
+							"Nicely done! That will make the kerels hesitate!",
+							"Great! Use those civvies to your advantage!",
+							"Grabbing hostages slows the kerels even more!",
+							"Coppers are going to be slower now!"
 						}
 					}
 				},
@@ -2031,7 +2318,7 @@ ClosedCaptions._sounds = {
 											"Drill in place.",
 											"Drill mounted."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -2373,7 +2660,7 @@ ClosedCaptions._sounds = {
 										"I took out the Bulldozer!",
 										"The Bulldozer's history!"										
 									},
-									assault_mode = {}
+									DISABLED_assault_mode = {}
 								}
 							},
 							rb4 = {
@@ -2384,7 +2671,7 @@ ClosedCaptions._sounds = {
 										"Bulldozer taken care of!",
 										"Bulldozer's history!"
 									},
-									assault_mode = {}
+									DISABLED_assault_mode = {}
 								}
 							},
 							rb15 = {
@@ -2487,7 +2774,7 @@ ClosedCaptions._sounds = {
 											--er da knows de me kwee, der det no skaap
 											"Vi sotte! (We suck!)"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb4 = {
@@ -2500,7 +2787,7 @@ ClosedCaptions._sounds = {
 											"Fuck...!",
 											"Damn..."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -2640,7 +2927,7 @@ ClosedCaptions._sounds = {
 											"Any second, now...",
 											"Wait for it, wait for it..."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb4 = {
@@ -2651,7 +2938,7 @@ ClosedCaptions._sounds = {
 											"Steady now! Hold it...",
 											"Wait for it, wait for it..."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -2662,7 +2949,7 @@ ClosedCaptions._sounds = {
 											"Get fucking ready.",
 											"Any second now, c'mon!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -2746,7 +3033,7 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								cop = {
 									line_variations = {
-										standard_mode = { --non exhaustive
+										standard_mode = { --non exhaustive... but honestly what a trash line
 											"Three assailants confirmed! There might be more of them!",
 											"Two assailants confirmed! There might be more of them!",
 											"I know there's at least two of them! At LEAST!",
@@ -3641,7 +3928,7 @@ ClosedCaptions._sounds = {
 											"And another!",
 											"One bag down!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -3653,7 +3940,7 @@ ClosedCaptions._sounds = {
 											"It's delivered!",
 											"One lootbag, stashed."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -4205,7 +4492,7 @@ ClosedCaptions._sounds = {
 											"Found it!",
 											"We got it!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -4215,7 +4502,7 @@ ClosedCaptions._sounds = {
 											"Here it is!",
 											"Found it!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -4640,7 +4927,7 @@ ClosedCaptions._sounds = {
 											"It's here, it's here!",
 											"Okay, it's here!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -4650,7 +4937,7 @@ ClosedCaptions._sounds = {
 											"It's here!",
 											"It's here, it's here!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5694,7 +5981,7 @@ ClosedCaptions._sounds = {
 											"Bulldozer!",
 											"Got a Bulldozer!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5727,7 +6014,7 @@ ClosedCaptions._sounds = {
 											"Bulldozer!",
 											"Got a Bulldozer!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5766,7 +6053,7 @@ ClosedCaptions._sounds = {
 											"We've got a Shield!",
 											"Shield!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5799,7 +6086,7 @@ ClosedCaptions._sounds = {
 											"We've got a Shield!",
 											"Shield!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5837,7 +6124,7 @@ ClosedCaptions._sounds = {
 											"We've got a taser!",
 											"Taser!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5869,7 +6156,7 @@ ClosedCaptions._sounds = {
 											"We've got a taser!",
 											"Taser!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5909,7 +6196,7 @@ ClosedCaptions._sounds = {
 											"We've got a Cloaker!",
 											"Cloaker!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5943,7 +6230,7 @@ ClosedCaptions._sounds = {
 											"We've got a Cloaker!",
 											"Cloaker!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5968,7 +6255,7 @@ ClosedCaptions._sounds = {
 											"Watch out! Sniper!",
 											"Sniper!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -5993,7 +6280,7 @@ ClosedCaptions._sounds = {
 											"Watch out! Sniper!",
 											"Sniper!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6063,7 +6350,7 @@ ClosedCaptions._sounds = {
 											"Turret! Watch out!",
 											"Turret! Bloody careful, now!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6102,7 +6389,7 @@ ClosedCaptions._sounds = {
 											"Watch out! Captain!",
 											"It's a Captain!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6134,7 +6421,7 @@ ClosedCaptions._sounds = {
 											"Enemy Medic!",
 											"Shit, Medic!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6219,7 +6506,7 @@ ClosedCaptions._sounds = {
 											"Get stuffed, Shield fuck.",
 											"Fuck off, drongo Shield."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6253,7 +6540,7 @@ ClosedCaptions._sounds = {
 											"Get stuffed, Taser fuck.",
 											"Eat that, you tosser. (Taser)"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6287,7 +6574,7 @@ ClosedCaptions._sounds = {
 											"Sleep tight, Cloaker.",
 											"Sit on my dick, Cloaker."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6333,7 +6620,7 @@ ClosedCaptions._sounds = {
 											"Fuck off, Sniper.",
 											"Got a Sniper."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6364,7 +6651,7 @@ ClosedCaptions._sounds = {
 											"Try an' heal any of those wounds, ya pussy. (Medic)",
 											"Bye-bye, Medic fuck."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6400,7 +6687,7 @@ ClosedCaptions._sounds = {
 											"AAAGH, WHAT THE FUCK!",
 											"CRIKEY, I'M COMPLETELY BLIND!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6430,7 +6717,7 @@ ClosedCaptions._sounds = {
 											"TEARGAS! [coughing] WE NEED GAS MASKS, NOT CLOWN MASKS!",
 											"FUCK, TEARGAS! [coughing] FUCK, THAT STINGS BAD!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6506,7 +6793,7 @@ ClosedCaptions._sounds = {
 												"[groaning in pain] Christ, this shit hurts!"
 											}
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6573,7 +6860,7 @@ ClosedCaptions._sounds = {
 												"Get me some ammo!"
 											}
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6619,7 +6906,7 @@ ClosedCaptions._sounds = {
 											"Extra ammo over here.",
 											"I dropped an Ammo Bag over here."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6663,7 +6950,7 @@ ClosedCaptions._sounds = {
 											"Medic Bag over here.", --two soundfile variations
 											"Some medic supplies here."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6703,7 +6990,7 @@ ClosedCaptions._sounds = {
 											"[groans] Finally!",
 											"[groans] Thanks for that."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6763,7 +7050,7 @@ ClosedCaptions._sounds = {
 											"I'll get you back up.",
 											"Let's get you up."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6800,7 +7087,7 @@ ClosedCaptions._sounds = {
 											"Here's a First Aid Kit!",
 											"First Aid Kit here."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6834,7 +7121,7 @@ ClosedCaptions._sounds = {
 											"Bodybag Case!",
 											"Got a Bodybag Case here!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -6927,7 +7214,7 @@ ClosedCaptions._sounds = {
 											"Help!",
 											"You gotta help me!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7035,7 +7322,7 @@ ClosedCaptions._sounds = {
 											"Get down on the ground.",
 											"Ge'down."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7072,7 +7359,7 @@ ClosedCaptions._sounds = {
 											"On the ground.",
 											"On the ground."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7133,7 +7420,7 @@ ClosedCaptions._sounds = {
 											"Don't make me say it again.",
 											"Did I stutter?"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7179,7 +7466,7 @@ ClosedCaptions._sounds = {
 											"Don't move.",
 											"Don't move."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7202,7 +7489,7 @@ ClosedCaptions._sounds = {
 											"Don't move!",
 											"Stay where you are!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7228,7 +7515,7 @@ ClosedCaptions._sounds = {
 											"I can't imagine you've ever been a part of anything as remotely exciting as this!",
 											"Pretend you're dead, and you'll keep living, got it?",
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7251,7 +7538,7 @@ ClosedCaptions._sounds = {
 											"And don't you dare move.",
 											"And don't move."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7263,7 +7550,7 @@ ClosedCaptions._sounds = {
 											"Stay down.",
 											"And don't move."
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7290,7 +7577,7 @@ ClosedCaptions._sounds = {
 											"Stand up!",
 											"Pain is just mental! Get back up!"
 										},
-										assault_mode = {} --we need you, buddy! Stand up!
+										DISABLED_assault_mode = {} --we need you, buddy! Stand up!
 									}
 								},
 								rb15 = {
@@ -7307,7 +7594,7 @@ ClosedCaptions._sounds = {
 											"Get on ya' fuckin feet!",
 											"Get back in the fight, ya' tosser!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7375,7 +7662,7 @@ ClosedCaptions._sounds = {
 											"Come along, now.",
 											"Come along, now!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7386,7 +7673,7 @@ ClosedCaptions._sounds = {
 											"Follow me!",
 											"Come on!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7461,7 +7748,7 @@ ClosedCaptions._sounds = {
 											"Move it, you drongo!",
 											"Move!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7481,7 +7768,7 @@ ClosedCaptions._sounds = {
 											"Up.",
 											"Up!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7493,7 +7780,7 @@ ClosedCaptions._sounds = {
 											"Get on your feet!",
 											"Get up and fight!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7513,7 +7800,7 @@ ClosedCaptions._sounds = {
 											"Up.",
 											"Up!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7526,7 +7813,7 @@ ClosedCaptions._sounds = {
 											"Get on your feet!",
 											"Up with ya'!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7602,7 +7889,7 @@ ClosedCaptions._sounds = {
 											"Stay still!",
 											"Stay where you are!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7612,7 +7899,7 @@ ClosedCaptions._sounds = {
 											"Hey, wait over there.",
 											"Wait over there.",
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7644,7 +7931,7 @@ ClosedCaptions._sounds = {
 												"Somebody gotta restart it."
 											}
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7663,7 +7950,7 @@ ClosedCaptions._sounds = {
 												"We've gotta get it fixed!",
 											}
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7737,7 +8024,7 @@ ClosedCaptions._sounds = {
 											"Appears like the computer's busted!",
 											"Appears like the computer ain't workin' right!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7748,7 +8035,7 @@ ClosedCaptions._sounds = {
 											"The computer process is jammed!",
 											"The bloody computer is stuck!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -7772,7 +8059,7 @@ ClosedCaptions._sounds = {
 										"Yeah, that's an overheated Thermal Lance, alright." --dallas pronounces it "overhead" so ovk probably made a typo in the script
 									--										"Another computer needs fixing!", --uhh... not sure why this sound variant can play from d03_sin
 									},
-									assault_mode = {}
+									DISABLED_assault_mode = {}
 								}
 							}
 						}
@@ -7851,7 +8138,7 @@ ClosedCaptions._sounds = {
 												"We need to get it fixed!"
 											}
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -7870,7 +8157,7 @@ ClosedCaptions._sounds = {
 												"Someone's gotta fix it!"
 											}
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								}
 							}
@@ -8249,7 +8536,7 @@ ClosedCaptions._sounds = {
 											"Put your cuffs on!",
 											"Handcuff yourself!"
 										},
-										assault_mode = {}
+										DISABLED_assault_mode = {}
 									}
 								},
 								rb15 = {
@@ -10107,7 +10394,7 @@ ClosedCaptions._sounds = {
 									"Get the hostages!",
 									"Get the civvies!"
 								},
-								assault_mode = {}
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
@@ -10125,7 +10412,7 @@ ClosedCaptions._sounds = {
 									"Smoke 'em out!",
 									"Smoke!"
 								},
-								assault_mode = {}
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
@@ -10727,17 +11014,20 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(idle pager buzz)", --nonalert, idle sound
 					category = "sfx",
+					max_distance = 4500,
 					duration = 5,
 					priority = 60
 				},
 				dsp_radio_query_1 = {
 					text = "(pager ring, operator query)",
 					category = "enemy_callouts",
+					max_distance = 4500,
 					priority = 36,
 					duration = 5
 				},
 				dsp_fooled_1 = {
 					text = "(pager operator fooled)",
+					max_distance = 4500,
 					priority = 36,
 					category = "enemy_callouts"
 				},
@@ -11318,7 +11608,13 @@ ClosedCaptions._sounds = {
 				i01 = {
 					category = "enemy_chatter", --! enemy callouts?
 					duration = 1,
-					text = "Freeze!", --or "Hold it!"
+					text = "Freeze!",
+					line_variations = {
+						"Hold it!",
+						"Freeze!",
+						"Stop!",
+						"Stop it!"
+					},
 					priority = 90
 				},
 				i02 = {
@@ -11396,9 +11692,14 @@ ClosedCaptions._sounds = {
 					text = "Okay, okay! Just don't shoot!",
 					priority = 40,
 					line_variations = {
-						standard_mode = {
+						assault_mode = {
 							"Alright! Just don't shoot!",
 							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
 						}
 					}
 				},
@@ -12885,6 +13186,84 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Play_snippet_hb3_01 = {
+					override_name = "Tape Recording",
+					priority = 10,
+					max_distance = 700,
+					text = "(incriminating tape recording of The Rat)",
+					category = "mission_dialogue",
+					duration = 29,
+					line_variations = {
+						standard_mode = {
+							"\nINTERVIEWER: [amused] Is it true? You're getting access to Crime.net?\nTHE RAT: Fuck you!\nINTERVIEWER: Are you familiar with Bain's crew, the PAYDAY clowns?\nTHE RAT: I've seen the news. First World Bank. Very impressive.\nINTERVIEWER: Well, Hector, maybe they've been giving the Bureau quite the headache. We can make good things happen for you IF...\nTHE RAT: [sighs]\nINTERVIEWER: ...you help us... to get closer to them.\nTHE RAT: Rat them out, you mean? What could you possibly offer me? [tape clicks off]"
+						}
+					}
+				},
+				Play_snippet_hb3_02 = {
+					override_name = "Tape Recording",
+					priority = 10,
+					max_distance = 700,
+					text = "(incriminating tape recording of The Rat)",
+					category = "mission_dialogue",
+					duration = 50,
+					line_variations = {
+						standard_mode = {
+							"\nINTERVIEWER: I'm getting impatient, Hector. Look. I know you're connected to Bain. if you want this little 'arrangement' of ours to continue, you'd better give me something on the clowns.\nTHE RAT: Fuck you, dog.\nINTERVIEWER: This dog needs a bone. Or this dog will hump your leg, amigo.\nTHE RAT: [sighs] I can give you one of them, but that's all. I still need them to take care of a few things.\nINTERVIEWER: We want Dallas.\nTHE RAT: No. He's the leader. It'll have to be another. I'll be in touch.\nINTERVIEWER: It'd better be soon. Your ass is on the line here.\nTHE RAT: Yeah, yeah...\nINTERVIEWER: You wanna do time? I'll let every lowlife in Mount Olivet have a piece of your ass. [tape clicks off]"
+						}
+					}
+				},
+				Play_snippet_hb3_03 = {
+					override_name = "Tape Recording",
+					priority = 10,
+					max_distance = 700,
+					text = "(incriminating tape recording of The Rat)",
+					category = "mission_dialogue",
+					duration = 29,
+					line_variations = {
+						standard_mode = {
+							"\nINTERVIEWER: We have him in custody.\nTHE RAT: The English one, yes?\nINTERVIEWER: Yes. They call him 'Hoxton.' Tough son of a bitch. Biting and spitting... almost got away!\nTheRat: That's him. ...Then I trust this matter is settled? You got what you wanted.\nINTERVIEWER: 'SETTLED?' Jesus Christ, Hector. Nothing is settled. This is only the start. Only a matter of time before the public demands the heads of ALL of these fucking clowns... And with your help, I intend to deliver. [tape clicks off]"
+						}
+					}
+				},
+				Play_snippet_hb3_04= {
+					override_name = "Tape Recording",
+					priority = 10,
+					max_distance = 700,
+					text = "(incriminating tape recording of The Rat)",
+					category = "mission_dialogue",
+					duration = 29,
+					line_variations = {
+						standard_mode = {
+							"\nINTERVIEWER: You've had your fun. But it's over now, you hear? The Mendozas were on our payroll too, you know! You fucking piece of shit, you work for us, Hector! We OWN you! That rivalry shit gets left at the border! THE RAT: The Mendozas disrespected me! They deserved-\nINTERVIEWER: Jesus Christ, do you ever listen to yourself? The public wants blood, Hector! They want the PAYDAY Gang on death row, and if you don't wanna share a cell with those bastards, you'd better give me something I can work with! [tape clicks off]"
+						}
+					}
+				},
+				Play_snippet_hb3_05 = {
+					override_name = "Tape Recording",
+					priority = 10,
+					max_distance = 700,
+					duration = 23,
+					text = "(incriminating tape recording of The Rat)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"\nTHE RAT: It's a white box van you'll be looking for. Meat truck. They'll be inside with the product.\nINTERVIEWER: Won't Bain be suspicious? It might look like a setup.\nTHE RAT: [sighs] I'm losing millions in product on this. He won't doubt me! You just worry about how you'll stop the clowns when they realize what's going on.\nINTERVIEWER: Don't worry, we'll have them completely surrounded. What're they gonna do? Try to shoot their way out? [tape clicks off]"
+						}
+					}
+				},
+				Play_snippet_hb3_06 = {
+					override_name = "Tape Recording",
+					priority = 10,
+					max_distance = 700,
+					duration = 43,
+					text = "(incriminating tape recording of The Rat)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"\nINTERVIEWER: You heard about the incident at the Courthouse? [pause] They got Hoxton back.\nTHE RAT: [scoffs] And you let them waltz right into your fucking headquarters?! Do they know about me?\nINTERVIEWER: We're not stupid, Hector. Nothing points to you directly.\nTHE RAT: [exasperated sigh]\nINTERVIEWER: But if we allow them time to dig through all the data, they'll put two and two together, and they might figure out why that meat truck of yours was conveniently surrounded.\nTHE RAT: [groans] Shit! Putas! Fucking putas! They'll know!\nINTERVIEWER: Hector, we're running out of time. I've prepared a safehouse. It'll keep you protected while you work with my agents to build a case against the clowns. From what I've learned about them over the month, I'd say your life depends on it.\nTHE RAT: ...Putas."
+						}
+					}
+				},
 			--first world bank
 				Play_ism_fwb_01 = {
 					override_name = "Insider",
@@ -13067,7 +13446,7 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Manager",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
-					duration = 5,
+					duration = 10,
 					priority = 37,
 					loop_data = {
 						loop_interval = 10,
@@ -13095,7 +13474,7 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Manager",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
-					duration = 5,
+					duration = 10,
 					priority = 37,
 					loop_data = {
 						loop_interval = 10,
@@ -13120,7 +13499,7 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Manager",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
-					duration = 5,
+					duration = 10,
 					priority = 37,
 					loop_data = {
 						loop_interval = 10,
@@ -13185,7 +13564,245 @@ ClosedCaptions._sounds = {
 					stops_line = "Play_mc1_fwb_03",
 					category = "stops"
 				},
-				
+--big bank				
+				teller_customer_dialog_approve = {
+					text = "(civilian's grant request approved by teller)",
+					category = "civilian_callouts",
+					priority = 40,
+					max_distance = 1500,
+					duration = 35,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Hi!",
+								"Hello!",
+								"Welcome!"
+							},
+							{
+								"How may I be of assistance?",
+								"How can I be of help?",
+								"How may I help you?",
+								"What's your business today?"
+							},
+							{
+								"How's it going? I need three hundred thousand dollars, for my time machine research project.",
+								"Hello, ma'am, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
+								"Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
+								"Hey, I got a private space program going, and I just need a couple of hundred thousand dollars, and then I can put the first American on the sun!",
+								"Yeah, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
+								"[clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
+								"Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
+							},
+							{
+								"Oh...",
+								"Um,",
+								"Umm...",
+								"Hm. Um..."
+							},
+							{
+								"I must say. This... sounds like a fantastic project!",
+								"that sounds like a brilliant idea!",
+								"brilliant. This is definitely something we can grant a loan for."
+--								"I regret to inform you that you'll have to find backing for this enterprise elsewhere.", --i think this variation was not meant to be here but oh well
+							},
+							{
+								"Okay, that's so cool!",
+								"Wonderful! That'll shut up my non-believer friends!",
+								"I can't believe it! That's great!",
+								"Right on, nice!",
+								"[relieved laugh] And to think I'd almost given up on this idea!"
+							},
+							{
+								"I'll book a meeting for you, so that you can talk more about this with one of my colleagues.",
+								"I'll set you up for a meeting with one of my associates.",
+								"I'll set up a meeting so that you can talk more about this with my colleagues.",
+								"I'll set up a meeting where we can go over these great ideas of yours.",
+								"We'll set up a meeting where we can go over this idea of yours.",
+								"Let's set up a meeting so that you can explain your idea in greater detail."
+							}
+						}
+					}
+				},
+				teller_customer_dialog_deny = {
+					text = "(civilian's grant request rejected by teller)",
+					category = "civilian_callouts",
+					priority = 40,
+					max_distance = 1500,
+					duration = 35,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Hi!",
+								"Hello!",
+								"Welcome!"
+							},
+							{
+								"How may I be of assistance?",
+								"How may I help you?",
+								"What's your business today?"
+							},
+							{
+								"How's it going? Uh, I need three hundred thousand dollars, for my time machine research project.",
+								"Hi, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
+								"Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
+								"Hey, I got a private space program going, and I just need a couple hundred thousand dollars, and then I can put the first American on the sun!",
+								"Uh, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
+								"[clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
+								"Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
+							},
+							{
+								"Oh...",
+								"Um,",
+								"Umm...",
+								"Hm. Um..."
+							},
+							{
+								"unfortunately, that doesn't sound like something this bank would like to be involved in.",
+								"sorry, that doesn't sound like something we would grant a loan for.",
+								"I regret to inform you that you'll have to find backing for this enterprise elsewhere.",
+								"sorry. That's not something we can support."
+							},
+							{
+								"Uh huh. Alright.",
+								"Oh, okay. Thanks anyway.",
+								"[disappointed] Well, okay.",
+								"Well... alright. Bye.",
+								"[disappointed] Alright, then.",
+								"Okay, uh huh. [dejected] See ya."
+							},
+							{
+								"[sincerely] Have a good day.",
+								"Have a great day.",
+								"Bye!",
+								"[sarcastic] ...buh-bye."
+							}
+						}
+					}
+				},
+				teller_bank_next = {
+					text = "(Next customer, please.)",
+					category = "civilian_callouts",
+					priority = 40,
+					max_distance = 1500,
+					duration = 4,
+					line_variations = {
+						standard_mode = {
+							"Next.",
+							"Next?",
+							"Next, please!",
+							"Next, please."
+						}
+					}
+				},
+				big_bank_phone_call = {
+					text = "phone ringing!",
+					category = "sfx",
+					override_name = "SFX",
+					priority = 40,
+					max_distance = 3000,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				big_bank_phone_call_pickup = {
+					text = "phone answered",
+					override_name = "SFX",
+					category = "stops",
+					stops_line = "big_bank_phone_call",
+					priority = 40
+				},
+				Play_gensec_conversation_ending_1 = {
+					override_name_id = "Phone Call",
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"\nBAIN: Good afternoon! This is the Benevolent Bank! You're speaking to Martin!",
+								"\nBAIN: Good afternoon! Benevolent Bank! Martin speaking!",
+								"\nBAIN: Good afternoon! You're through to the benevolent! This is Martin!"
+							},
+							{
+								"\nJEN: Jen over at GenSec here. So, we detected an unscheduled activation of the timelock there. Everything okay?",
+								"\nJEN: This is Jen at GenSec. Our systems picked up an unscheduled activation of your timelock.there  I'm just calling to confirm everything is fine?",
+								"\nJEN: Hi, this is Jen, I'm calling from over at GenSec. We registered an unscheduled activation of the timelock, I'm just calling to make sure everything is alright?"
+							},
+							{
+								"\nBAIN: Oh! What, really? The schedule says... uh... Goddammit! You know... You know, someone screwed up the schedule. Anyway, yeah, everything is fine here. Thanks for being so diligent.",
+								"\nBAIN: We had a schedule conflict. Major accountholder showed up a day early. A big account from, uh... Mumbai.",
+								"\nBAIN: Oh, yeah. the manager was showing the system to his new assistant. An early bit of key and lock, he calls it.",
+								"\nBAIN: You don't say? Well, according to the schedule- aww, goddammit, looks like the calendar is messed up! Someone screwed up the pooch!",
+								"\nBAIN: Don't worry about it. The manager was just stepping his new assistant through the process. No problems here, at least not with the lock.",
+								"\nBAIN: Is that a fact? Let me just, uh... aw, I see it. The calendar is messed up! Everything is fine. It'll take a while to sort this, so maybe... just ignore any alerts from us today.",
+								"\nBAIN: Aw, yeah, that! The manager was showing the system off to his new PA! I guess the timelock isn't the only thing that's gonna get an unscheduled activation!"
+							},
+							{
+								"\nJEN: Ah, I see. Sure, that happens. Okay, just try to call us beforehand next time.",
+								"\nJEN: Alright, I hear you. Just... try to keep us in the loop next time.",
+								"\nJEN: Got it, no problem. Just keep us informed."
+							},
+							{
+								"\nBAIN: Sure, thanks for keeping us safe. [hangs up]",
+								"\nBAIN: You got it. You guys are doing a great job! [hangs up]",
+								"\nBAIN: of course, thanks for being understanding. Take care. [hangs up]"
+							},
+							{
+								"You're in the clear, gang!",
+								"You're clear, gang!",
+								"Sucker fell for it!",
+								"Phew! Looks like we dodged that one."
+							}
+						}
+					}
+				},
+				Play_gensec_conversation_ending_2 = {
+					override_name_id = "Phone Call",
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"\nBAIN: Good afternoon! This is the Benevolent Bank! You're speaking to Martin!",
+								"\nBAIN: Good afternoon! Benevolent Bank! Martin speaking!",
+								"\nBAIN: Good afternoon! You're through to the Benevolent! This is Martin!"
+							},
+							{
+								"\nJEN: Jen over at GenSec here. So, we detected an unscheduled activation of the timelock there. Everything okay?",
+								"\nJEN: This is Jen at GenSec. Our systems picked up an unscheduled activation of your timelock. I'm just calling to confirm everything is fine?",
+								"\nJEN: Hi, this is Jen, I'm calling from over at GenSec. We registered an unscheduled activation of the timelock, I'm just calling to make sure everything is alright?"
+							},
+							{
+								"\nBAIN: Oh! What, really? The schedule says... uh... Goddammit! You know... You know, someone screwed up the schedule. Anyway, yeah, everything is fine here. Thanks for being so diligent.",
+								"\nBAIN: We had a schedule conflict. Major accountholder showed up a day early. A big account from, uh... Mumbati.",
+								"\nBAIN: Oh, yeah. the manager was showing the system to his new assistant. An, uh, early bit of key and lock, he calls it.",
+								"\nBAIN: Just a schedule conflict. Had a major accountholder turn up out of the blue.",
+								"\nBAIN: You don't say? Well, according to the schedule- aww, goddammit, looks like the calendar is messed up! Someone screwed up the pooch!",
+								"\nBAIN: Don't worry about it. The manager was stepping his new assistant through the process. No problem here, at least not with the lock.",
+								"\nBAIN: Is that a fact? Let me just, uh... aw, I see it. The calendar is messed up! Everything is fine. It'll take a while to sort this, so maybe... just ignore any alerts from us today.",
+								"\nBAIN: Aw, yeah, that! The manager was showing the system off to his new PA! I guess the timelock isn't the only thing that's gonna get an unscheduled activation!"
+							},
+							{
+								"\nJEN: Hmm... listen, I'm gonna send an officer over to check on things. Standard procedure.",
+								"\nJEN: This doesn't sound right. I'd better send an officer over to check it out."
+							},
+							{
+								"\nBAIN: No, no. No! Uh, there's no need for that.",
+								"\nBAIN: Hang on, I don't want to waste your time. Everything is fine.",
+								"\nBAIN: Hey, look, everything is fine here. You don't need to do that."
+							},
+							{
+								"\nJEN: Sorry. Procedure. What was your name again?",
+								"\nJEN: It's procedure. And, uh, who am I talking to again?",
+								"\nJEN: Standard operating procedure. [suspicious] Who is this?"
+							},
+							{
+								"\nBAIN: Uh... Alan... Watson! [hangs up] Stay sharp, clowns! GenSec are coming!",
+								"\nBAIN: Uh... David! Uh, Jones! [hangs up] Gang, you're going to have company!",
+								"\nBAIN: Uh... John... Smith. [hangs up] Keep an eye out, gang! Company is coming!"
+							}
+						}
+					}
+				},
 			--framing frame
 				--day 2
 				Play_dlr_framing_stage2_01 = {
@@ -13850,6 +14467,7 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Teller",
 					category = "civilian_callouts",
 					priority = 37,
+					max_distance = 2000,
 					text = "(talking with Roberts Bank customer)",
 					line_variations = {
 						whisper_mode = {
@@ -13867,6 +14485,7 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Teller",
 					category = "civilian_callouts",
 					priority = 37,
+					max_distance = 2000,
 					text = "(talking with Roberts Bank customer)",
 					line_variations = {
 						whisper_mode = {
@@ -13884,6 +14503,7 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Teller",
 					category = "civilian_callouts",
 					priority = 37,
+					max_distance = 2000,
 					text = "(talking with Roberts Bank customer)",
 					line_variations = {
 						whisper_mode = {
@@ -13898,6 +14518,7 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Teller",
 					category = "civilian_callouts",
 					priority = 37,
+					max_distance = 2000,
 					text = "(talking with Roberts Bank customer)",
 					line_variations = {
 						whisper_mode = {
@@ -13923,19 +14544,30 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Play_blm_cs1_01 = { --blackmailer
+					text = "(Throw a bag of money over the yellow wall by Jimbo's, or I call the cops!)",
+					category = "mission_dialogue",
+					override_text_color = ClosedCaptions.color_data.boss,
+					priority = 37,
+					duration = 17,
+					line_variations = {
+						whisper_mode = {
+							"I know what's going on over there, and I want a slice of that pie. Load a bag with money and toss it over the yellow wall near Jimbo's, the auto repair shop. You hear me? And I see one bag crossing the street... I'll call the cops.",
+							"Hey assholes! You wanna keep my fingers off 911? Then throw a money bag over the yellow wall by the auto repair shop! Do it, NOW! And I see one of you motherfuckers trying to get a bag across the street? I'm going to the cops.",
+							"You don't know me... but I see what you're up to. And I want IN. Throw some money over the yellow wall by Jimbo's. And none of you guys better try and cross the road. Uh-uh. Or I'll call the cops. You hear me?"
+						}
+					}
+				},
 				Play_csf_cs1_01 = {
 					override_name = "Customer on phone",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
-					priority = 37,
 					duration = 7,
+					priority = 37,
 					category = "mission_dialogue",
 					line_variations = {
-						recombinable = true,
 						whisper_mode = {
-							{
-								"I need to talk to someone about my 401k."
-							}
+							"I need to talk to someone about my 401k."
 						}
 					}
 				},
@@ -13947,12 +14579,9 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "mission_dialogue",
 					line_variations = {
-						recombinable = true,
 						whisper_mode = {
-							{
-								"Yeah, how much money do I got in there? How much?",
-								"Yeah, how much money do I got there? How much?"
-							}
+							"Yeah, how much money do I got in there? How much?",
+							"Yeah, how much money do I got there? How much?"
 						}
 					}
 				},
@@ -13960,14 +14589,12 @@ ClosedCaptions._sounds = {
 					override_name = "Customer on phone",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
-					duration = 15,
+					duration = 9,
 					priority = 37,
 					category = "mission_dialogue",
 					line_variations = {
 						whisper_mode = {
-							{
-								"Hi, I just saw a show, and a bank got robbed. And I want to move my money to a bank that doesn't get robbed."
-							}
+							"Hi, I just saw a show, and a bank got robbed. And I want to move my money to a bank that doesn't get robbed."
 						}
 					}
 				},
@@ -13975,14 +14602,12 @@ ClosedCaptions._sounds = {
 					override_name = "Customer on phone",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
-					duration = 15,
+					duration = 6,
 					priority = 37,
 					category = "mission_dialogue",
 					line_variations = {
 						whisper_mode = {
-							{
-								"I wanted to ask if you guys offer financing for automobiles."
-							}
+							"I wanted to ask if you guys offer financing for automobiles."
 						}
 					}
 				},
@@ -13990,14 +14615,12 @@ ClosedCaptions._sounds = {
 					override_name = "Customer on phone",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
-					duration = 5,
+					duration = 6,
 					priority = 37,
 					category = "mission_dialogue",
 					line_variations = {
 						whisper_mode = {
-							{
-								"Hey. I'm having trouble with my account on the computer. Do I... internet?"
-							}
+							"Hey. I'm having trouble with my account on the computer. Do I... internet?"
 						}
 					}
 				},
@@ -14010,13 +14633,11 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						whisper_mode = {
-							{
-								"Yeah, there's a charge on the credit card the wife can't see. Uhh... I was in Mexico, and...",
-								"Yeah, there's a charge on my credit card the wife can't see. Uhh... I was in Mexico, and... hmm, well...",
-								"Yeah, uh... there's a charge on my credit card the wife can't see. Well, I was in Mexico, and, uh... one thing led to another, well... I gave in.",
-								"Yeah, uh... there's a charge on my credit card the wife can't see. Well, I was in Mexico, and... uh... hm...",
-								"Yeah, there's a charge on the credit card the husband can't see. Uh, I was in Mexico, and... yeah... [stressed sigh]"
-							}
+							"Yeah, there's a charge on my credit card the wife can't see. Uhh... I was in Mexico, and...",
+							"Yeah, there's a charge on my credit card the wife can't see. Uhh... I was in Mexico, and... hmm, well...",
+							"Yeah, uh... there's a charge on my credit card the wife can't see. Well, I was in Mexico, and, uh... one thing led to another, well... I gave in.",
+							"Yeah, uh... there's a charge on my credit card the wife can't see. Well, I was in Mexico, and... uh... hm...",
+							"Yeah, there's a charge on the credit card the husband can't see. Uh, I was in Mexico, and... yeah... [stressed sigh]"
 						}
 					}
 				},
@@ -14029,13 +14650,41 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					line_variations = {
 						whisper_mode = {
-						 --non-exhaustive
-							"Hey, I work as a repairman, and... I think I might have left a sandwich in one of your vaults.",
-							"Knock knock. [pause, silence] ...hey. Knock knock. [longer pause, silence] Fuck you guys."
+						 --non-exhaustive. there are many of these.
+							"Congratulations! You've won a trip to the Hugeass islands! You know, H-U-G-E-A-S-S Islands, in a contest you never signed up for, and we're calling just to annoy you...",
+							"Do you think you'll have a good day today? I wouldn't 'bank' on it.",
+							"Hello cheerfully, I saw this little commercial on tv, and they told me to call you. So... what are you wearing?",
+							"Hello. I was wondering if you offer safety deposit boxes, as I have loads of my family jewels I am looking to deposit. My name is Jack Nofalak, please get back with me as soon as possible.",
+							"Hi, this is a complaint, concerning my latest bank statement. My payment to 'Touching Feet' is supposed to read 'Touch MY Feet'.",
+							"Hello, I'd like to inquire about making a deposit about my goldfish. You rejected me last time but I've put some pennies in it so it's alright.",
+							"[thick accent] Hello, may I please speak with a manager? My name is Prince Abir-Imshadi from Nigeria, and I would love to make a deposit to your finance institution.",
+							"Uh, hello, this is Richard Jackson. I work with the security company that delivers the money every week. I believe I MAY have left a sandwich in one of your deposit boxes the other day? Thanks.",
+							"Is your car running? Cause if it is, you'd better go catch it.",
+							"[elderly voice] Have you seen Alfie? He's probably out of food by now. So if you start to smell anything, my safety deposit box is number 3-5-7.",
+							"Hello, what time does the bank close? Because I'd like to make a large withdrawal later.",
+--							"Hello? Send a transport truck fast! My neighbor's swimming pool exploded into a fountain of cash! It's raining everywhere! Quick, before those clowns pick it all up!", --i didn't catch the whole thing
+							"Hey this is just to let you know we've [] for your vault code, 0-0-0-0, so please get that changed before anyone attempts to open it.",
+							"Hey, it's Jake Bishop again, I left a sandwich in my safety deposit box when I was in earlier today. If you can find it, get that back, my wife's gonna divorce me.", --holy shit dude
+							"Hi there, i was just calling to make sure, uh... you guys... you guys still have all that money in your vault? Be a shame if something were to happen to it.",
+							"Hi there, thank you very much for those four extra zeroes on my cheque! So I should go now so that I do not miss my Miami plane!",
+							"Hi, this is Ryan from Bodhi's Pool Repair. We got a call about some filthy cash that needs a quick run to the laundry. Our team of specialists will be out there in an hour. Thank you for being a loyal customer.",
+							"I kind of missed my last loan payment, and I can't really pay you guys. Do you guys take Time-Out! gift cards?",
+							"Knock knock. [pause] ...hey. Knock knock. [longer pause] Ah, screw you.",
+							"Oooh yeeee, brother, this is the call of DESTINY, and I'm your host, MACHO MAN! You're goin' NOWHERE, cause I got you for three minutes, three minutes of PLAYTIIIIIME- hey, where you goin'?",
+							"Hey... it's Jim the Dog. I was wondering if I could make any... de-PAW-sits? [awkward silence]",
+							"So... if a tree falls, and no-one eats the turtles before the eclipse happens, do it make yogurt fall from the pockets of the elderly? ...Maybe. Just maybe.",
+							"Uh, hello, this is Harvest&Trustee, right? Listen, I need to set up some security deposit boxes with you guys. I have... SO MANY cheese sandwiches I need to store. Could you set me up? Oh, yeah, and I have this book about Rome. That's... gotta be worth something, right?",
+							"Hi, I'm calling about getting a loan modification? If I don't qualify, could I just have the access code for the vault? Probably not. Figured I'd ask. Have a nice day.",
+							"Hi, this is David, I called earlier to see if I could come by to deposit my Goldfarbs I mean... [pause] ...gold bars. I guess you guys are... a little... busy... right now. I guess I'll call later.", --these are so good 
+--							"Well... [unintelligible] I want to start a small business. Here's the deal. I'll start a big one, and wait for six months.",
+							"[elderly voice] Where is it? Where did you leave my chinchilla? I know you have it, somewhere, and I'm gonna come down there, and I'm gonna find it!",
+							"Yeah, I'm calling to see how much you guys are offering now for, uh, deposits. [immature laughter] [pause] Oh, God, I called the wrong bank again.",
+							"Yo, Steven. It's me, Striker. You left me at the roller rink. Dude, if you don't come back and get me, I'm gonna have to call your sister. Yeah."
+--							"hello, i have an important note to mister bean: [swedish] (vi [] [] [] inte [] [] [])", --unintelligible							
 						}
 					}
 				},
-			
+
 			--prison nightmare
 				Play_big_clk_help_01 = {
 					override_name = "NecroCloaker",
@@ -14413,6 +15062,7 @@ ClosedCaptions._sounds = {
 							"COME PLAY! [evil laughter]",
 							"YOUR CRIME CAREER IS OVER... OVER!",
 							"THIS IS MY DOMAIN! I RULE HERE!",
+							"YOU WANT TO WAKE UP, DON'T YOU? WELL, POOR YOU!",
 							"THINK THIS IS BAD?! YOU SHOULD SEE THE FOOD!",
 							"FUCK YOU!"
 						}
@@ -14454,9 +15104,220 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 37
+				},
+			--breakin' feds
+				Play_npc_tag_poi_01 = {
+--					override_name = "FBI Agent",
+					text = "(incredibly boring meeting dialogue)", --I don't know if I have it in me to log these variants
+					category = "mission_dialogue",
+					max_distance = 2000,
+					duration = 25,
+					priority = 37
+				},
+				Stop_npc_tag_poi_01 = {
+					category = "stops",
+					remove_by_source = true,
+					stops_line = "Play_npc_tag_poi_01"
+				},
+				Play_gar_tag_01 = {
+					text = "(phone call with mayor)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[muffled] Garrett speaking. Yes? ...Hello, mister Mayor. ...no, not yet. I... was under the impression that you didn't want-- I see. Well... [clears throat] ...no sir, we do not presently have anything due on the PAYDAY Gang. [under breath] Moron. [normal voice] No sir, uh, not at all. Yes... yes? perhaps. Uh... no... yes. Uh, I'm not certain. Yes? [sighs] Alright, sir. [indistinct]"
+						}
+					},
+					duration = 4,
+					priority = 45
+				},
+				Play_gar_tag_02 = {
+					text = "(phone call with Sergeant)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[muffled] Hello, Sergeant? Did you get the things I requested? Good, thank you. I'll be leaving within the hour or so; wait 15 minutes before following. Yes, I should be fine. You'll know if something goes wrong. With a little luck we'll be able to shut this down tonight. [pause] There is some truth to that, Sergeant. But we serve where we are needed. I appreciate your support. I will not forget it. Goodbye.",
+							"[muffled] Sergeant Panem? You prepare the things I requested? Good, thank you. I want to be sure these 'Kataru' people will not be able to pull one over on us. Once I've left the office, wait 15 minutes before following. Yes, you'll know if something goes wrong. I want to shut this down tonight so that McKendrick can get off our backs. We serve where they ask us to, Sergeant. I appreciate your support in this matter. Goodbye."
+						}
+					},
+					duration = 4,
+					priority = 35
+				},
+				--3 does not exist i guess
+				Play_gar_tag_04 = {
+					text = "(answering prank call)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[answering phone] Commissioner Garrett speaking. What? Is this a joke? GOODBYE.",
+							"[answering phone] Hello? Who is this, please? Yes? Well, no thank you."
+						}
+					},
+					duration = 4,
+					priority = 36
+				},
+				Play_gar_tag_05 = {
+					text = "(muffled frustration)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[muffled] What now?",
+							"[muffled] Oh, dammit!"
+						}
+					},
+					duration = 3,
+					priority = 36
+				},
+				Play_gar_tag_06 = {
+					text = "Again? Damn electricians...", --no variations
+					category = "mission_dialogue",
+					duration = 3,
+					priority = 36
+				},
+				Play_gar_tag_07 = {
+					text = "This one... uh... [mumbling to self] No, lemme see... there! Okay. [sighs] Should do it.", --no variations
+					category = "mission_dialogue",
+					duration = 8,
+					priority = 36
+				},
+				
+				Play_gar_tag_08 = {
+					text = "[muffled] Will I ever get a moment of peace?",
+					category = "mission_dialogue",
+					duration = 8,
+					priority = 36
+				},
+				
+				Play_gar_tag_09 = {
+					text = "(Hey, who was just in my office?)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[muffled] Alright... who was just in my office?!",
+							"[muffled] Hey! Who was pokin' around in my office just now?"
+						}
+					},
+					duration = 4,
+					priority = 36
+				},
+				Play_gar_tag_10 = {
+					text = "[muffled] Alright... now where were we?", --no variants
+					category = "mission_dialogue",
+					duration = 4,
+					priority = 36
+				},
+				Play_gar_tag_11 = {
+					text = "[muffled, reading] Uh... 'Mister Garrett.. okay, when you get a chance, can you please come down to... [indistinct mumbling] trying to come up with a strategy...' Oh... [groans] oh, dammit to hell! Amateurs!", --no variants
+					category = "mission_dialogue",
+					duration = 25,
+					priority = 36
+				},
+				Play_gar_tag_12 = {
+					text = "(grumbling to self)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[grumbles] Make me wait another minute! Oh... [continues grumbling]",
+							"[groans] Dammit! Where is he?"
+						}
+					},
+					duration = 4,
+					priority = 36
+				},
+				Play_gar_tag_13 = {
+					text = "Now, dammit!", --no variants
+					category = "mission_dialogue",
+					duration = 3,
+					priority = 36
+				},
+				Play_gar_tag_14 = {
+					text = "[muffled] What the...?", --no variants
+					category = "mission_dialogue",
+					duration = 3,
+					priority = 36
+				},
+				Play_gar_tag_15 = {
+					text = "(spotted delicious Chimichanga)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[delighted] Ooohh...",
+							"[delighted] Hello... what's this?"
+						}
+					},
+					duration = 3,
+					priority = 36
+				},
+				Play_gar_tag_16 = {
+					text = "(complaining about Chimichanga-induced digestive stress)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[muffled] Oh, goddammit, Pedro, you used the cheap cannolini again, didn't you?",
+							"[muffled] Agh, damned Pedro and all his chimichangas..."
+						}
+					},
+					duration = 3,
+					priority = 36
+				},
+				Play_gar_tag_17 = {
+					text = "(spotted office intruder!)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"HEY! Get out of there! EMERGENCY!" --no variants
+						}
+					},
+					duration = 3,
+					priority = 36
+				},
+				Play_gar_tag_18 = {
+					text = "(urgently commandeering bathroom)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"Hello? Open the door at once!"
+						}
+					},
+					duration = 3,
+					priority = 36
+				},
+				Play_gar_tag_19 = {
+					text = "(spotted heister!)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"Alert! Intruder in the building!",
+							"Hey! You there!",
+							"Hey! You there! STOP!",
+							"STOP! Intruders!"
+						}
+					},
+					duration = 4,
+					priority = 36
+				},
+				Play_gar_tag_20 = {
+					text = "(pain)",
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"[groans in pain]",
+							"[grunts in pain]",
+							"[pained grunt]"
+						}
+					},
+					duration = 2,
+					priority = 36
+				},
+				l3n_a06 = {
+					text = "[idle]",
+					category = "chatter",
+					disabled = true
+				},
+				l1n_a06 = {
+					text = "[idle]",
+					category = "chatter",
+					disabled = true
 				}
-				
-				
 			}
 		}
 	},
