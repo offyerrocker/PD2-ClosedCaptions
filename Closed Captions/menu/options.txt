@@ -85,61 +85,115 @@
 			"step" : 1
 		},
 		{
+			"type" : "multiple_choice",
+			"id" : "closedcaptions_caption_variation_mode",
+			"title" : "menu_closedcaptions_caption_variation_mode_title",
+			"description" : "menu_closedcaptions_caption_variation_mode_desc",
+			"callback" : "callback_closedcaptions_caption_variation_mode",
+			"items" : [
+				"menu_closedcaptions_variations_randomized",
+				"menu_closedcaptions_variations_descriptive"
+			],
+			"value" : "caption_variation_mode"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "closedcaptions_caption_order",
+			"title" : "menu_closedcaptions_caption_order_title",
+			"description" : "menu_closedcaptions_caption_order_desc",
+			"callback" : "callback_closedcaptions_caption_order",
+			"items" : [
+				"menu_closedcaptions_order_priority",
+				"menu_closedcaptions_order_queue"
+			],
+			"value" : "caption_order"
+		},
+		{
 			"type" : "divider",
-			"size" : 24
+			"size" : 16
 		},
 		{
 			"type" : "toggle",
-			"id" : "closedcaptions_enable_category_heister_callouts",
-			"title" : "menu_closedcaptions_enable_category_heister_callouts_title",
-			"description" : "menu_closedcaptions_enable_category_heister_callouts_desc",
-			"callback" : "callback_closedcaptions_enable_category_heister_callouts",
-			"value" : "category_heister_callouts"
-		},
-		{
-			"type" : "toggle",
-			"id" : "closedcaptions_enable_category_mission_dialogue",
-			"title" : "menu_closedcaptions_enable_category_mission_dialogue_title",
-			"description" : "menu_closedcaptions_enable_category_mission_dialogue_desc",
-			"callback" : "callback_closedcaptions_enable_category_mission_dialogue",
+			"id" : "closedcaptions_category_mission_dialogue",
+			"title" : "menu_closedcaptions_category_mission_dialogue_title",
+			"description" : "menu_closedcaptions_category_mission_dialogue_desc",
+			"callback" : "callback_closedcaptions_category_mission_dialogue",
 			"value" : "category_mission_dialogue"
 		},
 		{
 			"type" : "toggle",
-			"id" : "closedcaptions_enable_category_sfx",
-			"title" : "menu_closedcaptions_enable_category_sfx_title",
-			"description" : "menu_closedcaptions_enable_category_sfx_desc",
-			"callback" : "callback_closedcaptions_enable_category_sfx",
+			"id" : "closedcaptions_category_contractor_vo",
+			"title" : "menu_closedcaptions_category_contractor_vo_title",
+			"description" : "menu_closedcaptions_category_contractor_vo_desc",
+			"callback" : "callback_closedcaptions_category_contractor_vo",
+			"value" : "category_contractor_vo"
+		},
+		{
+			"type" : "toggle",
+			"id" : "closedcaptions_category_sfx",
+			"title" : "menu_closedcaptions_category_sfx_title",
+			"description" : "menu_closedcaptions_category_sfx_desc",
+			"callback" : "callback_closedcaptions_category_sfx",
 			"value" : "category_sfx"
 		},
 		{
 			"type" : "toggle",
-			"id" : "closedcaptions_enable_category_contractor_vo",
-			"title" : "menu_closedcaptions_enable_category_contractor_vo_title",
-			"description" : "menu_closedcaptions_enable_category_contractor_vo_desc",
-			"callback" : "callback_closedcaptions_enable_category_contractor_vo",
-			"value" : "category_contractor_vo"
+			"id" : "closedcaptions_category_heister_dialogue",
+			"title" : "menu_closedcaptions_category_heister_dialogue_title",
+			"description" : "menu_closedcaptions_category_heister_dialogue_desc",
+			"callback" : "callback_closedcaptions_category_heister_dialogue",
+			"value" : "category_heister_dialogue"
+		},
+		{
+			"type" : "toggle",
+			"id" : "closedcaptions_category_heister_spots",
+			"title" : "menu_closedcaptions_category_heister_spots_title",
+			"description" : "menu_closedcaptions_category_heister_spots_desc",
+			"callback" : "callback_closedcaptions_category_heister_spots",
+			"value" : "category_heister_spots"
+		},
+		{
+			"type" : "toggle",
+			"id" : "closedcaptions_category_heister_kills",
+			"title" : "menu_closedcaptions_category_heister_kills_title",
+			"description" : "menu_closedcaptions_category_heister_kills_desc",
+			"callback" : "callback_closedcaptions_category_heister_kills",
+			"value" : "category_heister_kills"
 		},
 		{
 			"type" : "multiple_choice",
-			"id" : "closedcaptions_enable_category_enemy_callouts",
-			"title" : "menu_closedcaptions_enable_category_enemy_callouts_title",
-			"description" : "menu_closedcaptions_enable_category_enemy_callouts_desc",
-			"callback" : "callback_closedcaptions_enable_category_enemy_callouts",
+			"id" : "closedcaptions_category_civilian_dialogue",
+			"title" : "menu_closedcaptions_category_civilian_dialogue_title",
+			"description" : "menu_closedcaptions_category_civilian_dialogue_desc",
+			"callback" : "callback_closedcaptions_category_civilian_dialogue",
 			"items" : [
 				"menu_closedcaptions_category_enabled_any",
 				"menu_closedcaptions_category_enabled_stealthonly",
 				"menu_closedcaptions_category_enabled_loudonly",
 				"menu_closedcaptions_category_enabled_none"
 			],
-			"value" : "category_enemy_callouts"
+			"value" : "category_civilian_dialogue"
 		},
 		{
 			"type" : "multiple_choice",
-			"id" : "closedcaptions_enable_category_enemy_chatter",
-			"title" : "menu_closedcaptions_enable_category_enemy_chatter_title",
-			"description" : "menu_closedcaptions_enable_category_enemy_chatter_desc",
-			"callback" : "callback_closedcaptions_enable_category_enemy_chatter",
+			"id" : "closedcaptions_category_enemy_dialogue",
+			"title" : "menu_closedcaptions_category_enemy_dialogue_title",
+			"description" : "menu_closedcaptions_category_enemy_dialogue_desc",
+			"callback" : "callback_closedcaptions_category_enemy_dialogue",
+			"items" : [
+				"menu_closedcaptions_category_enabled_any",
+				"menu_closedcaptions_category_enabled_stealthonly",
+				"menu_closedcaptions_category_enabled_loudonly",
+				"menu_closedcaptions_category_enabled_none"
+			],
+			"value" : "category_enemy_dialogue"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "closedcaptions_category_enemy_chatter",
+			"title" : "menu_closedcaptions_category_enemy_chatter_title",
+			"description" : "menu_closedcaptions_category_enemy_chatter_desc",
+			"callback" : "callback_closedcaptions_category_enemy_chatter",
 			"items" : [
 				"menu_closedcaptions_category_enabled_any",
 				"menu_closedcaptions_category_enabled_stealthonly",
@@ -149,46 +203,38 @@
 			"value" : "category_enemy_chatter"
 		},
 		{
-			"type" : "toggle",
-			"id" : "closedcaptions_enable_category_enemy_taunts",
-			"title" : "menu_closedcaptions_enable_category_enemy_taunts_title",
-			"description" : "menu_closedcaptions_enable_category_enemy_taunts_desc",
-			"callback" : "callback_closedcaptions_enable_category_enemy_taunts",
-			"value" : "category_enemy_taunts"
-		},
-		{
-			"type" : "toggle",
-			"id" : "closedcaptions_enable_category_spotted_enemy",
-			"title" : "menu_closedcaptions_enable_category_spotted_enemy_title",
-			"description" : "menu_closedcaptions_enable_category_spotted_enemy_desc",
-			"callback" : "callback_closedcaptions_enable_category_spotted_enemy",
-			"value" : "category_spotted_enemy"
-		},
-		{
-			"type" : "toggle",
-			"id" : "closedcaptions_enable_category_killed_enemy",
-			"title" : "menu_closedcaptions_enable_category_killed_enemy_title",
-			"description" : "menu_closedcaptions_enable_category_killed_enemy_desc",
-			"callback" : "callback_closedcaptions_enable_category_killed_enemy",
-			"value" : "category_killed_enemy"
-		},
-		{
 			"type" : "multiple_choice",
-			"id" : "closedcaptions_enable_category_civilian_callouts",
-			"title" : "menu_closedcaptions_enable_category_civilian_callouts_title",
-			"description" : "menu_closedcaptions_enable_category_civilian_callouts_desc",
-			"callback" : "callback_closedcaptions_enable_category_civilian_callouts",
+			"id" : "closedcaptions_category_enemy_death",
+			"title" : "menu_closedcaptions_category_enemy_death_title",
+			"description" : "menu_closedcaptions_category_enemy_death_desc",
+			"callback" : "callback_closedcaptions_category_enemy_death",
 			"items" : [
 				"menu_closedcaptions_category_enabled_any",
 				"menu_closedcaptions_category_enabled_stealthonly",
 				"menu_closedcaptions_category_enabled_loudonly",
 				"menu_closedcaptions_category_enabled_none"
 			],
-			"value" : "category_civilian_callouts"
+			"value" : "category_enemy_death"
+		},
+		{
+			"type" : "toggle",
+			"id" : "closedcaptions_category_specialenemy_chatter",
+			"title" : "menu_closedcaptions_category_specialenemy_chatter_title",
+			"description" : "menu_closedcaptions_category_specialenemy_chatter_desc",
+			"callback" : "callback_closedcaptions_category_specialenemy_chatter",
+			"value" : "category_specialenemy_chatter"
+		},
+		{
+			"type" : "toggle",
+			"id" : "closedcaptions_category_specialenemy_death",
+			"title" : "menu_closedcaptions_category_specialenemy_death_title",
+			"description" : "menu_closedcaptions_category_specialenemy_death_desc",
+			"callback" : "callback_closedcaptions_category_specialenemy_death",
+			"value" : "category_specialenemy_death"
 		},
 		{
 			"type" : "divider",
-			"size" : 24
+			"size" : 16
 		},
 		{
 			"type" : "DISABLED_BECAUSE_THIS_MOD_HAS_NOT_BEEN_TRANSLATED_YET_multiple_choice",

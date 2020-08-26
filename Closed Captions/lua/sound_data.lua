@@ -25,7 +25,6 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					macro = "character_name",
 					text = "$character_name, you're the last one standing! It's all up to you!",
-					category = "contractor_vo",
 					priority = 37
 				}
 			},
@@ -382,8 +381,16 @@ ClosedCaptions._sounds = {
 				},
 				elevator_doors_open = {
 					override_name = "SFX",
-					text = "(elevator_doors_open)",
-					max_distance = 3000,
+					text = "(elevator doors open)",
+					max_distance = 1500,
+					duration = 4,
+					priority = 37,
+					category = "sfx"
+				},
+				elevator_doors_close = {
+					override_name = "SFX",
+					text = "(elevator doors close)",
+					max_distance = 1500,
 					duration = 4,
 					priority = 37,
 					category = "sfx"
@@ -723,6 +730,12 @@ ClosedCaptions._sounds = {
 						loop_interval = -1 --constant
 					}
 				},
+				tasered_stop = {
+					category = "stops",
+					remove_by_source = true,
+					priority = 11,
+					stops_line = "tasered_loop"
+				},
 				melee_hit_body = {
 					override_name = "SFX",
 					text = "(melee impact)",
@@ -825,6 +838,13 @@ ClosedCaptions._sounds = {
 				art_galley_alarm_on_slow_fade = {
 					override_name = "SFX",
 					text = "[ALARM KLAXON]",
+					priority = 37,
+					duration = 60,
+					category = "sfx"					
+				},
+				bank_alarm_on_slow_fade = {
+					override_name = "SFX",
+					text = "[bank alarm!]",
 					priority = 37,
 					duration = 60,
 					category = "sfx"					
@@ -1097,7 +1117,7 @@ ClosedCaptions._sounds = {
 					stops_line = "hacking_device",
 					category = "stops"
 				},
-				vo_special = {
+				vo_special = { --i have no idea what this is or when it plays or why
 					category = "UNKNOWN",
 					disabled = true
 				},
@@ -1108,13 +1128,13 @@ ClosedCaptions._sounds = {
 					max_distance = 5000,
 					text = "(SWAT explosive breaches wall)"
 				},
-				Play_pln_drl_wrn_snd = {
+				Play_pln_drl_wrn_snd = { --todo 
 					override_name = "Bain",
 					text = "Remember to keep bystanders away from the drill! They'll get alerted just from the noise!",
 					priority = 39,
 					category = "contractor_vo"
 				},
-				Play_ban_b11 = {
+				Play_ban_b11 = { --todo
 					disabled = true,
 					text = "asault over kthxssss"
 				},
@@ -1138,6 +1158,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_pln_polin_01 = {
 					text = "Twenty until police arrive!",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1152,6 +1173,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_pln_polin_02 = {
 					text = "Thirty until police arrive!",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1168,6 +1190,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_pln_polin_03 = {
 					text = "Cops running up- forty seconds until confrontation!",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1180,6 +1203,7 @@ ClosedCaptions._sounds = {
 				},
 				play_pln_gen_snip_01 = {
 					text = "Police are going to snipers!",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1203,6 +1227,7 @@ ClosedCaptions._sounds = {
 				},
 				play_pln_gen_pol_01 = {
 					text = "Well, here's our cops!",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1224,6 +1249,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ban_b12 = {
 					text = "(assault finished)",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1259,6 +1285,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_pln_ctci_01 = {
 					text = "(keep the civilians down)",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1274,6 +1301,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_pln_indif_01 = {
 					text = "(force increase warning)",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1294,6 +1322,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ban_b02c = {
 					text = "(assault incoming warning)",
+					override_name = "Bain",
 					category = "contractor_vo",
 					priority = 37,
 					line_variations = {
@@ -1322,6 +1351,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ban_h01x = {
 					category = "contractor_vo",
+					override_name = "Bain",
 					text = "You need to take hostages- tie them down!",
 					priority = 37,
 					line_variations = {
@@ -1340,6 +1370,13 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1 --constant
 					}
+				},
+				policecar_arrive_stop_global = {
+					override_name = "SFX",
+					category = "stops",
+					stops_line = "policecar_approaching",
+					priority = 40,
+					text = "(police car arrives"
 				},
 				cop_car_01 = {
 					override_name = "SFX",
@@ -2550,7 +2587,7 @@ ClosedCaptions._sounds = {
 								}
 							},
 							rb15 = { --sydney does not have this line
-								disabled = true
+								disabled = "missing"
 							}
 						}
 					}
@@ -3182,7 +3219,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							subvariants = {
 								rb3 = {
-									disabled = true
+									disabled = "missing"
 								},
 								rb4 = {
 									line_variations = {
@@ -3270,7 +3307,7 @@ ClosedCaptions._sounds = {
 								},
 								tsr = {
 									text = "(Taser taunt)",
-									category = "enemy_taunts",
+									category = "enemy_chatter",
 									line_variations = {
 										standard_mode = {
 											"Acquiring targets!",
@@ -3318,7 +3355,7 @@ ClosedCaptions._sounds = {
 											"Stay clear!",
 											"Subject still mobile!",
 											"Take the shot!",
---											"Taser got sent all those to kill!", --not sure
+--											"Taser got sent all those to kill!", --not sure what he says
 											"Taser gun charged and ready!",
 											"Taser! Get out of the way!",
 											"Taser! Stand back!",
@@ -3338,7 +3375,7 @@ ClosedCaptions._sounds = {
 								},
 								mdc = {
 									text = "(Medic taunt)",
-									category = "enemy_taunts",
+									category = "enemy_chatter",
 									line_variations = {
 										standard_mode = {
 											"Don't let them escape!",
@@ -3377,7 +3414,7 @@ ClosedCaptions._sounds = {
 								},
 								bdz = {
 									text = "(Bulldozer taunt)",
-									category = "enemy_taunts",
+									category = "enemy_chatter",
 									line_variations = {
 										standard_mode = {
 											"ALRIGHT! HERE, AND READY TO KICK ASS!",
@@ -3636,7 +3673,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							subvariants = {
 								rb3 = {
-									disabled = true
+									disabled = "missing"
 								},
 								rb4 = {
 									line_variations = {
@@ -4312,13 +4349,10 @@ ClosedCaptions._sounds = {
 								},
 								rb9 = {
 									line_variations = {
-										recombinable = true,
 										standard_mode = {
-											{
-												"I'll wait here.",
-												"I'll wait here. You go on ahead.",
-												"I'll wait here. You go on ahead. [tape rewinds] Ich warte hier-"
-											}
+											"I'll wait here.",
+											"I'll wait here. You go on ahead.",
+											"I'll wait here. You go on ahead. [tape rewinds] Ich warte hier-"
 										}
 									}
 								},
@@ -4541,7 +4575,8 @@ ClosedCaptions._sounds = {
 				p43 = {
 					variants = {
 						criminal = {
-							category = "spotted_enemy",
+							text = "Spotted a Sniper",
+							category = "heister_spots",
 							priority = 40,
 							subvariants = {
 								rb4 = {
@@ -5403,7 +5438,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							subvariants = {
 								rb3 = {
-									disabled = true --no lines :(
+									disabled = "missing" --no lines :(
 								},
 								rb4 = {
 									line_variations = {
@@ -5575,7 +5610,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							subvariants = {
 								rb3 = {
-									disabled = true
+									disabled = "missing"
 								},
 								rb4 = {
 									line_variations = {
@@ -5611,7 +5646,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							subvariants = {
 								rb3 = {
-									disabled = true
+									disabled = "missing"
 								},
 								rb4 = {
 									line_variations = {
@@ -5772,13 +5807,13 @@ ClosedCaptions._sounds = {
 									text = "BAIN! You listenin'?!"
 								},
 								rb3 = {
---									disabled = true
+---									disabled = "missing"
 								},
 								rb4 = {
-									"BAIN!?"
+									text = "BAIN!?"
 								},
 								rb9 = {
-									"Please advise."
+									text = "Please advise."
 								},
 								rb15 = {
 									line_variations = {
@@ -5833,7 +5868,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							subvariants = {
 								rb3 = {
-									disabled = true --no lines :(
+									disabled = "missing" --no lines :(
 								},
 								rb4 = {
 									line_variations = {
@@ -6091,7 +6126,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted a Turret",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 40,
 							subvariants = {
 								rb4 = {
@@ -6125,7 +6160,7 @@ ClosedCaptions._sounds = {
 							priority = 40,
 							subvariants = {
 								rb3 = {
-									disabled = true --no lines :(
+									disabled = "missing" --no lines :(
 								},
 								rb4 = {
 									line_variations = {
@@ -6533,7 +6568,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Bulldozer",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6574,7 +6609,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Bulldozer",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6607,7 +6642,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Shield",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6646,7 +6681,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Shield",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6679,7 +6714,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Taser",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6717,7 +6752,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Taser",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6749,7 +6784,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Cloaker",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6789,7 +6824,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Cloaker",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6823,7 +6858,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Sniper",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6848,7 +6883,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Sniper",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6872,7 +6907,7 @@ ClosedCaptions._sounds = {
 				f42_any = {
 					variants = {
 						criminal = {
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6898,7 +6933,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted SWAT Turret",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6943,7 +6978,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Captain",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -6982,7 +7017,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Medic",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -7014,7 +7049,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Killed Bulldozer",
-							category = "killed_enemy",
+							category = "heister_kills",
 							priority = 50,
 							subvariants = {
 								rb4 = {
@@ -7059,7 +7094,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Killed Shield",
-							category = "killed_enemy",
+							category = "heister_kills",
 							priority = 50,
 							subvariants = {
 								rb4 = {
@@ -7099,7 +7134,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Killed Taser",
-							category = "killed_enemy",
+							category = "heister_kills",
 							priority = 50,
 							subvariants = {
 								rb4 = {
@@ -7133,7 +7168,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Killed Cloaker",
-							category = "killed_enemy",
+							category = "heister_kills",
 							priority = 50,
 							subvariants = {
 								rb4 = {
@@ -7167,7 +7202,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Killed Sniper",
-							category = "killed_enemy",
+							category = "heister_kills",
 							priority = 50,
 							subvariants = {
 								rb4 = {
@@ -7213,7 +7248,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Killed Medic",
-							category = "killed_enemy",
+							category = "heister_kills",
 							priority = 50,
 							subvariants = {
 								rb4 = {
@@ -7451,6 +7486,7 @@ ClosedCaptions._sounds = {
 								rb9 = {
 									duration = 6,
 									line_variations = {
+										recombinable = true,
 										standard_mode = {
 											{
 												"Cartridges almost depleted. [tape rewinding]",
@@ -7466,6 +7502,7 @@ ClosedCaptions._sounds = {
 								rb15 = {
 									duration = 6,
 									line_variations = {
+										recombinable = true,
 										standard_mode = {
 											{
 												"I'm almost out of ammo!",
@@ -8331,7 +8368,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted a Guard",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -8431,7 +8468,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							text = "Spotted Camera",
-							category = "spotted_enemy",
+							category = "heister_spots",
 							priority = 55,
 							subvariants = {
 								rb4 = {
@@ -9518,9 +9555,9 @@ ClosedCaptions._sounds = {
 							text = "(answering pager)",
 							category = "heister_callouts",
 							priority = 20,
+							duration = 10, --default pager answer time is 10s
 							subvariants = {
 								rb4 = { --incomplete
-									duration = 10, --default pager answer time is 10s
 									line_variations = {
 										standard_mode = {
 											"Um, all good, sometimes I just see things. Not to alarm you!",
@@ -9554,7 +9591,6 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb9 = {
-									duration = 10,
 									line_variations = {
 										standard_mode = {
 											"You have reached Dennaton Enterprises. We can't take your call at the moment. Please leave a message after the beep and we'll get back to you. [answering machine beep]",
@@ -9567,7 +9603,6 @@ ClosedCaptions._sounds = {
 									}
 								},
 								rb15 = {
-									duration = 10,
 									line_variations = {
 										standard_mode = {
 											"Nah, we're good. Just a random... man, walking around. I gave him a slice of cheddar, and sent him away.",
@@ -9617,8 +9652,8 @@ ClosedCaptions._sounds = {
 					}
 				},
 				fri_dsp_stop_all = {
-					category = "sfx",
-					disabled = true
+					category = "stops",
+					remove_by_source = true
 				},
 
 				dsp_radio_russian = {
@@ -9630,7 +9665,7 @@ ClosedCaptions._sounds = {
 						security = {
 							text = "[pager rings!]",
 							priority = 20,
-							category = "enemy_callouts", --! not sure what to categorize
+							category = "enemy_dialogue",
 							line_variations = {
 								standard_mode = {
 									"[pager operator] This is dispatch. PICK UP THE PAGER.",
@@ -9644,7 +9679,7 @@ ClosedCaptions._sounds = {
 						security = {
 							text = "[pager operator fooled]",
 							priority = 20,
-							category = "enemy_callouts"
+							category = "enemy_dialogue"
 						--standard_mode = {
 						--	"Okay, I guess I'll see you for bowling later.",
 						--}
@@ -9654,9 +9689,9 @@ ClosedCaptions._sounds = {
 				dsp_radio_fooled_4 = { --"no pagers remaining" warning
 					variants = {
 						security = {
-							text = "[pager operator warning: NO PAGERS REMAINING]",
+							text = "(pager operator warning: NO PAGERS REMAINING!)",
 							priority = 20,
-							category = "enemy_callouts"
+							category = "enemy_dialogue"
 						}
 					}
 				},
@@ -9669,7 +9704,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "Two-Three, reporting in. We got a situation.",
-							category = "enemy_callouts",
+							category = "enemy_dialogue",
 							priority = 37,
 							duration = 4,
 							subvariants = {
@@ -9696,9 +9731,9 @@ ClosedCaptions._sounds = {
 				l2n_a05 = {
 					variants = {
 						security = {
-							text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_callouts for utility
+							text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_dialogue for utility
 							duration = 6,
-							category = "enemy_callouts",
+							category = "enemy_dialogue",
 							priority = 37,
 							line_variations = {
 								standard_mode = {
@@ -9718,7 +9753,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						security = {
 							text = "(spotted suspicious object)",
-							category = "enemy_callouts",
+							category = "enemy_dialogue",
 							priority = 37,
 							line_variations = {
 								standard_mode = {
@@ -9737,7 +9772,7 @@ ClosedCaptions._sounds = {
 				l2n_b01 = {
 					text = "Two-Three to Control. Entrance is clear.",
 					duration = 10,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -9798,7 +9833,7 @@ ClosedCaptions._sounds = {
 				l2n_b02 = {
 					text = "Two-Three to Control. Hall A is clear.",
 					duration = 10,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -9862,7 +9897,7 @@ ClosedCaptions._sounds = {
 				l2n_b03 = {
 					text = "Two-Three to Control. Hall B is clear.",
 					duration = 10,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -9927,7 +9962,7 @@ ClosedCaptions._sounds = {
 				l2n_b04 = {
 					text = "Two-Three to Control. Hall C is clear.",
 					duration = 10,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -9993,7 +10028,7 @@ ClosedCaptions._sounds = {
 				l2n_b05 = {
 					text = "Two-Three to Control. Hall D is clear.",
 					duration = 10,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -10065,7 +10100,7 @@ ClosedCaptions._sounds = {
 				l2n_b06 = {
 					text = "Two-Three to Control. Roof is clear.",
 					duration = 10,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -10138,7 +10173,7 @@ ClosedCaptions._sounds = {
 				l2n_b07 = {
 					text = "Two-Three to Control. Basement is clear.",
 					duration = 10,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -10205,7 +10240,7 @@ ClosedCaptions._sounds = {
 				l2n_b08 = {
 					text = "Two-Three to Control. First Floor is clear.",
 					duration = 10,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -10271,7 +10306,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b09 = {
 					text = "Two-Three to Control. Second Floor is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -10345,7 +10380,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b10 = {
 					text = "Two-Three to Control. Third Floor is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -10412,7 +10447,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b11 = {
 					text = "Two-Three to Control. The Pool Area is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -10484,7 +10519,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b12 = {
 					text = "Two-Three to Control. The Balcony is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -10550,7 +10585,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b13 = {
 					text = "Two-Three to Control. The Living Room is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -10614,7 +10649,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b14 = {
 					text = "Two-Three to Control. The Corridor is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -10681,7 +10716,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b15 = {
 					text = "Two-Three to Control. The Lobby is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -10756,7 +10791,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b16 = {
 					text = "Two-Three to Control. No sign of tampering with the Security Door.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -10829,7 +10864,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b17 = {
 					text = "Two-Three to Control. GenSec Room is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					duration = 5,
 					priority = 37,
 					line_variations = {
@@ -10904,7 +10939,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b18 = {
 					text = "Two-Three to Control. No signs of tampering with the Camera.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					duration = 10,
 					priority = 37,
 					line_variations = {
@@ -10990,7 +11025,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b19 = {
 					text = "Two-Three to Control. The Staircase looks clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -11062,7 +11097,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b20 = {
 					text = "Two-Three to Control. The Penthouse is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -11136,7 +11171,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b21 = {
 					text = "Two-Three to Control. The Garage is clear.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -11212,7 +11247,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b22 = {
 					text = "Two-Three to Control. Proceeding with search.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					duration = 3,
 					line_variations = {
 						standard_mode = {
@@ -11226,7 +11261,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b23 = {
 					text = "This is Two-Three. Can you buzz me in? Over.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 7,
 					line_variations = {
@@ -11256,7 +11291,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_b24 = {
 					text = "This is Two-Three. Sweep finished, all is clear. Over and out.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
 					line_variations = {
@@ -11305,7 +11340,7 @@ ClosedCaptions._sounds = {
 				},
 				l2n_i02 = {
 					text = "attempting arrest",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					duration = 10,
 					priority = 37,
 					line_variations = {
@@ -11386,7 +11421,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							text = "(spotted heister)",
-							category = "enemy_callouts", --chatter?
+							category = "enemy_dialogue", --chatter?
 							priority = 90,
 							line_variations = {
 								standard_mode = {
@@ -11439,17 +11474,25 @@ ClosedCaptions._sounds = {
 				l4n_i03 = {
 					variants = {
 						cop = {
-							text = "(arrested heister)", --todo; this is a recombinable line
-							category = "enemy_callouts",
+							text = "(cuffed heister)",
+							category = "enemy_dialogue",
 							priority = 60,
 							line_variations = {
-								standard_mode = {
-									"It's over now, scumbag! I hope you like prison food.",
-									"This ends now, scumbag. I hope you drop the soap, a lot.",
-									"It's over now, dirtbag! You're going away for a loooong time.",
-									"It's over... scumbag! Get ready to do some hard time.",
-									"It's over, dirtbag! I hope you drop the soap... a lot.",
-									"It's over... you son of a bitch!"
+								recombinable = true,
+								standard_mode = { --unfinished
+									{
+										"It's over now, scumbag!",
+										"This ends now, scumbag.",
+										"It's over... scumbag!",
+										"It's over..."
+									},
+									{
+										 "I hope you like prison food.",
+										"You're going away for a loooong time.",
+										"Get ready to do some hard time.",
+										"I hope you drop the soap... a lot.",
+										"You son of a bitch!"
+									}
 								}
 							}
 						}
@@ -11513,17 +11556,27 @@ ClosedCaptions._sounds = {
 				},
 				cloaker_spawn = {
 					text = "[Cloaker spawned]",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 40
+				},
+				cloaker_taunt_during_assault = { --todo
+					text = "(Cloaker taunt)",
+					category = "enemy_dialogue",
+					priority = 70
 				},
 				cloaker_taunt_after_assault = {
 					text = "(Cloaker taunt)",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 70
 				},
-				rcloaker_taunt_during_assault = {
+				rcloaker_taunt_during_assault = { --russian cloaker
 					text = "(Cloaker taunt)",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
+					priority = 70
+				},
+				rcloaker_taunt_after_assault = {  --russian cloaker
+					text = "(Cloaker taunt)",
+					category = "enemy_dialogue",
 					priority = 70
 				},
 				clk_c01x_plu = {
@@ -11533,7 +11586,7 @@ ClosedCaptions._sounds = {
 				cloaker_detect_christmas_mono = {
 					text = "(FESTIVE CLOAKER CHARGE!)",
 					priority = 11,
-					category = "enemy_callouts"
+					category = "enemy_dialogue"
 				},
 				cloaker_detect_christmas_stop = {
 					text = "(Festive Cloaker charge stops)",
@@ -11543,13 +11596,23 @@ ClosedCaptions._sounds = {
 				},
 				cloaker_detect_mono = {
 					text = "(CLOAKER CHARGE!)", --wololololo
+					max_distance = 3000,
 					priority = 11,
-					category = "enemy_callouts"
+					category = "enemy_dialogue"
+				},
+				cloaker_detect_stop = {
+					text = "(Cloaker charge stops)",
+					category = "stops",
+					stops_line = "cloaker_detect_mono",
+					remove_by_source = true,
+					duration = 2,
+					priority = 40
 				},
 				cloaker_presence_loop = { --needs max distance
 					text = "(Cloaker idle)",
 					priority = 40,
-					category = "enemy_callouts",
+					max_distance = 1500,
+					category = "enemy_dialogue",
 					loop_data = {
 						loop_interval = -1 --constant
 					}
@@ -11557,20 +11620,15 @@ ClosedCaptions._sounds = {
 				cloaker_presence_stop = {
 					text = "(Cloaker idle stops)",
 					category = "stops",
-					duration = 2,
-					priority = 40
-				},
-				cloaker_detect_stop = {
-					text = "(Cloaker charge stops)",
-					category = "stops",
-					stops_line = "cloaker_detect_mono",
+					stops_line = "cloaker_presence_loop",
+					remove_by_source = true,
 					duration = 2,
 					priority = 40
 				},
 				visor_lost = { --SEN-I-SOSHITSU
 					text = "[lost visor]",
 					priority = 60,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					line_variations = {
 						standard_mode = {
 							"My visor!",
@@ -11586,16 +11644,57 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								bdz = {
 									text = "(Bulldozer spawned)",
-									category = "enemy_callouts",
-									line_variations = {
+									category = "enemy_dialogue",
+									line_variations = { --copied from bdz_entrance
 										standard_mode = {
-											"BULLDOZER! MAKE WAY!"
+											"WHO WANTS A PIECE OF ME?",
+											"GONNA BREAK SOME SHIT!",
+											"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
+											"GET. OUT. OF. THE. WAY!",
+											"DOZER'S HERE, AND READY FOR ACTION!",
+											"CLOBBERIN' TIME!",
+											"MAKE WAY FOR THE BULLDOZER!",
+											"STAND BACK!",
+											"OKAY, I'M HERE... WHO WANTS TO DIE?!"
+										},
+										assault_mode = {
+											"BULLDOZER! GET OUT OF THE WAY!",
+											"BULLDOZER! MOVE ASIDE!",
+											"BULLDOZER! MAKE WAY!",
+											"BULLDOZER GOIN' IN!",
+											"BULLDOZER TIME!",
+											"SHOW ME WHERE THEY ARE!",
+											"BULLDOZER, COMING THROUGH!",
+											"BULLDOZER IN THE HOUSE!",
+											"DOZER IN THE HOUSE!",
+											"DOZER! MOVE ASIDE!",
+											"DOZER! STAND BACK!",
+											"DOZER! STAY BACK!",
+											"DOZER! GET OUT OF THE WAY!",
+											"STAY BACK!",
+											"STAND BACK!",
+											"GOING TO WORK!",
+											"GIVE ME SOME TIME TO WORK!", --unsure
+											"ALRIGHT, WHERE ARE THEY?!",
+											"ALRIGHT! WATCH... AND LEARN!",
+											"ASS-KICKIN' TIME!",
+											"MAKE WAY FOR THE DOZER!",
+											"MAKE WAY FOR THE BULLDOZER!",
+											"MOVE ASIDE! I GOT THIS!",
+											"TIME FOR SOME PAYBACK!",
+											"WHO WANTS A PIECE OF ME?!",
+											"WHERE ARE YOU?!",
+											"MOVE ASIDE!",
+											"I GOT THIS!",
+											"COME ON OUT WHEREVER YOU ARE!",
+											"SHOW ME WHERE THEY ARE!",
+											"OKAY, I'M HERE! WHO WANTS TO DIE?!"
 										}
 									}
 								},
 								tsr = {
 									text = "(Taser spawned)",
-									category = "enemy_callouts",
+									category = "enemy_dialogue",
 									line_variations = {
 										standard_mode = {
 											"Shock treatment prescribed!"
@@ -11604,11 +11703,11 @@ ClosedCaptions._sounds = {
 								},
 								clk = {
 									text = "(Cloaker spawned)",
-									category = "enemy_callouts"
+									category = "enemy_dialogue"
 								},
 								mdc = {
 									text = "(Medic spawned)",
-									category = "enemy_callouts",
+									category = "enemy_dialogue",
 									line_variations = {
 										standard_mode = {
 											"Somebody order a Medic?",
@@ -11619,7 +11718,7 @@ ClosedCaptions._sounds = {
 								},
 								shld = {
 									text = "(Shield spawned)",
-									category = "enemy_callouts",
+									category = "enemy_dialogue",
 									line_variations = {
 										standard_mode = {
 											"Shield coming through.",
@@ -11634,22 +11733,22 @@ ClosedCaptions._sounds = {
 				mdc_entrance = {
 					text = "(Medic spawned)",
 					priority = 60,
-					category = "enemy_callouts"
+					category = "enemy_dialogue"
 				},
 				rmdc_entrance = {
-					text = "(enters in Russian)", --haha i am funni 
+					text = "(Russian Medic spawned)", --haha i am funni 
 					priority = 60,
-					category = "enemy_callouts"
+					category = "enemy_dialogue"
 				},
 				bdz_entrance = {
 					text = "(Bulldozer spawned)",
 					priority = 60,
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					line_variations = {
 						standard_mode = {
 							"WHO WANTS A PIECE OF ME?",
 							"GONNA BREAK SOME SHIT!",
---							"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
+							"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
 							"GET. OUT. OF. THE. WAY!",
 							"DOZER'S HERE, AND READY FOR ACTION!",
 							"CLOBBERIN' TIME!",
@@ -11688,7 +11787,7 @@ ClosedCaptions._sounds = {
 							"I GOT THIS!",
 							"COME ON OUT WHEREVER YOU ARE!",
 							"SHOW ME WHERE THEY ARE!",
-							"OKAY, I'M HERE! WHO WANTS TO DIE?!"							
+							"OKAY, I'M HERE! WHO WANTS TO DIE?!"
 						}
 					}
 				},
@@ -11701,7 +11800,7 @@ ClosedCaptions._sounds = {
 					override_name = "[megaphone cop]",
 					priority = 60,
 					text = "Captain's just got here, time to turn this around!",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					line_variations = {
 						standard_mode = {
 							"The Captain has arrived in the AO!",
@@ -11717,7 +11816,7 @@ ClosedCaptions._sounds = {
 				cpa_a03_01 = {
 					override_name = "[megaphone cop]",
 					text = "Turret'll be here any second!",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 60,
 					line_variations = {
 						standard_mode = {
@@ -11732,7 +11831,7 @@ ClosedCaptions._sounds = {
 				cpa_a04_01 = {
 					override_name = "[megaphone cop]",
 					text = "Turret's arrived!",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 60,
 					line_variations = {
 						standard_mode = {
@@ -11752,7 +11851,7 @@ ClosedCaptions._sounds = {
 				cpw_a01 = {
 					override_name = "Captain Winters",
 					text = "Contact!",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 60,
 					line_variations = {
 						standard_mode = {
@@ -11781,7 +11880,7 @@ ClosedCaptions._sounds = {
 				cpw_a02 = {
 					override_name = "Captain Winters",
 					text = "Criminal down!",
-					category = "enemy_callouts",
+					category = "enemy_chatter",
 					priority = 60,
 					line_variations = {
 						standard_mode = {
@@ -11794,22 +11893,20 @@ ClosedCaptions._sounds = {
 							"No-one cheats justice for long.",
 							"You got what you deserved.",
 							"That's one of the PAYDAY Gang down!",
-							
-	--							"I thought you'd be tougher.", --not sure
-							
 							"You're just a footnote in history.",
 							"Let that be a lesson.",
 							"One down.",
 							"I expected more resistance.",
 							"I expected a tougher fight.",
-							"It always ends the same.",
+							"It always ends the same."
+	--							"I thought you'd be tougher." --not sure i heard it right
 						}
 					}
 				},
 				cpw_a04 = {
 					override_name = "Captain Winters",
 					text = "Retreat!",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					line_variations = {
 						standard_mode = {
 							"Retreating! Cover me!",
@@ -11846,64 +11943,59 @@ ClosedCaptions._sounds = {
 				},
 				hr01 = {
 					text = "[hurt]",
-					category = "enemy_chatter",
+					category = "enemy_death",
 					priority = 90
 				},
 				burndeath = {
 					text = "[burn death]",
-					category = "enemy_chatter",
+					category = "enemy_death",
 					priority = 90
 				},
 				shd_x02a_any_3p_01 = {
 					text = "[Shield death]",
-					category = "killed_enemy",
+					category = "enemy_death",
 					priority = 50
 				},
 				bdz_x02a_any_3p = {
 					text = "[Bulldozer death]",
-					category = "killed_enemy",
+					category = "enemy_death",
 					priority = 50
 				},
 				x02a_any_3p = {
 					text = "[death]",
-					category = "killed_enemy",
-					variants = {
-						cop = {
-							text = "[death]",
-							category = "killed_enemy",
-							subvariants = {
-								bdz = {
-									text = "[Bulldozer death]",
-									category = "killed_enemy",
-									priority = 50
-								},
-								clk = {
-									text = "[Cloaker death]",
-									category = "killed_enemy",
-									priority = 50
-								},
-								tsr = {
-									text = "[Taser death]",
-									category = "killed_enemy",
-									priority = 50
-								},
-								mdc = {
-									text = "[Medic death]",
-									category = "killed_enemy",
-									priority = 50
-								}
-							}
-						}
-					}
+					category = "enemy_death"
+--					variants = {
+--						cop = {
+--							text = "[death]",
+--							subvariants = {
+--								bdz = {
+--									text = "[Bulldozer death]",
+--									priority = 50
+--								},
+--								clk = {
+--									text = "[Cloaker death]",
+--									priority = 50
+--								},
+--								tsr = {
+--									text = "[Taser death]",
+--									priority = 50
+--								},
+--								mdc = {
+--									text = "[Medic death]",
+--									priority = 50
+--								}
+--							}
+--						}
+--					}
 				},
 				clk_punch_3rd_person_3p = {
 					text = "(Cloaker lunge!)",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 11
 				},
 				tsr_entrance = {
 					text = "(Taser entrance)",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 55
 				},
 				tsr_elite = {
@@ -11927,22 +12019,22 @@ ClosedCaptions._sounds = {
 				},
 				post_kill_taunt = {
 					text = "post_kill_taunt",
-					category = "enemy_taunts",
+					category = "enemy_chatter",
 					priority = 60
 				},
 				post_tasing_taunt = {
 					text = "(tasing taunt)",
-					category = "enemy_taunts",
+					category = "enemy_chatter",
 					priority = 60
 				},
 				shield_identification = {
 					text = "(Shield clanking)",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 55
 				},
 				tasered = {
-					text = "(tased)",
-					category = "UNKNOWN",
+					text = "(being tased!)",
+					category = "sfx",
 					priority = 15
 				},
 				tasing = {
@@ -11958,7 +12050,7 @@ ClosedCaptions._sounds = {
 				},
 				heal = {
 					text = "(healed cop)",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 50
 				},
 				["911_call"] = {
@@ -11985,7 +12077,7 @@ ClosedCaptions._sounds = {
 				},
 				dsp_radio_query_1 = {
 					text = "(pager ring, operator query)",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					max_distance = 4500,
 					priority = 36,
 					duration = 5
@@ -11994,126 +12086,149 @@ ClosedCaptions._sounds = {
 					text = "(pager operator fooled)",
 					max_distance = 4500,
 					priority = 36,
-					category = "enemy_callouts"
+					category = "enemy_dialogue"
 				},
-				mga_death_scream = {
+				mga_death_scream = { -- unused afaik
+					override_name = "Megaphone Cop",
 					text = "[muted scream, megaphone feedback]",
-					category = "killed_enemy",
+					category = "mission_dialogue",
 					priority = 37
 				},
 				mga_deploy_snipers = {
+					override_name = "Megaphone Cop",
 					text = "Deploying snipers!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_generic_a = {
+					override_name = "Megaphone Cop",
 					text = "How's it going? Is everyone alright?",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_generic_b = {
+					override_name = "Megaphone Cop",
 					text = "Give up! There's no way you'll get away with this!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_generic_c = {
+					override_name = "Megaphone Cop",
 					text = "We're past negotiations- you die tonight!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_hostage_assault_delay = {
+					override_name = "Megaphone Cop",
 					text = "We know you took hostages!", --alt. "very clever, we're delayed"
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_intro = {
+					override_name = "Megaphone Cop",
 					text = "This is the Washington Police, there is no way out!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_killed_civ_1st = {
+					override_name = "Megaphone Cop",
 					text = "You've killed a civilian! You're not helping me or yourself.",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_killed_civ_2nd = {
+					override_name = "Megaphone Cop",
 					text = "Multiple kills, you're way outta line! This is madness!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_leave = {
+					override_name = "Megaphone Cop",
 					text = "Fuck this, I'm hitting the golf course!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_robbers_clever = {
+					override_name = "Megaphone Cop",
 					text = "Impressive! But you still won't get away!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_thermite = {
+					override_name = "Megaphone Cop",
 					text = "Thermite to get into the vault? Ha! But now we have you trapped!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_vault_a = {
+					override_name = "Megaphone Cop",
 					text = "There's no way into the vault, give up!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_vault_b = {
+					override_name = "Megaphone Cop",
 					text = "That's a multilayer vault! Didn't think it'd be that easy did you?",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_vault_c = {
+					override_name = "Megaphone Cop",
 					text = "You've breached the vault, but now you're heavy and we're fast.",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_t01a_con_plu = {
+					override_name = "Megaphone Cop",
 					text = "We're willing to do a hostage trade.",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s01 = {
+					override_name = "Megaphone Cop",
 					text = "Listen up! This is the police!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s02 = {
+					override_name = "Megaphone Cop",
 					text = "We know you're in there",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s03 = {
+					override_name = "Megaphone Cop",
 					text = "We have you surrounded",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s04 = {
+					override_name = "Megaphone Cop",
 					text = "Make no mistake, we're in charge of this situation!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s05 = {
+					override_name = "Megaphone Cop",
 					text = "Resistance is futile, give up!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s06 = {
+					override_name = "Megaphone Cop",
 					text = "This is your last warning!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s07 = {
+					override_name = "Megaphone Cop",
 					text = "We will not give up until all the hostages are released!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				a01 = {
 					text = "They've got a gun!",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 70
 				},
 				a02 = {
@@ -12128,7 +12243,7 @@ ClosedCaptions._sounds = {
 				},
 				a05 = {
 					text = "Two-Four reporting in, all quiet here.",
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					priority = 37
 				},
 				a06 = {
@@ -12139,7 +12254,7 @@ ClosedCaptions._sounds = {
 					text = "Alerted",
 					variants = {
 						cop = {
-							category = "enemy_callouts",
+							category = "enemy_dialogue",
 							priority = 37,
 							line_variations = {
 								whisper_mode = {
@@ -12152,97 +12267,97 @@ ClosedCaptions._sounds = {
 					}
 				},
 				a07b = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "That's weird...", --see something suspicious
 					priority = 37
 				},
 				a08 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Intruder!",
 					priority = 37
 				},
 				a09 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Sound the alarm!",
 					priority = 37
 				},
 				a10 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, there's a broken window here...",
 					priority = 37
 				},
 				a11 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, there's a dead body here...",
 					priority = 37
 				},
 				a12 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, I've spotted a dead officer...",
 					priority = 37
 				},
 				a13 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, I've spotted a tied up civilian...",
 					priority = 37
 				},
 				a14 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, I've spotted a tied up officer...",
 					priority = 37
 				},
 				a15 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, we've got a situation here...",
 					priority = 37
 				},
 				a16 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, we've got an officer signalling for help...",
 					priority = 37
 				},
 				a17 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, there's a security door that shouldn't be open here...",
 					priority = 37
 				},
 				a18 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, somebody set a fire over here...",
 					priority = 37
 				},
 				a19 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, I've got a bodybag over here...",
 					priority = 37
 				},
 				a20 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, I've spotted some kind of sentry gun over here...",
 					priority = 37
 				},
 				a21 = { --not used
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, I've spotted a trip mine...",
 					priority = 37
 				},
 				a22 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, I've spotted a suspicious bag...",
 					priority = 37
 				},
 				a23 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, there's signs of intruders here...",
 					priority = 37
 				},
 				a24 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, somebody's been messing with the computer here...",
 					priority = 37
 				},
 				a25 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Four reporting in, I've spotted some heavy drilling equipment here...",
 					priority = 37
 				},
@@ -12257,182 +12372,191 @@ ClosedCaptions._sounds = {
 					priority = 90
 				},
 				b01 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Entrance is A-OK. Over.",
 					priority = 37
 				},
 				b02 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Hall A is all clear. Over.",
 					priority = 37
 				},
 				b03 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Hall B is all clear. Over.",
 					priority = 37
 				},
 				b04 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Hall C is all clear. Over.",
 					priority = 37
 				},
 				b05 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Hall D is all clear. Over.",
 					priority = 37
 				},
 				b06 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Roof is all clear. Over.",
 					priority = 37
 				},
 				b07 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Basement is all clear. Over.",
 					priority = 37
 				},
 				b08 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Ground Floor is all clear. Over.",
 					priority = 37
 				},
 				b09 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Second Floor is all clear. Over.",
 					priority = 37
 				},
 				b10 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Third Floor is all clear. Over.",
 					priority = 37
 				},
 				b11 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Pool Area is all clear. Over.",
 					priority = 37
 				},
 				b12 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Balcony is all clear. Over.",
 					priority = 37
 				},
 				b13 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Living Room is all clear. Over.",
 					priority = 37
 				},
 				b14 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Corridor is all clear. Over.",
 					priority = 37
 				},
 				b15 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Lobby is all clear. Over.",
 					priority = 37
 				},
 				b16 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Security Door is shut and locked, everything's fine. Over.",
 					priority = 37
 				},
 				b17 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Security Room is all clear. Over.",
 					priority = 37
 				},
 				b18 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, camera is working fine, no sign of tampering. Over.",
 					priority = 37
 				},
 				b19 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Staircase is all clear. Over.",
 					priority = 37
 				},
 				b20 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Penthouse is clear. Over.",
 					priority = 37
 				},
 				b21 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Garage is clear. Over.",
 					priority = 37
 				},
 				b22 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Moving on.",
 					priority = 37
 				},
 				b23 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three to Control, could someone buzz me through the door?.",
 					priority = 37
 				},
 				b24 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three to Control, this whole place is clear, I'm going home. Over and out.",
 					priority = 37
 				},
 				b25 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Reporting in, glass shards everywhere! Signs of break in! Send reinforcements!",
 					priority = 37
 				},
 				b26 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, someone's been fiddling with this camera. Send backup!",
 					priority = 37
 				},
 				b27 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, I hear some kind of noise. Send backup!",
 					priority = 37
 				},
 				b28 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Two-Three reporting in, I'm outside the lobby. Over.",
 					priority = 37
 				},
 				bak = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Watch your background, civilians on scene!",
 					priority = 37
 				},
 				burndeath = { --!
-					category = "killed_enemy",
+					category = "enemy_death",
 					text = "[fire death]",
 					priority = 90
 				},
 				burnhurt = {
-					variants = {
-						cop = {
-							subvariants = {
-								clk = {
-									category = "enemy_chatter",
-									text = "[fire hurt]"
-								},
-								mdc = {
-									category = "enemy_chatter",
-									text = "[fire hurt]"
-								},
-								shd = {
-									category = "enemy_chatter",
-									text = "[fire hurt]"
-								},
-								bdz = {
-									category = "enemy_chatter",
-									text = "[fire hurt]"
-								},
-								tsr = {
-									category = "enemy_chatter",
-									text = "[fire hurt]"
-								}
-							}
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					line_variations = {
+						standard_mode = {
+							"[panicked gasping on fire]",
+							"[hyperventilating on fire]",
+							"[screams on fire]"
 						}
 					}
+--					variants = {
+--						cop = {
+--							subvariants = {
+--								clk = {
+--									category = "enemy_chatter",
+--									text = "[fire hurt]"
+--								},
+--								mdc = {
+--									category = "enemy_chatter",
+--									text = "[fire hurt]"
+--								},
+--								shd = {
+--									category = "enemy_chatter",
+--									text = "[fire hurt]"
+--								},
+--								bdz = {
+--									category = "enemy_chatter",
+--									text = "[fire hurt]"
+--								},
+--								tsr = {
+--									category = "enemy_chatter",
+--									text = "[fire hurt]"
+--								}
+--							}
+--						}
+--					}
 				},
 				c01 = {
 					category = "enemy_chatter",
@@ -12470,8 +12594,14 @@ ClosedCaptions._sounds = {
 					priority = 90
 				},
 				cn1 = {
-					category = "enemy_callouts",
-					text = "[converted to joker]",
+					category = "enemy_dialogue",
+					text = "(converted to joker)",
+					line_variations = {
+						standard_mode = {
+							"Yeah... okay...",
+							"You're going to hell for this."
+						}
+					},
 					priority = 40
 				},
 				cr1 = {
@@ -12480,12 +12610,12 @@ ClosedCaptions._sounds = {
 					priority = 90
 				},
 				d01 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Deploy smoke.",
 					priority = 90
 				},
 				d02 = {
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Throwing a flashbang!",
 					priority = 60
 				},
@@ -12653,7 +12783,7 @@ ClosedCaptions._sounds = {
 					priority = 90
 				},
 				s01x = { --cop surrender
-					category = "enemy_callouts",
+					category = "enemy_dialogue",
 					text = "Okay, okay! Just don't shoot!",
 					priority = 40,
 					line_variations = {
@@ -13887,7 +14017,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					category = "sfx",
 					priority = 37,
-					max_distance = 1000,
+					max_distance = 700,
 					text = "[classical piano music]"
 				},
 				
@@ -14439,11 +14569,13 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 10,
 					priority = 37,
+					max_distance = 1500,
 					loop_data = {
 						loop_interval = 10,
+						use_random_variations = true,
 						use_random_loop_interval = true
 					},
-					text = "[talking on phone]",
+					text = "talking on phone and being a dick in general",
 					line_variations = {
 						standard_mode = {
 							"So, uh, they took me into HR at the head office again. It turns out you can't tell a grandmother to suck a bag of- shit, they might be listening.",
@@ -14467,11 +14599,13 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 10,
 					priority = 37,
+					max_distance = 1500,
 					loop_data = {
 						loop_interval = 10,
+						use_random_variations = true,
 						use_random_loop_interval = true
 					},
-					text = "[talking on phone]",
+					text = "(talking on phone and being a dick in general)",
 					line_variations = {
 						standard_mode = {
 							"I could give two shits about someone's college tuition! [pause] Well, if you give me $50,000 for shits...",
@@ -14492,11 +14626,13 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 10,
 					priority = 37,
+					max_distance = 1500,
 					loop_data = {
 						loop_interval = 10,
+						use_random_variations = true,
 						use_random_loop_interval = true
 					},
-					text = "[talking on phone]",
+					text = "(talking on phone and being a dick in general)",
 					line_variations = {
 						standard_mode = {
 							"Investing in banks is as safe as housing! And I mean nice housing, with bricks and everything!",
@@ -14558,9 +14694,10 @@ ClosedCaptions._sounds = {
 --big bank				
 				teller_customer_dialog_approve = {
 					text = "(civilian's grant request approved by teller)",
+					override_name = "",
 					category = "civilian_callouts",
 					priority = 40,
-					max_distance = 1500,
+					max_distance = 500, --these are actually really irritating and large so i reduced the range from 1500
 					duration = 35,
 					line_variations = {
 						recombinable = true,
@@ -14619,7 +14756,7 @@ ClosedCaptions._sounds = {
 					text = "(civilian's grant request rejected by teller)",
 					category = "civilian_callouts",
 					priority = 40,
-					max_distance = 1500,
+					max_distance = 500,
 					duration = 35,
 					line_variations = {
 						recombinable = true,
@@ -14676,7 +14813,7 @@ ClosedCaptions._sounds = {
 					text = "(Next customer, please.)",
 					category = "civilian_callouts",
 					priority = 40,
-					max_distance = 1500,
+					max_distance = 500,
 					duration = 4,
 					line_variations = {
 						standard_mode = {
@@ -14705,7 +14842,7 @@ ClosedCaptions._sounds = {
 					priority = 40
 				},
 				Play_gensec_conversation_ending_1 = {
-					override_name_id = "Phone Call",
+					override_name = "Phone Call",
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -14748,7 +14885,7 @@ ClosedCaptions._sounds = {
 					}
 				},
 				Play_gensec_conversation_ending_2 = {
-					override_name_id = "Phone Call",
+					override_name = "Phone Call",
 					line_variations = {
 						recombinable = true,
 						standard_mode = {

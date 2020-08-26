@@ -1,11 +1,14 @@
 --[[
 BEFORE FIRST PUBLIC RELEASE:
-	* finish tagging persistent looped sounds (eg. fwb bank manager) 
+	* menu button to remove stuck lines
 	
-	* implement use_random_loop_interval
-	
-	* todo test in multiplayer
-	
+	* looped sound behavior:
+		* implement use_random_loop_interval
+		* implement use_random_variations
+		* implement fadeout when out of range
+			* destroy panel to facilitate fadeout + re-randomization?
+			* or set alpha?
+
 	* todo separate IsLoggingEnabled() check into "is logging missing lines enabled" and "is logging errors enabled"
 	* todo conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
 
@@ -20,6 +23,9 @@ OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
 * ambient sfx category
 
 * enable/disable priority system
+
+* override_names
+death category
 
 * smooth movement for caption lines filling in unused space
 
@@ -225,22 +231,27 @@ ClosedCaptions.settings = {
 	captions_max_count = 5,
 	caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 	caption_font_size = 20,
-	caption_randomization = true,
+	caption_allcaps_names = true,
+	caption_variation_mode = 1,
 	caption_priority_enabled = true,
-	category_heister_callouts = true,
+	caption_empty_voicelines = true, -- show the caption if the line does not have an actual sound file recorded for it
 	category_mission_dialogue = true,
-	category_sfx = true,
 	category_contractor_vo = true,
-	category_enemy_callouts = 3,
+	category_sfx = true,
+	category_heister_dialogue = true,
+	category_heister_spots = true,
+	category_heister_kills = true,
+	category_civilian_dialogue = 2,
+	category_enemy_dialogue = 1,
 	category_enemy_chatter = 2,
-	category_enemy_taunts = true,
-	category_spotted_enemy = true,
-	category_killed_enemy = true,
-	category_civilian_callouts = 3,
-	DEFAULT_LINE_DURATION = 3 --only applies to lines that don't have an expire_t or duration override specified
+	category_enemy_death = 2,
+	category_specialenemy_chatter = true,
+	category_specialenemy_death = true,
+	DEFAULT_LINE_DURATION = 3 -- only applies to lines that don't have an expire_t or duration override specified
 }
 
 ClosedCaptions.hud_data = {
+	--haha, you thought there would be data here, BUT IT WAS ME, DIO
 }
 
 ClosedCaptions.active_lines = { --tracks currently active captions
@@ -332,22 +343,41 @@ function ClosedCaptions:IsLoggingEnabled()
 	return self.settings.logging_enabled
 end
 
-function ClosedCaptions:IsCaptionCategoryEnabled(category)
-	local category_names = {
-		heister_callouts = "category_heister_callouts",
-		mission_dialogue = "category_mission_dialogue",
-		sfx = "category_sfx",
-		contractor_vo = "category_contractor_vo",
-		enemy_callouts = "category_enemy_callouts",
-		enemy_chatter = "category_enemy_chatter",
-		enemy_taunts = "category_enemy_taunts",
-		spotted_enemy = "category_spotted_enemy",
-		killed_enemy = "category_killed_enemy",
-		civilian_callouts = "category_civilian_callouts"
-	}
-	if category_names[category] then 
-		return self.settings[category_names[category]]
-	elseif category and category ~= "UNKNOWN" then
+ClosedCaptions.category_names_to_setting_names = {
+	mission_dialogue = "category_mission_dialogue",
+	contractor_vo = "category_contractor_vo",
+	sfx = "category_sfx",
+	heister_dialogue = "category_heister_dialogue",
+	heister_spots = "category_heister_spots",
+	heister_kills = "category_heister_kills",
+	civilian_dialogue = "category_civilian_dialogue",
+	enemy_dialogue = "category_enemy_dialogue",
+	enemy_chatter = "category_enemy_chatter",
+	enemy_death = "category_enemy_death",
+--	specialenemy_dialogue = "category_specialenemy_dialogue",
+	specialenemy_chatter = "category_specialenemy_chatter",
+	specialenemy_death = "category_specialenemy_death"
+}
+
+function ClosedCaptions:IsCaptionCategoryEnabled(category,is_special_enemy)
+--since sometimes enemies and special enemies share death lines), this is written in this function instead of the sound_data, in the event that:
+--    a) overkill adds a new special enemy (though unlikely) and i'm not around to adjust the sound_data;
+-- or b) modders add a new special enemy (they already exist)
+	if category == "enemy_death" then 
+		if is_special_enemy then 
+			category = "specialenemy_death"
+		end
+	elseif category == "enemy_chatter" then 
+		if is_special_enemy then 
+			category = "specialenemy_chatter"
+		end
+	end
+	
+	if self.category_names_to_setting_names[category] then 
+		return self.settings[self.category_names_to_setting_names[category]]
+	elseif category == "UNKNOWN" then
+		return self:IsLoggingEnabled()
+	else
 		self:log("IsCaptionCategoryEnabled() Unknown category " .. tostring(category),{color=Color.yellow})
 		return nil
 	end
@@ -358,7 +388,15 @@ function ClosedCaptions:IsPriorityEnabled()
 end
 
 function ClosedCaptions:IsLineRandomizationEnabled()
-	return self.settings.caption_randomization
+	return self.settings.caption_variation_mode == 1
+end
+
+function ClosedCaptions:AllowEmptyVoicelines() 
+	return self.settings.caption_empty_voicelines
+end
+
+function ClosedCaptions:UseCapitalNames()
+	return self.settings.caption_allcaps_names
 end
 
 function ClosedCaptions:LoadSounds(skip_processing)
@@ -740,6 +778,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	local text_color = Color.white
 	local is_whisper_mode = managers.groupai:state():whisper_mode()
 	local is_assault_mode = managers.groupai:state():get_assault_mode()
+	local is_special_enemy
+
 	
 	local all_sounds_data = self:GetSoundTable()
 	local subvariant
@@ -752,13 +792,13 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		local char_name = source and managers.criminals:character_name_by_unit(source)
 		source_name = (char_name and managers.localization:text("menu_" .. tostring(char_name))) or source_name
 	else
+		if source and alive(source) then 
+			 is_special_enemy = managers.groupai:state():is_enemy_special(source)
+		end
 		if variant == "cop" then 
 			subvariant = source and source:base()._tweak_table
 			source_name = subvariant and self.unit_names[subvariant] or variant
 			
---			managers.groupai:state():is_enemy_special(source) then --do category filter here
-			
---			source_name = source:base()._tweak_table
 			text_color = self.color_data.law1 -- Color(0.3,0.5,1)
 		elseif variant == "civilian" then 
 			source_name = self.unit_names[variant] or variant
@@ -850,7 +890,11 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			end
 		end
 		
-		if subvariant_data.disabled == true then 
+		if subvariant_data.disabled == "missing" then
+			if not self:AllowEmptyVoicelines() then 
+				return 
+			end
+		elseif subvariant_data.disabled then 
 			return
 		end
 		
@@ -862,7 +906,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		--exempt from category check since it assumes that the line it's stopping is of the same category... duh
 		stop_line(sound_data,"_remove_line")
 	else
-		local category_allowed = self:IsCaptionCategoryEnabled(category)
+		local category_allowed = self:IsCaptionCategoryEnabled(category,is_special_enemy)
+		
 		if category_allowed == false then 
 			self:log("Category is not allowed! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
 			return
@@ -926,6 +971,10 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			-- fadeout specified target line, since the current line isn't replacing it
 		
 		self:log("add_line(): Subvariant " .. tostring(subvariant) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t) .. " (effective duration " .. debug_duration .. ")",{color=text_color})
+	end
+	
+	if self:UseCapitalNames() then 
+		source_name = utf8.to_upper(source_name)
 	end
 	
 	local panel_text = tostring(source_name) .. ": " .. tostring(text)
@@ -1147,44 +1196,63 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 	MenuCallbackHandler.callback_closedcaptions_set_font_size = function(self,item)
 		ClosedCaptions.settings.caption_font_size = tonumber(item:value())
 	end
-	
+	MenuCallbackHandler.callback_closedcaptions_caption_order = function(self,item)
+		ClosedCaptions.settings.caption_order = tonumber(item:value())
+	end
 	MenuCallbackHandler.callback_closedcaptions_enable_logging = function(self,item)
 		ClosedCaptions.settings.logging_enabled = item:value() == "on"
 	end
 	
-	MenuCallbackHandler.callback_closedcaptions_enable_category_heister_callouts = function(self,item)
-		ClosedCaptions.settings.category_heister_callouts = item:value() == "on"
-	end
-	
-	MenuCallbackHandler.callback_closedcaptions_enable_category_mission_dialogue = function(self,item)
+	MenuCallbackHandler.callback_closedcaptions_category_mission_dialogue = function(self,item)
 		ClosedCaptions.settings.category_mission_dialogue = item:value() == "on"
 	end
 	
-	MenuCallbackHandler.callback_closedcaptions_enable_category_sfx = function(self,item)
+	MenuCallbackHandler.callback_closedcaptions_caption_variation_mode = function(self,item)
+		ClosedCaptions.settings.caption_variation_mode = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_contractor_vo = function(self,item)
+		ClosedCaptions.settings.category_contractor_vo = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_sfx = function(self,item)
 		ClosedCaptions.settings.category_sfx = item:value() == "on"
 	end
 	
-	MenuCallbackHandler.callback_closedcaptions_enable_category_civilian_callouts = function(self,item)
-		ClosedCaptions.settings.category_civilian_callouts = tonumber(item:value())
+	MenuCallbackHandler.callback_closedcaptions_category_heister_dialogue = function(self,item)
+		ClosedCaptions.settings.category_heister_dialogue = item:value() == "on"
 	end
 	
-	MenuCallbackHandler.callback_closedcaptions_enable_category_contractor_vo = function(self,item)
-		ClosedCaptions.settings.category_contractor_vo = item:value() == "on"
+	MenuCallbackHandler.callback_closedcaptions_category_heister_spots = function(self,item)
+		ClosedCaptions.settings.category_heister_spots = item:value() == "on"
 	end
-	MenuCallbackHandler.callback_closedcaptions_enable_category_enemy_chatter = function(self,item)
+	
+	MenuCallbackHandler.callback_closedcaptions_category_heister_kills = function(self,item)
+		ClosedCaptions.settings.category_heister_kills = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_civilian_dialogue = function(self,item)
+		ClosedCaptions.settings.category_civilian_dialogue = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_enemy_dialogue = function(self,item)
+		ClosedCaptions.settings.category_enemy_dialogue = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_enemy_chatter = function(self,item)
 		ClosedCaptions.settings.category_enemy_chatter = tonumber(item:value())
 	end
-	MenuCallbackHandler.callback_closedcaptions_enable_category_enemy_taunts = function(self,item)
-		ClosedCaptions.settings.category_enemy_taunts = item:value() == "on"
+	
+	MenuCallbackHandler.callback_closedcaptions_category_enemy_death = function(self,item)
+		ClosedCaptions.settings.category_enemy_death = tonumber(item:value())
 	end
-	MenuCallbackHandler.callback_closedcaptions_enable_category_enemy_callouts = function(self,item)
-		ClosedCaptions.settings.category_enemy_callouts = tonumber(item:value())
+	
+	MenuCallbackHandler.callback_closedcaptions_category_specialenemy_chatter = function(self,item)
+		ClosedCaptions.settings.category_specialenemy_chatter = item:value() == "on"
 	end
-	MenuCallbackHandler.callback_closedcaptions_enable_category_spotted_enemy = function(self,item)
-		ClosedCaptions.settings.category_spotted_enemy = item:value() == "on"
-	end
-	MenuCallbackHandler.callback_closedcaptions_enable_category_killed_enemy = function(self,item)
-		ClosedCaptions.settings.category_killed_enemy = item:value() == "on"
+	
+	MenuCallbackHandler.callback_closedcaptions_category_specialenemy_death = function(self,item)
+		ClosedCaptions.settings.category_specialenemy_death = item:value() == "on"
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_set_language = function(self,item)
