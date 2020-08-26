@@ -11,8 +11,6 @@ BEFORE FIRST PUBLIC RELEASE:
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
 
-* review "stops" category; otherwise, i guess i'd assume that since it's the same category as the sound it's stopping, it's allowed
-
 * todo adjust horizontal position of subtitles
 * todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
@@ -44,43 +42,7 @@ ISSUES
 	some captions for sounds that are played via mission core ElementPlaySound may cut off prematurely
 	Taxman lines may cut off prematurely (reason unknown)
 --]]
---[[
 
-
-mission dialogue to check/enter:
-	- GO Bank phone calls?  especially the blackmailer fucker
-	
-	- diamond heist ceo dialogue/ceo son dialogue
-	- rats day 3 c4 sound? rats d2 doublecross dialogue?
-	- green bridge prisoner dialogue
-	- hell's island bain dialogue/dentist dialogue
-	- hoxton breakout hoxton dialogue? (DAY 2)
-	
-	- hotline miami commissar taunts
-	- biker heist mechanic?
-	- reservoir dogs mr purple dialogue?
-	- scarface mansion sosa dialogue
-	- breakin' feds garrett dialogue
-	
-	- meltdown sfx geiger counter click
-	
-	- brooklyn 10/10 charon?
-	- Goat simulator d2 doctor?
-	- beneath the mountain locke dialogue?
-	- stealing xmas almir dialogue
-	- Car shop manager chatter
-	- border crossing...?
-* aldstone lines?
-* ecm sounds
-* cam loop/ cam loop about to end
-* breaking glass
---]]
---[[ Style guidelines:
-
-[square brackets] convey a tone or action
-(parentheses) aim to convey the meaning or description of the phrase foremost, not necessarily the exact wording
-
---]]
 --[[ priority data cheat sheet:
 	priorities are roughly divided into tiers of 10,
 	so that lines can be consistently ranked separately 
@@ -106,7 +68,6 @@ mission dialogue to check/enter:
 			surrender/converted cop is 40
 		- enemy chatter is 90-100
 		
- logall(ClosedCaptions.active_lines[2])
 --]]
 
 --note: custom colors from settings MUST LOAD BEFORE LoadSounds() !!!
@@ -129,22 +90,22 @@ ClosedCaptions.debug_missing_lines = {}
 ClosedCaptions.debug_mission_name = nil --evaluated once per level, for debug tracking reasons
 
 ClosedCaptions.character_prefixes = {
-	a = "russian", --dallas 1 / 4
-	b = "spanish", --chains 2
+	a = "russian", --dallas 4
+	b = "spanish", --chains 1
 	c = "german", --wolf 3
-	d = "old_hoxton", --hoxton 4 / 5
-	l = "american", --houston 5
+	d = "old_hoxton", --hoxton 5
+	l = "american", --houston 2
 	m = "jowi", --wick 6
 	n = "clover", --clover 7
 	o = "dragan", --dragan 8
 	p = "jacket", --jacket 9
 	q = "bonnie", --bonnie 10
-	r = "sokol", --sokol 11
+	r = "sokol", --sokol 11 
 	s = "dragon", --jiro 12
 	t = "bodhi", --bodhi 13
 	u = "jimmy", --jimmy 14
 	v = "sydney", --sydney 15
-	w = "wild", --rust 16
+	w = "wild", --rust 16 
 	x = "chico", --tony 17
 	y = "max", --sangres 18
 	z = "joy", --joy 19
@@ -250,7 +211,7 @@ ClosedCaptions.color_data = {
 	l4d_witch = Color("df9ee3")
 }
 
-ClosedCaptions.caption_distance_presets = {
+ClosedCaptions.caption_distance_presets = { --unused
 	dialogue = 4500
 }
 
@@ -672,7 +633,6 @@ function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locat
 			--todo that thing i just said
 		end		
 	end
-	
 	
 	local s_x,s_y,s_w,s_h = subtitle:text_rect()
 	subtitle:set_w(s_w)

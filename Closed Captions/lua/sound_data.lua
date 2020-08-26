@@ -1631,6 +1631,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please follow the stairway down.",
+											"-follow the stairway down."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = { --technically has loud/stealth sound variants
@@ -1666,6 +1674,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please follow the stairway up.",
+											"-follow the stairway up."
+										}
+									}									
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -1696,6 +1712,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please keep to the left.",
+											"-keep to the left."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -1723,6 +1747,14 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"To the right!",
 											"Right!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please keep to the right.",
+											"-to the right."
 										}
 									}
 								},
@@ -1757,6 +1789,14 @@ ClosedCaptions._sounds = {
 										assault_mode = {
 											"Up, up!",
 											"Up!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"-head up.",
+											"Please head up."
 										}
 									}
 								},
@@ -1798,6 +1838,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"-head down.",
+											"Please head down."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -1833,6 +1881,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please head to the exit.",
+											"[distorted] Please head to the exit."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -1860,6 +1916,14 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"Inside!",
 											"Get in!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please make your way inside.",
+											"-make your way inside."
 										}
 									}
 								},
@@ -1902,6 +1966,15 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"We are in a hurry.",
+											--+ spanish one i can't decipher
+											"-comme le magasin de cigarettes est fermé. (-as the cigarette store is closed.)"
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -1931,6 +2004,14 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"Careful, now!",
 											"Careful!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Faites attention. (Pay attention).",
+											"Take care."
 										}
 									}
 								},
@@ -1969,6 +2050,15 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"This is the wrong way.",
+											"-is the wrong way.",
+											"C'est la mauvaise direction. (This is the wrong way.)"
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -1999,6 +2089,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"This is the right way.",
+											"C'est la bonne direction. (This is the right way.)"
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -2026,6 +2124,14 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"Come on.",
 											"Let's go."
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Let's go.",
+											"Allons-y. (Let's go.)"
 										}
 									}
 								},
@@ -2064,6 +2170,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"You have arrived-",
+											"You have arrived at your destination."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -2079,7 +2193,7 @@ ClosedCaptions._sounds = {
 				g15 = {
 					variants = {
 						criminal = {
-							text = "Look there",
+							text = "(Look there)",
 							category = "heister_callouts",
 							priority = 40,
 							subvariants = {
@@ -2091,6 +2205,14 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"Over there!",
 											"There!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please pay attention.",
+											"-pay attention."
 										}
 									}
 								},
@@ -2109,7 +2231,7 @@ ClosedCaptions._sounds = {
 				g16 = {
 					variants = {
 						criminal = {
-							text = "Keep defending",
+							text = "(Keep defending)",
 							category = "heister_callouts",
 							priority = 40,
 							subvariants = {
@@ -2147,7 +2269,7 @@ ClosedCaptions._sounds = {
 				g17 = {
 					variants = {
 						criminal = {
-							text = "Time to go",
+							text = "(Time to go)",
 							category = "heister_callouts",
 							priority = 40,
 							subvariants = {
@@ -2159,6 +2281,14 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"We've got to get out of here.",
 											"Time to go."
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"We should go.",
+											"[distorted] We should go."
 										}
 									}
 								},
@@ -2195,6 +2325,16 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"Move!",
 											"Move it."
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Hurry up.",
+											"Hurry up. [tape rewinding] Más rápido, imbécil. (Faster, idiot.)",
+											"-proceed.",
+											"Please proceed."
 										}
 									}
 								},
@@ -2239,9 +2379,19 @@ ClosedCaptions._sounds = {
 							},
 							rb4 = {
 								line_variations = {
-										standard_mode = {
+									standard_mode = {
 										"Straight on!",
 										"Straight ahead!"
+									}
+								}
+							},
+							rb9 = {
+								line_variations = {
+									standard_mode = {
+										"Your destination is directly ahead.",
+										"Your destination is ahead.",
+										"Your destination [tape skips] directly ahead.",
+										"Your destination [tape skips] ahead."
 									}
 								}
 							},
@@ -2276,6 +2426,14 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"Jump down!",
 											"Down here!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please jump.",
+											"-jump."
 										}
 									}
 								},
@@ -2319,6 +2477,14 @@ ClosedCaptions._sounds = {
 											"Drill mounted."
 										},
 										DISABLED_assault_mode = {}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"The drill is active. Please stay clear of the moving parts.",
+											"The drill is securely fixed."
+										}
 									}
 								},
 								rb15 = {
@@ -2425,6 +2591,18 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = { --requires stealth
+										whisper_mode = {
+											"Job is done! Now time to relax and enjoy life.",
+											"Thank you for traveling with us! We look forward to seeing you again soon.",
+											"Thank you for not disturbing passengers in the quiet zone!",
+											"Thank you for respecting our quiet zone!",
+											"Operation completed successfully!",
+											"I had a great time."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										whisper_mode = { --requires stealth
@@ -2514,6 +2692,15 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please apply cable ties to all subjects. Thank you.",
+											"Gently apply cable ties to all civilians.",
+											"[tape rewinding] -apply cable ties to all civilians."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -2550,6 +2737,14 @@ ClosedCaptions._sounds = {
 											"Watch the crowd!",
 											"Watch the civvies!",
 											"Keep the crowds in check."
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please- [tape rewinding] -maintain- [tape rewinding] -control.",
+											"[garbled] -keep all subjects in check."
 										}
 									}
 								},
@@ -2674,6 +2869,19 @@ ClosedCaptions._sounds = {
 									DISABLED_assault_mode = {}
 								}
 							},
+							rb9 = {
+								line_variations = {
+									standard_mode = {
+										"-dozer non-operational.",
+										"Bulldozer out of service.",
+										"Bulldozer non-operational.",
+										"Bulldozer non-operational. [tape rewinding] You can thank me later.",
+										"Bulldozer non-operational. [tape rewinding] I believe 'hurrays' are in order.",
+										"Bulldozer disabled.",
+										"Bulldozer no longer in working order."
+									}
+								}
+							},
 							rb15 = {
 								line_variations = {
 									standard_mode = { --! check whisper variant for get stuffed
@@ -2730,6 +2938,17 @@ ClosedCaptions._sounds = {
 									}
 								}
 							},
+							rb9 = {
+								line_variations = {
+									standard_mode = {
+										"I bought you a present.",
+										"Here you go.",
+										"Eat this.",
+										"Gomen esto- (Eat this-)",
+										"Please accept this gift."
+									}
+								}
+							},
 							rb15 = {
 								line_variations = {
 									standard_mode = {
@@ -2739,7 +2958,7 @@ ClosedCaptions._sounds = {
 										"Hahaha, BOOM!",
 										"Grenade out!",
 										"Haha, GRENADE!",
-										"Take that, you arseholes!",
+										"Take that, you arseholes!"
 									}
 								}
 							}
@@ -3310,6 +3529,14 @@ ClosedCaptions._sounds = {
 											"Gotcha!",
 											"Gotcha.",
 											"Alriiight!",
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Secured.",
+											"Thank you-"
 										}
 									}
 								},
@@ -4083,6 +4310,18 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"I'll wait here.",
+												"I'll wait here. You go on ahead.",
+												"I'll wait here. You go on ahead. [tape rewinds] Ich warte hier-"
+											}
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										recombinable = true,
@@ -4390,6 +4629,16 @@ ClosedCaptions._sounds = {
 											"Alright, let's do this!",
 											"Alright! It's game time!",
 											"THIS is what I've been waitin' for!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Now, enjoy the show!",
+											"The following presentation has been approved for mature audiences only.",
+											"Please be advised- the following presentation is not intended for minors.",
+											"We hope you have a pleasant flight."
 										}
 									}
 								}
@@ -4874,6 +5123,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Eliminate all targets, and have fun doing it."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -4898,6 +5154,13 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"INCOMING!",
 											"Here it comes!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"It's coming now."
 										}
 									}
 								},
@@ -4928,6 +5191,14 @@ ClosedCaptions._sounds = {
 											"Okay, it's here!"
 										},
 										DISABLED_assault_mode = {}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"It has arrived, thank you!",
+											"Thank you!"
+										}
 									}
 								},
 								rb15 = {
@@ -4966,6 +5237,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please, recover as much as you can safely manage!"
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -4991,6 +5269,13 @@ ClosedCaptions._sounds = {
 											"We got all of it, awesome!",
 											"And the mice got all of the cheese!",
 											"That's it!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Local stockpiles are exhausted."
 										}
 									}
 								},
@@ -5022,6 +5307,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"The drill has completed its work."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5049,6 +5341,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"The computer process has successfully completed.",
+											"The computer process [tape skips] successfully completed."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5073,6 +5373,13 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"It's done, c'mon!",
 											"It's finished, let's get on with it!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"That requirement is satisfied. Please proceed."
 										}
 									}
 								},
@@ -5106,6 +5413,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Escape vehicle is ahead.",
+											"Escape vehicle [tape skips] ahead."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5130,6 +5445,13 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"I thought I heard them in the ventilation shafts- watch out!",
 											"Hey! They're in the ventilation!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Acoustic feedback suggests opposing forces within building structure."
 										}
 									}
 								},
@@ -5160,6 +5482,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Target observed."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5186,6 +5515,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"There she is."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5209,6 +5545,13 @@ ClosedCaptions._sounds = {
 									line_variations = {
 										standard_mode = {
 											"There he is!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"There he is."
 										}
 									}
 								},
@@ -5241,6 +5584,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"There they are."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5270,6 +5620,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"It is there."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5295,6 +5652,10 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									text = "Where's the goddamn manager?"
 								},
+								rb9 = {
+									text = "It is imperative we locate the manager.",
+									text = "It is imperative we locate the manager. [tape skips] -ame su cabeza."
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5310,13 +5671,17 @@ ClosedCaptions._sounds = {
 				v34 = {
 					variants = {
 						criminal = {
-							text = "(heat speech)",
+							text = "(giving the heat speech)",
 							category = "heister_callouts",
 							priority = 40,
 							subvariants = {
 								rb1 = {
 									duration = 15,
 									text = "A'ight, hear me! This is a robbery! We ain't gonna hurt you! We after the bank's money, not yours! Your shit's insured by the federal government, a'ight? Ain't gonna lose a dime! Think of your family, don't try to be a hero, just shut up and stay down, and this'll all be over!"
+								},
+								rb2 = {
+									duration = 21,
+									text = "Listen! This is a robbery! We're not here to hurt anyone, we're after the bank's money, not yours. Your money is insured, do you hear? You're not gonna lose a cent. Think of your family; don't try to be a hero now. You just shut up, stay cool, stay down, and this'll be over in no time."
 								},
 								rb3 = {
 									duration = 19,
@@ -5326,9 +5691,70 @@ ClosedCaptions._sounds = {
 									duration = 22,
 									text = "Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your beloved ones, don't try to be a hero. Just shut up, and stay down, and this'll be over in no time."
 								},
+								rb5 = {
+									duration = 18,
+									text = "Listen up! This is a robbery! We don't want to harm anyone! We're after the bank's money, not yours! Your money is insured, alright? You're not gonna lose a penny! Think of your family- don't try to be a hero! Just shut up and stay down, and this'll be over in no time." 
+								},
+								rb6 = {
+									duration = 20,
+									text = "Listen up! This is a robbery! We don't wanna harm anyone! We're after the bank's money, not yours! Your money is insure, alright? You're not gonna lose a single dollar! Think of your families- don't try to be a hero! Just stay quiet, stay down, and this will be over quickly."
+								},
+								rb8 = {																			
+									duration = 22,
+									text = "Listen, this is a robbery! We won't hurt you! We are after bank money, not yours! Your money is insured! You lose nothing! Think of your family! Don't be a hero! Just stay... quiet and down, and this will be over... you understand? ...Yeah!"
+								},
+								rb9 = {
+									duration = 22,
+									text = "Please pay attention! You will be happy to know, you are victims of a robbery! You will not be harmed. We will take the bank's money. Your savings are insured by the federal government. Please, consider your loved ones. Remain calm and quiet, and your survival is assured."
+								},
+								rb10 = {
+									duration = 25,
+									text = "Listen! This is robbery! We're not here to hurt you, right? We're only after the bank's money, not yours! All your money is insured by the government, right! You won't lose a FUCKIN' penny! Think of your families, now- your wives, your bairns- just KEEP IT SHUT! Stay down, and this'll be over in a fuckin' jiffy." 
+								},
+								rb11 = {
+									duration = 18,
+									text = "[bored] Listen! This is robbery! We don't want to kill you, we're after the bank's money, not your money. Your money is insured by the government, you're not gonna lose a dime. Think of sweet mama, don't be hero. [intense] NOW SHUT THE FUCK UP AND STAY DOWN, AND THIS WILL BE OVER, SOON!" 
+								},
+								--rb12 = { duration = 23, text = "uh.... does anyone speak japanese?" },
+								rb13 = {
+									duration = 21,
+									text = "Up here, everyone. This is a robbery. We're not here to hurt anyone. We're after this bank's money, not yours. Your money is insured by the federal government, okay? You're not gonna lose a dime. Think of your loved ones. Don't try to be a hero. Just stay down, and stay quiet, and this'll be over in no time."
+								},
+								rb14 = {
+									duration = 32,
+									text = "OI! Up here! Now, this is... is a FUCKING bank robbery. Yeah? BUT! We're not here to hurt you! No! We're after the BANK'S MONEY. Okay? Not yours! You're not losin' shit! So... please! Think... of your family... and friends. They want you to come home... yeah? So... just stay FUCKING QUIET... and stay DOWN... and all will be good, eh? Don't test us!"
+								},
 								rb15 = {
 									duration = 30,
 									text = "Listen up, you bloody drongos! This is a robbery! We're not here to hurt ya, but that can quickly change dependin' on your FUCKIN' actions, got it? We're after this BANK'S money, not yours. All your BLOODY money's insured by the FUCKIN' government, alright? You won't lose a FUCKIN' penny so think of your dipshit FAMILIES, now, your fat spouses and your ugly kids, you just KEEP IT SHUT like the good tools you are and STAY DOWN, and this'll be over in a bloody heartbeat."
+								},
+								rb16 = {
+									duration = 18,
+									text = "Look at me, motherfuckers. This is a robbery. We're not here to harm anyone. We're after the bank's money, not yours. Your money is insured by the federal government, okay? You're not gonna lose shit. Think of your loved ones and don't try to be a hero. Stay down and stay quiet, capiche?"
+								},
+								rb17 = {
+									duration = 21,
+									text = "Hey! Yeah, that's right, this is a robbery, but we don't wanna hurt you, okay? We just here... to take the bank's money. Your money is insured, so you're gonna be fine, if you stay fucking quiet and you don't try and be a fucking hero. You think of your families, alright? You think about your mama, we just gonna get what we came for, and then we all gonna be free to go."
+								},
+								rb18 = {
+									duration = 25,
+									text = "[casual] Heyyyy! This is a robbery. But listen up, amigos: We don't wanna hurt you, if we don't have to. We want the bank's money, not your money, ah? Your money is insured by the gringo government, so you won't lose a peso. Think of your families, and don't try anything stupid, okay? Just stay down and be quiet, and we'll be out of here soon, and you can all go home! Comprendes?"
+								},
+								rb19 = {
+									duration = 23,
+									text = "Listen up! This is a robbery! But we don't wanna hurt you! We're here for the bank's money, not yours. Your money is insured by The Man, so you won't lose a dime. Think of your families! No use risking your life! Don't be a hero- be smart! We're just gonna wrap this up and we'll be out of here, and you can get on with your lives."
+								},
+								rb20 = {
+									duration = 19,
+									text = "Okay people. This is a robbery, but don't be alarmed, it's not so bad. We just want the bank's money, not your money. Your money is insured by the federal government, so you won't lose anything. Think of your families, or your dogs or whatever, but be smart. Then we're cool and you can all go home and watch TV when it's over. "
+								},
+								rb21 = {
+									duration = 18,
+									text = "Listen up! This is a robbery! But we don't want to hurt you, and we want the bank's money, not your money. Your money's insured by the government. So you won't lose anything. Think of your families. Be smart. Just behave and do what we say and we won't kill you."
+								},
+								rb22 = {
+									duration = 20,
+									text = "Listen up! This is a robbery! But don't worry, we're not here to hurt you. We only want the bank's money- not your savings, which are insured by the federal government. You won't lose a dime. So think of your loved ones, and don't try to be a hero. Let's all try to get along, so we can leave, and you can all go home."
 								}
 							}
 						}
@@ -5350,6 +5776,9 @@ ClosedCaptions._sounds = {
 								},
 								rb4 = {
 									"BAIN!?"
+								},
+								rb9 = {
+									"Please advise."
 								},
 								rb15 = {
 									line_variations = {
@@ -5375,6 +5804,13 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"What do we do now?",
 											"The fuck do we do now?"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Requesting new directives."
 										}
 									}
 								},
@@ -5406,6 +5842,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please, remain vigilant."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5428,6 +5871,13 @@ ClosedCaptions._sounds = {
 									line_variations = {
 										standard_mode = {
 											"Sweep the place."
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Searching."
 										}
 									}
 								},
@@ -5457,6 +5907,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Searching."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5480,6 +5937,13 @@ ClosedCaptions._sounds = {
 									line_variations = {
 										standard_mode = {
 											"Let's find her!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Searching."
 										}
 									}
 								},
@@ -5509,6 +5973,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Searching."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5532,6 +6003,13 @@ ClosedCaptions._sounds = {
 									line_variations = {
 										standard_mode = {
 											"Let's find them!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Searching."
 										}
 									}
 								},
@@ -5561,6 +6039,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Searching."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5582,6 +6067,13 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									text = "Keep looking!"
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Searching."
+										}
+									}
 								},
 								rb15 = {
 									line_variations = {
@@ -5613,6 +6105,13 @@ ClosedCaptions._sounds = {
 											"Turret! Watch out!"
 										}
 									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Attention. There is a turret."
+										}
+									}
 								}
 							}
 						}
@@ -5633,6 +6132,13 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"That's what I'm talking about!",
 											"Yes! YES!",
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"This is a pleasant sensation."
 										}
 									}
 								},
@@ -5659,6 +6165,9 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									text = "Is that enough?"
 								},
+								rb9 = {
+									text = "Has enough financial restitution been recovered?"
+								},
 								rb15 = {
 									text = "Have we got enough?"
 								}
@@ -5676,6 +6185,9 @@ ClosedCaptions._sounds = {
 								rb4 = {
 									text = "Nah, get all of it!"
 								},
+								rb9 = {
+									text = "Negative. Further financial restitution required."
+								},
 								rb15 = {
 									text = "Fuck no, take it all!"
 								}
@@ -5692,6 +6204,9 @@ ClosedCaptions._sounds = {
 							subvariants = {
 								rb4 = {
 									text = "Fire at it!"
+								},
+								rb9 = {
+									text = "Please, direct firepower towards it."
 								},
 								rb15 = {
 									text = "Shoot it down!"
@@ -5712,6 +6227,13 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"We got murkies here!",
 											"Murkies!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"It would appear Murkywater are in attendance."
 										}
 									}
 								},
@@ -5742,6 +6264,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"It is time to convey these articles out."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5766,6 +6295,13 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"It's fucking stuck!",
 											"Shit, she's stuck!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Analysis confirms, it is stuck."
 										}
 									}
 								},
@@ -5796,6 +6332,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Analysis of the air indicates presence of offensive matter."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5820,6 +6363,13 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"Damn, that was loud!",
 											"[chuckles] What a bang!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"That was a loud noise."
 										}
 									}
 								},
@@ -5848,6 +6398,13 @@ ClosedCaptions._sounds = {
 											"YIPPIE-KI-YAY, MOTHERFUCKER!",
 											"FUCKIN' AWESOME!",
 											"GERONIMO, MOTHERFUCKERS!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"This is a perfect opportunity to express satisfaction."
 										}
 									}
 								},
@@ -5881,6 +6438,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Hello.",
+											"Greetings."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5908,6 +6473,15 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"A crowbar has been recovered.",
+											"A crowbar has been acquired.",
+											"[speaking Spanish] A crowbar has been acquired." --don't know what the line actually is
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -5932,6 +6506,14 @@ ClosedCaptions._sounds = {
 										standard_mode = {
 											"GET IN!",
 											"Get in the chair!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please, take a seat.",
+											"-take a seat. [distorted]"
 										}
 									}
 								},
@@ -6768,6 +7350,30 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									duration = 6,
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"[distorted] Goodbye. [tape rewinds]",
+												"Goodbye. [tape rewinds]",
+												"Vital signs deterioriating. [tape rewinds]",
+												"I think I'm catching a cold. [tape rewinds]",
+												"Health status degenerating. [tape rewinds]",
+												"I don't feel too well."
+											},
+											{
+												"Where is the nearest hospital?",
+												"In the event of personal damage, please locate the nearest First Aid Kit.",
+												"I need an appointment with the doctor.",
+												"I need an appointment with the doctor. [tape rewinds] Ich brauche einen artz-",
+												"Please find medical personnel as soon as possible.",
+												"If you've sustained medical injuries, you may need to seek attention promptly."
+											}
+										}
+									}
+								},
 								rb15 = {
 									duration = 6,
 									line_variations = {
@@ -6842,6 +7448,21 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									duration = 6,
+									line_variations = {
+										standard_mode = {
+											{
+												"Cartridges almost depleted. [tape rewinding]",
+												"Ammo reserves are low. [tape rewinding]"
+											},
+											{
+												"I need ammo.",
+												"Fill me up, please."
+											}
+										}
+									}
+								},
 								rb15 = {
 									duration = 6,
 									line_variations = {
@@ -6898,6 +7519,16 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Additional cartridges available.",
+											"Ammo. Here you go!",
+											"Ammo. Available!",
+											"Ammunition has arrived."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -6942,6 +7573,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Medic Bag available.",
+											"Medical supplies have arrived."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -6979,6 +7618,14 @@ ClosedCaptions._sounds = {
 											"Thanks!",
 											"Thanks.",
 											"Thanks, pal."
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Thank you very much.",
+											"[distorted] Thank you very much."
 										}
 									}
 								},
@@ -7042,6 +7689,15 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"What a lovely day, right?",
+											"Hi!",
+											"Hello."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7079,6 +7735,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"First Aid Kit."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7112,6 +7775,14 @@ ClosedCaptions._sounds = {
 										assault_mode = { --why were assault variants recorded
 											"Got a Bodybag Case here!",
 											"Bodybag Case"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Additional wrapping can be found in the designated area.",
+											"Additional wrapping can be found in the designated area. Zusätzlich-",
 										}
 									}
 								},
@@ -7313,6 +7984,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Down.",
+											"Down. [speaking Spanish]" --at least, i think it's spanish
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7346,6 +8025,14 @@ ClosedCaptions._sounds = {
 											"Down!",
 											"DOWN!",
 											"On the ground!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Down.",
+											"Down. [speaking Spanish]"
 										}
 									}
 								},
@@ -7412,6 +8099,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Down.",
+											"Down. [speaking Spanish]",
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7455,6 +8150,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Stay down.",
+											"Stay."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7490,6 +8193,14 @@ ClosedCaptions._sounds = {
 											"Stay where you are!"
 										},
 										DISABLED_assault_mode = {}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Stay down.",
+											"Stay."
+										}
 									}
 								},
 								rb15 = {
@@ -7541,6 +8252,14 @@ ClosedCaptions._sounds = {
 										DISABLED_assault_mode = {}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Stay down.",
+											"Stay."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7578,6 +8297,13 @@ ClosedCaptions._sounds = {
 											"Pain is just mental! Get back up!"
 										},
 										DISABLED_assault_mode = {} --we need you, buddy! Stand up!
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Wake up."
+										}
 									}
 								},
 								rb15 = {
@@ -7628,6 +8354,19 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										whisper_mode = {
+											"A security guard.",
+											"Security guard.",
+											"-uard.",
+											"Guardia. (Guard.)",
+											"Eine bewachen. (A guard.)",
+											"-Bewachen. (Guard.)",
+											"Bewachen. (Guard.)"
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										whisper_mode = {
@@ -7665,6 +8404,14 @@ ClosedCaptions._sounds = {
 										DISABLED_assault_mode = {}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please follow.",
+											"-follow."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7697,6 +8444,20 @@ ClosedCaptions._sounds = {
 											"[whispering] Stay back.",
 											"[whispering] Watch it, guys.",
 											"[whispering] Keep track, guys."
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										whisper_mode = {
+											"A camera.",
+											"Security-",
+											"Security camera.",
+											"Una camera. (A camera.)",
+											"[speaking Spanish] Camera.",
+											"[speaking French] Camera.",
+											"Stay clear.",
+											"Monitoring-"
 										}
 									}
 								},
@@ -7740,6 +8501,16 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Hurry up.",
+											"Hurry up. [tape rewinding] Más rápido, imbécil. (Faster, idiot.)",
+											"-proceed.",
+											"Please proceed."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7769,6 +8540,13 @@ ClosedCaptions._sounds = {
 											"Up!"
 										},
 										DISABLED_assault_mode = {}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Wake up."
+										}
 									}
 								},
 								rb15 = {
@@ -7801,6 +8579,13 @@ ClosedCaptions._sounds = {
 											"Up!"
 										},
 										DISABLED_assault_mode = {}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Wake up."
+										}
 									}
 								},
 								rb15 = {
@@ -7848,6 +8633,19 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"It is advised that you answer immediately.",
+											"Exercise caution when [distorted] aggravating my temper.",
+											"Please, reply.",
+											"Please, do not be brave.",
+											"Please, do not be a hero. Muy esto-",
+											"Please, do it immediately.",
+											"We respectfully request an answer."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7892,6 +8690,15 @@ ClosedCaptions._sounds = {
 										DISABLED_assault_mode = {}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please hold.",
+											"Please wait.",
+											"You have been put on hold."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -7932,6 +8739,22 @@ ClosedCaptions._sounds = {
 											}
 										},
 										DISABLED_assault_mode = {}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"[disorted] -the event of drill malfunction,",
+												"In the event of drill malfunction,",
+												"-drill malfunction,"
+											},
+											{
+												"please call technical support.",
+												"[tape fastforwarding] -call technical support."
+											}
+										}
 									}
 								},
 								rb15 = {
@@ -7985,6 +8808,22 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										recombinable = true,
+										standard_mode = {
+											{
+												"[disorted] -the event of drill malfunction,",
+												"In the event of drill malfunction,",
+												"-drill malfunction,"
+											},
+											{
+												"please call technical support.",
+												"[tape fastforwarding] -call technical support."
+											}
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										recombinable = true,
@@ -8025,6 +8864,13 @@ ClosedCaptions._sounds = {
 											"Appears like the computer ain't workin' right!"
 										},
 										DISABLED_assault_mode = {}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"-software malfunction, please call technical support."
+										}
 									}
 								},
 								rb15 = {
@@ -8201,8 +9047,54 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb5 = {
+									line_variations = {
+										standard_mode = {
+											"[chuckles] This is going to be so much fun...",
+											"Let's do this.",
+											"Alright, let's do this.",
+											"Let's break some necks.",
+											"Mask up.",
+											"Let's get to it.",
+											"It's cha-ching time!",
+											"Here goes nothing.",
+											"Time to rock."
+										}
+									}
+								},
 								rb7 = {
-									text = "It's showtime, you shites..."
+									line_variations = {
+										standard_mode = { --noncomprehensive, just haven't logged any
+											"It's showtime, you shites..."
+										}
+									}
+								},
+								rb8 = {
+									line_variations = {
+										standard_mode = {
+											"Let's bite more than we can chew.",
+											"Let's nail this.",
+											"Let's do what we came for.",
+											"Let's do this, people.",
+											"Ready for action.",
+											"Let's hit it.",
+											"Let's get to it.",
+											"Time for action.",
+											"Time to do this.",
+											"Idemo ludo... (Let's go crazy...)", 
+											"[speaking Croatian]"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Now, enjoy the show!",
+											"The following presentation has been approved for mature audiences only.",
+											"Please be advised- the following presentation is not intended for minors.",
+											"We hope you have a pleasant flight."
+										}
+									}
 								},
 								rb15 = {
 									line_variations = {
@@ -8266,6 +9158,14 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Yes, I understand.",
+											"Message received."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -8297,6 +9197,27 @@ ClosedCaptions._sounds = {
 										"I'm comin' for ya!",
 										"I'll be there in a flash!",
 										"I'll be there in an instant!"
+									}
+								}
+							},
+							rb9 = {
+								line_variations = {
+									recombinable = true,
+									standard_mode = {
+										{
+											"-will arrive shortly.",
+											"-we are coming.",
+											"I am happy to help.",
+											"Help is on the way!",
+											"We will arrive shortly.",
+											"I will gladly help."
+										},
+										{										
+											"[tape rewinding] Please hold.",
+											"[tape rewinding] Don't panic.",
+											"[tape rewinding] Please be patient.",
+											"Stay calm and don't panic."
+										}
 									}
 								}
 							},
@@ -8334,6 +9255,14 @@ ClosedCaptions._sounds = {
 										"Gotcha."
 									}
 								}
+							},
+							rb9 = {
+								line_variations = {
+									standard_mode = {
+										"Yes, I understand.",
+										"Message received."
+									}
+								}
 							}
 						}
 					}
@@ -8363,11 +9292,11 @@ ClosedCaptions._sounds = {
 				t02x_sin = {
 					variants = {
 						criminal = {
+							text = "Halfway there.",
 							category = "heister_callouts",
 							priority = 40,
 							subvariants = {
 								rb4 = {
-									text = "Halfway there.",
 									line_variations = {
 										standard_mode = {
 											"We're halfway through!",
@@ -8386,11 +9315,11 @@ ClosedCaptions._sounds = {
 				t03x_sin = {
 					variants = {
 						criminal = {
+							text = "Almost there.",
 							category = "heister_callouts",
 							priority = 40,
 							subvariants = {
 								rb4 = {
-									text = "Almost there.",
 									line_variations = {
 										standard_mode = {
 											"Only seconds away!",
@@ -8439,6 +9368,13 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Arms outstretched!"
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -8473,7 +9409,7 @@ ClosedCaptions._sounds = {
 							category = "heister_callouts",
 							priority = 40,
 							subvariants = {
-								rb15 = {
+								rb4 = {
 									line_variations = {
 										standard_mode = {
 											"Down on your knees!",
@@ -8490,6 +9426,13 @@ ClosedCaptions._sounds = {
 											"Get on your knees, fuck it!",
 											"Get down on your fucking knees!",
 											"GET ON YOUR KNEES!"
+										}
+									}
+								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Kneeling position!" --no variants
 										}
 									}
 								},
@@ -8539,6 +9482,15 @@ ClosedCaptions._sounds = {
 										DISABLED_assault_mode = {}
 									}
 								},
+								rb9 = {
+									line_variations = {
+										standard_mode = {
+											"Please place the cuffs firmly on your wrists.",
+											"Please apply handcuffs! Thank you!",
+											"Supply handcuffs."
+										}
+									}
+								},
 								rb15 = {
 									line_variations = {
 										standard_mode = {
@@ -8559,7 +9511,7 @@ ClosedCaptions._sounds = {
 							}
 						}
 					}
-				}, --intimidate
+				},
 				dsp_radio_checking_1 = {
 					variants = {
 						criminal = {
@@ -8598,6 +9550,19 @@ ClosedCaptions._sounds = {
 											"I think the fillings in my teeth are interfering with the radio signals.",
 											"No real issues, except I slammed my toe into a chair.",
 											"Everything is A-OK, over."
+										}
+									}
+								},
+								rb9 = {
+									duration = 10,
+									line_variations = {
+										standard_mode = {
+											"You have reached Dennaton Enterprises. We can't take your call at the moment. Please leave a message after the beep and we'll get back to you. [answering machine beep]",
+											"This is GenSec Tech Support. If you have a problem with your radio, please contact us during normal business hours. Thank you.",
+											"[tape rewinding] The number you have reached is not in service. Please check the number and dial again. Thank you.",
+											"We are experiencing technical issues. There is no cause for alarm. Please be at ease.",
+											"This was a test of the automated paging system. Repeat: This was a test. Thank you.",									
+											"This is a test broadcast of the emergency airwaves. This is a test. Do not be alarmed. This is a test."
 										}
 									}
 								},
@@ -12495,6 +13460,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "How do I make my money? Uh...",
 					priority = 37,
+					max_distance = 4000,
 --					duration = 10,
 					line_variations = {
 						standard_mode = {
@@ -12514,6 +13480,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "[boasting about his money]",
 					priority = 37,
+					max_distance = 4000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -12545,6 +13512,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "[boasting about expensive hookers]",
 					priority = 37,
+					max_distance = 4000,
 					line_variations = {
 						standard_mode = {
 							"I could have put the money in real estate. Instead, I'm putting it in real ASState.",
@@ -12563,6 +13531,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "[boasting about The King]",
 					priority = 37,
+					max_distance = 4000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -12604,6 +13573,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags. I'll show you the leak.",
 					priority = 10,
+					max_distance = 4000,
 					category = "mission_dialogue",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					line_variations = {
@@ -12626,6 +13596,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "It's just down here.",
 					priority = 10,
+					max_distance = 4000,
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
@@ -12639,6 +13610,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					duration = 7,
 					priority = 10,
+					max_distance = 4000,
 					text = "See those pipes, leaking down the walls! It's fucked! This is a $10,000 carpet!",
 					category = "mission_dialogue",
 					line_variations = {
@@ -12653,6 +13625,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "Hey, I'm not paying you guys to hang around! Get down there!",
 					priority = 10,
+					max_distance = 4000,
 					category = "mission_dialogue",
 					duration = 7,
 					line_variations = {
@@ -12669,6 +13642,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 20,
+					max_distance = 4000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -12690,6 +13664,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "I hope it's free service.",
 					priority = 10,
+					max_distance = 4000,
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
@@ -12703,6 +13678,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "Aw, fuck!",
 					priority = 10,
+					max_distance = 2000,
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
@@ -12716,6 +13692,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "Play_mch_pal_12",
 					category = "mission_dialogue",
+					max_distance = 2000,
 					priority = 10,
 					line_variations = {
 						standard_mode = {
@@ -12732,6 +13709,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "Fucking clowns!",
 					priority = 10,
+					max_distance = 2000,
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
@@ -12745,6 +13723,7 @@ ClosedCaptions._sounds = {
 					override_name = "Party 'Guest'",
 					text = "It's only $10,000 a day.",
 					priority = 37,
+					max_distance = 2000,
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
@@ -12758,6 +13737,7 @@ ClosedCaptions._sounds = {
 					override_name = "Party 'Guest'",
 					text = "You don't want us to leave, do you?",
 					priority = 37,
+					max_distance = 2000,
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
@@ -12771,6 +13751,7 @@ ClosedCaptions._sounds = {
 					text = "When these plumbers are gone, we can get this party started for real!",
 					category = "mission_dialogue",
 					priority = 37,
+					max_distance = 2000,
 					duration = 6,
 					line_variations = {
 						standard_mode = {
@@ -12784,6 +13765,7 @@ ClosedCaptions._sounds = {
 					text = "I'm fed up waiting for that meat!",
 					category = "mission_dialogue",
 					priority = 37,
+					max_distance = 2000,
 					duration = 6,
 					line_variations = {
 						standard_mode = {
@@ -12797,6 +13779,7 @@ ClosedCaptions._sounds = {
 					override_name = "Party 'Guest'",
 					category = "mission_dialogue",
 					duration = 6,
+					max_distance = 2000,
 					priority = 37,
 					text = "My friend wants another $10k for the party supplies.",
 					line_variations = {
@@ -12811,6 +13794,7 @@ ClosedCaptions._sounds = {
 					override_name = "Party 'Guest'",
 					category = "mission_dialogue",
 					duration = 6,
+					max_distance = 2000,
 					priority = 37,
 					text = "Someone's gonna notice all this spending.",
 					line_variations = {
@@ -12826,6 +13810,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "Yeah, so... anyway...",
 					priority = 37,
+					max_distance = 2000,
 					duration = 5,
 					line_variations = {
 						standard_mode = {
@@ -12840,6 +13825,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "It's all in the basement, man. Go on, help yourself.",
 					priority = 37,
+					max_distance = 2000,
 					duration = 5,
 					line_variations = {
 						standard_mode = {
@@ -12854,6 +13840,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "Play_cm2_pal_02",
 					priority = 37,
+					max_distance = 2000,
 					duration = 5,
 					line_variations = {
 						standard_mode = {
@@ -12867,6 +13854,7 @@ ClosedCaptions._sounds = {
 					text = "Who are those people?",
 					category = "mission_dialogue",
 					priority = 37,
+					max_distance = 1000,
 					line_variations = {
 						standard_mode = {
 							"[Russian accent] What the hell are you doing here?",
@@ -12881,6 +13869,7 @@ ClosedCaptions._sounds = {
 					text = "Somebody fetch me a drink.",
 					category = "mission_dialogue",
 					priority = 37,
+					max_distance = 1000,
 					line_variations = {
 						standard_mode = {
 							"[Russian accent] Somebody fetch me a drink.",
@@ -12891,12 +13880,14 @@ ClosedCaptions._sounds = {
 				Play_pil_pal_03 = {
 					text = "[angry Russian]",
 					priority = 37,
+					max_distance = 1000,
 					category = "mission_dialogue"
 				},
 				cft_piano_music = {
 					override_name = "SFX",
 					category = "sfx",
 					priority = 37,
+					max_distance = 1000,
 					text = "[classical piano music]"
 				},
 				
@@ -13255,7 +14246,7 @@ ClosedCaptions._sounds = {
 					override_name = "Tape Recording",
 					priority = 10,
 					max_distance = 700,
-					duration = 43,
+					duration = 45,
 					text = "(incriminating tape recording of The Rat)",
 					category = "mission_dialogue",
 					line_variations = {
