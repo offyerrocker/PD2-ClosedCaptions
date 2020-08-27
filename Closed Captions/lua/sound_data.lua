@@ -14969,15 +14969,15 @@ ClosedCaptions._sounds = {
 								"I think you're pissin' up the wrong tree here."
 							},
 							{
-								"I appreciate that times are difficult- First World Bank truly does- but with regret, we cannot sanction a loan of $10,000 on a promise to pay it back when... Fat Pat's insurance comes through.",
-								"Unfortunately, we cannot extend your credit line to cover incidental costs like, uh... hookers and blow.",
-								"Unfortunately, I have doubts that you're serious about your plan to market and manufacture something like... 'Fart Crackers.",
-								"I'm sorry, but I don't think there's much demand for Confederate flag bedsheets.",
-								"I'm sorry, we're not able to offer unguided tours of the premises. And especially not 'the room where all the money's kept.'",
-								"I'm sorry... no. I don't think the pigs would appreciate that. Even if they're dead.",
-								"[embarrassed chuckle] Uh, no, this isn't that kind of bank. I think you want the one attached to the hospital. Or that bar down the road.",
-								"What if I come back... and bring salsa?",
-								"I'm afraid not. We cannot sanction a loan to buy out our bank."
+								"\nBANK EMPLOYEE: I appreciate that times are difficult- First World Bank truly does- but with regret, we cannot sanction a loan of $10,000 on a promise to pay it back when... Fat Pat's insurance comes through.",
+								"\nBANK EMPLOYEE: Unfortunately, we cannot extend your credit line to cover incidental costs like, uh... hookers and blow.",
+								"\nBANK EMPLOYEE: Unfortunately, I have doubts that you're serious about your plan to market and manufacture something like... 'Fart Crackers.",
+								"\nBANK EMPLOYEE: I'm sorry, but I don't think there's much demand for Confederate flag bedsheets.",
+								"\nBANK EMPLOYEE: I'm sorry, we're not able to offer unguided tours of the premises. And especially not 'the room where all the money's kept.'",
+								"\nBANK EMPLOYEE: I'm sorry... no. I don't think the pigs would appreciate that. Even if they're dead.",
+								"\nBANK EMPLOYEE: [embarrassed chuckle] Uh, no, this isn't that kind of bank. I think you want the one attached to the hospital. Or that bar down the road.",
+								"\nBANK EMPLOYEE: What if I come back... and bring salsa?",
+								"\nBANK EMPLOYEE: I'm afraid not. We cannot sanction a loan to buy out our bank."
 							}
 						}
 					}
@@ -15050,19 +15050,19 @@ ClosedCaptions._sounds = {
 								"What's your business today?"
 							},
 							{
-								"\nCustomer: How's it going? I need three hundred thousand dollars, for my time machine research project.",
-								"\nCustomer: Hello, ma'am, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
-								"\nCustomer: Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
-								"\nCustomer: Hey, I got a private space program going, and I just need a couple of hundred thousand dollars, and then I can put the first American on the sun!",
-								"\nCustomer: Yeah, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
-								"\nCustomer: [clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
-								"\nCustomer: Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
+								"\nCUSTOMER: How's it going? I need three hundred thousand dollars, for my time machine research project.",
+								"\nCUSTOMER: Hello, ma'am, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
+								"\nCUSTOMER: Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
+								"\nCUSTOMER: Hey, I got a private space program going, and I just need a couple of hundred thousand dollars, and then I can put the first American on the sun!",
+								"\nCUSTOMER: Yeah, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
+								"\nCUSTOMER: [clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
+								"\nCUSTOMER: Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
 							},
 							{
-								"\nBank Teller: Oh...",
-								"\nBank Teller: Um,",
-								"\nBank Teller: Umm...",
-								"\nBank Teller: Hm. Um..."
+								"\nBANK TELLER: Oh...",
+								"\nBANK TELLER: Um,",
+								"\nBANK TELLER: Umm...",
+								"\nBANK TELLER: Hm. Um..."
 							},
 							{
 								"I must say. This... sounds like a fantastic project!",
@@ -15071,19 +15071,19 @@ ClosedCaptions._sounds = {
 --								"I regret to inform you that you'll have to find backing for this enterprise elsewhere.", --i think this variation was not meant to be here but oh well
 							},
 							{
-								"\nCustomer: Okay, that's so cool!",
-								"\nCustomer: Wonderful! That'll shut up my non-believer friends!",
-								"\nCustomer: I can't believe it! That's great!",
-								"\nCustomer: Right on, nice!",
-								"\nCustomer: [relieved laugh] And to think I'd almost given up on this idea!"
+								"\nCUSTOMER: Okay, that's so cool!",
+								"\nCUSTOMER: Wonderful! That'll shut up my non-believer friends!",
+								"\nCUSTOMER: I can't believe it! That's great!",
+								"\nCUSTOMER: Right on, nice!",
+								"\nCUSTOMER: [relieved laugh] And to think I'd almost given up on this idea!"
 							},
 							{
-								"\nBank Teller: I'll book a meeting for you, so that you can talk more about this with one of my colleagues.",
-								"\nBank Teller: I'll set you up for a meeting with one of my associates.",
-								"\nBank Teller: I'll set up a meeting so that you can talk more about this with my colleagues.",
-								"\nBank Teller: I'll set up a meeting where we can go over these great ideas of yours.",
-								"\nBank Teller: We'll set up a meeting where we can go over this idea of yours.",
-								"\nBank Teller: Let's set up a meeting so that you can explain your idea in greater detail."
+								"\nBANK TELLER: I'll book a meeting for you, so that you can talk more about this with one of my colleagues.",
+								"\nBANK TELLER: I'll set you up for a meeting with one of my associates.",
+								"\nBANK TELLER: I'll set up a meeting so that you can talk more about this with my colleagues.",
+								"\nBANK TELLER: I'll set up a meeting where we can go over these great ideas of yours.",
+								"\nBANK TELLER: We'll set up a meeting where we can go over this idea of yours.",
+								"\nBANK TELLER: Let's set up a meeting so that you can explain your idea in greater detail."
 							}
 						}
 					}
@@ -15109,19 +15109,19 @@ ClosedCaptions._sounds = {
 								"What's your business today?"
 							},
 							{
-								"\nCustomer: How's it going? Uh, I need three hundred thousand dollars, for my time machine research project.",
-								"\nCustomer: Hi, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
-								"\nCustomer: Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
-								"\nCustomer: Hey, I got a private space program going, and I just need a couple hundred thousand dollars, and then I can put the first American on the sun!",
-								"\nCustomer: Uh, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
-								"\nCustomer: [clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
-								"\nCustomer: Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
+								"\nCUSTOMER: How's it going? Uh, I need three hundred thousand dollars, for my time machine research project.",
+								"\nCUSTOMER: Hi, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
+								"\nCUSTOMER: Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
+								"\nCUSTOMER: Hey, I got a private space program going, and I just need a couple hundred thousand dollars, and then I can put the first American on the sun!",
+								"\nCUSTOMER: Uh, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
+								"\nCUSTOMER: [clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
+								"\nCUSTOMER: Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
 							},
 							{
-								"\nBank Teller: Oh...",
-								"\nBank Teller: Um,",
-								"\nBank Teller: Umm...",
-								"\nBank Teller: Hm. Um..."
+								"\nBANK TELLER: Oh...",
+								"\nBANK TELLER: Um,",
+								"\nBANK TELLER: Umm...",
+								"\nBANK TELLER: Hm. Um..."
 							},
 							{
 								"unfortunately, that doesn't sound like something this bank would like to be involved in.",
@@ -15130,18 +15130,18 @@ ClosedCaptions._sounds = {
 								"sorry. That's not something we can support."
 							},
 							{
-								"\nCustomer: Uh huh. Alright.",
-								"\nCustomer: Oh, okay. Thanks anyway.",
-								"\nCustomer: [disappointed] Well, okay.",
-								"\nCustomer: Well... alright. Bye.",
-								"\nCustomer: [disappointed] Alright, then.",
-								"\nCustomer: Okay, uh huh. [dejected] See ya."
+								"\nCUSTOMER: Uh huh. Alright.",
+								"\nCUSTOMER: Oh, okay. Thanks anyway.",
+								"\nCUSTOMER: [disappointed] Well, okay.",
+								"\nCUSTOMER: Well... alright. Bye.",
+								"\nCUSTOMER: [disappointed] Alright, then.",
+								"\nCUSTOMER: Okay, uh huh. [dejected] See ya."
 							},
 							{
-								"\nBank Teller: [sincerely] Have a good day.",
-								"\nBank Teller: Have a great day.",
-								"\nBank Teller: Bye!",
-								"\nBank Teller: [sarcastic] ...buh-bye."
+								"\nBANK TELLER: [sincerely] Have a good day.",
+								"\nBANK TELLER: Have a great day.",
+								"\nBANK TELLER: Bye!",
+								"\nBANK TELLER: [sarcastic] ...buh-bye."
 							}
 						}
 					}

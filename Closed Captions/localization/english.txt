@@ -61,5 +61,7 @@
 	"menu_closedcaptions_category_specialenemy_chatter_title" : "Category: Special Enemy Chatter",
 	"menu_closedcaptions_category_specialenemy_chatter_desc" : "Enable Captions for Special Enemy Chatter.",
 	"menu_closedcaptions_category_specialenemy_death_title" : "Category: Special Enemy Deaths",
-	"menu_closedcaptions_category_specialenemy_death_desc" : "Enable Captions for Special Enemy Deaths."
+	"menu_closedcaptions_category_specialenemy_death_desc" : "Enable Captions for Special Enemy Deaths.",
+	"menu_closedcaptions_clear_queue_title" : "Unstick looped captions",
+	"menu_closedcaptions_clear_queue_desc" : "Clears all currently displayed captions"
 }

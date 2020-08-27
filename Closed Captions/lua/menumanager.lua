@@ -213,8 +213,8 @@ ClosedCaptions.settings = { --default preset for settings; overridden by json mo
 	log_bainunit_vo = false, --no menu option (intentional)
 	language = 1,
 	caption_x = 0,
-	caption_y = 200,
-	caption_w = 600,
+	caption_y = 100,
+	caption_w = 800,
 	caption_margin_v = 24,
 	captions_max_count = 5,
 	caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
@@ -276,7 +276,11 @@ function ClosedCaptions:log_line(sound_id,source_name,is_missing,args)
 		self:AddToDebug(sound_id,source_name)
 	end
 	if self:ShouldLogIDs() then 
-		self:log("Source " .. tostring(source_name) .. " played sound [" .. tostring(sound_id) .. "] " .. ((type(args) == "table") and ClosedCaptions.concat(args) or "") .. (is_missing and " (MISSING LINE)" or ""),{color=args and args.color or Color("31cbff")})
+		if Console then 
+			self:log("Source " .. tostring(source_name) .. " played sound [" .. tostring(sound_id) .. "] " .. ((type(args) == "table") and ClosedCaptions.concat(args) or "") .. (is_missing and " (MISSING LINE)" or ""),{color=args and args.color or Color("31cbff")})
+		else
+			self:log("Source " .. tostring(source_name) .. " played sound [" .. tostring(sound_id) .. "] " .. ((type(args) == "table") and ClosedCaptions.concat(args) or "") .. (is_missing and " (MISSING LINE)" or ""))
+		end
 	end
 end
 
@@ -284,8 +288,12 @@ function ClosedCaptions:log_debug(msg,color)
 	if not self:IsLoggingEnabled() then 
 		return
 	end
-	if self:ShouldLogDebug() then 
-		self:log(msg,{color=color or Color.yellow})
+	if self:ShouldLogDebug() then
+		if Console then 
+			self:log(msg,{color=color or Color.yellow})
+		else
+			self:log(msg)
+		end
 	end
 end
 
@@ -1256,6 +1264,17 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 	
 	MenuCallbackHandler.callback_closedcaptions_set_y = function(self,item)
 		ClosedCaptions.settings.caption_y = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_clear_queue = function(self,item)
+		for i,data in pairs(ClosedCaptions.active_lines) do 
+			ClosedCaptions:_remove_line(i)
+		end
+		if alive(ClosedCaptions._panel) then 
+			for _,child in pairs(ClosedCaptions._panel:children()) do 
+				ClosedCaptions._panel:remove(child)
+			end
+		end
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_set_w = function(self,item)

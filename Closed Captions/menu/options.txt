@@ -13,6 +13,13 @@
 			"value" : "master_enabled"
 		},
 		{
+			"type" : "button",
+			"id" : "closedcaptions_clear_queue",
+			"title" : "menu_closedcaptions_clear_queue_title",
+			"description" : "menu_closedcaptions_clear_queue_desc",
+			"callback" : "callback_closedcaptions_clear_queue"
+		},
+		{
 			"type" : "slider",
 			"id" : "closedcaptions_set_x",
 			"title" : "menu_closedcaptions_set_x_title",
