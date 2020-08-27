@@ -19,5 +19,5 @@ Hooks:PostHook(UnitNetworkHandler,"say","closedcaptions_unitnetwork_say",functio
 	end
 	--]]
 	
-	ClosedCaptions:log("Sender [" .. tostring(sender) .. "] queued unit " .. tostring(unit) ..  " to play sound [" .. tostring(event_id) .. "] aka [" .. tostring(ClosedCaptions:reverse_lookup_event_id(event_id)) .. "]" )
+--	ClosedCaptions:log("Sender [" .. tostring(sender) .. "] queued unit " .. tostring(unit) ..  " to play sound [" .. tostring(event_id) .. "] aka [" .. tostring(ClosedCaptions:reverse_lookup_event_id(event_id)) .. "]" )
 end)

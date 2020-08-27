@@ -1,5 +1,5 @@
 Hooks:PreHook(DialogManager,"_call_done_callback","closedcaptions_dialogmanager_donedialog",function(self,done_cbk,reason)
-	ClosedCaptions:log("Done cb " .. tostring(done_cbk) .. " for " .. tostring(reason),{color=Color.green})
+	ClosedCaptions:log_debug("Done cb " .. tostring(done_cbk) .. " for reason: " .. tostring(reason),{color=Color.green})
 end)
 
 Hooks:PreHook(DialogManager,"_stop_dialog","closedcaptions_dialogmanager_stopdialog",function(self)
@@ -26,12 +26,12 @@ Hooks:PreHook(DialogManager,"_play_dialog","closedcaptions_dialogmanager_startdi
 			end
 		end
 		--]]
-		ClosedCaptions:log("DialogManager:_play_dialog() sound " .. tostring(dialog.sound) .. ", string_id " .. tostring(dialog.string_id),{color=Color.yellow})
-		
+		ClosedCaptions:log_line(dialog.sound,"DialogManager" .. tostring(dialog.character or ""))
+	--	ClosedCaptions:log_debug("DialogManager:_play_dialog() sound " .. tostring(dialog.sound) .. ", string_id " .. tostring(dialog.string_id),{color=Color.yellow})
 		if dialog.sound then 
 			local all_sounds_data = ClosedCaptions:GetSoundTable()
 			
-			if all_sounds_data.vo[dialog.sound] or ClosedCaptions:IsLoggingEnabled() then 
+			if all_sounds_data.vo[dialog.sound] or ClosedCaptions:ShouldLogMissing() then 
 				local unit = params.on_unit or params.override_characters and managers.player:player_unit()
 				local position
 				--add line here
@@ -54,14 +54,14 @@ Hooks:PreHook(DialogManager,"_play_dialog","closedcaptions_dialogmanager_startdi
 				if alive(unit) then
 					if dialog.string_id then
 	--					unit:drama():play_subtitle(dialog.string_id)
-						ClosedCaptions:log("PLAYED SOUND SOURCE 3 " .. tostring(dialog.string_id))
+--						ClosedCaptions:log_debug("PLAYED SOUND SOURCE 3 " .. tostring(dialog.string_id))
 					end
 
 					if dialog.sound then
 --						unit:drama():play_sound(dialog.sound, dialog.sound_source)
-						ClosedCaptions:log("PLAYED SOUND SOURCE 4 " .. tostring(dialog.sound) .. " " .. tostring(dialog.sound_source))
+--						ClosedCaptions:log_debug("PLAYED SOUND SOURCE 4 " .. tostring(dialog.sound) .. " " .. tostring(dialog.sound_source))
 					elseif dialog.sounds and #dialog.sounds > 0 then
-						ClosedCaptions:log("PLAYED SOUND SOURCE 5 " .. tostring(dialog.sounds[self._current_dialog.line]) .. " " .. tostring(dialog.sound_source))
+--						ClosedCaptions:log_debug("PLAYED SOUND SOURCE 5 " .. tostring(dialog.sounds[self._current_dialog.line]) .. " " .. tostring(dialog.sound_source))
 --						self._current_dialog.line = line or 1
 --						unit:drama():play_sound(dialog.sounds[self._current_dialog.line], dialog.sound_source)
 					end
@@ -71,13 +71,12 @@ Hooks:PreHook(DialogManager,"_play_dialog","closedcaptions_dialogmanager_startdi
 					if position then 
 						ClosedCaptions:add_line(dialog.sound,nil,source_id,variant,prefix,expire_t,position)
 					else --use player?
-						ClosedCaptions:log("Played 6 ig")
+--						ClosedCaptions:log_debug("Played 6 ig")
 						ClosedCaptions:add_line(dialog.sound,unit,source_id,variant,prefix,expire_t)
 					end
 				end
 				
 			else
-				--if log mode then
 				
 			end
 		end

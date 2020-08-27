@@ -9,42 +9,31 @@ BEFORE FIRST PUBLIC RELEASE:
 			* destroy panel to facilitate fadeout + re-randomization?
 			* or set alpha?
 
-	* todo separate IsLoggingEnabled() check into "is logging missing lines enabled" and "is logging errors enabled"
-	* todo conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
+* todo conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
 
 * todo adjust horizontal position of subtitles
 * todo option to align horizontal by left/right/center
 * todo option to align vertical by top/bottom/center
 * todo option for lifetime multiplier for captions
 
-* additional category for nonspecial unit deaths
 * ambient sfx category
-
-* enable/disable priority system
-
-* override_names
-death category
 
 * smooth movement for caption lines filling in unused space
 
-* update process_special_vo() for line variations
-	* implement apply_macro() as iterable functor 
-	* todo generic text descriptions for each line
-	* todo layer custom user settings over sound_data
-		* todo documented custom template for those things
-	* subtitles play during heist planning screen
+* todo layer custom user settings over sound_data
+	* todo documented custom template for those things
 		
 ISSUES
 	* "element" may appear as the source name, since some lines do not/should not have override_names "element: whistle"
 	* teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
 	* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
-	* goat sfx do not play in goat sim day 1; todo figure out where they're playing from
-	
+	* goat sfx do not play in goat sim day 1; todo figure out where they're playing from. i hope it's not sequencemanager.
 	
 	using a SoundSource object as a source_id may go wrong and fail to remove any other captions played from that sound source if the soundsource ever moves, because tostring includes its vector position
-	cloaker static persists for 1000 seconds only, and MIGHT be interrupted by any other cloaker line, and is not interrupted by death
+	cloaker static MIGHT be interrupted by any other cloaker line, and is not always interrupted by death
+	(test fix for below)
 	some captions for sounds that are played via mission core ElementPlaySound may cut off prematurely
 	Taxman lines may cut off prematurely (reason unknown)
 --]]
@@ -221,9 +210,12 @@ ClosedCaptions.caption_distance_presets = { --unused
 	dialogue = 4500
 }
 
-ClosedCaptions.settings = {
+ClosedCaptions.settings = { --default preset for settings; overridden by json mod save file
 	master_enabled = true,
-	logging_enabled = true,
+	logging_enabled = false,
+	log_missing = false,
+	log_ids = false,
+	log_debug = false,
 	language = 1,
 	caption_x = 0,
 	caption_y = 200,
@@ -273,13 +265,31 @@ ClosedCaptions.languages = {
 
 
 function ClosedCaptions:log(...)
-	if not self:IsLoggingEnabled() then 
-		return
-	end
 	if Console then 
 		return Console:Log(...)
 	else
 		return log(...)
+	end
+end
+
+function ClosedCaptions:log_line(sound_id,source_name,is_missing,args)
+	if not self:IsLoggingEnabled() then 
+		return
+	end
+	if is_missing and self:ShouldLogMissing() then 
+		self:AddToDebug(sound_id,source_name)
+	end
+	if self:ShouldLogIDs() then 
+		self:log("Source " .. tostring(source_name) .. " played sound [" .. tostring(sound_id) .. "] " .. ((type(args) == "table") and ClosedCaptions.concat(args) or "") .. (is_missing and " (MISSING LINE)" or ""),{color=args and args.color or Color("31cbff")})
+	end
+end
+
+function ClosedCaptions:log_debug(msg,color)
+	if not self:IsLoggingEnabled() then 
+		return
+	end
+	if self:ShouldLogDebug() then 
+		self:log(msg,{color=color or Color.yellow})
 	end
 end
 
@@ -339,10 +349,6 @@ function ClosedCaptions:IsEnabled()
 	return self.settings.master_enabled
 end
 
-function ClosedCaptions:IsLoggingEnabled()
-	return self.settings.logging_enabled
-end
-
 ClosedCaptions.category_names_to_setting_names = {
 	mission_dialogue = "category_mission_dialogue",
 	contractor_vo = "category_contractor_vo",
@@ -358,6 +364,22 @@ ClosedCaptions.category_names_to_setting_names = {
 	specialenemy_chatter = "category_specialenemy_chatter",
 	specialenemy_death = "category_specialenemy_death"
 }
+
+function ClosedCaptions:IsLoggingEnabled()
+	return self.settings.logging_enabled
+end
+
+function ClosedCaptions:ShouldLogMissing()
+	return self.settings.log_missing
+end
+
+function ClosedCaptions:ShouldLogIDs()
+	return self.settings.log_ids
+end
+
+function ClosedCaptions:ShouldLogDebug()
+	return self.settings.log_debug
+end
 
 function ClosedCaptions:IsCaptionCategoryEnabled(category,is_special_enemy)
 --since sometimes enemies and special enemies share death lines), this is written in this function instead of the sound_data, in the event that:
@@ -376,9 +398,9 @@ function ClosedCaptions:IsCaptionCategoryEnabled(category,is_special_enemy)
 	if self.category_names_to_setting_names[category] then 
 		return self.settings[self.category_names_to_setting_names[category]]
 	elseif category == "UNKNOWN" then
-		return self:IsLoggingEnabled()
+		return self:ShouldLogMissing()
 	else
-		self:log("IsCaptionCategoryEnabled() Unknown category " .. tostring(category),{color=Color.yellow})
+		self:log_debug("IsCaptionCategoryEnabled() Unknown category " .. tostring(category),{color=Color.yellow})
 		return nil
 	end
 end
@@ -401,7 +423,7 @@ end
 
 function ClosedCaptions:LoadSounds(skip_processing)
 	if SystemFS:exists( Application:nice_path( SavePath .. self._sound_data_filename, true )) then
-		self:log("Closed Captions: Reading " .. self._sound_data_filename .. " override from user save")
+		self:log_debug("Closed Captions: Reading " .. self._sound_data_filename .. " override from user save")
 		dofile(SavePath .. self._sound_data_filename)
 	else
 		dofile(self._mod_path .. "lua/" .. self._sound_data_filename)
@@ -440,7 +462,7 @@ function ClosedCaptions:process_special_vo()
 				--todo variations
 				
 				sound_table.vo[string.gsub(sound_name_raw,"@",prefix)] = data
-	--			self:log("Added item " .. string.gsub(sound_name_raw,"@",prefix) .. " with text " .. tostring(data.text))
+	--			self:log_debug("Added item " .. string.gsub(sound_name_raw,"@",prefix) .. " with text " .. tostring(data.text))
 			end
 		end
 	end
@@ -461,7 +483,7 @@ function ClosedCaptions:process_lookup_table(wipe_clean)
 			end
 		end
 	else
-		self:log("ERROR: process_lookup_table(" .. tostring(wipe_clean) .. "): invalid lang [" .. tostring(lang) .. "]")
+		self:log_debug("ERROR: process_lookup_table(" .. tostring(wipe_clean) .. "): invalid lang [" .. tostring(lang) .. "]")
 	end
 
 end
@@ -502,7 +524,7 @@ function ClosedCaptions:HookSoundSource(soundsource,params)
 			return orig_post_event(soundsource,sound_id,...)
 		end
 	else
-		self:log("Error hooking SoundSource " .. tostring(soundsource) .. ": no valid source",{color=Color.red})
+		self:log_debug("Error hooking SoundSource " .. tostring(soundsource) .. ": no valid source",{color=Color.red})
 	end
 end
 
@@ -538,6 +560,7 @@ function ClosedCaptions:Update(t,dt)
 	for i,item in ipairs(self.active_lines) do
 		local is_hidden
 		if item and item.panel and alive(item.panel) then 
+			local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
 			if n < MAX_SUBTITLES then 
 				if not item.loop_data and (t >= item.expire_t) then 
 					--out of time
@@ -548,10 +571,9 @@ function ClosedCaptions:Update(t,dt)
 						--out of time 
 						item.panel:set_alpha(math.min(1,(item.expire_t - t) / self.settings.caption_fadeout_time))
 					end
-					local source_position = (item.source and alive(item.source) and item.source:position()) or item.position
 					
 					if item.max_distance then 
-						if not player or (mvector3.distance_sq(player_pos,source_position) >= math.pow(item.max_distance,2)) then 
+						if not alive(player) or (source_position and (mvector3.distance_sq(player_pos,source_position) >= math.pow(item.max_distance,2))) then 
 							is_hidden = true
 						end
 					end
@@ -561,45 +583,112 @@ function ClosedCaptions:Update(t,dt)
 							--always visible (within the correct distance)
 --							is_hidden = math.sin((10 * (t - item.start_t)) / (math.pi * item.loop_data.loop_interval)) > 0
 							--todo reset start_t?
-						else	
+						else
+							Console:SetTrackerValue("trackera","0 expire_t " .. tostring(item.expire_t) .. " " .. string.format("%.2f",t))
 							if t >= item.expire_t then
 								item.loop_visible = not item.loop_visible
 								is_hidden = not item.loop_visible
-								item.expire_t = t + (item.duration or 5) + (item.loop_visible and item.loop_data.loop_interval or 0)
-								--todo soft alpha fade for out of range
+								Console:SetTrackerValue("trackerb","hidden " .. tostring(is_hidden) .. " " .. string.format("%.2f",t))
+								if item.loop_data.use_random_loop_interval then 
+									item.expire_t = t + (item.duration or 5) + math.random(item.loop_data.loop_interval)
+									Console:SetTrackerValue("trackerc","1 expire_t " .. tostring(item.expire_t) .. " " .. string.format("%.2f",t))
+								else
+									item.expire_t = t + (item.duration or 5) + (item.loop_visible and item.loop_data.loop_interval or 0)
+									Console:SetTrackerValue("trackerc","2 expire_t " .. tostring(item.expire_t) .. " " .. string.format("%.2f",t))
+								end
 							end
+							--[[
+							if not item.loop_visible then 
+								if item.panel:visible() then 
+									--do fadeout
+								elseif item.panel:visible() and item.panel:alpha() <= 0 then  
+									--
+									if item.loop_data.use_random_variations then 
+										--recreate panel with new text
+										local panel_name = item.panel:name()
+									
+									end
+								end
+							end
+							--]]
 						end
 					end
 
-					if not is_hidden then 
-						if not item.is_locationless then 
-							if source_position then
-								local angle_to = ((ClosedCaptions.angle_from(player_pos,source_position) - player_aim + 270) % 360) - 180
-								item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
-								item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
-							else
-								is_hidden = true
-							end
-						end
-					end
 				end
 			end
-			if is_hidden == nil then
+			if not is_hidden then
 				item.panel:show()
+--			elseif is_hidden == false then
+--				item.panel:show()
+				if item.panel:alpha() < 1 then
+					item.panel:set_alpha(math.min(item.panel:alpha() + (dt / self.settings.caption_fadeout_time),1))
+				end
+			else
+				if item.panel:alpha() > 0 then  
+					item.panel:set_alpha(math.max(item.panel:alpha() - (dt / self.settings.caption_fadeout_time),0))
+					if item.panel:alpha() <= 0 then 
+						if item.loop_data and item.loop_data.use_random_variations and item.variation_data then 
+							local caption_name = item.panel:name()
+							local caption_color = item.panel:child("subtitle"):color()
+							local caption_text = self:get_random_variation(item.variation_data,item.is_recombinable)
+							
+							item.panel:parent():remove(item.panel)
+							--if not  option fadein then panel set alpha 0
+							item.panel = self:_create_caption_text(caption_text,caption_name,caption_color,item.is_recombinable)
+						else
+							self:log_debug("var data " .. tostring(item.sound_id) .. " : " .. tostring(item.variation_data))
+							item.panel:hide()
+						end
+					end
+				elseif item.panel:visible() then 
+					item.panel:hide()
+				end
+			end
+			if item.panel:visible() then  
 				n = n + 1
 				item.panel:set_position((panel:w() - item.panel:w()) / 2,panel:h() - (y + 24))
 				y = y + item.panel:h()
-			elseif is_hidden == false then
-				item.panel:show()
-			else
-				item.panel:hide()
-			end
+				
+				if not item.is_locationless then 
+					if source_position then
+						local angle_to = ((ClosedCaptions.angle_from(player_pos,source_position) - player_aim + 270) % 360) - 180
+						item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
+						item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
+					end
+				end
+			end			
 		else
+			--remove if no valid panel
 			table.insert(queued_remove,i)
 		end
+		
+		
 	end
 	for _,i in pairs(queued_remove) do 
 		self:_remove_line(i)
+	end
+end
+
+function ClosedCaptions:get_random_variation(variations_tbl,is_recombinable)
+	if is_recombinable then
+		local variation_text
+		for _,combinable_parts in pairs(variations_tbl) do 
+			local new_text = combinable_parts[math.random(#combinable_parts)]
+			if new_text ~= "" then 
+				if variation_text then
+					variation_text = variation_text .. " "
+				else
+					variation_text = ""
+				end
+				variation_text = variation_text .. new_text
+			end
+		end
+		return variation_text
+	else
+		local num_variants = #variations_tbl
+		if num_variants > 0 then 
+			return variations_tbl[math.random(num_variants)]
+		end
 	end
 end
 
@@ -607,7 +696,7 @@ end
 function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locationless)
 	local panel = self._panel
 	if not alive(panel) then
-		self:log("ERROR: no self._panel! THIS IS ACTUALLY VERY BAD",{color=Color.red})
+		self:log_debug("ERROR in _create_caption_text(): no self._panel!",Color.red)
 		return
 	end
 	local item_panel = panel:child(panel_name)
@@ -624,6 +713,7 @@ function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locat
 		y = panel:h(),
 		w = w,
 		h = 100,
+		alpha = 0, --fades in;  TODO option for this
 		visible = true
 	})
 	local subtitle = item_panel:text({
@@ -767,7 +857,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	if type(sound_id) == "number" then 
 		sound_id = self:reverse_lookup_event_id(sound_id)
 		if not sound_id then 
-			self:log("No sound id found for number lookup!" .. tostring(sound_id),{color=Color.red})
+			self:log_debug("No sound id found for number lookup!" .. tostring(sound_id),{color=Color.red})
 		end
 	end
 	if not sound_id then 
@@ -823,9 +913,10 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	
 	local text
 	local subvariant_data
+	local variation_data,is_recombinable
 	local sound_data = all_sounds_data.vo[sound_id]
 	if not sound_data then 
-		self:log(tostring(source_name) .. " said [" .. tostring(sound_id) .. "] - unknown sound_id in Closed Captions:add_line()",{color=Color.yellow})
+		self:log_line(sound_id,source_name,true,{source_id=source_id,variant=variant,prefix=prefix,expire_t=expire_t,position=position})
 		self:AddToDebug(sound_id,source_name)
 		return
 	else
@@ -838,7 +929,7 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 				
 			elseif not sound_data.text then
 				--variants exist, but none for this unit's variant, so do nothing
-				self:log("No variant data exists for soundfile " .. tostring(sound_id) .. ", " .. tostring(variant) .. " subvariant " .. tostring(subvariant),{color=Color(1,0.3,0)})
+				self:log_debug("No variant data exists for soundfile " .. tostring(sound_id) .. ", " .. tostring(variant) .. " subvariant " .. tostring(subvariant),{color=Color(1,0.3,0)})
 				
 				stop_line(sound_data,"_end_line")
 					-- fadeout specified target line, since the current line isn't replacing it
@@ -853,40 +944,21 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		subvariant_data = subvariant_data or sound_data
 		local variations = subvariant_data.line_variations or sound_data.line_variations
 		if variations and self:IsLineRandomizationEnabled() then 
-		
-			local function get_random_variation(variations_tbl,_is_recombinable)
-				if _is_recombinable then
-					local variation_text
-					for _,combinable_parts in pairs(variations_tbl) do 
-						local new_text = combinable_parts[math.random(#combinable_parts)]
-						if new_text ~= "" then 
-							if variation_text then
-								variation_text = variation_text .. " "
-							else
-								variation_text = ""
-							end
-							variation_text = variation_text .. new_text
-						end
-					end
-					return variation_text
-				else
-					local num_variants = #variations_tbl
-					if num_variants > 0 then 
-						return variations_tbl[math.random(num_variants)]
-					end
-				end
-			end
 			
-			local is_recombinable = variations.recombinable
+			is_recombinable = variations.recombinable
 			
 			if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
-				text = get_random_variation(variations.whisper_mode,is_recombinable)
+				variation_data = variations.whisper_mode
+				text = self:get_random_variation(variations.whisper_mode,is_recombinable)
 			elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
-				text = get_random_variation(variations.assault_mode,is_recombinable)
+				variation_data = variations.whisper_mode
+				text = self:get_random_variation(variations.assault_mode,is_recombinable)
 			elseif not is_whisper_mode and variations.assault_break_mode then --if otherwise loud
-				text = get_random_variation(variations.assault_break_mode,is_recombinable)
+				variation_data = variations.whisper_mode
+				text = self:get_random_variation(variations.assault_break_mode,is_recombinable)
 			elseif variations.standard_mode then --no requirements
-				text = get_random_variation(variations.standard_mode,is_recombinable)
+				variation_data = variations.whisper_mode
+				text = self:get_random_variation(variations.standard_mode,is_recombinable)
 			end
 		end
 		
@@ -909,28 +981,28 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		local category_allowed = self:IsCaptionCategoryEnabled(category,is_special_enemy)
 		
 		if category_allowed == false then 
-			self:log("Category is not allowed! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+--			self:log_debug("Category is not allowed! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
 			return
 		elseif category_allowed == nil then 
 			--if unknown or undefined category then log the sound (if logging is enabled)
-			if not self:IsLoggingEnabled() then 
+			if not self:ShouldLogMissing() then 
 				return
 			end
-			self:log("Category is not set for this line! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+			self:log_debug("Category is not set for this line! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
 		else
 			if category_allowed == 1 then --always enabled
 			elseif category_allowed == 2 then --stealth-only
 				if not is_whisper_mode then 
-	--				self:log("Category requires stealth! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+	--				self:log_debug("Category requires stealth! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
 					return
 				end
 			elseif category_allowed == 3 then --loud-only
 				if is_whisper_mode then 
-	--				self:log("Category requires loud! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+	--				self:log_debug("Category requires loud! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
 					return
 				end
 			elseif category_allowed == 4 then --never allowed
-	--			self:log("Category is disabled! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+	--			self:log_debug("Category is disabled! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
 				return
 			end
 		end
@@ -945,9 +1017,9 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	if subvariant_data.duration then 
 		expire_t = subvariant_data.duration + t or expire_t
 	
-		debug_duration = string.format(subvariant_data.duration,"%.02f")
+		debug_duration =  string.format("%.2f",subvariant_data.duration)
 	elseif expire_t then 
-		debug_duration = string.format(expire_t - t,"%0.2f")
+		debug_duration =  string.format("%.2f",expire_t - t)
 	else
 		expire_t = t + self.settings.DEFAULT_LINE_DURATION
 	end
@@ -963,14 +1035,13 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	if not text then 
 		stop_line(sound_data,"_remove_line")
 		-- remove specified target line outright, since the current line is replacing it
-				
-		self:log("Error: No valid text in add_line() for sound_id " .. tostring(sound_id) .. " for variant: [" .. tostring(variant) .. "]. Subvariant " .. tostring(subvariant) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t),{color=Color.red})
+
+		self:log_debug("ERROR: No valid text in add_line() for: [" .. tostring(sound_id) .. "] by variant [" .. tostring(variant) .. "], subvariant [" .. tostring(subvariant) .. "], source_name/source [" .. tostring(source_name) .. "/" .. tostring(source) .. "]" .. ", start_t/expire_t/expected duration [" .. string.format("%.2f",t) .. "/" .. string.format("%.2f",expire_t) .. "/" .. debug_duration .. "]",Color.red)
 		return
 	else
 		stop_line(sound_data,"_end_line")
 			-- fadeout specified target line, since the current line isn't replacing it
-		
-		self:log("add_line(): Subvariant " .. tostring(subvariant) .. " [" .. tostring(variant) .. "] played " .. tostring(sound_id) .. " (" .. tostring(source_name) .. ") - id is " .. tostring(source_id) .. ", expire_t is " .. tostring(expire_t) .. " (effective duration " .. debug_duration .. ")",{color=text_color})
+		self:log_debug("PLAYING SOUND: [" .. tostring(sound_id) .. "] by variant [" .. tostring(variant) .. "], subvariant [" .. tostring(subvariant) .. "], source_name/source [" .. tostring(source_name) .. "/" .. tostring(source) .. "]" .. ", start_t/expire_t/expected duration [" .. string.format("%.2f",t) .. "/" .. string.format("%.2f",expire_t) .. "/" .. debug_duration .. "]",text_color)
 	end
 	
 	if self:UseCapitalNames() then 
@@ -989,6 +1060,8 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 		sound_id = sound_id,
 		priority = subvariant_data.priority or sound_data.priority or 1,
 		max_distance = subvariant_data.max_distance or sound_data.max_distance,
+		variation_data = variation_data,
+		is_recombinable = is_recombinable,
 		start_t = t,
 		is_locationless = (source and source == managers.player:local_player()) or subvariant_data.is_locationless or sound_data.is_locationless,
 		expire_t = expire_t
@@ -998,7 +1071,7 @@ end
 
 function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --creates panel from data, adds line's data to data structure
 	if not panel_text then 
-		self:log("Error: No valid text in _add_line()",{color=Color.red})
+		self:log_debug("Error: No valid text in _add_line()")
 		return
 	end
 	if not source_id then --used as panel_id
@@ -1031,7 +1104,7 @@ function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --create
 			table.insert(self.active_lines,data)
 		end
 	elseif not panel then 
-		self:log("REAL BAD ERROR: ClosedCaptions:_add_line(" .. ClosedCaptions.concat(sound_id,source,source_name) .. ") Could not create caption panel")
+		self:log_debug("ERROR: ClosedCaptions:_add_line(" .. ClosedCaptions.concat(sound_id,source,source_name) .. ") Could not create caption panel. SoundSource event was likely called before BaseNetworkSessionOnLoadComplete event CC initialization")
 	end
 end
 
@@ -1143,7 +1216,7 @@ function ClosedCaptions:Save()
 	end
 end
 
-if ClosedCaptions:IsLoggingEnabled() then 
+if ClosedCaptions:ShouldLogMissing() then 
 	ClosedCaptions:ReadFromDebug()
 end
 
@@ -1158,7 +1231,7 @@ Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_closedcapt
 			return
 		end
 	else
-		ClosedCaptions:log("Language by index " .. tostring(language_num) .. " does not exist. Defaulting to English")
+		ClosedCaptions:log_debug("Language by index " .. tostring(language_num) .. " does not exist. Defaulting to English")
 	end
 	
 	loc:load_localization_file( ClosedCaptions._mod_path .. "localization/english.txt")
@@ -1183,7 +1256,6 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 		ClosedCaptions.settings.caption_x = x
 		ClosedCaptions:SetPanelX(x)
 	end
-
 	
 	MenuCallbackHandler.callback_closedcaptions_set_max = function(self,item)
 		ClosedCaptions.settings.captions_max_count = tonumber(item:value())
@@ -1196,11 +1268,9 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 	MenuCallbackHandler.callback_closedcaptions_set_font_size = function(self,item)
 		ClosedCaptions.settings.caption_font_size = tonumber(item:value())
 	end
+	
 	MenuCallbackHandler.callback_closedcaptions_caption_order = function(self,item)
 		ClosedCaptions.settings.caption_order = tonumber(item:value())
-	end
-	MenuCallbackHandler.callback_closedcaptions_enable_logging = function(self,item)
-		ClosedCaptions.settings.logging_enabled = item:value() == "on"
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_mission_dialogue = function(self,item)
@@ -1208,7 +1278,7 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_caption_variation_mode = function(self,item)
-		ClosedCaptions.settings.caption_variation_mode = item:value() == "on"
+		ClosedCaptions.settings.caption_variation_mode = tonumber(item:value())
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_contractor_vo = function(self,item)
@@ -1262,8 +1332,21 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 		if lang_id then --check valid language before saving just any ol' int in there
 			ClosedCaptions.settings.language = lang_num
 		else
-			ClosedCaptions:log("Error choosing language index: [" .. tostring(lang_num) .. "]; setting has not been changed",{color=Color.red})
+			ClosedCaptions:log_debug("Error choosing language index: [" .. tostring(lang_num) .. "]; setting has not been changed",{color=Color.red})
 		end
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_enable_logging_master = function(self,item)
+		ClosedCaptions.settings.logging_enabled = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_logging_missing = function(self,item)
+		ClosedCaptions.settings.log_missing = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_logging_ids = function(self,item)
+		ClosedCaptions.settings.log_ids = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_logging_debug = function(self,item)
+		ClosedCaptions.settings.log_debug = item:value() == "on"
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_close = function(this)

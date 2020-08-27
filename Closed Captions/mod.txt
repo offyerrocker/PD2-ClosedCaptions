@@ -3,9 +3,9 @@
 	"description" : "Adds in-game closed captions and subtitles to gameplay dialogue and some sound effects.",
 	"author" : "Offyerrocker",
 	"contact" : "Discord: Offyerrocker#3878",
-	"version" : "0.4",
+	"version" : "0.5",
 	"blt_version" : 2,
-	"DISABLED_image" : "avs2.png",
+	"image" : "cc_icon.png",
 	"color" : "255 128 0",
 	"hooks" : [
 		{
@@ -21,7 +21,7 @@
 			"script_path" : "lua/coreelementplaysound.lua"
 		},
 		{
-			"hook_id" : "lib/network/handlers/unitnetworkhandler",
+			"DISABLED_hook_id" : "lib/network/handlers/unitnetworkhandler",
 			"script_path" : "lua/unitnetworkhandler.lua"
 		},
 		{
