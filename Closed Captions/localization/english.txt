@@ -8,6 +8,8 @@
 	"menu_closedcaptions_set_y_desc" : "Change caption boxes' vertical position",
 	"menu_closedcaptions_set_w_title" : "Set Caption W",
 	"menu_closedcaptions_set_w_desc" : "Change caption boxes' width",
+	"menu_closedcaptions_set_vmargin_title" : "Set Caption Margin",
+	"menu_closedcaptions_set_vmargin_desc" : "Change the vertical gap between caption boxes",
 	"menu_closedcaptions_set_max_title" : "Set Max Captions",
 	"menu_closedcaptions_set_max_desc" : "Set the maximum number of captions to show",
 	"menu_closedcaptions_set_fadeout_time_title" : "Set Fadeout Time",

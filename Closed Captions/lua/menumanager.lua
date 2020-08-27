@@ -1,16 +1,10 @@
 --[[
 BEFORE FIRST PUBLIC RELEASE:
-	* menu button to remove stuck lines
-	
-	* looped sound behavior:
-		* implement use_random_loop_interval
-		* implement use_random_variations
-		* implement fadeout when out of range
-			* destroy panel to facilitate fadeout + re-randomization?
-			* or set alpha?
+
 
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
+* menu button to remove stuck lines
 * todo conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
 
 * todo adjust horizontal position of subtitles
@@ -216,10 +210,12 @@ ClosedCaptions.settings = { --default preset for settings; overridden by json mo
 	log_missing = false,
 	log_ids = false,
 	log_debug = false,
+	log_bainunit_vo = false, --no menu option (intentional)
 	language = 1,
 	caption_x = 0,
 	caption_y = 200,
 	caption_w = 600,
+	caption_margin_v = 24,
 	captions_max_count = 5,
 	caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 	caption_font_size = 20,
@@ -371,6 +367,10 @@ end
 
 function ClosedCaptions:ShouldLogMissing()
 	return self.settings.log_missing
+end
+
+function ClosedCaptions:ShouldLogBainUnitVO() --hidden option; dev only basically. i don't want people to report sounds that have subtitles, and bain's lines generally do.
+	return self.settings.log_bainunit_vo
 end
 
 function ClosedCaptions:ShouldLogIDs()
@@ -584,19 +584,15 @@ function ClosedCaptions:Update(t,dt)
 --							is_hidden = math.sin((10 * (t - item.start_t)) / (math.pi * item.loop_data.loop_interval)) > 0
 							--todo reset start_t?
 						else
-							Console:SetTrackerValue("trackera","0 expire_t " .. tostring(item.expire_t) .. " " .. string.format("%.2f",t))
 							if t >= item.expire_t then
 								item.loop_visible = not item.loop_visible
-								is_hidden = not item.loop_visible
-								Console:SetTrackerValue("trackerb","hidden " .. tostring(is_hidden) .. " " .. string.format("%.2f",t))
 								if item.loop_data.use_random_loop_interval then 
-									item.expire_t = t + (item.duration or 5) + math.random(item.loop_data.loop_interval)
-									Console:SetTrackerValue("trackerc","1 expire_t " .. tostring(item.expire_t) .. " " .. string.format("%.2f",t))
+									item.expire_t = t + (item.duration or 5) + (item.loop_data.loop_interval_min or 0) + math.random(item.loop_data.loop_interval)
 								else
 									item.expire_t = t + (item.duration or 5) + (item.loop_visible and item.loop_data.loop_interval or 0)
-									Console:SetTrackerValue("trackerc","2 expire_t " .. tostring(item.expire_t) .. " " .. string.format("%.2f",t))
 								end
 							end
+							is_hidden = is_hidden or not item.loop_visible
 							--[[
 							if not item.loop_visible then 
 								if item.panel:visible() then 
@@ -615,6 +611,10 @@ function ClosedCaptions:Update(t,dt)
 					end
 
 				end
+			else
+				--no space visually, so hide it
+				item.panel:set_alpha(0)
+				is_hidden = true
 			end
 			if not is_hidden then
 				item.panel:show()
@@ -623,31 +623,31 @@ function ClosedCaptions:Update(t,dt)
 				if item.panel:alpha() < 1 then
 					item.panel:set_alpha(math.min(item.panel:alpha() + (dt / self.settings.caption_fadeout_time),1))
 				end
-			else
+			elseif item.panel:visible() then 
 				if item.panel:alpha() > 0 then  
 					item.panel:set_alpha(math.max(item.panel:alpha() - (dt / self.settings.caption_fadeout_time),0))
 					if item.panel:alpha() <= 0 then 
 						if item.loop_data and item.loop_data.use_random_variations and item.variation_data then 
 							local caption_name = item.panel:name()
-							local caption_color = item.panel:child("subtitle"):color()
-							local caption_text = self:get_random_variation(item.variation_data,item.is_recombinable)
-							
+							local caption_color = item.text_color
+							local caption_text = item.source_name .. ": " ..  self:get_random_variation(item.variation_data,item.is_recombinable)
+							self:log_debug(item.sound_id .. " caption text " .. caption_text)
 							item.panel:parent():remove(item.panel)
 							--if not  option fadein then panel set alpha 0
 							item.panel = self:_create_caption_text(caption_text,caption_name,caption_color,item.is_recombinable)
-						else
-							self:log_debug("var data " .. tostring(item.sound_id) .. " : " .. tostring(item.variation_data))
-							item.panel:hide()
+--							self:log_debug("var data " .. tostring(item.sound_id) .. " : " .. tostring(item.variation_data))
 						end
+						item.panel:hide()
 					end
-				elseif item.panel:visible() then 
+				else
 					item.panel:hide()
 				end
 			end
+			
 			if item.panel:visible() then  
 				n = n + 1
-				item.panel:set_position((panel:w() - item.panel:w()) / 2,panel:h() - (y + 24))
-				y = y + item.panel:h()
+				y = y + item.panel:h() + self.settings.caption_margin_v
+				item.panel:set_position((panel:w() - item.panel:w()) / 2,panel:h() - (y))
 				
 				if not item.is_locationless then 
 					if source_position then
@@ -661,7 +661,7 @@ function ClosedCaptions:Update(t,dt)
 			--remove if no valid panel
 			table.insert(queued_remove,i)
 		end
-		
+		--
 		
 	end
 	for _,i in pairs(queued_remove) do 
@@ -713,7 +713,7 @@ function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locat
 		y = panel:h(),
 		w = w,
 		h = 100,
-		alpha = 0, --fades in;  TODO option for this
+---		alpha = 0, --fades in;  TODO option for this
 		visible = true
 	})
 	local subtitle = item_panel:text({
@@ -727,6 +727,7 @@ function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locat
 		font_size = self.settings.caption_font_size,
 		color = text_color,
 		layer = 2,
+		alpha = 1,
 		visible = true
 	})
 
@@ -913,11 +914,15 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	
 	local text
 	local subvariant_data
-	local variation_data,is_recombinable
+	local variation_data
+	local is_recombinable
 	local sound_data = all_sounds_data.vo[sound_id]
 	if not sound_data then 
 		self:log_line(sound_id,source_name,true,{source_id=source_id,variant=variant,prefix=prefix,expire_t=expire_t,position=position})
-		self:AddToDebug(sound_id,source_name)
+		if self:ShouldLogBainUnitVO() or (variant ~= "bain") then 
+			--adds any sound, except if the variant is bain, then requires ShouldLogBainUnitVO() to be true
+			self:AddToDebug(sound_id,source_name)
+		end
 		return
 	else
 		if sound_data.variants then 
@@ -950,15 +955,19 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 			if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
 				variation_data = variations.whisper_mode
 				text = self:get_random_variation(variations.whisper_mode,is_recombinable)
+				
 			elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
-				variation_data = variations.whisper_mode
+				variation_data = variations.assault_mode
 				text = self:get_random_variation(variations.assault_mode,is_recombinable)
+				
 			elseif not is_whisper_mode and variations.assault_break_mode then --if otherwise loud
-				variation_data = variations.whisper_mode
+				variation_data = variations.assault_break_mode
 				text = self:get_random_variation(variations.assault_break_mode,is_recombinable)
+				
 			elseif variations.standard_mode then --no requirements
-				variation_data = variations.whisper_mode
+				variation_data = variations.standard_mode
 				text = self:get_random_variation(variations.standard_mode,is_recombinable)
+				
 			end
 		end
 		
@@ -1050,19 +1059,19 @@ function ClosedCaptions:add_line(sound_id,source,source_id,variant,prefix,expire
 	
 	local panel_text = tostring(source_name) .. ": " .. tostring(text)
 
-
 	local data = {
 		position = position,
 		source = source,
+		source_name = source_name,
 		loop_data = sound_data.loop_data,
 		loop_visible = true, --only used if loop_data is present
-		loop_next_t = 0, --only used if loop_data is present
 		sound_id = sound_id,
 		priority = subvariant_data.priority or sound_data.priority or 1,
 		max_distance = subvariant_data.max_distance or sound_data.max_distance,
 		variation_data = variation_data,
 		is_recombinable = is_recombinable,
 		start_t = t,
+		text_color = text_color,
 		is_locationless = (source and source == managers.player:local_player()) or subvariant_data.is_locationless or sound_data.is_locationless,
 		expire_t = expire_t
 	}
@@ -1077,6 +1086,8 @@ function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --create
 	if not source_id then --used as panel_id
 		source_id = "UNNAMED_PANEL_" .. tostring(self.num_unnamed_caption)
 	end
+
+	
 	data = data or {}
 	local t = Application:time()
 	data.start_t = data.start_t or t
@@ -1259,6 +1270,10 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 	
 	MenuCallbackHandler.callback_closedcaptions_set_max = function(self,item)
 		ClosedCaptions.settings.captions_max_count = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_vmargin = function(self,item)
+		ClosedCaptions.settings.caption_margin_v = tonumber(item:value())
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_set_fadeout_time = function(self,item)

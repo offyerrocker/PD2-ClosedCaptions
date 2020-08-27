@@ -35,7 +35,7 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					override_source_id = true, --if true, generates a new source_id (which will not replace any existing voiceline captions); else if any other non-nil value, uses this as source_id
 					duration = 1,
-					priority = 25
+					priority = 50
 				},
 				pickup_ammo_health_boost = {
 					override_name = "SFX",
@@ -61,6 +61,13 @@ ClosedCaptions._sounds = {
 					priority = 25,
 					category = "sfx"
 				},
+				wp_target_pick_up = {
+					override_name = "SFX",
+					text = "picked up Throwing Knife",
+					override_source_id = true,
+					duration = 25,
+					category = "sfx"
+				},
 				wp_ace_pick_up = {
 					override_name = "SFX",
 					text = "picked up Throwing Card",
@@ -84,9 +91,17 @@ ClosedCaptions._sounds = {
 					priority = 25,
 					category = "sfx"
 				},
-				wp_arrow_placeholder_pick_up = {
+				wp_arrow_pick_up = {
 					override_name = "SFX",
 					text = "picked up Arrow",
+					override_source_id = true,
+					duration = 1,
+					priority = 25,
+					category = "sfx"
+				},
+				wp_hunterarrow_pick_up = {
+					override_name = "SFX",
+					text = "picked up Compound Bow Arrow",
 					override_source_id = true,
 					duration = 1,
 					priority = 25,
@@ -398,13 +413,22 @@ ClosedCaptions._sounds = {
 				fire_sprinkler_start = {
 					override_name = "SFX",
 					text = "(fire sprinkler activates)",
+					override_source_id = "fire_sprinkler",
 					max_distance = 2000,
 					priority = 38,
 					category = "sfx"
 				},
+				fire_sprinkler_stop = {
+					override_name = "SFX",
+--					text = "(fire sprinkler stops)",
+					stops_line = "fire_sprinkler_start",
+					priority = 38,
+					category = "stops"
+				},
 				fire_hiss = {
 					override_name = "SFX",
 					text = "(fire hisses)",
+					override_source_id = "fire_hiss",
 					max_distance = 2000,
 					priority = 38,
 					category = "sfx"
@@ -464,6 +488,17 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					}
+				},
+				helicopter_ambience_loop = {
+					override_name = "SFX",
+					text = "(helicopter droning)",
+					max_distance = 5000,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					},
+					disabled = true
 				},
 				npc_crowd_scream_01 = {
 					override_name = "SFX",
@@ -856,6 +891,22 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "sfx"
 				},
+				diegetic_club_music = {
+					override_name = "SFX",
+					text = "[loud club music]",
+					loop_data = {
+						loop_interval = -1
+					},
+					category = "sfx",
+					priority = 90,
+					max_distance = 3000
+				},
+				diegetic_club_music = {
+					override_name = "SFX",
+					text = "[club music stops]",
+					category = "stops",
+					stops_line = "diegetic_club_music"
+				},
 				card_reader_first_card = { --ovk decided to reuse this sound for hoxton revenge's laser grids activation noises, so... generic descriptions. yay.
 					override_name = "SFX",
 					text = "beeps",
@@ -1128,15 +1179,29 @@ ClosedCaptions._sounds = {
 					max_distance = 5000,
 					text = "(SWAT explosive breaches wall)"
 				},
-				Play_pln_drl_wrn_snd = { --todo 
+				Play_pln_drl_wrn_snd = {
 					override_name = "Bain",
 					text = "Remember to keep bystanders away from the drill! They'll get alerted just from the noise!",
 					priority = 39,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Remember to keep bystanders away from the drill!",
+								"Try to keep others from getting near the drill.",
+								"Make sure no-one else comes near the drill.",
+								"Let's try to have the drill do its thing without others coming near it.",
+								"Keep others clear of the drill."
+							},
+							{
+								"The noise could blow this wide open.",
+								"They might notice the sound.",
+								"They'll hear it and get suspicious!",
+								"The noise might tip 'em off."
+							}
+						}
+					},
 					category = "contractor_vo"
-				},
-				Play_ban_b11 = { --todo
-					disabled = true,
-					text = "asault over kthxssss"
 				},
 				Play_pln_spawn_01 = {
 					override_name = "Bain",
@@ -1247,10 +1312,75 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Play_ban_b10 = {
+					text = "(assault survived)",
+					duration = 7,
+					category = "contractor_vo",
+					override_name = "Bain",
+					priority = 40,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"You just gave me a few more grey hairs!",
+								"Goddammit, you had me worried back there!",
+								"That could have gone better, but it definitely could have gone worse.",
+								"You're gonna give me a heart attack!",
+								"Glad you guys weathered that storm- it sure was rough for a while.",
+								"Almost lost it there, but you came through okay.",
+								"[exhales] That was closer than I'd like, people.",
+								"I'm too old for this!"
+							},
+							{
+								"Now patch yourselves up, and let's get back in the game.",
+								"Now recess is over, fellas. Let's get back in business.",
+								"Let's ready up and back to work.",
+								"You earned this breather- now it's time to work.",
+								"Now let's get back in the game, fellas.",
+								"Now get to work, we don't have all day.",
+								"Now ready up and let's get back to work.",
+								"Now get back on your feet- you got work to do."
+							}
+						}
+					}
+				},
+				Play_ban_b11 = {
+					text = "(assault beaten)",
+					duration = 7,
+					category = "contractor_vo",
+					override_name = "Bain",
+					priority = 40,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"People, that was well handled.",
+								"Good work, fellas, you're clear!",
+								"You earned this breather. Now it's time to work.",
+								"You did good! Reminds me of myself, back in the day.",
+								"Good work back there.",
+								"Good work. Let's keep it moving.",
+								"You did good, fellas, but no time for relaxing. Get the job done.",
+								"Alright, now that's taken care of.",
+								"You should feel good. I know I do."
+							},
+							{
+								"You're making good progress, so get crackin'.",
+								"We don't have long until the next assault, folks.",
+								"Now focus on getting things done.",
+								"You just bought yourself a little time. make the best of it.",
+								"You bought yourself a breather, so start breathing and get it done.",
+								"You did good work back there. Take advantage of it now.",
+								"They'll be back for more, so don't mess around."
+							}
+						}
+					}
+				},
 				Play_ban_b12 = {
-					text = "(assault finished)",
+					text = "(assault easily beaten)",
 					override_name = "Bain",
 					category = "contractor_vo",
+					duration = 10,
 					priority = 37,
 					line_variations = {
 						recombinable = true,
@@ -3232,6 +3362,9 @@ ClosedCaptions._sounds = {
 											"They're all over the place!"
 										}
 									}
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -3258,6 +3391,9 @@ ClosedCaptions._sounds = {
 											"We're easy targets, this place is no good."
 										}
 									}
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -3305,7 +3441,7 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
-								tsr = {
+								taser = {
 									text = "(Taser taunt)",
 									category = "enemy_chatter",
 									line_variations = {
@@ -3370,10 +3506,10 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
-								clk = {
+								spooc = {
 									disabled = true
 								},
-								mdc = {
+								medic = {
 									text = "(Medic taunt)",
 									category = "enemy_chatter",
 									line_variations = {
@@ -3412,7 +3548,7 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
-								bdz = {
+								tank = {
 									text = "(Bulldozer taunt)",
 									category = "enemy_chatter",
 									line_variations = {
@@ -3711,6 +3847,9 @@ ClosedCaptions._sounds = {
 											"Hurry! C'mon!"
 										}
 									}
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -3775,6 +3914,9 @@ ClosedCaptions._sounds = {
 											"Gotcha!"
 										}
 									}
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -3934,6 +4076,9 @@ ClosedCaptions._sounds = {
 											"Get moving!"
 										}
 									}
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -4401,6 +4546,7 @@ ClosedCaptions._sounds = {
 				p34 = {
 					variants = {
 						criminal = {
+							text = "They're coming in from above!",
 							category = "heister_dialogue",
 							priority = 40,
 							subvariants = {
@@ -4411,6 +4557,9 @@ ClosedCaptions._sounds = {
 											"They're on the roof!"
 										}
 									}
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -4496,11 +4645,15 @@ ClosedCaptions._sounds = {
 				p39 = {
 					variants = {
 						criminal = {
+							text = "They're climbing down on the outside!",
 							category = "heister_dialogue",
 							priority = 40,
 							subvariants = {
 								rb4 = {
 									text = "They're climbing down on the outside!"
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -7265,7 +7418,7 @@ ClosedCaptions._sounds = {
 									line_variations = {
 										standard_mode = {
 											"Fuck off, Medic.",
-											"Try an' heal any of those wounds, ya pussy. (Medic)",
+											"Try an' heal any of those wounds, ya pussy.",
 											"Bye-bye, Medic fuck."
 										},
 										DISABLED_assault_mode = {}
@@ -9158,20 +9311,20 @@ ClosedCaptions._sounds = {
 						civilian = {
 							text = "(fear)",
 							priority = 37,
-							category = "civilian_callouts"
+							category = "civilian_dialogue"
 						}
 					}
 				}, --mask up				
 				a02x_any = {
 					text = "(panic)", --not kalm
 					priority = 37,
-					category = "civilian_callouts"
+					category = "civilian_dialogue"
 				},
 				a03x_any = {
 					variants = {
 						civilian = {
 							text = "(screaming in fear)",
-							category = "civilian_callouts",
+							category = "civilian_dialogue",
 							priority = 37
 						}
 					}
@@ -9753,6 +9906,7 @@ ClosedCaptions._sounds = {
 				l2n_a07b = {
 					variants = {
 						security = {
+							max_distance = 3000,
 							text = "(spotted suspicious object)",
 							category = "enemy_dialogue",
 							priority = 37,
@@ -9775,6 +9929,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -9836,6 +9991,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -9900,6 +10056,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -9965,6 +10122,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10031,6 +10189,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10103,6 +10262,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10176,6 +10336,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10243,6 +10404,7 @@ ClosedCaptions._sounds = {
 					duration = 10,
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10310,6 +10472,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10384,6 +10547,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10451,6 +10615,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10523,6 +10688,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10589,6 +10755,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10653,6 +10820,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10720,6 +10888,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10795,6 +10964,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10868,6 +11038,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					duration = 5,
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -10943,6 +11114,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					duration = 10,
 					priority = 37,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -11029,6 +11201,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -11101,6 +11274,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -11175,6 +11349,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 10,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -11265,6 +11440,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 37,
 					duration = 7,
+					max_distance = 3000,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -11560,14 +11736,59 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					priority = 40
 				},
-				cloaker_taunt_during_assault = { --todo
+				cloaker_taunt_during_assault = {
 					text = "(Cloaker taunt)",
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Alright, the safeword is 'police brutality.",
+							"I got your DLC right here!",
+							"Speak up! Can't hear you!",
+							"Sometimes, wishes do come true!",
+							"We call this a 'difficulty tweak!'",
+							"Next time, check your corners!",
+							"THIS is the point of no return!",
+							"Didn't forget about me, did you?!",
+							"You call this 'putting up a fight?!'",
+							"I know, I know... I'm late.",
+							"You asked for it! Really!",
+							"You wanted me back, SO I'M BACK!",
+							"Listen here, I've got this drum solo I've been working on!",
+							"Miss me, didn't you?",
+							"You call this 'resisting arrest?!'",
+							"Ooh, that one's gonna hurt!",
+							"Work smarter, not harder!",
+							"I'm gonna beat the cellulites outta you!",
+							"Stop hitting yourself, stop hitting yourself!",
+							"I guess you're not as good as you thought!",
+							"I'm gonna turn you inside-out!",
+							"Better late than never!",
+							"Not so tough now, huh?",
+							"Try a little harder!",
+							"Who's the clown now?!",
+							"This might sting a little!"
+						}
+					},
 					priority = 70
 				},
 				cloaker_taunt_after_assault = {
 					text = "(Cloaker taunt)",
 					category = "enemy_dialogue",
+					line_variations = {
+						standard_mode = {
+							"I bet you let yourself get beat up, just to hear what I have to say!",
+							"We gotta do this more often.",
+							"We gotta stop meeting like this, you know.", --WELL WHICH IS IT, CLOAKER
+							"Not as tough as they told me!",
+							"You got what was coming for ya!",
+							"Now cry for mom to change your diapers!",
+							"Wow, that was a nice workout. I think I'll have a protein drink and hit the shower.",
+							"What's left if you beat the shit out of a piece of shit?!",
+							"I expected better!",
+							"You wear that shit in your pants proudly, like a badge of honor!",
+							"Now, you can come back for more, any time you want!"
+						}
+					},
 					priority = 70
 				},
 				rcloaker_taunt_during_assault = { --russian cloaker
@@ -11643,7 +11864,7 @@ ClosedCaptions._sounds = {
 						cop = {
 							priority = 60,
 							subvariants = {
-								bdz = {
+								tank = {
 									text = "(Bulldozer spawned)",
 									category = "enemy_dialogue",
 									line_variations = { --copied from bdz_entrance
@@ -11693,7 +11914,7 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
-								tsr = {
+								taser = {
 									text = "(Taser spawned)",
 									category = "enemy_dialogue",
 									line_variations = {
@@ -11702,11 +11923,11 @@ ClosedCaptions._sounds = {
 										}
 									}
 								},
-								clk = {
+								spooc = {
 									text = "(Cloaker spawned)",
 									category = "enemy_dialogue"
 								},
-								mdc = {
+								medic = {
 									text = "(Medic spawned)",
 									category = "enemy_dialogue",
 									line_variations = {
@@ -12057,7 +12278,7 @@ ClosedCaptions._sounds = {
 				["911_call"] = {
 					variants = {
 						civilian = {
-							category = "civilian_callouts",
+							category = "civilian_dialogue",
 							text = "Hello? 911? I need help, there's armed robbers here!",
 							priority = 60
 						}
@@ -12269,97 +12490,134 @@ ClosedCaptions._sounds = {
 				},
 				a07b = {
 					category = "enemy_dialogue",
-					text = "That's weird...", --see something suspicious
-					priority = 37
+					text = "(spots something suspicious)",
+					priority = 37,
+					variants = {
+						cop = {
+							category = "enemy_dialogue",
+							priority = 37,
+							line_variations = {
+								whisper_mode = {
+									"That's weird...",
+									"Strange..."
+								}
+							}
+						}
+					}
 				},
 				a08 = {
 					category = "enemy_dialogue",
-					text = "Intruder!",
-					priority = 37
+					text = "(spotted heister!)",
+					priority = 37,
+					variants = {
+						cop = {
+							category = "enemy_dialogue",
+							priority = 37,
+							line_variations = {
+								whisper_mode = {
+									"Shit!",
+									"Hey!",
+									"Intruder!"
+								}
+							}
+						}
+					}
 				},
 				a09 = {
 					category = "enemy_dialogue",
 					text = "Sound the alarm!",
-					priority = 37
+					priority = 37,
+					variants = {
+						cop = {
+							category = "enemy_dialogue",
+							priority = 37,
+							line_variations = {
+								whisper_mode = {
+									"Sound the alarm!",
+									"Sound the alarm immediately!"
+								}
+							}
+						}
+					}
 				},
 				a10 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, there's a broken window here...",
+					text = "Two-Two reporting in, there's a broken window here...",
 					priority = 37
 				},
 				a11 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, there's a dead body here...",
+					text = "Two-Two reporting in, there's a dead body here...",
 					priority = 37
 				},
 				a12 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, I've spotted a dead officer...",
+					text = "Two-Two reporting in, I've spotted a dead officer...",
 					priority = 37
 				},
 				a13 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, I've spotted a tied up civilian...",
+					text = "Two-Two reporting in, I've spotted a tied up civilian...",
 					priority = 37
 				},
 				a14 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, I've spotted a tied up officer...",
+					text = "Two-Two reporting in, I've spotted a tied up officer...",
 					priority = 37
 				},
 				a15 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, we've got a situation here...",
+					text = "Two-Two reporting in, we've got a situation here...",
 					priority = 37
 				},
 				a16 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, we've got an officer signalling for help...",
+					text = "Two-Two reporting in, we've got an officer signalling for help...",
 					priority = 37
 				},
 				a17 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, there's a security door that shouldn't be open here...",
+					text = "Two-Two reporting in, there's a security door that shouldn't be open here...",
 					priority = 37
 				},
 				a18 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, somebody set a fire over here...",
+					text = "Two-Two reporting in, somebody set a fire over here...",
 					priority = 37
 				},
 				a19 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, I've got a bodybag over here...",
+					text = "Two-Two reporting in, I've got a bodybag over here...",
 					priority = 37
 				},
 				a20 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, I've spotted some kind of sentry gun over here...",
+					text = "Two-Two reporting in, I've spotted some kind of sentry gun over here...",
 					priority = 37
 				},
-				a21 = { --not used
+				a21 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, I've spotted a trip mine...",
+					text = "Two-Two reporting in, I've spotted a trip mine...",
 					priority = 37
 				},
 				a22 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, I've spotted a suspicious bag...",
+					text = "Two-Two reporting in, I've spotted a suspicious bag...",
 					priority = 37
 				},
 				a23 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, there's signs of intruders here...",
+					text = "Two-Two reporting in, there's signs of intruders here...",
 					priority = 37
 				},
 				a24 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, somebody's been messing with the computer here...",
+					text = "Two-Two reporting in, somebody's been messing with the computer here...",
 					priority = 37
 				},
 				a25 = {
 					category = "enemy_dialogue",
-					text = "Two-Four reporting in, I've spotted some heavy drilling equipment here...",
+					text = "Two-Two reporting in, I've spotted some heavy drilling equipment here...",
 					priority = 37
 				},
 				amm = {
@@ -12610,6 +12868,19 @@ ClosedCaptions._sounds = {
 					text = "(to hostage) Hey, stay calm, we're getting you out.",
 					priority = 90
 				},
+				l1d_d01 = {
+					category = "enemy_dialogue",
+					text = "Deploy smoke.",
+					priority = 90,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
 				d01 = {
 					category = "enemy_dialogue",
 					text = "Deploy smoke.",
@@ -12777,6 +13048,22 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					text = "Ready!",
 					priority = 99
+				},
+				l2d_rdy = {
+					category = "enemy_chatter",
+					text = "Ready!",
+					priority = 99
+				},
+				l1d_att = {
+					category = "enemy_chatter",
+					text = "Go!",
+					priority = 99,
+					line_variations = {
+						standard_mode = {
+							"Go!",
+							"Go! Go!"
+						}
+					}
 				},
 				rrl = {
 					category = "enemy_chatter",
@@ -14378,11 +14665,10 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					max_distance = 700,
 					duration = 45,
-					text = "(incriminating tape recording of The Rat)",
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
-							"\nINTERVIEWER: You heard about the incident at the Courthouse? [pause] They got Hoxton back.\nTHE RAT: [scoffs] And you let them waltz right into your fucking headquarters?! Do they know about me?\nINTERVIEWER: We're not stupid, Hector. Nothing points to you directly.\nTHE RAT: [exasperated sigh]\nINTERVIEWER: But if we allow them time to dig through all the data, they'll put two and two together, and they might figure out why that meat truck of yours was conveniently surrounded.\nTHE RAT: [groans] Shit! Putas! Fucking putas! They'll know!\nINTERVIEWER: Hector, we're running out of time. I've prepared a safehouse. It'll keep you protected while you work with my agents to build a case against the clowns. From what I've learned about them over the month, I'd say your life depends on it.\nTHE RAT: ...Putas."
+							"\nINTERVIEWER: You heard about the incident at the Courthouse? [pause] They got Hoxton back.\nTHE RAT: [scoffs] And you let them waltz right into your fucking headquarters?! Do they know about me?\nINTERVIEWER: We're not stupid, Hector. Nothing points to you directly.\nTHE RAT: [exasperated sigh]\nINTERVIEWER: But if we allow them time to dig through all the data, they'll put two and two together, and they might figure out why that meat truck of yours was conveniently surrounded.\nTHE RAT: [groans] Shit! Putas! Fucking putas! They'll know!\nINTERVIEWER: Hector, we're running out of time. I've prepared a safehouse. It'll keep you protected while you work with my agents to build a case against the clowns. From what I've learned about them over the month, I'd say your life depends on it.\nTHE RAT: ...Putas. [tape clicks off]"
 						}
 					}
 				},
@@ -14568,13 +14854,13 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Manager",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
-					duration = 10,
+					duration = 8,
 					priority = 37,
 					max_distance = 1500,
 					loop_data = {
 						loop_interval = 10,
-						use_random_variations = true,
-						use_random_loop_interval = true
+						loop_interval_min = 10,
+						use_random_variations = true
 					},
 					text = "talking on phone and being a dick in general",
 					line_variations = {
@@ -14590,7 +14876,7 @@ ClosedCaptions._sounds = {
 							"Well... you know how it is. You smile, nod, tell them to sign on the dotted line, and you have their soul, bro!",
 							"Yeah, yeah- [laughs] told them it was an 'accounting error!'",
 							"Yeah, a loan for HEATING! So I said, 'can't the orphans just huddle closer together?'",
-							"Told a guy who wanted a loan, we couldn't, under FTS regulations. [pause] F.T.S.? 'Fuck That Shit!'"
+							"Told a guy who wanted a loan, we couldn't, under F.T.S. regulations. [pause] F.T.S.? 'Fuck. That. Shit!'"
 						}
 					}
 				},
@@ -14598,13 +14884,13 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Manager",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
-					duration = 10,
+					duration = 8,
 					priority = 37,
 					max_distance = 1500,
 					loop_data = {
 						loop_interval = 10,
-						use_random_variations = true,
-						use_random_loop_interval = true
+						loop_interval_min = 10,
+						use_random_variations = true
 					},
 					text = "(talking on phone and being a dick in general)",
 					line_variations = {
@@ -14625,13 +14911,13 @@ ClosedCaptions._sounds = {
 					override_name = "Bank Manager",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
-					duration = 10,
+					duration = 8,
 					priority = 37,
 					max_distance = 1500,
 					loop_data = {
-						loop_interval = 10,
-						use_random_variations = true,
-						use_random_loop_interval = true
+						loop_interval = 20,
+						loop_interval_min = 10,
+						use_random_variations = true
 					},
 					text = "(talking on phone and being a dick in general)",
 					line_variations = {
@@ -14661,63 +14947,91 @@ ClosedCaptions._sounds = {
 				},
 				Play_be2_fwb_01 = {
 					max_distance = 700,
+					duration = 7,
+					override_name = "Bank Customer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					category = "mission_dialogue",
+					text = "(customer asking for funding for awful ideas)",
 					loop_data = {
-						loop_interval = -1
+						loop_interval = 0.5
 					},
-					text = "Play_be2_fwb_01"
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Damn! Was kinda bankin on you sayin' 'yeah.'",
+								"Uh! Oh, uh! You sure I can't change your mind? What if you, uh... [spooky, hypnotic voice] look into my eyes...",
+								"Was bankin' on you sayin' 'yes'... I'll try again later.",
+								"You're missin' out on a golden opportunity!",
+								"This coulda been your chance to make at least... uh... a billion dollars!",
+								"Oho, you're sure? Cause... I kinda spent the money already.",
+								"I was hopin' you'd say 'yes.' The money could get my underwear back.",
+								"I think you're pissin' up the wrong tree here."
+							},
+							{
+								"I appreciate that times are difficult- First World Bank truly does- but with regret, we cannot sanction a loan of $10,000 on a promise to pay it back when... Fat Pat's insurance comes through.",
+								"Unfortunately, we cannot extend your credit line to cover incidental costs like, uh... hookers and blow.",
+								"Unfortunately, I have doubts that you're serious about your plan to market and manufacture something like... 'Fart Crackers.",
+								"I'm sorry, but I don't think there's much demand for Confederate flag bedsheets.",
+								"I'm sorry, we're not able to offer unguided tours of the premises. And especially not 'the room where all the money's kept.'",
+								"I'm sorry... no. I don't think the pigs would appreciate that. Even if they're dead.",
+								"[embarrassed chuckle] Uh, no, this isn't that kind of bank. I think you want the one attached to the hospital. Or that bar down the road.",
+								"What if I come back... and bring salsa?",
+								"I'm afraid not. We cannot sanction a loan to buy out our bank."
+							}
+						}
+					}
 				},
-				Play_be2_fwb_02 = {
-					max_distance = 700,
-					loop_data = {
-						loop_interval = -1
-					},
-					text = "Play_be2_fwb_02"
+				Stop_be2_fwb_01 = {
+					stops_line = "Play_be2_fwb_01",
+					category = "stops"
 				},
-				Play_be2_fwb_03 = {
-					max_distance = 700,
-					loop_data = {
-						loop_interval = -1
+				Play_mc1_fwb_01 = {
+					text = "(customer asking for funding for awful ideas)",
+					override_name = "Bank Customer",
+					override_text_color = ClosedCaptions.color_data.neutral1,
+					duration = 7,
+					category = "mission_dialogue",
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"So, business plan to observe myself eating lobster and drinking champagne for 60 years? It's a 'no?' Not even for science?",
+								"Now- now, if I understand you, you don't wanna give me some money to provide capital for an operation to run smokes outta Mexico?",
+								"Now- now, if I understand, as it pertains to my business idea for free bar for my friends... your answer is 'no?'",
+								"So, lemme get this straight. I want to build a tower to the moon, and you're sayin' 'no?'",
+								"So lemme get this straight. You're not interested in funding my idea for a TV show: 'Big Brother?'",
+								"Okay, lemme get this straight. You ain't gonna loan me the money to turn my car into a submarine?",
+								"So... you're sure? You don't wanna invest in a campaign to make bananas less banana-shaped?",
+								"So what you're telling me is... if I have this straight... what you're sayin' is, you ain't investin' in a pager business?",
+								"So, it's a 'no' on a loan to buy a salad bar called 'Boogers?'"
+							},
+							{
+								"Listen. To. My. Lips. 'NO.'",
+								"[impatient] Please, step away.",
+								"[sarcastic] Tempting! ...But, no.",
+								"Have you considered asking at Harvest&Trustee?",
+								"[exasperated] For the thousandth time... we're not interested.",
+								"[clipped tone] Yes. But no. Very definitely 'no.'",
+								"Perhaps you should apply at the Benevolent Bank.",
+								"Have you tried Roberts?"
+							}
+						}
 					},
-					text = "Play_be2_fwb_03"
-				},
-				Play_mc1_fwb_01 = { --these three are also looped
 					loop_data = {
-						loop_interval = 10,
-						use_random_loop_interval = true
-					},
-					text = "Play_mc1_fwb_01"
-				},
-				Play_mc1_fwb_02 = {
-					loop_data = {
-						loop_interval = 10,
-						use_random_loop_interval = true
-					},
-					text = "Play_mc1_fwb_02"
-				},
-				Play_mc1_fwb_03 = {
-					loop_data = {
-						loop_interval = 10,
-						use_random_loop_interval = true
-					},
-					text = "Play_mc1_fwb_03"
+						loop_interval = 0.5
+					}
 				},
 				Stop_mc1_fwb_01 = {
 					stops_line = "Play_mc1_fwb_01",
 					category = "stops"
 				},
-				Stop_mc1_fwb_02 = {
-					stops_line = "Play_mc1_fwb_02",
-					category = "stops"
-				},
-				Stop_mc1_fwb_03 = {
-					stops_line = "Play_mc1_fwb_03",
-					category = "stops"
-				},
+
 --big bank				
 				teller_customer_dialog_approve = {
 					text = "(civilian's grant request approved by teller)",
-					override_name = "",
-					category = "civilian_callouts",
+					override_name = "Bank Teller",
+					category = "civilian_dialogue",
 					priority = 40,
 					max_distance = 500, --these are actually really irritating and large so i reduced the range from 1500
 					duration = 35,
@@ -14736,19 +15050,19 @@ ClosedCaptions._sounds = {
 								"What's your business today?"
 							},
 							{
-								"How's it going? I need three hundred thousand dollars, for my time machine research project.",
-								"Hello, ma'am, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
-								"Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
-								"Hey, I got a private space program going, and I just need a couple of hundred thousand dollars, and then I can put the first American on the sun!",
-								"Yeah, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
-								"[clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
-								"Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
+								"\nCustomer: How's it going? I need three hundred thousand dollars, for my time machine research project.",
+								"\nCustomer: Hello, ma'am, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
+								"\nCustomer: Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
+								"\nCustomer: Hey, I got a private space program going, and I just need a couple of hundred thousand dollars, and then I can put the first American on the sun!",
+								"\nCustomer: Yeah, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
+								"\nCustomer: [clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
+								"\nCustomer: Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
 							},
 							{
-								"Oh...",
-								"Um,",
-								"Umm...",
-								"Hm. Um..."
+								"\nBank Teller: Oh...",
+								"\nBank Teller: Um,",
+								"\nBank Teller: Umm...",
+								"\nBank Teller: Hm. Um..."
 							},
 							{
 								"I must say. This... sounds like a fantastic project!",
@@ -14757,26 +15071,27 @@ ClosedCaptions._sounds = {
 --								"I regret to inform you that you'll have to find backing for this enterprise elsewhere.", --i think this variation was not meant to be here but oh well
 							},
 							{
-								"Okay, that's so cool!",
-								"Wonderful! That'll shut up my non-believer friends!",
-								"I can't believe it! That's great!",
-								"Right on, nice!",
-								"[relieved laugh] And to think I'd almost given up on this idea!"
+								"\nCustomer: Okay, that's so cool!",
+								"\nCustomer: Wonderful! That'll shut up my non-believer friends!",
+								"\nCustomer: I can't believe it! That's great!",
+								"\nCustomer: Right on, nice!",
+								"\nCustomer: [relieved laugh] And to think I'd almost given up on this idea!"
 							},
 							{
-								"I'll book a meeting for you, so that you can talk more about this with one of my colleagues.",
-								"I'll set you up for a meeting with one of my associates.",
-								"I'll set up a meeting so that you can talk more about this with my colleagues.",
-								"I'll set up a meeting where we can go over these great ideas of yours.",
-								"We'll set up a meeting where we can go over this idea of yours.",
-								"Let's set up a meeting so that you can explain your idea in greater detail."
+								"\nBank Teller: I'll book a meeting for you, so that you can talk more about this with one of my colleagues.",
+								"\nBank Teller: I'll set you up for a meeting with one of my associates.",
+								"\nBank Teller: I'll set up a meeting so that you can talk more about this with my colleagues.",
+								"\nBank Teller: I'll set up a meeting where we can go over these great ideas of yours.",
+								"\nBank Teller: We'll set up a meeting where we can go over this idea of yours.",
+								"\nBank Teller: Let's set up a meeting so that you can explain your idea in greater detail."
 							}
 						}
 					}
 				},
 				teller_customer_dialog_deny = {
 					text = "(civilian's grant request rejected by teller)",
-					category = "civilian_callouts",
+					category = "civilian_dialogue",
+					override_name = "Bank Teller",
 					priority = 40,
 					max_distance = 500,
 					duration = 35,
@@ -14794,19 +15109,19 @@ ClosedCaptions._sounds = {
 								"What's your business today?"
 							},
 							{
-								"How's it going? Uh, I need three hundred thousand dollars, for my time machine research project.",
-								"Hi, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
-								"Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
-								"Hey, I got a private space program going, and I just need a couple hundred thousand dollars, and then I can put the first American on the sun!",
-								"Uh, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
-								"[clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
-								"Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
+								"\nCustomer: How's it going? Uh, I need three hundred thousand dollars, for my time machine research project.",
+								"\nCustomer: Hi, I need a loan for three hundred grand cause I wanna start a white shark petting zoo.",
+								"\nCustomer: Yeah, hi ma'am. I need three hundred thousand because I'm gonna build an Olympic standard high diving pool inside my apartment. [pause] And... open it up for the public.",
+								"\nCustomer: Hey, I got a private space program going, and I just need a couple hundred thousand dollars, and then I can put the first American on the sun!",
+								"\nCustomer: Uh, hello! I'm looking for a loan of three hundred thousand so I can build solar road... around my block!",
+								"\nCustomer: [clears throat] Hello. I need three hundred, because I'm developing a lightsaber.",
+								"\nCustomer: Hi! I was thinking... I want to borrow three hundred thousand dollars to buy gas, and then later, when the gas prices have gone up... I'll sell it! At a profit!"
 							},
 							{
-								"Oh...",
-								"Um,",
-								"Umm...",
-								"Hm. Um..."
+								"\nBank Teller: Oh...",
+								"\nBank Teller: Um,",
+								"\nBank Teller: Umm...",
+								"\nBank Teller: Hm. Um..."
 							},
 							{
 								"unfortunately, that doesn't sound like something this bank would like to be involved in.",
@@ -14815,25 +15130,26 @@ ClosedCaptions._sounds = {
 								"sorry. That's not something we can support."
 							},
 							{
-								"Uh huh. Alright.",
-								"Oh, okay. Thanks anyway.",
-								"[disappointed] Well, okay.",
-								"Well... alright. Bye.",
-								"[disappointed] Alright, then.",
-								"Okay, uh huh. [dejected] See ya."
+								"\nCustomer: Uh huh. Alright.",
+								"\nCustomer: Oh, okay. Thanks anyway.",
+								"\nCustomer: [disappointed] Well, okay.",
+								"\nCustomer: Well... alright. Bye.",
+								"\nCustomer: [disappointed] Alright, then.",
+								"\nCustomer: Okay, uh huh. [dejected] See ya."
 							},
 							{
-								"[sincerely] Have a good day.",
-								"Have a great day.",
-								"Bye!",
-								"[sarcastic] ...buh-bye."
+								"\nBank Teller: [sincerely] Have a good day.",
+								"\nBank Teller: Have a great day.",
+								"\nBank Teller: Bye!",
+								"\nBank Teller: [sarcastic] ...buh-bye."
 							}
 						}
 					}
 				},
 				teller_bank_next = {
 					text = "(Next customer, please.)",
-					category = "civilian_callouts",
+					category = "civilian_dialogue",
+					override_name = "Bank Teller",
 					priority = 40,
 					max_distance = 500,
 					duration = 4,
@@ -15600,10 +15916,24 @@ ClosedCaptions._sounds = {
 				
 			--goat simulator heist day 1		
 				Play_cpg_pt1_01 = {
-					text = "Drop the goats, asshole!",
+					text = "Leave the damn goats alone, clown!",
 					override_name = "Megaphone cop",
 					priority = 37,
-					category = "mission_dialogue"
+					category = "mission_dialogue",
+					line_variations = {
+						standard_mode = {
+							"Leave the damn goats alone, clown!",
+							"Abducting goats is a federal offense!",
+							"Put the goats down!",
+							"Put the goat on the floor and your hands in the air!",
+							"That goat to belongs to Uncle Sam now, asshole!",
+							"You're not leaving here with the goats, asshole!",
+							"That goat is an important witness! Drop it! NOW!",
+							"Drop the goat, lawbreaker!",
+							"Lower the goat, or we shoot!",
+							"Step away from the goat, asshole!"
+						}
+					}
 				},
 				Play_pln_ko1_01 = {
 					text = "All personnel, get ready for drop.",
@@ -15615,7 +15945,7 @@ ClosedCaptions._sounds = {
 			--go bank
 				Play_btm_cs1_01 = {
 					override_name = "Bank Teller",
-					category = "civilian_callouts",
+					category = "civilian_dialogue",
 					priority = 37,
 					max_distance = 2000,
 					text = "(talking with Roberts Bank customer)",
@@ -15633,7 +15963,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_btf_cs1_01 = {
 					override_name = "Bank Teller",
-					category = "civilian_callouts",
+					category = "civilian_dialogue",
 					priority = 37,
 					max_distance = 2000,
 					text = "(talking with Roberts Bank customer)",
@@ -15651,7 +15981,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bkm_cs1_01 = {
 					override_name = "Bank Teller",
-					category = "civilian_callouts",
+					category = "civilian_dialogue",
 					priority = 37,
 					max_distance = 2000,
 					text = "(talking with Roberts Bank customer)",
@@ -15666,7 +15996,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bkm_cs1_02 = {
 					override_name = "Bank Teller",
-					category = "civilian_callouts",
+					category = "civilian_dialogue",
 					priority = 37,
 					max_distance = 2000,
 					text = "(talking with Roberts Bank customer)",
@@ -16467,6 +16797,28 @@ ClosedCaptions._sounds = {
 					text = "[idle]",
 					category = "chatter",
 					disabled = true
+				},
+			--biker heist
+				Play_bkl_brn_01 = {
+					text = "(biker aggro)",
+					category = "mission_dialogue",
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Payback!",
+							"Retribution time.",
+							"Witness me!",
+						}
+					}
+				},
+				Play_mch_brn_01 = {
+					text = "[muffled yelling for help through gag]",
+					category = "mission_dialogue",
+					priority = 37
+				},
+				Stop_mch_brn_01 = {
+					category = "stops",
+					stops_line = "Play_bkl_brn_01"
 				}
 			}
 		}

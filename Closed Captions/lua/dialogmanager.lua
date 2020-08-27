@@ -36,39 +36,40 @@ Hooks:PreHook(DialogManager,"_play_dialog","closedcaptions_dialogmanager_startdi
 				local position
 				--add line here
 							
-				if not alive(unit) then
-					if dialog.character then
-						unit = managers.criminals:character_unit_by_name(dialog.character)
-					else
-						position = params.position --can be nil
-					end
-				end
-
 				local source_id = tostring(self._source)
 				local source = nil -- = self._source --not used for this; we want to use a custom position instead
 				local variant = "element" --indicates that the sound is playing from an element
 				local prefix = ""
 				local expire_t = nil --Application:time() + 60 --this sound does not give expire_t or duration naturally; instead, it supplies a callback for when the sound ends, so let's rely on that. or not.
 				
+				if not alive(unit) then
+					if dialog.character then
+						unit = managers.criminals:character_unit_by_name(dialog.character)
+					else
+						--is bain unit
+						variant = "bain"
+						position = params.position --can be nil
+					end
+				end
+
+				
 				
 				if alive(unit) then
 					if dialog.string_id then
-	--					unit:drama():play_subtitle(dialog.string_id)
 --						ClosedCaptions:log_debug("PLAYED SOUND SOURCE 3 " .. tostring(dialog.string_id))
 					end
 
 					if dialog.sound then
---						unit:drama():play_sound(dialog.sound, dialog.sound_source)
 --						ClosedCaptions:log_debug("PLAYED SOUND SOURCE 4 " .. tostring(dialog.sound) .. " " .. tostring(dialog.sound_source))
 					elseif dialog.sounds and #dialog.sounds > 0 then
 --						ClosedCaptions:log_debug("PLAYED SOUND SOURCE 5 " .. tostring(dialog.sounds[self._current_dialog.line]) .. " " .. tostring(dialog.sound_source))
---						self._current_dialog.line = line or 1
---						unit:drama():play_sound(dialog.sounds[self._current_dialog.line], dialog.sound_source)
+						return
 					end
 					
 					ClosedCaptions:add_line(dialog.sound,unit,source_id,variant,prefix,expire_t,position)
 				else
 					if position then 
+					
 						ClosedCaptions:add_line(dialog.sound,nil,source_id,variant,prefix,expire_t,position)
 					else --use player?
 --						ClosedCaptions:log_debug("Played 6 ig")
