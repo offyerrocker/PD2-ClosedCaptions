@@ -1,6 +1,9 @@
 ClosedCaptions._sounds = {
 	languages = {
 		english = {
+			disabled_foley = {
+				example_sound = true
+			},
 			vo_special = { --there exit character-specific variants for most of these, but we'll burn that bridge when we come to it
 				["f11@_sin"] = { --macroized
 					text = "$CHARACTER_NAME! Help me up!",
@@ -23,6 +26,7 @@ ClosedCaptions._sounds = {
 				["Play_ban_i20@"] = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					macro = "character_name",
 					text = "$character_name, you're the last one standing! It's all up to you!",
 					priority = 37
@@ -194,6 +198,13 @@ ClosedCaptions._sounds = {
 --					stops_line = "server_noise_loop",
 --					category = "stops"
 --				},
+				emitter_security_camera_explode = {
+					override_name = "SFX",
+					text = "(Camera death!)",
+					max_distance = 3000,
+					priority = 36,
+					category = "sfx"
+				},
 				table_saw = {
 					override_name = "SFX",
 					text = "(table saw grinding)",
@@ -231,8 +242,9 @@ ClosedCaptions._sounds = {
 				},
 				ammo_bag_drop = {
 					override_name = "SFX",
-					text = "(bag placed)",
+					text = "(bag impact)",
 					max_distance = 1500,
+					duration = 2,
 					priority = 37,
 					category = "sfx"
 				},
@@ -240,6 +252,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(door kicked open)",
 					max_distance = 2000,
+					duration = 2,
 					priority = 37,
 					category = "sfx"
 				},
@@ -247,6 +260,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(door knocking)",
 					max_distance = 2000,
+					duration = 2,
 					override_source_id = "metal_door",
 					priority = 37,
 					category = "sfx"
@@ -263,6 +277,15 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(metal door opens)",
 					max_distance = 2000,
+					duration = 2,
+					priority = 37,
+					category = "sfx"
+				},
+				gate_fence_street_open = {
+					override_name = "SFX",
+					text = "(fence gate opens)",
+					max_distance = 2000,
+					duration = 2,
 					priority = 37,
 					category = "sfx"
 				},
@@ -797,7 +820,7 @@ ClosedCaptions._sounds = {
 					priority = 11,
 					stops_line = "tasered_loop"
 				},
-				melee_hit_body = {
+				melee_hit_body = { --some of these don't trigger since they're queued directly from the sound_source() and not through play() or say()
 					override_name = "SFX",
 					text = "(melee impact)",
 					priority = 20,
@@ -946,11 +969,21 @@ ClosedCaptions._sounds = {
 					priority = 90,
 					max_distance = 3000
 				},
-				diegetic_club_music = {
+				diegetic_club_music_stop = {
 					override_name = "SFX",
 					text = "[club music stops]",
 					category = "stops",
 					stops_line = "diegetic_club_music"
+				},
+				diegetic_lounge_music = {
+					override_name = "SFX",
+					text = "[lounge music]",
+					loop_data = {
+						loop_interval = -1
+					},
+					category = "sfx",
+					priority = 90,
+					max_distance = 3000
 				},
 				card_reader_first_card = { --ovk decided to reuse this sound for hoxton revenge's laser grids activation noises, so... generic descriptions. yay.
 					override_name = "SFX",
@@ -1235,6 +1268,8 @@ ClosedCaptions._sounds = {
 				Play_pln_drl_wrn_snd = {
 					override_name = "Bain",
 					text = "Remember to keep bystanders away from the drill! They'll get alerted just from the noise!",
+					category = "contractor_vo",
+					is_locationless = true,
 					priority = 39,
 					line_variations = {
 						recombinable = true,
@@ -1253,14 +1288,14 @@ ClosedCaptions._sounds = {
 								"The noise might tip 'em off."
 							}
 						}
-					},
-					category = "contractor_vo"
+					}
 				},
 				Play_pln_spawn_01 = {
 					override_name = "Bain",
 					text = "Security just dispatched another shift! Stay alert!",
 					priority = 10,
 					category = "contractor_vo",
+					is_locationless = true,
 					line_variations = {
 						standard_mode = {
 							"Keep it dark and silent, gang! More security is incoming!",
@@ -1278,6 +1313,7 @@ ClosedCaptions._sounds = {
 					text = "Twenty until police arrive!",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1293,6 +1329,7 @@ ClosedCaptions._sounds = {
 					text = "Thirty until police arrive!",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1310,6 +1347,7 @@ ClosedCaptions._sounds = {
 					text = "Cops running up- forty seconds until confrontation!",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1323,6 +1361,7 @@ ClosedCaptions._sounds = {
 					text = "Police are going to snipers!",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1347,6 +1386,7 @@ ClosedCaptions._sounds = {
 					text = "Well, here's our cops!",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1369,6 +1409,7 @@ ClosedCaptions._sounds = {
 					text = "(assault survived)",
 					duration = 7,
 					category = "contractor_vo",
+					is_locationless = true,
 					override_name = "Bain",
 					priority = 40,
 					line_variations = {
@@ -1401,6 +1442,7 @@ ClosedCaptions._sounds = {
 					text = "(assault beaten)",
 					duration = 7,
 					category = "contractor_vo",
+					is_locationless = true,
 					override_name = "Bain",
 					priority = 40,
 					line_variations = {
@@ -1433,6 +1475,7 @@ ClosedCaptions._sounds = {
 					text = "(assault easily beaten)",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					duration = 10,
 					priority = 40,
 					line_variations = {
@@ -1470,6 +1513,7 @@ ClosedCaptions._sounds = {
 					text = "(assault beaten)",
 					duration = 7,
 					category = "contractor_vo",
+					is_locationless = true,
 					override_name = "Locke",
 					priority = 40,
 					line_variations = {
@@ -1501,6 +1545,7 @@ ClosedCaptions._sounds = {
 					text = "(assault easily beaten)",
 					duration = 7,
 					category = "contractor_vo",
+					is_locationless = true,
 					override_name = "Locke",
 					priority = 40,
 					line_variations = {
@@ -1535,6 +1580,7 @@ ClosedCaptions._sounds = {
 					text = "(keep the civilians down)",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1551,6 +1597,7 @@ ClosedCaptions._sounds = {
 					text = "(force increase warning)",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1572,6 +1619,7 @@ ClosedCaptions._sounds = {
 					text = "(assault incoming warning)",
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1601,6 +1649,7 @@ ClosedCaptions._sounds = {
 					text = "(assault incoming warning)",
 					override_name = "Locke",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					line_variations = {
 						standard_mode = {
@@ -1627,6 +1676,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ban_h01x = {
 					category = "contractor_vo",
+					is_locationless = true,
 					override_name = "Bain",
 					text = "You need to take hostages- tie them down!",
 					priority = 37,
@@ -1640,6 +1690,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_loc_h01x = {
 					category = "contractor_vo",
+					is_locationless = true,
 					override_name = "Locke",
 					text = "You've got to take some hostages- tie them down!",
 					priority = 37,
@@ -1746,107 +1797,125 @@ ClosedCaptions._sounds = {
 				play_pln_gen_count_01 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's one!"
 				},
 				play_pln_gen_count_02 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					text = "That's two!"
 				},
 				play_pln_gen_count_03 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's three!"
 				},
 				play_pln_gen_count_04 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's four!"
 				},
 				play_pln_gen_count_05 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's five!"
 				},
 				play_pln_gen_count_06 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's six!"
 				},
 				play_pln_gen_count_07 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's seven!"
 				},
 				play_pln_gen_count_08 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's eight!"
 				},
 				play_pln_gen_count_09 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's all of them. Let's get out of here!"
 				},
 				play_pln_gen_count_10 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "That's enough, if you want to leave!"
 				},
 				play_pln_gen_count_11 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "Nice, that's a quarter!"
 				},
 				play_pln_gen_count_12 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "Cool, that's half of it!"
 				},
 				play_pln_gen_count_13 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "Halfway there!"
 				},
 				play_pln_gen_count_14 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "Almost got it all!"
 				},
 				play_pln_gen_count_15 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "Just two more!"
 				},
 				play_pln_gen_count_16 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "One more!"
 				},
 				play_pln_gen_count_17 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					priority = 37,
 					text = "Keep 'em coming!"
 				},
 				play_pln_gen_lkgo_01 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					text = "Keep it up and we're going to pull it off!",
 					priority = 37,
 					line_variations = {
@@ -1877,6 +1946,7 @@ ClosedCaptions._sounds = {
 				Play_ban_r01 = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					text = "Cops are freeing civilians!",
 					duration = 5,
 					priority = 10,
@@ -1904,6 +1974,7 @@ ClosedCaptions._sounds = {
 				Play_ban_h01a = {
 					override_name = "Bain",
 					category = "contractor_vo",
+					is_locationless = true,
 					text = "(Good going- take hostages to slow down the cops!)",
 					duration = 4,
 					priority = 10,
@@ -1924,6 +1995,7 @@ ClosedCaptions._sounds = {
 				Play_loc_h01a = {
 					override_name = "Locke",
 					category = "contractor_vo",
+					is_locationless = true,
 					text = "Kerels work slower when you have civvies!",
 					duration = 4,
 					priority = 10,
@@ -1940,1357 +2012,1230 @@ ClosedCaptions._sounds = {
 					}
 				},
 				g01 = {
+					text = "Go downstairs!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Go downstairs",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Down the stairs.",
-											"Downstairs."
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Down the stairs.",
-											"Downstairs."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please follow the stairway down.",
-											"-follow the stairway down."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = { --technically has loud/stealth sound variants
-											"Downstairs!",
-											"Down the stairs!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Down the stairs.",
+									"Downstairs."
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Down the stairs.",
+									"Downstairs."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please follow the stairway down.",
+									"-follow the stairway down."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = { --technically has loud/stealth sound variations
+									"Downstairs!",
+									"Down the stairs!"
 								}
 							}
 						}
 					}
 				},
 				g02 = {
+					text = "Go upstairs!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Go upstairs",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Upstairs!",
-											"Up the stairs!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Up, up!",
-											"Keep going up!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please follow the stairway up.",
-											"-follow the stairway up."
-										}
-									}									
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Upstairs!",
-											"Up the stairs!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Upstairs!",
+									"Up the stairs!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Up, up!",
+									"Keep going up!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please follow the stairway up.",
+									"-follow the stairway up."
+								}
+							}									
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Upstairs!",
+									"Up the stairs!"
 								}
 							}
 						}
 					}
 				},
 				g03 = {
+					text = "Go left!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Go left",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "To the left!",
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"To the left!",
-											"Left!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please keep to the left.",
-											"-keep to the left."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"To the left!",
-											"Left!"
-										}
-									}
+						rb3 = {
+							text = "To the left!",
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"To the left!",
+									"Left!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please keep to the left.",
+									"-keep to the left."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"To the left!",
+									"Left!"
 								}
 							}
 						}
 					}
 				},
 				g04 = {
+					text = "Go right!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Go right",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "To the right!",
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"To the right!",
-											"Right!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please keep to the right.",
-											"-to the right."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"To the right!",
-											"Right!"
-										}
-									}
+						rb3 = {
+							text = "To the right!",
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"To the right!",
+									"Right!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please keep to the right.",
+									"-to the right."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"To the right!",
+									"Right!"
 								}
 							}
 						}
 					}
 				},
 				g05 = {
+					text = "Go up!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Go up",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Up, up!"
+						rb3 = {
+							text = "Up, up!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Up, up!",
+									"Keep going up!"
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Up, up!",
-											"Keep going up!"
-										},
-										assault_mode = {
-											"Up, up!",
-											"Up!"
-										}
-									}
+								assault_mode = {
+									"Up, up!",
+									"Up!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"-head up.",
+									"Please head up."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Up, up!",
+									"Keep going up!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"-head up.",
-											"Please head up."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Up, up!",
-											"Keep going up!"
-										},
-										assault_mode = {
-											"Up, up!",
-											"Up!"
-										}
-									}
-								},
+								assault_mode = {
+									"Up, up!",
+									"Up!"
+								}
 							}
 						}
 					}
 				},
 				g06 = {
+					text = "Go down!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Go down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Down, down!"
+						rb3 = {
+							text = "Down, down!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Down!",
+									"Keep going down!"
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Down!",
-											"Keep going down!"
-										},
-										assault_mode = {
-											"Down, down!",
-											"Keep going down!"
-										}
-									}
+								assault_mode = {
+									"Down, down!",
+									"Keep going down!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"-head down.",
+									"Please head down."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Down!",
+									"Keep going down!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"-head down.",
-											"Please head down."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Down!",
-											"Keep going down!"
-										},
-										assault_mode = {
-											"Down, down!",
-											"Keep going down!"
-										}
-									}
+								assault_mode = {
+									"Down, down!",
+									"Keep going down!"
 								}
 							}
 						}
 					}
 				},
 				g07 = {
+					text = "We need to get out!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "We need to get out",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Get out!"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We've got to get out.",
-											"We've got to get out!",
-											"Get out!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please head to the exit.",
-											"[distorted] Please head to the exit."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Get out!",
-											"We've gotta get out!"
-										}
-									}
+						rb3 = {
+							text = "Get out!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We've got to get out.",
+									"We've got to get out!",
+									"Get out!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please head to the exit.",
+									"[distorted] Please head to the exit."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Get out!",
+									"We've gotta get out!"
 								}
 							}
 						}
 					}
 				},
 				g08 = {
+					text = "Get in!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Get in",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Get in!"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Inside!",
-											"Get in!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please make your way inside.",
-											"-make your way inside."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Inside!",
-											"Get in!"
-										}
-									}
+						rb3 = {
+							text = "Get in!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Inside!",
+									"Get in!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please make your way inside.",
+									"-make your way inside."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Inside!",
+									"Get in!"
 								}
 							}
 						}
 					}
 				},
 				g09 = {
+					text = "Hurry!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Hurry!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"C'mon! Hurry!",
-											"Hurry up!",
-											"Faster, faster!",
-											"Hurry!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"C'mon, faster!",
-											"Double time!",
-											"Hurry up!",
-											"Hurry, hurry!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"We are in a hurry.",
-											--+ spanish one i can't decipher
-											"-comme le magasin de cigarettes est fermé. (-as the cigarette store is closed.)"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Hurry, hurry!",
-											"HURRY!",
-											"Hurry up!",
-											"C'mon, faster!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"C'mon! Hurry!",
+									"Hurry up!",
+									"Faster, faster!",
+									"Hurry!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"C'mon, faster!",
+									"Double time!",
+									"Hurry up!",
+									"Hurry, hurry!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"We are in a hurry.",
+									--+ spanish one i can't decipher
+									"-comme le magasin de cigarettes est fermé. (-as the cigarette store is closed.)"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Hurry, hurry!",
+									"HURRY!",
+									"Hurry up!",
+									"C'mon, faster!"
 								}
 							}
 						}
 					}
 				},
 				g10 = {
+					text = "Careful...",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Careful",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Careful, now!"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Careful, now!",
-											"Careful!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Faites attention. (Pay attention).",
-											"Take care."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Careful, now!",
-											"Careful!"
-										}
-									}
+						rb3 = {
+							text = "Careful, now!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Careful, now!",
+									"Careful!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Faites attention. (Pay attention).",
+									"Take care."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Careful, now!",
+									"Careful!"
 								}
 							}
 						}
 					}
 				},
 				g11 = {
+					text = "Wrong way!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Wrong way",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"This is not the way!",
-											"Not this way!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"This is the wrong way!",
-											"Not this way!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"This is the wrong way.",
-											"-is the wrong way.",
-											"C'est la mauvaise direction. (This is the wrong way.)"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"This is the wrong way!",
-											"Not this way!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"This is not the way!",
+									"Not this way!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"This is the wrong way!",
+									"Not this way!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"This is the wrong way.",
+									"-is the wrong way.",
+									"C'est la mauvaise direction. (This is the wrong way.)"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"This is the wrong way!",
+									"Not this way!"
 								}
 							}
 						}
 					}
 				},
 				g12 = {
+					text = "This way",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "This way",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "This way!"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"This way!",
-											"We're on the right track."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"This is the right way.",
-											"C'est la bonne direction. (This is the right way.)"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"This is right!",
-											"This way!"
-										}
-									}
+						rb3 = {
+							text = "This way!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"This way!",
+									"We're on the right track."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"This is the right way.",
+									"C'est la bonne direction. (This is the right way.)"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"This is right!",
+									"This way!"
 								}
 							}
 						}
 					}
 				},
 				g13 = {
+					text = "Let's go.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Let's go",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Come on."
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Come on.",
-											"Let's go."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Let's go.",
-											"Allons-y. (Let's go.)"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Come on!",
-											"Let's go!"
-										}
-									}
+						rb3 = {
+							text = "Come on."
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Come on.",
+									"Let's go."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Let's go.",
+									"Allons-y. (Let's go.)"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Come on!",
+									"Let's go!"
 								}
 							}
 						}
 					}
 				},
 				g14 = {
+					text = "This is it!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "This is it!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"This is it.",
-											"Here it is!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"This is it.",
-											"This is the place."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"You have arrived-",
-											"You have arrived at your destination."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"This is it!",
-											"This is the place!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"This is it.",
+									"Here it is!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"This is it.",
+									"This is the place."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"You have arrived-",
+									"You have arrived at your destination."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"This is it!",
+									"This is the place!"
 								}
 							}
 						}
 					}
 				},
 				g15 = {
+					text = "Over there!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(Look there)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									text = "Over there!"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Over there!",
-											"There!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please pay attention.",
-											"-pay attention."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Over there!",
-											"There!"
-										}
-									}
+						rb4 = {
+							text = "Over there!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Over there!",
+									"There!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please pay attention.",
+									"-pay attention."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Over there!",
+									"There!"
 								}
 							}
 						}
 					}
 				},
 				g16 = {
+					text = "Keep defending!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(Keep defending)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Hold 'em off!",
-											"Keep 'em away!",
-											"Keep defending!",
-											"Hold the fort!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Keep defending!",
-											"Keep 'em away!",
-											"Hold the fort!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Keep defending!",
-											"Left!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Hold 'em off!",
+									"Keep 'em away!",
+									"Keep defending!",
+									"Hold the fort!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Keep defending!",
+									"Keep 'em away!",
+									"Hold the fort!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Keep defending!",
+									"Left!"
 								}
 							}
 						}
 					}
 				},
 				g17 = {
+					text = "Time to go!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(Time to go)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "We're out of here!"
+						rb3 = {
+							text = "We're out of here!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We've got to get out of here.",
+									"Time to go."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"We should go.",
+									"[distorted] We should go."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								assault_mode = {
+									"Let's be off!",
+									"Let's head out!",
+									"Time to go!",
+									"We gotta get outta here!"
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We've got to get out of here.",
-											"Time to go."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"We should go.",
-											"[distorted] We should go."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										assault_mode = {
-											"Let's be off!",
-											"Let's head out!",
-											"Time to go!",
-											"We gotta get outta here!"
-										},
-										standard_mode = {
-											"We've got to get out of here.",
-											"Time to go."
-										}
-									}
+								standard_mode = {
+									"We've got to get out of here.",
+									"Time to go."
 								}
 							}
 						}
 					}
 				},
 				g18 = {
+					text = "Move faster!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Move faster",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Move!"									
+						rb3 = {
+							text = "Move!"									
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Move!",
+									"Move it."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Hurry up.",
+									"Hurry up. [tape rewinding] Más rápido, imbécil. (Faster, idiot.)",
+									"-proceed.",
+									"Please proceed."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								assault_mode = {
+									"Faster, faster!",
+									"MOVE!",
+									"Shift it!",
+									"Let's go, let's GO!",
+									"Faster, c'mon!",
+									"Move it!",
+									"Come on!",
+									"Get a move on!",
+									"Leg it, drongo!",
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Move!",
-											"Move it."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Hurry up.",
-											"Hurry up. [tape rewinding] Más rápido, imbécil. (Faster, idiot.)",
-											"-proceed.",
-											"Please proceed."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										assault_mode = {
-											"Faster, faster!",
-											"MOVE!",
-											"Shift it!",
-											"Let's go, let's GO!",
-											"Faster, c'mon!",
-											"Move it!",
-											"Come on!",
-											"Get a move on!",
-											"Leg it, drongo!",
-										},
-										standard_mode = {
-											"Move your arse, you tosser!",
-											"Move, move!",
-											"You're not jogging in the park, ya idiot!",
-											"Move it!",
-											"Crikey, get a move on, then!",
-											"Move!",
-											"Run faster, dipshit!",
-											"Christ, can you move any SLOWER!?",
-											"Move it, you drongo!"
-										}
-									}
+								standard_mode = {
+									"Move your arse, you tosser!",
+									"Move, move!",
+									"You're not jogging in the park, ya idiot!",
+									"Move it!",
+									"Crikey, get a move on, then!",
+									"Move!",
+									"Run faster, dipshit!",
+									"Christ, can you move any SLOWER!?",
+									"Move it, you drongo!"
 								}
 							}
 						}
 					}
 				},
 				g19 = {
-					variants = {
-						criminal = {
-							text = "Go straight",
-							category = "heister_dialogue",
-							priority = 40,
-							rb3 = {
-								text = "Straight ahead!"							
-							},
-							rb4 = {
-								line_variations = {
-									standard_mode = {
-										"Straight on!",
-										"Straight ahead!"
-									}
-								}
-							},
-							rb9 = {
-								line_variations = {
-									standard_mode = {
-										"Your destination is directly ahead.",
-										"Your destination is ahead.",
-										"Your destination [tape skips] directly ahead.",
-										"Your destination [tape skips] ahead."
-									}
-								}
-							},
-							rb15 = {
-								line_variations = {
-									standard_mode = {
-										"Straight on!",
-										"Straight ahead!"
-									}
-								}
+					text = "Go straight!",
+					category = "heister_dialogue",
+					priority = 40,
+					rb3 = {
+						text = "Straight ahead!"							
+					},
+					rb4 = {
+						line_variations = {
+							standard_mode = {
+								"Straight on!",
+								"Straight ahead!"
+							}
+						}
+					},
+					rb9 = {
+						line_variations = {
+							standard_mode = {
+								"Your destination is directly ahead.",
+								"Your destination is ahead.",
+								"Your destination [tape skips] directly ahead.",
+								"Your destination [tape skips] ahead."
+							}
+						}
+					},
+					rb15 = {
+						line_variations = {
+							standard_mode = {
+								"Straight on!",
+								"Straight ahead!"
 							}
 						}
 					}
 				},
 				g20 = {
+					text = "Jump down!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Jump down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Jump down!",
-											"Down here!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Jump down!",
+									"Down here!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Jump down!",
+									"Down here!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please jump.",
+									"-jump."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Jump down!",
+									"Down there!"
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Jump down!",
-											"Down here!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please jump.",
-											"-jump."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Jump down!",
-											"Down there!"
-										},
-										assault_mode = {
-											"Jump down!",
-											"Down here!"
-										}
-									}
+								assault_mode = {
+									"Jump down!",
+									"Down here!"
 								}
 							}
 						}
 					}
 				},
 				g21 = {
-					variants = {
-						criminal = {
-							text = "Placed drill",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = { 
-								rb3 = {--1s delay for wolf
-									line_variations = {
-										standard_mode = {
-											"Drill's in place.",
-											"Drill's in place!",
-											"Drill up and running!"											
-										}
-									}
+					text = "Placed drill",
+					category = "heister_dialogue",
+					priority = 40,
+					variants = { 
+						rb3 = {--1s delay for wolf
+							line_variations = {
+								standard_mode = {
+									"Drill's in place.",
+									"Drill's in place!",
+									"Drill up and running!"											
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Drill's in place.",
+									"Drill in place.",
+									"Drill mounted."
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Drill's in place.",
-											"Drill in place.",
-											"Drill mounted."
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"The drill is active. Please stay clear of the moving parts.",
+									"The drill is securely fixed."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Drilling!",
+									"Got the drill up.",
+									"Drill placed.",
+									"I've put up the drill."
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"The drill is active. Please stay clear of the moving parts.",
-											"The drill is securely fixed."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Drilling!",
-											"Got the drill up.",
-											"Drill placed.",
-											"I've put up the drill."
-										},
-										assault_mode = {
-											"Drill in place!",
-											"Drill up!",
-											"We're drilling!"
-										}
-									}
+								assault_mode = {
+									"Drill in place!",
+									"Drill up!",
+									"We're drilling!"
 								}
 							}
 						}
 					}
 				},
 				g22 = {
+					text = "Keep drilling, you piece of shit!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = { --!
-									text = "Keep drilling, you piece of shit!"
-								},
-								rb555 = { --!
-									line_variations = {
-										standard_mode = {
-											"Piece of shit drill!",
-											"This drill is a piece of shit!"
-										}
-									}
-								}
-							}
+						rb3 = {
+							text = "Keep drilling, you piece of shit!"
 						}
 					}
 				},
 				g23 = {
 					variants = {
-						criminal = {
-							text = "Shoot them!",
-							category = "heister_dialogue",
-							priority = 40,
-							rb3 = {
-								line_variations = {
-									standard_mode = {
-										"Shoot 'em!",
-										"Get 'em!"
-									}
+						text = "Shoot them!",
+						category = "heister_dialogue",
+						priority = 40,
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Shoot 'em!",
+									"Get 'em!"
 								}
-							},
-							rb4 = {
-								line_variations = {
-									standard_mode = {
-										"Shoot 'em!",
-										"Shoot!"
-									}
-								}
-							},
-							rb15 = { --sydney does not have this line
-								disabled = "missing"
 							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Shoot 'em!",
+									"Shoot!"
+								}
+							}
+						},
+						rb15 = { --sydney does not have this line
+							disabled = "missing"
 						}
 					}
 				},
 				g24 = {
+					text = "(Victorious)",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Victory",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = { --no loud/stealth variations
-											"Fantastic! We pulled it off!",
-											"YEAH! We made it!",
-											"We did it!",
-											"We made it!",
-											"Aaaand... SCORE!",
-											"[whoops] We're in the clear!",
-											"[exuberant whooping]",
-											"Checkmate, motherfucker!",
-											"FBI's Most Wanted? Check! Bullet wounds? Check! Rich as a motherfucker? BIG FUCKING CHECK!",
-											"[raucously singing football song] Segern är vår, sergern är vår, vi har vunnit, sergern är vår! (Victory is ours, victory is ours, we've won, victory is ours!)",
-											"Vi klarade! (We managed!)"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = { --no loud/stealth variations
+									"Fantastic! We pulled it off!",
+									"YEAH! We made it!",
+									"We did it!",
+									"We made it!",
+									"Aaaand... SCORE!",
+									"[whoops] We're in the clear!",
+									"[exuberant whooping]",
+									"Checkmate, motherfucker!",
+									"FBI's Most Wanted? Check! Bullet wounds? Check! Rich as a motherfucker? BIG FUCKING CHECK!",
+									"[raucously singing football song] Segern är vår, sergern är vår, vi har vunnit, sergern är vår! (Victory is ours, victory is ours, we've won, victory is ours!)",
+									"Vi klarade! (We managed!)"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = { --no loud/stealth variations
+									"I almost can't believe we did it!",
+									"Yeah! We pulled that off! Fantastic!",
+									"Fantastic! Just fantastic!",
+									"Haha! We're in the clear!",
+									"Great work, my friends, great work!",
+									"Yes! Tightest crew ever!",
+								}
+							}
+						},
+						rb9 = {
+							line_variations = { --requires stealth
+								whisper_mode = {
+									"Job is done! Now time to relax and enjoy life.",
+									"Thank you for traveling with us! We look forward to seeing you again soon.",
+									"Thank you for not disturbing passengers in the quiet zone!",
+									"Thank you for respecting our quiet zone!",
+									"Operation completed successfully!",
+									"I had a great time."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								whisper_mode = { --requires stealth
+									"Yeah, I'll admit, that was smooth.",
+									"That was a ripper!",
+									"[sarcastic] Hooraaay, we did the job SILENTLY. I'm still bored as batshit.",
+									"The Dingos wouldn't believe their eyes if they saw me do this!", --"The Dingos" is the name of Sydney's former gang
+									"Silent and deadly, fascinating combo!",
+									"Perfect execution! Can't say otherwise.",
+									"Well bugger  me, that was easy!",
+									"No wuckin' forries whatsoever!",
+									"That was easy enough, but not as much fun!",
+									"I guess that's how the pros do it!",
+									"I guess that's one way of doing things!"
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = { --no loud/stealth variations
-											"I almost can't believe we did it!",
-											"Yeah! We pulled that off! Fantastic!",
-											"Fantastic! Just fantastic!",
-											"Haha! We're in the clear!",
-											"Great work, my friends, great work!",
-											"Yes! Tightest crew ever!",
-										}
-									}
-								},
-								rb9 = {
-									line_variations = { --requires stealth
-										whisper_mode = {
-											"Job is done! Now time to relax and enjoy life.",
-											"Thank you for traveling with us! We look forward to seeing you again soon.",
-											"Thank you for not disturbing passengers in the quiet zone!",
-											"Thank you for respecting our quiet zone!",
-											"Operation completed successfully!",
-											"I had a great time."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										whisper_mode = { --requires stealth
-											"Yeah, I'll admit, that was smooth.",
-											"That was a ripper!",
-											"[sarcastic] Hooraaay, we did the job SILENTLY. I'm still bored as batshit.",
-											"The Dingos wouldn't believe their eyes if they saw me do this!", --"The Dingos" is the name of Sydney's former gang
-											"Silent and deadly, fascinating combo!",
-											"Perfect execution! Can't say otherwise.",
-											"Well bugger  me, that was easy!",
-											"No wuckin' forries whatsoever!",
-											"That was easy enough, but not as much fun!",
-											"I guess that's how the pros do it!",
-											"I guess that's one way of doing things!"
-										},
-										standard_mode = { --requires loud
-											"That's how we do it!",
-											"We did it, nice!",
-											"THIS is how legends are made!",
-											"Crikey, that was close, but we fuckin' did it!",
-											"Fuck me, that was SO much fun!",
-											"Get stuffed, no-one can stop us!",
-											"That was fuckin' fat!",
-											"[laughter] And that's how we fuckin' do it!",
-											"It's a ripper of a day, yes it is!",
-											"I had my doubts coming to America, but this was SO fucking worth it!",
-											"No wuckin' forries, we're unstoppable!",
-											"That was fun and all, but now I'm buggered!"
-										}
-									}
+								standard_mode = { --requires loud
+									"That's how we do it!",
+									"We did it, nice!",
+									"THIS is how legends are made!",
+									"Crikey, that was close, but we fuckin' did it!",
+									"Fuck me, that was SO much fun!",
+									"Get stuffed, no-one can stop us!",
+									"That was fuckin' fat!",
+									"[laughter] And that's how we fuckin' do it!",
+									"It's a ripper of a day, yes it is!",
+									"I had my doubts coming to America, but this was SO fucking worth it!",
+									"No wuckin' forries, we're unstoppable!",
+									"That was fun and all, but now I'm buggered!"
 								}
 							}
 						}
 					}
 				},
 				g25 = {
+					text = "Take out the cameras!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Take out the cameras!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Cameras!",
-											"Take out the cameras!",
-											"Remember, cameras!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Take out the cameras!",
-											"Remember, take out the cameras!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Cameras!",
+									"Take out the cameras!",
+									"Remember, cameras!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Take out the cameras!",
+									"Remember, take out the cameras!"
 								}
 							}
 						}
 					}
 				},
 				g26 = {
+					text = "Use your cable ties!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Use cable ties",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Use your cable ties, guys!",
-											"Cable ties- use 'em!",
-											"Keep 'em down- tie 'em up!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Rope down the people with the Cable Ties.",
-											"Remember the Cable Ties.",
-											"Use those Cable Ties!",
-											"Cable Ties- make use of 'em!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please apply cable ties to all subjects. Thank you.",
-											"Gently apply cable ties to all civilians.",
-											"[tape rewinding] -apply cable ties to all civilians."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Tie 'em up.",
-											"Tie everybody down.",
-											"Well, how about using the cable ties, dipshit?"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Use your cable ties, guys!",
+									"Cable ties- use 'em!",
+									"Keep 'em down- tie 'em up!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Rope down the people with the Cable Ties.",
+									"Remember the Cable Ties.",
+									"Use those Cable Ties!",
+									"Cable Ties- make use of 'em!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please apply cable ties to all subjects. Thank you.",
+									"Gently apply cable ties to all civilians.",
+									"[tape rewinding] -apply cable ties to all civilians."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Tie 'em up.",
+									"Tie everybody down.",
+									"Well, how about using the cable ties, dipshit?"
 								}
 							}
 						}
 					}
 				},
 				g27 = {
+					text = "Remember, no civilian casualties.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Remember, no civilian casualties.",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"No civilians.",
-											"Remember! No civilians.",
-											"No civilian casualties, now!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Careful with the people!",
-											"Watch the crowd!",
-											"Watch the civvies!",
-											"Keep the crowds in check."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please- [tape rewinding] -maintain- [tape rewinding] -control.",
-											"[garbled] -keep all subjects in check."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Hey, watch the bloody civilians!",
-											"Crikey, keep the civvies in check!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"No civilians.",
+									"Remember! No civilians.",
+									"No civilian casualties, now!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Careful with the people!",
+									"Watch the crowd!",
+									"Watch the civvies!",
+									"Keep the crowds in check."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please- [tape rewinding] -maintain- [tape rewinding] -control.",
+									"[garbled] -keep all subjects in check."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Hey, watch the bloody civilians!",
+									"Crikey, keep the civvies in check!"
 								}
 							}
 						}
 					}
 				},
 				g28 = {
+					text = "We're almost there!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "We're almost there!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Almost there!",
-											"Almost there, almost there...",
-											"We're gonna make it!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We're gonna make it!",
-											"Almost there, almost there!",
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Almost there!",
+									"Almost there, almost there...",
+									"We're gonna make it!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We're gonna make it!",
+									"Almost there, almost there!",
 								}
 							}
 						}
 					}
 				},
 				g29 = {
+					text = "Ah, fuck!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(Exasperation)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"SHIT!",
-											"Fuck!",
-											"Oh, shit!",
-											"Oh, fuck!",
-											"Fuck me!",
-											"O helvete! (Aw, hell!)",
-											"Sjutton! [Swearing in Swedish]",
-											"Tusan också! [Swearing in Swedish]" --doesn't sound like "tusan", more like "wee" but i don't know swedish swears
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"SHIT!",
+									"Fuck!",
+									"Oh, shit!",
+									"Oh, fuck!",
+									"Fuck me!",
+									"O helvete! (Aw, hell!)",
+									"Sjutton! [Swearing in Swedish]",
+									"Tusan också! [Swearing in Swedish]" --doesn't sound like "tusan", more like "wee" but i don't know swedish swears
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Aw, shit!",
+									"FUCK! Oh, FUCK!",
+									"Shit!",
+									"Damn!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"SHIT!",
+									"Aw, shit!",
+									"Aw, SHIT!",
+									"Fuckin' 'ell!",
+									"Aw, fuck!",
+									"Aw, FUCK!"
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Aw, shit!",
-											"FUCK! Oh, FUCK!",
-											"Shit!",
-											"Damn!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"SHIT!",
-											"Aw, shit!",
-											"Aw, SHIT!",
-											"Fuckin' 'ell!",
-											"Aw, fuck!",
-											"Aw, FUCK!"
-										},
-										assault_mode = {
-											"Fuckin' 'ell!",
-											"Aw, shit!",
-											"Aw, FUCK!",
-											"Fuck me!"
-										}
-									}
+								assault_mode = {
+									"Fuckin' 'ell!",
+									"Aw, shit!",
+									"Aw, FUCK!",
+									"Fuck me!"
 								}
 							}
 						}
 					}
 				},
 				g30 = {
-					variants = {
-						criminal = {
-							text = "Killed Bulldozer",
-							category = "special_kills",
-							priority = 55,
-							rb3 = {
-								line_variations = {
-									standard_mode = {
-										"The Bulldozer's down!",
-										"The Bulldozer taken care of!",
-										"I took out the Bulldozer!",
-										"The Bulldozer's history!"										
-									},
-									DISABLED_assault_mode = {}
-								}
+					text = "Killed a Bulldozer!",
+					category = "special_kills",
+					priority = 55,
+					rb3 = {
+						line_variations = {
+							standard_mode = {
+								"The Bulldozer's down!",
+								"The Bulldozer taken care of!",
+								"I took out the Bulldozer!",
+								"The Bulldozer's history!"										
 							},
-							rb4 = {
-								line_variations = {
-									standard_mode = {
-										"Bulldozer down!",
-										"Bulldozer eliminated!",
-										"Bulldozer taken care of!",
-										"Bulldozer's history!"
-									},
-									DISABLED_assault_mode = {}
-								}
+							DISABLED_assault_mode = {}
+						}
+					},
+					rb4 = {
+						line_variations = {
+							standard_mode = {
+								"Bulldozer down!",
+								"Bulldozer eliminated!",
+								"Bulldozer taken care of!",
+								"Bulldozer's history!"
 							},
-							rb9 = {
-								line_variations = {
-									standard_mode = {
-										"-dozer non-operational.",
-										"Bulldozer out of service.",
-										"Bulldozer non-operational.",
-										"Bulldozer non-operational. [tape rewinding] You can thank me later.",
-										"Bulldozer non-operational. [tape rewinding] I believe 'hurrays' are in order.",
-										"Bulldozer disabled.",
-										"Bulldozer no longer in working order."
-									}
-								}
+							DISABLED_assault_mode = {}
+						}
+					},
+					rb9 = {
+						line_variations = {
+							standard_mode = {
+								"-dozer non-operational.",
+								"Bulldozer out of service.",
+								"Bulldozer non-operational.",
+								"Bulldozer non-operational. [tape rewinding] You can thank me later.",
+								"Bulldozer non-operational. [tape rewinding] I believe 'hurrays' are in order.",
+								"Bulldozer disabled.",
+								"Bulldozer no longer in working order."
+							}
+						}
+					},
+					rb15 = {
+						line_variations = {
+							standard_mode = { --! check whisper variant for get stuffed
+								"Bulldozer down!",
+								"Fuck off, dozer!",
+								"Fuck you, Bulldozer!",
+								"Dozer's history!",
+								"Killed a dozer!"
 							},
-							rb15 = {
-								line_variations = {
-									standard_mode = { --! check whisper variant for get stuffed
-										"Bulldozer down!",
-										"Fuck off, dozer!",
-										"Fuck you, Bulldozer!",
-										"Dozer's history!",
-										"Killed a dozer!"
-									},
-									assault_mode = {
-										"Bulldozer down!",
-										"Fuck off, dozer!",
-										"Fuck you, Bulldozer!",
-										"Dozer's history!",
-										"Killed a dozer!",
-										"Get stuffed, dozer fuck!"
-									}
-								}
+							assault_mode = {
+								"Bulldozer down!",
+								"Fuck off, dozer!",
+								"Fuck you, Bulldozer!",
+								"Dozer's history!",
+								"Killed a dozer!",
+								"Get stuffed, dozer fuck!"
 							}
 						}
 					}
 				},
 				g43 = {
+					text = "Throwing a grenade",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Throwing grenade",
-							category = "heister_dialogue",
-							priority = 40,
-							rb3 = {
-								line_variations = {
-									standard_mode = {
-										"BOMB!",
-										"Bomb!",
-										"GET THE FUCK DOWN!"
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"BOMB!",
+									"Bomb!",
+									"GET THE FUCK DOWN!"
 								}
-							},
-							rb4 = {
-								line_variations = {
-									standard_mode = {
-										"Grenade!",
-										"GRENADE!",
-										"Fire in the hole!",
-										"Hit the ground!",
-										"Sit on this, Cinderella!",
-										"Duck!",
-										"Dive for cover!",
-										"Let's blow shit up!",
-										"Duck and cover, campers!",
-										"Time to shake the ground!",
-										"Look out, losers!",
-										"Frag away!",
-										"Grenade away!"
-									}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Grenade!",
+									"GRENADE!",
+									"Fire in the hole!",
+									"Hit the ground!",
+									"Sit on this, Cinderella!",
+									"Duck!",
+									"Dive for cover!",
+									"Let's blow shit up!",
+									"Duck and cover, campers!",
+									"Time to shake the ground!",
+									"Look out, losers!",
+									"Frag away!",
+									"Grenade away!"
 								}
-							},
-							rb9 = {
-								line_variations = {
-									standard_mode = {
-										"I bought you a present.",
-										"Here you go.",
-										"Eat this.",
-										"Gomen esto- (Eat this-)",
-										"Please accept this gift."
-									}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"I bought you a present.",
+									"Here you go.",
+									"Eat this.",
+									"Gomen esto- (Eat this-)",
+									"Please accept this gift."
 								}
-							},
-							rb15 = {
-								line_variations = {
-									standard_mode = {
-										"Grenade!",
-										"GRENADE!",
-										"Haha, BOOM!",
-										"Hahaha, BOOM!",
-										"Grenade out!",
-										"Haha, GRENADE!",
-										"Take that, you arseholes!"
-									}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Grenade!",
+									"GRENADE!",
+									"Haha, BOOM!",
+									"Hahaha, BOOM!",
+									"Grenade out!",
+									"Haha, GRENADE!",
+									"Take that, you arseholes!"
 								}
 							}
 						}
@@ -3305,261 +3250,225 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN"
 				},
 				g60 = {
+					text = "Oh, shit...",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(Awestruck)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Oh, fuck...!",
-											"Shiiit!",
-											"Shit...",
-											"Daaamn!",
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Oh, fuck...!",
+									"Shiiit!",
+									"Shit...",
+									"Daaamn!",
 --											"Nej, NU, [unknown, phonetically: bla mas var atte]" --laugh as much as you like at these, i don't know swedish
-											--sounds like "Lycka det kock det var aske ste"
-											--nar bla er der bar klenge
-											--er da knows de me kwee, der det no skaap
-											"Vi sotte! (We suck!)"
-										},
-										DISABLED_assault_mode = {}
-									}
+									--sounds like "Lycka det kock det var aske ste"
+									--nar bla er der bar klenge
+									--er da knows de me kwee, der det no skaap
+									"Vi sotte! (We suck!)"
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Oh, fuck...",
-											"Fuck me...",
-											"[chuckles] Oho, shit...",
-											"Sheeit!",
-											"Fuck...!",
-											"Damn..."
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Oh, fuck...",
+									"Fuck me...",
+									"[chuckles] Oho, shit...",
+									"Sheeit!",
+									"Fuck...!",
+									"Damn..."
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"[chuckles] I like it.",
-											"Hah, well bugger me!",
-											"Hahaha, fuckin' look at that!"
-										},
-										assault_mode = {
-											"Aw, shit!",
-											"Aw, fuck!",
-											"Fuck me!",
-											"Fuckin' hell!"
-										}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"[chuckles] I like it.",
+									"Hah, well bugger me!",
+									"Hahaha, fuckin' look at that!"
+								},
+								assault_mode = {
+									"Aw, shit!",
+									"Aw, fuck!",
+									"Fuck me!",
+									"Fuckin' hell!"
 								}
 							}
 						}
 					}
 				},
 				g61 = {
+					text = "I got the drill!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "I got the drill",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "I got the drill!"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I got the drill.",
-											"I got the drill!"
-										}
-									}
+						rb3 = {
+							text = "I got the drill!"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I got the drill.",
+									"I got the drill!"
 								}
 							}
 						}
 					}
 				},
 				g62 = {
+					text = "Thirty seconds left!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Thirty seconds!"
-								},
-								rb4 = {
-									text = "Thirty seconds!"
-								}
-							}
+						rb3 = {
+							text = "Thirty seconds!"
+						},
+						rb4 = {
+							text = "Thirty seconds!"
 						}
 					}
 				},
 				g63 = {
+					text = "One minute left.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3= {
-									text = "One minute!"
-								},
-								rb4 = {
-									text = "One minute!"
-								}
-							}
+						rb3= {
+							text = "One minute!"
+						},
+						rb4 = {
+							text = "One minute!"
 						}
 					}
 				},
 				g64 = {
+					text = "1:30 left.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = { -- should it be "1:30" ?
-								rb3 = {
-									text = "One-thirty!"
-								},
-								rb4 = {
-									text = "One-thirty!"
-								}
-							}
+						rb3 = {
+							text = "One-thirty!"
+						},
+						rb4 = {
+							text = "One-thirty!"
 						}
 					}
 				},
 				g65 = {
+					text = "Two minutes left.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Two minutes."
-								},
-								rb4 = {
-									text = "Two minutes."
-								}
-							}
+						rb3 = {
+							text = "Two minutes."
+						},
+						rb4 = {
+							text = "Two minutes."
 						}
 					}
 				},
 				g66 = {
+					text = "2:30 left.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Two-thirty."
-								},
-								rb4 = {
-									text = "Two-thirty."
-								}
-							}
+						rb3 = {
+							text = "Two-thirty."
+						},
+						rb4 = {
+							text = "Two-thirty."
 						}
 					}
 				},
 				g67 = {
 					text = "Any second now...",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Any second now",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Steady now! Hold it...",
-											"Any second, aaaany second...",
-											"Any second, now...",
-											"Wait for it, wait for it..."
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Steady now! Hold it...",
+									"Any second, aaaany second...",
+									"Any second, now...",
+									"Wait for it, wait for it..."
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Any second now.",
-											"Any second...",
-											"Steady now! Hold it...",
-											"Wait for it, wait for it..."
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Any second now.",
+									"Any second...",
+									"Steady now! Hold it...",
+									"Wait for it, wait for it..."
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Let's just fucking go!",
-											"Time to dance!",
-											"Get fucking ready.",
-											"Any second now, c'mon!"
-										},
-										DISABLED_assault_mode = {}
-									}
-								}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Let's just fucking go!",
+									"Time to dance!",
+									"Get fucking ready.",
+									"Any second now, c'mon!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g68 = {
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									disabled = "missing"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They're everywhere!",
-											"They're EVERYWHERE!",
-											"Cops! This place is filled with 'em!",
-											"This place is flooded with cops!",
-											"Cops everywhere!",
-											"They're all over the place!"
-										}
-									}
-								},
-								rb15 = {
-									disabled = "missing"
+						rb3 = {
+							disabled = "missing"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They're everywhere!",
+									"They're EVERYWHERE!",
+									"Cops! This place is filled with 'em!",
+									"This place is flooded with cops!",
+									"Cops everywhere!",
+									"They're all over the place!"
 								}
 							}
+						},
+						rb15 = {
+							disabled = "missing"
 						}
 					}
 				},
 				g69 = { --haha nice
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"We're easy targets here, let's move!",
-											"We're sitting ducks in this place."
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We're easy targets here...",
-											"We're easy targets, this place is no good."
-										}
-									}
-								},
-								rb15 = {
-									disabled = "missing"
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"We're easy targets here, let's move!",
+									"We're sitting ducks in this place."
 								}
 							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We're easy targets here...",
+									"We're easy targets, this place is no good."
+								}
+							}
+						},
+						rb15 = {
+							disabled = "missing"
 						}
 					}
 				},
@@ -3568,329 +3477,315 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN"
 				},
 				g72 = {
+					text = "On it!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "I'm on it!"
-								}
-							}
+						rb3 = {
+							text = "I'm on it!"
 						}
 					}
 				},
 				g90 = {
+--					text = "{g90}",
+					category = "enemy_chatter",
+					priority = 40,
 					variants = {
 						cop = {
---							text = "{g90}",
+							line_variations = {
+								standard_mode = { --non exhaustive... but honestly what a trash line
+									"Three assailants confirmed! There might be more of them!",
+									"Two assailants confirmed! There might be more of them!",
+									"I know there's at least two of them! At LEAST!",
+									"Jesus, are these the guys?",
+									"No takin' these assholes alive!",
+									"It's the clowns! The clowns from TV!",
+									"It's that crew! It's definitely them!",
+									"There are at least two of 'em!",
+									"Someone get us a fucking assault team, on the double!",
+									"We're gonna get murdered!",
+									"It's the PAYDAY Gang! They're CRAZY!",
+									"Can anyone see anything? I got nothin'!"
+								}
+							}
+						},
+						taser = {
+							text = "(Taser taunt)",
 							category = "enemy_chatter",
-							priority = 40,
-							subvariants = {
-								cop = {
-									line_variations = {
-										standard_mode = { --non exhaustive... but honestly what a trash line
-											"Three assailants confirmed! There might be more of them!",
-											"Two assailants confirmed! There might be more of them!",
-											"I know there's at least two of them! At LEAST!",
-											"Jesus, are these the guys?",
-											"No takin' these assholes alive!",
-											"It's the clowns! The clowns from TV!",
-											"It's that crew! It's definitely them!",
-											"There are at least two of 'em!",
-											"Someone get us a fucking assault team, on the double!",
-											"We're gonna get murdered!",
-											"It's the PAYDAY Gang! They're CRAZY!",
-											"Can anyone see anything? I got nothin'!"
-										}
-									}
-								},
-								taser = {
-									text = "(Taser taunt)",
-									category = "enemy_chatter",
-									line_variations = {
-										standard_mode = {
-											"Acquiring targets!",
-											"Almost at full power!",
-											"Amped up!",
-											"Amperage building!",
-											"Approaching perpetrator!",
-											"Bringin' the voltage!",
-											"CHAAARGE!",
-											"Charged and ready! Where are they?!",
-											"Charged and ready... let 'em come!",
-											"Charging up!",
-											"Charging... charging!",
-											"Coming through!",
-											"Contact imminent!",
-											"Engaging subject!",
-											"Eyes on perp!",
-											"Eyes on perp!",
-											"Fifty thousand volts here!",
-											"Gonna plug in!",
-											"Got eyes on the perpetrator!",
-											"High voltage!",
-											"Hope you're insulated!",
+							line_variations = {
+								standard_mode = {
+									"Acquiring targets!",
+									"Almost at full power!",
+									"Amped up!",
+									"Amperage building!",
+									"Approaching perpetrator!",
+									"Bringin' the voltage!",
+									"CHAAARGE!",
+									"Charged and ready! Where are they?!",
+									"Charged and ready... let 'em come!",
+									"Charging up!",
+									"Charging... charging!",
+									"Coming through!",
+									"Contact imminent!",
+									"Engaging subject!",
+									"Eyes on perp!",
+									"Eyes on perp!",
+									"Fifty thousand volts here!",
+									"Gonna plug in!",
+									"Got eyes on the perpetrator!",
+									"High voltage!",
+									"Hope you're insulated!",
 --											"Hostile spotted!", --not sure
-											"I got 'em!",
-											"I got fifty thousand volts here with your name on 'em!",
-											"I'll deal with this one!",
-											"I'll take care of this one myself!",
-											"I'm amped!",
-											"I'm feelin' kinda ELECTRIC!",
-											"I'm the fucking spark-man!",
-											"Imminent contact!",
-											"Just call me elec-man!",
-											"Let's amp this shit up!",
-											"Lightning bolt, lightning bolt, lightning bolt!",
-											"Make way!",
-											"Perp ahead!",
-											"Perp in sight!",
-											"Perp spotted!",
-											"Perp targeted!",
-											"Raising voltage!",
-											"Set to 'stun!'",
-											"Shock prepared!",
-											"Shocking!",
-											"Stay clear!",
-											"Subject still mobile!",
-											"Take the shot!",
+									"I got 'em!",
+									"I got fifty thousand volts here with your name on 'em!",
+									"I'll deal with this one!",
+									"I'll take care of this one myself!",
+									"I'm amped!",
+									"I'm feelin' kinda ELECTRIC!",
+									"I'm the fucking spark-man!",
+									"Imminent contact!",
+									"Just call me elec-man!",
+									"Let's amp this shit up!",
+									"Lightning bolt, lightning bolt, lightning bolt!",
+									"Make way!",
+									"Perp ahead!",
+									"Perp in sight!",
+									"Perp spotted!",
+									"Perp targeted!",
+									"Raising voltage!",
+									"Set to 'stun!'",
+									"Shock prepared!",
+									"Shocking!",
+									"Stay clear!",
+									"Subject still mobile!",
+									"Take the shot!",
 --											"Taser got sent all those to kill!", --not sure what he says
-											"Taser gun charged and ready!",
-											"Taser! Get out of the way!",
-											"Taser! Stand back!",
-											"Taser, clear!",
-											"Taser, going through!",
-											"Taser, ready!",
-											"Taser- stay clear!",
-											"Taser... moved!",
-											"This one belongs to me!",
-											"Voltage to burn!",
-											"Wattage at full!"
-										}
-									}
-								},
-								spooc = {
-									disabled = true
-								},
-								medic = {
-									text = "(Medic taunt)",
-									category = "enemy_chatter",
-									line_variations = {
-										standard_mode = {
-											"Don't let them escape!",
-											"Go! Go!",
-											"Get 'em!",
-											"Cops ALWAYS win!",
-											"They won't know what hit 'em!",
-											"Fight the law... the law wins!",
-											"Keep your heads down!",
-											"C'mon, we're winning!",
-											"We got 'em now!",
-											"Advance! We have 'em cornered!",
-											"End of the line for these crooks!",
-											"Take 'em down!",
-											"Let's waste 'em!",
-											"Don't let them get away!",
-											"Don't let them escape!",
-											"These guys are fucked!",
-											"Stay patient, and we'll take them!",
-											"What goes around, comes around!",
-											"No fear! Let's take 'em out!",
-											"C'mon, c'mon!",
-											"I got your back, guys!",
-											"These assholes are goin' down!",
-											"Eliminate hostiles!",
-											"Try to surround them!",
-											"See you in the prison medical ward!",
-											"Backup, BACKUP!",
-											"Are you sure you want to do this?",
-											"They have no chance!",
-											"Get 'em! GET 'EM!",
-											"Make 'em regret getting up this morning!",
-											"Watch it!"
-										}
-									}
-								},
-								tank = {
-									text = "(Bulldozer taunt)",
-									category = "enemy_chatter",
-									line_variations = {
-										standard_mode = {
-											"ALRIGHT! HERE, AND READY TO KICK ASS!",
-											"ALRIGHT, WHERE ARE THEY?!",
-											"BACK THE FUCK UP!",
-											"BRINGING... THE PAIN!",
-											"BULLDOZER IN THE HOUSE!",
-											"BRINGING SOME HURT!",
-											"BULLDOZER COMING THROUGH!",
-											"BULLDOZER GOIN' IN!",
-											"BULLDOZER! MAKE WAY!",
-											"BULLDOZER! STAY BACK!",
-											"COMING THROUGH!",
-											"CAN'T STOP ME!",
-											"'CAREER CRIMINALS,' MY ASS!",
-											"COME ON OUT... WHEREVER YOU ARE!",
-											"DEATH PENALTY IN THREE... TWO... ONE!",
-											"DO YOU EVEN KNOW... HOW FUCKED YOU ARE?!",
-											"DO YOUR WORST!",
-											"DON'T KILL YOURSELF OR ANYTHING- THAT HONOR'S MINE!",
-											"DON'T YOU THINK YOU SHOULD LEAVE?! NOW?!",
-											"DON'T! MESS! WITH ME!",
-											"DOZER! MAKE WAY!",
-											"DOZER IN THE HOUSE!",
-											"DOZER'S HERE AND READY FOR ACTION!",
-											"ENGAGING TARGET!",
-											"EYES ON TARGET!",
-											"FIND SOMEWHERE GOOD TO HIDE!",
-											"FUCKING AMATEURS!",
-											"GET READY!",
-											"GIMME SOME ROOM TO WORK!",
-											"GIVE UP!",
-											"GIVE UP... AND MAYBE I WON'T STOP A MUDHOLE IN YOUR ASS!",
-											"GONNA BREAK SOME SHIT!",
-											"GONNA DROP A BUILDING ON 'EM!",
-											"GONNA SEND YOU TO HELL!",
-											"GONNA SHOW YOU THE LIGHT AT THE END OF THE TUNNEL!",
-											"GOT EYES ON TARGET!",
-											"HAHA, SUCKERS!",
-											"HERE TO END THIS!",
-											"HERE COMES SOME FUCKING HURT!",
-											"HIDE WHILE YOU CAN!",
-											"HOW DO YOU THINK THIS IS GONNA END?!",
-											"I BRING THE PAIN!",
-											"I CAN'T WAIT TO GET MY HANDS ON YOU!",
-											"I HEAR YOU!",
-											"I GIVE THIS GUY FIVE SECONDS!",
-											"I'VE GOT 'EM!",
-											"I GOT THIS ONE!",
-											"I GOT THIS!",
-											"I'LL DEAL WITH THIS ONE!",
-											"I'LL TAKE THIS ONE!",
-											"I'LL TAKE CARE OF THIS ONE MYSELF!",
-											"I'LL TAKE THIS ONE ALL ON MY OWN!",
-											"I'LL PICK THESE SUCKERS APART!",
-											"I'M THEIR PROBLEM NOW!",
-											"I'M UNSTOPPABLE!",
-											"I'MMA KICK YOUR ASS!",
-											"JUST A MATTER OF TIME!",
-											"JUST WAIT 'TIL I FIND YOU!",
-											"KISS YOUR ASS GOODBYE!",
-											"LET'S FINISH THIS!",
-											"LET'S SEE WHAT YOU GOT!",
-											"MAKE WAY FOR THE BULLDOZER!",
-											"MAKE WAY FOR THE DOZER!",
-											"MAKE WAY!",
-											"MOVE ASIDE!",
-											"MOVE ASIDE, I GOT THIS!",
-											"NEXT BULLET'S GOT YOUR NAME ON IT!",
-											"NOW YOU GOT MY ATTENTION... BIG MISTAKE!",
-											"OH, I SEE 'EM NOW!",
-											"OH, HE'S GONNA PAY!",
-											"OKAY, I'M HERE! WHO WANTS TO DIE?!",
-											"PICK 'EM, LAY 'EM DOWN!",
-											"PLEASE... STAY ALIVE A LITTLE BIT LONGER... SO I CAN KILL YOU MYSELF!",
-											"SHOOT 'EM UP!",
-											"SHOW ME WHERE THEY ARE!",
-											"SHOW ME WHAT YOU GOT!",
-											"STAY BACK!",
-											"STAND BACK!",
-											"TANGO AHEAD!",
-											"TANGO IN SIGHT!",
-											"TANGO SPOTTED!",
-											"TARGET AHEAD!",
-											"THAT'S ALL YOU GOT?!",
-											"THAT'S IT!",
-											"THEY'RE STILL ALIVE!",
-											"THIS GUY'S NO MATCH!",
-											"THIS ONE BELONGS TO ME!",
-											"THIS ONE'S MINE!",
-											"THIS WON'T TAKE LONG!",
-											"THIS... WON'T END WELL... FOR YOU!",
-											"TIME FOR SOME PAYBACK!",
-											"TIME TO SEND YOU TO HELL!",
-											"TOTAL ANNIHILATION IN THREE... TWO... ONE!",
-											"WANNA BANG HEADS?!",
-											"WATCH ME CRUSH THIS GUY!",
-											"WHAT'S THIS, AMATEUR HOUR?!",
-											"WHO WANTS A PIECE OF ME?!",
-											"WON'T BE LONG NOW!",
-											"WORLD OF HURT, COMING UP!",
-											"YOU ARE SO FUCKED!",
-											"YOU CAN STILL GIVE UP... BITCH!",
-											"YOU GOT NO CHANCE!",
-											"YOU FUCKED UP, BIG TIME!",
-											"YOU MADE A VERY BAD MISTAKE!",
-											"YOU MADE A BAD CALL!",
-											"YOU SHOULD'VE GIVEN UP BACK THERE!",
-											"YOU STEPPED IN IT!",
-											"YOU THINK YOU'RE BAD? YOU'RE NOTHIN'!",
-											"YOU WON'T STOP ME!",
-											"YOU'RE DEAD!",
-											"YOU'RE GONNA PAY!",
-											"YOU'RE GONNA WISH YOU'D STAYED HOME!",
-											"YOU'RE IN DEEP SHIT, NOW!",
-											"YOU'RE NO MATCH FOR ME!",
-											"YOU'RE NOTHING TO ME!",
-											"YOU'RE UP AGAINST THE WALL, AND I AM THE FUCKING WALL!"
-										}
-									}
+									"Taser gun charged and ready!",
+									"Taser! Get out of the way!",
+									"Taser! Stand back!",
+									"Taser, clear!",
+									"Taser, going through!",
+									"Taser, ready!",
+									"Taser- stay clear!",
+									"Taser... moved!",
+									"This one belongs to me!",
+									"Voltage to burn!",
+									"Wattage at full!"
+								}
+							}
+						},
+						medic = {
+							text = "(Medic taunt)",
+							category = "enemy_chatter",
+							line_variations = {
+								standard_mode = {
+									"Don't let them escape!",
+									"Go! Go!",
+									"Get 'em!",
+									"Cops ALWAYS win!",
+									"They won't know what hit 'em!",
+									"Fight the law... the law wins!",
+									"Keep your heads down!",
+									"C'mon, we're winning!",
+									"We got 'em now!",
+									"Advance! We have 'em cornered!",
+									"End of the line for these crooks!",
+									"Take 'em down!",
+									"Let's waste 'em!",
+									"Don't let them get away!",
+									"Don't let them escape!",
+									"These guys are fucked!",
+									"Stay patient, and we'll take them!",
+									"What goes around, comes around!",
+									"No fear! Let's take 'em out!",
+									"C'mon, c'mon!",
+									"I got your back, guys!",
+									"These assholes are goin' down!",
+									"Eliminate hostiles!",
+									"Try to surround them!",
+									"See you in the prison medical ward!",
+									"Backup, BACKUP!",
+									"Are you sure you want to do this?",
+									"They have no chance!",
+									"Get 'em! GET 'EM!",
+									"Make 'em regret getting up this morning!",
+									"Watch it!"
+								}
+							}
+						},
+						tank = {
+							text = "(Bulldozer taunt)",
+							category = "enemy_chatter",
+							line_variations = {
+								standard_mode = {
+									"ALRIGHT! HERE, AND READY TO KICK ASS!",
+									"ALRIGHT, WHERE ARE THEY?!",
+									"BACK THE FUCK UP!",
+									"BRINGING... THE PAIN!",
+									"BULLDOZER IN THE HOUSE!",
+									"BRINGING SOME HURT!",
+									"BULLDOZER COMING THROUGH!",
+									"BULLDOZER GOIN' IN!",
+									"BULLDOZER! MAKE WAY!",
+									"BULLDOZER! STAY BACK!",
+									"COMING THROUGH!",
+									"CAN'T STOP ME!",
+									"'CAREER CRIMINALS,' MY ASS!",
+									"COME ON OUT... WHEREVER YOU ARE!",
+									"DEATH PENALTY IN THREE... TWO... ONE!",
+									"DO YOU EVEN KNOW... HOW FUCKED YOU ARE?!",
+									"DO YOUR WORST!",
+									"DON'T KILL YOURSELF OR ANYTHING- THAT HONOR'S MINE!",
+									"DON'T YOU THINK YOU SHOULD LEAVE?! NOW?!",
+									"DON'T! MESS! WITH ME!",
+									"DOZER! MAKE WAY!",
+									"DOZER IN THE HOUSE!",
+									"DOZER'S HERE AND READY FOR ACTION!",
+									"ENGAGING TARGET!",
+									"EYES ON TARGET!",
+									"FIND SOMEWHERE GOOD TO HIDE!",
+									"FUCKING AMATEURS!",
+									"GET READY!",
+									"GIMME SOME ROOM TO WORK!",
+									"GIVE UP!",
+									"GIVE UP... AND MAYBE I WON'T STOP A MUDHOLE IN YOUR ASS!",
+									"GONNA BREAK SOME SHIT!",
+									"GONNA DROP A BUILDING ON 'EM!",
+									"GONNA SEND YOU TO HELL!",
+									"GONNA SHOW YOU THE LIGHT AT THE END OF THE TUNNEL!",
+									"GOT EYES ON TARGET!",
+									"HAHA, SUCKERS!",
+									"HERE TO END THIS!",
+									"HERE COMES SOME FUCKING HURT!",
+									"HIDE WHILE YOU CAN!",
+									"HOW DO YOU THINK THIS IS GONNA END?!",
+									"I BRING THE PAIN!",
+									"I CAN'T WAIT TO GET MY HANDS ON YOU!",
+									"I HEAR YOU!",
+									"I GIVE THIS GUY FIVE SECONDS!",
+									"I'VE GOT 'EM!",
+									"I GOT THIS ONE!",
+									"I GOT THIS!",
+									"I'LL DEAL WITH THIS ONE!",
+									"I'LL TAKE THIS ONE!",
+									"I'LL TAKE CARE OF THIS ONE MYSELF!",
+									"I'LL TAKE THIS ONE ALL ON MY OWN!",
+									"I'LL PICK THESE SUCKERS APART!",
+									"I'M THEIR PROBLEM NOW!",
+									"I'M UNSTOPPABLE!",
+									"I'MMA KICK YOUR ASS!",
+									"JUST A MATTER OF TIME!",
+									"JUST WAIT 'TIL I FIND YOU!",
+									"KISS YOUR ASS GOODBYE!",
+									"LET'S FINISH THIS!",
+									"LET'S SEE WHAT YOU GOT!",
+									"MAKE WAY FOR THE BULLDOZER!",
+									"MAKE WAY FOR THE DOZER!",
+									"MAKE WAY!",
+									"MOVE ASIDE!",
+									"MOVE ASIDE, I GOT THIS!",
+									"NEXT BULLET'S GOT YOUR NAME ON IT!",
+									"NOW YOU GOT MY ATTENTION... BIG MISTAKE!",
+									"OH, I SEE 'EM NOW!",
+									"OH, HE'S GONNA PAY!",
+									"OKAY, I'M HERE! WHO WANTS TO DIE?!",
+									"PICK 'EM, LAY 'EM DOWN!",
+									"PLEASE... STAY ALIVE A LITTLE BIT LONGER... SO I CAN KILL YOU MYSELF!",
+									"SHOOT 'EM UP!",
+									"SHOW ME WHERE THEY ARE!",
+									"SHOW ME WHAT YOU GOT!",
+									"STAY BACK!",
+									"STAND BACK!",
+									"TANGO AHEAD!",
+									"TANGO IN SIGHT!",
+									"TANGO SPOTTED!",
+									"TARGET AHEAD!",
+									"THAT'S ALL YOU GOT?!",
+									"THAT'S IT!",
+									"THEY'RE STILL ALIVE!",
+									"THIS GUY'S NO MATCH!",
+									"THIS ONE BELONGS TO ME!",
+									"THIS ONE'S MINE!",
+									"THIS WON'T TAKE LONG!",
+									"THIS... WON'T END WELL... FOR YOU!",
+									"TIME FOR SOME PAYBACK!",
+									"TIME TO SEND YOU TO HELL!",
+									"TOTAL ANNIHILATION IN THREE... TWO... ONE!",
+									"WANNA BANG HEADS?!",
+									"WATCH ME CRUSH THIS GUY!",
+									"WHAT'S THIS, AMATEUR HOUR?!",
+									"WHO WANTS A PIECE OF ME?!",
+									"WON'T BE LONG NOW!",
+									"WORLD OF HURT, COMING UP!",
+									"YOU ARE SO FUCKED!",
+									"YOU CAN STILL GIVE UP... BITCH!",
+									"YOU GOT NO CHANCE!",
+									"YOU FUCKED UP, BIG TIME!",
+									"YOU MADE A VERY BAD MISTAKE!",
+									"YOU MADE A BAD CALL!",
+									"YOU SHOULD'VE GIVEN UP BACK THERE!",
+									"YOU STEPPED IN IT!",
+									"YOU THINK YOU'RE BAD? YOU'RE NOTHIN'!",
+									"YOU WON'T STOP ME!",
+									"YOU'RE DEAD!",
+									"YOU'RE GONNA PAY!",
+									"YOU'RE GONNA WISH YOU'D STAYED HOME!",
+									"YOU'RE IN DEEP SHIT, NOW!",
+									"YOU'RE NO MATCH FOR ME!",
+									"YOU'RE NOTHING TO ME!",
+									"YOU'RE UP AGAINST THE WALL, AND I AM THE FUCKING WALL!"
 								}
 							}
 						}
 					}
 				},
 				g92 = {
+					text = "Picked up Gage Package",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Picked up Gage Package",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"[low voice] Alright.",
-											"Alright.",
-											"[whisper] Alright."											
-										},
-										assault_mode = {
-											"Gotcha.",
-											"Gotcha!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"[low voice] Alright.",
+									"Alright.",
+									"[whisper] Alright."											
 								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Gotcha!",
-											"Gotcha.",
-											"Alriiight!",
-										}
-									}
+								assault_mode = {
+									"Gotcha.",
+									"Gotcha!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Gotcha!",
+									"Gotcha.",
+									"Alriiight!",
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Secured.",
+									"Thank you-"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Got it!",
+									"It's secured.",
+									"I got it!",
+									"Got it."
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Secured.",
-											"Thank you-"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Got it!",
-											"It's secured.",
-											"I got it!",
-											"Got it."
-										},
-										assault_mode = {
-											"Here's one!",
-											"Got one!",
-											"One down!"
-										}
-									}
+								assault_mode = {
+									"Here's one!",
+									"Got one!",
+									"One down!"
 								}
 							}
 						}
@@ -3902,29 +3797,28 @@ ClosedCaptions._sounds = {
 							text = "They have hostages! We need to delay the assault!",
 							category = "enemy_chatter"
 						},
-						criminal = {
+						rb3 = {
+							priority = 40,
+							text = "Alright, let's do this.",
+							category = "heister_dialogue",
+							line_variations = {
+								standard_mode = {
+									"Alright, let's do this.",
+									"Let's do this.",
+									"Let's rock and roll.",
+									"Alright, let's rock and roll."
+								}
+							}
+						},
+						rb4 = {
 							text = "Alright, let's do this.",
 							category = "heister_dialogue",
 							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Alright, let's do this.",
-											"Let's do this.",
-											"Let's rock and roll.",
-											"Alright, let's rock and roll."
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Alright, let's do this.",
-											"Okay, let's do this.",
-											"'kay, let's do this, buddies."
-										}
-									}
+							line_variations = {
+								standard_mode = {
+									"Alright, let's do this.",
+									"Okay, let's do this.",
+									"'kay, let's do this, buddies."
 								}
 							}
 						}
@@ -3934,29 +3828,28 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							text = "Where is the fucking HRT?!",
-							category = "enemy_chatter"
+							category = "enemy_chatter",
+							priority = 60
 						},
-						criminal = {
+						rb3 = {
 							category = "heister_dialogue",
 							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Alright, let's get rich.",
-											"Now let's get rich.",
-											"Let's get rich..."
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Time to make that money.",
-											"Going to work.",
-											"Let's make that money"
-										}
-									}
+							line_variations = {
+								standard_mode = {
+									"Alright, let's get rich.",
+									"Now let's get rich.",
+									"Let's get rich..."
+								}
+							}
+						},
+						rb4 = {
+							category = "heister_dialogue",
+							priority = 40,
+							line_variations = {
+								standard_mode = {
+									"Time to make that money.",
+									"Going to work.",
+									"Let's make that money"
 								}
 							}
 						}
@@ -3965,201 +3858,183 @@ ClosedCaptions._sounds = {
 				p03 = {
 					variants = {
 						cop = {
-							text = "No hostages left, full force forward!",
-							category = "enemy_chatter"
+							priority = 60,
+							category = "enemy_chatter",
+							text = "No hostages left, full force forward!"
 						},
-						criminal = {
+						rb3 = {
 							category = "heister_dialogue",
 							priority = 40,
-							subvariants = {
-								rb3 = {
-									disabled = "missing"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Time to break a little bad.",
-											"Let's break bad."
-										}
-									}
-								},
-								rb15 = {
-									disabled = "missing"
+							disabled = "missing"
+						},
+						rb4 = {
+							category = "heister_dialogue",
+							priority = 40,
+							line_variations = {
+								standard_mode = {
+									"Time to break a little bad.",
+									"Let's break bad."
 								}
 							}
+						},
+						rb15 = {
+							category = "heister_dialogue",
+							disabled = "missing"
 						}
 					}
 				},
 				p04 = {
+					text = "C'mon, hurry up...",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"C'mon, c'mon!",
-											"C'mon, c'mon-c'mon-c'mon-c'mon-c'mon..."
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"C'mon, c'mon!",
-											"Little bit more, that's right!",
-											"That's right, that's right...",
-											"C'mon now.",
-											"Hurry! C'mon!"
-										}
-									}
-								},
-								rb15 = {
-									disabled = "missing"
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"C'mon, c'mon!",
+									"C'mon, c'mon-c'mon-c'mon-c'mon-c'mon..."
 								}
 							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"C'mon, c'mon!",
+									"Little bit more, that's right!",
+									"That's right, that's right...",
+									"C'mon now.",
+									"Hurry! C'mon!"
+								}
+							}
+						},
+						rb15 = {
+							disabled = "missing"
 						}
 					}
 				},
 				p05 = {
+					text = "The cops are here!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"How nice of those cops to come and keep us company!",
-											"The police are on the scene!",
-											"Okay, we got company. The police are here!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"The cops have arrived!",
-											"The cops are on the scene!",
-											"The cops are here!",
-											"Okay, we've got company... the police are here!",
-											"The police just arrived!",
-											"Alright, we got visitors- the cops are here!",
-											"How nice of the cops to come and keep us company!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"How nice of those cops to come and keep us company!",
+									"The police are on the scene!",
+									"Okay, we got company. The police are here!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"The cops have arrived!",
+									"The cops are on the scene!",
+									"The cops are here!",
+									"Okay, we've got company... the police are here!",
+									"The police just arrived!",
+									"Alright, we got visitors- the cops are here!",
+									"How nice of the cops to come and keep us company!"
 								}
 							}
 						}
 					}
 				},
 				p06 = {
+					text = "Gotcha!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Alright.",
-											"Okay.",
-											"Gotcha.",
-											"Gotcha!",
-											"Okay!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Okay!",
-											"Okay.",
-											"Alright!",
-											"Alright.",
-											"Gotcha!"
-										}
-									}
-								},
-								rb15 = {
-									disabled = "missing"
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Alright.",
+									"Okay.",
+									"Gotcha.",
+									"Gotcha!",
+									"Okay!"
 								}
 							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Okay!",
+									"Okay.",
+									"Alright!",
+									"Alright.",
+									"Gotcha!"
+								}
+							}
+						},
+						rb15 = {
+							disabled = "missing"
 						}
 					}
 				},
 				p07 = {
+					text = "We've got a hostage, let's trade!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"We already have a hostage ready to be traded!",
-											"We gotta follow through with that hostage trade!",
-											"We got a hostage lined up already. Let's trade!",
-											"We gotta release that hostage!",
-											"We have to follow through with that hostage trade!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We got a hostage lined up already. Let's trade!",
-											"We have to let that hostage go in exchange for our friend!",
-											"We already have a hostage ready to be traded!",
-											"We gotta follow through with that hostage trade!",
-											"We gotta release that hostage!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"We already have a hostage ready to be traded!",
+									"We gotta follow through with that hostage trade!",
+									"We got a hostage lined up already. Let's trade!",
+									"We gotta release that hostage!",
+									"We have to follow through with that hostage trade!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We got a hostage lined up already. Let's trade!",
+									"We have to let that hostage go in exchange for our friend!",
+									"We already have a hostage ready to be traded!",
+									"We gotta follow through with that hostage trade!",
+									"We gotta release that hostage!"
 								}
 							}
 						}
 					}
 				},
 				p08 = {
+					text = "Computer's got a problem!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Computer's beepin'- never good!",
-											"Sounds like we need some tech help!",
-											"Sounds like the computer's all fouled up!",
-											"Appears like the computer's busted!",
-											"Appears like the computer ain't workin' right!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Computer's beepin'- never good!",
+									"Sounds like we need some tech help!",
+									"Sounds like the computer's all fouled up!",
+									"Appears like the computer's busted!",
+									"Appears like the computer ain't workin' right!"
 								}
 							}
 						}
 					}
 				},
 				p09 = {
+					text = "There's a problem with the computer!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Computer's beeping again!",
-											"We gotta fix the computer again!",
-											"A machine ain't workin' again!",
-											"Wondering if it's the OS, or what?",
-											"[chuckles] Another technical problem with the computer.",
-											"[chuckles] Wonder if it's the software.",
-											"Wonder whether it's software or hardware failures."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Computer's beeping again!",
+									"We gotta fix the computer again!",
+									"A machine ain't workin' again!",
+									"Wondering if it's the OS, or what?",
+									"[chuckles] Another technical problem with the computer.",
+									"[chuckles] Wonder if it's the software.",
+									"Wonder whether it's software or hardware failures."
 								}
 							}
 						}
@@ -4170,124 +4045,104 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN"
 				},
 				p12 = {
+					text = "Go, go!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Go, go!",
-											"GO, GO!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Go, go!",
+									"GO, GO!"
 								}
 							}
 						}
 					}
 				},
 				p13 = {
+					text = "Get a move on!",
+					category = "heister_dialogue",
+					priority = 5,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 5,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Get a move on!",
-											"GET A MOVE ON!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Get a move on!",
+									"GET A MOVE ON!"
 								}
 							}
 						}
 					}
 				},
 				p14 = {
+					text = "Move it!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Move it!",
-											"MOVE IT!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Move it!",
+									"MOVE IT!"
 								}
 							}
 						}
 					}
 				},
 				p15 = {
+					text = "Get moving!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Get moving!",
-											"MOVE IT!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Get moving!"
-										}
-									}
-								},
-								rb15 = {
-									disabled = "missing"
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Get moving!",
+									"MOVE IT!"
 								}
 							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Get moving!"
+								}
+							}
+						},
+						rb15 = {
+							disabled = "missing"
 						}
 					}
 				},
 				p16 = {
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Move!",
-											"Go!",
-											"GO!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Move!",
+									"Go!",
+									"GO!"
 								}
 							}
 						}
 					}
 				},
 				p17 = {
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Only seconds away!",
-											"Any moment now!",
-											"Any second!",
-											"Any second...",
-											"Any second now!",
-											"We're almost done!",
-											"Just a couple more seconds!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Only seconds away!",
+									"Any moment now!",
+									"Any second!",
+									"Any second...",
+									"Any second now!",
+									"We're almost done!",
+									"Just a couple more seconds!"
 								}
 							}
 						}
@@ -4298,393 +4153,345 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN"
 				},
 				p19 = {
+					text = "I'm on my way!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I'm coming!",
-											"Be right there!",
-											"As fast as I can!",
-											"I'm comin' for ya!",
-											"I'll be there in a flash!",
-											"I'll be there in an instant!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I'm coming!",
+									"Be right there!",
+									"As fast as I can!",
+									"I'm comin' for ya!",
+									"I'll be there in a flash!",
+									"I'll be there in an instant!"
 								}
 							}
 						}
 					}
 				},
 				p20 = {
+					text = "Follow me!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Follow me!",
-											"Follow me.",
-											"Come with me!",
-											"Come with me."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Follow me!",
+									"Follow me.",
+									"Come with me!",
+									"Come with me."
 								}
 							}
 						}
 					}
 				},
 				p21 = {
+					text = "We're going loud!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Ah, fuck it. I never liked 'Plan A' anyway!",
-											"Let's fuck shit up!",
-											"Looks like we'll have to 'Plan B' it!",
-											"Let's go to 'Plan B'!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Ah, fuck it. I never liked 'Plan A' anyway!",
+									"Let's fuck shit up!",
+									"Looks like we'll have to 'Plan B' it!",
+									"Let's go to 'Plan B'!"
 								}
 							}
 						}
 					}
 				},
 				p22 = {
+					text = "Get ready, we're about to have some company!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Dig in! Get ready for the storm!",
-											"Get ready to fight!",
-											"We got police stormin' in any second!",
-											"Get ready for action!",
-											"We got a police assault comin' any second!",
-											"This place is about to get hot!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Dig in! Get ready for the storm!",
+									"Get ready to fight!",
+									"We got police stormin' in any second!",
+									"Get ready for action!",
+									"We got a police assault comin' any second!",
+									"This place is about to get hot!"
 								}
 							}
 						}
 					}
 				},
 				p23 = {
+					text = "Get ready for action.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Get ready for action.",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Get ready for action!",
-											"Get ready for action.",
-											"Get ready now!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Get ready for action!",
+									"Get ready for action.",
+									"Get ready now!"
 								}
 							}
 						}
 					}
 				},
 				p24 = {
+					text = "Assault's over. Let's get back to work.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(Assault finished, back to work)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's get our eyes back on the prize!",
-											"So much for distractions! Let's finish.",
-											"Don't let it go to your head! We got work to do.",
-											"Alright, alright! Enough playing around- let's finish it.",
-											"'nough said. Now back to work.",
-											"Good job! Now let's finish what we started.",
-											"Now... where were we?",
-											"They're gone, but we still got a job to finish!",
-											"Hah, they won't try that again! Back on task."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"C'mon, fuckwits, back to work!",
-											"Let's get back to work while they cry in defeat!",
-											"Back to what we were doing!",
-											"Time to finish this up!",
-											"We're here to do a job, so get it done!",
-											"Those drongos are regrouping, so let's finish this shit!",
-											"GET BACK TO WORK!",
-											"Back to business, then!",
-											"Alright, time to finish the job.",
-											"ALRIGHT! Where were we?",
-											"We've still got a job to do!",
-											"Right! Back to work!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's get our eyes back on the prize!",
+									"So much for distractions! Let's finish.",
+									"Don't let it go to your head! We got work to do.",
+									"Alright, alright! Enough playing around- let's finish it.",
+									"'nough said. Now back to work.",
+									"Good job! Now let's finish what we started.",
+									"Now... where were we?",
+									"They're gone, but we still got a job to finish!",
+									"Hah, they won't try that again! Back on task."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"C'mon, fuckwits, back to work!",
+									"Let's get back to work while they cry in defeat!",
+									"Back to what we were doing!",
+									"Time to finish this up!",
+									"We're here to do a job, so get it done!",
+									"Those drongos are regrouping, so let's finish this shit!",
+									"GET BACK TO WORK!",
+									"Back to business, then!",
+									"Alright, time to finish the job.",
+									"ALRIGHT! Where were we?",
+									"We've still got a job to do!",
+									"Right! Back to work!"
 								}
 							}
 						}
 					}
 				},
 				p25 = {
+					text = "I'm flashbanged! MY EYES!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Flashbang! I'm fucking blind!",
-											"I'm blind! I'M BLIND!",
-											"Flashbang! My eyes! MY EYES!",
-											"Aagh, fuckin' flashbang!",
-											"Agh, I can't see fucking SHIT!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Flashbang! I'm fucking blind!",
+									"I'm blind! I'M BLIND!",
+									"Flashbang! My eyes! MY EYES!",
+									"Aagh, fuckin' flashbang!",
+									"Agh, I can't see fucking SHIT!"
 								}
 							}
 						}
 					}
 				},
 				p26 = {
+					text = "Stay sharp!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Don't get loose with it now!",
-											"Cover the flanks!",
-											"Watch your tails!",
-											"Don't let 'em get cagey on us!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Don't get loose with it now!",
+									"Cover the flanks!",
+									"Watch your tails!",
+									"Don't let 'em get cagey on us!"
 								}
 							}
 						}
 					}
 				},
 				p27 = {
+					text = "Secured a lootbag.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Secured loot",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Lootbag secured.",
-											"Got a bag.",
-											"One down.",
-											"And another one!",
-											"I got a lootbag.",
-											"And another!",
-											"One bag down!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Lootbag secured.",
+									"Got a bag.",
+									"One down.",
+									"And another one!",
+									"I got a lootbag.",
+									"And another!",
+									"One bag down!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"It's secured.",
-											"It's at the drop.",
-											"One lootbag, at the drop.",
-											"It's delivered!",
-											"One lootbag, stashed."
-										},
-										DISABLED_assault_mode = {}
-									}
-								}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"It's secured.",
+									"It's at the drop.",
+									"One lootbag, at the drop.",
+									"It's delivered!",
+									"One lootbag, stashed."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				p28 = {
+					text = "All loot secured!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "All loot secured",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"That's all of 'em!",
-											"Haha, that's all of 'em!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"We got 'em all.",
-											"That's all of 'em!",
-											"That's all the bags!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"That's all of 'em!",
+									"Haha, that's all of 'em!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"We got 'em all.",
+									"That's all of 'em!",
+									"That's all the bags!"
 								}
 							}
 						}
 					}
 				},
 				p29 = {
+					text = "I'm picking this lock.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Picking the lock.",
-											"I'm picking the lock!",
-											"Springing this damned lock. C'mon!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Picking the lock.",
+									"I'm picking the lock!",
+									"Springing this damned lock. C'mon!"
 								}
 							}
 						}
 					}
 				},
 				p30 = {
+					text = "Using a keycard.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Yeah, using a keycard...",
-											"Using a keycard.",
-											"Using a keycard!",
-											"Using a key.",
-											"Yep, using a key."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Yeah, using a keycard...",
+									"Using a keycard.",
+									"Using a keycard!",
+									"Using a key.",
+									"Yep, using a key."
 								}
 							}
 						}
 					}
 				},
 				p31 = {
+					text = "They're repossessing our bags!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted bag repossession",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"These dirty fucking cops are stealing our loot!",
-											"Pay attention! Cops are stealing our stuff!",
-											"Goddamned cops! Can't even keep their hands off our hard-earned loot!",
-											"Hey! Look at what those cops are doing!",
-											"HEY! They're stealin' our shit!",
-											"[chuckles] Look at these cops! Even dirtier than I thought!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Hey, those pigs are grubbin' our shit!",
-											"They're takin' our bags, KILL 'EM!",
-											"Those FUCKWITS are stealing our loot!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"These dirty fucking cops are stealing our loot!",
+									"Pay attention! Cops are stealing our stuff!",
+									"Goddamned cops! Can't even keep their hands off our hard-earned loot!",
+									"Hey! Look at what those cops are doing!",
+									"HEY! They're stealin' our shit!",
+									"[chuckles] Look at these cops! Even dirtier than I thought!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Hey, those pigs are grubbin' our shit!",
+									"They're takin' our bags, KILL 'EM!",
+									"Those FUCKWITS are stealing our loot!"
 								}
 							}
 						}
 					}
 				},
 				p32 = { --priority
+					text = "Waiting here",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Waiting here",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"You case the joint. I'll be here.",
-											"You go ahead. I'll stay out of your way until you need another guy.",
-											"You go ahead. Look, I'll be right here. I'm not going in.",
-											"You go ahead, buddy. I'll wait here.",
-											"You go and recon the place. I'll wait for the action to start.",
-											"You go case the place. I'll jump in when the shooting starts.",
-											"You go handle it for now. When 'Plan B' kicks in, so do I.",
-											"You go. I'll wait until the action starts.",
-											"You got this, buddy. I'll wait right here for now.",
-											"You'd better do this on your own. I'll watch your back.",
-											"You've got this covered. I'll wait around here until alarms start beeping.",
-											"Alright, I'll wait right here.",
-											"Case the area. I'll be right here.",
-											"Do a little recon mission. I'll be with you shortly.",
-											"I'll be right here, bud. You do the recon thingy.",
-											"I'll catch up with you later.",
-											"I'll wait here, you case the joint.",
-											"I'll wait right here, you go ahead. We'll catch up later.",
-											"I'll wait here. I got your back once the action starts.",
-											"I'll stay here, buddy. [chuckles] I'm no good with 'Plan A's anyway.",
-											"Better if you do this. If you need help, just fire your gun.",
-											"Better that you handle this for now. I'll come and save you if things go south.",
-											"[chuckles] I've got all these cigarettes to smoke. You go on without me, I'll catch up."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"I'll wait here.",
-											"I'll wait here. You go on ahead.",
-											"I'll wait here. You go on ahead. [tape rewinds] Ich warte hier-"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"You go ahead.",
-												"Go on, then.",
-												"Check the place out.",
-												"Yeah, yeah- I'll wait here."
-											},
-											{
-												"I'll be ready when things go crazy.",
-												"Call me when the fun begins.",
-												"I'm here for the exciting bit.",
-												"I'll turn the head up when it's time."
-											}
-										}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"You case the joint. I'll be here.",
+									"You go ahead. I'll stay out of your way until you need another guy.",
+									"You go ahead. Look, I'll be right here. I'm not going in.",
+									"You go ahead, buddy. I'll wait here.",
+									"You go and recon the place. I'll wait for the action to start.",
+									"You go case the place. I'll jump in when the shooting starts.",
+									"You go handle it for now. When 'Plan B' kicks in, so do I.",
+									"You go. I'll wait until the action starts.",
+									"You got this, buddy. I'll wait right here for now.",
+									"You'd better do this on your own. I'll watch your back.",
+									"You've got this covered. I'll wait around here until alarms start beeping.",
+									"Alright, I'll wait right here.",
+									"Case the area. I'll be right here.",
+									"Do a little recon mission. I'll be with you shortly.",
+									"I'll be right here, bud. You do the recon thingy.",
+									"I'll catch up with you later.",
+									"I'll wait here, you case the joint.",
+									"I'll wait right here, you go ahead. We'll catch up later.",
+									"I'll wait here. I got your back once the action starts.",
+									"I'll stay here, buddy. [chuckles] I'm no good with 'Plan A's anyway.",
+									"Better if you do this. If you need help, just fire your gun.",
+									"Better that you handle this for now. I'll come and save you if things go south.",
+									"[chuckles] I've got all these cigarettes to smoke. You go on without me, I'll catch up."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"I'll wait here.",
+									"I'll wait here. You go on ahead.",
+									"I'll wait here. You go on ahead. [tape rewinds] Ich warte hier-"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"You go ahead.",
+										"Go on, then.",
+										"Check the place out.",
+										"Yeah, yeah- I'll wait here."
+									},
+									{
+										"I'll be ready when things go crazy.",
+										"Call me when the fun begins.",
+										"I'm here for the exciting bit.",
+										"I'll turn the head up when it's time."
 									}
 								}
 							}
@@ -4692,361 +4499,304 @@ ClosedCaptions._sounds = {
 					}
 				},
 				p33 = {
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They're coming through the skylights!",
-											"They're coming from the ceiling!",
-											"They're coming through the panels above!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They're coming through the skylights!",
+									"They're coming from the ceiling!",
+									"They're coming through the panels above!"
 								}
 							}
 						}
 					}
 				},
 				p34 = {
+					text = "They're coming in from above!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "They're coming in from above!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They're coming in from above!",
-											"They're on the roof!"
-										}
-									}
-								},
-								rb15 = {
-									disabled = "missing"
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They're coming in from above!",
+									"They're on the roof!"
 								}
 							}
+						},
+						rb15 = {
+							disabled = "missing"
 						}
 					}
 				},
 				p35 = {
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They're coming down the walls!",
-											"They're coming down the sides!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They're coming down the walls!",
+									"They're coming down the sides!"
 								}
 							}
 						}
 					}
 				},
 				p36 = {
+					text = "They're coming out of the wall!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They're coming through the wall!",
-											"They're coming through the wall panels!",
-											"They're coming through the windows!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They're coming through the wall!",
+									"They're coming through the wall panels!",
+									"They're coming through the windows!"
 								}
 							}
 						}
 					}
 				},
 				p37 = {
+					text = "They're coming up through the floor!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They're coming up through the manholes!",
-											"They're coming in from below!",
-											"They're under the floors!",
-											"They're coming through the floor panels!",
-											"They're coming up through the floor!",
-											"They're coming up through the ground!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They're coming up through the manholes!",
+									"They're coming in from below!",
+									"They're under the floors!",
+									"They're coming through the floor panels!",
+									"They're coming up through the floor!",
+									"They're coming up through the ground!"
 								}
 							}
 						}
 					}
 				},
 				p38 = {
+					text = "They're climbing in from outside!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They're coming in from outside!",
-											"They're climbing in from outside!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They're coming in from outside!",
+									"They're climbing in from outside!"
 								}
 							}
 						}
 					}
 				},
 				p39 = {
+					text = "They're climbing down on the outside!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "They're climbing down on the outside!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									text = "They're climbing down on the outside!"
-								},
-								rb15 = {
-									disabled = "missing"
-								}
-							}
+						rb4 = {
+							text = "They're climbing down on the outside!"
+						},
+						rb15 = {
+							disabled = "missing"
 						}
 					}
 				},
 				p40 = {
+					text = "They're climbing up the outside!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									text = "They're climbing up on the outside!"
-								}
-							}
+						rb4 = {
+							text = "They're climbing up on the outside!"
 						}
 					}
 				},
 				p41 = {
+					text = "Spotted a SWAT Helicopter!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted SWAT Helicopter",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"SWAT chopper incoming!",
-											"We got a helicopter inbound!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"A bloody helicopter, inbound!",
-											"SWAT chopper, incoming!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"SWAT chopper incoming!",
+									"We got a helicopter inbound!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"A bloody helicopter, inbound!",
+									"SWAT chopper, incoming!"
 								}
 							}
 						}
 					}
 				},
 				p42 = {
+					text = "Spotted SWAT Van",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted SWAT Van",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"SWAT insertion! Van coming in!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"We got a SWAT van incoming!",
-											"SWAT van, approaching!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"SWAT insertion! Van coming in!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"We got a SWAT van incoming!",
+									"SWAT van, approaching!"
 								}
 							}
 						}
 					}
 				},
 				p43 = {
+					text = "Spotted a Sniper!",
+					category = "heister_spots",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted a Sniper",
-							category = "heister_spots",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Snipers!",
-											"Heads down! Sniper!",
-											"Watch out! Sniper!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Snipers!",
+									"Heads down! Sniper!",
+									"Watch out! Sniper!"
 								}
 							}
 						}
 					}
 				},
 				p44 = {
+					text = "They're coming from the trees!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They're coming from the forest!",
-											"They're coming out of the woods!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They're coming from the forest!",
+									"They're coming out of the woods!"
 								}
 							}
 						}
 					}
 				},
 				p45 = {
+					text = "Someone help me up!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Friends, help!",
-											"Friends, help me up!",
-											"SOMEBODY! Help me!",
-											"SOMEBODY! HELP!",
-											"Somebody! I need help!",
-											"Somebody! Help me up!",
-											"Hey guys! You gotta help me!",
-											"Hey, my friends! Help me!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Friends, help!",
+									"Friends, help me up!",
+									"SOMEBODY! Help me!",
+									"SOMEBODY! HELP!",
+									"Somebody! I need help!",
+									"Somebody! Help me up!",
+									"Hey guys! You gotta help me!",
+									"Hey, my friends! Help me!"
 								}
 							}
 						}
 					}
 				},
 				p46 = {
+					text = "Jump!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									text = "Jump!"
-								}
-							}
+						rb4 = {
+							text = "Jump!"
 						}
 					}
 				},
 				p47 = {
+					text = "Let's get this party started!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							text = "(It's on, now!)",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"[laughs] It's on now!",
-											"Let's get the party started, for real!",
-											"Alright, let's get it on!",
-											"Okay, let's get it on!",
-											"Let's fuck shit up!",
-											"Alright, let's do this!",
-											"Alright! It's game time!",
-											"THIS is what I've been waitin' for!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Now, enjoy the show!",
-											"The following presentation has been approved for mature audiences only.",
-											"Please be advised- the following presentation is not intended for minors.",
-											"We hope you have a pleasant flight."
-										}
-									}
-								},
-								rb15 = {
-									disabled = "missing"
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"[laughs] It's on now!",
+									"Let's get the party started, for real!",
+									"Alright, let's get it on!",
+									"Okay, let's get it on!",
+									"Let's fuck shit up!",
+									"Alright, let's do this!",
+									"Alright! It's game time!",
+									"THIS is what I've been waitin' for!"
 								}
 							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Now, enjoy the show!",
+									"The following presentation has been approved for mature audiences only.",
+									"Please be advised- the following presentation is not intended for minors.",
+									"We hope you have a pleasant flight."
+								}
+							}
+						},
+						rb15 = {
+							disabled = "missing"
 						}
 					}
 				},
 				v01 = {
+					text = "Got it.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Got it",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"Okay,",
-												"Alright,",
-												"Acknowledged,"
-											},
-											{
-												"we're on it!",
-												"on it!",
-												"we'll take care of it!",
-												"will do!"
-											}
-										}
+						rb4 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"Okay,",
+										"Alright,",
+										"Acknowledged,"
+									},
+									{
+										"we're on it!",
+										"on it!",
+										"we'll take care of it!",
+										"will do!"
 									}
-								},
-								rb15 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"Alright,",
-												"Okay,",
-												"Got it,",
-												"I hear you,"
-											},
-											{
-												"we're on it!",
-												"on it!",
-												"will do.",
-												"we'll take care of it."
-											}
-										}
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"Alright,",
+										"Okay,",
+										"Got it,",
+										"I hear you,"
+									},
+									{
+										"we're on it!",
+										"on it!",
+										"will do.",
+										"we'll take care of it."
 									}
 								}
 							}
@@ -5054,31 +4804,27 @@ ClosedCaptions._sounds = {
 					}
 				},
 				v03 = {
+					text = "We're inside!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "We're inside",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We're in.",
-											"We're through!",
-											"We're inside!",
-											"It's open!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"We're inside.",
-											"It's open!",
-											"We're in!",
-											"We're through!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We're in.",
+									"We're through!",
+									"We're inside!",
+									"It's open!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"We're inside.",
+									"It's open!",
+									"We're in!",
+									"We're through!"
 								}
 							}
 						}
@@ -5086,2515 +4832,2222 @@ ClosedCaptions._sounds = {
 				},
 				v04 = {
 					text = "Found it!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Found it",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"It's here!",
-											"Here it is!",
-											"Found it!",
-											"We got it!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"It's here!",
+									"Here it is!",
+									"Found it!",
+									"We got it!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"We got it!",
-											"Here it is!",
-											"Found it!"
-										},
-										DISABLED_assault_mode = {}
-									}
-								}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"We got it!",
+									"Here it is!",
+									"Found it!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				v05 = {
+					text = "Found one!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Found one",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Found one!",
-											"Got one!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"We got one!",
-											"Here's one!",
-											"Found one!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Found one!",
+									"Got one!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"We got one!",
+									"Here's one!",
+									"Found one!"
 								}
 							}
 						}
 					}
 				},
 				v06 = {
+					text = "Found another!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Found another",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Got one more.",
-											"We got one.",
-											"Found another one.",
-											"Here's another!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Got one more.",
-											"We got one.",
-											"Found another one!",
-											"Here's another!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Got one more.",
+									"We got one.",
+									"Found another one.",
+									"Here's another!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Got one more.",
+									"We got one.",
+									"Found another one!",
+									"Here's another!"
 								}
 							}
 						}
 					}
 				},
 				v07 = {
+					text = "It's done.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "It's done",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"It's done!",
-											"It's finished!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"It's done!",
-											"Done!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"It's done!",
+									"It's finished!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"It's done!",
+									"Done!"
 								}
 							}
 						}
 					}
 				},
 				v08 = {
+					text = "We're done.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "We're done",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We're done!",
-											"DONE!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"We're done!",
-											"DONE!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We're done!",
+									"DONE!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"We're done!",
+									"DONE!"
 								}
 							}
 						}
 					}
 				},
 				v09 = {
+					text = "What next?",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "What next?",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Hey, don't pat yourself on the back, we aren't finished yet.",
-											"No time to get cocky, ladies.",
-											"Keep up the pace, we ain't done yet.",
-											"Don't get cocky, we got more to do!",
-											"C'mon, focus on the next one.",
-											"Keep going, this ain't the finish line."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"What next?",
-											"Yeah, and what now?",
-											"Keep going, what's next?",
-											"Keep it bloody going, we're not done!",
-											"Stay focused!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Hey, don't pat yourself on the back, we aren't finished yet.",
+									"No time to get cocky, ladies.",
+									"Keep up the pace, we ain't done yet.",
+									"Don't get cocky, we got more to do!",
+									"C'mon, focus on the next one.",
+									"Keep going, this ain't the finish line."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"What next?",
+									"Yeah, and what now?",
+									"Keep going, what's next?",
+									"Keep it bloody going, we're not done!",
+									"Stay focused!"
 								}
 							}
 						}
 					}
 				},
 				v10 = {
+					text = "Found a keycard.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Found keycard",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I found a keycard!",
-											"I got a keycard."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I found a keycard!",
-											"I found a keycard."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I found a keycard!",
+									"I got a keycard."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I found a keycard!",
+									"I found a keycard."
 								}
 							}
 						}
 					}
 				},
 				v11 = {
+					text = "Grabbed the keycard.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Grabbed keycard",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I got the keycard!",
-											"I found the keycard!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I got the keycard!",
-											"I found the keycard!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I got the keycard!",
+									"I found the keycard!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I got the keycard!",
+									"I found the keycard!"
 								}
 							}
 						}
 					}
 				},
 				v12 = {
+					text = "Used a keycard.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Used keycard",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Fucking hell, these things make it too easy!",
-											"Almost too easy, yeah?",
-											"Well, bugger me, this is easy!",
-											"This makes shit too easy!"
-										}
-									}
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Fucking hell, these things make it too easy!",
+									"Almost too easy, yeah?",
+									"Well, bugger me, this is easy!",
+									"This makes shit too easy!"
 								}
 							}
 						}
 					}
 				},
 				v13 = {
+					text = "Fire in the hole!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "C4 planted, explosion incoming",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Alright, back up!",
-											"Duck and cover, ladies!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Get the fuck back!",
-											"Cover ya' ears!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Alright, back up!",
+									"Duck and cover, ladies!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Get the fuck back!",
+									"Cover ya' ears!"
 								}
 							}
 						}
 					}
 				},
 				v14 = {
+					text = "BOOM!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Detonated C4",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Oops! Forgot to knock!",
-											"We make our own fucking door!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Fuck keycards when you can blow shit up!",
-											"We're through!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Oops! Forgot to knock!",
+									"We make our own fucking door!"
+								}
+							}
+						},
+						rb7 = {
+							line_variations = {
+								standard_mode = {
+									"Sometimes it's easier to make your own doors!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Fuck keycards when you can blow shit up!",
+									"We're through!"
 								}
 							}
 						}
 					}
 				},
 				v15 = {
+					text = "Get this door open!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Open this door",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"C'mon! Let's open the fucking door!",
-											"Get this motherfucking door open!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Let's open this fuckin' door!",
-											"Someone get the door open!",
-											"Get the bloody door open!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"C'mon! Let's open the fucking door!",
+									"Get this motherfucking door open!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Let's open this fuckin' door!",
+									"Someone get the door open!",
+									"Get the bloody door open!"
 								}
 							}
 						}
 					}
 				},
 				v16 = {
+					text = "Open this thing!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Open this",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's open this sucker up!",
-											"Let's get this fucking thing open!",
-											"Let's open this motherfucker!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Let's OPEN this shit!",
-											"Crack it open!",
-											"Let's open this motherfucker up!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's open this sucker up!",
+									"Let's get this fucking thing open!",
+									"Let's open this motherfucker!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Let's OPEN this shit!",
+									"Crack it open!",
+									"Let's open this motherfucker up!"
 								}
 							}
 						}
 					}
 				},
 				v17 = {
+					text = "Let's go.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Let's go",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									text = "Let's go, team!"
-								},
-								rb15 = {
-									text = "Let's fuckin' go!"
-								}
-							}
+						rb4 = {
+							text = "Let's go, team!"
+						},
+						rb15 = {
+							text = "Let's fuckin' go!"
 						}
 					}
 				},
 				v18 = {
+					text = "Kill them!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Kill them",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Wipe 'em out!",
-											"Kill 'em all!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Eliminate all targets, and have fun doing it."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"GET 'EM!",
-											"KILL 'EM ALL!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Wipe 'em out!",
+									"Kill 'em all!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Eliminate all targets, and have fun doing it."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"GET 'EM!",
+									"KILL 'EM ALL!"
 								}
 							}
 						}
 					}
 				},
 				v19 = {
+					text = "Incoming!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Incoming",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"INCOMING!",
-											"Here it comes!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"It's coming now."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"INCOMING!",
-											"Here it comes!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"INCOMING!",
+									"Here it comes!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"It's coming now."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"INCOMING!",
+									"Here it comes!"
 								}
 							}
 						}
 					}
 				},
 				v20 = {
+					text = "It's arrived.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "It's arrived",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"It's arrived!",
-											"It's here, it's here!",
-											"Okay, it's here!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"It's arrived!",
+									"It's here, it's here!",
+									"Okay, it's here!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"It has arrived, thank you!",
-											"Thank you!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"We got it!",
-											"It's here!",
-											"It's here, it's here!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"It has arrived, thank you!",
+									"Thank you!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"We got it!",
+									"It's here!",
+									"It's here, it's here!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				v21 = {
+					text = "That's a lotta loot!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Loot it",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"That's one hell of a pile of cash!"
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"PAYDAY!",
-											"Yessir, this is it, my friends!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please, recover as much as you can safely manage!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"EMPTY this place!",
-											"Get fuckin' all of it!"
-										}
-									}
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"That's one hell of a pile of cash!"
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"PAYDAY!",
+									"Yessir, this is it, my friends!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please, recover as much as you can safely manage!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"EMPTY this place!",
+									"Get fuckin' all of it!"
 								}
 							}
 						}
 					}
 				},
 				v22 = {
+					text = "We got all of it!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "We got all of it",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We got all of it, awesome!",
-											"And the mice got all of the cheese!",
-											"That's it!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Local stockpiles are exhausted."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Well, bugger me, that's bloody nice!",
-											"That's all of it!",
-											"Now, THIS is a PAYDAY!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We got all of it, awesome!",
+									"And the mice got all of the cheese!",
+									"That's it!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Local stockpiles are exhausted."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Well, bugger me, that's bloody nice!",
+									"That's all of it!",
+									"Now, THIS is a PAYDAY!"
 								}
 							}
 						}
 					}
 				},
 				v23 = {
+					text = "Drill's finished.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Drill finished",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Drill's done.",
-											"Drill's done!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"The drill has completed its work."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"That's the drill done!",
-											"Drill's done!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Drill's done.",
+									"Drill's done!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"The drill has completed its work."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"That's the drill done!",
+									"Drill's done!"
 								}
 							}
 						}
 					}
 				},
 				v24 = {
+					text = "Hack's finished.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Hack finished",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Computer's done!",
-											"The computer's done."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"The computer process has successfully completed.",
-											"The computer process [tape skips] successfully completed."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Computer is finally fuckin' finished!",
-											"Bloody hell, computer is FINALLY done!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Computer's done!",
+									"The computer's done."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"The computer process has successfully completed.",
+									"The computer process [tape skips] successfully completed."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Computer is finally fuckin' finished!",
+									"Bloody hell, computer is FINALLY done!"
 								}
 							}
 						}
 					}
 				},
 				v25 = {
+					text = "It's done.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "It's done",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"It's done, c'mon!",
-											"It's finished, let's get on with it!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"That requirement is satisfied. Please proceed."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Finally, fuckin' done!",
-											"It's finished!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"It's done, c'mon!",
+									"It's finished, let's get on with it!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"That requirement is satisfied. Please proceed."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Finally, fuckin' done!",
+									"It's finished!"
 								}
 							}
 						}
 					}
 				},
 				v26 = {
+					text = "Exit's this way!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Exit this way",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									disabled = "missing" --no lines :(
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"There's the ride!",
-											"There's the getaway!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Escape vehicle is ahead.",
-											"Escape vehicle [tape skips] ahead."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"We're gettin' out this way.",
-											"Time to go, that's the way!"
-										}
-									}
+						rb3 = {
+							disabled = "missing" --no lines :(
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"There's the ride!",
+									"There's the getaway!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Escape vehicle is ahead.",
+									"Escape vehicle [tape skips] ahead."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"We're gettin' out this way.",
+									"Time to go, that's the way!"
 								}
 							}
 						}
 					}
 				},
 				v27 = {
+					text = "They're in the vents!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted cops in the vents",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I thought I heard them in the ventilation shafts- watch out!",
-											"Hey! They're in the ventilation!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Acoustic feedback suggests opposing forces within building structure."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Those fuckwits are in the vents!",
-											"Well, bugger me, the fuckers are in the vents!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I thought I heard them in the ventilation shafts- watch out!",
+									"Hey! They're in the ventilation!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Acoustic feedback suggests opposing forces within building structure."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Those fuckwits are in the vents!",
+									"Well, bugger me, the fuckers are in the vents!"
 								}
 							}
 						}
 					}
 				},
 				v28 = {
+					text = "Spotted the mark.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted the mark",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"The mark's in sight!",
-											"Got my eyes on the mark!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Target observed."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Alright, I see the mark!",
-											"Right, got the mark!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"The mark's in sight!",
+									"Got my eyes on the mark!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Target observed."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Alright, I see the mark!",
+									"Right, got the mark!"
 								}
 							}
 						}
 					}
 				},
 				v29 = {
+					text = "She's there!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "She's there",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"There she is!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"There she is."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"She's there!",
-											"She's there."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"There she is!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"There she is."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"She's there!",
+									"She's there."
 								}
 							}
 						}
 					}
 				},
 				v30 = {
+					text = "He's there!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "He's there",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"There he is!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"There he is."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"He's there!",
-											"He's there."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"There he is!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"There he is."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"He's there!",
+									"He's there."
 								}
 							}
 						}
 					}
 				},
 				v31 = {
+					text = "They're there!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "They're there",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									disabled = "missing"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"There they are!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"There they are."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"They're there!",
-											"They're there."
-										}
-									}
+						rb3 = {
+							disabled = "missing"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"There they are!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"There they are."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"They're there!",
+									"They're there."
 								}
 							}
 						}
 					}
 				},
 				v32 = {
+					text = "It's there!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "It's there",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									disabled = "missing"
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"There it is!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"It is there."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"It's over there.",
-											"It's over there!"
-										}
-									}
+						rb3 = {
+							disabled = "missing"
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"There it is!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"It is there."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"It's over there.",
+									"It's over there!"
 								}
 							}
 						}
 					}
 				},
 				v33 = {
+					text = "Find the manager!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Find the manager",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									text = "Find that manager!",
-								},
-								rb4 = {
-									text = "Where's the goddamn manager?"
-								},
-								rb9 = {
-									text = "It is imperative we locate the manager.",
-									text = "It is imperative we locate the manager. [tape skips] -ame su cabeza."
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Find that bloody bastard!",
-											"FIND that bloody bastard!"
-										}
-									}
+						rb3 = {
+							text = "Find that manager!",
+						},
+						rb4 = {
+							text = "Where's the goddamn manager?"
+						},
+						rb9 = {
+							text = "It is imperative we locate the manager.",
+							text = "It is imperative we locate the manager. [tape skips] -ame su cabeza."
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Find that bloody bastard!",
+									"FIND that bloody bastard!"
 								}
 							}
 						}
 					}
 				},
 				v34 = {
+					text = "(giving the heat speech)",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(giving the heat speech)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb1 = {
-									duration = 15,
-									text = "A'ight, hear me! This is a robbery! We ain't gonna hurt you! We after the bank's money, not yours! Your shit's insured by the federal government, a'ight? Ain't gonna lose a dime! Think of your family, don't try to be a hero, just shut up and stay down, and this'll all be over!"
-								},
-								rb2 = {
-									duration = 21,
-									text = "Listen! This is a robbery! We're not here to hurt anyone, we're after the bank's money, not yours. Your money is insured, do you hear? You're not gonna lose a cent. Think of your family; don't try to be a hero now. You just shut up, stay cool, stay down, and this'll be over in no time."
-								},
-								rb3 = {
-									duration = 19,
-									text = "Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your loved ones, don't try to be a hero. Now shut up, and stay the fuck down, and this will soon be over."
-								},
-								rb4 = {
-									duration = 22,
-									text = "Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your beloved ones, don't try to be a hero. Just shut up, and stay down, and this'll be over in no time."
-								},
-								rb5 = {
-									duration = 18,
-									text = "Listen up! This is a robbery! We don't want to harm anyone! We're after the bank's money, not yours! Your money is insured, alright? You're not gonna lose a penny! Think of your family- don't try to be a hero! Just shut up and stay down, and this'll be over in no time." 
-								},
-								rb6 = {
-									duration = 20,
-									text = "Listen up! This is a robbery! We don't wanna harm anyone! We're after the bank's money, not yours! Your money is insure, alright? You're not gonna lose a single dollar! Think of your families- don't try to be a hero! Just stay quiet, stay down, and this will be over quickly."
-								},
-								rb8 = {																			
-									duration = 22,
-									text = "Listen, this is a robbery! We won't hurt you! We are after bank money, not yours! Your money is insured! You lose nothing! Think of your family! Don't be a hero! Just stay... quiet and down, and this will be over... you understand? ...Yeah!"
-								},
-								rb9 = {
-									duration = 22,
-									text = "Please pay attention! You will be happy to know, you are victims of a robbery! You will not be harmed. We will take the bank's money. Your savings are insured by the federal government. Please, consider your loved ones. Remain calm and quiet, and your survival is assured."
-								},
-								rb10 = {
-									duration = 25,
-									text = "Listen! This is robbery! We're not here to hurt you, right? We're only after the bank's money, not yours! All your money is insured by the government, right! You won't lose a FUCKIN' penny! Think of your families, now- your wives, your bairns- just KEEP IT SHUT! Stay down, and this'll be over in a fuckin' jiffy." 
-								},
-								rb11 = {
-									duration = 18,
-									text = "[bored] Listen! This is robbery! We don't want to kill you, we're after the bank's money, not your money. Your money is insured by the government, you're not gonna lose a dime. Think of sweet mama, don't be hero. [intense] NOW SHUT THE FUCK UP AND STAY DOWN, AND THIS WILL BE OVER, SOON!" 
-								},
-								--rb12 = { duration = 23, text = "uh.... does anyone speak japanese?" },
-								rb13 = {
-									duration = 21,
-									text = "Up here, everyone. This is a robbery. We're not here to hurt anyone. We're after this bank's money, not yours. Your money is insured by the federal government, okay? You're not gonna lose a dime. Think of your loved ones. Don't try to be a hero. Just stay down, and stay quiet, and this'll be over in no time."
-								},
-								rb14 = {
-									duration = 32,
-									text = "OI! Up here! Now, this is... is a FUCKING bank robbery. Yeah? BUT! We're not here to hurt you! No! We're after the BANK'S MONEY. Okay? Not yours! You're not losin' shit! So... please! Think... of your family... and friends. They want you to come home... yeah? So... just stay FUCKING QUIET... and stay DOWN... and all will be good, eh? Don't test us!"
-								},
-								rb15 = {
-									duration = 30,
-									text = "Listen up, you bloody drongos! This is a robbery! We're not here to hurt ya, but that can quickly change dependin' on your FUCKIN' actions, got it? We're after this BANK'S money, not yours. All your BLOODY money's insured by the FUCKIN' government, alright? You won't lose a FUCKIN' penny so think of your dipshit FAMILIES, now, your fat spouses and your ugly kids, you just KEEP IT SHUT like the good tools you are and STAY DOWN, and this'll be over in a bloody heartbeat."
-								},
-								rb16 = {
-									duration = 18,
-									text = "Look at me, motherfuckers. This is a robbery. We're not here to harm anyone. We're after the bank's money, not yours. Your money is insured by the federal government, okay? You're not gonna lose shit. Think of your loved ones and don't try to be a hero. Stay down and stay quiet, capiche?"
-								},
-								rb17 = {
-									duration = 21,
-									text = "Hey! Yeah, that's right, this is a robbery, but we don't wanna hurt you, okay? We just here... to take the bank's money. Your money is insured, so you're gonna be fine, if you stay fucking quiet and you don't try and be a fucking hero. You think of your families, alright? You think about your mama, we just gonna get what we came for, and then we all gonna be free to go."
-								},
-								rb18 = {
-									duration = 25,
-									text = "[casual] Heyyyy! This is a robbery. But listen up, amigos: We don't wanna hurt you, if we don't have to. We want the bank's money, not your money, ah? Your money is insured by the gringo government, so you won't lose a peso. Think of your families, and don't try anything stupid, okay? Just stay down and be quiet, and we'll be out of here soon, and you can all go home! Comprendes?"
-								},
-								rb19 = {
-									duration = 23,
-									text = "Listen up! This is a robbery! But we don't wanna hurt you! We're here for the bank's money, not yours. Your money is insured by The Man, so you won't lose a dime. Think of your families! No use risking your life! Don't be a hero- be smart! We're just gonna wrap this up and we'll be out of here, and you can get on with your lives."
-								},
-								rb20 = {
-									duration = 19,
-									text = "Okay people. This is a robbery, but don't be alarmed, it's not so bad. We just want the bank's money, not your money. Your money is insured by the federal government, so you won't lose anything. Think of your families, or your dogs or whatever, but be smart. Then we're cool and you can all go home and watch TV when it's over. "
-								},
-								rb21 = {
-									duration = 18,
-									text = "Listen up! This is a robbery! But we don't want to hurt you, and we want the bank's money, not your money. Your money's insured by the government. So you won't lose anything. Think of your families. Be smart. Just behave and do what we say and we won't kill you."
-								},
-								rb22 = {
-									duration = 20,
-									text = "Listen up! This is a robbery! But don't worry, we're not here to hurt you. We only want the bank's money- not your savings, which are insured by the federal government. You won't lose a dime. So think of your loved ones, and don't try to be a hero. Let's all try to get along, so we can leave, and you can all go home."
-								}
-							}
+						rb1 = {
+							duration = 15,
+							text = "A'ight, hear me! This is a robbery! We ain't gonna hurt you! We after the bank's money, not yours! Your shit's insured by the federal government, a'ight? Ain't gonna lose a dime! Think of your family, don't try to be a hero, just shut up and stay down, and this'll all be over!"
+						},
+						rb2 = {
+							duration = 21,
+							text = "Listen! This is a robbery! We're not here to hurt anyone, we're after the bank's money, not yours. Your money is insured, do you hear? You're not gonna lose a cent. Think of your family; don't try to be a hero now. You just shut up, stay cool, stay down, and this'll be over in no time."
+						},
+						rb3 = {
+							duration = 19,
+							text = "Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your loved ones, don't try to be a hero. Now shut up, and stay the fuck down, and this will soon be over."
+						},
+						rb4 = {
+							duration = 22,
+							text = "Listen up! This is a robbery! We want to harm no-one! We're after the bank's money, not yours! Your money is insured by the federal government! You're not gonna lose a dime! Think of your beloved ones, don't try to be a hero. Just shut up, and stay down, and this'll be over in no time."
+						},
+						rb5 = {
+							duration = 18,
+							text = "Listen up! This is a robbery! We don't want to harm anyone! We're after the bank's money, not yours! Your money is insured, alright? You're not gonna lose a penny! Think of your family- don't try to be a hero! Just shut up and stay down, and this'll be over in no time." 
+						},
+						rb6 = {
+							duration = 20,
+							text = "Listen up! This is a robbery! We don't wanna harm anyone! We're after the bank's money, not yours! Your money is insure, alright? You're not gonna lose a single dollar! Think of your families- don't try to be a hero! Just stay quiet, stay down, and this will be over quickly."
+						},
+						rb8 = {																			
+							duration = 22,
+							text = "Listen, this is a robbery! We won't hurt you! We are after bank money, not yours! Your money is insured! You lose nothing! Think of your family! Don't be a hero! Just stay... quiet and down, and this will be over... you understand? ...Yeah!"
+						},
+						rb9 = {
+							duration = 22,
+							text = "Please pay attention! You will be happy to know, you are victims of a robbery! You will not be harmed. We will take the bank's money. Your savings are insured by the federal government. Please, consider your loved ones. Remain calm and quiet, and your survival is assured."
+						},
+						rb10 = {
+							duration = 25,
+							text = "Listen! This is robbery! We're not here to hurt you, right? We're only after the bank's money, not yours! All your money is insured by the government, right! You won't lose a FUCKIN' penny! Think of your families, now- your wives, your bairns- just KEEP IT SHUT! Stay down, and this'll be over in a fuckin' jiffy." 
+						},
+						rb11 = {
+							duration = 18,
+							text = "[bored] Listen! This is robbery! We don't want to kill you, we're after the bank's money, not your money. Your money is insured by the government, you're not gonna lose a dime. Think of sweet mama, don't be hero. [intense] NOW SHUT THE FUCK UP AND STAY DOWN, AND THIS WILL BE OVER, SOON!" 
+						},
+						--rb12 = { duration = 23, text = "uh.... does anyone speak japanese?" },
+						rb13 = {
+							duration = 21,
+							text = "Up here, everyone. This is a robbery. We're not here to hurt anyone. We're after this bank's money, not yours. Your money is insured by the federal government, okay? You're not gonna lose a dime. Think of your loved ones. Don't try to be a hero. Just stay down, and stay quiet, and this'll be over in no time."
+						},
+						rb14 = {
+							duration = 32,
+							text = "OI! Up here! Now, this is... is a FUCKING bank robbery. Yeah? BUT! We're not here to hurt you! No! We're after the BANK'S MONEY. Okay? Not yours! You're not losin' shit! So... please! Think... of your family... and friends. They want you to come home... yeah? So... just stay FUCKING QUIET... and stay DOWN... and all will be good, eh? Don't test us!"
+						},
+						rb15 = {
+							duration = 30,
+							text = "Listen up, you bloody drongos! This is a robbery! We're not here to hurt ya, but that can quickly change dependin' on your FUCKIN' actions, got it? We're after this BANK'S money, not yours. All your BLOODY money's insured by the FUCKIN' government, alright? You won't lose a FUCKIN' penny so think of your dipshit FAMILIES, now, your fat spouses and your ugly kids, you just KEEP IT SHUT like the good tools you are and STAY DOWN, and this'll be over in a bloody heartbeat."
+						},
+						rb16 = {
+							duration = 18,
+							text = "Look at me, motherfuckers. This is a robbery. We're not here to harm anyone. We're after the bank's money, not yours. Your money is insured by the federal government, okay? You're not gonna lose shit. Think of your loved ones and don't try to be a hero. Stay down and stay quiet, capiche?"
+						},
+						rb17 = {
+							duration = 21,
+							text = "Hey! Yeah, that's right, this is a robbery, but we don't wanna hurt you, okay? We just here... to take the bank's money. Your money is insured, so you're gonna be fine, if you stay fucking quiet and you don't try and be a fucking hero. You think of your families, alright? You think about your mama, we just gonna get what we came for, and then we all gonna be free to go."
+						},
+						rb18 = {
+							duration = 25,
+							text = "[casual] Heyyyy! This is a robbery. But listen up, amigos: We don't wanna hurt you, if we don't have to. We want the bank's money, not your money, ah? Your money is insured by the gringo government, so you won't lose a peso. Think of your families, and don't try anything stupid, okay? Just stay down and be quiet, and we'll be out of here soon, and you can all go home! Comprendes?"
+						},
+						rb19 = {
+							duration = 23,
+							text = "Listen up! This is a robbery! But we don't wanna hurt you! We're here for the bank's money, not yours. Your money is insured by The Man, so you won't lose a dime. Think of your families! No use risking your life! Don't be a hero- be smart! We're just gonna wrap this up and we'll be out of here, and you can get on with your lives."
+						},
+						rb20 = {
+							duration = 19,
+							text = "Okay people. This is a robbery, but don't be alarmed, it's not so bad. We just want the bank's money, not your money. Your money is insured by the federal government, so you won't lose anything. Think of your families, or your dogs or whatever, but be smart. Then we're cool and you can all go home and watch TV when it's over. "
+						},
+						rb21 = {
+							duration = 18,
+							text = "Listen up! This is a robbery! But we don't want to hurt you, and we want the bank's money, not your money. Your money's insured by the government. So you won't lose anything. Think of your families. Be smart. Just behave and do what we say and we won't kill you."
+						},
+						rb22 = {
+							duration = 20,
+							text = "Listen up! This is a robbery! But don't worry, we're not here to hurt you. We only want the bank's money- not your savings, which are insured by the federal government. You won't lose a dime. So think of your loved ones, and don't try to be a hero. Let's all try to get along, so we can leave, and you can all go home."
 						}
 					}
 				},
 				v35 = {
+					text = "Bain?!",
+					category = "heister_dialogue",
+					priority = 40,
+					duration = 2,
 					variants = {
-						criminal = {
-							text = "Bain?!",
-							category = "heister_dialogue",
-							priority = 40,
-							duration = 2,
-							subvariants = {
-								rb1 = {
-									text = "BAIN! You listenin'?!"
-								},
-								rb3 = {
+						rb1 = {
+							text = "BAIN! You listenin'?!"
+						},
+						rb3 = {
 ---									disabled = "missing"
-								},
-								rb4 = {
-									text = "BAIN!?"
-								},
-								rb9 = {
-									text = "Please advise."
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"BAIN!?",
-											"BAIN?!"
-										}
-									}
+						},
+						rb4 = {
+							text = "BAIN!?"
+						},
+						rb9 = {
+							text = "Please advise."
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"BAIN!?",
+									"BAIN?!"
 								}
 							}
 						}
 					}
 				},
 				v36 = {
+					text = "Now what?",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Now what?",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"What do we do now?",
-											"The fuck do we do now?"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Requesting new directives."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Well, now bloody what?",
-											"So what the fuck do we do now, then?"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"What do we do now?",
+									"The fuck do we do now?"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Requesting new directives."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Well, now bloody what?",
+									"So what the fuck do we do now, then?"
 								}
 							}
 						}
 					}
 				},
 				v37 = {
+					text = "I got a bad feeling about this...",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Feeling uneasy",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									disabled = "missing" --no lines :(
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I've got a bad feeling about this."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please, remain vigilant."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I'm gettin' a bad feelin' about this!"
-										}
-									}
+						rb3 = {
+							disabled = "missing" --no lines :(
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I've got a bad feeling about this."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please, remain vigilant."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I'm gettin' a bad feelin' about this!"
 								}
 							}
 						}
 					}
 				},
 				v38 = {
+					text = "Search the place!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Search the place",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Sweep the place."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Searching."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Search the place!",
-											"Search the place."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Sweep the place."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Searching."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Search the place!",
+									"Search the place."
 								}
 							}
 						}
 					}
 				},
 				v39 = {
+					text = "Find the mark!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Find the mark",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's find that mark."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Searching."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Find the fucking mark!",
-											"Find the fuckin' mark."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's find that mark."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Searching."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Find the fucking mark!",
+									"Find the fuckin' mark."
 								}
 							}
 						}
 					}
 				},
 				v40 = {
+					text = "Find her!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Find her",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's find her!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Searching."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Find her!",
-											"Find her."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's find her!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Searching."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Find her!",
+									"Find her."
 								}
 							}
 						}
 					}
 				},
 				v41 = {
+					text = "Find him!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Find him",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's find him!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Searching."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Find that bloody bastard.",
-											"Find that BLOODY bastard!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's find him!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Searching."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Find that bloody bastard.",
+									"Find that BLOODY bastard!"
 								}
 							}
 						}
 					}
 				},
 				v42 = {
+					text = "Find them!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Find them",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's find them!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Searching."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Let's find 'em!",
-											"Let's find 'em."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's find them!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Searching."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Let's find 'em!",
+									"Let's find 'em."
 								}
 							}
 						}
 					}
 				},
 				v43 = {
+					text = "Find it!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Find it",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's find it, now!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Searching."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Find it, now!",
-											"Find it, NOW!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's find it, now!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Searching."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Find it, now!",
+									"Find it, NOW!"
 								}
 							}
 						}
 					}
 				},
 				v44 = {
+					text = "Keep looking!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Keep looking",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									text = "Keep looking!"
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Searching."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Keep looking!",
-											"Keep looking."
-										}
-									}
+						rb4 = {
+							text = "Keep looking!"
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Searching."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Keep looking!",
+									"Keep looking."
 								}
 							}
 						}
 					}
 				},
 				v45 = {
+					text = "Spotted a Turret!",
+					category = "heister_spots",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted a Turret",
-							category = "heister_spots",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They brought in a turret",
-											"SWAT Turret!",
-											"Turret! Stay clear!",
-											"Turret!",
-											"Oh no! Turret!",
-											"Turret! Watch out!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Attention. There is a turret."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They brought in a turret",
+									"SWAT Turret!",
+									"Turret! Stay clear!",
+									"Turret!",
+									"Oh no! Turret!",
+									"Turret! Watch out!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Attention. There is a turret."
 								}
 							}
 						}
 					}
 				},
 				v46 = {
+					text = "(exhuberant shouting)",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(exhuberant)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									disabled = "missing" --no lines :(
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"That's what I'm talking about!",
-											"Yes! YES!",
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"This is a pleasant sensation."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Take that!",
-											"Hah, take that!",
-											"Hahaha, fuck yes!"
-										}
-									}
+						rb3 = {
+							disabled = "missing" --no lines :(
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"That's what I'm talking about!",
+									"Yes! YES!",
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"This is a pleasant sensation."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Take that!",
+									"Hah, take that!",
+									"Hahaha, fuck yes!"
 								}
 							}
 						}
 					}
 				},
 				v47 = {
+					text = "Is that enough?",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Is that enough?",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									text = "Is that enough?"
-								},
-								rb9 = {
-									text = "Has enough financial restitution been recovered?"
-								},
-								rb15 = {
-									text = "Have we got enough?"
-								}
-							}
+						rb4 = {
+							text = "Is that enough?"
+						},
+						rb9 = {
+							text = "Has enough financial restitution been recovered?"
+						},
+						rb15 = {
+							text = "Have we got enough?"
 						}
 					}
 				},
 				v48 = {
+					text = "Nah, let's take it all!",
+					category = "heister_dialogue",
+					priority = 5,
 					variants = {
-						criminal = {
-							text = "Nah, let's take it all",
-							category = "heister_dialogue",
-							priority = 5,
-							subvariants = {
-								rb4 = {
-									text = "Nah, get all of it!"
-								},
-								rb9 = {
-									text = "Negative. Further financial restitution required."
-								},
-								rb15 = {
-									text = "Fuck no, take it all!"
-								}
-							}
+						rb4 = {
+							text = "Nah, get all of it!"
+						},
+						rb9 = {
+							text = "Negative. Further financial restitution required."
+						},
+						rb15 = {
+							text = "Fuck no, take it all!"
 						}
 					}
 				},
 				v49 = {
+					text = "Shoot it down!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Shoot it down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									text = "Fire at it!"
-								},
-								rb9 = {
-									text = "Please, direct firepower towards it."
-								},
-								rb15 = {
-									text = "Shoot it down!"
-								}
-							}
+						rb4 = {
+							text = "Fire at it!"
+						},
+						rb9 = {
+							text = "Please, direct firepower towards it."
+						},
+						rb15 = {
+							text = "Shoot it down!"
 						}
 					}
 				},
 				v50 = {
+					text = "Spotted Murkies!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted Murkies",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We got murkies here!",
-											"Murkies!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"It would appear Murkywater are in attendance."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Bunch a' bloody murkies!",
-											"Fuckin' murkies over here!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We got murkies here!",
+									"Murkies!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"It would appear Murkywater are in attendance."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Bunch a' bloody murkies!",
+									"Fuckin' murkies over here!"
 								}
 							}
 						}
 					}
 				},
 				v51 = {
+					text = "Move the loot!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Move the loot",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's get this stuff moving!",
-											"Let's carry this stuff the fuck out of here!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"It is time to convey these articles out."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Grab a bag and go!",
-											"Grab a fuckin' bag and move it!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's get this stuff moving!",
+									"Let's carry this stuff the fuck out of here!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"It is time to convey these articles out."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Grab a bag and go!",
+									"Grab a fuckin' bag and move it!"
 								}
 							}
 						}
 					}
 				},
 				v52 = {
+					text = "It's stuck!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "It's stuck",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"It's fucking stuck!",
-											"Shit, she's stuck!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Analysis confirms, it is stuck."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Can't move the fucker!",
-											"Fucker's stuck!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"It's fucking stuck!",
+									"Shit, she's stuck!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Analysis confirms, it is stuck."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Can't move the fucker!",
+									"Fucker's stuck!"
 								}
 							}
 						}
 					}
 				},
 				v53 = {
+					text = "Smells awful!",
+					category = "heister_dialogue",
+					priority = 5,
 					variants = {
-						criminal = {
-							text = "Smells awful!",
-							category = "heister_dialogue",
-							priority = 5,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"That fucking smell!",
-											"Holy fuck, that smell is killing me!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Analysis of the air indicates presence of offensive matter."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"What is that fuckin' smell?!",
-											"What is that bloody stench?!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"That fucking smell!",
+									"Holy fuck, that smell is killing me!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Analysis of the air indicates presence of offensive matter."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"What is that fuckin' smell?!",
+									"What is that bloody stench?!"
 								}
 							}
 						}
 					}
 				},
 				v54 = {
+					text = "That was loud!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "That was loud",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Damn, that was loud!",
-											"[chuckles] What a bang!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"That was a loud noise."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"You tosser, could you have warned us?!",
-											"Aw, shit, that was loud!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Damn, that was loud!",
+									"[chuckles] What a bang!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"That was a loud noise."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"You tosser, could you have warned us?!",
+									"Aw, shit, that was loud!"
 								}
 							}
 						}
 					}
 				},
 				v55 = {
+					text = "(skydive adrenaline)",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "skydive adrenaline",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"YIPPIE-KI-YAY, MOTHERFUCKER!",
-											"FUCKIN' AWESOME!",
-											"GERONIMO, MOTHERFUCKERS!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"This is a perfect opportunity to express satisfaction."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"[exhilarated screaming]",
-											"FUCK YEAAAAH!",
-											"WHOO-HOOO, SHIT!",
-											"WHOO-HOOOOOO!",
-											"WHOO-HOOOOOOOOOOOO!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"YIPPIE-KI-YAY, MOTHERFUCKER!",
+									"FUCKIN' AWESOME!",
+									"GERONIMO, MOTHERFUCKERS!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"This is a perfect opportunity to express satisfaction."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"[exhilarated screaming]",
+									"FUCK YEAAAAH!",
+									"WHOO-HOOO, SHIT!",
+									"WHOO-HOOOOOO!",
+									"WHOO-HOOOOOOOOOOOO!"
 								}
 							}
 						}
 					}
 				},
 				v56 = {
+					text = "Hello.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Greeting",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Hi.",
-											"Hi!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Hello.",
-											"Greetings."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Hi.",
-											"What's up?"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Hi.",
+									"Hi!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Hello.",
+									"Greetings."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Hi.",
+									"What's up?"
 								}
 							}
 						}
 					}
 				},
 				v57 = {
+					text = "I found a crowbar.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Found crowbar",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I found a crowbar!",
-											"I got a crowbar!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"A crowbar has been recovered.",
-											"A crowbar has been acquired.",
-											"[speaking Spanish] A crowbar has been acquired." --don't know what the line actually is
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Found myself a crowbar!",
-											"Got a crowbar!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I found a crowbar!",
+									"I got a crowbar!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"A crowbar has been recovered.",
+									"A crowbar has been acquired.",
+									"[speaking Spanish] A crowbar has been acquired." --don't know what the line actually is
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Found myself a crowbar!",
+									"Got a crowbar!"
 								}
 							}
 						}
 					}
 				},
 				v58 = { --taxman
+					text = "Get in the chair!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Get in the chair!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"GET IN!",
-											"Get in the chair!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please, take a seat.",
-											"-take a seat. [distorted]"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Sit the fuck down!",
-											"Sit your arse down, you tosser!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"GET IN!",
+									"Get in the chair!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please, take a seat.",
+									"-take a seat. [distorted]"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Sit the fuck down!",
+									"Sit your arse down, you tosser!"
 								}
 							}
 						}
 					}
 				},
 				f30x_any = {
+					text = "Spotted a Bulldozer!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Bulldozer",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I've spotted a Bulldozer",
-											"Bulldozer!",
-											"BULLDOZER!",
-											"Watch out! Bulldozer!",
-											"It's a Bulldozer!"
-										},
-										assault_mode = {
-											"Oh, SHIT! BULLDOZER!",
-											"Bulldozer!",
-											"BULLDOZER!",
-											"It's a fucking Bulldozer!",
-											"FUCK! BULLDOZER!",
-											"It's a motherfucking Bulldozer!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I've spotted a Bulldozer",
+									"Bulldozer!",
+									"BULLDOZER!",
+									"Watch out! Bulldozer!",
+									"It's a Bulldozer!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I see a Bulldozer!",
-											"It's a Bulldozer!",
-											"Bulldozer!",
-											"Got a Bulldozer!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Oh, SHIT! BULLDOZER!",
+									"Bulldozer!",
+									"BULLDOZER!",
+									"It's a fucking Bulldozer!",
+									"FUCK! BULLDOZER!",
+									"It's a motherfucking Bulldozer!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I see a Bulldozer!",
+									"It's a Bulldozer!",
+									"Bulldozer!",
+									"Got a Bulldozer!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f30y_any = {
+					text = "Spotted a Bulldozer!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Bulldozer",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Oh, shit! Bulldozer!",
-											"BULLDOZER!",
-											"FUCK! BULLDOZER!",
-											"It's a fucking Bulldozer!",
-											"Bulldozer!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I see a Bulldozer!",
-											"It's a Bulldozer!",
-											"Bulldozer!",
-											"Got a Bulldozer!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Oh, shit! Bulldozer!",
+									"BULLDOZER!",
+									"FUCK! BULLDOZER!",
+									"It's a fucking Bulldozer!",
+									"Bulldozer!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I see a Bulldozer!",
+									"It's a Bulldozer!",
+									"Bulldozer!",
+									"Got a Bulldozer!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f31x_any = {
+					text = "Spotted a Shield!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Shield",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I've spotted a Shield!",
-											"We've got a Shield over here!",
-											"It's a shield!",
-											"Shield!"
-										},
-										assault_mode = {
-											"Oh, shit! SHIELD!",
-											"We've got a Shield!",
-											"It's a fucking Shield!",
-											"Shield!",
-											"SHIELD!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I've spotted a Shield!",
+									"We've got a Shield over here!",
+									"It's a shield!",
+									"Shield!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I've spotted a Shield!",
-											"We've got a Shield over here!",
-											"We've got a Shield!",
-											"Shield!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Oh, shit! SHIELD!",
+									"We've got a Shield!",
+									"It's a fucking Shield!",
+									"Shield!",
+									"SHIELD!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I've spotted a Shield!",
+									"We've got a Shield over here!",
+									"We've got a Shield!",
+									"Shield!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f31y_any = {
+					text = "Spotted a Shield!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Shield",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"It's a fucking Shield!",
-											"Shield!",
-											"SHIELD!",
-											"Oh, shit! SHIELD!",
-											"We've got a Shield!"
-										} --assault mode lines are identical
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"It's a fucking Shield!",
+									"Shield!",
+									"SHIELD!",
+									"Oh, shit! SHIELD!",
+									"We've got a Shield!"
+								} --assault mode lines are identical
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I've spotted a Shield!",
+									"We've got a Shield over here!",
+									"We've got a Shield!",
+									"Shield!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I've spotted a Shield!",
-											"We've got a Shield over here!",
-											"We've got a Shield!",
-											"Shield!"
-										},
-										DISABLED_assault_mode = {}
-									}
-								}
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f32x_any = {
+					text = "Spotted a Taser!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Taser",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I've spotted a Taser!",
-											"I've spotted a Taser, look out!",
-											"Taser!",
-											"It's a Taser, watch out!"
-										},
-										assault_mode = {
-											"Taser!",
-											"TASER!",
-											"It's a fucking Taser!",
-											"Oh, shit! Taser!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I've spotted a Taser!",
+									"I've spotted a Taser, look out!",
+									"Taser!",
+									"It's a Taser, watch out!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Taser spotted, look out!",
-											"Taser spotted!",
-											"We've got a taser!",
-											"Taser!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Taser!",
+									"TASER!",
+									"It's a fucking Taser!",
+									"Oh, shit! Taser!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Taser spotted, look out!",
+									"Taser spotted!",
+									"We've got a taser!",
+									"Taser!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f32y_any = {
+					text = "Spotted Taser!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Taser",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Taser!",
-											"TASER!",
-											"It's a fucking Taser!",
-											"Oh, shit! Taser!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Taser spotted!",
-											"Taser spotted, look out!",
-											"We've got a taser!",
-											"Taser!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Taser!",
+									"TASER!",
+									"It's a fucking Taser!",
+									"Oh, shit! Taser!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Taser spotted!",
+									"Taser spotted, look out!",
+									"We've got a taser!",
+									"Taser!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f33x_any = {
+					text = "Spotted a Cloaker!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Cloaker",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I've spotted a Cloaker!",
-											"We've got a Cloaker over here!",
-											"Cloaker!",
-											"It's a Cloaker!"
-										},
-										assault_mode = {
-											"Oh, shit! Cloaker!",
-											"Fucking CLOAKER!",
-											"Fucking Cloaker!",
-											"Cloaker!",
-											"CLOAKER!",
-											"Cloaker son of a bitch!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I've spotted a Cloaker!",
+									"We've got a Cloaker over here!",
+									"Cloaker!",
+									"It's a Cloaker!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Spotted a Cloaker!",
-											"It's a Cloaker!",
-											"We've got a Cloaker!",
-											"Cloaker!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Oh, shit! Cloaker!",
+									"Fucking CLOAKER!",
+									"Fucking Cloaker!",
+									"Cloaker!",
+									"CLOAKER!",
+									"Cloaker son of a bitch!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Spotted a Cloaker!",
+									"It's a Cloaker!",
+									"We've got a Cloaker!",
+									"Cloaker!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f33y_any = {
+					text = "Spotted Cloaker",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Cloaker",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Oh, shit! Cloaker!",
-											"Fucking CLOAKER!",
-											"Fucking Cloaker!",
-											"Cloaker!",
-											"CLOAKER!",
-											"Cloaker son of a bitch!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Spotted a Cloaker!",
-											"It's a Cloaker!",
-											"We've got a Cloaker!",
-											"Cloaker!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Oh, shit! Cloaker!",
+									"Fucking CLOAKER!",
+									"Fucking Cloaker!",
+									"Cloaker!",
+									"CLOAKER!",
+									"Cloaker son of a bitch!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Spotted a Cloaker!",
+									"It's a Cloaker!",
+									"We've got a Cloaker!",
+									"Cloaker!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f34x_any = {
+					text = "Spotted a Sniper",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Sniper",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									text = "Sniper!"
+						rb4 = {
+							text = "Sniper!"
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Look out! Sniper!",
+									"Stay back! Sniper!",
+									"Watch out! Sniper!",
+									"Sniper!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Look out! Sniper!",
-											"Stay back! Sniper!",
-											"Watch out! Sniper!",
-											"Sniper!"
-										},
-										DISABLED_assault_mode = {}
-									}
-								}
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f34y_any = {
+					text = "Spotted a Sniper!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Sniper",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									text = "Sniper!"
+						rb4 = {
+							text = "Sniper!"
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Look out! Sniper!",
+									"Stay back! Sniper!",
+									"Watch out! Sniper!",
+									"Sniper!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Look out! Sniper!",
-											"Stay back! Sniper!",
-											"Watch out! Sniper!",
-											"Sniper!"
-										},
-										DISABLED_assault_mode = {}
-									}
-								}
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f42_any = {
+					text = "Look out!", --generic spot
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Look out!",
-											"Watch out!",
-											"Oh, shit!"
-										},
-										assault_mode = {
-											"FUCK!",
-											"Oh, shit!",
-											"Aw, shit!",
-											"Shit!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Look out!",
+									"Watch out!",
+									"Oh, shit!"
+								},
+								assault_mode = {
+									"FUCK!",
+									"Oh, shit!",
+									"Aw, shit!",
+									"Shit!"
 								}
 							}
 						}
 					}
 				},
 				f44x_any = {
+					text = "Spotted a SWAT Turret!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted SWAT Turret",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They've got a turret!",
-											"Oh no! Turret!",
-											"Turret!",
-											"Turret! Watch out!",
-											"Argh, turret!",
-											"They brought in a turret!",
-											"SWAT Turret!"
-										},
-										assault_mode = {
-											"Ah, shit, Turret!",
-											"Turret!",
-											"Fuck me! Turret!",
-											"They brought a Turret!",
-											"Turret son of a bitch!",
-											"It's a goddamn turret!",
-											"Motherfucking Turret!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They've got a turret!",
+									"Oh no! Turret!",
+									"Turret!",
+									"Turret! Watch out!",
+									"Argh, turret!",
+									"They brought in a turret!",
+									"SWAT Turret!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"SWAT Turret!",
-											"Turret!",
-											"Fuck! Turret!",
-											"Turret! Watch out!",
-											"Turret! Bloody careful, now!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Ah, shit, Turret!",
+									"Turret!",
+									"Fuck me! Turret!",
+									"They brought a Turret!",
+									"Turret son of a bitch!",
+									"It's a goddamn turret!",
+									"Motherfucking Turret!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"SWAT Turret!",
+									"Turret!",
+									"Fuck! Turret!",
+									"Turret! Watch out!",
+									"Turret! Bloody careful, now!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f45x_any = {
+					text = "Spotted a Captain!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Captain",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Oh, shit, a Captain!",
-											"Oh, shit! (Captain)",
-											"Look out! (Captain)",
-											"Watch out! (Captain)",
-											"Watch out! Captain!"
-										},
-										assault_mode = {
-											"Watch out! Captain!",
-											"FUCK! (Captain)",
-											"SHIT! (Captain)",
-											"Oh, SHIT! (Captain)",
-											"Oh, shit! A Captain!",
-											"Fuck! (Captain)",
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Oh, shit, a Captain!",
+									"Oh, shit! (Captain)",
+									"Look out! (Captain)",
+									"Watch out! (Captain)",
+									"Watch out! Captain!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Watch out! Captain!",
-											"It's a Captain!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Watch out! Captain!",
+									"FUCK! (Captain)",
+									"SHIT! (Captain)",
+									"Oh, SHIT! (Captain)",
+									"Oh, shit! A Captain!",
+									"Fuck! (Captain)",
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Watch out! Captain!",
+									"It's a Captain!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f47x_any = {
+					text = "Spotted a Medic!",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Medic",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"They've got a Medic!",
-											"Police Medic in the house!",
-											"Cops got a Medic!",
-											"Look out! Medic!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"It's an enemy Medic!",
-											"Look out! Medic!", --should these have "enemy" in front of them for clarity?
-											"Enemy Medic!",
-											"Shit, Medic!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"They've got a Medic!",
+									"Police Medic in the house!",
+									"Cops got a Medic!",
+									"Look out! Medic!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"It's an enemy Medic!",
+									"Look out! Medic!", --should these have "enemy" in front of them for clarity?
+									"Enemy Medic!",
+									"Shit, Medic!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g30x_any = { --with 1s delay
+					text = "Killed a Bulldozer!",
+					category = "heister_kills",
+					priority = 50,
 					variants = {
-						criminal = {
-							text = "Killed Bulldozer",
-							category = "heister_kills",
-							priority = 50,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Bulldozer down.",
-											"Bulldozer down!",
-											"Bulldozer's history."
-										},
-										assault_mode = {
-											"Bulldozer eliminated!",
-											"Bulldozer down!",
-											"Bulldozer taken care of!",
-											"Bulldozer's history.",
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Bulldozer down.",
+									"Bulldozer down!",
+									"Bulldozer's history."
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Bulldozer down.",
-											"Fuck off, dozer.",
-											"Dozer's history.",
-											"Fuck you, Bulldozer.",
-											"Killed a dozer.",
-										},
-										assault_mode = { --check for assault/whisper get stuffed line
-											"Bulldozer down!",
-											"Fuck off, dozer!",
-											"Fuck you, Bulldozer!",
-											"Dozer's history!",
-											"Killed a dozer!",
-											"Get stuffed, dozer fuck!"
-										}
-									}
+								assault_mode = {
+									"Bulldozer eliminated!",
+									"Bulldozer down!",
+									"Bulldozer taken care of!",
+									"Bulldozer's history.",
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Bulldozer down.",
+									"Fuck off, dozer.",
+									"Dozer's history.",
+									"Fuck you, Bulldozer.",
+									"Killed a dozer.",
+								},
+								assault_mode = { --check for assault/whisper get stuffed line
+									"Bulldozer down!",
+									"Fuck off, dozer!",
+									"Fuck you, Bulldozer!",
+									"Dozer's history!",
+									"Killed a dozer!",
+									"Get stuffed, dozer fuck!"
 								}
 							}
 						}
 					}
 				},
 				g31x_any = { --1s delay
+					text = "Killed a Shield!",
+					category = "heister_kills",
+					priority = 50,
 					variants = {
-						criminal = {
-							text = "Killed Shield",
-							category = "heister_kills",
-							priority = 50,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Shield down.",
-											"Shield's history.",
-											"Shield taken care of.",
-											"Shield's eliminated.",
-											"Shield down!"
-										},
-										assault_mode = {
-											"Shield eliminated!",
-											"Shield taken care of!",
-											"Shield's history!",
-											"Shield down!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Shield down.",
+									"Shield's history.",
+									"Shield taken care of.",
+									"Shield's eliminated.",
+									"Shield down!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Killed a Shield.",
-											"Bye-bye, arsehole Shield.",
-											"Got the fuckin' Shield.",
-											"Get stuffed, Shield fuck.",
-											"Fuck off, drongo Shield."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Shield eliminated!",
+									"Shield taken care of!",
+									"Shield's history!",
+									"Shield down!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Killed a Shield.",
+									"Bye-bye, arsehole Shield.",
+									"Got the fuckin' Shield.",
+									"Get stuffed, Shield fuck.",
+									"Fuck off, drongo Shield."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g32x_any = {
+					text = "Killed a Taser!",
+					category = "heister_kills",
+					priority = 50,
 					variants = {
-						criminal = {
-							text = "Killed Taser",
-							category = "heister_kills",
-							priority = 50,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Taser down.",
-											"Taser down!",
-											"Taser taken care of.",
-											"Taser eliminated.",
-											"Taser's history."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I got the Taser.",
-											"Fuck off, Taser.",
-											"Taser's dead.",
-											"Get stuffed, Taser fuck.",
-											"Eat that, you tosser. (Taser)"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Taser down.",
+									"Taser down!",
+									"Taser taken care of.",
+									"Taser eliminated.",
+									"Taser's history."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I got the Taser.",
+									"Fuck off, Taser.",
+									"Taser's dead.",
+									"Get stuffed, Taser fuck.",
+									"Eat that, you tosser. (Taser)"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g33x_any = {
+					text = "Killed a Cloaker!",
+					category = "heister_kills",
+					priority = 50,
 					variants = {
-						criminal = {
-							text = "Killed Cloaker",
-							category = "heister_kills",
-							priority = 50,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = { --no assault specific lines?
-											"Cloaker down.",
-											"Cloaker down!",
-											"Cloaker's history.",
-											"Cloaker eliminated",
-											"Cloaker taken care of."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Cloaker's dead.",
-											"Eat that, Cloaker fuck.",
-											"Get stuffed, Cloaker.",
-											"Sleep tight, Cloaker.",
-											"Sit on my dick, Cloaker."
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = { --no assault specific lines?
+									"Cloaker down.",
+									"Cloaker down!",
+									"Cloaker's history.",
+									"Cloaker eliminated",
+									"Cloaker taken care of."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Cloaker's dead.",
+									"Eat that, Cloaker fuck.",
+									"Get stuffed, Cloaker.",
+									"Sleep tight, Cloaker.",
+									"Sit on my dick, Cloaker."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g35x_any = {
+					text = "Killed a Sniper!",
+					category = "heister_kills",
+					priority = 50,
 					variants = {
-						criminal = {
-							text = "Killed Sniper",
-							category = "heister_kills",
-							priority = 50,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Got a sniper.",
-											"Took care of the sniper.",
-											"Sniper got what he deserved.",
-											"Sniper's pushing up daisies.",
-											"One sniper less in the world."
-										},
-										assault_mode = {
-											"Sniper down!",
-											"SNIPER DOWN!",
-											"Sniper killed!",
-											"Sniper dead!",
-											"Sniper DEAD!",
-											"One sniper less!",
-											"Got him! (Sniper)",
-											"Took him out. (Sniper)",
-											"Sniper out!",
-											"Sniper taken care of!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Got a sniper.",
+									"Took care of the sniper.",
+									"Sniper got what he deserved.",
+									"Sniper's pushing up daisies.",
+									"One sniper less in the world."
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Took care of the Sniper.",
-											"Sniper's dead.",
-											"Get stuffed, Sniper fuck.",
-											"Fuck off, Sniper.",
-											"Got a Sniper."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Sniper down!",
+									"SNIPER DOWN!",
+									"Sniper killed!",
+									"Sniper dead!",
+									"Sniper DEAD!",
+									"One sniper less!",
+									"Got him! (Sniper)",
+									"Took him out. (Sniper)",
+									"Sniper out!",
+									"Sniper taken care of!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Took care of the Sniper.",
+									"Sniper's dead.",
+									"Get stuffed, Sniper fuck.",
+									"Fuck off, Sniper.",
+									"Got a Sniper."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g36x_any = {
+					text = "Killed a Medic!",
+					category = "heister_kills",
+					priority = 50,
 					variants = {
-						criminal = {
-							text = "Killed Medic",
-							category = "heister_kills",
-							priority = 50,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Killed the Medic.",
-											"Killed the Medic!",
-											"Medic is dead.",
-											"Got the Medic."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Fuck off, Medic.",
-											"Try an' heal any of those wounds, ya pussy.",
-											"Bye-bye, Medic fuck."
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Killed the Medic.",
+									"Killed the Medic!",
+									"Medic is dead.",
+									"Got the Medic."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Fuck off, Medic.",
+									"Try an' heal any of those wounds, ya pussy.",
+									"Bye-bye, Medic fuck."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
@@ -7604,558 +7057,514 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN"
 				},
 				g41x_any = {
+					text = "I'm blind! MY EYES!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Flashbanged",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Flashbang! I'm fucking blind!",
-											"Flashbang! My eyes! MY EYES!",
-											"Aagh, fuckin' flashbang!",
-											"Agh, I can't see fucking SHIT!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"FUCK, I TOOK A FLASHBANG IN THE FACE!",
-											"BLOODY HELL, I'VE BEEN FLASHED!",
-											"AAAGH, WHAT THE FUCK!",
-											"CRIKEY, I'M COMPLETELY BLIND!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Flashbang! I'm fucking blind!",
+									"Flashbang! My eyes! MY EYES!",
+									"Aagh, fuckin' flashbang!",
+									"Agh, I can't see fucking SHIT!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"FUCK, I TOOK A FLASHBANG IN THE FACE!",
+									"BLOODY HELL, I'VE BEEN FLASHED!",
+									"AAAGH, WHAT THE FUCK!",
+									"CRIKEY, I'M COMPLETELY BLIND!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g42x_any = {
+					text = "TEARGAS! IT BURNS!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Teargassed",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"AAGH, TEARGAS!",
-											"AAGH, IT BURNS! IT BURNS!"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"AAGH, TEARGAS! [coughing] I'LL BLOODY KILL THE BASTARD WHO THREW THAT!",
-											"FUCK, TEARGAS! [coughing] THESE FUCKWITS ARE USING GAS!",
-											"TEARGAS! [coughing] WE NEED GAS MASKS, NOT CLOWN MASKS!",
-											"FUCK, TEARGAS! [coughing] FUCK, THAT STINGS BAD!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"AAGH, TEARGAS!",
+									"AAGH, IT BURNS! IT BURNS!"
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"AAGH, TEARGAS! [coughing] I'LL BLOODY KILL THE BASTARD WHO THREW THAT!",
+									"FUCK, TEARGAS! [coughing] THESE FUCKWITS ARE USING GAS!",
+									"TEARGAS! [coughing] WE NEED GAS MASKS, NOT CLOWN MASKS!",
+									"FUCK, TEARGAS! [coughing] FUCK, THAT STINGS BAD!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g80x_plu = {
+					text = "I need a Medic Bag!",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Need Medic Bag",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									duration = 6,
-									line_variations = {
-										recombinable = true,
-										standard_mode = { --unfinished
-											{
-												"I don't feel too good.",
-												"They got me!",
-												"They got me good!",
-												"[screams in pain] I'm hurt bad.",
-												"Oh, I'm not feeling too well.",
-												"Oh, I'm hurt, I'm hurt bad!"
-											},
-											{
-												"Anybody got a Medic Bag?",
-												"Anybody got a Medic Bag to offer?",
-												"Anybody got a Medic Bag to share?",
-												"Any one of you want to share a Medic Bag?",
-												"I could sure use a Medic Bag. Anyone got one?"
-											}
-										},
-										assault_mode = {
-											{
-												"I'm hurt!",
-												"[screams in pain] I'm hurt!",
-												"[screams in pain] I'm dying!",
-												"[screams in pain]"
-											},
-											{
-												"Anybody got a Medic Bag?",
-												"Medic Bag! Anyone?!",
-												"Somebody drop a Medic Bag!",
-												"I need a Medic Bag!"
-											}
-										}
+						rb4 = {
+							duration = 6,
+							line_variations = {
+								recombinable = true,
+								standard_mode = { --unfinished
+									{
+										"I don't feel too good.",
+										"They got me!",
+										"They got me good!",
+										"[screams in pain] I'm hurt bad.",
+										"Oh, I'm not feeling too well.",
+										"Oh, I'm hurt, I'm hurt bad!"
+									},
+									{
+										"Anybody got a Medic Bag?",
+										"Anybody got a Medic Bag to offer?",
+										"Anybody got a Medic Bag to share?",
+										"Any one of you want to share a Medic Bag?",
+										"I could sure use a Medic Bag. Anyone got one?"
 									}
 								},
-								rb9 = {
-									duration = 6,
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"[distorted] Goodbye. [tape rewinds]",
-												"Goodbye. [tape rewinds]",
-												"Vital signs deterioriating. [tape rewinds]",
-												"I think I'm catching a cold. [tape rewinds]",
-												"Health status degenerating. [tape rewinds]",
-												"I don't feel too well."
-											},
-											{
-												"Where is the nearest hospital?",
-												"In the event of personal damage, please locate the nearest First Aid Kit.",
-												"I need an appointment with the doctor.",
-												"I need an appointment with the doctor. [tape rewinds] Ich brauche einen artz-",
-												"Please find medical personnel as soon as possible.",
-												"If you've sustained medical injuries, you may need to seek attention promptly."
-											}
-										}
-									}
-								},
-								rb15 = {
-									duration = 6,
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"I'm such a drongo, I should NOT have been hit!",
-												"Those fuckwits got me good!",
-												"Crikey, how many bullets did I eat?",
-												"Fuckin' cowards got me!"
-											},
-											{
-												"Who's got a Medic Bag?",
-												"Anybody got a Medic Bag?",
-												"Can someone spare a Medic Bag?",
-												"I could really use a Medic Bag!",
-												"Can't take much more of this!",
-												"[screaming in pain] Fuck!",
-												"Fuck, this hurts!",
-												"Shit, I'm hurting bad!",
-												"Fuckin' dipshits got me good!",
-												"Fuck me, that bullet hurts!",
-												"[groaning in pain] Christ, this shit hurts!"
-											}
-										},
-										DISABLED_assault_mode = {}
+								assault_mode = {
+									{
+										"I'm hurt!",
+										"[screams in pain] I'm hurt!",
+										"[screams in pain] I'm dying!",
+										"[screams in pain]"
+									},
+									{
+										"Anybody got a Medic Bag?",
+										"Medic Bag! Anyone?!",
+										"Somebody drop a Medic Bag!",
+										"I need a Medic Bag!"
 									}
 								}
+							}
+						},
+						rb9 = {
+							duration = 6,
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"[distorted] Goodbye. [tape rewinds]",
+										"Goodbye. [tape rewinds]",
+										"Vital signs deterioriating. [tape rewinds]",
+										"I think I'm catching a cold. [tape rewinds]",
+										"Health status degenerating. [tape rewinds]",
+										"I don't feel too well."
+									},
+									{
+										"Where is the nearest hospital?",
+										"In the event of personal damage, please locate the nearest First Aid Kit.",
+										"I need an appointment with the doctor.",
+										"I need an appointment with the doctor. [tape rewinds] Ich brauche einen artz-",
+										"Please find medical personnel as soon as possible.",
+										"If you've sustained medical injuries, you may need to seek attention promptly."
+									}
+								}
+							}
+						},
+						rb15 = {
+							duration = 6,
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"I'm such a drongo, I should NOT have been hit!",
+										"Those fuckwits got me good!",
+										"Crikey, how many bullets did I eat?",
+										"Fuckin' cowards got me!"
+									},
+									{
+										"Who's got a Medic Bag?",
+										"Anybody got a Medic Bag?",
+										"Can someone spare a Medic Bag?",
+										"I could really use a Medic Bag!",
+										"Can't take much more of this!",
+										"[screaming in pain] Fuck!",
+										"Fuck, this hurts!",
+										"Shit, I'm hurting bad!",
+										"Fuckin' dipshits got me good!",
+										"Fuck me, that bullet hurts!",
+										"[groaning in pain] Christ, this shit hurts!"
+									}
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				g81x_plu = {
+					text = "I need an Ammo Bag!",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Need Ammo Bag",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									duration = 6,
-									line_variations = {
-										recombinable = true,
-										standard_mode = { --these ones may not be complete
-											{
-												"I almost got no ammo left!",
-												"I'm almost out of ammo!",
-												"I'm running out of ammo!",
-												"I don't have much ammo left now!"
-											},
-											{
-												"Anybody got an Ammo Bag left to share?",
-												"Anybody got some extra ammo to spare?",
-												"You guys got an Ammo Bag left to share?",
-												"Any of you guys got an Ammo Bag?",
-												"Ammo Bag! Anyone?!"
-											}
-										},
-										assault_mode = {
-											{
-												"Running low on bullets!",
-												"Almost out of ammo!",
-												"Not much ammo left!",
-												"Ammo low!"
-											},
-											{
-												"Anyone got an extra bag?",
-												"Anybody got some?",
-												"Get me some ammo!",
-												"Got some?",
-											}
-										}
+						rb4 = {
+							duration = 6,
+							line_variations = {
+								recombinable = true,
+								standard_mode = { --these ones may not be complete
+									{
+										"I almost got no ammo left!",
+										"I'm almost out of ammo!",
+										"I'm running out of ammo!",
+										"I don't have much ammo left now!"
+									},
+									{
+										"Anybody got an Ammo Bag left to share?",
+										"Anybody got some extra ammo to spare?",
+										"You guys got an Ammo Bag left to share?",
+										"Any of you guys got an Ammo Bag?",
+										"Ammo Bag! Anyone?!"
 									}
 								},
-								rb9 = {
-									duration = 6,
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"Cartridges almost depleted. [tape rewinding]",
-												"Ammo reserves are low. [tape rewinding]"
-											},
-											{
-												"I need ammo.",
-												"Fill me up, please."
-											}
-										}
-									}
-								},
-								rb15 = {
-									duration = 6,
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"I'm almost out of ammo!",
-												"I'm low on ammo!",
-												"I'm running out of ammo!",
-												"I'm almost out of ammo!",
-												"Mag's almost empty!"
-											},
-											{
-												"I need some bloody ammo!",
-												"Get me some bloody bullets!",
-												"Get me some fucking ammo!",
-												"Get me some ammo!"
-											}
-										},
-										DISABLED_assault_mode = {}
+								assault_mode = {
+									{
+										"Running low on bullets!",
+										"Almost out of ammo!",
+										"Not much ammo left!",
+										"Ammo low!"
+									},
+									{
+										"Anyone got an extra bag?",
+										"Anybody got some?",
+										"Get me some ammo!",
+										"Got some?",
 									}
 								}
+							}
+						},
+						rb9 = {
+							duration = 6,
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"Cartridges almost depleted. [tape rewinding]",
+										"Ammo reserves are low. [tape rewinding]"
+									},
+									{
+										"I need ammo.",
+										"Fill me up, please."
+									}
+								}
+							}
+						},
+						rb15 = {
+							duration = 6,
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"I'm almost out of ammo!",
+										"I'm low on ammo!",
+										"I'm running out of ammo!",
+										"I'm almost out of ammo!",
+										"Mag's almost empty!"
+									},
+									{
+										"I need some bloody ammo!",
+										"Get me some bloody bullets!",
+										"Get me some fucking ammo!",
+										"Get me some ammo!"
+									}
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				s01x_plu = {
+					text = "Placed an Ammo Bag.",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Placed Ammo Bag",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I've placed an Ammo Bag over here.",
-											"There's an Ammo Bag over here.",
-											"Come fill up your ammo supplies.",
-											"I've dropped an Ammo Bag over here.",
-											"I got extra ammo over here.",
-											"Come get some! (Ammo)",
-											"Anyone need ammo?"
-										},
-										assault_mode = {
-											"Come fill up your ammo!",
-											"Fill up your ammo, guys!",
-											"Come get some ammo!",
-											"Ammo Bag!",
-											"Ammo Bag, over here!",
-											"Extra ammo, up for grabs!",
-											"Come fill up!",
-											"Ammo Bag, right here!",
-											"Extra ammo, over here!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I've placed an Ammo Bag over here.",
+									"There's an Ammo Bag over here.",
+									"Come fill up your ammo supplies.",
+									"I've dropped an Ammo Bag over here.",
+									"I got extra ammo over here.",
+									"Come get some! (Ammo)",
+									"Anyone need ammo?"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Additional cartridges available.",
-											"Ammo. Here you go!",
-											"Ammo. Available!",
-											"Ammunition has arrived."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"More ammo over here.",
-											"There's ammo over here.",
-											"Extra ammo over here.",
-											"I dropped an Ammo Bag over here."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Come fill up your ammo!",
+									"Fill up your ammo, guys!",
+									"Come get some ammo!",
+									"Ammo Bag!",
+									"Ammo Bag, over here!",
+									"Extra ammo, up for grabs!",
+									"Come fill up!",
+									"Ammo Bag, right here!",
+									"Extra ammo, over here!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Additional cartridges available.",
+									"Ammo. Here you go!",
+									"Ammo. Available!",
+									"Ammunition has arrived."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"More ammo over here.",
+									"There's ammo over here.",
+									"Extra ammo over here.",
+									"I dropped an Ammo Bag over here."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				s02x_plu = {
+					text = "Placed a Medic Bag.",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Placed Medic Bag",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I've dropped a Medic Bag over here.",
-											"Medic Bag! Come get patched up.",
-											"There's a Medic Bag over here!.",
-											"Medic Bag here! Anyone need patching up?",
-											"Get over here if you need a Medic Bag!",
-											"Medic Bag, up for grabs!"
-										},
-										assault_mode = {
-											"Medical Bag, up for grabs!",
-											"Medical Bag, right here!",
-											"Medical Bag over here!",
-											"Medical Bag, come get patched up!",
-											"Medical Bag, guys!",
-											"Medic Bag, right here!",
-											"Come replenish your health!",
-											"Come patch yourselves up!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I've dropped a Medic Bag over here.",
+									"Medic Bag! Come get patched up.",
+									"There's a Medic Bag over here!.",
+									"Medic Bag here! Anyone need patching up?",
+									"Get over here if you need a Medic Bag!",
+									"Medic Bag, up for grabs!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Medic Bag available.",
-											"Medical supplies have arrived."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"I got a Medic Bag right here.",
-											"Medic Bag over here.",
-											"Medic Bag over here.", --two soundfile variations
-											"Some medic supplies here."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Medical Bag, up for grabs!",
+									"Medical Bag, right here!",
+									"Medical Bag over here!",
+									"Medical Bag, come get patched up!",
+									"Medical Bag, guys!",
+									"Medic Bag, right here!",
+									"Come replenish your health!",
+									"Come patch yourselves up!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Medic Bag available.",
+									"Medical supplies have arrived."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"I got a Medic Bag right here.",
+									"Medic Bag over here.",
+									"Medic Bag over here.", --two soundfile variations
+									"Some medic supplies here."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				s05x_sin = {
+					text = "Thanks.",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Thanks.",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Thanks, friend.",
-											"Thanks, my friend.",
-											"[grunts] Thanks, friend.",
-											"[groans] Thanks a lot, my friend.",
-											"[grunts] Thanks."
-										},
-										assault_mode = {
-											"Thanks, man!",
-											"Thanks, buddy!",
-											"Thanks!",
-											"Thanks.",
-											"Thanks, pal."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Thanks, friend.",
+									"Thanks, my friend.",
+									"[grunts] Thanks, friend.",
+									"[groans] Thanks a lot, my friend.",
+									"[grunts] Thanks."
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Thank you very much.",
-											"[distorted] Thank you very much."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"[groans] I guess I should say 'thanks.'",
-											"[groans] I guess I owe you one.",
-											"[groans] Finally!",
-											"[groans] Thanks for that."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Thanks, man!",
+									"Thanks, buddy!",
+									"Thanks!",
+									"Thanks.",
+									"Thanks, pal."
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Thank you very much.",
+									"[distorted] Thank you very much."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"[groans] I guess I should say 'thanks.'",
+									"[groans] I guess I owe you one.",
+									"[groans] Finally!",
+									"[groans] Thanks for that."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				s07x_sin = {
+					text = "(electrical tasing crackling)",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 20,
-							text = "tased",
-							subvariants = {
-								rb3 = {
-									text = "[electrocuted gibberish]"
-								}
-							}
+						rb3 = {
+							text = "[electrocuted gibberish]"
 						}
 					}
 				},
 				s08x_sin = {
+					text = "(reviving a teammate)",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Reviving teammate",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Let's fix you up.",
-											"Let's get you fixed up.",
-											"I've got you.",
-											"I'll get you fixed.",
-											"It's alright, I'm here to help.",
-											"I can get you patched up.",
-											"It's okay, I'm covering you.",
-											"I got ya.",
-											"Don't you worry, I'll fix you right up.",
-											"Come on, now!"
-										},
-										assault_mode = {
-											"I'll help you up!",
-											"I'll get you back up!",
-											"I'll get you up!",
-											"You'll be up in a sec!",
-											"Let's get you back in business!",
-											"Let's get you back up and running!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Let's fix you up.",
+									"Let's get you fixed up.",
+									"I've got you.",
+									"I'll get you fixed.",
+									"It's alright, I'm here to help.",
+									"I can get you patched up.",
+									"It's okay, I'm covering you.",
+									"I got ya.",
+									"Don't you worry, I'll fix you right up.",
+									"Come on, now!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"What a lovely day, right?",
-											"Hi!",
-											"Hello."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"You'll be up in no time.",
-											"Lemme get you up.",
-											"I'll get you back up.",
-											"Let's get you up."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"I'll help you up!",
+									"I'll get you back up!",
+									"I'll get you up!",
+									"You'll be up in a sec!",
+									"Let's get you back in business!",
+									"Let's get you back up and running!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"What a lovely day, right?",
+									"Hi!",
+									"Hello."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"You'll be up in no time.",
+									"Lemme get you up.",
+									"I'll get you back up.",
+									"Let's get you up."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				s12 = {
+					text = "Placed a First Aid Kit",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Placed First Aid Kit",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"First Aid Kit! Get your band-aid here!",
-											"First Aid Kit! Get your band-aid here.",
-											"First Aid Kit here, anyone who needs it!",
-											"Right there! There's a First Aid Kit here."
-										},
-										assault_mode = {
-											"First Aid Kit here!",
-											"Got a First Aid Kit here!",
-											"Here's a First Aid Kit!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"First Aid Kit! Get your band-aid here!",
+									"First Aid Kit! Get your band-aid here.",
+									"First Aid Kit here, anyone who needs it!",
+									"Right there! There's a First Aid Kit here."
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"First Aid Kit."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Here's a First Aid Kit.", --three variations on this line
-											"Here's a First Aid Kit.",
-											"Here's a First Aid Kit!",
-											"First Aid Kit here."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"First Aid Kit here!",
+									"Got a First Aid Kit here!",
+									"Here's a First Aid Kit!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"First Aid Kit."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Here's a First Aid Kit.", --three variations on this line
+									"Here's a First Aid Kit.",
+									"Here's a First Aid Kit!",
+									"First Aid Kit here."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				s13 = {
+					text = "Placed a Bodybag Case.",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Placed a Bodybag Case here.",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Bodybag Case right here.",
-											"Bodybag Case right here!",
-											"Bodybag Case, right here.",
-											"Bodybag Case deployed!"
-										},
-										assault_mode = { --why were assault variants recorded
-											"Got a Bodybag Case here!",
-											"Bodybag Case"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Bodybag Case right here.",
+									"Bodybag Case right here!",
+									"Bodybag Case, right here.",
+									"Bodybag Case deployed!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Additional wrapping can be found in the designated area.",
-											"Additional wrapping can be found in the designated area. Zusätzlich-",
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Bodybag Case!",
-											"Got a Bodybag Case here!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = { --why were assault variantions recorded
+									"Got a Bodybag Case here!",
+									"Bodybag Case"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Additional wrapping can be found in the designated area.",
+									"Additional wrapping can be found in the designated area. Zusätzlich-",
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Bodybag Case!",
+									"Got a Bodybag Case here!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
@@ -8165,1313 +7574,1208 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN"
 				},
 				s32x_sin = {
+					text = "I'm out of Cable Ties.",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Out of Cable Ties",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"That was the last of my Cable Ties.",
-											"That was the last Cable Tie I had.",
-											"Okay, that was the last of my Cable Ties.",
-											"Alright, that was the last Cable Tie.",
-											"Now I'm all out of Cable Ties."
-										},
-										assault_mode = {
-											"That was the last of my Cable Ties.",
-											"Okay, that was the last Cable Tie I had.",
-											"Alright, that was my last Cable Tie.",
-											"Now I'm all out of Cable Ties."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"That was the last of my Cable Ties.",
+									"That was the last Cable Tie I had.",
+									"Okay, that was the last of my Cable Ties.",
+									"Alright, that was the last Cable Tie.",
+									"Now I'm all out of Cable Ties."
+								},
+								assault_mode = {
+									"That was the last of my Cable Ties.",
+									"Okay, that was the last Cable Tie I had.",
+									"Alright, that was my last Cable Tie.",
+									"Now I'm all out of Cable Ties."
 								}
 							}
 						}
 					}
 				},
 				f11e_plu = { -- f [eleven] e_plu; curse you, monospace font
+					text = "Someone help me up!",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Need help",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"Guys!",
-												"Hey guys!",
-												"Somebody!"
-											},
-											{
-												"Help me up!",
-												"Help me!",
-												"HELP!",
-												"Gimme a hand!",
-												"Over here!",
-												"I need help!",
-												"You gotta help me!",
-												"You gotta help me up!"
-											}
-										},
-										assault_mode = {
-											{
-												"SOMEBODY!",
-												"Friends!",
-												"Hey guys!",
-												"Hey, my friends!"
-											},
-											{
-												"Help me!",
-												"HELP!",
-												"Gimme a hand!",
-												"You gotta help me!",
-												"Over here!",
-												"I need help!",
-												"Help me up!"
-											}
-										}
+						rb4 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"Guys!",
+										"Hey guys!",
+										"Somebody!"
+									},
+									{
+										"Help me up!",
+										"Help me!",
+										"HELP!",
+										"Gimme a hand!",
+										"Over here!",
+										"I need help!",
+										"You gotta help me!",
+										"You gotta help me up!"
 									}
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"HELP ME!",
-											"Get me up!",
-											"Help!",
-											"You gotta help me!"
-										},
-										DISABLED_assault_mode = {}
+								assault_mode = {
+									{
+										"SOMEBODY!",
+										"Friends!",
+										"Hey guys!",
+										"Hey, my friends!"
+									},
+									{
+										"Help me!",
+										"HELP!",
+										"Gimme a hand!",
+										"You gotta help me!",
+										"Over here!",
+										"I need help!",
+										"Help me up!"
 									}
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"HELP ME!",
+									"Get me up!",
+									"Help!",
+									"You gotta help me!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				s20x_sin = {
+					text = "I'm picking these handcuffs...",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Picking handcuffs",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"This ain't gonna take long.",
-											"Gonna slip these.",
-											"[chuckles] They didn't think I could get out.",
-											"No problem, I know how these go.",
-											"[chuckles] These are easy to get out of."
-										},
-										assault_mode = {
-											"I'm gonna pick these handcuffs.",
-											"I'll get out of these cuffs in a jiffy.",
-											"I'm gonna get out of these cuffs.",
-											"Time to make use of those old lockpicking skills.",
-											"I'll pick these cuffs in no time.",
-											"[chuckles] Like I haven't picked a pair of these before."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"This ain't gonna take long.",
+									"Gonna slip these.",
+									"[chuckles] They didn't think I could get out.",
+									"No problem, I know how these go.",
+									"[chuckles] These are easy to get out of."
+								},
+								assault_mode = {
+									"I'm gonna pick these handcuffs.",
+									"I'll get out of these cuffs in a jiffy.",
+									"I'm gonna get out of these cuffs.",
+									"Time to make use of those old lockpicking skills.",
+									"I'll pick these cuffs in no time.",
+									"[chuckles] Like I haven't picked a pair of these before."
 								}
 							}
 						}
 					}
 				},
 				s21x_sin = {
+					text = "I escaped my handcuffs.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Escaped handcuffs",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"[laughs] Cuffs off, let's ride!",
-											"[laughs] I'm outta the barn!",
-											"[chuckles] Cuffs open!",
-											"[laughs] Slippery as a greased weasel!",
-											"[laughs] I'm doin' what I was born to do!",
-											"[laughs] What'd I say?"
-										},
-										assault_mode = {
-											"Okay, I picked the cuffs.",
-											"[chuckles] They thought these cuffs could hold me.",
-											"[chuckles] I'm a bona fide escape artist.",
-											"[quiet chuckle] The cuffs are off.",
-											"Alright, I'm free.",
-											"Alright, the cuffs are off.",
-											"Okay, I got rid of the cuffs."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"[laughs] Cuffs off, let's ride!",
+									"[laughs] I'm outta the barn!",
+									"[chuckles] Cuffs open!",
+									"[laughs] Slippery as a greased weasel!",
+									"[laughs] I'm doin' what I was born to do!",
+									"[laughs] What'd I say?"
+								},
+								assault_mode = {
+									"Okay, I picked the cuffs.",
+									"[chuckles] They thought these cuffs could hold me.",
+									"[chuckles] I'm a bona fide escape artist.",
+									"[quiet chuckle] The cuffs are off.",
+									"Alright, I'm free.",
+									"Alright, the cuffs are off.",
+									"Okay, I got rid of the cuffs."
 								}
 							}
 						}
 					}
 				},
-				f02x_plu = {
+				f02x_plu = { --to multiple targets
+					text = "Everyone get down!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Get down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Everybody, on the ground!",
-											"On the ground, all of you!",
-											"Down on the ground, all of you!",
-											"Down on the ground, people!",
-											"Down, all of you!",
-											"Down, people!",
-											"Everyone, down!",
-											"ON THE GROUND, people!"
-										},
-										assault_mode = {
-											"On the ground, people!",
-											"EVERYBODY. DOWN.",
-											"EVERYBODY DOWN!",
-											"Everybody down!",
-											"Down!",
-											"DOWN!",
-											"Down, all of you!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Everybody, on the ground!",
+									"On the ground, all of you!",
+									"Down on the ground, all of you!",
+									"Down on the ground, people!",
+									"Down, all of you!",
+									"Down, people!",
+									"Everyone, down!",
+									"ON THE GROUND, people!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Down.",
-											"Down. [speaking Spanish]" --at least, i think it's spanish
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Down.",
-											"Down on the ground.",
-											"On the ground.",
-											"Get down on the ground.",
-											"Ge'down."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"On the ground, people!",
+									"EVERYBODY. DOWN.",
+									"EVERYBODY DOWN!",
+									"Everybody down!",
+									"Down!",
+									"DOWN!",
+									"Down, all of you!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Down.",
+									"Down. [speaking Spanish]" --at least, i think it's spanish
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Down.",
+									"Down on the ground.",
+									"On the ground.",
+									"Get down on the ground.",
+									"Ge'down."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				}, --to multiple hostages
 				f02x_sin = {
+					text = "Get down!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Get down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Get down!",
-											"Down on the ground!",
-											"Get down on the ground!",
-											"Get down on the ground.",
-											"Down!",
-											"DOWN!",
-											"On the ground!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Down.",
-											"Down. [speaking Spanish]"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Hit the floor.",
-											"Down.",
-											"Get down.",
-											"Ge'down.",
-											"On the ground.",
-											"On the ground."
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Get down!",
+									"Down on the ground!",
+									"Get down on the ground!",
+									"Get down on the ground.",
+									"Down!",
+									"DOWN!",
+									"On the ground!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Down.",
+									"Down. [speaking Spanish]"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Hit the floor.",
+									"Down.",
+									"Get down.",
+									"Ge'down.",
+									"On the ground.",
+									"On the ground."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
-				}, --to single target
+				},
 				f02b_sin = {
+					text = "Hey, you, I said GET DOWN!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Get down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I said, down on the ground!",
-											"I said, GET DOWN ON THE GROUND.",
-											"You heard what I just said?!",
-											"You do what I tell you!",
-											"NOW!",
-											"You're pushing it!",
-											"Don't try to be a hero!",
-											"Don't test my patience!",
-											"Don't make me say it again!",
-											"I'm not gonna say it again!"
-										},
-										assault_mode = {
-											"I SAID GET THE FUCK DOWN!",
-											"I SAID DOWN, ON THE GROUND!",
-											"I SAID ON THE GROUND!",
-											"I. SAID. DOWN!",
-											"I TOLD YOU, DOWN!",
-											"I'M NOT SAYING IT AGAIN!",
-											"I TOLD YOU, GET DOWN ON THE GROUND!",
-											"DON'T TEST MY PATIENCE!",
-											"DON'T TRY TO BE A HERO!",
-											"DO WHAT I FUCKING SAY!",
-											"ON THE GROUND, YOU PIECE OF SHIT!",
-											"ON THE FUCKING GROUND, YOU SON OF A BITCH!",
-											"RIGHT NOW, MOTHERFUCKER!",
-											"RIGHT FUCKING NOW!",
-											"WHAT ARE YOU, A FUCKIN' HERO?",
-											"YOU'RE PUSHING IT!",
-											"YOU HEAR WHAT I'M FUCKING SAYING?",
-											"YOU HEARD WHAT I FUCKIN' SAID?",
-											"YOU DO WHAT I FUCKING TELL YOU!",
-											"YOU FUCKING HEARING ME?!",
-											"YOU. DO WHAT I FUCKING SAY!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I said, down on the ground!",
+									"I said, GET DOWN ON THE GROUND.",
+									"You heard what I just said?!",
+									"You do what I tell you!",
+									"NOW!",
+									"You're pushing it!",
+									"Don't try to be a hero!",
+									"Don't test my patience!",
+									"Don't make me say it again!",
+									"I'm not gonna say it again!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Down.",
-											"Down. [speaking Spanish]",
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Get down, or get killed.",
-											"I said, 'down.'",
-											"Don't make me say it again.",
-											"Did I stutter?"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"I SAID GET THE FUCK DOWN!",
+									"I SAID DOWN, ON THE GROUND!",
+									"I SAID ON THE GROUND!",
+									"I. SAID. DOWN!",
+									"I TOLD YOU, DOWN!",
+									"I'M NOT SAYING IT AGAIN!",
+									"I TOLD YOU, GET DOWN ON THE GROUND!",
+									"DON'T TEST MY PATIENCE!",
+									"DON'T TRY TO BE A HERO!",
+									"DO WHAT I FUCKING SAY!",
+									"ON THE GROUND, YOU PIECE OF SHIT!",
+									"ON THE FUCKING GROUND, YOU SON OF A BITCH!",
+									"RIGHT NOW, MOTHERFUCKER!",
+									"RIGHT FUCKING NOW!",
+									"WHAT ARE YOU, A FUCKIN' HERO?",
+									"YOU'RE PUSHING IT!",
+									"YOU HEAR WHAT I'M FUCKING SAYING?",
+									"YOU HEARD WHAT I FUCKIN' SAID?",
+									"YOU DO WHAT I FUCKING TELL YOU!",
+									"YOU FUCKING HEARING ME?!",
+									"YOU. DO WHAT I FUCKING SAY!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Down.",
+									"Down. [speaking Spanish]",
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Get down, or get killed.",
+									"I said, 'down.'",
+									"Don't make me say it again.",
+									"Did I stutter?"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f03a_plu = {
+					text = "Stay down!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Stay down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Stay down, everybody!",
-											"Stay down, people!",
-											"Stay down, all of you!",
-											"Everybody stay down!",
-											"Everybody, stay down!",
-											"Nobody move!"
-										},
-										assault_mode = {
-											"Stay where you are!",
-											"STAY WHERE YOU ARE!",
-											"NOBODY MOVE!",
-											"Everybody, stay DOWN!",
-											"Everybody stay down!",
-											"Everybody stay down.",
-											"Stay! DOWN!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Stay down, everybody!",
+									"Stay down, people!",
+									"Stay down, all of you!",
+									"Everybody stay down!",
+									"Everybody, stay down!",
+									"Nobody move!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Stay down.",
-											"Stay."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Stay down.",
-											"Stay.",
-											"Stay still.",
-											"Stay down, little doggy.",
-											"Stay put.",
-											"Don't move.",
-											"Don't move."
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"Stay where you are!",
+									"STAY WHERE YOU ARE!",
+									"NOBODY MOVE!",
+									"Everybody, stay DOWN!",
+									"Everybody stay down!",
+									"Everybody stay down.",
+									"Stay! DOWN!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Stay down.",
+									"Stay."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Stay down.",
+									"Stay.",
+									"Stay still.",
+									"Stay down, little doggy.",
+									"Stay put.",
+									"Don't move.",
+									"Don't move."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				}, --to everybody
 				f03a_sin = {
+					text = "Stay down!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Stay down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Stay low!",
-											"Stay still!",
-											"Stay down!",
-											"Don't move!",
-											"Stay where you are!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Stay low!",
+									"Stay still!",
+									"Stay down!",
+									"Don't move!",
+									"Stay where you are!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Stay down.",
-											"Stay."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Stay put.",
-											"Stay still.",
-											"Kiss the fucking ground.",
-											"Don't move.",
-											"Stay down, little doggy.",
-											"I had a good burger before I came here. That honestly might be the only reason I haven't killed you yet.",
-											"Aren't you enjoying this, you bloody tool?",
-											"I'm thinkin' of eatin' a good steak after this. I deserve it, don't I?",
-											"Consider yourselves lucky that I woke up in good spirits today! Christ, I woulda fuckin' killed you all otherwise.",
-											"Ya fuckwit, I should just kill ya based off your stupid face!",
-											"Don't act stupid, and I won't kill ya. Simple!",
-											"[laughs] it's fuckin' pathetic how scared you look. Christ, how can anyone be such a coward?",
-											"Don't try to be a fuckin' hero.",
-											"I'll stomp your face if you move, got it?",
-											"Crikey, I'm getting bored. I might just kill one of you for fun.",
-											"Don't test me, you hear?",
-											"Just lay still and shut your mouth!",
-											"I can't imagine you've ever been a part of anything as remotely exciting as this!",
-											"Pretend you're dead, and you'll keep living, got it?",
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Stay down.",
+									"Stay."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Stay put.",
+									"Stay still.",
+									"Kiss the fucking ground.",
+									"Don't move.",
+									"Stay down, little doggy.",
+									"I had a good burger before I came here. That honestly might be the only reason I haven't killed you yet.",
+									"Aren't you enjoying this, you bloody tool?",
+									"I'm thinkin' of eatin' a good steak after this. I deserve it, don't I?",
+									"Consider yourselves lucky that I woke up in good spirits today! Christ, I woulda fuckin' killed you all otherwise.",
+									"Ya fuckwit, I should just kill ya based off your stupid face!",
+									"Don't act stupid, and I won't kill ya. Simple!",
+									"[laughs] it's fuckin' pathetic how scared you look. Christ, how can anyone be such a coward?",
+									"Don't try to be a fuckin' hero.",
+									"I'll stomp your face if you move, got it?",
+									"Crikey, I'm getting bored. I might just kill one of you for fun.",
+									"Don't test me, you hear?",
+									"Just lay still and shut your mouth!",
+									"I can't imagine you've ever been a part of anything as remotely exciting as this!",
+									"Pretend you're dead, and you'll keep living, got it?",
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				}, --to single target
 				f03b_any = {
+					text = "AND STAY DOWN!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "And stay down",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"And stay there!",
-											"And stay put.",
-											"And stay down.",
-											"And don't you dare move.",
-											"And don't move."
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"And stay there!",
+									"And stay put.",
+									"And stay down.",
+									"And don't you dare move.",
+									"And don't move."
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Stay down.",
-											"Stay."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"And stay down.",
-											"And don't fucking move.",
-											"And stay there!",
-											"Stay down.",
-											"And don't move."
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Stay down.",
+									"Stay."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"And stay down.",
+									"And don't fucking move.",
+									"And stay there!",
+									"Stay down.",
+									"And don't move."
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
-				f36x_any = {
+				f36x_any = { --todo
+					text = "Get the fuck up!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = { --priority
-							text = "Get the fuck up!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Get off your ass!",
-											"Up, buddy!",
-											"You! Get back up and fight!",
-											"We need you, buddy! Get up!",
-											"Get back in the fight, buddy!",
-											"Get back up and fight, buddy!",
-											"You can do it!",
-											"Stand up!",
-											"Pain is just mental! Get back up!"
-										},
-										DISABLED_assault_mode = {} --we need you, buddy! Stand up!
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Get off your ass!",
+									"Up, buddy!",
+									"You! Get back up and fight!",
+									"We need you, buddy! Get up!",
+									"Get back in the fight, buddy!",
+									"Get back up and fight, buddy!",
+									"You can do it!",
+									"Stand up!",
+									"Pain is just mental! Get back up!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Wake up."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Get the fuck up.",
-											"Get the fuck up, I'm not kiddin'.",
-											"Get on ya' feet!",
-											"You can do better than that!",
-											"Up with ya!",
-											"Rise and shine, fuckwit!",
-											"Get up and fight!",
-											"You're not bloody done yet!",
-											"Get on ya' fuckin feet!",
-											"Get back in the fight, ya' tosser!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {} --we need you, buddy! Stand up!
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Wake up."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Get the fuck up.",
+									"Get the fuck up, I'm not kiddin'.",
+									"Get on ya' feet!",
+									"You can do better than that!",
+									"Up with ya!",
+									"Rise and shine, fuckwit!",
+									"Get up and fight!",
+									"You're not bloody done yet!",
+									"Get on ya' fuckin feet!",
+									"Get back in the fight, ya' tosser!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f37_any = {
+					text = "Spotted a Guard.",
+					category = "heister_spots",
+					priority = 55,
+					duration = 3,
 					variants = {
-						criminal = {
-							text = "Spotted a Guard",
-							category = "heister_spots",
-							priority = 55,
-							duration = 3,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										whisper_mode = {
-											"[whispering] I see a Guard.",
-											"[whispering] They're everywhere.",
-											"[whispering] Guard over here.",
-											"[whispering] Got a Guard over here.",
-											"[whispering] Got a Guard.",
-											"[whispering] They haven't seen us.",
-											"[whispering] Careful...",
-											"[whispering] Guard!",
-											"[whispering] Guard.",
-											"[whispering] Keep track, guys.",
-											"[whispering] Watch it, guys.",
-											"[whispering] Stay low and quiet.",
-											"[whispering] We're good.",
-											"[whispering] Stay back."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										whisper_mode = {
-											"A security guard.",
-											"Security guard.",
-											"-uard.",
-											"Guardia. (Guard.)",
-											"Eine bewachen. (A guard.)",
-											"-Bewachen. (Guard.)",
-											"Bewachen. (Guard.)"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										whisper_mode = {
-											"[whispering] Look out! Guard!",
-											"[whispering] Guard! Watch it.",
-											"[whispering] Guard! Stay back.",
-											"[whispering] Careful! Guard!",
-											"[whispering] Guard!",
-											"[whispering] Guard! Stay quiet.",
-											"[whispering] Don't bloody alert the Guard.",
-											"[whispering] Guard! Stay alert!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								whisper_mode = {
+									"[whispering] I see a Guard.",
+									"[whispering] They're everywhere.",
+									"[whispering] Guard over here.",
+									"[whispering] Got a Guard over here.",
+									"[whispering] Got a Guard.",
+									"[whispering] They haven't seen us.",
+									"[whispering] Careful...",
+									"[whispering] Guard!",
+									"[whispering] Guard.",
+									"[whispering] Keep track, guys.",
+									"[whispering] Watch it, guys.",
+									"[whispering] Stay low and quiet.",
+									"[whispering] We're good.",
+									"[whispering] Stay back."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								whisper_mode = {
+									"A security guard.",
+									"Security guard.",
+									"-uard.",
+									"Guardia. (Guard.)",
+									"Eine bewachen. (A guard.)",
+									"-Bewachen. (Guard.)",
+									"Bewachen. (Guard.)"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								whisper_mode = {
+									"[whispering] Look out! Guard!",
+									"[whispering] Guard! Watch it.",
+									"[whispering] Guard! Stay back.",
+									"[whispering] Careful! Guard!",
+									"[whispering] Guard!",
+									"[whispering] Guard! Stay quiet.",
+									"[whispering] Don't bloody alert the Guard.",
+									"[whispering] Guard! Stay alert!"
 								}
 							}
 						}
 					}
 				},
 				f38_any = {
+					text = "Follow me!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Follow me",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"C'mon, c'mon!",
-											"C'mon.",
-											"Come with me, move it!",
-											"Come along, now.",
-											"Come along, now!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"C'mon, c'mon!",
+									"C'mon.",
+									"Come with me, move it!",
+									"Come along, now.",
+									"Come along, now!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please follow.",
-											"-follow."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Come with me!",
-											"Follow me!",
-											"Follow me!",
-											"Come on!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please follow.",
+									"-follow."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Come with me!",
+									"Follow me!",
+									"Follow me!",
+									"Come on!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f39_any = {
+					text = "Spotted a Camera.",
+					category = "heister_spots",
+					priority = 55,
 					variants = {
-						criminal = {
-							text = "Spotted Camera",
-							category = "heister_spots",
-							priority = 55,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										whisper_mode = {
-											"[whispering] Stay low and quiet.",
-											"[whispering] They're everywhere.",
-											"[whispering] Careful...",
-											"[whispering] We're good.",
-											"[whispering] Stay back.",
-											"[whispering] Watch it, guys.",
-											"[whispering] Keep track, guys."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										whisper_mode = {
-											"A camera.",
-											"Security-",
-											"Security camera.",
-											"Una camera. (A camera.)",
-											"[speaking Spanish] Camera.",
-											"[speaking French] Camera.",
-											"Stay clear.",
-											"Monitoring-"
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										whisper_mode = {
-											"[whispering] Watch out! Camera!",
-											"[whispering] Smile for the Camera.",
-											"[whispering] Camera!.",
-											"[whispering] CCTV!",
-											"[whispering] Watch out! (Camera)",
-											"[whispering] Don't get caught on tape.",
-											"[whispering] Camera over there!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								whisper_mode = {
+									"[whispering] Stay low and quiet.",
+									"[whispering] They're everywhere.",
+									"[whispering] Careful...",
+									"[whispering] We're good.",
+									"[whispering] Stay back.",
+									"[whispering] Watch it, guys.",
+									"[whispering] Keep track, guys."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								whisper_mode = {
+									"A camera.",
+									"Security-",
+									"Security camera.",
+									"Una camera. (A camera.)",
+									"[speaking Spanish] Camera.",
+									"[speaking French] Camera.",
+									"Stay clear.",
+									"Monitoring-"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								whisper_mode = {
+									"[whispering] Watch out! Camera!",
+									"[whispering] Smile for the Camera.",
+									"[whispering] Camera!.",
+									"[whispering] CCTV!",
+									"[whispering] Watch out! (Camera)",
+									"[whispering] Don't get caught on tape.",
+									"[whispering] Camera over there!"
 								}
 							}
 						}
 					}
 				},
 				f40_any = { --escort go faster
+					text = "(to escort) Hurry up!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(rushing the escort forward)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Get a move on!",
-											"Get moving!",
-											"Move!",
-											"GET A MOVE ON!"
-										},
-										assault_mode = {
-											"MOVE IT!",
-											"GET A MOVE ON!",
-											"MOVE!",
-											"Get moving!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Get a move on!",
+									"Get moving!",
+									"Move!",
+									"GET A MOVE ON!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Hurry up.",
-											"Hurry up. [tape rewinding] Más rápido, imbécil. (Faster, idiot.)",
-											"-proceed.",
-											"Please proceed."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Run faster, dipshit!",
-											"Move it!",
-											"Move it, you drongo!",
-											"Move!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								assault_mode = {
+									"MOVE IT!",
+									"GET A MOVE ON!",
+									"MOVE!",
+									"Get moving!"
 								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Hurry up.",
+									"Hurry up. [tape rewinding] Más rápido, imbécil. (Faster, idiot.)",
+									"-proceed.",
+									"Please proceed."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Run faster, dipshit!",
+									"Move it!",
+									"Move it, you drongo!",
+									"Move!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f41_any = {
+					text = "(to escort) Get the fuck up!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(yelling at the escort to get up and move)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Up.",
-											"Up!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Up.",
+									"Up!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Wake up."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Get the fuck up, I'm not kiddin'.",
-											"Get back in the fight, ya' tosser.",
-											"Get the fuck up.",
-											"Get on your feet!",
-											"Get up and fight!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Wake up."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Get the fuck up, I'm not kiddin'.",
+									"Get back in the fight, ya' tosser.",
+									"Get the fuck up.",
+									"Get on your feet!",
+									"Get up and fight!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f43_any = {
+					text = "(to escort) GET THE FUCK UP!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "(yelling at the escort to get up and move)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Up.",
-											"Up!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Up.",
+									"Up!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Wake up."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Get up and fight!",
-											"Get the fuck up!",
-											"Get back in the fight, ya' tosser.",
-											"Get the fuck up, I'm not kiddin'.",
-											"Get on your feet!",
-											"Up with ya'!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Wake up."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Get up and fight!",
+									"Get the fuck up!",
+									"Get back in the fight, ya' tosser.",
+									"Get the fuck up, I'm not kiddin'.",
+									"Get on your feet!",
+									"Up with ya'!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				f46x_any = {
+					text = "(Interrogation)",
+					category = "heister_dialogue",
+					priority = 5,
 					variants = {
-						criminal = {
-							text = "(Interrogation)",
-							category = "heister_dialogue",
-							priority = 5,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"I got a bullet here with your name on it.",
-											"You're fuckin' pushing it!",
-											"LET IT OUT! Right fucking now!",
-											"Right now, motherfucker!",
-											"Speak up, fuckface!",
-											"What are you, a fucking hero?!",
-											"Answer, dammit!",
-											"Don't try to be a fucking hero!",
-											"You fucking listening?",
-											"ANSWER!",
-											"You got a fucking death wish?!",
-											"I'm getting tired of this!",
-											"You hear what I'm saying?!",
-											"DON'T TRY MY PATIENCE!",
-											"You want to live until tomorrow?!"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"It is advised that you answer immediately.",
-											"Exercise caution when [distorted] aggravating my temper.",
-											"Please, reply.",
-											"Please, do not be brave.",
-											"Please, do not be a hero. Muy esto-",
-											"Please, do it immediately.",
-											"We respectfully request an answer."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Tell us what we need to know!",
-											"Fuckin' answer!",
-											"I'll break your fuckin' face!",
-											"I'll fuckin' kill ya!",
-											"I'll make ya wish you were dead, you understand?!",
-											"Don't make me bring out the fury!",
-											"Answer me, fucker!",
-											"I'll stomp your bloody throat!",
-											"COCKSUCKER!",
-											"Right now, dipshit!",
-											"TOSSER!",
-											"Don't play tough with me!",
-											"You wish to see tomorrow, you bastard?!",
-											"Don't make me crush your fuckin' head!",
-											"Listen up, tosser!",
-											"Spit it out!",
-											"I'll rip your fuckin' face off!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"I got a bullet here with your name on it.",
+									"You're fuckin' pushing it!",
+									"LET IT OUT! Right fucking now!",
+									"Right now, motherfucker!",
+									"Speak up, fuckface!",
+									"What are you, a fucking hero?!",
+									"Answer, dammit!",
+									"Don't try to be a fucking hero!",
+									"You fucking listening?",
+									"ANSWER!",
+									"You got a fucking death wish?!",
+									"I'm getting tired of this!",
+									"You hear what I'm saying?!",
+									"DON'T TRY MY PATIENCE!",
+									"You want to live until tomorrow?!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"It is advised that you answer immediately.",
+									"Exercise caution when [distorted] aggravating my temper.",
+									"Please, reply.",
+									"Please, do not be brave.",
+									"Please, do not be a hero. Muy esto-",
+									"Please, do it immediately.",
+									"We respectfully request an answer."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Tell us what we need to know!",
+									"Fuckin' answer!",
+									"I'll break your fuckin' face!",
+									"I'll fuckin' kill ya!",
+									"I'll make ya wish you were dead, you understand?!",
+									"Don't make me bring out the fury!",
+									"Answer me, fucker!",
+									"I'll stomp your bloody throat!",
+									"COCKSUCKER!",
+									"Right now, dipshit!",
+									"TOSSER!",
+									"Don't play tough with me!",
+									"You wish to see tomorrow, you bastard?!",
+									"Don't make me crush your fuckin' head!",
+									"Listen up, tosser!",
+									"Spit it out!",
+									"I'll rip your fuckin' face off!"
 								}
 							}
 						}
 					}
 				},
 				f48x_any = {
+					text = "Wait over there.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Wait over there.",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Don't move!",
-											"Stay still!",
-											"Stay where you are!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Don't move!",
+									"Stay still!",
+									"Stay where you are!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please hold.",
-											"Please wait.",
-											"You have been put on hold."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Just stay there.",
-											"Hey, wait over there.",
-											"Wait over there.",
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please hold.",
+									"Please wait.",
+									"You have been put on hold."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Just stay there.",
+									"Hey, wait over there.",
+									"Wait over there.",
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				d01x_sin = {
+					text = "Spotted a jammed drill.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted jammed drill",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"Drill got jammed right up, I think.",
-												"You hear that? The drill is jammed.",
-												"Ain't that a jammed drill sound?",
-												"What I hear right now sounds like a jammed drill.",
-												"Aw, man, I can hear the drill got stuck."
-											},
-											{
-												"We have to fix it.",
-												"We need to get it fixed!",
-												"One of us has to fix it!",
-												"Somebody gotta restart it."
-											}
-										},
-										DISABLED_assault_mode = {}
+						rb4 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"Drill got jammed right up, I think.",
+										"You hear that? The drill is jammed.",
+										"Ain't that a jammed drill sound?",
+										"What I hear right now sounds like a jammed drill.",
+										"Aw, man, I can hear the drill got stuck."
+									},
+									{
+										"We have to fix it.",
+										"We need to get it fixed!",
+										"One of us has to fix it!",
+										"Somebody gotta restart it."
 									}
 								},
-								rb9 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"[disorted] -the event of drill malfunction,",
-												"In the event of drill malfunction,",
-												"-drill malfunction,"
-											},
-											{
-												"please call technical support.",
-												"[tape fastforwarding] -call technical support."
-											}
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"The drill's jammed!",
-												"We've got a jammed drill on our hands!",
-												"I think the drill is stuck!"
-											},
-											{
-												"Someone's gotta fix it!",
-												"We need to get it fixed!",
-												"We have to fix it!",
-												"We've gotta get it fixed!",
-											}
-										},
-										DISABLED_assault_mode = {}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"[disorted] -the event of drill malfunction,",
+										"In the event of drill malfunction,",
+										"-drill malfunction,"
+									},
+									{
+										"please call technical support.",
+										"[tape fastforwarding] -call technical support."
 									}
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"The drill's jammed!",
+										"We've got a jammed drill on our hands!",
+										"I think the drill is stuck!"
+									},
+									{
+										"Someone's gotta fix it!",
+										"We need to get it fixed!",
+										"We have to fix it!",
+										"We've gotta get it fixed!",
+									}
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				d02x_sin = {
+					text = "Spotted a jammed drill.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted jammed drill",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"The drill's squeaking again.",
-												"The drill's stuck again.",
-												"The drill got stuck again.",
-												"The drill seems to have jammed again.",
-												"Here we go again, the drill's stuck."
-											},
-											{
-												"Somebody gotta fix it!",
-												"Somebody gotta restart it!",
-												"We have to restart it!",
-												"One of us has to fix it!",
-												"We need to get it fixed!"
-											}
-										}
+						rb4 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"The drill's squeaking again.",
+										"The drill's stuck again.",
+										"The drill got stuck again.",
+										"The drill seems to have jammed again.",
+										"Here we go again, the drill's stuck."
+									},
+									{
+										"Somebody gotta fix it!",
+										"Somebody gotta restart it!",
+										"We have to restart it!",
+										"One of us has to fix it!",
+										"We need to get it fixed!"
 									}
-								},
-								rb9 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"[disorted] -the event of drill malfunction,",
-												"In the event of drill malfunction,",
-												"-drill malfunction,"
-											},
-											{
-												"please call technical support.",
-												"[tape fastforwarding] -call technical support."
-											}
-										}
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"[disorted] -the event of drill malfunction,",
+										"In the event of drill malfunction,",
+										"-drill malfunction,"
+									},
+									{
+										"please call technical support.",
+										"[tape fastforwarding] -call technical support."
 									}
-								},
-								rb15 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"The drill's jammed!",
-												"We've got a jammed drill on our hands!",
-												"I think the drill is stuck!"
-											},
-											{
-												"Someone's gotta fix it!",
-												"We need to get it fixed!",
-												"We have to fix it!",
-												"We've gotta get it fixed!"
-											}
-										}
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"The drill's jammed!",
+										"We've got a jammed drill on our hands!",
+										"I think the drill is stuck!"
+									},
+									{
+										"Someone's gotta fix it!",
+										"We need to get it fixed!",
+										"We have to fix it!",
+										"We've gotta get it fixed!"
 									}
 								}
 							}
 						}
-
 					}
 				},
 				d03_plu = {
+					text = "Spotted a busted computer.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Spotted jammed computer",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Computer's beepin'- never good!",
-											"Sounds like we need some tech help!",
-											"Sounds like the computer's all fouled up!",
-											"Appears like the computer's busted!",
-											"Appears like the computer ain't workin' right!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Computer's beepin'- never good!",
+									"Sounds like we need some tech help!",
+									"Sounds like the computer's all fouled up!",
+									"Appears like the computer's busted!",
+									"Appears like the computer ain't workin' right!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"-software malfunction, please call technical support."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Why is the computer beeping?!",
-											"Fuck, something's not right with the computer!",
-											"The computer process is jammed!",
-											"The bloody computer is stuck!"
-										},
-										DISABLED_assault_mode = {}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"-software malfunction, please call technical support."
 								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Why is the computer beeping?!",
+									"Fuck, something's not right with the computer!",
+									"The computer process is jammed!",
+									"The bloody computer is stuck!"
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				d03_sin = {
-					criminal = {
-						text = "Thermal Lance is broken",
-						category = "heister_dialogue",
-						priority = 40,
-						subvariants = {
-							rb4 = {
-								line_variations = {
-									standard_mode = {
-										"That there is the sound of a stuck Thermal Lance.",
-										"Appears that the Thermal Lance has melted. I hear it!.",
-										"You hear the Thermal Lance. Sounds right... stuck!",
-										"Pretty sure that noise means the Thermal Lance stopped.",
-										"Sounds like the Lance is misfiring.",
-										"Yeah, that's an overheated Thermal Lance, alright." --dallas pronounces it "overhead" so ovk probably made a typo in the script
-									--										"Another computer needs fixing!", --uhh... not sure why this sound variant can play from d03_sin
-									},
-									DISABLED_assault_mode = {}
-								}
+					text = "Thermal Lance is broken",
+					category = "heister_dialogue",
+					priority = 40,
+					variants = {
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"That there is the sound of a stuck Thermal Lance.",
+									"Appears that the Thermal Lance has melted. I hear it!.",
+									"You hear the Thermal Lance. Sounds right... stuck!",
+									"Pretty sure that noise means the Thermal Lance stopped.",
+									"Sounds like the Lance is misfiring.",
+									"Yeah, that's an overheated Thermal Lance, alright." --dallas pronounces it "overhead" so ovk probably made a typo in the script
+								--										"Another computer needs fixing!", --uhh... not sure why this sound variant can play from d03_sin
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				d04_plu = {
+					text = "Spotted a broken computer.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Computer's beeping again!",
-											"We gotta fix the computer again!",
-											"A machine ain't workin' again!",
-											"Wondering if it's the OS, or what?",
-											"[chuckles] Another technical problem with the computer.",
-											"[chuckles] Wonder if it's the software.",
-											"Wonder whether it's software or hardware failures."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Computer's beeping again!",
+									"We gotta fix the computer again!",
+									"A machine ain't workin' again!",
+									"Wondering if it's the OS, or what?",
+									"[chuckles] Another technical problem with the computer.",
+									"[chuckles] Wonder if it's the software.",
+									"Wonder whether it's software or hardware failures."
 								}
 							}
 						}
 					}
 				},
 				d04_sin = {
+					text = "The Thermal Drill is broken! Someone's gotta fix it!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Someone go take a look at the drill, huh?",
-											"The Thermal Drill just isn't sounding good!",
-											"Here we go again! The Lance ain't working!",
-											"Once more, time to fetch the drill a kick!",
-											"Appears the Thermal is broken again!",
-											"We gotta get that Thermal Drill working again!",
-											"Thermal Drill ain't up to snuff!",
-											"'fraid Drill is out of whack again!",
-											"Appears the Thermal Drill is out of order, again!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Someone go take a look at the drill, huh?",
+									"The Thermal Drill just isn't sounding good!",
+									"Here we go again! The Lance ain't working!",
+									"Once more, time to fetch the drill a kick!",
+									"Appears the Thermal is broken again!",
+									"We gotta get that Thermal Drill working again!",
+									"Thermal Drill ain't up to snuff!",
+									"'fraid Drill is out of whack again!",
+									"Appears the Thermal Drill is out of order, again!"
 								}
 							}
 						}
 					}
 				},
 				d05 = {
+					text = "It's broken!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "It's broken",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"It's stuck!",
-												"Something's not right!",
-												"What's that?",
-												"It's jammed!"
-											},
-											{
-												"One of us has to fix it!",
-												"Somebody gotta fix it!",
-												"Somebody gotta restart it!",
-												"We have to fix it!",
-												"We need to get it fixed!"
-											}
-										},
-										DISABLED_assault_mode = {}
+						rb4 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"It's stuck!",
+										"Something's not right!",
+										"What's that?",
+										"It's jammed!"
+									},
+									{
+										"One of us has to fix it!",
+										"Somebody gotta fix it!",
+										"Somebody gotta restart it!",
+										"We have to fix it!",
+										"We need to get it fixed!"
 									}
 								},
-								rb15 = {
-									line_variations = {
-										recombinable = true,
-										standard_mode = {
-											{
-												"It's stuck!",
-												"Something's not right!",
-												"It's jammed!",
-												"What's that?"
-											},
-											{
-												"We need to get it fixed!",
-												"We have to fix it!",
-												"Someone's gotta fix it!"
-											}
-										},
-										DISABLED_assault_mode = {}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								recombinable = true,
+								standard_mode = {
+									{
+										"It's stuck!",
+										"Something's not right!",
+										"It's jammed!",
+										"What's that?"
+									},
+									{
+										"We need to get it fixed!",
+										"We have to fix it!",
+										"Someone's gotta fix it!"
 									}
-								}
+								},
+								DISABLED_assault_mode = {}
 							}
 						}
 					}
 				},
 				a01x_any = {
-					variants = { --priority
-						criminal = {
-							text = "(Masked up)",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb3 = {
-									line_variations = {
-										standard_mode = {
-											"Let's get it over with.",
-											"Alright. Let's rock 'n' roll.",
-											"Alright. Let's get rich.",
-											"Okay, let's roll.",
-											"Alright, let's roll.",
-											"[whisper] Alright, let's do this.",
-											"Now let's get rich.",
-											"Let's rock 'n' roll.",
-											"Let's do this."
-										}
-									}
-								},
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Going to work...",
-											"[chuckles] It's on now...",
-											"Good luck, buddies.",
-											"'kay, let's do this, buddies.",
-											"Let's make that money.",
-											"Ready up.",
-											"Okay, let's do this.",
-											"Let's break bad.",
-											"Get your game face on, buddies."
-										}
-									}
-								},
-								rb5 = {
-									line_variations = {
-										standard_mode = {
-											"[chuckles] This is going to be so much fun...",
-											"Let's do this.",
-											"Alright, let's do this.",
-											"Let's break some necks.",
-											"Mask up.",
-											"Let's get to it.",
-											"It's cha-ching time!",
-											"Here goes nothing.",
-											"Time to rock."
-										}
-									}
-								},
-								rb7 = {
-									line_variations = {
-										standard_mode = { --noncomprehensive, just haven't logged any
-											"It's showtime, you shites..."
-										}
-									}
-								},
-								rb8 = {
-									line_variations = {
-										standard_mode = {
-											"Let's bite more than we can chew.",
-											"Let's nail this.",
-											"Let's do what we came for.",
-											"Let's do this, people.",
-											"Ready for action.",
-											"Let's hit it.",
-											"Let's get to it.",
-											"Time for action.",
-											"Time to do this.",
-											"Idemo ludo... (Let's go crazy...)", 
-											"[speaking Croatian]"
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Now, enjoy the show!",
-											"The following presentation has been approved for mature audiences only.",
-											"Please be advised- the following presentation is not intended for minors.",
-											"We hope you have a pleasant flight."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"These fuckers will learn my name...",
-											"[chuckles] It's gonna be a ripper of a day...",
-											"Time to cement my place in this crew.",
-											"Let's bloody go.",
-											"I'll go down in history as one of the greatest.",
-											"I was born for this.",
-											"Time to show I belong in the big leagues.",
-											"Time to build my legacy.",
-											"Time to make the world burn."
-										}
-									}
+					text = "Let's do this.",
+					category = "heister_dialogue",
+					priority = 40,
+					variants = {
+						rb3 = {
+							line_variations = {
+								standard_mode = {
+									"Let's get it over with.",
+									"Alright. Let's rock 'n' roll.",
+									"Alright. Let's get rich.",
+									"Okay, let's roll.",
+									"Alright, let's roll.",
+									"[whisper] Alright, let's do this.",
+									"Now let's get rich.",
+									"Let's rock 'n' roll.",
+									"Let's do this."
+								}
+							}
+						},
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Going to work...",
+									"[chuckles] It's on now...",
+									"Good luck, buddies.",
+									"'kay, let's do this, buddies.",
+									"Let's make that money.",
+									"Ready up.",
+									"Okay, let's do this.",
+									"Let's break bad.",
+									"Get your game face on, buddies."
+								}
+							}
+						},
+						rb5 = {
+							line_variations = {
+								standard_mode = {
+									"[chuckles] This is going to be so much fun...",
+									"Let's do this.",
+									"Alright, let's do this.",
+									"Let's break some necks.",
+									"Mask up.",
+									"Let's get to it.",
+									"It's cha-ching time!",
+									"Here goes nothing.",
+									"Time to rock."
+								}
+							}
+						},
+						rb7 = {
+							line_variations = {
+								standard_mode = { --noncomprehensive, just haven't logged any
+									"It's showtime, you shites..."
+								}
+							}
+						},
+						rb8 = {
+							line_variations = {
+								standard_mode = {
+									"Let's bite more than we can chew.",
+									"Let's nail this.",
+									"Let's do what we came for.",
+									"Let's do this, people.",
+									"Ready for action.",
+									"Let's hit it.",
+									"Let's get to it.",
+									"Time for action.",
+									"Time to do this.",
+									"Idemo ludo... (Let's go crazy...)", 
+									"[speaking Croatian]"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Now, enjoy the show!",
+									"The following presentation has been approved for mature audiences only.",
+									"Please be advised- the following presentation is not intended for minors.",
+									"We hope you have a pleasant flight."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"These fuckers will learn my name...",
+									"[chuckles] It's gonna be a ripper of a day...",
+									"Time to cement my place in this crew.",
+									"Let's bloody go.",
+									"I'll go down in history as one of the greatest.",
+									"I was born for this.",
+									"Time to show I belong in the big leagues.",
+									"Time to build my legacy.",
+									"Time to make the world burn."
 								}
 							}
 						},
@@ -9489,488 +8793,452 @@ ClosedCaptions._sounds = {
 				a02x_any = {
 					text = "(panic)", --not kalm
 					priority = 37,
+					max_distance = 3000,
 					category = "civilian_dialogue"
 				},
+				cm1_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
 				a03x_any = {
-					variants = {
-						civilian = {
-							text = "(screaming in fear)",
-							category = "civilian_dialogue",
-							priority = 37
-						}
-					}
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
 				},
 				i01x_any = {
 					text = "[Anticipation phase]",
 					category = "UNKNOWN"
 				},
 				r01x_sin = { --bot 'follow me' response; short delay
+					text = "Gotcha.",
+					category = "heister_dialogue",
+					priority = 20,
 					variants = {
-						criminal = {
-							text = "Gotcha.",
-							category = "heister_dialogue",
-							priority = 20,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Got it.",
-											"I got it!",
-											"Right on it."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Yes, I understand.",
-											"Message received."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Gotcha!",
-											"Okay!",
-											"I'm comin'!",
-											"Okay.",
-											"Alright!",
-											"Alright."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Got it.",
+									"I got it!",
+									"Right on it."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Yes, I understand.",
+									"Message received."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Gotcha!",
+									"Okay!",
+									"I'm comin'!",
+									"Okay.",
+									"Alright!",
+									"Alright."
 								}
 							}
 						}
 					}
 				},
 				r02a_sin = { --bot response; short delay
-					variants = {
-						criminal = {
-							text = "I'm on my way",
-							category = "heister_dialogue",
-							priority = 20,
-							rb4 = {
-								line_variations = {
-									standard_mode = {
-										"I'm coming!",
-										"Be right there!",
-										"As fast as I can!",
-										"I'm comin' for ya!",
-										"I'll be there in a flash!",
-										"I'll be there in an instant!"
-									}
+					text = "I'm on my way",
+					category = "heister_dialogue",
+					priority = 20,
+					rb4 = {
+						line_variations = {
+							standard_mode = {
+								"I'm coming!",
+								"Be right there!",
+								"As fast as I can!",
+								"I'm comin' for ya!",
+								"I'll be there in a flash!",
+								"I'll be there in an instant!"
+							}
+						}
+					},
+					rb9 = {
+						line_variations = {
+							recombinable = true,
+							standard_mode = {
+								{
+									"-will arrive shortly.",
+									"-we are coming.",
+									"I am happy to help.",
+									"Help is on the way!",
+									"We will arrive shortly.",
+									"I will gladly help."
+								},
+								{										
+									"[tape rewinding] Please hold.",
+									"[tape rewinding] Don't panic.",
+									"[tape rewinding] Please be patient.",
+									"Stay calm and don't panic."
 								}
-							},
-							rb9 = {
-								line_variations = {
-									recombinable = true,
-									standard_mode = {
-										{
-											"-will arrive shortly.",
-											"-we are coming.",
-											"I am happy to help.",
-											"Help is on the way!",
-											"We will arrive shortly.",
-											"I will gladly help."
-										},
-										{										
-											"[tape rewinding] Please hold.",
-											"[tape rewinding] Don't panic.",
-											"[tape rewinding] Please be patient.",
-											"Stay calm and don't panic."
-										}
-									}
-								}
-							},
-							rb15 = {
-								line_variations = {
-									recombinable = true,
-									standard_mode = {
-										{
-											"I'm comin'.",
-											"On the way.",
-											"As soon as I can.",
-											"I'm right there."
-										},
-										{
-											"Hang in there!",
-											"Bloody hang in there!",
-											"Just hang on!"
-										}
-									}
+							}
+						}
+					},
+					rb15 = {
+						line_variations = {
+							recombinable = true,
+							standard_mode = {
+								{
+									"I'm comin'.",
+									"On the way.",
+									"As soon as I can.",
+									"I'm right there."
+								},
+								{
+									"Hang in there!",
+									"Bloody hang in there!",
+									"Just hang on!"
 								}
 							}
 						}
 					}
 				},
 				r03x_sin = {
-					variants = {
-						criminal = {
-							text = "Gotcha!",
-							category = "heister_dialogue",
-							priority = 40,
-							rb4 = {
-								line_variations = {
-									standard_mode = {
-										"Gotcha!",
-										"Gotcha."
-									}
-								}
-							},
-							rb9 = {
-								line_variations = {
-									standard_mode = {
-										"Yes, I understand.",
-										"Message received."
-									}
-								}
+					text = "Gotcha!",
+					category = "heister_dialogue",
+					priority = 40,
+					rb4 = {
+						line_variations = {
+							standard_mode = {
+								"Gotcha!",
+								"Gotcha."
+							}
+						}
+					},
+					rb9 = {
+						line_variations = {
+							standard_mode = {
+								"Yes, I understand.",
+								"Message received."
 							}
 						}
 					}
 				},
 				t01x_sin = {
+					text = "Just a few minutes left.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Just a few minutes left.",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Only a few minutes left!",
-											"A few minutes left still.",
-											"Only a couple of minutes left now.",
-											"We still got a few more minutes to go!",
-											"Just a few minutes left now."
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Only a few minutes left!",
+									"A few minutes left still.",
+									"Only a couple of minutes left now.",
+									"We still got a few more minutes to go!",
+									"Just a few minutes left now."
 								}
 							}
 						}
 					}
 				},
 				t02x_sin = {
+					text = "Halfway there.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Halfway there.",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"We're halfway through!",
-											"We're halfway now!",
-											"We're about halfway through now!",
-											"We should be about halfway by now!",
-											"We should be halfway through by now.",
-											"Halfway! We're halfway!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"We're halfway through!",
+									"We're halfway now!",
+									"We're about halfway through now!",
+									"We should be about halfway by now!",
+									"We should be halfway through by now.",
+									"Halfway! We're halfway!"
 								}
 							}
 						}
 					}
 				},
 				t03x_sin = {
+					text = "Almost there.",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Almost there.",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Only seconds away!",
-											"Any moment now!",
-											"Any second!",
-											"Any second...",
-											"Any second now!",
-											"We're almost done!",
-											"Just a couple more seconds!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Only seconds away!",
+									"Any moment now!",
+									"Any second!",
+									"Any second...",
+									"Any second now!",
+									"We're almost done!",
+									"Just a couple more seconds!"
 								}
 							}
 						}
 					}
 				},
 				l01x_sin = {
+					text = "Hands up!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Hands up!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Hands up!",
-											"Put 'em up!",
-											"Put 'em up.",
-											"Reach for the sky!",
-											"Put your hands in the air!",
-											"Drop your weapon!",
-											"Stick 'em up!",
-											"Stick 'em up.",
-											"Hands where I can see them!"
-										},
-										assault_mode = {
-											"No sudden movements!",
-											"Put your hands up!",
-											"Drop your piece!",
-											"Hands in the air!",
-											"Hands up!",
-											"Stick em up!",
-											"Put your fuckin' hands up!",
-											"Hands up, mothafucka!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Hands up!",
+									"Put 'em up!",
+									"Put 'em up.",
+									"Reach for the sky!",
+									"Put your hands in the air!",
+									"Drop your weapon!",
+									"Stick 'em up!",
+									"Stick 'em up.",
+									"Hands where I can see them!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Arms outstretched!"
-										}
-									}
+								assault_mode = {
+									"No sudden movements!",
+									"Put your hands up!",
+									"Drop your piece!",
+									"Hands in the air!",
+									"Hands up!",
+									"Stick em up!",
+									"Put your fuckin' hands up!",
+									"Hands up, mothafucka!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Arms outstretched!"
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Put your hands up.",
+									"Put 'em up, fuckwit!",
+									"Drop your weapon!",
+									"Drop your gun.",
+									"Hands in the fuckin' air!",
+									"Hands up, ya fucker!",
+									"Lower ya weapon!",
+									"Hands where I can see them."
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Put your hands up.",
-											"Put 'em up, fuckwit!",
-											"Drop your weapon!",
-											"Drop your gun.",
-											"Hands in the fuckin' air!",
-											"Hands up, ya fucker!",
-											"Lower ya weapon!",
-											"Hands where I can see them."
-										},
-										assault_mode = {
-											"Put your bloody hands up!",
-											"Get your hands up!",
-											"Hands up, fucker!",
-											"Drop it!",
-											"Get your hands up, dipshit!",
-											"Drop the gun!",
-											"Drop the weapon now!"
-										}
-									}
+								assault_mode = {
+									"Put your bloody hands up!",
+									"Get your hands up!",
+									"Hands up, fucker!",
+									"Drop it!",
+									"Get your hands up, dipshit!",
+									"Drop the gun!",
+									"Drop the weapon now!"
 								}
 							}
 						}
 					}
 				}, --intimidate
 				l02x_sin = {
+					text = "Get on your knees!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Get on your knees!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Down on your knees!",
-											"ON YOUR KNEES!",
-											"On your knees!",
-											"Get on your knees!",
-											"Get down on your knees!"
-										},
-										assault_mode = {
-											"Kneel!",
-											"KNEEL!",
-											"On your fucking knees!",
-											"Down on your knees!",
-											"Get on your knees, fuck it!",
-											"Get down on your fucking knees!",
-											"GET ON YOUR KNEES!"
-										}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Down on your knees!",
+									"ON YOUR KNEES!",
+									"On your knees!",
+									"Get on your knees!",
+									"Get down on your knees!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Kneeling position!" --no variants
-										}
-									}
+								assault_mode = {
+									"Kneel!",
+									"KNEEL!",
+									"On your fucking knees!",
+									"Down on your knees!",
+									"Get on your knees, fuck it!",
+									"Get down on your fucking knees!",
+									"GET ON YOUR KNEES!"
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Kneeling position." --no variations
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Get down on your knees.",
+									"Kneel down.",
+									"On your fuckin' knees.",
+									"Down on your knees.",
+									"Kneel.",
+									"Drop on your knees.",
+									"Kneel, dipshit.",
+									"Hit the ground, fucker."
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Get down on your knees.",
-											"Kneel down.",
-											"On your fuckin' knees.",
-											"Down on your knees.",
-											"Kneel.",
-											"Drop on your knees.",
-											"Kneel, dipshit.",
-											"Hit the ground, fucker."
-										},
-										assault_mode = {
-											"Get on your knees!",
-											"Down on your knees!",
-											"Get down on your knees!",
-											"On your knees!",
-											"Kneel!"
-										}
-									}
+								assault_mode = {
+									"Get on your knees!",
+									"Down on your knees!",
+									"Get down on your knees!",
+									"On your knees!",
+									"Kneel!"
 								}
 							}
 						}
 					}
 				}, --intimidate 2
 				l03x_sin = {
+					text = "Now put your cuffs on!",
+					category = "heister_dialogue",
+					priority = 40,
 					variants = {
-						criminal = {
-							text = "Now put your cuffs on!",
-							category = "heister_dialogue",
-							priority = 40,
-							subvariants = {
-								rb4 = {
-									line_variations = {
-										standard_mode = {
-											"Now handcuff yourself!",
-											"Now put your cuffs on!",
-											"Now cuff yourself!",
-											"Cuff yourself!",
-											"Cuff yourself.",
-											"Put your cuffs on!",
-											"Handcuff yourself!"
-										},
-										DISABLED_assault_mode = {}
-									}
+						rb4 = {
+							line_variations = {
+								standard_mode = {
+									"Now handcuff yourself!",
+									"Now put your cuffs on!",
+									"Now cuff yourself!",
+									"Cuff yourself!",
+									"Cuff yourself.",
+									"Put your cuffs on!",
+									"Handcuff yourself!"
 								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"Please place the cuffs firmly on your wrists.",
-											"Please apply handcuffs! Thank you!",
-											"Supply handcuffs."
-										}
-									}
+								DISABLED_assault_mode = {}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"Please place the cuffs firmly on your wrists.",
+									"Please apply handcuffs! Thank you!",
+									"Supply handcuffs."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Cuffs on!",
+									"Cuffs! Put 'em on!",
+									"Get your cuffs on!",
+									"Cuff yourself!",
+									"Put your cuffs on!"
 								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Cuffs on!",
-											"Cuffs! Put 'em on!",
-											"Get your cuffs on!",
-											"Cuff yourself!",
-											"Put your cuffs on!"
-										},
-										assault_mode = {
-											"Put your cuffs on!",
-											"Put your handcuffs on!",
-											"Now, cuffs!",
-											"Cuffs on!",
-										}
-									}
+								assault_mode = {
+									"Put your cuffs on!",
+									"Put your handcuffs on!",
+									"Now, cuffs!",
+									"Cuffs on!",
 								}
 							}
 						}
 					}
 				},
 				dsp_radio_checking_1 = {
+					text = "(answering pager)",
+					category = "heister_dialogue",
+					priority = 20,
+					duration = 10, --default pager answer time is 10s
 					variants = {
-						criminal = {
-							text = "(answering pager)",
-							category = "heister_dialogue",
-							priority = 20,
-							duration = 10, --default pager answer time is 10s
-							subvariants = {
-								rb4 = { --incomplete
-									line_variations = {
-										standard_mode = {
-											"Um, all good, sometimes I just see things. Not to alarm you!",
-											"[embarassed chuckle] I think maybe I'm standing on a magnet. That might be the problem.",
-											"Everything's peachy, over.",
-											"I mean, I didn't see anything.",
-											"I don't know what you heard, but everything's cool over here.",
-											"Not much going on over here, ma'am. Sorry- 'sir.'",
-											"I saw a cockroach. That's it.",
-											"Can't say anything is happening, to be honest.",
-											"Um, I think I got the radio wet when I was washing my hands.",
-											"Things are cool, over.",
-											"Just swatted a fly sitting on the radio.",
-											"No issues, except that I got a hiccup. [hiccups]",
-											"Can't say much is going on.",
-											"Oh yeah, we're perfectly perfect over here.",
-											"Uh... I thought I saw a ghost, but I'm getting tired, don't listen to me.",
-											"Nothing really to speak of. All's well, buddy.",
-											"Nah, situation normal, if you wanna know.",
-											"No problem, except... [sniffling] I got a nasty cold! [coughing violently]",
-											"Uh, hey buddy! Everything's just fine!",
-											"I gotta say, I don't like these radios. They're just no goddamn good.",
-											"I think it's the radio. It's gotta be a short.",
-											"Uh, it's hard to say. Um, everything's in order over here. Over.",
-											"Um, ahh, uhh... I don't... [imitates radio static]",
-											"Everything's good, except the parts that aren't.",
-											"I think the fillings in my teeth are interfering with the radio signals.",
-											"No real issues, except I slammed my toe into a chair.",
-											"Everything is A-OK, over."
-										}
-									}
-								},
-								rb9 = {
-									line_variations = {
-										standard_mode = {
-											"You have reached Dennaton Enterprises. We can't take your call at the moment. Please leave a message after the beep and we'll get back to you. [answering machine beep]",
-											"This is GenSec Tech Support. If you have a problem with your radio, please contact us during normal business hours. Thank you.",
-											"[tape rewinding] The number you have reached is not in service. Please check the number and dial again. Thank you.",
-											"We are experiencing technical issues. There is no cause for alarm. Please be at ease.",
-											"This was a test of the automated paging system. Repeat: This was a test. Thank you.",									
-											"This is a test broadcast of the emergency airwaves. This is a test. Do not be alarmed. This is a test."
-										}
-									}
-								},
-								rb15 = {
-									line_variations = {
-										standard_mode = {
-											"Nah, we're good. Just a random... man, walking around. I gave him a slice of cheddar, and sent him away.",
-											"[singing] Never gonna give you up, never gonna let you down, never gonna run around and desert you- oh, sorry, is this on?",
-											"[singing] Can't touch this! ...oh, sorry Control, I pressed the button!",
-											"[singing] I come from a land down under... where beer flows, and men chunder- oh, sorry, is this on? Hello?",
-											"I just can't get over the season finale on The Walking Dead! I need to talk to someone about it.",
-											"Leroy is being a fucking drongo. Can we switch partners?",
-											"It's a ripper of a day, isn't it Control? Life's good, yeah?",
-											"Well, bugger me! I think I left me' stove on at home. Well, nothing to do about that now.",
-											"Crikey, I'm bored as batshit. You seen any action? Control?",
-											"How's it going over there, Control? You good? We're fine over here, just checking in.",
-											"So tell me, Control. Jared Leto as the new Joker: Yea or Nay? I think he'll pull it off, I must say.",
-											"Uhh, no, everything is clear here Control. Nothing weird happening. Nothing at all.",
-											"Sorry to disturb you, Control. I thought I saw something suspicious, but it was nothing.",
-											"Sorry, Control, I must have pressed the wrong button.",
-											"Sorry, Control, I'm just really craving some good pudding. You got any?",
-											"Sorry, Control, did you hear any of that? Just my... pet rat, Ernie, attacking Leroy. But we're fine now.",
-											"Sorry to disturb you, Control. I thought I saw something suspicious, but it was nothing.",
-											"HAH, Leroy is such a tosser! He thinks he can out-drink me! Yeah, right, like that would ever happen!",
-											"HAH, Leroy is such a tosser! I ate his Snickers, and now he's crying about it! Get some bollocks, man! I'll get you another one!",
-											"If I don't see some action soon, I'll turn into a fucking basket case.",
-											"I'm making some vegemite sandwiches for the lads. You want some, Control?",
-											"So, this Saturday. Are we gonna party or what? I'm looking to get my groove on.",
-											"[yawns] God, I'm buggered. Can I get off my shift early?",
-											"Uh, what? No, no. I mean, yes! No, everything is fine here, okay?",
-											"This might actually be the world's most boring job.",
-											"Don't you just love watching panicked people running for their lives? No? I'm just joking, mate! Loosen up! You think I'm off my rocker?",
-											"Don't get your panties in a bunch, Control! We're fine and dandy over here.",
-											"When I was a young girl, they used to call me 'biscuit mama.' Ah,  I miss that nickname. Can you start calling me that?",
-											"I'm thinking of getting myself a dog, and naming him 'Blood Lord.' 'Come here, Blood lord! That's right, that's a good boy!'",
-											"[high pitched voice] No problem here Control, everything is aaaalright! [giggles] I'm good at doing different voices, right?",
-											"I don't want to put you on the spot, but I've gotta ask: Vampires or werewolves- who wins in a battle? Me and Leroy can't decide.",
-											"I had the WEIRDEST dream last night. I dreamt that my head was replaced by an actual hamburger, and then people started calling me 'hamburger head'.",
-											"No, no real problem, Control. Leroy is upset because I said I don't believe he would last long if a zombie outbreak happened.",
-											"No wuckin' forries, Control. We're all good here.",
-											"Nope! No problem over here, Control. Everything is A-OK.",
-											"Hey Control, my band, The Sandwich Babies, are playing on Friday. You REALLY need to come check us out, it's gonna be a ripper of a show.",
-											"Hey Control, come over here after your shift ends. I'll show you my sweet Melbourne Shuffle moves!",
-											"I'm thinking of writing a novel about a woman hunting dragons to eat 'em. The title could be: 'Moira the Dragon Eater.' What do you think?",
-											"You know, I could really go for a croc burger right now. A good and juicy croc burger. That'd be something, yeah?"
-										}
-									}
+						rb4 = { --incomplete
+							line_variations = {
+								standard_mode = {
+									"Um, all good, sometimes I just see things. Not to alarm you!",
+									"[embarassed chuckle] I think maybe I'm standing on a magnet. That might be the problem.",
+									"Everything's peachy, over.",
+									"I mean, I didn't see anything.",
+									"I don't know what you heard, but everything's cool over here.",
+									"Not much going on over here, ma'am. Sorry- 'sir.'",
+									"I saw a cockroach. That's it.",
+									"Can't say anything is happening, to be honest.",
+									"Um, I think I got the radio wet when I was washing my hands.",
+									"Things are cool, over.",
+									"Just swatted a fly sitting on the radio.",
+									"No issues, except that I got a hiccup. [hiccups]",
+									"Can't say much is going on.",
+									"Oh yeah, we're perfectly perfect over here.",
+									"Uh... I thought I saw a ghost, but I'm getting tired, don't listen to me.",
+									"Nothing really to speak of. All's well, buddy.",
+									"Nah, situation normal, if you wanna know.",
+									"No problem, except... [sniffling] I got a nasty cold! [coughing violently]",
+									"Uh, hey buddy! Everything's just fine!",
+									"I gotta say, I don't like these radios. They're just no goddamn good.",
+									"I think it's the radio. It's gotta be a short.",
+									"Uh, it's hard to say. Um, everything's in order over here. Over.",
+									"Um, ahh, uhh... I don't... [imitates radio static]",
+									"Everything's good, except the parts that aren't.",
+									"I think the fillings in my teeth are interfering with the radio signals.",
+									"No real issues, except I slammed my toe into a chair.",
+									"Everything is A-OK, over."
+								}
+							}
+						},
+						rb9 = {
+							line_variations = {
+								standard_mode = {
+									"You have reached Dennaton Enterprises. We can't take your call at the moment. Please leave a message after the beep and we'll get back to you. [answering machine beep]",
+									"This is GenSec Tech Support. If you have a problem with your radio, please contact us during normal business hours. Thank you.",
+									"[tape rewinding] The number you have reached is not in service. Please check the number and dial again. Thank you.",
+									"We are experiencing technical issues. There is no cause for alarm. Please be at ease.",
+									"This was a test of the automated paging system. Repeat: This was a test. Thank you.",									
+									"This is a test broadcast of the emergency airwaves. This is a test. Do not be alarmed. This is a test."
+								}
+							}
+						},
+						rb15 = {
+							line_variations = {
+								standard_mode = {
+									"Nah, we're good. Just a random... man, walking around. I gave him a slice of cheddar, and sent him away.",
+									"[singing] Never gonna give you up, never gonna let you down, never gonna run around and desert you- oh, sorry, is this on?",
+									"[singing] Can't touch this! ...oh, sorry Control, I pressed the button!",
+									"[singing] I come from a land down under... where beer flows, and men chunder- oh, sorry, is this on? Hello?",
+									"I just can't get over the season finale on The Walking Dead! I need to talk to someone about it.",
+									"Leroy is being a fucking drongo. Can we switch partners?",
+									"It's a ripper of a day, isn't it Control? Life's good, yeah?",
+									"Well, bugger me! I think I left me' stove on at home. Well, nothing to do about that now.",
+									"Crikey, I'm bored as batshit. You seen any action? Control?",
+									"How's it going over there, Control? You good? We're fine over here, just checking in.",
+									"So tell me, Control. Jared Leto as the new Joker: Yea or Nay? I think he'll pull it off, I must say.",
+									"Uhh, no, everything is clear here Control. Nothing weird happening. Nothing at all.",
+									"Sorry to disturb you, Control. I thought I saw something suspicious, but it was nothing.",
+									"Sorry, Control, I must have pressed the wrong button.",
+									"Sorry, Control, I'm just really craving some good pudding. You got any?",
+									"Sorry, Control, did you hear any of that? Just my... pet rat, Ernie, attacking Leroy. But we're fine now.",
+									"Sorry to disturb you, Control. I thought I saw something suspicious, but it was nothing.",
+									"HAH, Leroy is such a tosser! He thinks he can out-drink me! Yeah, right, like that would ever happen!",
+									"HAH, Leroy is such a tosser! I ate his Snickers, and now he's crying about it! Get some bollocks, man! I'll get you another one!",
+									"If I don't see some action soon, I'll turn into a fucking basket case.",
+									"I'm making some vegemite sandwiches for the lads. You want some, Control?",
+									"So, this Saturday. Are we gonna party or what? I'm looking to get my groove on.",
+									"[yawns] God, I'm buggered. Can I get off my shift early?",
+									"Uh, what? No, no. I mean, yes! No, everything is fine here, okay?",
+									"This might actually be the world's most boring job.",
+									"Don't you just love watching panicked people running for their lives? No? I'm just joking, mate! Loosen up! You think I'm off my rocker?",
+									"Don't get your panties in a bunch, Control! We're fine and dandy over here.",
+									"When I was a young girl, they used to call me 'biscuit mama.' Ah,  I miss that nickname. Can you start calling me that?",
+									"I'm thinking of getting myself a dog, and naming him 'Blood Lord.' 'Come here, Blood lord! That's right, that's a good boy!'",
+									"[high pitched voice] No problem here Control, everything is aaaalright! [giggles] I'm good at doing different voices, right?",
+									"I don't want to put you on the spot, but I've gotta ask: Vampires or werewolves- who wins in a battle? Me and Leroy can't decide.",
+									"I had the WEIRDEST dream last night. I dreamt that my head was replaced by an actual hamburger, and then people started calling me 'hamburger head'.",
+									"No, no real problem, Control. Leroy is upset because I said I don't believe he would last long if a zombie outbreak happened.",
+									"No wuckin' forries, Control. We're all good here.",
+									"Nope! No problem over here, Control. Everything is A-OK.",
+									"Hey Control, my band, The Sandwich Babies, are playing on Friday. You REALLY need to come check us out, it's gonna be a ripper of a show.",
+									"Hey Control, come over here after your shift ends. I'll show you my sweet Melbourne Shuffle moves!",
+									"I'm thinking of writing a novel about a woman hunting dragons to eat 'em. The title could be: 'Moira the Dragon Eater.' What do you think?",
+									"You know, I could really go for a croc burger right now. A good and juicy croc burger. That'd be something, yeah?"
 								}
 							}
 						}
@@ -10026,72 +9294,60 @@ ClosedCaptions._sounds = {
 					priority = 20
 				}, --disable this
 				l2n_a15 = {
+					text = "Two-Three, reporting in. We got a situation.",
+					category = "enemy_dialogue",
+					priority = 37,
+					duration = 4,
 					variants = {
-						security = {
-							text = "Two-Three, reporting in. We got a situation.",
-							category = "enemy_dialogue",
-							priority = 37,
-							duration = 4,
-							subvariants = {
-								line_variations = {
-									recombinable = true,
-									whisper_mode = {
-										{
-											"Two-Three here.",
-											"Two-Three, reporting in.",
-											"Two-Three over here. Reporting in.",
-											"This is, uh, Two-Three reporting in."
-										},
-										{
-											"We got a situation.",
-											"Something's up.",
-											"There's something going on here."
-										}
-									}
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Three here.",
+									"Two-Three, reporting in.",
+									"Two-Three over here. Reporting in.",
+									"This is, uh, Two-Three reporting in."
+								},
+								{
+									"We got a situation.",
+									"Something's up.",
+									"There's something going on here."
 								}
 							}
 						}
 					}
 				},
 				l2n_a05 = {
-					variants = {
-						security = {
-							text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_dialogue for utility
-							duration = 6,
-							category = "enemy_dialogue",
-							priority = 37,
-							line_variations = {
-								standard_mode = {
-									"Two-Three here. Reporting in. All's clear over here. Out.",
-									"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
-									"Two-Three, reporting in. All is quiet on the western front. Out.",
-									"Feels like another boring evening.",
-									"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
-									"Seems like a good day for something to happen... right?",
-									"This is, uh, Two-Three reporting in. All clear. Over and out."
-								}
-							}
+					text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_dialogue for utility
+					duration = 6,
+					category = "enemy_dialogue",
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"Two-Three here. Reporting in. All's clear over here. Out.",
+							"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
+							"Two-Three, reporting in. All is quiet on the western front. Out.",
+							"Feels like another boring evening.",
+							"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
+							"Seems like a good day for something to happen... right?",
+							"This is, uh, Two-Three reporting in. All clear. Over and out."
 						}
 					}
 				},
 				l2n_a07b = {
-					variants = {
-						security = {
-							max_distance = 3000,
-							text = "(spotted suspicious object)",
-							category = "enemy_dialogue",
-							priority = 37,
-							line_variations = {
-								standard_mode = {
-									"What the heck...?",
-									"Who was that?",
-									"That's weird...",
-									"What on earth...?",
-									"What's going on here...?",
-									"That's strange...",
-									"What the hell...?"
-								}
-							}
+					max_distance = 3000,
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"What the heck...?",
+							"Who was that?",
+							"That's weird...",
+							"What on earth...?",
+							"What's going on here...?",
+							"That's strange...",
+							"What the hell...?"
 						}
 					}
 				},
@@ -11596,6 +10852,7 @@ ClosedCaptions._sounds = {
 					text = "Two-Three to Control. Proceeding with search.",
 					category = "enemy_dialogue",
 					duration = 3,
+					max_distance = 3000,
 					line_variations = {
 						standard_mode = {
 							"I'll move on.",
@@ -11641,6 +10898,7 @@ ClosedCaptions._sounds = {
 					text = "This is Two-Three. Sweep finished, all is clear. Over and out.",
 					category = "enemy_dialogue",
 					priority = 37,
+					max_distance = 3000,
 					duration = 10,
 					line_variations = {
 						recombinable = true,
@@ -11691,6 +10949,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					duration = 10,
 					priority = 37,
+					max_distance = 2000,
 					line_variations = {
 						standard_mode = {
 							"Hold still!",
@@ -11708,192 +10967,175 @@ ClosedCaptions._sounds = {
 				},
 				s09a = {
 					text = "[reviving] Hey, man, you're not looking too good...",
+					max_distance = 1500,
 					category = "UNKNOWN"
 				},
 				s09b = {
 					text = "[reviving] Woah, you look even worse than before.",
+					max_distance = 1500,
 					category = "UNKNOWN"
 				},
 				s09c = {
 					text = "[reviving] You're looking really beat up, use a doctor bag!",
+					max_distance = 1500,
 					category = "UNKNOWN"
 				},
 				s05a_sin = {
 					text = "I feel terrible, heal me!",
+					max_distance = 1500,
 					category = "UNKNOWN"
 				}, --! bad
 				s05b_sin = {
 					text = "Whew, thanks.",
+					max_distance = 1500,
 					category = "UNKNOWN"
 				},
 
 				--cops/civs
 				l3n_civ = {
-					variants = {
-						cop = {
---							duration = 5,
-							text = "Rescue the hostages",
-							category = "enemy_chatter",
-							priority = 90,
-							line_variations = {
-								standard_mode = {
-									"Get the civilians!",
-									"Get the canaries!",
-									"Get the hostages!",
-									"Get the civvies!"
-								},
-								DISABLED_assault_mode = {}
-							}
-						}
+--					duration = 5,
+					text = "Rescue the hostages",
+					category = "enemy_chatter",
+					priority = 90,
+					max_distance = 700,
+					line_variations = {
+						standard_mode = {
+							"Get the civilians!",
+							"Get the canaries!",
+							"Get the hostages!",
+							"Get the civvies!"
+						},
+						DISABLED_assault_mode = {}
 					}
 				},
 				l3n_d01 = {
-					variants = {
-						cop = {
-							text = "Rescue the hostages",
-							category = "enemy_chatter",
-							priority = 90,
-							line_variations = {
-								standard_mode = {
-									"Deploy smoke!",
-									"Smoke 'em!",
-									"Smoke 'em out!",
-									"Smoke!"
-								},
-								DISABLED_assault_mode = {}
-							}
-						}
+					text = "Rescue the hostages",
+					category = "enemy_chatter",
+					priority = 90,
+					max_distance = 700,
+					line_variations = {
+						standard_mode = {
+							"Deploy smoke!",
+							"Smoke 'em!",
+							"Smoke 'em out!",
+							"Smoke!"
+						},
+						DISABLED_assault_mode = {}
 					}
 				},
 				l4n_a01 = {
-					variants = {
-						cop = {
-							text = "(spotted heister)",
-							category = "enemy_dialogue",
-							priority = 90,
-							line_variations = {
-								standard_mode = {
-									"He's armed!",
-									"FREEZE!",
-									"STOP IT!",
-									"He's got a gun!",
-									"HOLD IT!",
-									"Gun! GUN!",
-									"He's got a weapon!",
-									"He has a gun!"
-								}
-							}
+					text = "(spotted heister)",
+					category = "enemy_dialogue",
+					priority = 90,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"He's armed!",
+							"FREEZE!",
+							"STOP IT!",
+							"He's got a gun!",
+							"HOLD IT!",
+							"Gun! GUN!",
+							"He's got a weapon!",
+							"He has a gun!"
 						}
 					}
 				},
 				l4n_lk3a = {
-					variants = {
-						cop = {
-							text = "(panicked chatter)",
-							category = "enemy_chatter",
-							priority = 90,
-							line_variations = {
-								standard_mode = {
-									"Christ!",
-									"Fuckin' hell!",
-									"Christ almighty!"
-								}
-							}
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					priority = 90,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
 						}
 					}
 				},
 				l2n_lk3b = {
-					variants = {
-						cop = {
-							category = "chatter",
-							text = "(very panicked chatter)",
-							priority = 90,
-							line_variations = {
-								standard_mode = { --non-exhaustive
-									"CHRIST!",
-									"INSANE!",
-									"HOLY SHIT!",
-									"JEEZ!"
-								}
-							}
+					category = "chatter",
+					text = "(very panicked chatter)",
+					priority = 90,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = { --non-exhaustive
+							"CHRIST!",
+							"INSANE!",
+							"HOLY SHIT!",
+							"JEEZ!"
 						}
 					}
 				},
 				l4n_i03 = {
-					variants = {
-						cop = {
-							text = "(cuffed heister)",
-							category = "enemy_dialogue",
-							priority = 60,
-							line_variations = {
-								recombinable = true,
-								standard_mode = { --unfinished
-									{
-										"It's over now, scumbag!",
-										"This ends now, scumbag.",
-										"It's over... scumbag!",
-										"It's over..."
-									},
-									{
-										 "I hope you like prison food.",
-										"You're going away for a loooong time.",
-										"Get ready to do some hard time.",
-										"I hope you drop the soap... a lot.",
-										"You son of a bitch!"
-									}
-								}
+					text = "(cuffed heister)",
+					category = "enemy_dialogue",
+					priority = 60,
+					max_distance = 1500,
+					line_variations = {
+						recombinable = true,
+						standard_mode = { --unfinished
+							{
+								"It's over now, scumbag!",
+								"This ends now, scumbag.",
+								"It's over... scumbag!",
+								"It's over..."
+							},
+							{
+								 "I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot.",
+								"You son of a bitch!"
 							}
 						}
 					}
 				},
 				l2n_mov = {
-					variants = {
-						cop = {
-							text = "(tactical chatter)",
-							category = "enemy_chatter",
-							priority = 90,
-							line_variations = {
-								standard_mode = {
-									"I see one of 'em!",
-									"I got contact!",
-									"Contact!",
-									"HARD contact!",
-									"Takedown!",
-									"DROP 'EM!",
-									"FIIIRE!",
-									"Fire at will!",
-									"Take 'em down!",
-									"LIGHT 'EM UP!",
-									"HELP!",
-									"Help!",
-									"Let 'er rip!",
-									"Go, GO!",
-									"GO!",
-									"Go, go, GO!",
-									"Move!",
-									"Move out!",
-									"Shred 'em!",
-									"Move, MOVE!",
-									"Move, now!",
-									"Move it!",
-									"Forward!",
-									"Cover me!",
-									"Gimme cover!",
-									"Formation!",
-									"Take positions!",
-									"Get ready!",
-									"Ready up!",
-									"Ready now!",
-									"Ready!",
-									"...Insane!",
-									"Oh... SHIT!",
-									"CHRIST ALMIGHTY!",
-									"I'll be damned!",
-									"Fuckin' hell!",
-									"Holy SHIT!",
-									"FUCK!"
-								}
-							}
+					text = "(tactical chatter)",
+					category = "enemy_chatter",
+					priority = 90,
+					line_variations = {
+						standard_mode = {
+							"I see one of 'em!",
+							"I got contact!",
+							"Contact!",
+							"HARD contact!",
+							"Takedown!",
+							"DROP 'EM!",
+							"FIIIRE!",
+							"Fire at will!",
+							"Take 'em down!",
+							"LIGHT 'EM UP!",
+							"HELP!",
+							"Help!",
+							"Let 'er rip!",
+							"Go, GO!",
+							"GO!",
+							"Go, go, GO!",
+							"Move!",
+							"Move out!",
+							"Shred 'em!",
+							"Move, MOVE!",
+							"Move, now!",
+							"Move it!",
+							"Forward!",
+							"Cover me!",
+							"Gimme cover!",
+							"Formation!",
+							"Take positions!",
+							"Get ready!",
+							"Ready up!",
+							"Ready now!",
+							"Ready!",
+							"...Insane!",
+							"Oh... SHIT!",
+							"CHRIST ALMIGHTY!",
+							"I'll be damned!",
+							"Fuckin' hell!",
+							"Holy SHIT!",
+							"FUCK!"
 						}
 					}
 				},
@@ -12049,133 +11291,129 @@ ClosedCaptions._sounds = {
 					}
 				},
 				entrance = {
+					priority = 60,
+					max_distance = 4000,
 					variants = {
-						cop = {
-							priority = 60,
-							max_distance = 4000,
-							subvariants = {
-								tank = {
-									text = "(Bulldozer spawned)",
-									category = "enemy_chatter",
-									line_variations = { --copied from bdz_entrance
-										standard_mode = {
-											"ASS-KICKIN' TIME!",
-											"BULLDOZER GOIN' IN!",
-											"BULLDOZER TIME!",
-											"BULLDOZER! STAY BACK!",
-											"BULLDOZER'S HERE AND READY FOR ACTION!",
-											"BULLDOZER! GET OUT OF THE WAY!",
-											"CLOBBERIN' TIME!",
-											"COME OUT AND PLAY!",
-											"COMING THROUGH!",
-											"DOZER! MAKE WAY!",
-											"DOZER! GET OUT OF THE WAY!",
-											"DOZER'S HERE, AND READY FOR ACTION!",
-											"GET. OUT. OF. THE. WAY!",
-											"GONNA BREAK SOME SHIT!",
-											"GONNA BREAK SOME SHIT!",
-											"GONNA DROP ON THESE SHITHEADS LIKE A FUCKING PIANO!",
-											"MAKE WAY FOR THE BULLDOZER!",
-											"OKAY, I'M HERE... WHO WANTS TO DIE?!",
-											"SHOW ME WHERE THEY ARE!",
-											"STAND BACK!",
-											"WHO WANTS A PIECE OF ME?"
-										},
-										assault_mode = {
-											"ALRIGHT! WATCH... AND LEARN!",
-											"ALRIGHT, WHERE ARE THEY?!",
-											"ASS-KICKIN' TIME!",
-											"BULLDOZER GOIN' IN!",
-											"BULLDOZER IN THE HOUSE!",
-											"BULLDOZER TIME!",
-											"BULLDOZER! GET OUT OF THE WAY!",
-											"BULLDOZER! MAKE WAY!",
-											"BULLDOZER! MOVE ASIDE!",
-											"BULLDOZER, COMING THROUGH!",
-											"COME ON OUT WHEREVER YOU ARE!",
-											"DOZER IN THE HOUSE!",
-											"DOZER! GET OUT OF THE WAY!",
-											"DOZER! MOVE ASIDE!",
-											"DOZER! STAND BACK!",
-											"DOZER! STAY BACK!",
-											"GIVE ME SOME TIME TO WORK!", --unsure
-											"GOING TO WORK!",
-											"I GOT THIS!",
-											"MAKE WAY FOR THE BULLDOZER!",
-											"MAKE WAY FOR THE DOZER!",
-											"MOVE ASIDE! I GOT THIS!",
-											"MOVE ASIDE!",
-											"OKAY, I'M HERE! WHO WANTS TO DIE?!",
-											"SHOW ME WHERE THEY ARE!",
-											"SHOW ME WHERE THEY ARE!",
-											"STAND BACK!",
-											"STAY BACK!",
-											"TIME FOR SOME PAYBACK!",
-											"WHERE ARE YOU?!",
-											"WHO WANTS A PIECE OF ME?!"
-										}
-									}
+						tank = {
+							text = "(Bulldozer spawned)",
+							category = "enemy_chatter",
+							line_variations = { --copied from bdz_entrance
+								standard_mode = {
+									"ASS-KICKIN' TIME!",
+									"BULLDOZER GOIN' IN!",
+									"BULLDOZER TIME!",
+									"BULLDOZER! STAY BACK!",
+									"BULLDOZER'S HERE AND READY FOR ACTION!",
+									"BULLDOZER! GET OUT OF THE WAY!",
+									"CLOBBERIN' TIME!",
+									"COME OUT AND PLAY!",
+									"COMING THROUGH!",
+									"DOZER! MAKE WAY!",
+									"DOZER! GET OUT OF THE WAY!",
+									"DOZER'S HERE, AND READY FOR ACTION!",
+									"GET. OUT. OF. THE. WAY!",
+									"GONNA BREAK SOME SHIT!",
+									"GONNA BREAK SOME SHIT!",
+									"GONNA DROP ON THESE SHITHEADS LIKE A FUCKING PIANO!",
+									"MAKE WAY FOR THE BULLDOZER!",
+									"OKAY, I'M HERE... WHO WANTS TO DIE?!",
+									"SHOW ME WHERE THEY ARE!",
+									"STAND BACK!",
+									"WHO WANTS A PIECE OF ME?"
 								},
-								taser = {
-									text = "(Taser spawned)",
-									category = "enemy_chatter",
-									line_variations = {
-										max_distance = 4000,
-										standard_mode = {
-											"Who ordered shock treatment?",
-											"Who ordered a lightning bolt?!",
-											"Who's AMPED?",
-											"Make way!",
-											"Taser! MOVE!",
-											"Taser! Clear!",
-											"Stay back!",
-											"Fifty thousand volts here!",
-											"Taser, going through?",
-											"Coming through!",
-											"Get out of the way!",
-											"Stand clear!",
-											"Flip the switch!",
-											"Charged and ready! Bring 'em on!",
-											"Charged and ready... let 'em come!",
-											"Get out of the way!",
-											"Make way for the Taser!",
-											"I'M AMPED!",
-										}
-									}
-								},
-								medic = {
-									text = "(Medic spawned)",
-									category = "enemy_chatter",
-									line_variations = {
-										standard_mode = {
-											"Somebody order a Medic?",
-											"Medic in the house!",
-											"Painkiller in the house!",
-											"Medic here to sort things out!",
-											"Alright, who's got a boo-boo?",
-											"Emergency!",
-											"Got a band-aid here!",
-											"Who's got a sore foot?",
-											"Improv field hospital here!",
-											"Medical officer, here!",
-											"Ibuprofen in the house!",
-											"Hurt, or heal?",
-											"Medical support is here.",
-											"I'm here. Let's do this!",
-											"What's the situation?",
-											"Okay, guys, I'm here.",
-											"No pain, no gain!",
-											"Who needs a hit?",
-											"Comin' through!",
-											"Who's got a bruise?",
-											"Never fear, Medic is here!",
-											"I got your wounded, guys!",
-											"Let me take your pain away!",
-											"Kill or cure- what's it gonna be?",
-											"Keep calm- I got this!",
-											"It looks like a surgery ward, there's blood all over!"
-										}
-									}
+								assault_mode = {
+									"ALRIGHT! WATCH... AND LEARN!",
+									"ALRIGHT, WHERE ARE THEY?!",
+									"ASS-KICKIN' TIME!",
+									"BULLDOZER GOIN' IN!",
+									"BULLDOZER IN THE HOUSE!",
+									"BULLDOZER TIME!",
+									"BULLDOZER! GET OUT OF THE WAY!",
+									"BULLDOZER! MAKE WAY!",
+									"BULLDOZER! MOVE ASIDE!",
+									"BULLDOZER, COMING THROUGH!",
+									"COME ON OUT WHEREVER YOU ARE!",
+									"DOZER IN THE HOUSE!",
+									"DOZER! GET OUT OF THE WAY!",
+									"DOZER! MOVE ASIDE!",
+									"DOZER! STAND BACK!",
+									"DOZER! STAY BACK!",
+									"GIVE ME SOME TIME TO WORK!", --unsure
+									"GOING TO WORK!",
+									"I GOT THIS!",
+									"MAKE WAY FOR THE BULLDOZER!",
+									"MAKE WAY FOR THE DOZER!",
+									"MOVE ASIDE! I GOT THIS!",
+									"MOVE ASIDE!",
+									"OKAY, I'M HERE! WHO WANTS TO DIE?!",
+									"SHOW ME WHERE THEY ARE!",
+									"SHOW ME WHERE THEY ARE!",
+									"STAND BACK!",
+									"STAY BACK!",
+									"TIME FOR SOME PAYBACK!",
+									"WHERE ARE YOU?!",
+									"WHO WANTS A PIECE OF ME?!"
+								}
+							}
+						},
+						taser = {
+							text = "(Taser spawned)",
+							category = "enemy_chatter",
+							line_variations = {
+								max_distance = 4000,
+								standard_mode = {
+									"Who ordered shock treatment?",
+									"Who ordered a lightning bolt?!",
+									"Who's AMPED?",
+									"Make way!",
+									"Taser! MOVE!",
+									"Taser! Clear!",
+									"Stay back!",
+									"Fifty thousand volts here!",
+									"Taser, going through?",
+									"Coming through!",
+									"Get out of the way!",
+									"Stand clear!",
+									"Flip the switch!",
+									"Charged and ready! Bring 'em on!",
+									"Charged and ready... let 'em come!",
+									"Get out of the way!",
+									"Make way for the Taser!",
+									"I'M AMPED!",
+								}
+							}
+						},
+						medic = {
+							text = "(Medic spawned)",
+							category = "enemy_chatter",
+							line_variations = {
+								standard_mode = {
+									"Somebody order a Medic?",
+									"Medic in the house!",
+									"Painkiller in the house!",
+									"Medic here to sort things out!",
+									"Alright, who's got a boo-boo?",
+									"Emergency!",
+									"Got a band-aid here!",
+									"Who's got a sore foot?",
+									"Improv field hospital here!",
+									"Medical officer, here!",
+									"Ibuprofen in the house!",
+									"Hurt, or heal?",
+									"Medical support is here.",
+									"I'm here. Let's do this!",
+									"What's the situation?",
+									"Okay, guys, I'm here.",
+									"No pain, no gain!",
+									"Who needs a hit?",
+									"Comin' through!",
+									"Who's got a bruise?",
+									"Never fear, Medic is here!",
+									"I got your wounded, guys!",
+									"Let me take your pain away!",
+									"Kill or cure- what's it gonna be?",
+									"Keep calm- I got this!",
+									"It looks like a surgery ward, there's blood all over!"
 								}
 							}
 						}
@@ -12276,31 +11514,27 @@ ClosedCaptions._sounds = {
 					}
 				},
 				entrance_elite = {
+					priority = 60,
+					max_distance = 4000,
+					category = "enemy_chatter",
 					variants = {
-						cop = {
-							priority = 60,
-							max_distance = 4000,
-							category = "enemy_chatter",
-							subvariants = {
-								tank = {
-									line_variations = {
-										standard_mode = {
-											"ELITE BULLDOZER TIME!",
-											"ELITE DOZER, COMING THROUGH!",
-											"ELITE DOZER! STAND BACK!",
-											"ELITE DOZER! STAY BACK!",
-											"ELITES! FORWARD!",
-											"MAKE WAY FOR THE ELITE DOZER!",
-											"ARE YOU SURE YOU CAN HANDLE THE ELITES?",
-											"ELITE BULLDOZER! STAY BACK!",
-											"ELITE BULLDOZER! MAKE WAY!",
-											"ELITE DOZER! MOVE ASIDE!",
-											"ELITE BULLDOZER COMING THROUGH!",
-											"YOU'RE DEALING WITH THE ELITES NOW, SUCKERS!",
-											"ELITE DOZER IN THE HOUSE!",
-											"ELITE BULLDOZER! GET OUT OF THE WAY!"
-										}
-									}
+						tank = {
+							line_variations = {
+								standard_mode = {
+									"ELITE BULLDOZER TIME!",
+									"ELITE DOZER, COMING THROUGH!",
+									"ELITE DOZER! STAND BACK!",
+									"ELITE DOZER! STAY BACK!",
+									"ELITES! FORWARD!",
+									"MAKE WAY FOR THE ELITE DOZER!",
+									"ARE YOU SURE YOU CAN HANDLE THE ELITES?",
+									"ELITE BULLDOZER! STAY BACK!",
+									"ELITE BULLDOZER! MAKE WAY!",
+									"ELITE DOZER! MOVE ASIDE!",
+									"ELITE BULLDOZER COMING THROUGH!",
+									"YOU'RE DEALING WITH THE ELITES NOW, SUCKERS!",
+									"ELITE DOZER IN THE HOUSE!",
+									"ELITE BULLDOZER! GET OUT OF THE WAY!"
 								}
 							}
 						}
@@ -12454,52 +11688,40 @@ ClosedCaptions._sounds = {
 				hr01 = {
 					text = "[hurt]",
 					category = "enemy_death",
+					max_distance = 1500,
 					priority = 90
 				},
 				burndeath = {
 					text = "[burn death]",
+					max_distance = 1500,
 					category = "enemy_death",
 					priority = 90
 				},
 				shd_x02a_any_3p_01 = {
 					text = "[Shield death]",
+					max_distance = 1500,
 					category = "enemy_death",
 					priority = 50
 				},
 				bdz_x02a_any_3p = {
 					text = "[Bulldozer death]",
+					max_distance = 1500,
 					category = "enemy_death",
 					priority = 50
 				},
 				x02a_any_3p = {
 					text = "[death]",
+					max_distance = 1500,
 					category = "enemy_death"
---					variants = {
---						cop = {
---							text = "[death]",
---							subvariants = {
---								bdz = {
---									text = "[Bulldozer death]",
---									priority = 50
---								},
---								clk = {
---									text = "[Cloaker death]",
---									priority = 50
---								},
---								tsr = {
---									text = "[Taser death]",
---									priority = 50
---								},
---								mdc = {
---									text = "[Medic death]",
---									priority = 50
---								}
---							}
---						}
---					}
+				},
+				l1n_x02a_any_3p = {
+					text = "[death]",
+					max_distance = 1500,
+					category = "enemy_death"
 				},
 				clk_punch_3rd_person_3p = {
 					text = "(Cloaker lunge!)",
+					max_distance = 1500,
 					category = "enemy_dialogue",
 					priority = 11
 				},
@@ -12535,6 +11757,7 @@ ClosedCaptions._sounds = {
 				},
 				tsr_elite = {
 					text = "(Elite Taser Entrance)",
+					max_distance = 2000,
 					category = "enemy_chatter",
 					line_variations = {
 						standard_mode = {
@@ -12552,6 +11775,7 @@ ClosedCaptions._sounds = {
 				},
 				tasered_3rd = { --loops
 					text = "tasered_3rd",
+					max_distance = 3000,
 					category = "sfx",
 					loop_data = {
 						loop_interval = -1
@@ -12605,16 +11829,14 @@ ClosedCaptions._sounds = {
 					priority = 50
 				},
 				["911_call"] = {
-					variants = {
-						civilian = {
-							category = "civilian_dialogue",
-							text = "Hello? 911? I need help, there's armed robbers here!",
-							priority = 60
-						}
-					}
+					category = "civilian_dialogue",
+					max_distance = 2000,
+					text = "Hello? 911? I need help, there's armed robbers here!",
+					priority = 60
 				},
 				cm1_911_call = {
 					text = "cm1_911_call",
+					max_distance = 2000,
 					category = "UNKNOWN",
 					priority = 60
 				},
@@ -12622,20 +11844,20 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(idle pager buzz)", --nonalert, idle sound
 					category = "sfx",
-					max_distance = 4500,
+					max_distance = 1500,
 					duration = 5,
 					priority = 60
 				},
 				dsp_radio_query_1 = {
 					text = "(pager ring, operator query)",
 					category = "enemy_dialogue",
-					max_distance = 4500,
+					max_distance = 1500,
 					priority = 36,
 					duration = 5
 				},
 				dsp_fooled_1 = {
 					text = "(pager operator fooled)",
-					max_distance = 4500,
+					max_distance = 1500,
 					priority = 36,
 					category = "enemy_dialogue"
 				},
@@ -12807,19 +12029,15 @@ ClosedCaptions._sounds = {
 				},
 				a07a = {
 					text = "Alerted",
-					variants = {
-						cop = {
-							category = "enemy_dialogue",
-							priority = 37,
-							max_distance = 1500,
-							line_variations = {
-								whisper_mode = {
-									"Wha-?",
-									"Hm?",
-									"Huh?",
-									"What was that?"
-								}
-							}
+					category = "enemy_dialogue",
+					priority = 37,
+					max_distance = 1500,
+					line_variations = {
+						whisper_mode = {
+							"Wha-?",
+							"Hm?",
+							"Huh?",
+							"What was that?"
 						}
 					}
 				},
@@ -12827,17 +12045,13 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					text = "(spots something suspicious)",
 					priority = 37,
-					variants = {
-						cop = {
-							max_distance = 1500,
-							category = "enemy_dialogue",
-							priority = 37,
-							line_variations = {
-								whisper_mode = {
-									"That's weird...",
-									"Strange..."
-								}
-							}
+					max_distance = 1500,
+					category = "enemy_dialogue",
+					priority = 37,
+					line_variations = {
+						whisper_mode = {
+							"That's weird...",
+							"Strange..."
 						}
 					}
 				},
@@ -12845,18 +12059,14 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					text = "(spotted heister!)",
 					priority = 37,
-					variants = {
-						cop = {
-							category = "enemy_dialogue",
-							priority = 37,
-							max_distance = 1500,
-							line_variations = {
-								whisper_mode = {
-									"Shit!",
-									"Hey!",
-									"Intruder!"
-								}
-							}
+					category = "enemy_dialogue",
+					priority = 37,
+					max_distance = 1500,
+					line_variations = {
+						whisper_mode = {
+							"Shit!",
+							"Hey!",
+							"Intruder!"
 						}
 					}
 				},
@@ -12865,16 +12075,12 @@ ClosedCaptions._sounds = {
 					text = "Sound the alarm!",
 					priority = 37,
 					max_distance = 1500,
-					variants = {
-						cop = {
-							category = "enemy_dialogue",
-							priority = 37,
-							line_variations = {
-								whisper_mode = {
-									"Sound the alarm!",
-									"Sound the alarm immediately!"
-								}
-							}
+					category = "enemy_dialogue",
+					priority = 37,
+					line_variations = {
+						whisper_mode = {
+							"Sound the alarm!",
+							"Sound the alarm immediately!"
 						}
 					}
 				},
@@ -13177,32 +12383,6 @@ ClosedCaptions._sounds = {
 							"[screams on fire]"
 						}
 					}
---					variants = {
---						cop = {
---							subvariants = {
---								clk = {
---									category = "enemy_chatter",
---									text = "[fire hurt]"
---								},
---								mdc = {
---									category = "enemy_chatter",
---									text = "[fire hurt]"
---								},
---								shd = {
---									category = "enemy_chatter",
---									text = "[fire hurt]"
---								},
---								bdz = {
---									category = "enemy_chatter",
---									text = "[fire hurt]"
---								},
---								tsr = {
---									category = "enemy_chatter",
---									text = "[fire hurt]"
---								}
---							}
---						}
---					}
 				},
 				l3n_c01 = {
 					category = "enemy_chatter",
@@ -13556,43 +12736,35 @@ ClosedCaptions._sounds = {
 					priority = 90
 				},
 				lt2_c01 = {
-					variants = {
-						cop = {
-							max_distance = 1500,
-							priority = 90,
-							category = "enemy_chatter",
-							line_variations = {
-								standard_mode = {
-									"Mira, mira, there he is!",
-									"I see one!",
-									"Okay, I see one!",
-									"I got one!",
-									"I see one of 'em!",
-									"Yo, there's one!",
-									"Here!"
-								}
-							}
+					max_distance = 1500,
+					priority = 90,
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Mira, mira, there he is!",
+							"I see one!",
+							"Okay, I see one!",
+							"I got one!",
+							"I see one of 'em!",
+							"Yo, there's one!",
+							"Here!"
 						}
 					}
 				},
 				lt2_g90 = {
-					variants = {
-						cop = {
-							category = "enemy_chatter",
-							priority = 90,
-							max_distance = 1500,
-							line_variations = {
-								standard_mode = {
-									"I'm gonna fuck you up, man!",
-									"These fuckers are going down!",
-									"You must have shit for brains, coming here!",
-									"I oughta kill you twice, gringo!",
-									"This is the wrong town for you, amigo!",
-									--									"Blood coming out your ears, fucker!",
-									"I'm gonna make you bleed!",
-									"[angry Spanish]"
-								}
-							}
+					category = "enemy_chatter",
+					priority = 90,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"I'm gonna fuck you up, man!",
+							"These fuckers are going down!",
+							"You must have shit for brains, coming here!",
+							"I oughta kill you twice, gringo!",
+							"This is the wrong town for you, amigo!",
+							"Blood coming out your ears, fucker!",
+							"I'm gonna make you bleed!",
+							"[angry Spanish]"
 						}
 					}
 				},
@@ -17049,7 +16221,7 @@ ClosedCaptions._sounds = {
 			--breakin' feds
 				Play_npc_tag_poi_01 = {
 --					override_name = "FBI Agent",
-					text = "(incredibly boring meeting dialogue)", --I don't know if I have it in me to log these variants
+					text = "(incredibly boring meeting dialogue)", --I don't know if I have it in me to log these variations
 					category = "mission_dialogue",
 					max_distance = 2000,
 					duration = 25,
@@ -17141,13 +16313,13 @@ ClosedCaptions._sounds = {
 					priority = 36
 				},
 				Play_gar_tag_10 = {
-					text = "[muffled] Alright... now where were we?", --no variants
+					text = "[muffled] Alright... now where were we?", --no variations
 					category = "mission_dialogue",
 					duration = 4,
 					priority = 36
 				},
 				Play_gar_tag_11 = {
-					text = "[muffled, reading] Uh... 'Mister Garrett.. okay, when you get a chance, can you please come down to... [indistinct mumbling] trying to come up with a strategy...' Oh... [groans] oh, dammit to hell! Amateurs!", --no variants
+					text = "[muffled, reading] Uh... 'Mister Garrett.. okay, when you get a chance, can you please come down to... [indistinct mumbling] trying to come up with a strategy...' Oh... [groans] oh, dammit to hell! Amateurs!", --no variations
 					category = "mission_dialogue",
 					duration = 25,
 					priority = 36
@@ -17165,13 +16337,13 @@ ClosedCaptions._sounds = {
 					priority = 36
 				},
 				Play_gar_tag_13 = {
-					text = "Now, dammit!", --no variants
+					text = "Now, dammit!", --no variations
 					category = "mission_dialogue",
 					duration = 3,
 					priority = 36
 				},
 				Play_gar_tag_14 = {
-					text = "[muffled] What the...?", --no variants
+					text = "[muffled] What the...?", --no variations
 					category = "mission_dialogue",
 					duration = 3,
 					priority = 36
@@ -17205,7 +16377,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
-							"HEY! Get out of there! EMERGENCY!" --no variants
+							"HEY! Get out of there! EMERGENCY!" --no variations
 						}
 					},
 					duration = 3,

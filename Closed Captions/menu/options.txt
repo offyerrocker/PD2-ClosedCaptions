@@ -27,7 +27,7 @@
 			"callback" : "callback_closedcaptions_set_x",
 			"value" : "caption_x",
 			"default_value" : 0,
-			"min" : 0,
+			"min" : -1280,
 			"max" : 1280,
 			"step" : 1
 		},
