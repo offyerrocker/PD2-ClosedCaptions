@@ -178,7 +178,7 @@ ClosedCaptions.unit_names = {
 	bolivian = "Bolivian Gangster",
 	bolivian_indoors = "Bolivian Security",
 	drug_lord_boss = "Ernesto Sosa",
-	drug_lord_boss_stealth = "Sosa", --stealth
+	drug_lord_boss_stealth = "Ernesto Sosa", --stealth
 	ecm_jammer = "ECM" --not used since all ecm sounds have an override_name
 }
 
@@ -197,7 +197,9 @@ ClosedCaptions.color_data = {
 	peer4 = Color(1,1,0),
 	contractor_vo = Color.white,
 	l4d_bill = Color("1a821a"),
-	l4d_witch = Color("df9ee3")
+	l4d_witch = Color("df9ee3"),
+	mrpurple = Color(0.1,0.6,1),
+	mrblue = Color(0.6,0.1,1)
 }
 
 ClosedCaptions.caption_distance_presets = { --unused
@@ -215,7 +217,7 @@ ClosedCaptions.settings = { --default preset for settings; overridden by json mo
 	caption_x = 0,
 	caption_y = 100,
 	caption_w = 800,
-	caption_margin_v = 24,
+	caption_margin_v = 8,
 	captions_max_count = 5,
 	caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 	caption_font_size = 20,

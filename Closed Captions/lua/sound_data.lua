@@ -109,11 +109,12 @@ ClosedCaptions._sounds = {
 				},
 				radio = {
 					override_name = "SFX",
-					text = "radio plays",
+					text = "(radio plays music)",
 					priority = 40,
 					loop_data = {
 						loop_interval = -1
 					},
+					distance = 1700,
 					category = "sfx"
 				},
 				christmas_radio = { --i'm okay with having a larger range for this one because you can always shoot the radio
@@ -147,7 +148,7 @@ ClosedCaptions._sounds = {
 				jukebox_shuffle = {
 					override_name = "SFX",
 					text = "(radio music plays)",
-					max_distance = 1500,
+					max_distance = 1700,
 					loop_data = {
 						loop_interval = -1
 					},
@@ -161,6 +162,22 @@ ClosedCaptions._sounds = {
 					duration = 2,
 					priority = 40,
 					category = "sfx"
+				},
+				rvd_radio_music_start = {
+					override_name = "SFX",
+					text = "(radio music)", --these are mostly just different so that I can tell them apart
+					priority = 40,
+					loop_data = {
+						loop_interval = -1
+					},
+					distance = 700,
+					category = "sfx"
+				},
+				rvd_radio_music_stop = {
+					override_name = "SFX",
+--					text = "(radio music stops)",
+					category = "stops",
+					stops_line = "rvd_radio_music_start"					
 				},
 				server_noise_loop = {
 					override_name = "SFX",
@@ -239,6 +256,13 @@ ClosedCaptions._sounds = {
 					text = "(door opens)",
 					max_distance = 2000,
 					override_source_id = "metal_door",
+					priority = 37,
+					category = "sfx"
+				},
+				generic_door_metal_open = {
+					override_name = "SFX",
+					text = "(metal door opens)",
+					max_distance = 2000,
 					priority = 37,
 					category = "sfx"
 				},
@@ -748,12 +772,14 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					category = "sfx",
 					priority = 37,
+					duration = 3,
 					text = "(cargo container drops)"
 				},
 				kick_open_container = {
 					override_name = "SFX",
 					category = "sfx",
 					priority = 37,
+					duration = 2,
 					text = "(cargo container opens)"
 				},
 				tasered_loop = {
@@ -870,12 +896,16 @@ ClosedCaptions._sounds = {
 					priority = 11,
 					category = "sfx"
 				},
-				art_galley_alarm_on_slow_fade = {
+				art_galley_alarm_on_slow_fade = { --(sic)
 					override_name = "SFX",
 					text = "[ALARM KLAXON]",
 					priority = 37,
 					duration = 60,
 					category = "sfx"					
+				},
+				art_gallery_alarm_off = {
+					stops_line = "art_galley_alarm_on_slow_fade",
+					category = "stops"
 				},
 				bank_alarm_on_slow_fade = {
 					override_name = "SFX",
@@ -884,10 +914,25 @@ ClosedCaptions._sounds = {
 					duration = 60,
 					category = "sfx"					
 				},
+				alarm_kosugi_on_slow_fade_02 = {
+					override_name = "SFX",
+					text = "[alarm sounds]",
+					duration = 30,
+					priority = 37,
+					category = "sfx"
+				},
 				alarm_museum_on_slow_fade = {
 					override_name = "SFX",
 					text = "[ALARM KLAXON]",
 					duration = 30,
+					priority = 37,
+					category = "sfx"
+				},
+				insert_usb_stick = {
+					override_name = "SFX",
+					text = "[inserted USB stick]",
+					duration = 2,
+					max_distance = 700,
 					priority = 37,
 					category = "sfx"
 				},
@@ -1091,6 +1136,14 @@ ClosedCaptions._sounds = {
 				keypad_wrong_code_03 = {
 					override_name = "SFX",
 					text = "(wrong keypad code)",
+					max_distance = 1000,
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				keypad_correct_code_03 = {
+					override_name = "SFX",
+					text = "(correct keypad code)",
 					max_distance = 1000,
 					category = "sfx",
 					priority = 37,
@@ -1381,7 +1434,7 @@ ClosedCaptions._sounds = {
 					override_name = "Bain",
 					category = "contractor_vo",
 					duration = 10,
-					priority = 37,
+					priority = 40,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -1409,6 +1462,71 @@ ClosedCaptions._sounds = {
 								"Okay, you earned your chance here- don't waste it!",
 								"Still, you only won the battle, not the war! Back to the plan, guys!",
 								"Take advantage of the situation- it won't last forever!"
+							}
+						}
+					}
+				},
+				Play_loc_b11 = {
+					text = "(assault beaten)",
+					duration = 7,
+					category = "contractor_vo",
+					override_name = "Locke",
+					priority = 40,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Perfect job, friends.",
+								"I could only have done a tiny bit better myself, yeah?",
+								"That's how to get things done, yeah?",
+								"Poppin' work, friends.",
+								"Nice work, back there.",
+								"Well done, dear friends.",
+								"You got that done well.",
+								"That went right the way it was supposed to."
+							},	
+							{
+								"Take advantage of these last few seconds of calm, yeah?",
+								"A short breather, but they'll be back.",
+								"But they won't be gone long, friends.",
+								"You got a little time to breathe, but not much.",
+								"Things are running smoothly. Keep up the pace, yeah?",
+								"But we haven't seen the last of them.",
+								"You got a little bit of time to regroup."
+							}
+						}
+					}
+				},
+				Play_loc_b12 = {
+					text = "(assault easily beaten)",
+					duration = 7,
+					category = "contractor_vo",
+					override_name = "Locke",
+					priority = 40,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"[approving] That's what Locke likes to see!",
+								"You guys know how to kick the living kak out of people!",
+								"Locke is very pleased with this performance!",
+								"You can color Locke suitably impressed, friends!",
+								"Going to be interesting to see if that jumps them up, yeah?",
+								"Well, now, those kaks weren't ready for that, yeah?",
+								"Ahh, that's how we stop those bliksems!",
+								"Undertaker's going to be working extra!",
+								"Blerrie! You got them on the run!",
+								"Keep going like that, and we'll get this sorted in no time!"
+							},	
+							{
+								"But they're coming back for more soon, yeah? No time to waste.",
+								"Don't change tactics. Things are going well, yeah?",
+								"Keep earning victories, friends!",
+								"You've got a hard-fought chance, friends. Don't waste it.",
+								"Don't lose your temper- keep on it, yeah?",
+								"Whatever you did, friends, just keep doing it!",
+								"It's not over yet, friends!",
+								"Take advantage of your temporary edge, friends."
 							}
 						}
 					}
@@ -1479,6 +1597,34 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Play_loc_b02c = {
+					text = "(assault incoming warning)",
+					override_name = "Locke",
+					category = "contractor_vo",
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"Calm before the hurricane, yeah?",
+							"Get ready, my friends!",
+							"Stay alive, friends!",
+							"Time to bring the pigs back in!",
+							"Be ready for anything, friends!",
+							"Show those kaks what you're made of, friends!",
+							"Get ready, everyone!",
+							"NOW, friends!",
+							"They're coming!",
+							"Give those bliksems hell!",
+							"Show those dwankies!",
+							"Best of luck, dear friends!",
+							"Good luck, friends!",
+							"Here they come!",
+							"Go get 'em, friends!",
+							"Under control, friends!",
+							"Keep alert!",
+							"Deep breath before the plunge, friends!"
+						}
+					}
+				},
 				Play_ban_h01x = {
 					category = "contractor_vo",
 					override_name = "Bain",
@@ -1489,6 +1635,18 @@ ClosedCaptions._sounds = {
 							"You need to take hostages! Use your cable ties and tie them down!",
 							"You need to take hostages, tie them down! Or make a law enforcer cuff themself.",
 							"You need to take hostages to be able to trade! Tie someone down with your cable ties!"
+						}
+					}
+				},
+				Play_loc_h01x = {
+					category = "contractor_vo",
+					override_name = "Locke",
+					text = "You've got to take some hostages- tie them down!",
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"You've got to take some hostages if you want better control of the situation, yeah?",
+							"Go ahead and tie up some civilians to bring the situation under control."
 						}
 					}
 				},
@@ -1519,6 +1677,12 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					priority = 40,
 					text = "(police sirens approaching)"
+				},
+				bd_police_siren_02 = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 40,
+					text = "(police sirens)"
 				},
 				birds_fly_away = {
 					override_name = "SFX",
@@ -3419,7 +3583,7 @@ ClosedCaptions._sounds = {
 				g90 = {
 					variants = {
 						cop = {
-							text = "{g90}",
+--							text = "{g90}",
 							category = "enemy_chatter",
 							priority = 40,
 							subvariants = {
@@ -3818,6 +3982,9 @@ ClosedCaptions._sounds = {
 											"Let's break bad."
 										}
 									}
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -4804,6 +4971,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						criminal = {
 							category = "heister_dialogue",
+							text = "(It's on, now!)",
 							priority = 40,
 							subvariants = {
 								rb4 = {
@@ -4829,6 +4997,9 @@ ClosedCaptions._sounds = {
 											"We hope you have a pleasant flight."
 										}
 									}
+								},
+								rb15 = {
+									disabled = "missing"
 								}
 							}
 						}
@@ -11598,7 +11769,7 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							text = "(spotted heister)",
-							category = "enemy_dialogue", --chatter?
+							category = "enemy_dialogue",
 							priority = 90,
 							line_variations = {
 								standard_mode = {
@@ -11733,7 +11904,7 @@ ClosedCaptions._sounds = {
 				},
 				cloaker_spawn = {
 					text = "[Cloaker spawned]",
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
 					priority = 40
 				},
 				cloaker_taunt_during_assault = {
@@ -11773,7 +11944,7 @@ ClosedCaptions._sounds = {
 				},
 				cloaker_taunt_after_assault = {
 					text = "(Cloaker taunt)",
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
 					line_variations = {
 						standard_mode = {
 							"I bet you let yourself get beat up, just to hear what I have to say!",
@@ -11793,12 +11964,12 @@ ClosedCaptions._sounds = {
 				},
 				rcloaker_taunt_during_assault = { --russian cloaker
 					text = "(Cloaker taunt)",
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
 					priority = 70
 				},
 				rcloaker_taunt_after_assault = {  --russian cloaker
 					text = "(Cloaker taunt)",
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
 					priority = 70
 				},
 				clk_c01x_plu = {
@@ -11808,7 +11979,7 @@ ClosedCaptions._sounds = {
 				cloaker_detect_christmas_mono = {
 					text = "(FESTIVE CLOAKER CHARGE!)",
 					priority = 11,
-					category = "enemy_dialogue"
+					category = "enemy_chatter"
 				},
 				cloaker_detect_christmas_stop = {
 					text = "(Festive Cloaker charge stops)",
@@ -11820,7 +11991,7 @@ ClosedCaptions._sounds = {
 					text = "(CLOAKER CHARGE!)", --wololololo
 					max_distance = 3000,
 					priority = 11,
-					category = "enemy_dialogue"
+					category = "enemy_chatter"
 				},
 				cloaker_detect_stop = {
 					text = "(Cloaker charge stops)",
@@ -11834,7 +12005,7 @@ ClosedCaptions._sounds = {
 					text = "(Cloaker idle)",
 					priority = 40,
 					max_distance = 1500,
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
 					loop_data = {
 						loop_interval = -1 --constant
 					}
@@ -11850,12 +12021,30 @@ ClosedCaptions._sounds = {
 				visor_lost = { --SEN-I-SOSHITSU
 					text = "[lost visor]",
 					priority = 60,
-					category = "enemy_dialogue",
+					duration = 5,
+					max_distance = 4000,
+					category = "enemy_chatter",
 					line_variations = {
 						standard_mode = {
-							"My visor!",
-							"That won't stop me!",
-							"I'll kick your ass... with or without my visor!"
+							"MY DAMN VISOR!",
+							"FUCK!",
+							"MY VISOR!",
+							"FUCKING HELL!",
+							"I'M SCREWED!",
+							"OH, SHIT!",
+							"SHIT JUST GOT REAL!",
+							"UH-OH!",
+							"THAT DAMN VISOR!",
+							"IMPRESSIVE... BUT FUTILE!",
+							"TOO LITTLE... TOO LATE!",
+							"HOLY SHIT!",
+							"AW, FUCK!",
+							"HAH! LIKE THAT WOULD STOP ME!",
+							"I'LL PUT YOU DOWN, WITH OR WITHOUT MY VISOR!",
+							"I'LL CRUSH YOU, WITH OR WITHOUT MY VISOR!",
+							"I'LL FUCK YOU UP, VISOR OR NO VISOR!",
+							"I'LL KICK YOUR ASS, VISOR OR NO VISOR!",
+							"THAT WON'T STOP ME!"
 						}
 					}
 				},
@@ -11863,88 +12052,128 @@ ClosedCaptions._sounds = {
 					variants = {
 						cop = {
 							priority = 60,
+							max_distance = 4000,
 							subvariants = {
 								tank = {
 									text = "(Bulldozer spawned)",
-									category = "enemy_dialogue",
+									category = "enemy_chatter",
 									line_variations = { --copied from bdz_entrance
 										standard_mode = {
-											"WHO WANTS A PIECE OF ME?",
-											"GONNA BREAK SOME SHIT!",
-											"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
-											"GET. OUT. OF. THE. WAY!",
-											"DOZER'S HERE, AND READY FOR ACTION!",
-											"CLOBBERIN' TIME!",
-											"MAKE WAY FOR THE BULLDOZER!",
-											"STAND BACK!",
-											"OKAY, I'M HERE... WHO WANTS TO DIE?!"
-										},
-										assault_mode = {
-											"BULLDOZER! GET OUT OF THE WAY!",
-											"BULLDOZER! MOVE ASIDE!",
-											"BULLDOZER! MAKE WAY!",
+											"ASS-KICKIN' TIME!",
 											"BULLDOZER GOIN' IN!",
 											"BULLDOZER TIME!",
+											"BULLDOZER! STAY BACK!",
+											"BULLDOZER'S HERE AND READY FOR ACTION!",
+											"BULLDOZER! GET OUT OF THE WAY!",
+											"CLOBBERIN' TIME!",
+											"COME OUT AND PLAY!",
+											"COMING THROUGH!",
+											"DOZER! MAKE WAY!",
+											"DOZER! GET OUT OF THE WAY!",
+											"DOZER'S HERE, AND READY FOR ACTION!",
+											"GET. OUT. OF. THE. WAY!",
+											"GONNA BREAK SOME SHIT!",
+											"GONNA BREAK SOME SHIT!",
+											"GONNA DROP ON THESE SHITHEADS LIKE A FUCKING PIANO!",
+											"MAKE WAY FOR THE BULLDOZER!",
+											"OKAY, I'M HERE... WHO WANTS TO DIE?!",
 											"SHOW ME WHERE THEY ARE!",
-											"BULLDOZER, COMING THROUGH!",
+											"STAND BACK!",
+											"WHO WANTS A PIECE OF ME?"
+										},
+										assault_mode = {
+											"ALRIGHT! WATCH... AND LEARN!",
+											"ALRIGHT, WHERE ARE THEY?!",
+											"ASS-KICKIN' TIME!",
+											"BULLDOZER GOIN' IN!",
 											"BULLDOZER IN THE HOUSE!",
+											"BULLDOZER TIME!",
+											"BULLDOZER! GET OUT OF THE WAY!",
+											"BULLDOZER! MAKE WAY!",
+											"BULLDOZER! MOVE ASIDE!",
+											"BULLDOZER, COMING THROUGH!",
+											"COME ON OUT WHEREVER YOU ARE!",
 											"DOZER IN THE HOUSE!",
+											"DOZER! GET OUT OF THE WAY!",
 											"DOZER! MOVE ASIDE!",
 											"DOZER! STAND BACK!",
 											"DOZER! STAY BACK!",
-											"DOZER! GET OUT OF THE WAY!",
-											"STAY BACK!",
-											"STAND BACK!",
-											"GOING TO WORK!",
 											"GIVE ME SOME TIME TO WORK!", --unsure
-											"ALRIGHT, WHERE ARE THEY?!",
-											"ALRIGHT! WATCH... AND LEARN!",
-											"ASS-KICKIN' TIME!",
-											"MAKE WAY FOR THE DOZER!",
-											"MAKE WAY FOR THE BULLDOZER!",
-											"MOVE ASIDE! I GOT THIS!",
-											"TIME FOR SOME PAYBACK!",
-											"WHO WANTS A PIECE OF ME?!",
-											"WHERE ARE YOU?!",
-											"MOVE ASIDE!",
+											"GOING TO WORK!",
 											"I GOT THIS!",
-											"COME ON OUT WHEREVER YOU ARE!",
+											"MAKE WAY FOR THE BULLDOZER!",
+											"MAKE WAY FOR THE DOZER!",
+											"MOVE ASIDE! I GOT THIS!",
+											"MOVE ASIDE!",
+											"OKAY, I'M HERE! WHO WANTS TO DIE?!",
 											"SHOW ME WHERE THEY ARE!",
-											"OKAY, I'M HERE! WHO WANTS TO DIE?!"
+											"SHOW ME WHERE THEY ARE!",
+											"STAND BACK!",
+											"STAY BACK!",
+											"TIME FOR SOME PAYBACK!",
+											"WHERE ARE YOU?!",
+											"WHO WANTS A PIECE OF ME?!"
 										}
 									}
 								},
 								taser = {
 									text = "(Taser spawned)",
-									category = "enemy_dialogue",
+									category = "enemy_chatter",
 									line_variations = {
+										max_distance = 4000,
 										standard_mode = {
-											"Shock treatment prescribed!"
+											"Who ordered shock treatment?",
+											"Who ordered a lightning bolt?!",
+											"Who's AMPED?",
+											"Make way!",
+											"Taser! MOVE!",
+											"Taser! Clear!",
+											"Stay back!",
+											"Fifty thousand volts here!",
+											"Taser, going through?",
+											"Coming through!",
+											"Get out of the way!",
+											"Stand clear!",
+											"Flip the switch!",
+											"Charged and ready! Bring 'em on!",
+											"Charged and ready... let 'em come!",
+											"Get out of the way!",
+											"Make way for the Taser!",
+											"I'M AMPED!",
 										}
 									}
 								},
-								spooc = {
-									text = "(Cloaker spawned)",
-									category = "enemy_dialogue"
-								},
 								medic = {
 									text = "(Medic spawned)",
-									category = "enemy_dialogue",
+									category = "enemy_chatter",
 									line_variations = {
 										standard_mode = {
 											"Somebody order a Medic?",
 											"Medic in the house!",
-											"It looks like a surgery ward in here, there's blood all over!"
-										}
-									}
-								},
-								shld = {
-									text = "(Shield spawned)",
-									category = "enemy_dialogue",
-									line_variations = {
-										standard_mode = {
-											"Shield coming through.",
-											"[Shield clanking]"
+											"Painkiller in the house!",
+											"Medic here to sort things out!",
+											"Alright, who's got a boo-boo?",
+											"Emergency!",
+											"Got a band-aid here!",
+											"Who's got a sore foot?",
+											"Improv field hospital here!",
+											"Medical officer, here!",
+											"Ibuprofen in the house!",
+											"Hurt, or heal?",
+											"Medical support is here.",
+											"I'm here. Let's do this!",
+											"What's the situation?",
+											"Okay, guys, I'm here.",
+											"No pain, no gain!",
+											"Who needs a hit?",
+											"Comin' through!",
+											"Who's got a bruise?",
+											"Never fear, Medic is here!",
+											"I got your wounded, guys!",
+											"Let me take your pain away!",
+											"Kill or cure- what's it gonna be?",
+											"Keep calm- I got this!",
+											"It looks like a surgery ward, there's blood all over!"
 										}
 									}
 								}
@@ -11955,17 +12184,50 @@ ClosedCaptions._sounds = {
 				mdc_entrance = {
 					text = "(Medic spawned)",
 					priority = 60,
-					category = "enemy_dialogue"
+					category = "enemy_chatter",
+					max_distance = 4000,
+					line_variations = {
+						standard_mode = {
+							"Somebody order a Medic?",
+							"Medic in the house!",
+							"Painkiller in the house!",
+							"Medic here to sort things out!",
+							"Alright, who's got a boo-boo?",
+							"Emergency!",
+							"Got a band-aid here!",
+							"Who's got a sore foot?",
+							"Improv field hospital here!",
+							"Medical officer, here!",
+							"Ibuprofen in the house!",
+							"Hurt, or heal?",
+							"Medical support is here.",
+							"I'm here. Let's do this!",
+							"What's the situation?",
+							"Okay, guys, I'm here.",
+							"No pain, no gain!",
+							"Who needs a hit?",
+							"Comin' through!",
+							"Who's got a bruise?",
+							"Never fear, Medic is here!",
+							"I got your wounded, guys!",
+							"Let me take your pain away!",
+							"Kill or cure- what's it gonna be?",
+							"Keep calm- I got this!",
+							"It looks like a surgery ward, there's blood all over!"
+						}
+					}
 				},
 				rmdc_entrance = {
 					text = "(Russian Medic spawned)", --haha i am funni 
 					priority = 60,
-					category = "enemy_dialogue"
+					max_distance = 4000,
+					category = "enemy_chatter"
 				},
 				bdz_entrance = {
 					text = "(Bulldozer spawned)",
 					priority = 60,
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
+					max_distance = 4000,
 					line_variations = {
 						standard_mode = {
 							"WHO WANTS A PIECE OF ME?",
@@ -12014,9 +12276,35 @@ ClosedCaptions._sounds = {
 					}
 				},
 				entrance_elite = {
-					text = "ELITE BULLDOZER, COMING THROUGH!", --not sure what this is?
-					priority = 60,
-					category = "UNKNOWN"
+					variants = {
+						cop = {
+							priority = 60,
+							max_distance = 4000,
+							category = "enemy_chatter",
+							subvariants = {
+								tank = {
+									line_variations = {
+										standard_mode = {
+											"ELITE BULLDOZER TIME!",
+											"ELITE DOZER, COMING THROUGH!",
+											"ELITE DOZER! STAND BACK!",
+											"ELITE DOZER! STAY BACK!",
+											"ELITES! FORWARD!",
+											"MAKE WAY FOR THE ELITE DOZER!",
+											"ARE YOU SURE YOU CAN HANDLE THE ELITES?",
+											"ELITE BULLDOZER! STAY BACK!",
+											"ELITE BULLDOZER! MAKE WAY!",
+											"ELITE DOZER! MOVE ASIDE!",
+											"ELITE BULLDOZER COMING THROUGH!",
+											"YOU'RE DEALING WITH THE ELITES NOW, SUCKERS!",
+											"ELITE DOZER IN THE HOUSE!",
+											"ELITE BULLDOZER! GET OUT OF THE WAY!"
+										}
+									}
+								}
+							}
+						}
+					}
 				},
 				cpa_a02_01 = {
 					override_name = "[megaphone cop]",
@@ -12217,13 +12505,49 @@ ClosedCaptions._sounds = {
 				},
 				tsr_entrance = {
 					text = "(Taser entrance)",
-					category = "enemy_dialogue",
-					priority = 55
+					category = "enemy_chatter",
+					max_distance = 4000,
+					priority = 55,
+					line_variations = {
+						standard_mode = {
+							"Who ordered shock treatment?",
+							"Who ordered a lightning bolt?!",
+							"Who's AMPED?",
+							"Make way!",
+							"Taser! MOVE!",
+							"Taser! Clear!",
+							"Stay back!",
+							"Fifty thousand volts here!",
+							"Taser, going through?",
+							"Coming through!",
+							"Get out of the way!",
+							"Stand clear!",
+							"Flip the switch!",
+							"Charged and ready! Bring 'em on!",
+							"Charged and ready... let 'em come!",
+							"Get out of the way!",
+							"Make way for the Taser!",
+							"I'M AMPED!",
+							"Shock treatment prescribed!",
+							"Charged and ready... where are they?!"
+						}
+					}
 				},
 				tsr_elite = {
-					text = "(tsr elite)",
-					--elite taser, make way!
-					category = "UNKNOWN",
+					text = "(Elite Taser Entrance)",
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Elite Taser! Here to win this once and for all!",
+							"Elite Taser! Stay clear!",
+							"Elite Taser! Stand clear!",
+							"Elite Taser! Stand back!",
+							"Make way for the Elite Taser!",
+							"Elite Taser! Going through!",
+							"Elite Taser! Get out of the way!",
+							"Elite Taser! Make way!"
+						}
+					},
 					priority = 55
 				},
 				tasered_3rd = { --loops
@@ -12242,16 +12566,19 @@ ClosedCaptions._sounds = {
 				post_kill_taunt = {
 					text = "post_kill_taunt",
 					category = "enemy_chatter",
+					max_distance = 4000,
 					priority = 60
 				},
 				post_tasing_taunt = {
 					text = "(tasing taunt)",
 					category = "enemy_chatter",
+					max_distance = 4000,
 					priority = 60
 				},
 				shield_identification = {
 					text = "(Shield clanking)",
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
+					max_distance = 4000,
 					priority = 55
 				},
 				tasered = {
@@ -12268,11 +12595,13 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					category = "sfx",
 					text = "(Taser charge)",
+					max_distance = 4000,
 					priority = 19
 				},
 				heal = {
 					text = "(healed cop)",
 					category = "enemy_dialogue",
+					max_distance = 4000,
 					priority = 50
 				},
 				["911_call"] = {
@@ -12451,21 +12780,25 @@ ClosedCaptions._sounds = {
 				a01 = {
 					text = "They've got a gun!",
 					category = "enemy_dialogue",
+					max_distance = 1500,
 					priority = 70
 				},
 				a02 = {
 					text = "Please stay back.",
 					category = "mission_dialogue",
+					max_distance = 1500,
 					priority = 10
 				},
 				a03 = {
 					text = "Sorry, this area is for personnel only.",
 					category = "mission_dialogue",
+					max_distance = 1500,
 					priority = 10
 				},
 				a05 = {
 					text = "Two-Four reporting in, all quiet here.",
 					category = "enemy_dialogue",
+					max_distance = 1500,
 					priority = 37
 				},
 				a06 = {
@@ -12478,9 +12811,11 @@ ClosedCaptions._sounds = {
 						cop = {
 							category = "enemy_dialogue",
 							priority = 37,
+							max_distance = 1500,
 							line_variations = {
 								whisper_mode = {
 									"Wha-?",
+									"Hm?",
 									"Huh?",
 									"What was that?"
 								}
@@ -12494,6 +12829,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					variants = {
 						cop = {
+							max_distance = 1500,
 							category = "enemy_dialogue",
 							priority = 37,
 							line_variations = {
@@ -12513,6 +12849,7 @@ ClosedCaptions._sounds = {
 						cop = {
 							category = "enemy_dialogue",
 							priority = 37,
+							max_distance = 1500,
 							line_variations = {
 								whisper_mode = {
 									"Shit!",
@@ -12527,6 +12864,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue",
 					text = "Sound the alarm!",
 					priority = 37,
+					max_distance = 1500,
 					variants = {
 						cop = {
 							category = "enemy_dialogue",
@@ -12543,246 +12881,295 @@ ClosedCaptions._sounds = {
 				a10 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, there's a broken window here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a11 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, there's a dead body here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a12 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, I've spotted a dead officer...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a13 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, I've spotted a tied up civilian...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a14 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, I've spotted a tied up officer...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a15 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, we've got a situation here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a16 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, we've got an officer signalling for help...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a17 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, there's a security door that shouldn't be open here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a18 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, somebody set a fire over here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a19 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, I've got a bodybag over here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a20 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, I've spotted some kind of sentry gun over here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a21 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, I've spotted a trip mine...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a22 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, I've spotted a suspicious bag...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a23 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, there's signs of intruders here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a24 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, somebody's been messing with the computer here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				a25 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, I've spotted some heavy drilling equipment here...",
+					max_distance = 1500,
 					priority = 37
 				},
 				amm = {
 					category = "enemy_chatter",
 					text = "They've brought extra ammo with them!",
+					max_distance = 1500,
 					priority = 90
 				},
 				att = {
 					category = "enemy_chatter",
 					text = "Weapons hot!", --fire at will, gogogo!
+					max_distance = 700,
 					priority = 90
 				},
 				b01 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Entrance is A-OK. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b02 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Hall A is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b03 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Hall B is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b04 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Hall C is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b05 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Hall D is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b06 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Roof is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b07 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Basement is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b08 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Ground Floor is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b09 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Second Floor is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b10 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Third Floor is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b11 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Pool Area is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b12 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Balcony is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b13 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Living Room is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b14 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Corridor is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b15 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Lobby is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b16 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Security Door is shut and locked, everything's fine. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b17 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Security Room is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b18 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, camera is working fine, no sign of tampering. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b19 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Staircase is all clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b20 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Penthouse is clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b21 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, Garage is clear. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b22 = {
 					category = "enemy_dialogue",
 					text = "Moving on.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b23 = {
 					category = "enemy_dialogue",
 					text = "Two-Three to Control, could someone buzz me through the door?.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b24 = {
 					category = "enemy_dialogue",
 					text = "Two-Three to Control, this whole place is clear, I'm going home. Over and out.",
+					max_distance = 1500,
 					priority = 37
 				},
 				b25 = {
 					category = "enemy_dialogue",
 					text = "Reporting in, glass shards everywhere! Signs of break in! Send reinforcements!",
+					max_distance = 1500,
 					priority = 37
 				},
 				b26 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, someone's been fiddling with this camera. Send backup!",
+					max_distance = 1500,
 					priority = 37
 				},
 				b27 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, I hear some kind of noise. Send backup!",
+					max_distance = 1500,
 					priority = 37
 				},
 				b28 = {
 					category = "enemy_dialogue",
 					text = "Two-Three reporting in, I'm outside the lobby. Over.",
+					max_distance = 1500,
 					priority = 37
 				},
 				bak = {
 					category = "enemy_dialogue",
 					text = "Watch your background, civilians on scene!",
+					max_distance = 1500,
 					priority = 37
 				},
 				burndeath = { --!
 					category = "enemy_death",
 					text = "[fire death]",
+					max_distance = 700,
 					priority = 90
 				},
 				burnhurt = {
 					category = "enemy_chatter",
 					text = "[fire hurt]",
+					max_distance = 700,
 					line_variations = {
 						standard_mode = {
 							"[panicked gasping on fire]",
@@ -12817,44 +13204,58 @@ ClosedCaptions._sounds = {
 --						}
 --					}
 				},
+				l3n_c01 = {
+					category = "enemy_chatter",
+					text = "Contact!",
+					max_distance = 700,
+					priority = 90
+				},
 				c01 = {
 					category = "enemy_chatter",
 					text = "Contact!",
+					max_distance = 700,
 					priority = 90
 				},
 				ch1 = {
 					category = "enemy_chatter",
 					text = "Watch out for the trip mines!",
+					max_distance = 700,
 					priority = 90
 				},
 				ch2 = {
 					category = "enemy_chatter",
 					text = "Watch out for the sentry gun!",
+					max_distance = 700,
 					priority = 90
 				},
 				ch3 = {
 					category = "enemy_chatter",
 					text = "Argh! Some kind of jammer!",
+					max_distance = 700,
 					priority = 90
 				}, --ecm feedback
 				ch4 = {
 					category = "enemy_chatter",
 					text = "That maniac has a fucking SAW!",
+					max_distance = 700,
 					priority = 90
 				},
 				civ = {
 					category = "enemy_chatter",
 					text = "Get the hostages!",
+					max_distance = 700,
 					priority = 90
 				},
 				clr = {
 					category = "enemy_chatter",
 					text = "Area clear.",
+					max_distance = 700,
 					priority = 90
 				},
 				cn1 = {
 					category = "enemy_dialogue",
 					text = "(converted to joker)",
+					max_distance = 700,
 					line_variations = {
 						standard_mode = {
 							"Yeah... okay...",
@@ -12866,11 +13267,13 @@ ClosedCaptions._sounds = {
 				cr1 = {
 					category = "enemy_chatter",
 					text = "(to hostage) Hey, stay calm, we're getting you out.",
+					max_distance = 1000,
 					priority = 90
 				},
 				l1d_d01 = {
 					category = "enemy_dialogue",
 					text = "Deploy smoke.",
+					max_distance = 1000,
 					priority = 90,
 					line_variations = {
 						standard_mode = {
@@ -12884,98 +13287,117 @@ ClosedCaptions._sounds = {
 				d01 = {
 					category = "enemy_dialogue",
 					text = "Deploy smoke.",
+					max_distance = 1000,
 					priority = 90
 				},
 				d02 = {
 					category = "enemy_dialogue",
 					text = "Throwing a flashbang!",
+					max_distance = 1000,
 					priority = 60
 				},
 				e01 = {
 					category = "enemy_chatter",
 					text = "Disable that drill!",
+					max_distance = 1000,
 					priority = 90
 				},
 				e02 = {
 					category = "enemy_chatter",
 					text = "Disable their gear!",
+					max_distance = 1000,
 					priority = 90
 				},
 				e03 = {
 					category = "enemy_chatter",
 					text = "Disabling the power!",
+					max_distance = 1000,
 					priority = 90
 				},
 				e04 = {
 					category = "enemy_chatter",
 					text = "Do what you can to slow them down.",
+					max_distance = 1000,
 					priority = 90
 				},
 				e05 = {
 					category = "enemy_chatter",
 					text = "Drill is disabled, over.",
+					max_distance = 1000,
 					priority = 90
 				},
 				e06 = {
 					category = "enemy_chatter",
 					text = "Disabled their gear.",
+					max_distance = 1000,
 					priority = 90
 				},
 				gr1a = {
 					category = "enemy_chatter",
 					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
 					priority = 90
 				},
 				gr1b = {
 					category = "enemy_chatter",
 					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
 					priority = 90
 				},
 				gr1c = {
 					category = "enemy_chatter",
 					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
 					priority = 90
 				},
 				gr1d = {
 					category = "enemy_chatter",
 					text = "Rescue team Delta going in.",
+					max_distance = 1000,
 					priority = 90
 				},
 				gr2a = {
 					category = "enemy_chatter",
 					text = "Assault team Alpha going in.",
+					max_distance = 1000,
 					priority = 90
 				},
 				gr2b = {
 					category = "enemy_chatter",
 					text = "Assault team Bravo going in.",
+					max_distance = 1000,
 					priority = 90
 				},
 				gr2c = {
 					category = "enemy_chatter",
 					text = "Assault team Charlie going in.",
+					max_distance = 1000,
 					priority = 90
 				},
 				gr2d = {
 					category = "enemy_chatter",
 					text = "Assault team Delta going in",
+					max_distance = 1000,
 					priority = 90
 				},
 				h01 = {
 					category = "enemy_chatter",
 					duration = 3,
 					text = "(Freeing hostage)",
+					max_distance = 1000,
 					priority = 90
 				},
 				hlp = {
 					category = "enemy_chatter",
 					text = "HELP!",
+					max_distance = 700,
 					priority = 90
 				},
 				i01 = {
 					category = "enemy_chatter", --! enemy callouts?
 					duration = 1,
 					text = "Freeze!",
+					max_distance = 1000,
 					line_variations = {
 						"Hold it!",
 						"Freeze!",
@@ -12987,76 +13409,103 @@ ClosedCaptions._sounds = {
 				i02 = {
 					category = "enemy_chatter",
 					text = "No sudden movements!",
+					max_distance = 1000,
 					priority = 90
 				},
 				i03 = {
 					category = "enemy_chatter",
 					text = "This ends now!",
+					max_distance = 1000,
 					priority = 90
 				},
 				l01 = {
 					category = "enemy_chatter",
 					text = "Get those bags!",
+					max_distance = 1000,
 					priority = 90
 				},
 				lk3a = {
 					category = "enemy_chatter",
 					text = "Jeez!",
+					max_distance = 1000,
 					priority = 90
 				},
 				lk3b = {
 					category = "enemy_chatter",
 					text = "Fucking hell!",
+					max_distance = 1000,
 					priority = 90
 				},
 				m01 = {
 					category = "enemy_chatter",
 					text = "Cease fire, exit point!",
+					max_distance = 1000,
 					priority = 90
 				},
 				med = {
 					category = "enemy_chatter",
 					text = "There's a doctor bag! They must have a field medic!",
+					max_distance = 1000,
 					priority = 90
 				},
 				mov = {
 					text = "Move!",
 					category = "enemy_chatter",
+					max_distance = 1000,
 					priority = 90
+				},
+				l4n_pos = {
+					category = "enemy_chatter",
+					text = "I'm in position.",
+					max_distance = 1000,
+					priority = 99
 				},
 				pos = {
 					category = "enemy_chatter",
 					text = "I'm in position.",
+					max_distance = 1000,
 					priority = 99
 				},
 				prm = {
 					category = "enemy_chatter",
 					text = "Wait for my signal.",
+					max_distance = 1000,
 					priority = 90
 				},
 				pus = {
 					category = "enemy_chatter",
 					text = "Rush them!",
+					max_distance = 1000,
 					priority = 90
 				},
 				r01 = {
 					category = "enemy_chatter",
 					text = "Roger that.",
+					max_distance = 1000,
 					priority = 90
 				},
 				rdy = {
 					category = "enemy_chatter",
 					text = "Ready!",
+					max_distance = 1000,
+					priority = 99
+				},
+				l1n_rdy = {
+					category = "enemy_chatter",
+					text = "Ready!",
+					max_distance = 1000,
 					priority = 99
 				},
 				l2d_rdy = {
 					category = "enemy_chatter",
 					text = "Ready!",
+					max_distance = 1000,
 					priority = 99
 				},
 				l1d_att = {
 					category = "enemy_chatter",
 					text = "Go!",
+					max_distance = 1000,
 					priority = 99,
 					line_variations = {
 						standard_mode = {
@@ -13068,12 +13517,14 @@ ClosedCaptions._sounds = {
 				rrl = {
 					category = "enemy_chatter",
 					text = "He's reloading!",
+					max_distance = 1000,
 					priority = 90
 				},
 				s01x = { --cop surrender
 					category = "enemy_dialogue",
 					text = "Okay, okay! Just don't shoot!",
 					priority = 40,
+					max_distance = 1000,
 					line_variations = {
 						assault_mode = {
 							"Alright! Just don't shoot!",
@@ -13089,16 +13540,25 @@ ClosedCaptions._sounds = {
 				t01 = {
 					category = "enemy_chatter",
 					text = "Looking for another way in.",
+					max_distance = 1000,
+					priority = 90
+				},
+				l1n_t01 = {
+					category = "enemy_chatter",
+					text = "Looking for another way in.",
+					max_distance = 1000,
 					priority = 90
 				},
 				x01a_any_3p = {
 					category = "enemy_chatter",
 					text = "[pain]",
+					max_distance = 1000,
 					priority = 90
 				},
 				lt2_c01 = {
 					variants = {
 						cop = {
+							max_distance = 1500,
 							priority = 90,
 							category = "enemy_chatter",
 							line_variations = {
@@ -13120,6 +13580,7 @@ ClosedCaptions._sounds = {
 						cop = {
 							category = "enemy_chatter",
 							priority = 90,
+							max_distance = 1500,
 							line_variations = {
 								standard_mode = {
 									"I'm gonna fuck you up, man!",
@@ -16819,7 +17280,394 @@ ClosedCaptions._sounds = {
 				Stop_mch_brn_01 = {
 					category = "stops",
 					stops_line = "Play_bkl_brn_01"
+				},
+			--diamond heist	
+				laser_hum_right = {
+					category = "sfx",
+					override_name = "SFX",
+					text = "[right laser hums]",
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 37,
+					max_distance = 700
+				},
+				laser_hum_left = {
+					category = "sfx",
+					override_name = "SFX",
+					text = "[left laser hums]",
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 37,
+					max_distance = 700				
+				},
+				dah_party_music = {
+					category = "sfx",
+					override_name = "SFX",
+					text = "[party music]",
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 37,
+					max_distance = 700
+				},
+				dah_party_music_stop_stealth = {
+					category = "stops",
+					stops_line = "dah_party_music",
+					priority = 37
+				},
+				dah_party_music_stop = {
+					category = "stops",
+					stops_line = "dah_party_music",
+					priority = 37
+				},
+				elevator_ding_dh = {
+					category = "sfx",
+					override_name = "SFX",
+					text = "[elevator dings]",
+					duration = 3,
+					priority = 37,
+					max_distance = 1000		
+				},
+				alarm_dah = {
+					category = "sfx",
+					override_name = "SFX",
+					text = "[alarm rings]",
+					duration = 30,
+					priority = 37
+				},
+				dah_npc_impact_glass_01 = {
+					category = "sfx",
+					override_name = "SFX",
+					text = "[body impacts glass]",
+					priority = 37,
+					duration = 3
+				},
+				mute = { --???
+					category = "UNKNOWN"
+				},
+				str_car_fire = {
+					override_name = "SFX",
+					category = "sfx",
+					max_distance = 700,
+					priority = 50
+				},
+				car_alarm_on = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "[car alarm beeping]",
+					priority = 50,
+					max_distance = 700,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				car_alarm_on_fade_out = {
+					category = "stops",
+					stops_line = "car_alarm_on"					
+				},
+				glace_secondary_explosion = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "[large explosion]",
+					priority = 37			
+				},
+		--hell's island
+				bph_lever_down = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "[lever pulled]",
+					priority = 37
+				},
+				bph_prison_buzzer = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "[buzzer sounds]",
+					priority = 37
+				
+				},
+		--scarface mansion
+				Play_sec_fri_01 = {
+					text = "(talking on phone)",
+--					override_name = "Head of Security", --disabled because it'll cause a weird discrepancy when he dies and shows "Bolivian Security" in that caption
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 4,
+					line_variation = {
+						whisper_mode = {
+							"Yeah, boss. All's quiet down here.",
+							"No, no, it ain't like that. Yeah, he's downtown. [pause] Okay make sure he gets it.",
+							"Yes? [pause] No, man. Nothing going on here.",
+							"Yeah, baby! [pause] No, I'm working! See you tomorrow.",
+							"Boss? Yeah. No, it's real quiet down here.",
+							"Hey, listen. Remember, you get the merchandise in here early, or the boss won't be happy."
+						}
+					}
+					
+				},
+				Play_bos_fri_01 = {
+					text = "(angered by painting destruction)",
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 4,
+					line_variation = {
+						standard_mode = {
+							"What are you doing to my paintings?!",
+							"You people have no respect for art! NO RESPECT!",
+							"HEY! That's priceless art!"
+						}
+					}
+				},
+				Play_bos_fri_02 = {
+					text = "(angered by property destruction)",
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 5,
+					line_variation = {
+						standard_mode = {
+							"YOU'RE DESTROYING MY THINGS OUT OF ENVY, HUH? MOTHERFUCKER!",
+							"STOP DESTROYING MY THINGS!",
+							"NO! STOP THAT!",
+							"HEY! MY STUFF!",
+							"HEY! THAT'S MINE! LEAVE IT ALONE!",
+							"MOTHERFUCKERS! STOP THAT!",
+							"BARBARIANS ARE WHAT YOU ARE! BARBARIANS!",
+							"YOU GOT NO RESPECT, PENDEJOS!",
+							"DON'T DESTROY MY THINGS!",
+							"HEY! WHAT ARE YOU DOING TO MY STUFF?!",
+							"HEY! THAT'S EXPENSIVE!"
+						}
+					}
+				},
+				Play_bos_fri_03 = {
+					text = "(angered by car destruction)",
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 4,
+					line_variation = {
+						standard_mode = {
+							"I CAN'T BELIEVE YOU DESTROYED MY CAR!",
+							"MY CAR!",
+							"NOT MY FUCKING CAR! MOTHERFUCKERS!",
+							"YOU FUCKED MY CAR, BASTARDS!",
+							"FUUUUCK! MY CAR!",
+							"YOU DON'T DESTROY A MAN'S CAR! YOU JUST DON'T DO THAT, YOU HEAR?!",
+							"NOT MY CAR! FUCK YOU! FUCK YOU, PENDEJOS!"
+						}
+					}
+				},
+				Play_bos_fri_04 = {
+					text = "(threatening to come out and attack)",
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 4,
+					line_variation = {
+						standard_mode = {
+							"Fuck you! I'm coming out to destroy you!",
+							"Argh, you fuckers! I'm coming for you!",
+							"You wanna play rough? Okay, SAY HELLO TO MY LITTLE FRIEND!",
+							"Motherfuckers! Now you did it! You made me mad!",
+							"Okay, that's it! You fucking did it!"
+						}
+					}
+				},
+				Play_bos_fri_05 = {
+					text = "(threatening heisters)",
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 4,
+					line_variation = {
+						standard_mode = {
+							"I will BURY you!",
+							"You made your last mistake!",
+							"This... is where you die!",
+							"What the hell are you doing?!",
+							"You came here to DIE, you bastards!",
+							"I'll fuck you up!",
+							"No-one fucks with me and lives!",
+							"Come on, you bastards!",
+							"You shouldn't have made me MAD!",
+							"Who sent you?!",
+							"No-one attacks the Sosas and lives!",
+							"You guys are fucking with the wrong people!",
+							"Ernesto Sosa will outlive you ALL!",
+							"I'm gonna break you!",
+							"I'll KILL you!",
+							"DIE, you bastards!",
+							"I'm ERNESTO SOSA, motherfuckers!",
+							"Do you know who I am?!"
+						}
+					}
+				},
+				Play_bos_fri_06 = {
+					text = "(taunting heisters from inside mansion)",
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 5,
+					line_variation = {
+						standard_mode = {
+							"You can't take me! I'm Ernesto Sosa, and you're going DOWN!",
+							"Hey, you bastards! You forgot to make an appointment!",
+							"You're not gonna like it when I get angry, eh?",
+							"Who sent you bastards? You're fucking amateurs!",
+							"You can't touch me! I got protection!",
+							"Hey, pendejos? I fucked your mothers! All of them!",
+							"[laughs] Motherfuckers! Whatchu gonna do, huh?",
+							"Go home, you bastards! You can't get in here!",
+							"Hey, motherfuckers... you ain't got no chance!",
+							"You think you can take me down, eh? Think again!",
+							"Don't make me come down there, eh?"							
+						}
+					}
+				},
+		--reservoir dogs
+			--day "2" (timeline wise; day 1 gameplay wise)
+				Play_mrb_rvd_03 = {
+					text = "Why don't we play with our little squeaky toy here while we wait? Okay, doughnut boy, I'm gonna take this off, and you're gonna talk, capiche? Who set us up?",
+					override_name = "Mr. Blue",
+					override_text_color = ClosedCaptions.color_data.mrblue,
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 9
+				},
+				Play_mrb_rvd_03c = {
+					text = "Hey... look... I'm just following orders! I don't know nothin'!\nMR BLUE:I don't think you're bein' honest, little pig. ",
+					override_name = "Policeman",
+					override_text_color = ClosedCaptions.color_data.mrblue,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"[shaky] Hey... look... they don't tell me anything, man.",
+								"[crying] C'mon, man... I don't know what you're talking about.",
+								"[crying] Please, man... I'm just a rookie.",
+								"[shaky] Hey, man... I'm just followin' orders. I don't know nothin'."
+							},
+							{
+								"\nMR BLUE: You had one chance and you blew it.",
+								"\nMR BLUE: Now, why don't I believe you? Maybe I should just plug this guy.",
+								"\nMR BLUE: I don't think you're bein' honest, lil' pig. Maybe I'll just cap ya.",
+								"\nMR BLUE: If you're not gonna talk, I'm just gonna go ahead and shoot ya."
+							}
+						}
+					},
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 8
+				},
+				Play_mrp_rvd_04 = {
+					text = "(complaining that heisters were slow)",
+					category = "mission_dialogue",
+					override_name = "Mr. Purple",
+					override_source_id = "mrp",
+					override_text_color = ClosedCaptions.color_data.mrpurple,
+					max_distance = 1500,
+					priority = 37,
+					duration = 6,
+					line_variations = {
+						standard_mode = {
+							"JESUS H. GODDAMN CHRIST, that took long!",
+							"The FUCK took so long, man?!",
+							"Shit, man, I'm dyin' out here! What'd you do, stop for a hot dog?!"
+						}
+					}
+				},
+				Play_mrp_rvd_05 = {
+					text = "[groaning in pain]",
+					category = "mission_dialogue",
+					override_name = "Mr. Purple",
+					override_source_id = "mrp",
+					override_text_color = ClosedCaptions.color_data.mrpurple,
+					max_distance = 1500,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"[grunting in pain]",
+							"[groaning in pain]",
+							"[pained grunt]"
+						}
+					}
+				},
+				Play_mrp_rvd_06 = {
+					text = "(What happened back there?!)",
+					category = "mission_dialogue",
+					override_name = "Mr. Purple",
+					override_source_id = "mrp",
+					override_text_color = ClosedCaptions.color_data.mrpurple,
+					max_distance = 1500,
+					priority = 37,
+					duration = 7,
+					line_variations = {
+						standard_mode = {
+							"The fuck happened back there?! No way the cops knew we were there that fast!",
+							"Some weird shit happenin' on this job, man!",
+							"Someone please tell me if we got anything worth a damn out of that place!",
+							"I swear I was bein' followed for a while, and not by cops, either!",
+							"Someone better explain this shit to me!",
+							"Goddamn cops knew we were gonna be there! Too many of them for a simple diamond job! Civvies, too!"
+						}
+					}
+				},
+				Play_mrp_rvd_07 = {
+					text = "(Fuck this shit, I'm out!)",
+					category = "mission_dialogue",
+					override_name = "Mr. Purple",
+					override_source_id = "mrp",
+					override_text_color = ClosedCaptions.color_data.mrpurple,
+					max_distance = 1500,
+					priority = 37,
+					duration = 8,
+					line_variations = {
+						standard_mode = {
+							"Fuck this shit, man.",
+							"If we get out of this one, I might just leave this fuckin' town.",
+							"Ain't never seen a job this screwed!",
+							"Right now I wish I was some other guy on some other job.",
+							"Wish I were at a burger joint with my girl right now.",
+							"Man... I could really use a beer.",
+							"[angry] So what's it like in D.C., huh? All those scumbag politicians on the payroll keep the cops off your asses?",
+							"Diamond jobs always turn into fuckin' bloodbaths. Heard they had to scrape a guy off the floor with a shovel once 'cause of all the dried blood."
+						}
+					}
+				},
+				Play_mrp_rvd_08 = {
+					text = "(Are we sure this mess isn't the PAYDAY Gang's fault?)",
+					category = "mission_dialogue",
+					override_name = "Mr. Purple",
+					override_source_id = "mrp",
+					override_text_color = ClosedCaptions.color_data.mrpurple,
+					max_distance = 1500,
+					duration = 6,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"So what do you really know about these PAYDAY guys? Can't imagine this shit is our fault.",
+							"This PAYDAY Gang Cabo brought in. We sure this isn't their mess?"
+						}
+					}
+				},
+				Play_mrb_rvd_05 = {
+					text = "(Are we sure this mess isn't the PAYDAY Gang's fault?)",
+					category = "mission_dialogue",
+					override_name = "Mr. Blue",
+					override_text_color = ClosedCaptions.color_data.mrpurple,
+					max_distance = 1500,
+					priority = 37,
+					line_variations = {
+						standard_mode = {
+							"Bain's always been a stand-up guy, from what I've heard. Hope you get it sorted.",
+							"Remember the old days, when heists didn't need computers? Back then, you knew who to trust.",
+							"'S never good to lose your boss. Hope you guys get it sorted.",
+							"Diamonds are just bad luck, man.",
+							"Feeling good there, doughnut boy?",
+							"Exciting stuff, this betrayal business. You guys get it a lot?",
+							"I think that burger I had for lunch isn't sittin' right.",
+							"This betrayal shit almost makes me wanna go back to prison."
+						}
+					}
 				}
+				
 			}
 		}
 	},
