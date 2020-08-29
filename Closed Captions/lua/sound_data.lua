@@ -171,7 +171,13 @@ ClosedCaptions._sounds = {
 				emitter_radiator_hiss_loop = true,
 				emitter_car_fire_loop_02 = true,
 				emitter_frog = true,
-				emitter_flickering_light = true
+				emitter_flickering_light = true,
+				occasionals_city_traffic = true,
+				occasionals_silent = true,
+				hud_suspicion_discovered = true,
+				hud_suspicion_start = true,
+				camera_suspicious_signal = true,
+				camera_silent = true				
 			},
 			vo_special = { --there exist character-specific variants for most of these, but we'll burn that bridge when we come to it
 				["f11@_sin"] = { --macroized
@@ -370,13 +376,13 @@ ClosedCaptions._sounds = {
 				},
 				concussion_effect_on = {
 					override_name = "SFX",
-					text = "(concussion ringing)",
+					text = "(concussed)",
 					priority = 20,
 					category = "sfx"
 				},
 				concussion_effect_off = {
 					override_name = "SFX",
-					text = "(concussion ringing fades)",
+					text = "(concussion fades)",
 					priority = 20,
 					category = "sfx"
 				},
@@ -388,7 +394,7 @@ ClosedCaptions._sounds = {
 				},
 				tinnitus_beep = {
 					override_name = "SFX",
-					text = "(ears ringing from tinnitus)",
+					text = "(tinnitus ringing)",
 					priority = 20,
 					category = "sfx"
 				},
@@ -1851,6 +1857,7 @@ ClosedCaptions._sounds = {
 				glass_crack = {
 					text = "(glass cracks!)",
 					override_name = "SFX",
+					max_distance = 700,
 					category = "sfx",
 					duration = 2,
 					priority = 37
@@ -1950,6 +1957,7 @@ ClosedCaptions._sounds = {
 				tick_tock_play = {
 					text = "[clock ticking loudly]",
 					category = "sfx",
+					override_name = "SFX",
 					loop_data = {
 						loop_interval = -1
 					}
@@ -1960,6 +1968,7 @@ ClosedCaptions._sounds = {
 				},
 				tire_blow = {
 					text = "(tire pops)",
+					override_name = "SFX",
 					category = "sfx",
 					max_distance = 1000
 				},
@@ -1971,7 +1980,7 @@ ClosedCaptions._sounds = {
 				},
 				whistling_attention = {
 					text = "[whistle]",
-					fallback_name = "Insider",
+					fallback_name = "SFX",
 					category = "mission_dialogue",
 					priority = 37,
 					duration = 3
@@ -1979,18 +1988,28 @@ ClosedCaptions._sounds = {
 				window_small_shatter = {
 					category = "sfx",
 					text = "[small glass shatters!]",
+					override_name = "SFX",
 					priority = 50,
 					duration = 2
 				},
 				window_medium_shatter = {
 					category = "sfx",
 					text = "[medium glass shatters!]",
+					override_name = "SFX",
+					priority = 50,
+					duration = 2
+				},
+				window_large_shatter = {
+					category = "sfx",
+					text = "[large glass shatters!]",
+					override_name = "SFX",
 					priority = 50,
 					duration = 2
 				},
 				van_rear_door_close = {
 					category = "sfx",
 					text = "[rear door closes]",
+					override_name = "SFX",
 					priority = 50,
 					duration = 2
 				},
@@ -2010,6 +2029,7 @@ ClosedCaptions._sounds = {
 					category = "contractor_vo",
 					is_locationless = true,
 					priority = 39,
+					duration = 5,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -2657,7 +2677,22 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-
+				Play_pln_fost_cam_01 = {
+					override_name = "Bain",
+					text = "They have cameras- take 'em out!",
+					category = "contractor_vo",
+					is_locationless = true,
+					priority = 39,
+					duration = 3
+				},
+				Play_pln_fost_cam_01 = {
+					override_name = "Bain",
+					text = "Mask up when you're ready to roll.",
+					category = "contractor_vo",
+					is_locationless = true,
+					priority = 39,
+					duration = 3
+				},
 
 
 
@@ -11461,7 +11496,14 @@ ClosedCaptions._sounds = {
 					max_distance = 3000,
 					category = "civilian_dialogue"
 				},
-				cm1_a03x_any = {
+				
+				cf1_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},				
+				cf1_a02x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
 					max_distance = 3000,
@@ -11473,7 +11515,25 @@ ClosedCaptions._sounds = {
 					max_distance = 3000,
 					priority = 37
 				},
+				cf2_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf2_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
 				cf2_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf3_a01x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
 					max_distance = 3000,
@@ -11491,6 +11551,12 @@ ClosedCaptions._sounds = {
 					max_distance = 3000,
 					priority = 37
 				},
+				cf4_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
 				cf4_a02x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
@@ -11498,6 +11564,12 @@ ClosedCaptions._sounds = {
 					priority = 37
 				},
 				cf4_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf5_a01x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
 					max_distance = 3000,
@@ -11521,19 +11593,13 @@ ClosedCaptions._sounds = {
 					max_distance = 3000,
 					priority = 37
 				},
-				cm1_a01x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					priority = 37
-				},
 				cm1_a02x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
 					max_distance = 3000,
 					priority = 37
 				},
-				cm2_a01x_any = {
+				cm1_a03x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
 					max_distance = 3000,
@@ -11864,6 +11930,12 @@ ClosedCaptions._sounds = {
 					category = "enemy_death"
 				},
 
+				l4n_a07a = {
+					text = "l3n_a07a",
+					category = "UNKNOWN",
+					priority = 37,
+					max_distance = 1500
+				},
 				l4n_a01 = {
 					text = "(spotted heister)",
 					category = "enemy_dialogue",
@@ -11891,6 +11963,13 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					duration = 3,
 					text = "(Freeing hostage)",
+					max_distance = 1000,
+					priority = 90
+				},
+				l4n_hr01 = {
+					category = "enemy_chatter",
+					duration = 3,
+					text = "(hurt)",
 					max_distance = 1000,
 					priority = 90
 				},
@@ -12811,6 +12890,7 @@ ClosedCaptions._sounds = {
 				mdc_entrance = {
 					text = "(Medic spawned)",
 					priority = 60,
+					fallback_name = "Medic",
 					category = "enemy_chatter",
 					max_distance = 4000,
 					line_variations = {
@@ -17359,7 +17439,7 @@ ClosedCaptions._sounds = {
 							"THERE'S NO ESCAPE!",
 							"BRING THE PAIN!",
 							"BITCHES!",
-							"YOU REALLY THINK YOU HAVE A CHANCE HRRE?!",
+							"YOU REALLY THINK YOU HAVE A CHANCE HERE?!",
 							"[evil laughter] YOU'LL NEVER GET OUT OF HERE!",
 							"THE LAW... ALWAYS WINS!",
 							"[screaming]", -- ???
@@ -18079,11 +18159,56 @@ ClosedCaptions._sounds = {
 				},
 		--green bridge
 				Play_kzo_glc_01 = {
-					text = "I didn't know my brothers had arranged for my escape! This is a pleasant surprise!",
+					text = "I did not know my brothers were organizing my escape! This is a pleasant surprise!",
+					line_variations = {
+						standard_mode = {
+							"Hah! You came to break me out! You will be rewarded for this!",
+							"These bastard American cops can't keep a Yakuza brother locked up!",
+							"I did not know my brothers were organizing my escape! This is a pleasant surprise!"
+						}
+					},
 					category = "mission_dialogue",
-					override_name = "Giant",
+					override_name = "Kazuo",
+					max_distance = 1500,
 					priority = 36,
-					duration = 7
+					duration = 5
+				},
+				Play_kzo_glc_02 = {
+					text = "Shit, so many cops!"
+					line_variations = {
+						standard_mode = {
+							"What did you do to the bridge!?",
+							"Won't you tell me who you are?",
+							"These cops seem to really hate you!",
+							"You could have brought me a helmet and body armor!",
+							"Shit, so many cops!",
+							"Oh, COME ON!",
+							"You guys should start working for me!",
+							"I think I might have been safer in prison!",
+							"[laughs] You blew the damn bridge!",
+							"Whoever you are, I admire your guts! This is crazy!"
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Kazuo",
+					max_distance = 1500,
+					priority = 36,
+					duration = 5
+				},
+				Play_kzo_glc_03 = {
+					text = "Oh, you're kidding, right?",
+					line_variations = {
+						standard_mode = {
+							"Oh, you're kidding, right?",
+							"What? What the hell are you doing?",
+							"Hey, what's going on here?"
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Kazuo",
+					max_distance = 1500,
+					priority = 36,
+					duration = 3
 				},
 		--white xmas
 				Play_pln_cp1_intro_01 = {
@@ -18250,7 +18375,7 @@ ClosedCaptions._sounds = {
 					max_distance = 1500,
 					duration = 3
 				},
-				Play_pt2_cp1_08 = {
+				Play_pt2_cp1_09 = {
 					text = "(incoherent drunken moaning)",
 					line_variations = {
 						standard_variation = {

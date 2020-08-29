@@ -173,7 +173,7 @@ ClosedCaptions.unit_names = {
 	heavy_swat_sniper = "Heavy SWAT Sniper",
 	fbi_swat = "FBI SWAT",
 	fbi_heavy_swat = "FBI Heavy SWAT",
-	city_swat = "Murkywater",
+	city_swat = "City SWAT",
 	gangster = "Gangster",
 	biker = "Biker",
 	biker_escape = "Biker",
@@ -241,7 +241,7 @@ ClosedCaptions.settings = { --default preset for settings; overridden by json mo
 	log_bainunit_vo = false, --no menu option (intentional)
 	language = 1,
 	caption_x = 0,
-	caption_y = 100,
+	caption_y = 128,
 	caption_w = 800,
 	caption_margin_v = 8,
 	captions_max_count = 5,
@@ -596,7 +596,7 @@ function ClosedCaptions:Update(t,dt)
 --						end
 					end
 					
-					if item.max_distance then 
+					if not is_hidden and item.max_distance then 
 						if not alive(player) or (source_position and (mvector3.distance_sq(player_pos,source_position) >= math.pow(item.max_distance,2))) then 
 							is_hidden = true
 						end
@@ -912,8 +912,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 				color = self.color_data.locke
 			end
 			variant = "narrator"
-		elseif name then 
-			--is criminal
+		elseif name then --is criminal
 			local switch = sound_source:get_switch()
 			if switch and switch.robber then 
 				variant = switch.robber
@@ -921,6 +920,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 					is_locationless = true
 				end
 			end
+			name = managers.localization:text("menu_" .. tostring(name))
 			local color_id = managers.criminals:character_color_id_by_unit(unit)
 			color = (color_id and tweak_data.chat_colors[color_id]) --should this use cc's peer colors?
 			local peer_id = managers.criminals:character_peer_id_by_unit(unit) 
@@ -947,8 +947,8 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 			end
 			color = self.color_data.neutral1
 
-			name = tweak_table and self.unit_names[tweak_table]
 			tweak_table = unit:base()._tweak_table
+			name = tweak_table and self.unit_names[tweak_table]
 			variant = variant or tweak_table
 		end
 	end
