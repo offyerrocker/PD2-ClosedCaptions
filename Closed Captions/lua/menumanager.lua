@@ -962,10 +962,8 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	local sound_data = sound_table.vo[sound_id]
 	local variant_data = sound_data
 	if not sound_data then 
-		if unit then 
-			self:log_line(sound_id)
-		end
 		if (variant ~= "narrator") or (self:ShouldLogBainUnitVO()) then 
+			self:log_line(sound_id,{variant=variant,unit=unit,sound_source=sound_source,position=position})
 			self:AddToDebug(tostring(variant) .. " : " .. sound_id)
 		end
 		sound_table.vo[sound_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
