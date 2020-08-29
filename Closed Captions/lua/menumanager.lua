@@ -1,17 +1,18 @@
 --[[
 BEFORE FIRST PUBLIC RELEASE:
-* new soundsource hook 
-	* ECM jammer sounds
-	* investigate no captions in mp from other players
+* test mp
+* test ecm from other players
 	
-* get position based on camera position?
-	
-check switch/prefix for cop voices; sort by something more closely approximating the original system
-
-* better multiline support
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
 * todo conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
+
+* get position based on camera position?
+	
+* fallback values as well as override values
+* stop_lines should probably remove from soundsource instead of unit
+
+* better multiline support (see hoxton revenge tapes)
 
 * todo option to align vertical from top or from bottom?
 * todo option for lifetime multiplier for captions
@@ -26,13 +27,10 @@ OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
 ISSUES
 	* "element" may appear as the source name, since some lines do not/should not have override_names "element: whistle"
 	* teammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
-	* hoxton lines do not play in hoxbreak once he's inside the car; todo figure out where they're playing from 
-	* goat sfx do not play in goat sim day 1; todo figure out where they're playing from. i hope it's not sequencemanager.
 	
-	using a SoundSource object as a source_id may go wrong and fail to remove any other captions played from that sound source if the soundsource ever moves, because tostring includes its vector position
+	using a SoundSource object as a source_id may go wrong and fail to remove any other captions played from that sound source if the soundsource ever moves, because tostring includes its vector position. use soundsource:key() instead
 	cloaker static MIGHT be interrupted by any other cloaker line, and is not always interrupted by death
 	(test fix for below)
-	some captions for sounds that are played via mission core ElementPlaySound may cut off prematurely
 	Taxman lines may cut off prematurely (reason unknown)
 --]]
 
@@ -284,18 +282,15 @@ function ClosedCaptions:log(...)
 	end
 end
 
-function ClosedCaptions:log_line(sound_id,is_missing,args)
+function ClosedCaptions:log_line(sound_id,args)
 	if not self:IsLoggingEnabled() then 
 		return
 	end
-	if is_missing and self:ShouldLogMissing() then 
-		self:AddToDebug(sound_id)
-	end
 	if self:ShouldLogIDs() then 
 		if Console then 
-			self:log("Played sound [" .. tostring(sound_id) .. "] " .. ((type(args) == "table") and ClosedCaptions.concat(args) or "") .. (is_missing and " (MISSING LINE)" or ""),{color=args and args.color or Color("31cbff")})
+			self:log("Played sound [" .. tostring(sound_id) .. "] " .. ((type(args) == "table") and ClosedCaptions.concat(args) or ""),{color=args and args.color or Color("31cbff")})
 		else
-			self:log("Played sound [" .. tostring(sound_id) .. "] " .. ((type(args) == "table") and ClosedCaptions.concat(args) or "") .. (is_missing and " (MISSING LINE)" or ""))
+			self:log("Played sound [" .. tostring(sound_id) .. "] " .. ((type(args) == "table") and ClosedCaptions.concat(args) or ""))
 		end
 	end
 end
@@ -403,7 +398,7 @@ function ClosedCaptions:IsCaptionCategoryEnabled(category,is_special_enemy)
 		end
 	end
 	
-	if self.category_names_to_setting_names[category] then 
+	if category and self.category_names_to_setting_names[category] then 
 		return self.settings[self.category_names_to_setting_names[category]]
 	elseif category == "UNKNOWN" then
 		return self:ShouldLogMissing()
@@ -881,7 +876,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	
 	local sound_table = self:GetSoundTable()
 	
-	if sound_table.disabled_foley[sound_id] then
+	if sound_table.disabled_sounds[sound_id] then
 	
 		return
 	end
@@ -929,7 +924,9 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 			if unit:sound() then 
 				variant = unit:sound()._prefix
 			end
+			
 			variant = variant or tweak_table
+			name = tweak_table and self.unit_names[tweak_table]
 			is_special_enemy = managers.groupai:state():is_enemy_special(unit)
 			--should bosses be considered special enemies for the purposes of category checks?
 			--(vanilla game does not consider hector/sosa to be special enemies)
@@ -938,13 +935,10 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 				variant = unit:sound()._prefix
 			end
 
+			name = tweak_table and self.unit_names[tweak_table]
 			tweak_table = unit:base()._tweak_table
 			variant = variant or tweak_table
 		end
-	elseif position then 
-		
-	else
-		--set the "you'd better have a backup plan" flag
 	end
 
 
@@ -969,9 +963,11 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	local variant_data = sound_data
 	if not sound_data then 
 		if unit then 
-			self:log_line("Error- no data for event [" .. tostring(sound_id) .. "]")
+			self:log_line(sound_id)
 		end
-		self:AddToDebug(tostring(variant) .. " : " .. sound_id)
+		if (variant ~= "narrator") or (self:ShouldLogBainUnitVO()) then 
+			self:AddToDebug(tostring(variant) .. " : " .. sound_id)
+		end
 		sound_table.vo[sound_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
 		return
 	elseif sound_data.disabled then
@@ -983,7 +979,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	elseif sound_data.text then 
 		text = sound_data.text
 	else
-		self:log_debug("Error- sound " .. tostring(sound_id) .. " has no associated text!")
+		self:log_debug("Error- sound " .. tostring(sound_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
 		return
 	end
 	
@@ -1069,7 +1065,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	end
 	
 	
-	name = variant_data.override_name or name
+	name = variant_data.override_name or name or variant_data.fallback_name
 	
 	if self:UseCapitalNames() then 
 		name = utf8.to_upper(name)
@@ -1098,237 +1094,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	self:_add_line(utf8.to_upper(name) .. ": " .. text,source_id,color,data)
 end
 
-function ClosedCaptions:old_add_line(sound_id,source,source_id,variant,prefix,expire_t,position) --evaluates line's data
-	if not self:IsEnabled() then 
-		return
-	end
-	
-	
-	if expire_t and (expire_t == 0 or expire_t <= Application:time()) then 
-		expire_t = nil
-	end
-	if type(sound_id) == "number" then 
-		sound_id = self:reverse_lookup_event_id(sound_id)
-		if not sound_id then 
-			self:log_debug("No sound id found for number lookup!" .. tostring(sound_id),{color=Color.red})
-		end
-	end
-	if not sound_id then 
-		--invalid sound_id
-		return
-	end
-
-	local text_color = Color.white
-	local is_whisper_mode = managers.groupai:state():whisper_mode()
-	local is_assault_mode = managers.groupai:state():get_assault_mode()
-	local is_special_enemy
-
-	
-	local all_sounds_data = self:GetSoundTable()
-	local subvariant
-	local source_name = tostring(variant)
-	
-	if variant == "criminal" then
-		subvariant = prefix
-		local color_id = source and managers.criminals:character_color_id_by_unit(source)
-		text_color = (color_id and tweak_data.chat_colors[color_id]) or text_color
-		local char_name = source and managers.criminals:character_name_by_unit(source)
-		source_name = (char_name and managers.localization:text("menu_" .. tostring(char_name))) or source_name
-	else
-		if source and alive(source) then 
-			 is_special_enemy = managers.groupai:state():is_enemy_special(source)
-		end
-		if variant == "cop" then 
-			subvariant = source and source:base()._tweak_table
-			source_name = subvariant and self.unit_names[subvariant] or variant
-			
-			text_color = self.color_data.law1 -- Color(0.3,0.5,1)
-		elseif variant == "civilian" then 
-			source_name = self.unit_names[variant] or variant
-			text_color = self.color_data.neutral1 --Color(0.3,1,0.3)
-		elseif variant == "gangster" then
-			source_name = self.unit_names[variant] or variant
-			text_color = self.color_data.mobster1
-		else
-			source_name = self.unit_names[variant] or variant
-		end
-	end
-	
-	local function stop_line(sound_data,f)
-		if sound_data.remove_by_source and sound_data.stops_line then 
-			self:find_line({source = source,sound_id = sound_data.stops_line},sound_data.greedy_match,f)
-		elseif sound_data.remove_by_source then 
-			self:find_line({source = source},sound_data.greedy_match,f)
-		elseif sound_data.stops_line then 
-			self:find_line({sound_id = sound_data.stops_line},sound_data.greedy_match,f)
-		end
-	end
-	
-	local text
-	local subvariant_data
-	local variation_data
-	local is_recombinable
-	local sound_data = all_sounds_data.vo[sound_id]
-	if not sound_data then 
-		self:log_line(sound_id,source_name,true,{source_id=source_id,variant=variant,prefix=prefix,expire_t=expire_t,position=position})
-		if self:ShouldLogBainUnitVO() or (variant ~= "bain") then 
-			--adds any sound, except if the variant is bain, then requires ShouldLogBainUnitVO() to be true
-			self:AddToDebug(sound_id,source_name)
-		end
-		return
-	else
-		if sound_data.variants then 
-			if sound_data.variants[variant] then 
-				sound_data = sound_data.variants[variant]
-				if subvariant and sound_data.subvariants then 
-					subvariant_data = sound_data.subvariants[subvariant]
-				end
-				
-			elseif not sound_data.text then
-				--variants exist, but none for this unit's variant, so do nothing
-				self:log_debug("No variant data exists for soundfile " .. tostring(sound_id) .. ", " .. tostring(variant) .. " subvariant " .. tostring(subvariant),{color=Color(1,0.3,0)})
-				
-				stop_line(sound_data,"_end_line")
-					-- fadeout specified target line, since the current line isn't replacing it
-				
-				return
-			end
-		end
-		
-		
-
-		
-		subvariant_data = subvariant_data or sound_data
-		local variations = subvariant_data.line_variations or sound_data.line_variations
-		if variations and self:IsLineRandomizationEnabled() then 
-			
-			is_recombinable = variations.recombinable
-			
-			if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
-				variation_data = variations.whisper_mode
-				text = self:get_random_variation(variations.whisper_mode,is_recombinable)
-				
-			elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
-				variation_data = variations.assault_mode
-				text = self:get_random_variation(variations.assault_mode,is_recombinable)
-				
-			elseif not is_whisper_mode and variations.assault_break_mode then --if otherwise loud
-				variation_data = variations.assault_break_mode
-				text = self:get_random_variation(variations.assault_break_mode,is_recombinable)
-				
-			elseif variations.standard_mode then --no requirements
-				variation_data = variations.standard_mode
-				text = self:get_random_variation(variations.standard_mode,is_recombinable)
-				
-			end
-		end
-		
-		if subvariant_data.disabled == "missing" then
-			if not self:AllowEmptyVoicelines() then 
-				return 
-			end
-		elseif subvariant_data.disabled then 
-			return
-		end
-		
-		text = text or subvariant_data.text or sound_data.text
-	end
-	
-	local category = subvariant_data.category or sound_data.category	
-	if category == "stops" then 
-		--exempt from category check since it assumes that the line it's stopping is of the same category... duh
-		stop_line(sound_data,"_remove_line")
-	else
-		local category_allowed = self:IsCaptionCategoryEnabled(category,is_special_enemy)
-		
-		if category_allowed == false then 
---			self:log_debug("Category is not allowed! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
-			return
-		elseif category_allowed == nil then 
-			--if unknown or undefined category then log the sound (if logging is enabled)
-			if not self:ShouldLogMissing() then 
-				return
-			end
-			self:log_debug("Category is not set for this line! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
-		else
-			if category_allowed == 1 then --always enabled
-			elseif category_allowed == 2 then --stealth-only
-				if not is_whisper_mode then 
-					return
-				end
-			elseif category_allowed == 3 then --loud-only
-				if is_whisper_mode then 
-					return
-				end
-			elseif category_allowed == 4 then --never allowed
-				return
-			end
-		end
-	end
-	
-	source_name = sound_data.override_name or source_name
-	text_color = sound_data.override_text_color or text_color
-	
-	local t = Application:time()
-	local debug_duration = "nil"
-	
-	if subvariant_data.duration then 
-		expire_t = subvariant_data.duration + t or expire_t
-	
-		debug_duration =  string.format("%.2f",subvariant_data.duration)
-	elseif expire_t then 
-		debug_duration =  string.format("%.2f",expire_t - t)
-	else
-		expire_t = t + self.settings.DEFAULT_LINE_DURATION
-	end
-	
-	if subvariant_data.override_source_id then 
-		if subvariant_data.override_source_id == true then 
-			source_id = nil
-		else
-			source_id = subvariant_data.override_source_id
-		end
-	end
-	
-	if not text then 
-		stop_line(sound_data,"_remove_line")
-		-- remove specified target line outright, since the current line is replacing it
-
-		self:log_debug("ERROR: No valid text in add_line() for: [" .. tostring(sound_id) .. "] by variant [" .. tostring(variant) .. "], subvariant [" .. tostring(subvariant) .. "], source_name/source [" .. tostring(source_name) .. "/" .. tostring(source) .. "]" .. ", start_t/expire_t/expected duration [" .. string.format("%.2f",t) .. "/" .. string.format("%.2f",expire_t) .. "/" .. debug_duration .. "]",Color.red)
-		return
-	else
-		stop_line(sound_data,"_end_line")
-			-- fadeout specified target line, since the current line isn't replacing it
-		self:log_debug("PLAYING SOUND: [" .. tostring(sound_id) .. "] by variant [" .. tostring(variant) .. "], subvariant [" .. tostring(subvariant) .. "], source_name/source [" .. tostring(source_name) .. "/" .. tostring(source) .. "]" .. ", start_t/expire_t/expected duration [" .. string.format("%.2f",t) .. "/" .. string.format("%.2f",expire_t) .. "/" .. debug_duration .. "]",text_color)
-	end
-	
-	if self:UseCapitalNames() then 
-		source_name = utf8.to_upper(source_name)
-	end
-	
-	local panel_text = tostring(source_name) .. ": " .. tostring(text)
-
-	local data = {
-		position = position,
-		source = source,
-		source_name = source_name,
-		loop_data = sound_data.loop_data,
-		loop_visible = true, --only used if loop_data is present
-		sound_id = sound_id,
-		priority = subvariant_data.priority or sound_data.priority or 1,
-		max_distance = subvariant_data.max_distance or sound_data.max_distance,
-		variation_data = variation_data,
-		is_recombinable = is_recombinable,
-		start_t = t,
-		text_color = text_color,
-		is_locationless = (source and source == managers.player:local_player()) or subvariant_data.is_locationless or sound_data.is_locationless,
-		expire_t = expire_t
-	}
-	self:_add_line(panel_text,source_id,text_color,data)
-end
-
 function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --creates panel from data, adds line's data to data structure
-	self:log_debug("Got to _add_line!")
 	if not panel_text then 
 		self:log_debug("Error: No valid text in _add_line()")
 		return
@@ -1413,7 +1179,7 @@ end
 --used to convert FOUND_MISSING_LINES from versions 0.1 and earlier, since those versions did not have duplicate line protection
 
 function ClosedCaptions:AddToDebug(sound_name)
-	if not self.debug_mission_name then 
+	if managers.job and not self.debug_mission_name then 
 		local level_data = managers.job:current_level_data()
 		local level_name = level_data and level_data.name_id
 		self.debug_mission_name = level_name and managers.localization:text(level_name)
@@ -1621,13 +1387,17 @@ end)
 
 if SoundSource then 
 
+	Hooks:PostHook(SoundSource, "stop", "closedcaptions_soundsource_stop", function(self)
+		ClosedCaptions:find_line({sound_source = self},"_end_line")
+	end)
+	
 	Hooks:PostHook(SoundSource,"post_event","closedcaptions_soundsource_postevent",function(self,event,clbk,cookie,marker,event_type)
-		local linked_unit 
-		if SoundSource.get_link then 
-			linked_unit = SoundSource.get_link(self)
+--		local linked_unit 
+--		if SoundSource.get_link then 
+--			linked_unit = SoundSource.get_link(self)
 --			ClosedCaptions:log_debug("DEBUG PLAYED " .. tostring(event) .. " by soundsource " .. tostring(self) .. ", unit " .. tostring(linked_unit) .. ", event type " .. tostring(event_type))
-		end
-		ClosedCaptions:add_line(event,linked_unit,self,SoundSource.get_position and SoundSource.get_position(self))
+--		end
+		ClosedCaptions:add_line(event,SoundSource.get_link and SoundSource.get_link(self),self,SoundSource.get_position and SoundSource.get_position(self))
 --[[	
 		if not self._ccm_hook_data then 
 			

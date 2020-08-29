@@ -1,10 +1,169 @@
 ClosedCaptions._sounds = {
 	languages = {
 		english = {
-			disabled_foley = {
-				example_sound = true
+			disabled_sounds = {
+				foley_impact_heavy_equipment = {
+					text = "[heavy bag impact]",
+					max_distance = 700,
+					duration = 2,
+					category = "foley"
+				},
+				fatigue_breath = {
+					text = "[heavy panting]",
+					category = "foley",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				fatigue_breath_stop = {
+					category = "stops",
+					stops_line = "fatigue_breath"
+				},
+				c45_fire = {
+					override_name = "SFX",
+					disabled = true,
+					category = "sfx",
+					priority = 37,
+					text = "[gunshot]"
+				},
+				c45_npc1a_1shot = {
+					override_name = "SFX",
+					disabled = true,
+					category = "sfx",
+					priority = 37,
+					text = "[gunshot]"
+				},
+				c45_npc1b_1shot = {
+					override_name = "SFX",
+					disabled = true,
+					category = "sfx",
+					priority = 37,
+					text = "[gunshot]"
+				},
+				c45_npc1c_1shot = {
+					override_name = "SFX",
+					disabled = true,
+					category = "sfx",
+					priority = 37,
+					text = "[gunshot]"
+				},
+				Play_pln_glace_brf = true,
+				Play_pln_glace_01 = true,
+				Play_pln_glace_02 = true,
+				Play_pln_glace_03 = true,
+				Play_pln_glace_04 = true,
+				Play_pln_glace_05 = true,
+				Play_pln_glace_06 = true,
+				Play_pln_glace_07 = true,
+				Play_pln_glace_08 = true,
+				Play_pln_glace_09 = true,
+				Play_pln_glace_10 = true,
+				Play_pln_glace_11 = true,
+				Play_pln_glace_12 = true,
+				Play_pln_glace_13 = true,
+				Play_pln_glace_14 = true,
+				ambience_ext_heavy_rain_storm_asphalt = true,
+				bar_drill_apply = true,
+				bar_drill_apply_cancel = true,
+				bar_drill_apply_finished = true,
+				box_tick = true,
+				box_untick = true,
+				bullet_hit = true,
+				bullet_whizby_medium = true,
+				cqc_equip = true,
+				cqc_hit_air = true,
+				cqc_hit_body = true,
+				foley_flap_light = true,
+				foley_run_m4_01 = true,
+				foley_run_m4_02 = true,
+				footstep_land = true,
+				footstep_npc_bulldozer_walk = true,
+				footstep_npc_hardsole_land = true,
+				footstep_npc_hardsole_run = true,
+				footstep_npc_hardsole_walk = true,
+				footstep_run = true,
+				footstep_walk = true,
+				gadget_laser_aim_off = true,
+				gadget_laser_aim_on = true,
+				game_pause_in_game_menu = true,
+				game_resume = true,
+				highlight = true,
+				keltec_fire = true,
+				m4_equip = true,
+				m4_equip = true,
+				m4_npc1a_1shot = true,
+				m4_npc1a_2shot = true,
+				m4_npc1a_3shot = true,
+				m4_npc1a_end = true,
+				m4_npc1a_loop = true,
+				m4_unequip_a = true,
+				mask_on_equip_stereo = true,
+				mask_on_from_bag_stereo = true,
+				mask_on_left_hand_stereo = true,
+				menu_enter = true,
+				menu_exit = true,
+				mp5_npc1a_1shot = true,
+				mp5_npc1a_2shot = true,
+				mp5_npc1a_end = true,
+				mp9_npc1a_1shot = true,
+				mp9_npc1a_2shot = true,
+				mp9_npc1a_3shot = true,
+				mp9_npc1a_end = true,
+				mp9_npc1a_loop = true,
+				music_heist_anticipation = true,
+				music_heist_assault = true,
+				music_heist_control = true,
+				music_heist_setup = true,
+				occasionals_a_silent = true,
+				pistol_steel_sight_enter = true,
+				pistol_steel_sight_exit = true,
+				primary_steel_sight_enter = true,
+				primary_steel_sight_exit = true,
+				rbull_npc1a_1shot = true,
+				remington_npc1a_1shot = true,
+				saiga_npc1a_1shot = true,
+				saiga_npc1a_2shot = true,
+				saiga_npc1a_3shot = true,
+				saiga_npc1a_end = true,
+				saiga_npc1a_loop = true,
+				stinger_feedback_negative = true,
+				stinger_objectivecomplete = true,
+				w_ppk_fire = true,
+				wp_clip_generic_pist_right = true,
+				wp_foley_generic_back_in_hand = true,
+				wp_foley_generic_clip_grab = true,
+				wp_foley_generic_clip_in_connect = true,
+				wp_foley_generic_lever_grab = true,
+				wp_foley_generic_lever_pull = true,
+				wp_foley_generic_lever_release = true,
+				wp_g17_clip_grab = true,
+				wp_g17_clip_in_contact = true,
+				wp_g17_clip_slide_in = true,
+				wp_g17_clip_slide_out = true,
+				wp_g17_lever_release = true,
+				wp_pistol_slide_lock = true,
+				wp_reinbeck_reload_cock = true,
+				wp_reinbeck_shell_insert = true,
+				Play_pln_glace_intro = true,
+				bsides_02_swat_attack = true,
+				footstep_npc_bulldozer_run = true,
+				sniper_npc1a_1shot = true,
+				Play_ban_c01 = true,
+				Play_ban_r04 = true,
+				Play_ban_r03 = true,
+				music_uno_fade_reset = true,
+				emitter_rain_on_car = true,
+				emitter_car_fire_rain = true,
+				emitter_rain_on_generic = true,
+				emitter_rain_on_metal_hollow_large = true,
+				emitter_tarp_wind = true,
+				emitter_stress_metal_large = true,
+				emitter_rubble_light = true,
+				emitter_water_on_generic_hollow_mono_loop2 = true,
+				emitter_water_on_generic_hollow_mono_loop = true,
+				emitter_generator = true
 			},
-			vo_special = { --there exit character-specific variants for most of these, but we'll burn that bridge when we come to it
+			vo_special = { --there exist character-specific variants for most of these, but we'll burn that bridge when we come to it
 				["f11@_sin"] = { --macroized
 					text = "$CHARACTER_NAME! Help me up!",
 					macro = "character_name",
@@ -33,6 +192,7 @@ ClosedCaptions._sounds = {
 				}
 			},
 			vo = {
+			--player sounds (ammo/throwable pickup, perkdeck end, armor broken, etc)
 				pickup_ammo = {
 					override_name = "SFX",
 					text = "picked up ammo",
@@ -111,6 +271,1028 @@ ClosedCaptions._sounds = {
 					priority = 25,
 					category = "sfx"
 				},
+				cable_tie_apply = { --i think this only plays for local player, so i count it as a player sound
+					override_name = "SFX",
+					category = "sfx",
+					duration = 2,
+					priority = 50,
+					text = "[cable tie rustles]"
+				},
+				perkdeck_cooldown_over = {
+					override_name = "SFX",
+					text = "(perk deck cooldown end)",
+					priority = 11,
+					duration = 2,
+					category = "sfx"
+				},
+				nine_lives_skill = {
+					override_name = "SFX",
+					text = "(nine lives skill activates!)",
+					priority = 11,
+					category = "sfx"
+				},
+				tasered_loop = {
+					override_name = "SFX",
+					text = "(being tased!)",
+					priority = 11,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1 --constant
+					}
+				},
+				tasered_stop = {
+					category = "stops",
+					remove_by_source = true,
+					priority = 11,
+					stops_line = "tasered_loop"
+				},
+				melee_hit_body = { --some of these don't trigger since they're queued directly from the sound_source() and not through play() or say()
+					override_name = "SFX",
+					text = "(melee impact)",
+					priority = 20,
+					category = "sfx",
+					disabled = true
+				},
+				player_armor_gone_stinger = {
+					override_name = "SFX",
+					text = "(armor broken!)",
+					priority = 12,
+					category = "sfx",
+					disabled = true
+				},
+				shield_full_indicator = {
+					override_name = "SFX",
+					text = "(armor restored)",
+					priority = 12,
+					category = "sfx",
+					disabled = true
+				},
+				player_sniper_hit_armor_gone = {
+					override_name = "SFX",
+					text = "(armor broken by sniper!)",
+					priority = 12,
+					category = "sfx",
+					disabled = true
+				},
+				player_hit = {
+					override_name = "SFX",
+					text = "(armor damaged)",
+					priority = 13,
+					category = "sfx",
+					disabled = true
+				},
+				player_hit_permadamage = {
+					override_name = "SFX",
+					text = "(health damaged!)",
+					priority = 11,
+					category = "sfx",
+					disabled = true
+				},
+				critical_state_heart_loop = { --! needs a stop
+					override_name = "SFX",
+					text = "(low health heartbeat)",
+					priority = 12,
+					duration = 1,
+					loop_data = {
+						loop_interval = 1
+					},
+					category = "sfx"
+				},
+				concussion_effect_on = {
+					override_name = "SFX",
+					text = "(concussion ringing)",
+					priority = 20,
+					category = "sfx"
+				},
+				concussion_effect_off = {
+					override_name = "SFX",
+					text = "(concussion ringing fades)",
+					priority = 20,
+					category = "sfx"
+				},
+				concussion_player_disoriented_sfx = {
+					override_name = "SFX",
+					text = "(concussion disorientation)",
+					priority = 20,
+					category = "sfx"
+				},
+				tinnitus_beep = {
+					override_name = "SFX",
+					text = "(ears ringing from tinnitus)",
+					priority = 20,
+					category = "sfx"
+				},
+				tinnitus_beep_stop = {
+					override_name = "SFX",
+					text = "(tinnitus stops)",
+					priority = 20,
+					duration = 2,
+					category = "sfx"
+				},
+
+
+
+--sfx/non-dialogue:
+	--mission equipment, player equipment (generally, interactable things)
+				ammo_bag_drop = {
+					override_name = "SFX",
+					text = "(bag impact)",
+					max_distance = 1500,
+					duration = 2,
+					priority = 37,
+					category = "sfx"
+				},
+				bar_prison_transport_door_open_finished = {
+					override_name = "SFX",
+					text = "(door sawing complete)",
+					max_distance = 2000,
+					duration = 2,
+					priority = 37,
+					category = "sfx"
+				},
+				bag_light_drop = {
+					override_name = "SFX",
+					text = "[light bag placed]",
+					category = "sfx",
+					max_distance = 1500,
+					priority = 37,
+					duration = 3
+				},
+				bag_medium_drop = {
+					override_name = "SFX",
+					text = "[medium bag placed]",
+					category = "sfx",
+					max_distance = 1500,
+					priority = 37,
+					duration = 3
+				},
+				bag_heavy_drop = {
+					override_name = "SFX",
+					text = "[heavy bag placed]",
+					category = "sfx",
+					max_distance = 1500,
+					priority = 37,
+					duration = 3
+				},
+				blowtorch_guy = {
+					override_name = "SFX",
+					text = "(blowtorch hissing)",
+					max_distance = 2500,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 36,
+					category = "sfx"
+				},
+				blowtorch_guy_end_global = {
+					override_name = "SFX",
+					text = "(blowtorch stops)",
+					stops_line = "blowtorch_guy",
+					priority = 36,
+					category = "sfx"
+				},
+				buzz_saw_aced = {
+					text = "[buzz saw grinds quietly]",
+					category = "sfx",
+					max_distance = 500,
+					priority = 37,
+					duration = 5,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				buzz_saw_jam = {
+					text = "[jammed buzz saw screeches!]",
+					category = "sfx",
+					override_name = "SFX",
+					max_distance = 1500,
+					priority = 37,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				buzz_saw = {
+					text = "[buzz saw grinds]",
+					override_name = "SFX",
+					category = "sfx",
+					max_distance = 500,
+					priority = 37,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				buzz_saw_end_aced = {
+--					text = "[aced buzz saw finishes]",
+					override_name = "SFX",
+					priority = 37,
+					duration = 2,
+					category = "stops",
+					stops_line = "buzz_saw_aced"
+				},
+				card_reader_first_card = { --ovk decided to reuse this sound for hoxton revenge's laser grids activation noises, so... generic descriptions. yay.
+					override_name = "SFX",
+					text = "beeps",
+					duration = 3,
+					max_distance = 1500,
+					priority = 37,
+					category = "sfx"
+				},
+				card_reader_second_card = {
+					override_name = "SFX",
+					text = "rapid beeps",
+					duration = 3,
+					max_distance = 1500,
+					priority = 37,
+					category = "sfx"
+				},
+				camera_wrong_image = {
+					override_name = "SFX",
+					text = "[Camera loop active]",
+					category = "sfx",
+					priority = 36,
+					max_distance = 3000,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				camera_wrong_image_outro = {
+					override_name = "SFX",
+					category = "stops",
+					stops_line = "camera_wrong_image",
+					text = "[Camera loop ending!]",
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 37
+				},
+				camera_wrong_image_outro_end = {
+					override_name = "SFX",
+					category = "stops",
+					stops_line = "camera_wrong_image_outro",
+					priority = 37
+				},
+				container_drop = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 37,
+					duration = 3,
+					text = "(cargo container drops)"
+				},
+				cooking_meth = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 37,
+					max_distance = 500,
+					text = "[cooking meth]",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				cooking_meth_stop = {
+					override_name = "SFX",
+					category = "stops",
+--					text = "[meth cooking stops]",
+					priority = 37,
+					stops_line = "cooking_meth"
+				},
+				ecm_jammer_ready = {
+					override_text = "SFX",
+					category = "sfx",
+					override_source_id = true,
+					duration = 2,
+					priority = 25,
+					text = "[ECM Jammer ready]"
+				},
+				ecm_jammer_jam_signal = {
+					override_text = "SFX",
+					category = "sfx",
+					override_source_id = true,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 25,
+					text = "[ECM Jammer active]"
+				},
+				ecm_jammer_jam_signal_stop = {
+					override_text = "SFX",
+					category = "stops",
+--					text = "[ECM Jammer stops]",
+					remove_by_source = true, --since multiple ecms may be active at once, but each ecm only plays one sound at a time, ecm sounds should be removed by source
+					stops_line = "ecm_jammer_jam_signal",
+					duration = 2,
+					priority = 25
+				},
+				ecm_jammer_puke_signal = {
+					override_text = "SFX",
+					category = "sfx",
+					override_source_id = true,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 25,
+					text = "[ECM Feedback active]"
+				},
+				ecm_jammer_puke_signal_stop = {
+					override_text = "SFX",
+					category = "stops",
+--					text = "[ECM Feedback stops]",
+					stops_line = "ecm_jammer_puke_signal",
+					remove_by_source = true,
+					duration = 2,
+					priority = 25
+				},
+				goat_fan_woosh = {
+					override_name = "SFX",
+					text = "(Goat riding the fan)",
+					priority = 38,
+					max_distance = 1000,
+					loop_data = {
+						loop_interval = -1
+					},
+					category = "sfx"
+				},
+				goat_hang_scaffold = {
+					override_name = "SFX",
+					text = "(Goat bleats from scaffolding)",
+					priority = 38,
+					max_distance = 1000,
+					loop_data = {
+						loop_interval = -1
+					},
+					category = "sfx"
+				},
+				goat_kick = {
+					override_name = "SFX",
+					text = "(Goat kicks!)",
+					priority = 38,
+					max_distance = 700,
+					category = "sfx"
+				},
+				goat_sleep = {
+					override_name = "SFX",
+					text = "(Goat snores, bleats)",
+					max_distance = 1000,
+					priority = 38,
+					category = "sfx"
+				},
+				goat_says_meh = {
+					override_name = "SFX",
+					text = "(Goat bleats)",
+					max_distance = 1000,
+					priority = 38,
+					category = "sfx"
+				},
+				goat_says_meh_loop = {
+					override_name = "SFX",
+					text = "(Goat bleating)",
+					max_distance = 1000,
+					priority = 38,
+					category = "sfx",
+					duration = 2,
+					loop_data = {
+						loop_interval = 5,
+						use_random_loop_interval = true
+					}
+				},
+				goat_lick = {
+					override_name = "SFX",
+					text = "(Goat licks)",
+					duration = 3,
+					max_distance = 1000,
+					priority = 38,
+					category = "sfx"
+				},
+				goat_headbutt = {
+					override_name = "SFX",
+					text = "(Goat headbutts!)",
+					duration = 3,
+					max_distance = 1000,
+					priority = 38,
+					category = "sfx"
+				},
+				glass_door_open = {
+					text = "[glass door opens]",
+					category = "sfx",
+					override_name = "SFX",
+					max_distance = 1000,
+					priority = 37,
+					duration = 2
+				},
+				hacking_device = {
+					override_name = "SFX", --looped
+					text = "[hacking noise]",
+					category = "sfx",
+					max_distance = 700,
+					priority = 37,
+					duration = 10,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				hacking_device_end = {
+					category = "sfx",
+					stops_line = "hacking_device",
+					category = "stops"
+				},				
+				hos_phone_call = {
+					override_name = "SFX",
+					text = "[hospital phone ringing]",
+					category = "sfx",
+					max_distance = 2500,
+					loop_data = {
+						loop_interval = 2
+					},
+					priority = 37,
+					duration = 2
+				},
+				hos_phone_answer = {
+					override_name = "SFX",
+					text = "[hospital phone answered]",
+					category = "stops",
+					priority = 38,
+					stops_line = "hos_phone_call",
+					duration = 2
+				},
+				inside_container = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 37,
+					text = "(cargo container clanking)"
+				},
+				insert_usb_stick = {
+					override_name = "SFX",
+					text = "[inserted USB stick]",
+					duration = 2,
+					max_distance = 700,
+					priority = 37,
+					category = "sfx"
+				},
+				kick_open_container = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 37,
+					duration = 2,
+					text = "(cargo container opens)"
+				},
+				keypad_button_press_03 = {
+					override_name = "SFX",
+					text = "keypad button pressed",
+					max_distance = 1000,
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				keypad_wrong_code_03 = {
+					override_name = "SFX",
+					text = "(wrong keypad code)",
+					max_distance = 1000,
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				keypad_correct_code_03 = {
+					override_name = "SFX",
+					text = "(correct keypad code)",
+					max_distance = 1000,
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				keypad_wrong_code = {
+					override_name = "SFX",
+					max_distance = 1000,
+					text = "[keypad wrong code]",
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				keypad_correct_code = {
+					override_name = "SFX",
+					max_distance = 1000,
+					text = "[keypad correct code]",
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				laser_shutdown_left = {
+					override_name = "SFX",
+					text = "[left laser deactivates]",
+					category = "sfx",
+					max_distance = 3000,
+					priority = 37,
+					duration = 3
+				},
+				laser_shutdown_right = {
+					override_name = "SFX",
+					text = "[right laser deactivates]",
+					category = "sfx",
+					max_distance = 3000,
+					priority = 37,
+					duration = 3
+				},
+				laser_warning_on_left = {
+					override_name = "SFX",
+					text = "[left laser activates]",
+					category = "sfx",
+					max_distance = 3000,
+					priority = 37,
+					duration = 3
+				},
+				laser_warning_on_right = {
+					override_name = "SFX",
+					text = "[right laser activates]",
+					category = "sfx",
+					max_distance = 3000,
+					priority = 37,
+					duration = 3
+				},
+				magnetic_door_open = {
+					text = "[magnetic door opens]",
+					category = "sfx",
+					override_name = "SFX",
+					max_distance = 1000,
+					priority = 37,
+					duration = 2
+				},
+				server_room_door_open = {
+					override_name = "SFX",
+					text = "[server room door opens]",
+					max_distance = 1500,
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				server_noise_loop = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "[server noises]",
+					max_distance = 500,
+					priority = 37,
+					duration = 5,
+					loop_data = {
+						loop_interval = 20
+					}
+				},
+				sah_hacking_device_data_transfer_finish = {
+					override_name = "SFX",
+					text = "[hacking device finished]",
+					category = "sfx",
+					max_distance = 700,
+					priority = 37,
+					duration = 2
+				},
+				sah_hacking_device_data_transfer_loop = {
+					override_name = "SFX",
+					text = "(hacking device working)",
+					max_distance = 1000,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 36,
+					category = "sfx"
+				},
+				small_metal_door_open_02 = {
+					text = "[door opens]",
+					category = "sfx",
+					override_name = "SFX",
+					max_distance = 1000,
+					priority = 37,
+					duration = 2
+				},
+				table_saw = {
+					override_name = "SFX",
+					text = "(table saw grinding)",
+					max_distance = 1000,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 36,
+					category = "sfx"
+				},
+				table_saw_stop = {
+					override_name = "SFX",
+					text = "(table saw stops)",
+					stops_line = "table_saw",
+					duration = 2,
+					priority = 36,
+					category = "sfx"
+				},
+				trip_mine_arm = {
+					override_name = "SFX",
+					category = "sfx",
+					duration = 1,
+					priority = 26,
+					text = "[Trip mine set to Explosive Mode]"
+				},
+				trip_mine_attach = {
+					override_name = "SFX",
+					category = "sfx",
+					duration = 1,
+					priority = 26,
+					text = "[Trip mine placed/warmup]"
+				},
+				trip_mine_beep_armed = {
+					override_name = "SFX",
+					category = "sfx",
+					duration = 1,
+					priority = 26,
+					text = "[Trip mine activated]"
+				},
+				trip_mine_beep_explode = {
+					override_text = "SFX",
+					category = "sfx",
+					duration = 1,
+					priority = 25,
+					text = "[Trip mine explosion triggered!]"
+				},
+				trip_mine_disarm = {
+					override_name = "SFX",
+					category = "sfx",
+					duration = 1,
+					priority = 26,
+					text = "[Trip mine set to Sensor Mode]"
+				},
+				trip_mine_explode = {
+					override_name = "SFX",
+					category = "sfx",
+					duration = 1,
+					priority = 25,
+					text = "[Trip mine explosion]"
+				},
+				trip_mine_sensor_alarm = {
+					override_name = "SFX",
+					category = "sfx",
+					duration = 2,
+					priority = 25,
+					text = "[Trip mine sensor triggered]"
+				},
+				vial_break_2d = {
+					override_name = "SFX",
+					text = "(vial breaks)",
+					priority = 20,
+					category = "sfx"
+				},
+				hlp_keycard_box_appear = {
+					override_name = "SFX",
+					text = "(keycard box appears)",
+					duration = 2,
+					category = "sfx"
+				},
+				hlp_keycard_box_disappear = {
+					override_name = "SFX",
+					text = "(keycard box poofs)",
+					duration = 2,
+					category = "sfx"
+				},
+
+				
+	--environ/emitters
+				ambience_switch_halloween_2016_state_smoke_to_ext = {
+					disabled = true,
+					text = "ambient outdoor spoopiness",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				ambience_switch_halloween_2016_state_ext_to_smoke = {
+					disabled = true,
+					text = "ambient indoor spoopiness",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				hos_witch_cry_loop_01 = {
+					override_name = "Witch",
+					override_text_color = ClosedCaptions.color_data.l4d_witch,
+					text = "[Groans Softly]",
+					priority = 99,
+					duration = 3,
+					is_locationless = true,
+					loop_data = {
+						loop_interval = 3,
+						use_random_loop_interval = true
+					},
+					category = "sfx"
+				},
+				city_sounds_basketball = { --idk if this works, probably though. panic room 
+					override_name = "SFX",
+					text = "(ambient: casual basketball game)",
+					priority = 50,
+					category = "UNKNOWN"
+				},
+				city_sounds_basketball_stop = {
+					stops = "city_sounds_basketball",
+					category = "stops"
+				},
+				earthquake_siren_end = {
+					override_name = "SFX",
+					text = "(air raid/earthquake siren ends)",
+					category = "stops",
+					stops_line = "earthquake_siren"
+				},
+				earthquake_siren = {
+					override_name = "SFX",
+					text = "(air raid/earthquake siren)",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				thunder_struck = {
+					text = "[thunder rumbles]",
+					override_name = "SFX",
+					disabled = true,
+					priority = 90,
+					duration = 2,
+					category = "sfx"
+				},
+				thunder_struck_distant = {
+					text = "[distant thunder rumbles]",
+					override_name = "SFX",
+					disabled = true,
+					priority = 90,
+					duration = 2,
+					category = "sfx"
+				},
+				emitter_rain_tag_open_window_indoor = {
+					override_name = "ambient",
+					override_source_id = "rain_emitter",
+					is_locationless = true,
+					text = "(soft rain, distant thunder outside window)",
+					priority = 90,
+					category = "sfx"
+				},
+				emitter_rain_on_skylight_indoor = {
+					override_name = "ambient",
+					override_source_id = "rain_emitter",
+					is_locationless = true,
+					text = "(soft rain against skylight)",
+					priority = 90,
+					category = "sfx"
+				},
+				emitter_lorry_idle_01 = {
+					override_name = "SFX",
+					text = "(lorry engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_car_idle_01 = {
+					override_name = "SFX",
+					text = "(car engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_car_idle_05 = {
+					override_name = "SFX",
+					text = "(car engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_car_idle_07 = {
+					override_name = "SFX",
+					text = "(car engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_car_idle_10 = {
+					override_name = "SFX",
+					text = "(car engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_car_idle_broken_01 = {
+					override_name = "SFX",
+					text = "(broken car engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_car_idle_03_gen_20 = {
+					override_name = "SFX",
+					text = "(car engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				emitter_truck_idle_02 = {
+					override_name = "SFX",
+					text = "(truck engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				helicopter_ambience_loop = {
+					override_name = "SFX",
+					text = "(helicopter droning)",
+					max_distance = 5000,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					},
+					disabled = true
+				},
+				helicopter_police = {
+					override_name = "SFX",
+					text = "(helicopter droning)",
+					max_distance = 2000,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					},
+					disabled = true
+				},
+
+				cop_car_01 = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 40,
+					text = "(police sirens approaching)"
+				},
+				cop_car_02 = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 40,
+					text = "(police sirens approaching)"
+				},
+				bd_police_siren_02 = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 40,
+					text = "(police sirens)"
+				},
+				police_radio = {
+					override_name = "SFX",
+					text = "(police radio chatter)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				policecar_approaching = { 
+					override_name = "SFX",
+					category = "sfx",
+					priority = 40,
+					text = "(police car approaching)",
+					max_distance = 1500,
+					loop_data = {
+						loop_interval = -1 --constant
+					}
+				},
+				policecar_arrive_stop_global = {
+					override_name = "SFX",
+					category = "stops",
+					stops_line = "policecar_approaching",
+					priority = 40,
+					text = "(police car arrives"
+				},
+				hos_crowd_walla = {
+					text = "[hospital din]",
+					override_name = "SFX",
+					duration = 30,
+					disabled = true,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				hos_crowd_walla_stop = {
+					category = "stops",
+					stops_line = "hos_crowd_walla"
+				},
+
+				
+
+	--npcs/enemy equipment
+				camera_alarm_signal = {
+					override_name = "SFX",
+					text = "(Camera alerted!)",
+					priority = 30,
+					duration = 10,
+					category = "sfx"
+				},
+				emitter_security_camera_explode = {
+					override_name = "SFX",
+					text = "(Camera destroyed!)",
+					max_distance = 3000,
+					priority = 36,
+					duration = 2,
+					category = "sfx"
+				},
+				flashbang_beep = {
+					override_name = "SFX",
+					text = "flashbang beeping",
+					duration = 1,
+					priority = 11,
+					category = "sfx"
+				},
+				flashbang_bounce = {
+					override_name = "SFX",
+					text = "(flashbang bounces)",
+					duration = 1,
+					max_distance = 1500,
+					priority = 20,
+					category = "sfx"
+				},
+				flashbang_explosion = {
+					override_name = "SFX",
+					text = "(flashbang explodes!)",
+					duration = 2,
+					max_distance = 3000,
+					priority = 20,
+					category = "sfx"
+				},
+				flashbang_explode_sfx_player = {
+					override_name = "SFX",
+					text = "(flashbang blinds!)",
+					priority = 20,
+					category = "sfx"
+				},
+				grenade_gas_npc_fire = {
+					override_name = "SFX",
+					text = "(gas grenade launch)",
+					duration = 2,
+					priority = 20,
+					max_distance = 2000,
+					category = "sfx"
+				},
+				repel_loop = {
+					override_name = "SFX",
+					text = "(police rappelling)",
+					max_distance = 1500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				repel_stop = {
+					priority = 60,
+					category = "stops",
+					stops_line = "repel_loop",
+					remove_by_source = true
+				},	
+				bulldozer_collar_plate_shatter = {
+					override_name = "SFX",
+					text = "(Bulldozer collar shatters!)",
+					max_distance = 1500,
+					priority = 36,
+					duration = 2,
+					category = "sfx"
+				},
+				npc_typing_on_copy_machine_loop = {
+					override_name = "SFX",
+					text = "(copy machine typing)",
+					priority = 90,
+					loop_data = {
+						loop_interval = -1
+					},
+					max_distance = 1000,
+					category = "sfx"
+				},
+				npc_crowd_scream_01 = {
+					override_name = "SFX",
+					text = "(crowd screaming)",
+					priority = 60,
+					category = "sfx"
+				},
+
+				
+
+	--music/radios
 				radio = {
 					override_name = "SFX",
 					text = "(radio plays music)",
@@ -183,68 +1365,166 @@ ClosedCaptions._sounds = {
 					category = "stops",
 					stops_line = "rvd_radio_music_start"					
 				},
-				server_noise_loop = {
+				diegetic_club_music = {
+					override_name = "SFX",
+					text = "[loud club music]",
+					loop_data = {
+						loop_interval = -1
+					},
+					category = "sfx",
+					priority = 90,
+					max_distance = 3000
+				},
+				diegetic_club_music_stop = {
+					override_name = "SFX",
+					text = "[club music stops]",
+					category = "stops",
+					stops_line = "diegetic_club_music"
+				},
+				diegetic_lounge_music = {
+					override_name = "SFX",
+					text = "[lounge music]",
+					loop_data = {
+						loop_interval = -1
+					},
+					category = "sfx",
+					priority = 90,
+					max_distance = 3000
+				},
+
+				
+	--alarms
+				art_galley_alarm_on_slow_fade = { --(sic)
+					override_name = "SFX",
+					text = "[ALARM KLAXON]",
+					priority = 37,
+					duration = 60,
+					category = "sfx"					
+				},
+				art_gallery_alarm_off = {
+					stops_line = "art_galley_alarm_on_slow_fade",
+					category = "stops"
+				},
+				bank_alarm_on_slow_fade = {
+					override_name = "SFX",
+					text = "[bank alarm!]",
+					priority = 37,
+					duration = 60,
+					category = "sfx"					
+				},
+				alarm_kosugi_on_slow_fade_02 = {
+					override_name = "SFX",
+					text = "[alarm sounds]",
+					duration = 30,
+					priority = 37,
+					category = "sfx"
+				},
+				alarm_museum_on_slow_fade = {
+					override_name = "SFX",
+					text = "[ALARM KLAXON]",
+					duration = 30,
+					priority = 37,
+					category = "sfx"
+				},
+				alarm_countdown_loop = {
+					override_name = "SFX",
+					max_distance = 2000,
+					text = "[Slow alarm countdown ticking]",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1 --constant
+					},
+					priority = 37
+				},
+				alarm_countdown_ticking_down_10sec = {
+					override_name = "SFX",
+					max_distance = 2000,
+					text = "[Slow alarm countdown: 10s left!",
+					category = "sfx"
+				},
+				alarm_countdown_loop_stop = {
+					override_name = "SFX",
+					text = "[Alarm countdown stops]",
+					category = "stops",
+					stops_line = "alarm_countdown_loop",
+					duration = 2,
+					priority = 37
+				},
+				hitec_lotec_alarm_slow_fade = {
+					override_name = "SFX",
+					text = "[alarm]",
+					category = "sfx",
+					priority = 37,
+					duration = 3
+				},
+				hos_alarm = {
+					override_name = "SFX",
+					text = "(hospital alarm!)",
+					category = "sfx",
+					duration = 30
+				},
+
+
+
+	--general heist sfx/explosions and the like;misc sfx
+				bell_ring = {
+					override_name = "SFX",
+					text = "(bell ringing)",
+					duration = 5,
+					category = "sfx"
+				},
+				birds_fly_away = {
 					override_name = "SFX",
 					category = "sfx",
-					text = "[server noises]",
-					max_distance = 500,
 					priority = 37,
-					duration = 5,
-					loop_data = {
-						loop_interval = 20
-					}
+					text = "(birds squawk, fly away)"
 				},
---				server_noise_loop_stop = { --this does not, in fact, work
---					stops_line = "server_noise_loop",
---					category = "stops"
---				},
-				emitter_security_camera_explode = {
+				branch_bank_phone_call = {
 					override_name = "SFX",
-					text = "(Camera death!)",
-					max_distance = 3000,
-					priority = 36,
-					category = "sfx"
-				},
-				table_saw = {
-					override_name = "SFX",
-					text = "(table saw grinding)",
+					text = "[phone ringing]",
 					max_distance = 1000,
-					loop_data = {
-						loop_interval = -1
-					},
-					priority = 36,
+					category = "sfx",
+					priority = 38,
+					duration = 30
+				},
+				branch_bank_phone_call_pickup = {
+					override_name = "SFX",
+					text = "[phone answered]",
+					category = "stops",
+					priority = 38,
+					duration = 30
+				},
+				c4_explode_metal = {
+					override_name = "SFX",
+					max_distance = 5000,
+					text = "(explosion, metal broken)",
+					priority = 37,
 					category = "sfx"
 				},
-				table_saw_stop = {
+				car_land_in_water = {
 					override_name = "SFX",
-					text = "(table saw stops)",
-					stops_line = "table_saw",
-					duration = 2,
-					priority = 36,
-					category = "sfx"
+					category = "sfx",
+					duration = 3,
+					priority = 50,
+					text = "[car lands in water]"
 				},
-				blowtorch_guy = {
+				car_tumble_hit = {
 					override_name = "SFX",
-					text = "(blowtorch hissing)",
+					category = "sfx",
+					duration = 3,
+					priority = 50,
+					text = "[car impact]"
+				},
+				cellphone_01_no_answer = {
+					override_name = "SFX", --looped
+					text = "[cellphone ringing]",
 					max_distance = 2500,
-					loop_data = {
-						loop_interval = -1
-					},
-					priority = 36,
+					priority = 37,
 					category = "sfx"
 				},
-				blowtorch_guy_end_global = {
+				cellphone_01_answer = {
 					override_name = "SFX",
-					text = "(blowtorch stops)",
-					stops_line = "blowtorch_guy",
-					priority = 36,
-					category = "sfx"
-				},
-				ammo_bag_drop = {
-					override_name = "SFX",
-					text = "(bag impact)",
-					max_distance = 1500,
-					duration = 2,
+					text = "[cellphone answered]",
 					priority = 37,
 					category = "sfx"
 				},
@@ -256,191 +1536,7 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "sfx"
 				},
-				metal_door_knock = {
-					override_name = "SFX",
-					text = "(door knocking)",
-					max_distance = 2000,
-					duration = 2,
-					override_source_id = "metal_door",
-					priority = 37,
-					category = "sfx"
-				},
-				metal_door_open = {
-					override_name = "SFX",
-					text = "(door opens)",
-					max_distance = 2000,
-					override_source_id = "metal_door",
-					priority = 37,
-					category = "sfx"
-				},
-				generic_door_metal_open = {
-					override_name = "SFX",
-					text = "(metal door opens)",
-					max_distance = 2000,
-					duration = 2,
-					priority = 37,
-					category = "sfx"
-				},
-				gate_fence_street_open = {
-					override_name = "SFX",
-					text = "(fence gate opens)",
-					max_distance = 2000,
-					duration = 2,
-					priority = 37,
-					category = "sfx"
-				},
-				c4_explode_metal = {
-					override_name = "SFX",
-					max_distance = 5000,
-					text = "(explosion, metal broken)",
-					priority = 37,
-					category = "sfx"
-				},
-				emitter_rain_tag_open_window_indoor = {
-					override_name = "ambient",
-					override_source_id = "rain_emitter",
-					is_locationless = true,
-					text = "(soft rain, distant thunder outside window)",
-					priority = 90,
-					category = "sfx"
-				},
-				emitter_rain_on_skylight_indoor = {
-					override_name = "ambient",
-					override_source_id = "rain_emitter",
-					is_locationless = true,
-					text = "(soft rain against skylight)",
-					priority = 90,
-					category = "sfx"
-				},
-				npc_typing_on_copy_machine_loop = {
-					override_name = "SFX",
-					text = "(copy machine typing)",
-					priority = 90,
-					category = "sfx"
-				},
-				trip_mine_sensor_alarm = {
-					override_name = "SFX",
-					category = "sfx",
-					duration = 2,
-					priority = 25,
-					text = "[Trip mine sensor triggered]"
-				},
-				trip_mine_explode = {
-					override_name = "SFX",
-					category = "sfx",
-					duration = 1,
-					priority = 25,
-					text = "[Trip mine explosion]"
-				},
-				trip_mine_beep_armed = {
-					override_name = "SFX",
-					category = "sfx",
-					duration = 1,
-					priority = 26,
-					text = "[Trip mine activated]"
-				},
-				trip_mine_arm = {
-					override_name = "SFX",
-					category = "sfx",
-					duration = 1,
-					priority = 26,
-					text = "[Trip mine set to Explosive Mode]"
-				},
-				trip_mine_disarm = {
-					override_name = "SFX",
-					category = "sfx",
-					duration = 1,
-					priority = 26,
-					text = "[Trip mine set to Sensor Mode]"
-				},
-				trip_mine_attach = {
-					override_name = "SFX",
-					category = "sfx",
-					duration = 1,
-					priority = 26,
-					text = "[Trip mine placed/warmup]"
-				},
-				trip_mine_beep_explode = {
-					override_text = "SFX",
-					category = "sfx",
-					duration = 1,
-					priority = 25,
-					text = "[Trip mine explosion triggered!]"
-				},
-				ecm_jammer_ready = {
-					override_text = "SFX",
-					category = "sfx",
-					duration = 2,
-					priority = 25,
-					text = "[ECM Jammer ready]"
-				},
-				ecm_jammer_jam_signal = {
-					override_text = "SFX",
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					},
-					priority = 25,
-					text = "[ECM Jammer active]"
-				},
-				ecm_jammer_jam_signal_stop = {
-					override_text = "SFX",
-					category = "stops",
-					remove_by_source = true, --since multiple ecms may be active at once, but each ecm only plays one sound at a time, ecm sounds should be removed by source
-					stops_line = "ecm_jammer_jam_signal",
-					duration = 2,
-					priority = 25,
-					text = "[ECM Jammer stops]"
-				},
-				ecm_jammer_puke_signal = {
-					override_text = "SFX",
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					},
-					priority = 25,
-					text = "[ECM Feedback active]"
-				},
-				ecm_jammer_puke_signal_stop = {
-					override_text = "SFX",
-					category = "stops",
-					stops_line = "ecm_jammer_puke_signal",
-					duration = 2,
-					priority = 25,
-					text = "[ECM Feedback stops]"
-				},
-				flashbang_beep = {
-					override_name = "SFX",
-					text = "flashbang beeping",
-					duration = 1,
-					priority = 11,
-					category = "sfx",
-					disabled = false
-				},
-				toilet_flush = {
-					override_name = "SFX",
-					text = "(toilet flushing)",
-					priority = 38,
-					category = "sfx"
-				},
-				hand_dryer_on = {
-					override_name = "SFX",
-					text = "(hand dryer whirring)",
-					loop_data = {
-						loop_interval = -1
-					},
-					max_distance = 1000,
-					priority = 38,
-					category = "sfx"
-				},
-				hand_dryer_off = {
-					override_name = "SFX",
-					text = "(hand dryer deactivates)",
-					stops_line = "hand_dryer_on",
-					duration = 2,
-					priority = 38,
-					category = "sfx"
-				},
+
 				elevator_doors_open = {
 					override_name = "SFX",
 					text = "(elevator doors open)",
@@ -456,6 +1552,14 @@ ClosedCaptions._sounds = {
 					duration = 4,
 					priority = 37,
 					category = "sfx"
+				},
+				elevator_ding = {
+					override_name = "SFX",
+					text = "[elevator dings]",
+					category = "sfx",
+					max_distance = 4000,
+					priority = 37,
+					duration = 2
 				},
 				fire_sprinkler_start = {
 					override_name = "SFX",
@@ -478,203 +1582,6 @@ ClosedCaptions._sounds = {
 					override_source_id = "fire_hiss",
 					max_distance = 2000,
 					priority = 38,
-					category = "sfx"
-				},
-				large_fire = {
-					override_name = "SFX",
-					text = "(fire burning)",
-					max_distance = 1000,
-					loop_data = {
-						loop_interval = -1
-					},
-					priority = 60,
-					category = "sfx"
-				},
-				large_fire_stop = { --needs a stops_line
-					override_name = "SFX",
-					text = "(fire stops)",
-					priority = 60,
-					category = "stops"
-				},
-				police_radio = {
-					override_name = "SFX",
-					text = "(police radio chatter)",
-					max_distance = 500,
-					priority = 60,
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				emitter_lorry_idle_01 = {
-					override_name = "SFX",
-					text = "(lorry engine idling)",
-					max_distance = 500,
-					priority = 60,
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				emitter_car_idle_01 = {
-					override_name = "SFX",
-					text = "(car engine idling)",
-					max_distance = 500,
-					priority = 60,
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				emitter_car_idle_05 = {
-					override_name = "SFX",
-					text = "(car engine idling)",
-					max_distance = 500,
-					priority = 60,
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				helicopter_ambience_loop = {
-					override_name = "SFX",
-					text = "(helicopter droning)",
-					max_distance = 5000,
-					priority = 60,
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					},
-					disabled = true
-				},
-				npc_crowd_scream_01 = {
-					override_name = "SFX",
-					text = "(crowd screaming)",
-					priority = 60,
-					category = "sfx"
-				},
-				goat_fan_woosh = {
-					override_name = "SFX",
-					text = "(Goat riding the fan)",
-					priority = 38,
-					category = "sfx"
-				},
-				goat_hang_scaffold = {
-					override_name = "SFX",
-					text = "(Goat bleats from scaffolding)",
-					priority = 38,
-					category = "sfx"
-				},
-				goat_kick = {
-					override_name = "SFX",
-					text = "(Goat kicks!)",
-					priority = 38,
-					category = "sfx"
-				},
-				goat_sleep = {
-					override_name = "SFX",
-					text = "(Goat snores, bleats)",
-					priority = 38,
-					category = "sfx"
-				},
-				goat_says_meh = {
-					override_name = "SFX",
-					text = "(Goat bleats)",
-					priority = 38,
-					category = "sfx"
-				},
-				goat_says_meh_loop = {
-					override_name = "SFX",
-					text = "(Goat bleating)",
-					priority = 38,
-					category = "sfx",
-					loop_data = {
-						loop_interval = 5,
-						use_random_loop_interval = true
-					}
-				},
-				goat_lick = {
-					override_name = "SFX",
-					text = "(Goat licks)",
-					priority = 38,
-					category = "sfx"
-				},
-				goat_headbutt = {
-					override_name = "SFX",
-					text = "(Goat headbutts)",
-					priority = 38,
-					category = "sfx"
-				},
-				hos_pa_announcement_emergency = {
-					override_name = "SFX", --chatter?
-					text = "(hospital PA announces emergency)",
-					duration = 5,
-					category = "sfx"
-				},
-				hos_pa_announcement_generic = {
-					override_name = "SFX",
-					text = "(hospital PA announcement)",
-					duration = 5,
-					category = "sfx"
-				},
-				hos_alarm = {
-					override_name = "SFX",
-					text = "(hospital alarm!)",
-					category = "sfx",
-					duration = 30
-				},
-				hos_wardrobe_change = {
-					text = "[clothes rustling]",
-					override_name = "SFX",
-					duration = 5
-				},
-				hos_fake_sentry_place = {
-					text = "[fake sentry placed]",
-					override_name = "SFX",
-					duration = 3
-				},
-				hos_crowd_walla = {
-					text = "[hospital din]",
-					override_name = "SFX",
-					duration = 30,
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				hos_crowd_walla_stop = {
-					category = "stops",
-					stops_line = "hos_crowd_walla"
-				},
-				hos_pa_announcement_all = {
-					override_name = "SFX",
-					text = "(hospital PA announcement)",
-					duration = 5,
-					category = "sfx"
-				},
-				earthquake_siren_end = {
-					override_name = "SFX",
-					text = "(air raid/earthquake siren ends)",
-					category = "stops",
-					stops_line = "earthquake_siren"
-				},
-				earthquake_siren = {
-					override_name = "SFX",
-					text = "(air raid/earthquake siren)",
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				hlp_keycard_box_appear = {
-					override_name = "SFX",
-					text = "(keycard box appears)",
-					duration = 2,
-					category = "sfx"
-				},
-				hlp_keycard_box_disappear = {
-					override_name = "SFX",
-					text = "(keycard box poofs)",
-					duration = 2,
 					category = "sfx"
 				},
 				hlp_poof_big = {
@@ -711,39 +1618,6 @@ ClosedCaptions._sounds = {
 					stops_line = "hlp_bag_door_loop_start",
 					category = "stops"
 				},
-				bell_ring = {
-					override_name = "SFX",
-					text = "(bell ringing)",
-					duration = 5,
-					category = "sfx"
-				},
-				ambience_switch_halloween_2016_state_smoke_to_ext = {
-					disabled = true,
-					text = "ambient outdoor spoopiness",
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				ambience_switch_halloween_2016_state_ext_to_smoke = {
-					disabled = true,
-					text = "ambient indoor spoopiness",
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				tick_tock_play = {
-					text = "[clock ticking loudly]",
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				tick_tock_stop = {
-					category = "stops",
-					stops_line = "tick_tock_play"
-				},
 				hlp_ending_choir_start = {
 					text = "[angelic choir]",
 					category = "sfx",
@@ -756,17 +1630,117 @@ ClosedCaptions._sounds = {
 					category = "stops",
 					stops_line = "hlp_ending_choir_start"
 				},
-				hos_witch_cry_loop_01 = {
-					override_name = "Witch",
-					override_text_color = ClosedCaptions.color_data.l4d_witch,
-					text = "[Groans Softly]",
-					priority = 99,
-					duration = 3,
-					is_locationless = true,
+				hos_pa_announcement_emergency = {
+					override_name = "SFX", --chatter?
+					text = "(hospital PA announces emergency)",
+					duration = 5,
+					category = "sfx"
+				},
+				hos_pa_announcement_generic = {
+					override_name = "SFX",
+					text = "(hospital PA announcement)",
+					duration = 5,
+					category = "sfx"
+				},
+				hos_wardrobe_change = {
+					text = "[clothes rustling]",
+					override_name = "SFX",
+					category = "sfx",
+					duration = 5
+				},
+				hos_fake_sentry_place = {
+					text = "[fake sentry placed]",
+					override_name = "SFX",
+					category = "sfx",
+					duration = 3
+				},
+				hos_pa_announcement_all = {
+					override_name = "SFX",
+					text = "(hospital PA announcement)",
+					duration = 5,
+					category = "sfx"
+				},
+				large_fire = {
+					override_name = "SFX",
+					text = "(fire burning)",
+					max_distance = 1000,
 					loop_data = {
-						loop_interval = 3,
-						use_random_loop_interval = true
+						loop_interval = -1
 					},
+					priority = 60,
+					category = "sfx"
+				},
+				large_fire_stop = { --needs a stops_line
+					override_name = "SFX",
+					text = "(fire stops)",
+					priority = 60,
+					category = "stops"
+				},
+				metal_door_knock = {
+					override_name = "SFX",
+					text = "(door knocking)",
+					max_distance = 2000,
+					duration = 2,
+					override_source_id = "metal_door",
+					priority = 37,
+					category = "sfx"
+				},
+				metal_door_open = { --used for some wooden doors so i can't really be specific
+					override_name = "SFX",
+					text = "(door opens)",
+					max_distance = 2000,
+					override_source_id = "metal_door",
+					priority = 37,
+					category = "sfx"
+				},
+				fence_gate_close = {
+					override_name = "SFX",
+					text = "(fence gate closes)",
+					max_distance = 2000,
+					duration = 2,
+					priority = 37,
+					category = "sfx"
+				},
+				fence_gate_open = {
+					override_name = "SFX",
+					text = "(fence gate opens)",
+					max_distance = 2000,
+					duration = 2,
+					priority = 37,
+					category = "sfx"
+				},
+				gate_fence_street_open = {
+					override_name = "SFX",
+					text = "(fence gate opens)",
+					max_distance = 2000,
+					duration = 2,
+					priority = 37,
+					category = "sfx"
+				},
+				generic_door_metal_open = {
+					override_name = "SFX",
+					text = "(metal door opens)",
+					max_distance = 2000,
+					duration = 2,
+					priority = 37,
+					category = "sfx"
+				},
+				hand_dryer_on = {
+					override_name = "SFX",
+					text = "(hand dryer whirring)",
+					loop_data = {
+						loop_interval = -1
+					},
+					max_distance = 1000,
+					priority = 38,
+					category = "sfx"
+				},
+				hand_dryer_off = {
+					override_name = "SFX",
+					text = "(hand dryer deactivates)",
+					stops_line = "hand_dryer_on",
+					duration = 2,
+					priority = 38,
 					category = "sfx"
 				},
 				Play_howl_reverb = {
@@ -774,287 +1748,6 @@ ClosedCaptions._sounds = {
 					text = "(spooky howl)",
 					priority = 50,
 					category = "sfx"
-				},
-				city_sounds_basketball = { --idk if this works, probably though. panic room 
-					override_name = "SFX",
-					text = "(ambient: casual basketball game)",
-					priority = 50,
-					category = "UNKNOWN"
-				},
-				city_sounds_basketball_stop = {
-					stops = "city_sounds_basketball",
-					category = "stops"
-				},
-				inside_container = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					text = "(cargo container clanking)"
-				},
-				container_drop = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					duration = 3,
-					text = "(cargo container drops)"
-				},
-				kick_open_container = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					duration = 2,
-					text = "(cargo container opens)"
-				},
-				tasered_loop = {
-					override_name = "SFX",
-					text = "(being tased!)",
-					priority = 11,
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1 --constant
-					}
-				},
-				tasered_stop = {
-					category = "stops",
-					remove_by_source = true,
-					priority = 11,
-					stops_line = "tasered_loop"
-				},
-				melee_hit_body = { --some of these don't trigger since they're queued directly from the sound_source() and not through play() or say()
-					override_name = "SFX",
-					text = "(melee impact)",
-					priority = 20,
-					category = "sfx",
-					disabled = true
-				},
-				player_armor_gone_stinger = {
-					override_name = "SFX",
-					text = "(armor broken!)",
-					priority = 12,
-					category = "sfx",
-					disabled = true
-				},
-				player_sniper_hit_armor_gone = {
-					override_name = "SFX",
-					text = "(armor broken by sniper!)",
-					priority = 12,
-					category = "sfx",
-					disabled = true
-				},
-				player_hit = {
-					override_name = "SFX",
-					text = "(armor damaged)",
-					priority = 13,
-					category = "sfx"
-				},
-				player_hit_permadamage = {
-					override_name = "SFX",
-					text = "(health damaged!)",
-					priority = 11,
-					category = "sfx"
-				},
-				critical_state_heart_loop = { --! needs a stop
-					override_name = "SFX",
-					text = "(low health heartbeat)",
-					priority = 12,
-					duration = 1,
-					loop_data = {
-						loop_interval = 1
-					},
-					category = "sfx"
-				},
-				vial_break_2d = {
-					override_name = "SFX",
-					text = "(vial breaks)",
-					priority = 20,
-					category = "sfx"
-				},
-				queue_beep = {
-					override_name = "SFX",
-					text = "(bank queue beep)",
-					priority = 50,
-					max_distance = 2000,
-					category = "sfx"
-				},
-				concussion_effect_on = {
-					override_name = "SFX",
-					text = "(concussion ringing)",
-					priority = 20,
-					category = "sfx"
-				},
-				concussion_effect_off = {
-					override_name = "SFX",
-					text = "(concussion ringing fades)",
-					priority = 20,
-					category = "sfx"
-				},
-				concussion_player_disoriented_sfx = {
-					override_name = "SFX",
-					text = "(concussion disorientation)",
-					priority = 20,
-					category = "sfx"
-				},
-				flashbang_explode_sfx_player = {
-					override_name = "SFX",
-					text = "(flashbang explodes!)",
-					priority = 20,
-					category = "sfx"
-				},
-				tinnitus_beep = {
-					override_name = "SFX",
-					text = "(ears ringing from tinnitus)",
-					priority = 20,
-					category = "sfx"
-				},
-				tinnitus_beep_stop = {
-					override_name = "SFX",
-					text = "(tinnitus stops)",
-					priority = 20,
-					duration = 2,
-					category = "sfx"
-				},
-				nine_lives_skill = {
-					override_name = "SFX",
-					text = "(nine lives skill activates!)",
-					priority = 11,
-					category = "sfx"
-				},
-				art_galley_alarm_on_slow_fade = { --(sic)
-					override_name = "SFX",
-					text = "[ALARM KLAXON]",
-					priority = 37,
-					duration = 60,
-					category = "sfx"					
-				},
-				art_gallery_alarm_off = {
-					stops_line = "art_galley_alarm_on_slow_fade",
-					category = "stops"
-				},
-				bank_alarm_on_slow_fade = {
-					override_name = "SFX",
-					text = "[bank alarm!]",
-					priority = 37,
-					duration = 60,
-					category = "sfx"					
-				},
-				alarm_kosugi_on_slow_fade_02 = {
-					override_name = "SFX",
-					text = "[alarm sounds]",
-					duration = 30,
-					priority = 37,
-					category = "sfx"
-				},
-				alarm_museum_on_slow_fade = {
-					override_name = "SFX",
-					text = "[ALARM KLAXON]",
-					duration = 30,
-					priority = 37,
-					category = "sfx"
-				},
-				insert_usb_stick = {
-					override_name = "SFX",
-					text = "[inserted USB stick]",
-					duration = 2,
-					max_distance = 700,
-					priority = 37,
-					category = "sfx"
-				},
-				diegetic_club_music = {
-					override_name = "SFX",
-					text = "[loud club music]",
-					loop_data = {
-						loop_interval = -1
-					},
-					category = "sfx",
-					priority = 90,
-					max_distance = 3000
-				},
-				diegetic_club_music_stop = {
-					override_name = "SFX",
-					text = "[club music stops]",
-					category = "stops",
-					stops_line = "diegetic_club_music"
-				},
-				diegetic_lounge_music = {
-					override_name = "SFX",
-					text = "[lounge music]",
-					loop_data = {
-						loop_interval = -1
-					},
-					category = "sfx",
-					priority = 90,
-					max_distance = 3000
-				},
-				card_reader_first_card = { --ovk decided to reuse this sound for hoxton revenge's laser grids activation noises, so... generic descriptions. yay.
-					override_name = "SFX",
-					text = "beeps",
-					duration = 3,
-					max_distance = 1500,
-					priority = 37,
-					category = "sfx"
-				},
-				card_reader_second_card = {
-					override_name = "SFX",
-					text = "rapid beeps",
-					duration = 3,
-					max_distance = 1500,
-					priority = 37,
-					category = "sfx"
-				},
-				alarm_countdown_loop = {
-					override_name = "SFX",
-					max_distance = 2000,
-					text = "[Slow alarm countdown ticking]",
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1 --constant
-					},
-					priority = 37
-				},
-				alarm_countdown_ticking_down_10sec = {
-					override_name = "SFX",
-					max_distance = 2000,
-					text = "[Slow alarm countdown: 10s left!",
-					category = "sfx"
-				},
-				alarm_countdown_loop_stop = {
-					override_name = "SFX",
-					text = "[Alarm countdown stops]",
-					category = "stops",
-					stops_line = "alarm_countdown_loop",
-					duration = 2,
-					priority = 37
-				},
-				hitec_lotec_alarm_slow_fade = {
-					override_name = "SFX",
-					text = "[alarm]",
-					category = "sfx",
-					priority = 37,
-					duration = 3
-				},
-				bag_light_drop = {
-					override_name = "SFX",
-					text = "[light bag placed]",
-					category = "sfx",
-					max_distance = 1500,
-					priority = 37,
-					duration = 3
-				},
-				bag_medium_drop = {
-					override_name = "SFX",
-					text = "[medium bag placed]",
-					category = "sfx",
-					max_distance = 1500,
-					priority = 37,
-					duration = 3
-				},
-				bag_heavy_drop = {
-					override_name = "SFX",
-					text = "[heavy bag placed]",
-					category = "sfx",
-					max_distance = 1500,
-					priority = 37,
-					duration = 3
 				},
 				phone_01_no_answer = {
 					override_name = "SFX",
@@ -1088,6 +1781,27 @@ ClosedCaptions._sounds = {
 					priority = 38,
 					duration = 30
 				},
+				prison_transport_sliding = {
+					text = "(transport truck screeches!)",
+					category = "sfx",
+					override_name = "SFX",
+					duration = 5,
+					priority = 36
+				},
+				queue_beep = {
+					override_name = "SFX",
+					text = "(bank queue beep)",
+					priority = 50,
+					max_distance = 2000,
+					category = "sfx"
+				},
+				swat_explosion = {
+					override_name = "SFX",
+					category = "sfx",
+					priority = 37,
+					max_distance = 5000,
+					text = "(SWAT explosive breaches wall)"
+				},
 				telephone_booth_ringing = {
 					override_name = "SFX",
 					text = "[telephone booth ringing]",
@@ -1103,168 +1817,57 @@ ClosedCaptions._sounds = {
 					priority = 38,
 					duration = 2
 				},
-				branch_bank_phone_call = {
-					override_name = "SFX",
-					text = "[phone ringing]",
-					max_distance = 1000,
+				tick_tock_play = {
+					text = "[clock ticking loudly]",
 					category = "sfx",
-					priority = 38,
-					duration = 30
-				},
-				branch_bank_phone_call_pickup = {
-					override_name = "SFX",
-					text = "[phone answered]",
-					category = "stops",
-					priority = 38,
-					duration = 30
-				},
-				cellphone_01_no_answer = {
-					override_name = "SFX", --looped
-					text = "[cellphone ringing]",
-					max_distance = 2500,
-					priority = 37,
-					category = "sfx"
-				},
-				cellphone_01_answer = {
-					override_name = "SFX",
-					text = "[cellphone answered]",
-					priority = 37,
-					category = "sfx"
-				},
-				hos_phone_call = {
-					override_name = "SFX",
-					text = "[hospital phone ringing]",
-					category = "sfx",
-					max_distance = 2500,
-					loop_data = {
-						loop_interval = 2
-					},
-					priority = 37,
-					duration = 2
-				},
-				hos_phone_answer = {
-					override_name = "SFX",
-					text = "[hospital phone answered]",
-					category = "stops",
-					priority = 38,
-					stops_line = "hos_phone_call",
-					duration = 2
-				},
-				elevator_ding = {
-					override_name = "SFX",
-					text = "[elevator dings]",
-					category = "sfx",
-					max_distance = 4000,
-					priority = 37,
-					duration = 2
-				},
-				keypad_button_press_03 = {
-					override_name = "SFX",
-					text = "keypad button pressed",
-					max_distance = 1000,
-					category = "sfx",
-					priority = 37,
-					duration = 3
-				},
-				keypad_wrong_code_03 = {
-					override_name = "SFX",
-					text = "(wrong keypad code)",
-					max_distance = 1000,
-					category = "sfx",
-					priority = 37,
-					duration = 3
-				},
-				keypad_correct_code_03 = {
-					override_name = "SFX",
-					text = "(correct keypad code)",
-					max_distance = 1000,
-					category = "sfx",
-					priority = 37,
-					duration = 3
-				},
-				keypad_wrong_code = {
-					override_name = "SFX",
-					max_distance = 1000,
-					text = "[keypad wrong code]",
-					category = "sfx",
-					priority = 37,
-					duration = 3
-				},
-				keypad_correct_code = {
-					override_name = "SFX",
-					max_distance = 1000,
-					text = "[keypad correct code]",
-					category = "sfx",
-					priority = 37,
-					duration = 3
-				},
-				server_room_door_open = {
-					override_name = "SFX",
-					text = "[server room door opens]",
-					max_distance = 1500,
-					category = "sfx",
-					priority = 37,
-					duration = 3
-				},
-				laser_shutdown_left = {
-					override_name = "SFX",
-					text = "[left laser deactivates]",
-					category = "sfx",
-					max_distance = 3000,
-					priority = 37,
-					duration = 3
-				},
-				laser_shutdown_right = {
-					override_name = "SFX",
-					text = "[right laser deactivates]",
-					category = "sfx",
-					max_distance = 3000,
-					priority = 37,
-					duration = 3
-				},
-				laser_warning_on_left = {
-					override_name = "SFX",
-					text = "[left laser activates]",
-					category = "sfx",
-					max_distance = 3000,
-					priority = 37,
-					duration = 3
-				},
-				laser_warning_on_right = {
-					override_name = "SFX",
-					text = "[right laser activates]",
-					category = "sfx",
-					max_distance = 3000,
-					priority = 37,
-					duration = 3
-				},
-				hacking_device = {
-					override_name = "SFX", --looped
-					text = "[hacking noise]",
-					category = "sfx",
-					max_distance = 1500,
-					priority = 37,
-					duration = 10,
 					loop_data = {
 						loop_interval = -1
 					}
 				},
-				hacking_device_stop = {
-					category = "sfx",
-					stops_line = "hacking_device",
-					category = "stops"
+				tick_tock_stop = {
+					category = "stops",
+					stops_line = "tick_tock_play"
 				},
+				tire_blow = {
+					text = "(tire pops)",
+					category = "sfx",
+					max_distance = 1000
+				},
+				toilet_flush = {
+					override_name = "SFX",
+					text = "(toilet flushing)",
+					priority = 38,
+					category = "sfx"
+				},
+				whistling_attention = {
+					text = "[whistle]",
+					fallback_name = "Insider",
+					category = "mission_dialogue",
+					priority = 37,
+					duration = 3
+				},
+				window_small_shatter = {
+					category = "sfx",
+					text = "[glass shatters!]",
+					priority = 50,
+					duration = 2
+				},
+				van_rear_door_close = {
+					category = "sfx",
+					text = "[rear door closes]",
+					priority = 50,
+					duration = 2
+				},
+
+
+
 				vo_special = { --i have no idea what this is or when it plays or why
 					category = "UNKNOWN",
 					disabled = true
 				},
-				swat_explosion = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					max_distance = 5000,
-					text = "(SWAT explosive breaches wall)"
-				},
+
+
+	--contractor vo
 				Play_pln_drl_wrn_snd = {
 					override_name = "Bain",
 					text = "Remember to keep bystanders away from the drill! They'll get alerted just from the noise!",
@@ -1701,99 +2304,6 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				policecar_approaching = { --looped, i think... --! needs review, i don't need this line on my hud 24/7
-					override_name = "SFX",
-					category = "sfx",
-					priority = 40,
-					text = "(police car approaching)",
-					loop_data = {
-						loop_interval = -1 --constant
-					}
-				},
-				policecar_arrive_stop_global = {
-					override_name = "SFX",
-					category = "stops",
-					stops_line = "policecar_approaching",
-					priority = 40,
-					text = "(police car arrives"
-				},
-				cop_car_01 = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 40,
-					text = "(police sirens approaching)"
-				},
-				cop_car_02 = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 40,
-					text = "(police sirens approaching)"
-				},
-				bd_police_siren_02 = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 40,
-					text = "(police sirens)"
-				},
-				birds_fly_away = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					text = "(birds squawk, fly away)"
-				},
-				l4n_x01a_any_3p = {
-					override_name = "Cooks",
-					text = "(screams, death gurgles)",
-					priority = 37,
-					category = "mission_dialogue"
-				},
-				cooking_meth = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					max_distance = 500,
-					text = "[cooking meth]",
-					loop_data = {
-						loop_interval = -1
-					}
-				},
-				cooking_meth_stop = {
-					override_name = "SFX",
-					category = "stops",
---					text = "[meth cooking stops]",
-					priority = 37,
-					stops_line = "cooking_meth"
-				},
-				c45_fire = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					text = "[gunshot]"
-				},
-				c45_npc1a_1shot = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					text = "[gunshot]"
-				},
-				c45_npc1b_1shot = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					text = "[gunshot]"
-				},
-				c45_npc1c_1shot = {
-					override_name = "SFX",
-					category = "sfx",
-					priority = 37,
-					text = "[gunshot]"
-				},
-				whistling_attention = {
-					text = "[whistle]",
-					category = "mission_dialogue",
-					priority = 37,
-					duration = 2
-				},
 				play_pln_gen_count_01 = {
 					override_name = "Bain",
 					category = "contractor_vo",
@@ -2011,6 +2521,34 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+
+
+
+
+
+			--player dialogue/callouts
+			
+			--enemy dialogue/chatter
+			
+			--heist-specific mission dialogue
+
+			
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+--heister speech
+	--heister reactions/dialogue
 				g01 = {
 					text = "Go downstairs!",
 					category = "heister_dialogue",
@@ -3486,8 +4024,8 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+
 				g90 = {
---					text = "{g90}",
 					category = "enemy_chatter",
 					priority = 40,
 					variants = {
@@ -3506,234 +4044,6 @@ ClosedCaptions._sounds = {
 									"We're gonna get murdered!",
 									"It's the PAYDAY Gang! They're CRAZY!",
 									"Can anyone see anything? I got nothin'!"
-								}
-							}
-						},
-						taser = {
-							text = "(Taser taunt)",
-							category = "enemy_chatter",
-							line_variations = {
-								standard_mode = {
-									"Acquiring targets!",
-									"Almost at full power!",
-									"Amped up!",
-									"Amperage building!",
-									"Approaching perpetrator!",
-									"Bringin' the voltage!",
-									"CHAAARGE!",
-									"Charged and ready! Where are they?!",
-									"Charged and ready... let 'em come!",
-									"Charging up!",
-									"Charging... charging!",
-									"Coming through!",
-									"Contact imminent!",
-									"Engaging subject!",
-									"Eyes on perp!",
-									"Eyes on perp!",
-									"Fifty thousand volts here!",
-									"Gonna plug in!",
-									"Got eyes on the perpetrator!",
-									"High voltage!",
-									"Hope you're insulated!",
---											"Hostile spotted!", --not sure
-									"I got 'em!",
-									"I got fifty thousand volts here with your name on 'em!",
-									"I'll deal with this one!",
-									"I'll take care of this one myself!",
-									"I'm amped!",
-									"I'm feelin' kinda ELECTRIC!",
-									"I'm the fucking spark-man!",
-									"Imminent contact!",
-									"Just call me elec-man!",
-									"Let's amp this shit up!",
-									"Lightning bolt, lightning bolt, lightning bolt!",
-									"Make way!",
-									"Perp ahead!",
-									"Perp in sight!",
-									"Perp spotted!",
-									"Perp targeted!",
-									"Raising voltage!",
-									"Set to 'stun!'",
-									"Shock prepared!",
-									"Shocking!",
-									"Stay clear!",
-									"Subject still mobile!",
-									"Take the shot!",
---											"Taser got sent all those to kill!", --not sure what he says
-									"Taser gun charged and ready!",
-									"Taser! Get out of the way!",
-									"Taser! Stand back!",
-									"Taser, clear!",
-									"Taser, going through!",
-									"Taser, ready!",
-									"Taser- stay clear!",
-									"Taser... moved!",
-									"This one belongs to me!",
-									"Voltage to burn!",
-									"Wattage at full!"
-								}
-							}
-						},
-						medic = {
-							text = "(Medic taunt)",
-							category = "enemy_chatter",
-							line_variations = {
-								standard_mode = {
-									"Don't let them escape!",
-									"Go! Go!",
-									"Get 'em!",
-									"Cops ALWAYS win!",
-									"They won't know what hit 'em!",
-									"Fight the law... the law wins!",
-									"Keep your heads down!",
-									"C'mon, we're winning!",
-									"We got 'em now!",
-									"Advance! We have 'em cornered!",
-									"End of the line for these crooks!",
-									"Take 'em down!",
-									"Let's waste 'em!",
-									"Don't let them get away!",
-									"Don't let them escape!",
-									"These guys are fucked!",
-									"Stay patient, and we'll take them!",
-									"What goes around, comes around!",
-									"No fear! Let's take 'em out!",
-									"C'mon, c'mon!",
-									"I got your back, guys!",
-									"These assholes are goin' down!",
-									"Eliminate hostiles!",
-									"Try to surround them!",
-									"See you in the prison medical ward!",
-									"Backup, BACKUP!",
-									"Are you sure you want to do this?",
-									"They have no chance!",
-									"Get 'em! GET 'EM!",
-									"Make 'em regret getting up this morning!",
-									"Watch it!"
-								}
-							}
-						},
-						tank = {
-							text = "(Bulldozer taunt)",
-							category = "enemy_chatter",
-							line_variations = {
-								standard_mode = {
-									"ALRIGHT! HERE, AND READY TO KICK ASS!",
-									"ALRIGHT, WHERE ARE THEY?!",
-									"BACK THE FUCK UP!",
-									"BRINGING... THE PAIN!",
-									"BULLDOZER IN THE HOUSE!",
-									"BRINGING SOME HURT!",
-									"BULLDOZER COMING THROUGH!",
-									"BULLDOZER GOIN' IN!",
-									"BULLDOZER! MAKE WAY!",
-									"BULLDOZER! STAY BACK!",
-									"COMING THROUGH!",
-									"CAN'T STOP ME!",
-									"'CAREER CRIMINALS,' MY ASS!",
-									"COME ON OUT... WHEREVER YOU ARE!",
-									"DEATH PENALTY IN THREE... TWO... ONE!",
-									"DO YOU EVEN KNOW... HOW FUCKED YOU ARE?!",
-									"DO YOUR WORST!",
-									"DON'T KILL YOURSELF OR ANYTHING- THAT HONOR'S MINE!",
-									"DON'T YOU THINK YOU SHOULD LEAVE?! NOW?!",
-									"DON'T! MESS! WITH ME!",
-									"DOZER! MAKE WAY!",
-									"DOZER IN THE HOUSE!",
-									"DOZER'S HERE AND READY FOR ACTION!",
-									"ENGAGING TARGET!",
-									"EYES ON TARGET!",
-									"FIND SOMEWHERE GOOD TO HIDE!",
-									"FUCKING AMATEURS!",
-									"GET READY!",
-									"GIMME SOME ROOM TO WORK!",
-									"GIVE UP!",
-									"GIVE UP... AND MAYBE I WON'T STOP A MUDHOLE IN YOUR ASS!",
-									"GONNA BREAK SOME SHIT!",
-									"GONNA DROP A BUILDING ON 'EM!",
-									"GONNA SEND YOU TO HELL!",
-									"GONNA SHOW YOU THE LIGHT AT THE END OF THE TUNNEL!",
-									"GOT EYES ON TARGET!",
-									"HAHA, SUCKERS!",
-									"HERE TO END THIS!",
-									"HERE COMES SOME FUCKING HURT!",
-									"HIDE WHILE YOU CAN!",
-									"HOW DO YOU THINK THIS IS GONNA END?!",
-									"I BRING THE PAIN!",
-									"I CAN'T WAIT TO GET MY HANDS ON YOU!",
-									"I HEAR YOU!",
-									"I GIVE THIS GUY FIVE SECONDS!",
-									"I'VE GOT 'EM!",
-									"I GOT THIS ONE!",
-									"I GOT THIS!",
-									"I'LL DEAL WITH THIS ONE!",
-									"I'LL TAKE THIS ONE!",
-									"I'LL TAKE CARE OF THIS ONE MYSELF!",
-									"I'LL TAKE THIS ONE ALL ON MY OWN!",
-									"I'LL PICK THESE SUCKERS APART!",
-									"I'M THEIR PROBLEM NOW!",
-									"I'M UNSTOPPABLE!",
-									"I'MMA KICK YOUR ASS!",
-									"JUST A MATTER OF TIME!",
-									"JUST WAIT 'TIL I FIND YOU!",
-									"KISS YOUR ASS GOODBYE!",
-									"LET'S FINISH THIS!",
-									"LET'S SEE WHAT YOU GOT!",
-									"MAKE WAY FOR THE BULLDOZER!",
-									"MAKE WAY FOR THE DOZER!",
-									"MAKE WAY!",
-									"MOVE ASIDE!",
-									"MOVE ASIDE, I GOT THIS!",
-									"NEXT BULLET'S GOT YOUR NAME ON IT!",
-									"NOW YOU GOT MY ATTENTION... BIG MISTAKE!",
-									"OH, I SEE 'EM NOW!",
-									"OH, HE'S GONNA PAY!",
-									"OKAY, I'M HERE! WHO WANTS TO DIE?!",
-									"PICK 'EM, LAY 'EM DOWN!",
-									"PLEASE... STAY ALIVE A LITTLE BIT LONGER... SO I CAN KILL YOU MYSELF!",
-									"SHOOT 'EM UP!",
-									"SHOW ME WHERE THEY ARE!",
-									"SHOW ME WHAT YOU GOT!",
-									"STAY BACK!",
-									"STAND BACK!",
-									"TANGO AHEAD!",
-									"TANGO IN SIGHT!",
-									"TANGO SPOTTED!",
-									"TARGET AHEAD!",
-									"THAT'S ALL YOU GOT?!",
-									"THAT'S IT!",
-									"THEY'RE STILL ALIVE!",
-									"THIS GUY'S NO MATCH!",
-									"THIS ONE BELONGS TO ME!",
-									"THIS ONE'S MINE!",
-									"THIS WON'T TAKE LONG!",
-									"THIS... WON'T END WELL... FOR YOU!",
-									"TIME FOR SOME PAYBACK!",
-									"TIME TO SEND YOU TO HELL!",
-									"TOTAL ANNIHILATION IN THREE... TWO... ONE!",
-									"WANNA BANG HEADS?!",
-									"WATCH ME CRUSH THIS GUY!",
-									"WHAT'S THIS, AMATEUR HOUR?!",
-									"WHO WANTS A PIECE OF ME?!",
-									"WON'T BE LONG NOW!",
-									"WORLD OF HURT, COMING UP!",
-									"YOU ARE SO FUCKED!",
-									"YOU CAN STILL GIVE UP... BITCH!",
-									"YOU GOT NO CHANCE!",
-									"YOU FUCKED UP, BIG TIME!",
-									"YOU MADE A VERY BAD MISTAKE!",
-									"YOU MADE A BAD CALL!",
-									"YOU SHOULD'VE GIVEN UP BACK THERE!",
-									"YOU STEPPED IN IT!",
-									"YOU THINK YOU'RE BAD? YOU'RE NOTHIN'!",
-									"YOU WON'T STOP ME!",
-									"YOU'RE DEAD!",
-									"YOU'RE GONNA PAY!",
-									"YOU'RE GONNA WISH YOU'D STAYED HOME!",
-									"YOU'RE IN DEEP SHIT, NOW!",
-									"YOU'RE NO MATCH FOR ME!",
-									"YOU'RE NOTHING TO ME!",
-									"YOU'RE UP AGAINST THE WALL, AND I AM THE FUCKING WALL!"
 								}
 							}
 						}
@@ -3852,7 +4162,13 @@ ClosedCaptions._sounds = {
 									"Let's make that money"
 								}
 							}
-						}
+						},
+						rb15 = {
+							text = "Let's do this.",
+							priority = 40,
+							category = "heister_dialogue",
+							disabled = "missing"
+						},
 					}
 				},
 				p03 = {
@@ -8790,24 +9106,6 @@ ClosedCaptions._sounds = {
 						}
 					}
 				}, --mask up				
-				a02x_any = {
-					text = "(panic)", --not kalm
-					priority = 37,
-					max_distance = 3000,
-					category = "civilian_dialogue"
-				},
-				cm1_a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					priority = 37
-				},
-				a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					priority = 37
-				},
 				i01x_any = {
 					text = "[Anticipation phase]",
 					category = "UNKNOWN"
@@ -8925,6 +9223,32 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				s09a = {
+					text = "[reviving] Hey, man, you're not looking too good...",
+					max_distance = 1500,
+					category = "UNKNOWN"
+				},
+				s09b = {
+					text = "[reviving] Woah, you look even worse than before.",
+					max_distance = 1500,
+					category = "UNKNOWN"
+				},
+				s09c = {
+					text = "[reviving] You're looking really beat up, use a doctor bag!",
+					max_distance = 1500,
+					category = "UNKNOWN"
+				},
+				s05a_sin = {
+					text = "I feel terrible, heal me!",
+					max_distance = 1500,
+					category = "UNKNOWN"
+				}, --! bad
+				s05b_sin = {
+					text = "Whew, thanks.",
+					max_distance = 1500,
+					category = "UNKNOWN"
+				},
+
 				t01x_sin = {
 					text = "Just a few minutes left.",
 					category = "heister_dialogue",
@@ -9249,6 +9573,14 @@ ClosedCaptions._sounds = {
 					remove_by_source = true
 				},
 
+
+
+--stealth guard/gensec/patrol related lines
+				dispatch_generic_message = {
+					text = "(dispatch radio chatter)",
+					priority = 90,
+					category = "enemy_chatter"
+				},
 				dsp_radio_russian = {
 					category = "sfx",
 					disabled = true
@@ -10965,94 +11297,229 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				s09a = {
-					text = "[reviving] Hey, man, you're not looking too good...",
-					max_distance = 1500,
-					category = "UNKNOWN"
+
+				--cops/civs				
+	--civs
+		--
+				
+				["911_call"] = {
+					category = "civilian_dialogue",
+					max_distance = 2000,
+					text = "Hello? 911? I need help, there's armed robbers here!",
+					priority = 60
 				},
-				s09b = {
-					text = "[reviving] Woah, you look even worse than before.",
-					max_distance = 1500,
-					category = "UNKNOWN"
+				cm1_911_call = {
+					text = "cm1_911_call",
+					max_distance = 2000,
+					category = "UNKNOWN",
+					priority = 60
 				},
-				s09c = {
-					text = "[reviving] You're looking really beat up, use a doctor bag!",
-					max_distance = 1500,
-					category = "UNKNOWN"
+				
+			
+				
+				
+				
+				a02x_any = {
+					text = "(panic)", --not kalm
+					priority = 37,
+					max_distance = 3000,
+					category = "civilian_dialogue"
 				},
-				s05a_sin = {
-					text = "I feel terrible, heal me!",
+				cm1_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf1_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf2_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf3_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf3_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf4_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf4_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf5_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cf5_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cm1_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cm1_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cm1_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cm2_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cm2_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cm2_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cm2_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				cm2_x02a_any_3p = {
+					text = "[death]",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+				a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					priority = 37
+				},
+			
+	
+	--cops
+				l1n_a06 = {
+					text = "[idle]",
+					category = "chatter",
+					disabled = true
+				},
+				l1n_g90 = {
+					category = "UNKNOWN",
+					priority = 40,
+					text = "???"
+				},
+				l1n_h01 = {
+					category = "enemy_chatter",
+					duration = 3,
+					text = "(Freeing hostage)",
+					max_distance = 1000,
+					priority = 90
+				},
+				l1n_hr01 = {
+					text = "[hurt]",
+					category = "enemy_death",
 					max_distance = 1500,
-					category = "UNKNOWN"
-				}, --! bad
-				s05b_sin = {
-					text = "Whew, thanks.",
+					priority = 90
+				},
+				l1n_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					priority = 90
+				},
+				l1n_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					priority = 90
+				},
+				l1n_rdy = {
+					category = "enemy_chatter",
+					text = "Ready!",
+					max_distance = 1000,
+					priority = 99
+				},
+				l1n_t01 = {
+					category = "enemy_chatter",
+					text = "Looking for another way in.",
+					max_distance = 1000,
+					priority = 90
+				},
+				l1n_x01a_any_3p = {
+					text = "[pain]",
 					max_distance = 1500,
-					category = "UNKNOWN"
+					category = "enemy_death"
+				},
+				l1n_x02a_any_3p = {
+					text = "[death]",
+					max_distance = 1500,
+					category = "enemy_death"
 				},
 
-				--cops/civs
-				l3n_civ = {
---					duration = 5,
-					text = "Rescue the hostages",
+				l2d_rdy = {
 					category = "enemy_chatter",
-					priority = 90,
+					text = "Ready!",
+					max_distance = 1000,
+					priority = 99
+				},
+				l2n_g90 = {
+					category = "UNKNOWN",
+					priority = 40,
+					text = "???"
+				},
+				l2n_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
 					max_distance = 700,
-					line_variations = {
-						standard_mode = {
-							"Get the civilians!",
-							"Get the canaries!",
-							"Get the hostages!",
-							"Get the civvies!"
-						},
-						DISABLED_assault_mode = {}
-					}
+					priority = 90
 				},
-				l3n_d01 = {
-					text = "Rescue the hostages",
-					category = "enemy_chatter",
-					priority = 90,
-					max_distance = 700,
-					line_variations = {
-						standard_mode = {
-							"Deploy smoke!",
-							"Smoke 'em!",
-							"Smoke 'em out!",
-							"Smoke!"
-						},
-						DISABLED_assault_mode = {}
-					}
-				},
-				l4n_a01 = {
-					text = "(spotted heister)",
-					category = "enemy_dialogue",
-					priority = 90,
+				l2n_x01a_any_3p = {
+					text = "[pain]",
 					max_distance = 1500,
-					line_variations = {
-						standard_mode = {
-							"He's armed!",
-							"FREEZE!",
-							"STOP IT!",
-							"He's got a gun!",
-							"HOLD IT!",
-							"Gun! GUN!",
-							"He's got a weapon!",
-							"He has a gun!"
-						}
-					}
+					category = "enemy_death"
 				},
-				l4n_lk3a = {
-					text = "(panicked chatter)",
-					category = "enemy_chatter",
-					priority = 90,
+				l2n_x02a_any_3p = {
+					text = "[death]",
 					max_distance = 1500,
-					line_variations = {
-						standard_mode = {
-							"Christ!",
-							"Fuckin' hell!",
-							"Christ almighty!"
-						}
-					}
+					category = "enemy_death"
 				},
 				l2n_lk3b = {
 					category = "chatter",
@@ -11065,30 +11532,6 @@ ClosedCaptions._sounds = {
 							"INSANE!",
 							"HOLY SHIT!",
 							"JEEZ!"
-						}
-					}
-				},
-				l4n_i03 = {
-					text = "(cuffed heister)",
-					category = "enemy_dialogue",
-					priority = 60,
-					max_distance = 1500,
-					line_variations = {
-						recombinable = true,
-						standard_mode = { --unfinished
-							{
-								"It's over now, scumbag!",
-								"This ends now, scumbag.",
-								"It's over... scumbag!",
-								"It's over..."
-							},
-							{
-								 "I hope you like prison food.",
-								"You're going away for a loooong time.",
-								"Get ready to do some hard time.",
-								"I hope you drop the soap... a lot.",
-								"You son of a bitch!"
-							}
 						}
 					}
 				},
@@ -11139,11 +11582,761 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				dispatch_generic_message = {
-					text = "(dispatch radio chatter)",
-					priority = 90,
-					category = "enemy_chatter"
+				l2n_rdy = {
+					category = "enemy_chatter",
+					text = "Ready!",
+					max_distance = 1000,
+					priority = 99
+				},	
+				l2n_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
+					priority = 40,
+					max_distance = 1000,
+					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
+						}
+					}
 				},
+				l2n_p01 = {
+					text = "They have hostages! We need to delay the assault!",
+					category = "enemy_chatter",
+					max_distance = 1000
+				},
+
+				l3n_a06 = {
+					text = "[idle]",
+					category = "chatter",
+					disabled = true
+				},
+				l3n_a07a = {
+					text = "l3n_a07a",
+					category = "UNKNOWN", --alerted?
+					priority = 37,
+					max_distance = 1500
+				},
+				l3n_civ = {
+--					duration = 5,
+					text = "Rescue the hostages",
+					category = "enemy_chatter",
+					priority = 90,
+					max_distance = 700,
+					line_variations = {
+						standard_mode = {
+							"Get the civilians!",
+							"Get the canaries!",
+							"Get the hostages!",
+							"Get the civvies!"
+						},
+						DISABLED_assault_mode = {}
+					}
+				},
+				l3n_c01 = {
+					category = "enemy_chatter",
+					text = "Contact!",
+					max_distance = 700,
+					priority = 90
+				},
+				l3n_d01 = {
+					text = "Rescue the hostages",
+					category = "enemy_chatter",
+					priority = 90,
+					max_distance = 700,
+					line_variations = {
+						standard_mode = {
+							"Deploy smoke!",
+							"Smoke 'em!",
+							"Smoke 'em out!",
+							"Smoke!"
+						},
+						DISABLED_assault_mode = {}
+					}
+				},
+				l3n_h01 = {
+					category = "enemy_chatter",
+					duration = 3,
+					text = "(Freeing hostage)",
+					max_distance = 1000,
+					priority = 90
+				},
+				l3n_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					priority = 90
+				},
+				l3n_hr01 = {
+					text = "[hurt]",
+					category = "enemy_death",
+					max_distance = 1500,
+					priority = 90
+				},
+				l3n_i01 = {
+					duration = 1,
+					text = "Freeze!",
+					category = "UNKNOWN",
+					max_distance = 1000,
+					priority = 90
+				},
+				l3n_g90 = {
+					category = "UNKNOWN",
+					priority = 40,
+					text = "???"
+				},
+				l3n_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					priority = 90
+				},
+				l3n_rdy = {
+					category = "enemy_chatter",
+					text = "Ready!",
+					max_distance = 1000,
+					priority = 99
+				},
+				l3n_x01a_any_3p = {
+					text = "[pain]",
+					max_distance = 1500,
+					category = "enemy_death"
+				},
+				l3n_x02a_any_3p = {
+					text = "[death]",
+					max_distance = 1500,
+					category = "enemy_death"
+				},
+
+				l4n_a01 = {
+					text = "(spotted heister)",
+					category = "enemy_dialogue",
+					priority = 90,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"He's armed!",
+							"FREEZE!",
+							"STOP IT!",
+							"He's got a gun!",
+							"HOLD IT!",
+							"Gun! GUN!",
+							"He's got a weapon!",
+							"He has a gun!"
+						}
+					}
+				},
+				l4n_g90 = {
+					category = "UNKNOWN",
+					priority = 40,
+					text = "???"
+				},
+				l4n_h01 = {
+					category = "enemy_chatter",
+					duration = 3,
+					text = "(Freeing hostage)",
+					max_distance = 1000,
+					priority = 90
+				},
+				l4n_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					priority = 90
+				},
+				l4n_i01 = {
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
+					priority = 60,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
+				},
+				l4n_i03 = {
+					text = "(cuffed heister)",
+					category = "enemy_dialogue",
+					priority = 60,
+					max_distance = 1500,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
+						}
+					}
+				},
+				l4n_lk3a = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					priority = 90,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l4n_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					priority = 90
+				},
+				l4n_pos = {
+					category = "enemy_chatter",
+					text = "I'm in position.",
+					max_distance = 1000,
+					priority = 99
+				},
+				l4n_rdy = {
+					category = "enemy_chatter",
+					text = "Ready!",
+					max_distance = 1000,
+					priority = 99
+				},
+				l4n_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
+					priority = 40,
+					max_distance = 1000,
+					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
+						}
+					}
+				},
+				l4n_x01a_any_3p = {
+					override_name = "(male)",
+					text = "(screams, death gurgles)",
+					priority = 37,
+					category = "mission_dialogue"
+				},
+				l4n_x02a_any_3p = {
+					text = "[death]",
+					max_distance = 1500,
+					category = "enemy_death"
+				},
+
+				fl1n_a23 = {
+					category = "enemy_dialogue",
+					text = "Two-Two reporting in, there's signs of intruders here...",
+					max_distance = 1500,
+					priority = 37
+				},
+				fl1n_g90 = {
+					category = "UNKNOWN",
+					priority = 90,
+					max_distance = 1500,
+					text = "It's the clowns! The clowns from TV!"
+				},
+				fl1n_h01 = {
+					category = "enemy_chatter",
+					duration = 3,
+					text = "(Freeing hostage)",
+					max_distance = 1000,
+					priority = 90
+				},
+				fl1n_x02a_any_3p = {
+					text = "[death]",
+					max_distance = 1500,
+					category = "enemy_death"
+				},
+
+				lt2_c01 = {
+					max_distance = 1500,
+					priority = 90,
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Mira, mira, there he is!",
+							"I see one!",
+							"Okay, I see one!",
+							"I got one!",
+							"I see one of 'em!",
+							"Yo, there's one!",
+							"Here!"
+						}
+					}
+				},
+				lt2_g90 = {
+					category = "enemy_chatter",
+					priority = 90,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"I'm gonna fuck you up, man!",
+							"These fuckers are going down!",
+							"You must have shit for brains, coming here!",
+							"I oughta kill you twice, gringo!",
+							"This is the wrong town for you, amigo!",
+							"Blood coming out your ears, fucker!",
+							"I'm gonna make you bleed!",
+							"[angry Spanish]"
+						}
+					}
+				},
+
+				taser_charge = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "(Taser charge)",
+					max_distance = 4000,
+					priority = 19
+				},
+				tsr_elite = {
+					text = "(Elite Taser Entrance)",
+					max_distance = 2000,
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Elite Taser! Here to win this once and for all!",
+							"Elite Taser! Stay clear!",
+							"Elite Taser! Stand clear!",
+							"Elite Taser! Stand back!",
+							"Make way for the Elite Taser!",
+							"Elite Taser! Going through!",
+							"Elite Taser! Get out of the way!",
+							"Elite Taser! Make way!"
+						}
+					},
+					priority = 55
+				},
+				tsr_entrance = {
+					text = "(Taser entrance)",
+					category = "enemy_chatter",
+					max_distance = 4000,
+					priority = 55,
+					line_variations = {
+						standard_mode = {
+							"Who ordered shock treatment?",
+							"Who ordered a lightning bolt?!",
+							"Who's AMPED?",
+							"Make way!",
+							"Taser! MOVE!",
+							"Taser! Clear!",
+							"Stay back!",
+							"Fifty thousand volts here!",
+							"Taser, going through?",
+							"Coming through!",
+							"Get out of the way!",
+							"Stand clear!",
+							"Flip the switch!",
+							"Charged and ready! Bring 'em on!",
+							"Charged and ready... let 'em come!",
+							"Get out of the way!",
+							"Make way for the Taser!",
+							"I'M AMPED!",
+							"Shock treatment prescribed!",
+							"Charged and ready... where are they?!"
+						}
+					}
+				},
+				tsr_g90 = {
+					text = "(Taser taunt)",
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Acquiring targets!",
+							"Almost at full power!",
+							"Amped up!",
+							"Amperage building!",
+							"Approaching perpetrator!",
+							"Bringin' the voltage!",
+							"CHAAARGE!",
+							"Charged and ready! Where are they?!",
+							"Charged and ready... let 'em come!",
+							"Charging up!",
+							"Charging... charging!",
+							"Coming through!",
+							"Contact imminent!",
+							"Engaging subject!",
+							"Eyes on perp!",
+							"Eyes on perp!",
+							"Fifty thousand volts here!",
+							"Gonna plug in!",
+							"Got eyes on the perpetrator!",
+							"High voltage!",
+							"Hope you're insulated!",
+--											"Hostile spotted!", --not sure
+							"I got 'em!",
+							"I got fifty thousand volts here with your name on 'em!",
+							"I'll deal with this one!",
+							"I'll take care of this one myself!",
+							"I'm amped!",
+							"I'm feelin' kinda ELECTRIC!",
+							"I'm the fucking spark-man!",
+							"Imminent contact!",
+							"Just call me elec-man!",
+							"Let's amp this shit up!",
+							"Lightning bolt, lightning bolt, lightning bolt!",
+							"Make way!",
+							"Perp ahead!",
+							"Perp in sight!",
+							"Perp spotted!",
+							"Perp targeted!",
+							"Raising voltage!",
+							"Set to 'stun!'",
+							"Shock prepared!",
+							"Shocking!",
+							"Stay clear!",
+							"Subject still mobile!",
+							"Take the shot!",
+--											"Taser got sent all those to kill!", --not sure what he says
+							"Taser gun charged and ready!",
+							"Taser! Get out of the way!",
+							"Taser! Stand back!",
+							"Taser, clear!",
+							"Taser, going through!",
+							"Taser, ready!",
+							"Taser- stay clear!",
+							"Taser... moved!",
+							"This one belongs to me!",
+							"Voltage to burn!",
+							"Wattage at full!"
+						}
+					}
+				},
+				tsr_hr01 = {
+					text = "[hurt]",
+					category = "enemy_death",
+					max_distance = 1500,
+					priority = 90
+				},
+				tsr_post_tasing_taunt = {
+					text = "(tasing taunt)",
+					category = "enemy_chatter",
+					max_distance = 4000,
+					priority = 60
+				},
+				tsr_x01a_any_3p = {
+					text = "[pain]",
+					max_distance = 1500,
+					category = "enemy_death"
+				},
+				tsr_x02a_any_3p = {
+					text = "[pain]",
+					max_distance = 1500,
+					category = "enemy_death"
+				},
+
+				mdc_g90 = {
+					text = "(Medic taunt)",
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Don't let them escape!",
+							"Go! Go!",
+							"Get 'em!",
+							"Cops ALWAYS win!",
+							"They won't know what hit 'em!",
+							"Fight the law... the law wins!",
+							"Keep your heads down!",
+							"C'mon, we're winning!",
+							"We got 'em now!",
+							"Advance! We have 'em cornered!",
+							"End of the line for these crooks!",
+							"Take 'em down!",
+							"Let's waste 'em!",
+							"Don't let them get away!",
+							"Don't let them escape!",
+							"These guys are fucked!",
+							"Stay patient, and we'll take them!",
+							"What goes around, comes around!",
+							"No fear! Let's take 'em out!",
+							"C'mon, c'mon!",
+							"I got your back, guys!",
+							"These assholes are goin' down!",
+							"Eliminate hostiles!",
+							"Try to surround them!",
+							"See you in the prison medical ward!",
+							"Backup, BACKUP!",
+							"Are you sure you want to do this?",
+							"They have no chance!",
+							"Get 'em! GET 'EM!",
+							"Make 'em regret getting up this morning!",
+							"Watch it!"
+						}
+					}
+				},
+				mdc_heal = {
+					text = "(healed cop)",
+					category = "enemy_dialogue",
+					max_distance = 4000,
+					priority = 50
+				},
+				mdc_x02a_any_3p = {
+					text = "[death]",
+					max_distance = 1500,
+					category = "enemy_death"
+				},
+				mdc_x01a_any_3p = {
+					category = "enemy_chatter",
+					text = "[pain]",
+					max_distance = 1000,
+					priority = 90
+				},
+		
+				shd_x02a_any_3p_01 = {
+					text = "[Shield death]",
+					max_distance = 1500,
+					category = "enemy_death",
+					priority = 50
+				},
+				shield_identification = {
+					text = "(Shield clanking)",
+					category = "enemy_chatter",
+					max_distance = 4000,
+					priority = 55
+				},
+
+				bdz_entrance = {
+					text = "(Bulldozer spawned)",
+					priority = 60,
+					category = "enemy_chatter",
+					max_distance = 4000,
+					line_variations = {
+						standard_mode = {
+							"WHO WANTS A PIECE OF ME?",
+							"GONNA BREAK SOME SHIT!",
+							"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
+							"GET. OUT. OF. THE. WAY!",
+							"DOZER'S HERE, AND READY FOR ACTION!",
+							"CLOBBERIN' TIME!",
+							"MAKE WAY FOR THE BULLDOZER!",
+							"STAND BACK!",
+							"OKAY, I'M HERE... WHO WANTS TO DIE?!"
+						},
+						assault_mode = {
+							"BULLDOZER! GET OUT OF THE WAY!",
+							"BULLDOZER! MOVE ASIDE!",
+							"BULLDOZER! MAKE WAY!",
+							"BULLDOZER GOIN' IN!",
+							"BULLDOZER TIME!",
+							"SHOW ME WHERE THEY ARE!",
+							"BULLDOZER, COMING THROUGH!",
+							"BULLDOZER IN THE HOUSE!",
+							"DOZER IN THE HOUSE!",
+							"DOZER! MOVE ASIDE!",
+							"DOZER! STAND BACK!",
+							"DOZER! STAY BACK!",
+							"DOZER! GET OUT OF THE WAY!",
+							"STAY BACK!",
+							"STAND BACK!",
+							"GOING TO WORK!",
+							"GIVE ME SOME TIME TO WORK!", --unsure
+							"ALRIGHT, WHERE ARE THEY?!",
+							"ALRIGHT! WATCH... AND LEARN!",
+							"ASS-KICKIN' TIME!",
+							"MAKE WAY FOR THE DOZER!",
+							"MAKE WAY FOR THE BULLDOZER!",
+							"MOVE ASIDE! I GOT THIS!",
+							"TIME FOR SOME PAYBACK!",
+							"WHO WANTS A PIECE OF ME?!",
+							"WHERE ARE YOU?!",
+							"MOVE ASIDE!",
+							"I GOT THIS!",
+							"COME ON OUT WHEREVER YOU ARE!",
+							"SHOW ME WHERE THEY ARE!",
+							"OKAY, I'M HERE! WHO WANTS TO DIE?!"
+						}
+					}
+				},
+				bdz_g90 = {
+					text = "(Bulldozer taunt)",
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"ALRIGHT! HERE, AND READY TO KICK ASS!",
+							"ALRIGHT, WHERE ARE THEY?!",
+							"BACK THE FUCK UP!",
+							"BRINGING... THE PAIN!",
+							"BULLDOZER IN THE HOUSE!",
+							"BRINGING SOME HURT!",
+							"BULLDOZER COMING THROUGH!",
+							"BULLDOZER GOIN' IN!",
+							"BULLDOZER! MAKE WAY!",
+							"BULLDOZER! STAY BACK!",
+							"COMING THROUGH!",
+							"CAN'T STOP ME!",
+							"'CAREER CRIMINALS,' MY ASS!",
+							"COME ON OUT... WHEREVER YOU ARE!",
+							"DEATH PENALTY IN THREE... TWO... ONE!",
+							"DO YOU EVEN KNOW... HOW FUCKED YOU ARE?!",
+							"DO YOUR WORST!",
+							"DON'T KILL YOURSELF OR ANYTHING- THAT HONOR'S MINE!",
+							"DON'T YOU THINK YOU SHOULD LEAVE?! NOW?!",
+							"DON'T! MESS! WITH ME!",
+							"DOZER! MAKE WAY!",
+							"DOZER IN THE HOUSE!",
+							"DOZER'S HERE AND READY FOR ACTION!",
+							"ENGAGING TARGET!",
+							"EYES ON TARGET!",
+							"FIND SOMEWHERE GOOD TO HIDE!",
+							"FUCKING AMATEURS!",
+							"GET READY!",
+							"GIMME SOME ROOM TO WORK!",
+							"GIVE UP!",
+							"GIVE UP... AND MAYBE I WON'T STOP A MUDHOLE IN YOUR ASS!",
+							"GONNA BREAK SOME SHIT!",
+							"GONNA DROP A BUILDING ON 'EM!",
+							"GONNA SEND YOU TO HELL!",
+							"GONNA SHOW YOU THE LIGHT AT THE END OF THE TUNNEL!",
+							"GOT EYES ON TARGET!",
+							"HAHA, SUCKERS!",
+							"HERE TO END THIS!",
+							"HERE COMES SOME FUCKING HURT!",
+							"HIDE WHILE YOU CAN!",
+							"HOW DO YOU THINK THIS IS GONNA END?!",
+							"I BRING THE PAIN!",
+							"I CAN'T WAIT TO GET MY HANDS ON YOU!",
+							"I HEAR YOU!",
+							"I GIVE THIS GUY FIVE SECONDS!",
+							"I'VE GOT 'EM!",
+							"I GOT THIS ONE!",
+							"I GOT THIS!",
+							"I'LL DEAL WITH THIS ONE!",
+							"I'LL TAKE THIS ONE!",
+							"I'LL TAKE CARE OF THIS ONE MYSELF!",
+							"I'LL TAKE THIS ONE ALL ON MY OWN!",
+							"I'LL PICK THESE SUCKERS APART!",
+							"I'M THEIR PROBLEM NOW!",
+							"I'M UNSTOPPABLE!",
+							"I'MMA KICK YOUR ASS!",
+							"JUST A MATTER OF TIME!",
+							"JUST WAIT 'TIL I FIND YOU!",
+							"KISS YOUR ASS GOODBYE!",
+							"LET'S FINISH THIS!",
+							"LET'S SEE WHAT YOU GOT!",
+							"MAKE WAY FOR THE BULLDOZER!",
+							"MAKE WAY FOR THE DOZER!",
+							"MAKE WAY!",
+							"MOVE ASIDE!",
+							"MOVE ASIDE, I GOT THIS!",
+							"NEXT BULLET'S GOT YOUR NAME ON IT!",
+							"NOW YOU GOT MY ATTENTION... BIG MISTAKE!",
+							"OH, I SEE 'EM NOW!",
+							"OH, HE'S GONNA PAY!",
+							"OKAY, I'M HERE! WHO WANTS TO DIE?!",
+							"PICK 'EM, LAY 'EM DOWN!",
+							"PLEASE... STAY ALIVE A LITTLE BIT LONGER... SO I CAN KILL YOU MYSELF!",
+							"SHOOT 'EM UP!",
+							"SHOW ME WHERE THEY ARE!",
+							"SHOW ME WHAT YOU GOT!",
+							"STAY BACK!",
+							"STAND BACK!",
+							"TANGO AHEAD!",
+							"TANGO IN SIGHT!",
+							"TANGO SPOTTED!",
+							"TARGET AHEAD!",
+							"THAT'S ALL YOU GOT?!",
+							"THAT'S IT!",
+							"THEY'RE STILL ALIVE!",
+							"THIS GUY'S NO MATCH!",
+							"THIS ONE BELONGS TO ME!",
+							"THIS ONE'S MINE!",
+							"THIS WON'T TAKE LONG!",
+							"THIS... WON'T END WELL... FOR YOU!",
+							"TIME FOR SOME PAYBACK!",
+							"TIME TO SEND YOU TO HELL!",
+							"TOTAL ANNIHILATION IN THREE... TWO... ONE!",
+							"WANNA BANG HEADS?!",
+							"WATCH ME CRUSH THIS GUY!",
+							"WHAT'S THIS, AMATEUR HOUR?!",
+							"WHO WANTS A PIECE OF ME?!",
+							"WON'T BE LONG NOW!",
+							"WORLD OF HURT, COMING UP!",
+							"YOU ARE SO FUCKED!",
+							"YOU CAN STILL GIVE UP... BITCH!",
+							"YOU GOT NO CHANCE!",
+							"YOU FUCKED UP, BIG TIME!",
+							"YOU MADE A VERY BAD MISTAKE!",
+							"YOU MADE A BAD CALL!",
+							"YOU SHOULD'VE GIVEN UP BACK THERE!",
+							"YOU STEPPED IN IT!",
+							"YOU THINK YOU'RE BAD? YOU'RE NOTHIN'!",
+							"YOU WON'T STOP ME!",
+							"YOU'RE DEAD!",
+							"YOU'RE GONNA PAY!",
+							"YOU'RE GONNA WISH YOU'D STAYED HOME!",
+							"YOU'RE IN DEEP SHIT, NOW!",
+							"YOU'RE NO MATCH FOR ME!",
+							"YOU'RE NOTHING TO ME!",
+							"YOU'RE UP AGAINST THE WALL, AND I AM THE FUCKING WALL!"
+						}
+					}
+				},
+				bdz_x02a_any_3p = {
+					text = "[Bulldozer death]",
+					max_distance = 1500,
+					category = "enemy_death",
+					priority = 50
+				},
+				visor_lost = { --SEN-I-SOSHITSU
+					text = "[lost visor]",
+					priority = 60,
+					duration = 5,
+					max_distance = 4000,
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"MY DAMN VISOR!",
+							"FUCK!",
+							"MY VISOR!",
+							"FUCKING HELL!",
+							"I'M SCREWED!",
+							"OH, SHIT!",
+							"SHIT JUST GOT REAL!",
+							"UH-OH!",
+							"THAT DAMN VISOR!",
+							"IMPRESSIVE... BUT FUTILE!",
+							"TOO LITTLE... TOO LATE!",
+							"HOLY SHIT!",
+							"AW, FUCK!",
+							"HAH! LIKE THAT WOULD STOP ME!",
+							"I'LL PUT YOU DOWN, WITH OR WITHOUT MY VISOR!",
+							"I'LL CRUSH YOU, WITH OR WITHOUT MY VISOR!",
+							"I'LL FUCK YOU UP, VISOR OR NO VISOR!",
+							"I'LL KICK YOUR ASS, VISOR OR NO VISOR!",
+							"THAT WON'T STOP ME!"
+						}
+					}
+				},
+
 				cloaker_spawn = {
 					text = "[Cloaker spawned]",
 					category = "enemy_chatter",
@@ -11260,36 +12453,13 @@ ClosedCaptions._sounds = {
 					duration = 2,
 					priority = 40
 				},
-				visor_lost = { --SEN-I-SOSHITSU
-					text = "[lost visor]",
-					priority = 60,
-					duration = 5,
-					max_distance = 4000,
-					category = "enemy_chatter",
-					line_variations = {
-						standard_mode = {
-							"MY DAMN VISOR!",
-							"FUCK!",
-							"MY VISOR!",
-							"FUCKING HELL!",
-							"I'M SCREWED!",
-							"OH, SHIT!",
-							"SHIT JUST GOT REAL!",
-							"UH-OH!",
-							"THAT DAMN VISOR!",
-							"IMPRESSIVE... BUT FUTILE!",
-							"TOO LITTLE... TOO LATE!",
-							"HOLY SHIT!",
-							"AW, FUCK!",
-							"HAH! LIKE THAT WOULD STOP ME!",
-							"I'LL PUT YOU DOWN, WITH OR WITHOUT MY VISOR!",
-							"I'LL CRUSH YOU, WITH OR WITHOUT MY VISOR!",
-							"I'LL FUCK YOU UP, VISOR OR NO VISOR!",
-							"I'LL KICK YOUR ASS, VISOR OR NO VISOR!",
-							"THAT WON'T STOP ME!"
-						}
-					}
+				clk_punch_3rd_person_3p = {
+					text = "(Cloaker lunge!)",
+					max_distance = 1500,
+					category = "enemy_dialogue",
+					priority = 11
 				},
+		
 				entrance = {
 					priority = 60,
 					max_distance = 4000,
@@ -11460,58 +12630,6 @@ ClosedCaptions._sounds = {
 					priority = 60,
 					max_distance = 4000,
 					category = "enemy_chatter"
-				},
-				bdz_entrance = {
-					text = "(Bulldozer spawned)",
-					priority = 60,
-					category = "enemy_chatter",
-					max_distance = 4000,
-					line_variations = {
-						standard_mode = {
-							"WHO WANTS A PIECE OF ME?",
-							"GONNA BREAK SOME SHIT!",
-							"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
-							"GET. OUT. OF. THE. WAY!",
-							"DOZER'S HERE, AND READY FOR ACTION!",
-							"CLOBBERIN' TIME!",
-							"MAKE WAY FOR THE BULLDOZER!",
-							"STAND BACK!",
-							"OKAY, I'M HERE... WHO WANTS TO DIE?!"
-						},
-						assault_mode = {
-							"BULLDOZER! GET OUT OF THE WAY!",
-							"BULLDOZER! MOVE ASIDE!",
-							"BULLDOZER! MAKE WAY!",
-							"BULLDOZER GOIN' IN!",
-							"BULLDOZER TIME!",
-							"SHOW ME WHERE THEY ARE!",
-							"BULLDOZER, COMING THROUGH!",
-							"BULLDOZER IN THE HOUSE!",
-							"DOZER IN THE HOUSE!",
-							"DOZER! MOVE ASIDE!",
-							"DOZER! STAND BACK!",
-							"DOZER! STAY BACK!",
-							"DOZER! GET OUT OF THE WAY!",
-							"STAY BACK!",
-							"STAND BACK!",
-							"GOING TO WORK!",
-							"GIVE ME SOME TIME TO WORK!", --unsure
-							"ALRIGHT, WHERE ARE THEY?!",
-							"ALRIGHT! WATCH... AND LEARN!",
-							"ASS-KICKIN' TIME!",
-							"MAKE WAY FOR THE DOZER!",
-							"MAKE WAY FOR THE BULLDOZER!",
-							"MOVE ASIDE! I GOT THIS!",
-							"TIME FOR SOME PAYBACK!",
-							"WHO WANTS A PIECE OF ME?!",
-							"WHERE ARE YOU?!",
-							"MOVE ASIDE!",
-							"I GOT THIS!",
-							"COME ON OUT WHEREVER YOU ARE!",
-							"SHOW ME WHERE THEY ARE!",
-							"OKAY, I'M HERE! WHO WANTS TO DIE?!"
-						}
-					}
 				},
 				entrance_elite = {
 					priority = 60,
@@ -11685,93 +12803,12 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				hr01 = {
-					text = "[hurt]",
-					category = "enemy_death",
-					max_distance = 1500,
-					priority = 90
-				},
+
 				burndeath = {
 					text = "[burn death]",
 					max_distance = 1500,
 					category = "enemy_death",
 					priority = 90
-				},
-				shd_x02a_any_3p_01 = {
-					text = "[Shield death]",
-					max_distance = 1500,
-					category = "enemy_death",
-					priority = 50
-				},
-				bdz_x02a_any_3p = {
-					text = "[Bulldozer death]",
-					max_distance = 1500,
-					category = "enemy_death",
-					priority = 50
-				},
-				x02a_any_3p = {
-					text = "[death]",
-					max_distance = 1500,
-					category = "enemy_death"
-				},
-				l1n_x02a_any_3p = {
-					text = "[death]",
-					max_distance = 1500,
-					category = "enemy_death"
-				},
-				clk_punch_3rd_person_3p = {
-					text = "(Cloaker lunge!)",
-					max_distance = 1500,
-					category = "enemy_dialogue",
-					priority = 11
-				},
-				tsr_entrance = {
-					text = "(Taser entrance)",
-					category = "enemy_chatter",
-					max_distance = 4000,
-					priority = 55,
-					line_variations = {
-						standard_mode = {
-							"Who ordered shock treatment?",
-							"Who ordered a lightning bolt?!",
-							"Who's AMPED?",
-							"Make way!",
-							"Taser! MOVE!",
-							"Taser! Clear!",
-							"Stay back!",
-							"Fifty thousand volts here!",
-							"Taser, going through?",
-							"Coming through!",
-							"Get out of the way!",
-							"Stand clear!",
-							"Flip the switch!",
-							"Charged and ready! Bring 'em on!",
-							"Charged and ready... let 'em come!",
-							"Get out of the way!",
-							"Make way for the Taser!",
-							"I'M AMPED!",
-							"Shock treatment prescribed!",
-							"Charged and ready... where are they?!"
-						}
-					}
-				},
-				tsr_elite = {
-					text = "(Elite Taser Entrance)",
-					max_distance = 2000,
-					category = "enemy_chatter",
-					line_variations = {
-						standard_mode = {
-							"Elite Taser! Here to win this once and for all!",
-							"Elite Taser! Stay clear!",
-							"Elite Taser! Stand clear!",
-							"Elite Taser! Stand back!",
-							"Make way for the Elite Taser!",
-							"Elite Taser! Going through!",
-							"Elite Taser! Get out of the way!",
-							"Elite Taser! Make way!"
-						}
-					},
-					priority = 55
 				},
 				tasered_3rd = { --loops
 					text = "tasered_3rd",
@@ -11799,12 +12836,6 @@ ClosedCaptions._sounds = {
 					max_distance = 4000,
 					priority = 60
 				},
-				shield_identification = {
-					text = "(Shield clanking)",
-					category = "enemy_chatter",
-					max_distance = 4000,
-					priority = 55
-				},
 				tasered = {
 					text = "(being tased!)",
 					category = "sfx",
@@ -11815,31 +12846,13 @@ ClosedCaptions._sounds = {
 					category = "UNKNOWN",
 					priority = 17
 				},
-				taser_charge = {
-					override_name = "SFX",
-					category = "sfx",
-					text = "(Taser charge)",
-					max_distance = 4000,
-					priority = 19
-				},
 				heal = {
 					text = "(healed cop)",
 					category = "enemy_dialogue",
 					max_distance = 4000,
 					priority = 50
 				},
-				["911_call"] = {
-					category = "civilian_dialogue",
-					max_distance = 2000,
-					text = "Hello? 911? I need help, there's armed robbers here!",
-					priority = 60
-				},
-				cm1_911_call = {
-					text = "cm1_911_call",
-					max_distance = 2000,
-					category = "UNKNOWN",
-					priority = 60
-				},
+
 				dsp_radio_buzz = {
 					override_name = "SFX",
 					text = "(idle pager buzz)", --nonalert, idle sound
@@ -12167,7 +13180,7 @@ ClosedCaptions._sounds = {
 					text = "Two-Two reporting in, there's signs of intruders here...",
 					max_distance = 1500,
 					priority = 37
-				},
+				},				
 				a24 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, somebody's been messing with the computer here...",
@@ -12384,12 +13397,6 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				l3n_c01 = {
-					category = "enemy_chatter",
-					text = "Contact!",
-					max_distance = 700,
-					priority = 90
-				},
 				c01 = {
 					category = "enemy_chatter",
 					text = "Contact!",
@@ -12573,6 +13580,12 @@ ClosedCaptions._sounds = {
 					max_distance = 700,
 					priority = 90
 				},
+				hr01 = {
+					text = "[hurt]",
+					category = "enemy_death",
+					max_distance = 1500,
+					priority = 90
+				},
 				i01 = {
 					category = "enemy_chatter", --! enemy callouts?
 					duration = 1,
@@ -12627,18 +13640,12 @@ ClosedCaptions._sounds = {
 					text = "There's a doctor bag! They must have a field medic!",
 					max_distance = 1000,
 					priority = 90
-				},
+				},	
 				mov = {
 					text = "Move!",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					priority = 90
-				},
-				l4n_pos = {
-					category = "enemy_chatter",
-					text = "I'm in position.",
-					max_distance = 1000,
-					priority = 99
 				},
 				pos = {
 					category = "enemy_chatter",
@@ -12665,18 +13672,6 @@ ClosedCaptions._sounds = {
 					priority = 90
 				},
 				rdy = {
-					category = "enemy_chatter",
-					text = "Ready!",
-					max_distance = 1000,
-					priority = 99
-				},
-				l1n_rdy = {
-					category = "enemy_chatter",
-					text = "Ready!",
-					max_distance = 1000,
-					priority = 99
-				},
-				l2d_rdy = {
 					category = "enemy_chatter",
 					text = "Ready!",
 					max_distance = 1000,
@@ -12723,52 +13718,19 @@ ClosedCaptions._sounds = {
 					max_distance = 1000,
 					priority = 90
 				},
-				l1n_t01 = {
-					category = "enemy_chatter",
-					text = "Looking for another way in.",
-					max_distance = 1000,
-					priority = 90
-				},
 				x01a_any_3p = {
 					category = "enemy_chatter",
 					text = "[pain]",
 					max_distance = 1000,
 					priority = 90
 				},
-				lt2_c01 = {
+				x02a_any_3p = {
+					text = "[death]",
 					max_distance = 1500,
-					priority = 90,
-					category = "enemy_chatter",
-					line_variations = {
-						standard_mode = {
-							"Mira, mira, there he is!",
-							"I see one!",
-							"Okay, I see one!",
-							"I got one!",
-							"I see one of 'em!",
-							"Yo, there's one!",
-							"Here!"
-						}
-					}
+					category = "enemy_death"
 				},
-				lt2_g90 = {
-					category = "enemy_chatter",
-					priority = 90,
-					max_distance = 1500,
-					line_variations = {
-						standard_mode = {
-							"I'm gonna fuck you up, man!",
-							"These fuckers are going down!",
-							"You must have shit for brains, coming here!",
-							"I oughta kill you twice, gringo!",
-							"This is the wrong town for you, amigo!",
-							"Blood coming out your ears, fucker!",
-							"I'm gonna make you bleed!",
-							"[angry Spanish]"
-						}
-					}
-				},
-	--mission specific dialogue; i removed the variant/subvariant tables for these since they will play from any source, and don't require a specific voice prefix.
+
+--mission specific dialogue
 				--no mercy
 				Play_bil_nmh_01_01 = {
 					override_name = "Bill",
@@ -14483,7 +15445,7 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				Play_bm_fwb_01 = { --these three are looped, which i don't have a proper fadein/fadeout system for, or start/stop when out of range
+				Play_bm_fwb_01 = {
 					override_name = "Bank Manager",
 					override_text_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
@@ -14495,7 +15457,7 @@ ClosedCaptions._sounds = {
 						loop_interval_min = 10,
 						use_random_variations = true
 					},
-					text = "talking on phone and being a dick in general",
+					text = "(talking on phone and being a dick in general)",
 					line_variations = {
 						standard_mode = {
 							"So, uh, they took me into HR at the head office again. It turns out you can't tell a grandmother to suck a bag of- shit, they might be listening.",
@@ -16291,15 +17253,13 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 8,
 					priority = 36
-				},
-				
+				},			
 				Play_gar_tag_08 = {
 					text = "[muffled] Will I ever get a moment of peace?",
 					category = "mission_dialogue",
 					duration = 8,
 					priority = 36
 				},
-				
 				Play_gar_tag_09 = {
 					text = "(Hey, who was just in my office?)",
 					category = "mission_dialogue",
@@ -16421,16 +17381,7 @@ ClosedCaptions._sounds = {
 					duration = 2,
 					priority = 36
 				},
-				l3n_a06 = {
-					text = "[idle]",
-					category = "chatter",
-					disabled = true
-				},
-				l1n_a06 = {
-					text = "[idle]",
-					category = "chatter",
-					disabled = true
-				},
+
 			--biker heist
 				Play_bkl_brn_01 = {
 					text = "(biker aggro)",
@@ -16838,8 +17789,15 @@ ClosedCaptions._sounds = {
 							"This betrayal shit almost makes me wanna go back to prison."
 						}
 					}
+				},
+		--green bridge
+				Play_kzo_glc_01 = {
+					text = "I didn't know my brothers had arranged for my escape! This is a pleasant surprise!",
+					category = "mission_dialogue",
+					override_name = "Giant",
+					priority = 36,
+					duration = 7
 				}
-				
 			}
 		}
 	},

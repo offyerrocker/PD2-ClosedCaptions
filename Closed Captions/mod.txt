@@ -13,48 +13,12 @@
 			"script_path" : "lua/menumanager.lua"
 		},
 		{
-			"TEMP_hook_id" : "lib/managers/dialogmanager",
-			"script_path" : "lua/dialogmanager.lua"
-		},
-		{
-			"TEMP_hook_id" : "core/lib/managers/mission/coreelementplaysound",
-			"script_path" : "lua/coreelementplaysound.lua"
-		},
-		{
-			"DISABLED_hook_id" : "lib/network/handlers/unitnetworkhandler",
-			"script_path" : "lua/unitnetworkhandler.lua"
-		},
-		{
-			"TEMP_hook_id" : "lib/units/weapons/trip_mine/tripminebase",
-			"script_path" : "lua/tripminebase.lua"
-		},
-		{
-			"TEMP_hook_id" : "lib/units/equipment/ecm_jammer/ecmjammerbase",
-			"script_path" : "lua/ecmjammerbase.lua"
-		},
-		{
-			"TEMP_hook_id" : "lib/units/beings/player/playersound",
-			"script_path" : "lua/playersound.lua"
-		},
-		{
-			"TEMP_hook_id" : "lib/units/enemies/cop/copsound",
-			"script_path" : "lua/copsound.lua"
-		},
-		{
-			"TEMP_hook_id" : "lib/units/weapons/grenades/quickflashgrenade",
-			"script_path" : "lua/quickflashgrenade.lua"
-		},
-		{
-			"DISABLED_hook_id" : "lib/managers/gameplaycentralmanager",
-			"script_path" : "gameplaycentralmanager.lua"
-		},
-		{
 			"DISABLED_hook_id" : "core/lib/managers/subtitle/coresubtitlesequence",
-			"script_path" : "coresubtitlesequence.lua"
+			"script_path" : "lua/coresubtitlesequence.lua"
 		},
 		{
 			"DISABLED_hook_id" : "core/lib/managers/subtitle/coresubtitlemanager",
-			"script_path" : "coresubtitlemanager.lua"
+			"script_path" : "lua/coresubtitlemanager.lua"
 		}
 	]
 }
