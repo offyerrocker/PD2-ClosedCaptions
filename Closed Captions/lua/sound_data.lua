@@ -151,6 +151,7 @@ ClosedCaptions._sounds = {
 				Play_ban_c01 = true,
 				Play_ban_r04 = true,
 				Play_ban_r03 = true,
+				ambience_ext_wilderness_night = true,
 				music_uno_fade_reset = true,
 				emitter_rain_on_car = true,
 				emitter_car_fire_rain = true,
@@ -161,7 +162,16 @@ ClosedCaptions._sounds = {
 				emitter_rubble_light = true,
 				emitter_water_on_generic_hollow_mono_loop2 = true,
 				emitter_water_on_generic_hollow_mono_loop = true,
-				emitter_generator = true
+				emitter_generator = true,
+				emitter_ground_animals = true,
+				emitter_coyote = true,
+				emitter_owl = true,
+				emitter_wind = true,
+				emitter_ac_hum = true,
+				emitter_radiator_hiss_loop = true,
+				emitter_car_fire_loop_02 = true,
+				emitter_frog = true,
+				emitter_flickering_light = true
 			},
 			vo_special = { --there exist character-specific variants for most of these, but we'll burn that bridge when we come to it
 				["f11@_sin"] = { --macroized
@@ -601,6 +611,20 @@ ClosedCaptions._sounds = {
 					duration = 2,
 					priority = 25
 				},
+				flare_start_loop = {
+					text = "[flare burns]",
+					override_text = "SFX",
+					category = "sfx",
+					max_distance = 1500,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 40
+				},
+				flare_end = {
+					category = "stops",
+					stops_line = "flare_start_loop"
+				},
 				goat_fan_woosh = {
 					override_name = "SFX",
 					text = "(Goat riding the fan)",
@@ -738,6 +762,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "keypad button pressed",
 					max_distance = 1000,
+					override_source_id = "keypad", --don't need eight of these on my screen
 					category = "sfx",
 					priority = 37,
 					duration = 3
@@ -745,6 +770,7 @@ ClosedCaptions._sounds = {
 				keypad_wrong_code_03 = {
 					override_name = "SFX",
 					text = "(wrong keypad code)",
+					override_source_id = "keypad",
 					max_distance = 1000,
 					category = "sfx",
 					priority = 37,
@@ -753,6 +779,7 @@ ClosedCaptions._sounds = {
 				keypad_correct_code_03 = {
 					override_name = "SFX",
 					text = "(correct keypad code)",
+					override_source_id = "keypad",
 					max_distance = 1000,
 					category = "sfx",
 					priority = 37,
@@ -762,6 +789,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					max_distance = 1000,
 					text = "[keypad wrong code]",
+					override_source_id = "keypad",
 					category = "sfx",
 					priority = 37,
 					duration = 3
@@ -770,6 +798,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					max_distance = 1000,
 					text = "[keypad correct code]",
+					override_source_id = "keypad",
 					category = "sfx",
 					priority = 37,
 					duration = 3
@@ -811,6 +840,14 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					override_name = "SFX",
 					max_distance = 1000,
+					priority = 37,
+					duration = 2
+				},
+				metalsheet_place = {
+					text = "[metal sheet placed]",
+					category = "sfx",
+					override_name = "SFX",
+					max_distance = 700,
 					priority = 37,
 					duration = 2
 				},
@@ -876,6 +913,21 @@ ClosedCaptions._sounds = {
 					duration = 2,
 					priority = 36,
 					category = "sfx"
+				},
+				thermite_paste_start = {
+					text = "(thermite paste burns)",
+					override_name = "SFX",
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					},
+					max_distance = 700,
+					priority = 37
+				},
+				thermite_paste_finish = {
+					category = "stops",
+					stops_line = "thermite_paste_start",
+					remove_by_source = true
 				},
 				trip_mine_arm = {
 					override_name = "SFX",
@@ -965,7 +1017,7 @@ ClosedCaptions._sounds = {
 				},
 				hos_witch_cry_loop_01 = {
 					override_name = "Witch",
-					override_text_color = ClosedCaptions.color_data.l4d_witch,
+					override_color = ClosedCaptions.color_data.l4d_witch,
 					text = "[Groans Softly]",
 					priority = 99,
 					duration = 3,
@@ -1042,6 +1094,18 @@ ClosedCaptions._sounds = {
 						loop_interval = -1
 					}
 				},
+				emitter_lorry_idle_03 = {
+					override_name = "SFX",
+					text = "(lorry engine idling)",
+					max_distance = 500,
+					priority = 60,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+
+
 				emitter_car_idle_01 = {
 					override_name = "SFX",
 					text = "(car engine idling)",
@@ -1121,6 +1185,10 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
+					disabled = true
+				},
+				heli_loop_stop = { --not sure which sound this stops
+					category = "stops",
 					disabled = true
 				},
 				helicopter_police = {
@@ -1212,6 +1280,13 @@ ClosedCaptions._sounds = {
 					duration = 2,
 					category = "sfx"
 				},
+				pfn_beep = {
+					override_name = "SFX",
+					text = "flashbang beeping",
+					duration = 1,
+					priority = 11,
+					category = "sfx"
+				},
 				flashbang_beep = {
 					override_name = "SFX",
 					text = "flashbang beeping",
@@ -1241,26 +1316,32 @@ ClosedCaptions._sounds = {
 					priority = 20,
 					category = "sfx"
 				},
+				pfn_beep_end = {
+					override_name = "SFX",
+					text = "(flashbang destroyed)",
+					priority = 20,
+					category = "sfx",
+					duration = 2
+				},
 				grenade_gas_npc_fire = {
 					override_name = "SFX",
-					text = "(gas grenade launch)",
+					text = "(grenade launched)",
 					duration = 2,
 					priority = 20,
 					max_distance = 2000,
 					category = "sfx"
 				},
 				repel_loop = {
-					override_name = "SFX",
-					text = "(police rappelling)",
-					max_distance = 1500,
+					text = "(rappelling sfx)",
+					max_distance = 300,
 					priority = 60,
 					category = "sfx",
+					disabled = true,
 					loop_data = {
 						loop_interval = -1
 					}
 				},
-				repel_stop = {
-					priority = 60,
+				repel_end = {
 					category = "stops",
 					stops_line = "repel_loop",
 					remove_by_source = true
@@ -1268,6 +1349,22 @@ ClosedCaptions._sounds = {
 				bulldozer_collar_plate_shatter = {
 					override_name = "SFX",
 					text = "(Bulldozer collar shatters!)",
+					max_distance = 1500,
+					priority = 36,
+					duration = 2,
+					category = "sfx"
+				},
+				bulldozer_metal_plate_shatter = {
+					override_name = "SFX",
+					text = "(Bulldozer plate shatters!)",
+					max_distance = 1500,
+					priority = 36,
+					duration = 2,
+					category = "sfx"
+				},
+				bulldozer_visor_shatter = {
+					override_name = "SFX",
+					text = "(Bulldozer visor shatters!)",
 					max_distance = 1500,
 					priority = 36,
 					duration = 2,
@@ -1429,7 +1526,7 @@ ClosedCaptions._sounds = {
 				alarm_countdown_loop = {
 					override_name = "SFX",
 					max_distance = 2000,
-					text = "[Slow alarm countdown ticking]",
+					text = "[Slow countdown ticking]",
 					category = "sfx",
 					loop_data = {
 						loop_interval = -1 --constant
@@ -1528,6 +1625,22 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "sfx"
 				},
+				cft_manhole_cover_slide = {
+					override_name = "SFX",
+					text = "[manhole cover slides]",
+					max_distance = 2000,
+					duration = 2,
+					priority = 50,
+					category = "sfx"
+				},
+				manhole_opens = {
+					override_name = "SFX",
+					text = "[manhole cover opens]",
+					max_distance = 2000,
+					duration = 2,
+					priority = 50,
+					category = "sfx"
+				},
 				door_wooden_kicked_in = {
 					override_name = "SFX",
 					text = "(door kicked open)",
@@ -1536,7 +1649,6 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "sfx"
 				},
-
 				elevator_doors_open = {
 					override_name = "SFX",
 					text = "(elevator doors open)",
@@ -1575,6 +1687,17 @@ ClosedCaptions._sounds = {
 					stops_line = "fire_sprinkler_start",
 					priority = 38,
 					category = "stops"
+				},
+				fire_small_mono = {
+					override_name = "SFX",
+					text = "(fire burning)",
+					max_distance = 500,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 60,
+					disabled = true,
+					category = "sfx"
 				},
 				fire_hiss = {
 					override_name = "SFX",
@@ -1725,6 +1848,13 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					category = "sfx"
 				},
+				glass_crack = {
+					text = "(glass cracks!)",
+					override_name = "SFX",
+					category = "sfx",
+					duration = 2,
+					priority = 37
+				},
 				hand_dryer_on = {
 					override_name = "SFX",
 					text = "(hand dryer whirring)",
@@ -1848,7 +1978,13 @@ ClosedCaptions._sounds = {
 				},
 				window_small_shatter = {
 					category = "sfx",
-					text = "[glass shatters!]",
+					text = "[small glass shatters!]",
+					priority = 50,
+					duration = 2
+				},
+				window_medium_shatter = {
+					category = "sfx",
+					text = "[medium glass shatters!]",
 					priority = 50,
 					duration = 2
 				},
@@ -11436,15 +11572,30 @@ ClosedCaptions._sounds = {
 			
 	
 	--cops
+	
+				law_enf_puke = {
+					text = "[vomiting]",
+					category = "enemy_chatter",
+					max_distance = 1500,
+					priority = 50,
+					duration = 5,
+				},
+				
+				l1n_a01 = {
+					text = "Squeeze those triggers!",
+					category = "enemy_chatter",
+					priority = 70,
+					disabled = true
+				},
 				l1n_a06 = {
 					text = "[idle]",
-					category = "chatter",
+					category = "enemy_chatter",
 					disabled = true
 				},
 				l1n_g90 = {
-					category = "UNKNOWN",
-					priority = 40,
-					text = "???"
+					category = "enemy_chatter",
+					priority = 90,
+					text = "l1n_g90"
 				},
 				l1n_h01 = {
 					category = "enemy_chatter",
@@ -11501,9 +11652,9 @@ ClosedCaptions._sounds = {
 					priority = 99
 				},
 				l2n_g90 = {
-					category = "UNKNOWN",
-					priority = 40,
-					text = "???"
+					category = "enemy_chatter",
+					priority = 90,
+					text = "l2n_g90"
 				},
 				l2n_hlp = {
 					category = "enemy_chatter",
@@ -11686,9 +11837,9 @@ ClosedCaptions._sounds = {
 					priority = 90
 				},
 				l3n_g90 = {
-					category = "UNKNOWN",
-					priority = 40,
-					text = "???"
+					category = "enemy_chatter",
+					priority = 90,
+					text = "l3n_g90"
 				},
 				l3n_mov = {
 					text = "Move!",
@@ -11732,9 +11883,9 @@ ClosedCaptions._sounds = {
 					}
 				},
 				l4n_g90 = {
-					category = "UNKNOWN",
-					priority = 40,
-					text = "???"
+					category = "enemy_chatter",
+					priority = 90,
+					text = "l4n_g90"
 				},
 				l4n_h01 = {
 					category = "enemy_chatter",
@@ -11841,8 +11992,8 @@ ClosedCaptions._sounds = {
 					}
 				},
 				l4n_x01a_any_3p = {
-					override_name = "(male)",
-					text = "(screams, death gurgles)",
+					fallback_name = "(male)",
+					text = "[death]",
 					priority = 37,
 					category = "mission_dialogue"
 				},
@@ -12051,12 +12202,14 @@ ClosedCaptions._sounds = {
 				tsr_x02a_any_3p = {
 					text = "[pain]",
 					max_distance = 1500,
+					duration = 2,
 					category = "enemy_death"
 				},
 
 				mdc_g90 = {
 					text = "(Medic taunt)",
 					category = "enemy_chatter",
+					max_distance = 2000,
 					line_variations = {
 						standard_mode = {
 							"Don't let them escape!",
@@ -12095,14 +12248,72 @@ ClosedCaptions._sounds = {
 				},
 				mdc_heal = {
 					text = "(healed cop)",
-					category = "enemy_dialogue",
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Almost out of painkillers!",
+							"At em again, buddy!",
+							"Choose life, then bring death!",
+							"Don't eat so much lead!",
+							"Don't eat so much lead...",
+							"Don't get mad, get even.",
+							"Don't thank me, just get up!",
+							"Easy, now, be still.",
+							"Glad you brought a Medic?",
+							"Gonna sew this up.",
+							"I hope I don't get shot here.",
+							"I'll get you back in action.",
+							"I'll patch you up.",
+							"I'll patch you up for now.",
+							"It missed your heart by inches!",
+							"It's just a flesh wound!",
+							"It's not pretty, man.",
+							"It's okay, it's okay!",
+							"Just breathe calmly.",
+							"Keep calm, I got you.",
+							"Learn to duck, maybe?",
+							"Let's get you fixed.",
+							"No pain, no gain.",
+							"No, you're not gonna die...",
+							"Nope, ain't got morphine.",
+							"Now don't get shot again!",
+							"Now you can hold a gun again.",
+							"Now do the same to them.",
+							"Retiring yet? No?",
+							"Scars just add character!",
+							"Sorry, outta morphine.",
+							"Stay calm, I've seen worse.",
+							"Take two of these!",
+							"Take two of these, and call me in the morning!",
+							"They can't kill you, buddy!",
+							"This is nothing! You'll be fine.",
+							"This might hurt.",
+							"Welcome to my clinic!",
+							"Woah, they shot you THERE?!",
+							"You were lucky, this time.",
+							"You'll be fine!",
+							"You'll be fine, buddy!",
+							"You'll be fine, here!",
+							"You'll owe me a beer.",
+							"You're lucky to be alive!",
+							"You're not dead yet.",
+							"[sardonic] Next time, shoot them first."
+						}
+					},
 					max_distance = 4000,
 					priority = 50
 				},
 				mdc_x02a_any_3p = {
 					text = "[death]",
+					priority = 60,
 					max_distance = 1500,
 					category = "enemy_death"
+				},
+				mdc_hr01 = {
+					category = "enemy_chatter",
+					text = "[hurt]",
+					max_distance = 1000,
+					priority = 90
 				},
 				mdc_x01a_any_3p = {
 					category = "enemy_chatter",
@@ -12121,6 +12332,7 @@ ClosedCaptions._sounds = {
 					text = "(Shield clanking)",
 					category = "enemy_chatter",
 					max_distance = 4000,
+					duration = 2,
 					priority = 55
 				},
 
@@ -12306,7 +12518,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_death",
 					priority = 50
 				},
-				visor_lost = { --SEN-I-SOSHITSU
+				bdz_visor_lost = { --SEN-I-SOSHITSU
 					text = "[lost visor]",
 					priority = 60,
 					duration = 5,
@@ -12411,6 +12623,13 @@ ClosedCaptions._sounds = {
 					text = "cloaker ???",
 					category = "UNKNOWN"
 				},
+				clk_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					max_distance = 1500,
+					duration = 2,
+					priority = 50
+				},
 				cloaker_detect_christmas_mono = {
 					text = "(FESTIVE CLOAKER CHARGE!)",
 					priority = 11,
@@ -12446,7 +12665,7 @@ ClosedCaptions._sounds = {
 					}
 				},
 				cloaker_presence_stop = {
-					text = "(Cloaker idle stops)",
+--					text = "(Cloaker idle stops)",
 					category = "stops",
 					stops_line = "cloaker_presence_loop",
 					remove_by_source = true,
@@ -12659,7 +12878,7 @@ ClosedCaptions._sounds = {
 					}
 				},
 				cpa_a02_01 = {
-					override_name = "[megaphone cop]",
+					override_name = "Police Negotiator",
 					priority = 60,
 					text = "Captain's just got here, time to turn this around!",
 					category = "enemy_dialogue",
@@ -12810,6 +13029,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_death",
 					priority = 90
 				},
+
 				tasered_3rd = { --loops
 					text = "tasered_3rd",
 					max_distance = 3000,
@@ -12817,6 +13037,19 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
+					priority = 55
+				},
+				tasered_shock = {
+					text = "(tasered!)",
+					max_distance = 3000,
+					category = "sfx",
+					duration = 1,
+					priority = 55
+				},
+				tase_counter_attack = {
+					max_distance = 3000,
+					category = "stops",
+					stops_line = "tasered_shock",
 					priority = 55
 				},
 				tasered_3rd_stop = {
@@ -13734,7 +13967,7 @@ ClosedCaptions._sounds = {
 				--no mercy
 				Play_bil_nmh_01_01 = {
 					override_name = "Bill",
-					override_text_color = ClosedCaptions.color_data.l4d_bill,
+					override_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
@@ -13748,7 +13981,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bil_nmh_01_02 = {
 					override_name = "Bill",
-					override_text_color = ClosedCaptions.color_data.l4d_bill,
+					override_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
@@ -13763,7 +13996,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bil_nmh_01_03 = {
 					override_name = "Bill",
-					override_text_color = ClosedCaptions.color_data.l4d_bill,
+					override_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
@@ -13778,7 +14011,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bil_nmh_01_04 = {
 					override_name = "Bill",
-					override_text_color = ClosedCaptions.color_data.l4d_bill,
+					override_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
@@ -13794,7 +14027,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bil_nmh_01_05 = {
 					override_name = "Bill",
-					override_text_color = ClosedCaptions.color_data.l4d_bill,
+					override_color = ClosedCaptions.color_data.l4d_bill,
 					category = "mission_dialogue",
 					priority = 10,
 					line_variations = {
@@ -14344,7 +14577,7 @@ ClosedCaptions._sounds = {
 					duration = 6,
 					priority = 10,
 					override_name = "Gangster",
-					override_text_color = ClosedCaptions.color_data.mobster1,
+					override_color = ClosedCaptions.color_data.mobster1,
 					text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around.",
 					line_variations = {
 						standard_mode = {
@@ -14424,7 +14657,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "Get me some tanning lotion.",
 					priority = 37,
-					override_text_color = ClosedCaptions.color_data.neutral1, --this field is necessary for when voicelines are set to play through a source that is not a unit's sound() extension 
+					override_color = ClosedCaptions.color_data.neutral1, --this field is necessary for when voicelines are set to play through a source that is not a unit's sound() extension 
 					line_variations = {
 						"Get me some tanning lotion, will ya?",
 						"Get me some tanning lotion, baby.",
@@ -14436,7 +14669,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					text = "You should get us some weed, too.",
 					priority = 37,
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					line_variations = {
 						"[flirtatious] Ooh, you should totally get us some weed, as well.",
 						"Oh, and you should probably get us some weed, too."
@@ -14588,7 +14821,7 @@ ClosedCaptions._sounds = {
 					priority = 10,
 					max_distance = 4000,
 					category = "mission_dialogue",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -15095,7 +15328,7 @@ ClosedCaptions._sounds = {
 				Play_hct_hb3_01 = {
 					override_name = "The Rat",
 					priority = 10,
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(finally, you're opening the timelock!)",
 					category = "mission_dialogue",
 					line_variations = {
@@ -15109,7 +15342,7 @@ ClosedCaptions._sounds = {
 				Play_hct_hb3_02 = {
 					override_name = "The Rat",
 					priority = 10,
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(impatiently waiting for timelock)",
 					category = "mission_dialogue",
 					line_variations = {
@@ -15122,7 +15355,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_hct_hb3_03 = {
 					override_name = ClosedCaptions.unit_names.hector_boss,
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					priority = 10,
 					text = "No... it can't be you!",
 					category = "mission_dialogue",
@@ -15136,7 +15369,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_hct_hb3_04 = {
 					override_name = "The Rat",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					priority = 10,
 					text = "(swearing at heisters)",
 					category = "mission_dialogue",
@@ -15150,7 +15383,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_hct_hb3_05 = {
 					override_name = "The Rat",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting heisters)",
 					priority = 10,
 					category = "mission_dialogue",
@@ -15164,7 +15397,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_hct_hb3_06 = {
 					override_name = "The Rat",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					priority = 10,
 					text = "Come! Come on! Open the door! I have a 'surprise' for you!",
 					category = "mission_dialogue",
@@ -15178,7 +15411,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_hct_hb3_07 = {
 					override_name = "The Rat",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					priority = 10,
 					text = "HEEEEERE'S HECTOR!",
 					category = "mission_dialogue",
@@ -15270,7 +15503,7 @@ ClosedCaptions._sounds = {
 			--first world bank
 				Play_ism_fwb_01 = {
 					override_name = "Insider",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					priority = 10,
 					text = "You need to find another code. We can't use mine, or they'll know it was me.",
 					category = "mission_dialogue",
@@ -15287,7 +15520,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					duration = 4,
 					priority = 10,
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Coming from Floor 2, heading to the gates. See you there." --no variations
 				},
@@ -15295,7 +15528,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					duration = 5,
 					priority = 10,
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "[to guards] My clients are ready to enter the vault. You're not needed here right now. Go for a walk, or something.",
 					line_variations = {
@@ -15310,7 +15543,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					duration = 5,
 					priority = 10,
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "I'm waiting at the gates! Hurry up!",
 					line_variations = {
@@ -15327,7 +15560,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_05 = {
 					override_name = "Insider",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 10,
@@ -15342,7 +15575,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_06 = {
 					override_name = "Insider",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					duration = 4,
 					priority = 10,
 					category = "mission_dialogue",
@@ -15357,7 +15590,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_07 = {
 					override_name = "Insider",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 10,
@@ -15372,7 +15605,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_08 = {
 					override_name = "Insider",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 10,
@@ -15389,7 +15622,7 @@ ClosedCaptions._sounds = {
 					override_name = "Insider",
 					duration = 10,
 					priority = 10,
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "I guess that you... wait, wait, tell me nothing. I'm just an innocent bystander. This way.",
 					line_variations = {
@@ -15402,7 +15635,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_10 = {
 					override_name = "Insider",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 6,
 					priority = 10,
@@ -15417,7 +15650,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_11 = {
 					override_name = "Insider",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 4,
 					priority = 37,
@@ -15433,7 +15666,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ism_fwb_12 = {
 					override_name = "Insider",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 37,
@@ -15447,7 +15680,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bm_fwb_01 = {
 					override_name = "Bank Manager",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 8,
 					priority = 37,
@@ -15477,7 +15710,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bm_fwb_02 = {
 					override_name = "Bank Manager",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 8,
 					priority = 37,
@@ -15504,7 +15737,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_bm_fwb_03 = {
 					override_name = "Bank Manager",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					duration = 8,
 					priority = 37,
@@ -15544,7 +15777,7 @@ ClosedCaptions._sounds = {
 					max_distance = 700,
 					duration = 7,
 					override_name = "Bank Customer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "(customer asking for funding for awful ideas)",
 					loop_data = {
@@ -15584,7 +15817,7 @@ ClosedCaptions._sounds = {
 				Play_mc1_fwb_01 = {
 					text = "(customer asking for funding for awful ideas)",
 					override_name = "Bank Customer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					duration = 7,
 					category = "mission_dialogue",
 					line_variations = {
@@ -15868,98 +16101,98 @@ ClosedCaptions._sounds = {
 				--day 2
 				Play_dlr_framing_stage2_01 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] Good day. [pause] Uh, we're pleased to negotiate with you, but... you're gonna do it our way, or not at all."
 				},
 				Play_dlr_framing_stage2_02 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] Put all the paintings on the table in the train car. Stand by for my contact."
 				},
 				Play_dlr_framing_stage2_03 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] Nine paintings! Excellent."
 				},
 				Play_dlr_framing_stage2_04 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] We count eight paintings! Very, very good."
 				},
 				Play_dlr_framing_stage2_05 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] We count seven paintings. Good, good."
 				},
 				Play_dlr_framing_stage2_06 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] So that's six paintings. Good."
 				},
 				Play_dlr_framing_stage2_07 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] Okay, we got five paintings here. Good."
 				},
 				Play_dlr_framing_stage2_08 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] Four paintings... that's, uh, not much, but we'll take it."
 				},
 				Play_dlr_framing_stage2_09 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] Great. Now, our client, he prefers not to take any chances when it comes to things of a 'legally questionable' nature. So, if you could just all get into the train car... thank you."
 				},
 				Play_dlr_framing_stage2_10 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] It's not that we don't trust you. We just need to be sure that nothing... untoward... would happen."
 				},
 				Play_dlr_framing_stage2_11 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] This is purely a safety precaution."
 				},
 				Play_dlr_framing_stage2_12 = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "[over phone] Alright. Our dealer is here. Hold on for a second."
 				},
 				Play_ph1_trade1_loud = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Okay! Throw me the paintings, and you'll get your money!"
 				},
 				Play_ph1_trade2_loud = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Alright! Throw me the bags, and you'll get your money!",
@@ -15973,7 +16206,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ph1_trade3_loud = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "You deliver, then I deliver!",
@@ -15988,7 +16221,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ph1_trade4_loud = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "C'mon, already! We need more bags!",
@@ -16002,7 +16235,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_ph1_trade5_loud = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Great! Money's coming down!",
@@ -16016,14 +16249,14 @@ ClosedCaptions._sounds = {
 				},
 				Play_ph1_trade6_loud = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Doors are open for you! Me, I'm leaving!"
 				},
 				Play_ph1_trade7_loud = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Oh, SHIT! This wasn't the deal! We are OUTTA HERE!",
@@ -16037,7 +16270,7 @@ ClosedCaptions._sounds = {
 				--8 doesn't exist
 				Play_ph1_trade9_loud = {
 					override_name = "Art Buyer",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "That's everything! Nice doing business with you, gentlemen!"
@@ -16047,7 +16280,7 @@ ClosedCaptions._sounds = {
 		--day 1
 				Play_rb5_hb1_01 = {
 					override_name = "Hoxton",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Fuck me, talk about making an entrance!",
@@ -16067,7 +16300,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_rb5_hb1_02 = {
 					override_name = "Hoxton",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Bollocks to the Safehouse! We're going somewhere else- trust me.",
@@ -16082,7 +16315,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_rb5_hb1_03 = {
 					override_name = "Hoxton",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Some Judas fuck sold me- I know they did. But who?!",
@@ -16102,7 +16335,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_rb5_hb1_04 = {
 					override_name = "Hoxton",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "I said, IT'S FUCKING PAYDAY MOTHERFU-",
@@ -16139,14 +16372,14 @@ ClosedCaptions._sounds = {
 				},
 				Play_rb5_hb1_05 = {
 					override_name = "Hoxton",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "I said, IT'S FUCKING PAYDAY MOTHERFU-"
 				},
 				Play_dr1_hb1_01 = {
 					override_name = "Twitch",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Gotcha! Movin'!",
@@ -16163,7 +16396,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_dr1_hb1_02 = {
 					override_name = "Twitch",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Can you guys move that?!",
@@ -16178,7 +16411,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_dr1_hb1_03 = { --unused afaik
 					override_name = "Twitch",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Keep 'em offa me!",
 					priority = 10,
@@ -16193,7 +16426,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_dr1_hb1_04 = {
 					override_name = "Twitch",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Get this gate open!",
 					priority = 10,
@@ -16208,7 +16441,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_dr1_hb1_05 = {
 					override_name = "Twitch",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					priority = 10,
 					text = "Get these bollards OUTTA MY WAY!",
@@ -16223,7 +16456,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_dr1_hb1_06 = {
 					override_name = "Twitch",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Get him in the back!",
 					priority = 10,
@@ -16239,7 +16472,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_dr1_hb1_07 = {
 					override_name = "Twitch",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Cops ahead!",
 					priority = 10,
@@ -16254,7 +16487,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_dr1_hb1_08 = {
 					override_name = "Twitch",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Keepin' my foot off the gas. Make sure you guys keep the road safe and clear.",
 					duration = 6,
@@ -16270,7 +16503,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_rb5_hb2_01 = {
 					override_name = "Hoxton",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Get inside, lads! Got work to do.",
 					duration = 4,
@@ -16285,7 +16518,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_rb5_hb2_02 = {
 					override_name = "Hoxton",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					category = "mission_dialogue",
 					text = "Get inside, lads! Got work to do.",
 					duration = 4,
@@ -16448,7 +16681,7 @@ ClosedCaptions._sounds = {
 					text = "You're not getting me this time! Fuck you!",
 					category = "mission_dialogue",
 					override_name = "Matt Roscoe",
-					override_text_color = ClosedCaptions.color_data.boss, --should it be neutral1 green to match later?
+					override_color = ClosedCaptions.color_data.boss, --should it be neutral1 green to match later?
 					duration = 5,
 					priority = 10,
 					line_variations = {
@@ -16463,7 +16696,7 @@ ClosedCaptions._sounds = {
 					text = "(hacking, coughing) Wait! Don't kill me! I have information about Jiro that he will want to hear!",
 					category = "mission_dialogue",
 					override_name = "Matt Roscoe",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					duration = 7,
 					priority = 10,
 					line_variations = {
@@ -16488,7 +16721,7 @@ ClosedCaptions._sounds = {
 					text = "[muffled] Forget it! The cops will get you before you get me!",
 					category = "mission_dialogue",
 					override_name = "Matt Roscoe",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					duration = 5,
 					priority = 10,
 					line_variations = {
@@ -16505,7 +16738,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					override_name = "Matt Roscoe",
 					priority = 10,
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					duration = 20
 				},
 				
@@ -16622,7 +16855,7 @@ ClosedCaptions._sounds = {
 				Play_blm_cs1_01 = { --blackmailer
 					text = "(Throw a bag of money over the yellow wall by Jimbo's, or I call the cops!)",
 					category = "mission_dialogue",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					priority = 37,
 					duration = 17,
 					line_variations = {
@@ -16635,7 +16868,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_csf_cs1_01 = {
 					override_name = "Customer on phone",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
 					duration = 7,
 					priority = 37,
@@ -16648,7 +16881,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_csf_cs1_02 = {
 					override_name = "Customer on phone",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
 					duration = 7,
 					priority = 37,
@@ -16662,7 +16895,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_csf_cs1_03 = {
 					override_name = "Customer on phone",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
 					duration = 9,
 					priority = 37,
@@ -16675,7 +16908,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_csm_cs1_01 = {
 					override_name = "Customer on phone",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
 					duration = 6,
 					priority = 37,
@@ -16688,7 +16921,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_csm_cs1_02 = {
 					override_name = "Customer on phone",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
 					duration = 6,
 					priority = 37,
@@ -16701,7 +16934,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_csm_cs1_03 = {
 					override_name = "Customer on phone",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					text = "(Customer asking for bank assistance)",
 					category = "mission_dialogue",
 					duration = 15,
@@ -16718,7 +16951,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_csk_cs1_01 = {
 					override_name = "Customer on phone",
-					override_text_color = ClosedCaptions.color_data.neutral1,
+					override_color = ClosedCaptions.color_data.neutral1,
 					text = "(customer asking for bank assistance)",
 					category = "mission_dialogue",
 					duration = 15,
@@ -16763,7 +16996,7 @@ ClosedCaptions._sounds = {
 			--prison nightmare
 				Play_big_clk_help_01 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(creating fire hazard)",
 					category = "mission_dialogue",
 					duration = 7,
@@ -16778,7 +17011,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_02 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting heisters)",
 					category = "mission_dialogue",
 					duration = 7,
@@ -16793,7 +17026,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_03 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(creating giant drill hazard)",
 					category = "mission_dialogue",
 					duration = 7,
@@ -16808,7 +17041,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_04 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(creating Snipers hazard)",
 					category = "mission_dialogue",
 					duration = 5,
@@ -16824,7 +17057,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_05 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					category = "mission_dialogue",
 					duration = 3,
 					priority = 37,
@@ -16832,7 +17065,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_06 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(coming down to be the hazard)",
 					category = "mission_dialogue",
 					duration = 5,
@@ -16847,7 +17080,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_07 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting heisters)",
 					category = "mission_dialogue",
 					duration = 5,
@@ -16862,7 +17095,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_08 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					category = "mission_dialogue",
 					duration = 3,
 					priority = 37,
@@ -16870,7 +17103,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_09 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting heisters about wheel)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -16887,7 +17120,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_10 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting heisters about bad wheel spin)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -16903,7 +17136,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_11 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting heisters about broken wheel drill)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -16917,7 +17150,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_12 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting heisters about surviving halfway)",
 					category = "mission_dialogue",
 					duration = 5,
@@ -16932,7 +17165,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_13 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(frustrated about heister success)",
 					category = "mission_dialogue",
 					duration = 5,
@@ -16949,7 +17182,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_14 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(frustrated about heisters stealing cloaker gold)",
 					category = "mission_dialogue",
 					duration = 3,
@@ -16965,7 +17198,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_15 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(vows revenge for stolen cloaker gold)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -16985,7 +17218,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_16 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(mocking heister failure)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -17002,7 +17235,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_17 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting heisters to continue)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -17019,7 +17252,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_18 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(sending minions after leaving heisters)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -17037,7 +17270,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_19 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(spawning a drill)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -17052,7 +17285,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_20 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(threatening heisters with train puns)", --i like the ambiguity of this because he could either be threatening the heisters who are on the train, or threatening the heisters by using the hazard of train puns, even though it's not really a pun
 					category = "mission_dialogue",
 					duration = 4,
@@ -17070,7 +17303,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_21 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting trapped heisters on train)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -17087,7 +17320,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_22 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(angry about heisters damaging train)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -17102,7 +17335,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_23 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(scaring heisters)",
 					category = "mission_dialogue",
 					duration = 5,
@@ -17145,7 +17378,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_24 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(taunting)",
 					category = "mission_dialogue",
 					duration = 5,
@@ -17160,7 +17393,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_25 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "(spawning Headless Dozer hazard)",
 					category = "mission_dialogue",
 					duration = 4,
@@ -17174,7 +17407,7 @@ ClosedCaptions._sounds = {
 				},
 				Play_big_clk_help_26 = {
 					override_name = "NecroCloaker",
-					override_text_color = ClosedCaptions.color_data.boss,
+					override_color = ClosedCaptions.color_data.boss,
 					text = "[wailing] YOU'RE USELESS... USELESS!",
 					category = "mission_dialogue",
 					duration = 5,
@@ -17510,6 +17743,60 @@ ClosedCaptions._sounds = {
 					priority = 37
 				
 				},
+				Play_dnt_bph_01 = {
+					override_name = "The Dentist",
+					override_source_id = "dentist", --these lines play from every pa speaker, but we only need the one subtitle
+					override_color = ClosedCaptions.color_data.boss,
+					category = "mission_dialogue",
+					text = "[over PA] What is that I hear? Rats... in the cellar?",
+					priority = 36,
+					duration = 5
+				},
+				Play_dnt_bph_02 = {
+					override_name = "The Dentist",
+					override_source_id = "dentist",
+					override_color = ClosedCaptions.color_data.boss,
+					category = "mission_dialogue",
+					text = "[over PA] Hello, my friends! I hope you can overlook the fact that I haven't had time to properly tidy up the place. It's rather hard to get a cleaning crew out here. You understand. And believe me when I say... that I don't take this visit personally, in any way.",
+					priority = 36,
+					duration = 16
+				},
+				Play_dnt_bph_03 = {
+					override_name = "The Dentist",
+					override_source_id = "dentist",
+					override_color = ClosedCaptions.color_data.boss,
+					category = "mission_dialogue",
+					text = "[over PA] 'Abashed the devil stood, and felt how awful goodness is, and saw Virtue in her shape how lovely: and pined his loss.'",
+					priority = 36,
+					duration = 16
+				},
+				Play_dnt_bph_04 = {
+					override_name = "The Dentist",
+					override_source_id = "dentist",
+					override_color = ClosedCaptions.color_data.boss,
+					category = "mission_dialogue",
+					text = "[over PA] When you've been around... for a while, you learn to let things go... see the bigger picture. If you manage to take Bain away from here, he's all yours. It is the moral choice, after all.",
+					priority = 36,
+					duration = 14
+				},
+				Play_dnt_bph_05 = {
+					override_name = "The Dentist",
+					override_source_id = "dentist",
+					override_color = ClosedCaptions.color_data.boss,
+					category = "mission_dialogue",
+					text = "[over PA] And so... another player enters the board. Kento: Bain is getting away. Stop him... would you please?",
+					priority = 36,
+					duration = 10
+				},
+				Play_dnt_bph_06 = {
+					override_name = "The Dentist",
+					override_source_id = "dentist",
+					override_color = ClosedCaptions.color_data.boss,
+					category = "mission_dialogue",
+					text = "[over PA] Well, my friends, it's time for me to leave you to it. Much to do, and all that. My best regards to Kozak... and Simmons.",
+					priority = 36,
+					duration = 12
+				},
 		--scarface mansion
 				Play_sec_fri_01 = {
 					text = "(talking on phone)",
@@ -17649,7 +17936,7 @@ ClosedCaptions._sounds = {
 				Play_mrb_rvd_03 = {
 					text = "Why don't we play with our little squeaky toy here while we wait? Okay, doughnut boy, I'm gonna take this off, and you're gonna talk, capiche? Who set us up?",
 					override_name = "Mr. Blue",
-					override_text_color = ClosedCaptions.color_data.mrblue,
+					override_color = ClosedCaptions.color_data.mrblue,
 					category = "mission_dialogue",
 					priority = 37,
 					duration = 9
@@ -17657,7 +17944,7 @@ ClosedCaptions._sounds = {
 				Play_mrb_rvd_03c = {
 					text = "Hey... look... I'm just following orders! I don't know nothin'!\nMR BLUE:I don't think you're bein' honest, little pig. ",
 					override_name = "Policeman",
-					override_text_color = ClosedCaptions.color_data.mrblue,
+					override_color = ClosedCaptions.color_data.mrblue,
 					line_variations = {
 						recombinable = true,
 						standard_mode = {
@@ -17684,7 +17971,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					override_name = "Mr. Purple",
 					override_source_id = "mrp",
-					override_text_color = ClosedCaptions.color_data.mrpurple,
+					override_color = ClosedCaptions.color_data.mrpurple,
 					max_distance = 1500,
 					priority = 37,
 					duration = 6,
@@ -17701,7 +17988,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					override_name = "Mr. Purple",
 					override_source_id = "mrp",
-					override_text_color = ClosedCaptions.color_data.mrpurple,
+					override_color = ClosedCaptions.color_data.mrpurple,
 					max_distance = 1500,
 					priority = 37,
 					line_variations = {
@@ -17717,7 +18004,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					override_name = "Mr. Purple",
 					override_source_id = "mrp",
-					override_text_color = ClosedCaptions.color_data.mrpurple,
+					override_color = ClosedCaptions.color_data.mrpurple,
 					max_distance = 1500,
 					priority = 37,
 					duration = 7,
@@ -17737,7 +18024,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					override_name = "Mr. Purple",
 					override_source_id = "mrp",
-					override_text_color = ClosedCaptions.color_data.mrpurple,
+					override_color = ClosedCaptions.color_data.mrpurple,
 					max_distance = 1500,
 					priority = 37,
 					duration = 8,
@@ -17759,7 +18046,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					override_name = "Mr. Purple",
 					override_source_id = "mrp",
-					override_text_color = ClosedCaptions.color_data.mrpurple,
+					override_color = ClosedCaptions.color_data.mrpurple,
 					max_distance = 1500,
 					duration = 6,
 					priority = 37,
@@ -17774,7 +18061,7 @@ ClosedCaptions._sounds = {
 					text = "(Are we sure this mess isn't the PAYDAY Gang's fault?)",
 					category = "mission_dialogue",
 					override_name = "Mr. Blue",
-					override_text_color = ClosedCaptions.color_data.mrpurple,
+					override_color = ClosedCaptions.color_data.mrpurple,
 					max_distance = 1500,
 					priority = 37,
 					line_variations = {
@@ -17797,6 +18084,214 @@ ClosedCaptions._sounds = {
 					override_name = "Giant",
 					priority = 36,
 					duration = 7
+				},
+		--white xmas
+				Play_pln_cp1_intro_01 = {
+					text = "[parachute rustling, wind howling]\nHOUSTON: Almost there, almost there!\nWOLF: We're gonna make it! [pause] OH SHIT!\nHOUSTON: Fuck!\nDALLAS: Move it!",
+					category = "mission_dialogue",
+					override_name = "[INTRO]",
+					priority = 36,
+					duration = 9
+				},
+				drunk_pilot_puke = {
+					text = "[vomits]",
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 700,
+					duration = 2
+				},
+				drunk_pilot_fall = {
+					text = "[falls on the ground]",
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 700,
+					duration = 2
+				},
+				drunk_pilot_sit_down = {
+					text = "[sits down on the ground]",
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 700,
+					duration = 2
+				},
+				drunk_pilot_up = {
+					text = "[getting back up]",
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 700,
+					duration = 2
+				},
+				Play_pt2_cp1_01 = {
+					text = "(drunken babbling)",
+					line_variations = {
+						standard_variation = {
+							"[slurring] There was something up there, tonight... something... looked like a sleigh.",
+							"...and we all went wang-hang on the 'Nam poontang. [giggles]",
+							"Danang... Saigon... I seen all them places, on TV.",
+							"Hey, uh... is there a bloody antler wrapped around my plane?",
+							"All a man needs... is a bottle of bourbon! S'all he needs!",
+							"[drunken giggling] And then... they made me their chief! Can you believe it?!",
+							"Elves... fucking goddamn elves, lil' bastards... [drunken giggling]",
+							"[slurring] This stuff's bare-assed and brewed in a toilet... but better than any European crap.",
+							"[slurring] So I said... 'Sister, you're so ugly, when you were born, the doctor slapped your mother.'",
+							"[slurring] Goddamn lil bastards work in sweatshops stealin American jobs to make lil toys, lil bastards...",
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 6
+				},
+				Play_pt2_cp1_02 = {
+					text = "(I frew up...)",
+					line_variations = {
+						standard_variation = {
+							"My head feels like someone shat in it...",
+							"Was that... carrots? I ain't eat-ed carrots since '94!",
+							"[groans loudly] That's not good."
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 5
+				},
+				Play_pt2_cp1_03 = {
+					text = "(Cheers!)",
+					line_variations = {
+						standard_variation = {
+							"This one's for you, Johnny!",
+							"Merry Christmas, motherfuckas!",
+							"Whew! Seasonal greetings, you buncha assholes!"
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 3
+				},
+				Play_pt2_cp1_04 = {
+					text = "(drunken babbling)",
+					line_variations = {
+						standard_variation = {
+							"[slurred] Forest? But I'm supposed to be delivering presents tonight. [burp]",
+							"[slurred] This don't look like my count-pit. [drunken laugh] Cockpit.",
+							"[wondrous] I was dreaming about coloured ponies... [irate] OH, FUCK OFF."
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 5
+				},
+				Play_pt2_cp1_05 = {
+					text = "(drunken babbling)",
+					line_variations = {
+						standard_variation = {
+							"[groans loudly] Just bugger off... ASSHOLE!",
+							"[slurring] Just give me... FIVE MINUTES! ...to rest, my ass...",
+							"I dreamt I was back in 'Nam! I was... [burp] ...happy! I was... Johnny?"
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 5
+				},
+				Play_pt2_cp1_06 = {
+					text = "(leaving on the chopper)",
+					line_variations = {
+						standard_variation = {
+							"Hey... [burps] ...hold still! You know how to fly? Goddammit, I'll show ya...",
+							"Thanks, freaks! [drunken laughing] See you on the other side'a the... bottle...",
+							"[slurring] Merry... Christmas!",
+							"HEY! Hold still! You know how to fly this thing, motherfucker? Goddammit, I'll show you!"
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 5
+				},
+				Play_pt2_cp1_07 = {
+					text = "(vomiting, coughing)",
+					line_variations = {
+						standard_variation = {
+							"[coughing violently]"
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 5
+				},
+				Play_pt2_cp1_08 = {
+					text = "(incoherent drunken moaning)",
+					line_variations = {
+						standard_variation = {
+							"[vomiting, groaning]",
+							"[moaning]"
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 3
+				},
+				Play_pt2_cp1_08 = {
+					text = "(incoherent drunken moaning)",
+					line_variations = {
+						standard_variation = {
+							"[vomiting, groaning]",
+							"[moaning]",
+							"[coughing violently]"
+						}
+					},
+					category = "mission_dialogue",
+					override_name = "Drunk Pilot",
+					priority = 36,
+					max_distance = 1500,
+					duration = 3
+				},
+				Stop_pt2 = {
+					category = "stops",
+					remove_by_source = true
+				},
+		--santa's workshop
+				chimes_and_bell = {
+					category = "sfx",
+					text = "[chimes and service bell rings]",
+					override_name = "SFX",
+					priority = 37,
+					max_distance = 1500,
+					duration = 4
+				},
+				packing_box_loop = {
+					category = "sfx",
+					text = "[drugs being packed]",
+					override_name = "SFX",
+					priority = 40,
+					max_distance = 500,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				packing_box_stop = {
+					category = "stops",
+					stops_line = "packing_box_loop",
+					remove_by_source = true
 				}
 			}
 		}

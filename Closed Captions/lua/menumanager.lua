@@ -2,9 +2,13 @@
 BEFORE FIRST PUBLIC RELEASE:
 * test mp
 * test ecm from other players
+
+* fix priority
 	
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
+* go over priority values in sound_data
+
 * todo conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
 
 * get position based on camera position?
@@ -582,7 +586,14 @@ function ClosedCaptions:Update(t,dt)
 				else --not yet out of time
 					if not item.loop_data then 
 						--out of time 
-						item.panel:set_alpha(math.min(1,(item.expire_t - t) / self.settings.caption_fadeout_time))
+						if item.expire_t <= t then 
+							is_hidden = true
+						end
+--						if item.expire_t - t <= self.settings.caption_fadeout_time then 
+--							item.panel:set_alpha(math.min(1,(item.expire_t - t) / self.settings.caption_fadeout_time))
+--						else
+--							item.panel:set_alpha(math.min(item.pan,(item.expire_t - t) / self.settings.caption_fadeout_time))
+--						end
 					end
 					
 					if item.max_distance then 
@@ -872,7 +883,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 		return
 	end
 	
-	--self:log_debug("Playing " .. tostring(sound_id) .. " from unit " .. tostring(unit) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
+	self:log_debug("Playing " .. tostring(sound_id) .. " from unit " .. tostring(unit) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
 	
 	local sound_table = self:GetSoundTable()
 	
@@ -924,7 +935,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 			if unit:sound() then 
 				variant = unit:sound()._prefix
 			end
-			
+			color = self.color_data.law1
 			variant = variant or tweak_table
 			name = tweak_table and self.unit_names[tweak_table]
 			is_special_enemy = managers.groupai:state():is_enemy_special(unit)
@@ -934,6 +945,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 			if unit:sound() then 
 				variant = unit:sound()._prefix
 			end
+			color = self.color_data.neutral1
 
 			name = tweak_table and self.unit_names[tweak_table]
 			tweak_table = unit:base()._tweak_table
@@ -1071,6 +1083,8 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	
 	local t = Application:time()
 	
+	color = variant_data.override_color or color or variant_data.fallback_color
+	
 	local data = {
 		name = name,
 		text_color = color,
@@ -1119,7 +1133,7 @@ function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --create
 		if data.priority and self:IsPriorityEnabled() then 
 			for i,active_data in ipairs(self.active_lines) do
 			--lower number is more important
-				if not active_data.priority or (active_data.priority <= data.priority) then
+				if not active_data.priority or (active_data.priority >= data.priority) then
 					table.insert(self.active_lines,i,data)
 					return
 				end
@@ -1163,9 +1177,11 @@ function ClosedCaptions:ReadFromDebug() --reads existing "missing lines" into me
 	if file then
 --		for k,line in pairs(file:read("*all")) do 
 		for line in file:lines() do
-			if not (string.find(line,"|")) then 
-				local sound_name = line
-				self.debug_missing_lines = line
+			if string.find(line," : ") then 
+				local spl = string.split(line," : ") or {}
+				local source = spl[1]
+				local sound_name = spl[2]				
+				self.debug_missing_lines[sound_name] = true
 			end
 		end
 		file:close()
@@ -1226,9 +1242,7 @@ function ClosedCaptions:Save()
 	end
 end
 
-if ClosedCaptions:ShouldLogMissing() then 
-	ClosedCaptions:ReadFromDebug()
-end
+ClosedCaptions:ReadFromDebug()
 
 Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",callback(ClosedCaptions,ClosedCaptions,"init_captions"))
 
