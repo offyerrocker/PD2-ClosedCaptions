@@ -660,9 +660,12 @@ ClosedCaptions._sounds = {
 				},
 				goat_sleep = {
 					override_name = "SFX",
-					text = "(Goat snores, bleats)",
+					text = "(Goat snores, sleep-bleats)",
 					max_distance = 1000,
 					priority = 38,
+					loop_data = {
+						loop_interval = -1
+					},
 					category = "sfx"
 				},
 				goat_says_meh = {

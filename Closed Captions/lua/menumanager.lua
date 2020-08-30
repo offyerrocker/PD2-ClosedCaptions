@@ -1181,8 +1181,10 @@ function ClosedCaptions:ReadFromDebug() --reads existing "missing lines" into me
 			if string.find(line," : ") then 
 				local spl = string.split(line," : ") or {}
 				local source = spl[1]
-				local sound_name = spl[2]				
-				self.debug_missing_lines[sound_name] = true
+				local sound_name = spl[2]
+				if sound_name then 
+					self.debug_missing_lines[sound_name] = true
+				end
 			end
 		end
 		file:close()
