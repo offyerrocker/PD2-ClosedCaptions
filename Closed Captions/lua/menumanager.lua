@@ -3,16 +3,17 @@ BEFORE FIRST PUBLIC RELEASE:
 * test mp
 * test ecm from other players
 
+
 * fix priority
 	
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
 * go over priority values in sound_data
 
+* get murkywater name via unit key comparison to lookup table
+
 * todo conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
 
-* get position based on camera position?
-	
 * fallback values as well as override values
 * stop_lines should probably remove from soundsource instead of unit
 
@@ -958,9 +959,9 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 --determine sound_data variant to use from sound_id
 	local function stop_line(_sound_data,f)
 		if _sound_data.remove_by_source and _sound_data.stops_line then 
-			self:find_line({unit = unit,sound_id = _sound_data.stops_line},_sound_data.greedy_match,f)
+			self:find_line({sound_source = sound_source, unit = unit,sound_id = _sound_data.stops_line},_sound_data.greedy_match,f)
 		elseif _sound_data.remove_by_source then 
-			self:find_line({unit = unit},_sound_data.greedy_match,f)
+			self:find_line({sound_source = sound_source, unit = unit},_sound_data.greedy_match,f)
 		elseif _sound_data.stops_line then 
 			self:find_line({sound_id = _sound_data.stops_line},_sound_data.greedy_match,f)
 		end
