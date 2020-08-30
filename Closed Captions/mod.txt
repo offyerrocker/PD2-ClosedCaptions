@@ -3,7 +3,7 @@
 	"description" : "Adds in-game closed captions and subtitles to gameplay dialogue and some sound effects.",
 	"author" : "Offyerrocker",
 	"contact" : "Discord: Offyerrocker#3878",
-	"version" : "0.7",
+	"version" : "0.8",
 	"blt_version" : 2,
 	"image" : "cc_icon.png",
 	"color" : "255 128 0",

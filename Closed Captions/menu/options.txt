@@ -128,6 +128,22 @@
 			"value" : "caption_order"
 		},
 		{
+			"type" : "toggle",
+			"id" : "closedcaptions_use_player_names",
+			"title" : "menu_closedcaptions_use_player_names_title",
+			"description" : "menu_closedcaptions_use_player_names_desc",
+			"callback" : "callback_closedcaptions_use_player_names",
+			"value" : "caption_use_player_names"
+		},
+		{
+			"type" : "toggle",
+			"id" : "closedcaptions_use_allcaps_names",
+			"title" : "menu_closedcaptions_use_allcaps_names_title",
+			"description" : "menu_closedcaptions_use_allcaps_names_desc",
+			"callback" : "callback_closedcaptions_use_allcaps_names",
+			"value" : "caption_allcaps_names"
+		},
+		{
 			"type" : "divider",
 			"size" : 16
 		},

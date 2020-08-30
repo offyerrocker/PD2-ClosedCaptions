@@ -3,6 +3,9 @@ BEFORE FIRST PUBLIC RELEASE:
 * test mp
 * test ecm from other players
 
+* remove_by_source on death
+
+* out of range sounds still play and fadeout immediately
 
 * fix priority
 	
@@ -242,15 +245,15 @@ ClosedCaptions.settings = { --default preset for settings; overridden by json mo
 	log_bainunit_vo = false, --no menu option (intentional)
 	language = 1,
 	caption_x = 0,
-	caption_y = 128,
+	caption_y = 150,
 	caption_w = 800,
 	caption_margin_v = 8,
 	captions_max_count = 5,
 	caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 	caption_font_size = 20,
+	caption_use_player_names = false,
 	caption_allcaps_names = true,
-	caption_variation_mode = 1,
-	caption_priority_enabled = true,
+	caption_variation_mode = 2,
 	caption_empty_voicelines = true, -- show the caption if the line does not have an actual sound file recorded for it
 	category_mission_dialogue = true,
 	category_contractor_vo = true,
@@ -414,7 +417,7 @@ function ClosedCaptions:IsCaptionCategoryEnabled(category,is_special_enemy)
 end
 
 function ClosedCaptions:IsPriorityEnabled() 
-	return self.settings.caption_priority_enabled
+	return self.settings.caption_order == 1
 end
 
 function ClosedCaptions:IsLineRandomizationEnabled()
@@ -427,6 +430,10 @@ end
 
 function ClosedCaptions:UseCapitalNames()
 	return self.settings.caption_allcaps_names
+end
+
+function ClosedCaptions:UsePlayerName()
+	return self.settings.caption_use_player_names
 end
 
 function ClosedCaptions:LoadSounds(skip_processing)
@@ -543,9 +550,6 @@ function ClosedCaptions:HookSoundSource(soundsource,params) --not used
 	end
 end
 
-function ClosedCaptions:UsePlayerName()
-	return false
-end
 
 --caution: here be dragons; lines related to creation or management of active displayed captions 
 
@@ -582,12 +586,15 @@ function ClosedCaptions:Update(t,dt)
 			if n < MAX_SUBTITLES then 
 				if not item.loop_data and (t >= item.expire_t) then 
 					--out of time
-					is_hidden = false
+					is_hidden = true
+					item.panel:hide()
+					item.panel:set_alpha(0)
 					table.insert(queued_remove,i)
-				else --not yet out of time
+				else--not yet out of time
 					if not item.loop_data then 
 						--out of time 
-						if item.expire_t <= t then 
+						if t >= (item.expire_t - self.settings.caption_fadeout_time) then 
+							--start fadeout
 							is_hidden = true
 						end
 --						if item.expire_t - t <= self.settings.caption_fadeout_time then 
@@ -618,20 +625,6 @@ function ClosedCaptions:Update(t,dt)
 								end
 							end
 							is_hidden = is_hidden or not item.loop_visible
-							--[[
-							if not item.loop_visible then 
-								if item.panel:visible() then 
-									--do fadeout
-								elseif item.panel:visible() and item.panel:alpha() <= 0 then  
-									--
-									if item.loop_data.use_random_variations then 
-										--recreate panel with new text
-										local panel_name = item.panel:name()
-									
-									end
-								end
-							end
-							--]]
 						end
 					end
 
@@ -839,20 +832,26 @@ function ClosedCaptions:find_line(params,greedy_match,f)
 	for i,data in pairs(self.active_lines) do 
 		local is_it
 		for j,k in pairs(params) do 
-			if data[j] == k then 
+			if  data[j] and (data[j] == k) then 
+--				self:log_debug("Searching... data[" .. tostring(j) .. "] = " ..  tostring(data[j])) 
 				is_it = true
 				if not greedy_match then 
 					break
 				end
-			elseif data[j] and data[j] ~= k then 
+			elseif data[j] and (data[j] ~= k) then 
+--				self:log_debug("Searching... data[" .. tostring(j) .. "] = " ..  tostring(data[j]) .. " ~= " .. tostring(k)) 
 				is_it = false
 				break
 			end
 		end
 		if is_it then 
 			if f and (type(f) == "function") then 
+--				self:log_debug("removing by " .. tostring(f))
+--				birdword = self.active_lines[i]
 				return i,f(i)
 			elseif f and (type(ClosedCaptions[f]) == "function") then 
+--				birdword = self.active_lines[i]
+--				self:log_debug("removing index " .. tostring(i) .. " "  .. tostring(f))
 				return i,ClosedCaptions[f](self,i)
 			else
 				return i
@@ -889,7 +888,6 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	local sound_table = self:GetSoundTable()
 	
 	if sound_table.disabled_sounds[sound_id] then
-	
 		return
 	end
 	
@@ -959,9 +957,9 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 --determine sound_data variant to use from sound_id
 	local function stop_line(_sound_data,f)
 		if _sound_data.remove_by_source and _sound_data.stops_line then 
-			self:find_line({sound_source = sound_source, unit = unit,sound_id = _sound_data.stops_line},_sound_data.greedy_match,f)
+			self:find_line({sound_source = sound_source,unit = unit,sound_id = _sound_data.stops_line},_sound_data.greedy_match,f)
 		elseif _sound_data.remove_by_source then 
-			self:find_line({sound_source = sound_source, unit = unit},_sound_data.greedy_match,f)
+			self:find_line({sound_source = sound_source,unit = unit},_sound_data.greedy_match,f)
 		elseif _sound_data.stops_line then 
 			self:find_line({sound_id = _sound_data.stops_line},_sound_data.greedy_match,f)
 		end
@@ -977,7 +975,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	if not sound_data then 
 		if (variant ~= "narrator") or (self:ShouldLogBainUnitVO()) then 
 			self:log_line(sound_id,{variant=variant,unit=unit,sound_source=sound_source,position=position})
-			self:AddToDebug(tostring(variant) .. " : " .. sound_id)
+			self:AddToDebug(sound_id,variant)
 		end
 		sound_table.vo[sound_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
 		return
@@ -990,7 +988,11 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 	elseif sound_data.text then 
 		text = sound_data.text
 	else
-		self:log_debug("Error- sound " .. tostring(sound_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
+		if sound_data.category == "stops" then 
+			stop_line(sound_data,"_end_line")
+		else
+			self:log_debug("Error- sound " .. tostring(sound_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
+		end
 		return
 	end
 	
@@ -1025,7 +1027,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 		return
 	end
 
-	--text = text or variant_data.text or sound_data.text
+	text = text or variant_data.text or sound_data.text
 
 	local category = variant_data.category or sound_data.category	
 	if category == "stops" then 
@@ -1075,6 +1077,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position) --gets rel
 		stop_line(sound_data,"_end_line")
 	end
 	
+	self:log_line("Playing " .. tostring(sound_id) .. " from unit " .. tostring(unit) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
 	
 	name = variant_data.override_name or name or variant_data.fallback_name
 	
@@ -1134,7 +1137,7 @@ function ClosedCaptions:_add_line(panel_text,source_id,text_color,data) --create
 		if data.priority and self:IsPriorityEnabled() then 
 			for i,active_data in ipairs(self.active_lines) do
 			--lower number is more important
-				if not active_data.priority or (active_data.priority >= data.priority) then
+				if not active_data.priority or (active_data.priority < data.priority) then
 					table.insert(self.active_lines,i,data)
 					return
 				end
@@ -1195,30 +1198,27 @@ end
 --local file = io.open(ClosedCaptions._debug_list_path,"a+"); if file then for sound,source in pairs(ClosedCaptions.debug_missing_lines) do file:write(sound .. " : " .. source .. "\n") end end 
 --used to convert FOUND_MISSING_LINES from versions 0.1 and earlier, since those versions did not have duplicate line protection
 
-function ClosedCaptions:AddToDebug(sound_name)
-	if managers.job and not self.debug_mission_name then 
-		local level_data = managers.job:current_level_data()
-		local level_name = level_data and level_data.name_id
-		self.debug_mission_name = level_name and managers.localization:text(level_name)
-		
-		--write the mission name once in the file, for easier replication later
-		if self.debug_mission_name then 
-			local file = io.open(self._debug_list_path,"a+")
-			if file then
-				file:write(tostring(level_name) .. " | " .. tostring(self.debug_mission_name) .. "\n")
-				file:close()
+function ClosedCaptions:AddToDebug(sound_name,variant)
+	if sound_name and not self.debug_missing_lines[sound_name] then 
+		local file = io.open(self._debug_list_path,"a+")
+		if file then
+	
+			if managers.job and not self.debug_mission_name then 
+				local level_data = managers.job:current_level_data()
+				local level_name = level_data and level_data.name_id
+				self.debug_mission_name = level_name and managers.localization:text(level_name)
+				
+				--write the mission name once in the file, for easier replication later
+				if self.debug_mission_name then 
+					file:write("\n" .. tostring(level_name) .. " | " .. tostring(self.debug_mission_name))
+				end
 			end
+			self.debug_missing_lines[sound_name] = true
+			
+		--append to list
+			file:write("\n" .. tostring(variant) .. " : " .. sound_name)
+			file:close()
 		end
-	end
-	
-	sound_name = tostring(sound_name)
-	self.debug_missing_lines[sound_name] = true
-	
-	--append to list
-	local file = io.open(self._debug_list_path,"a+")
-	if file then
-		file:write(sound_name .. "\n")
-		file:close()
 	end
 end
 
@@ -1311,16 +1311,24 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 		ClosedCaptions.settings.caption_font_size = tonumber(item:value())
 	end
 	
+	MenuCallbackHandler.callback_closedcaptions_use_player_names = function(self,item)
+		ClosedCaptions.settings.caption_use_player_names = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_use_allcaps_names = function(self,item)
+		ClosedCaptions.settings.caption_allcaps_names = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_caption_variation_mode = function(self,item)
+		ClosedCaptions.settings.caption_variation_mode = tonumber(item:value())
+	end
+	
 	MenuCallbackHandler.callback_closedcaptions_caption_order = function(self,item)
 		ClosedCaptions.settings.caption_order = tonumber(item:value())
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_mission_dialogue = function(self,item)
 		ClosedCaptions.settings.category_mission_dialogue = item:value() == "on"
-	end
-	
-	MenuCallbackHandler.callback_closedcaptions_caption_variation_mode = function(self,item)
-		ClosedCaptions.settings.caption_variation_mode = tonumber(item:value())
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_contractor_vo = function(self,item)

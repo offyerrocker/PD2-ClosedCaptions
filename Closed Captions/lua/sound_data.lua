@@ -572,7 +572,7 @@ ClosedCaptions._sounds = {
 					stops_line = "cooking_meth"
 				},
 				ecm_jammer_ready = {
-					override_text = "SFX",
+					override_name = "SFX",
 					category = "sfx",
 					override_source_id = true,
 					duration = 2,
@@ -580,17 +580,15 @@ ClosedCaptions._sounds = {
 					text = "[ECM Jammer ready]"
 				},
 				ecm_jammer_jam_signal = {
-					override_text = "SFX",
+					override_name = "SFX",
 					category = "sfx",
 					override_source_id = true,
-					loop_data = {
-						loop_interval = -1
-					},
+					duration = 30,
 					priority = 25,
 					text = "[ECM Jammer active]"
 				},
 				ecm_jammer_jam_signal_stop = {
-					override_text = "SFX",
+					override_name = "SFX",
 					category = "stops",
 --					text = "[ECM Jammer stops]",
 					remove_by_source = true, --since multiple ecms may be active at once, but each ecm only plays one sound at a time, ecm sounds should be removed by source
@@ -599,7 +597,7 @@ ClosedCaptions._sounds = {
 					priority = 25
 				},
 				ecm_jammer_puke_signal = {
-					override_text = "SFX",
+					override_name = "SFX",
 					category = "sfx",
 					override_source_id = true,
 					loop_data = {
@@ -609,7 +607,7 @@ ClosedCaptions._sounds = {
 					text = "[ECM Feedback active]"
 				},
 				ecm_jammer_puke_signal_stop = {
-					override_text = "SFX",
+					override_name = "SFX",
 					category = "stops",
 --					text = "[ECM Feedback stops]",
 					stops_line = "ecm_jammer_puke_signal",
@@ -619,7 +617,7 @@ ClosedCaptions._sounds = {
 				},
 				flare_start_loop = {
 					text = "[flare burns]",
-					override_text = "SFX",
+					override_name = "SFX",
 					category = "sfx",
 					max_distance = 1500,
 					loop_data = {
@@ -633,9 +631,9 @@ ClosedCaptions._sounds = {
 				},
 				goat_fan_woosh = {
 					override_name = "SFX",
-					text = "(Goat riding the fan)",
+					text = "(oscillating Goat bleats)",
 					priority = 38,
-					max_distance = 1000,
+					max_distance = 2000,
 					loop_data = {
 						loop_interval = -1
 					},
@@ -645,9 +643,11 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(Goat bleats from scaffolding)",
 					priority = 38,
-					max_distance = 1000,
+					max_distance = 2000,
 					loop_data = {
-						loop_interval = -1
+						loop_interval = 2,
+						loop_interval_min = 2,
+						use_random_loop_interval = true
 					},
 					category = "sfx"
 				},
@@ -655,13 +655,14 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(Goat kicks!)",
 					priority = 38,
+					duration = 2,
 					max_distance = 700,
 					category = "sfx"
 				},
 				goat_sleep = {
 					override_name = "SFX",
 					text = "(Goat snores, sleep-bleats)",
-					max_distance = 1000,
+					max_distance = 2000,
 					priority = 38,
 					loop_data = {
 						loop_interval = -1
@@ -671,20 +672,20 @@ ClosedCaptions._sounds = {
 				goat_says_meh = {
 					override_name = "SFX",
 					text = "(Goat bleats)",
-					max_distance = 1000,
+					max_distance = 2000,
+					duration = 2,
 					priority = 38,
 					category = "sfx"
 				},
 				goat_says_meh_loop = {
 					override_name = "SFX",
 					text = "(Goat bleating)",
-					max_distance = 1000,
+					max_distance = 2000,
 					priority = 38,
 					category = "sfx",
 					duration = 2,
 					loop_data = {
-						loop_interval = 5,
-						use_random_loop_interval = true
+						loop_interval = 2
 					}
 				},
 				goat_lick = {
@@ -960,7 +961,7 @@ ClosedCaptions._sounds = {
 					text = "[Trip mine activated]"
 				},
 				trip_mine_beep_explode = {
-					override_text = "SFX",
+					override_name = "SFX",
 					category = "sfx",
 					duration = 1,
 					priority = 25,
@@ -1047,19 +1048,19 @@ ClosedCaptions._sounds = {
 					stops = "city_sounds_basketball",
 					category = "stops"
 				},
-				earthquake_siren_end = {
-					override_name = "SFX",
-					text = "(air raid/earthquake siren ends)",
-					category = "stops",
-					stops_line = "earthquake_siren"
-				},
 				earthquake_siren = {
 					override_name = "SFX",
 					text = "(air raid/earthquake siren)",
+					override_source_id = "earthquake_siren_pa",
 					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					}
+					duration = 60
+				},
+				earthquake_siren_end = {
+					override_name = "SFX",
+					text = "(air raid/earthquake siren ends)",
+					override_source_id = "earthquake_siren_pa",
+					category = "stops",
+					stops_line = "earthquake_siren"
 				},
 				thunder_struck = {
 					text = "[thunder rumbles]",
@@ -1406,7 +1407,7 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
-					distance = 1700,
+					max_distance = 1700,
 					category = "sfx"
 				},
 				christmas_radio = { --i'm okay with having a larger range for this one because you can always shoot the radio
@@ -1455,14 +1456,24 @@ ClosedCaptions._sounds = {
 					priority = 40,
 					category = "sfx"
 				},
+				jukebox_the_flames_of_love = {
+					override_name = "SFX",
+					text = "(radio plays 'The Flames of Love')",
+					priority = 40,
+					max_distance = 1700,
+					loop_data = {
+						loop_interval = -1
+					},
+					category = "sfx"
+				},
 				rvd_radio_music_start = {
 					override_name = "SFX",
 					text = "(radio music)", --these are mostly just different so that I can tell them apart
 					priority = 40,
+					max_distance = 700,
 					loop_data = {
 						loop_interval = -1
 					},
-					distance = 700,
 					category = "sfx"
 				},
 				rvd_radio_music_stop = {
@@ -4820,8 +4831,7 @@ ClosedCaptions._sounds = {
 									"I got a lootbag.",
 									"And another!",
 									"One bag down!"
-								},
-								DISABLED_assault_mode = {}
+								}
 							}
 						},
 						rb15 = {
@@ -4832,8 +4842,7 @@ ClosedCaptions._sounds = {
 									"One lootbag, at the drop.",
 									"It's delivered!",
 									"One lootbag, stashed."
-								},
-								DISABLED_assault_mode = {}
+								}
 							}
 						}
 					}
@@ -5724,8 +5733,7 @@ ClosedCaptions._sounds = {
 									"It's arrived!",
 									"It's here, it's here!",
 									"Okay, it's here!"
-								},
-								DISABLED_assault_mode = {}
+								}
 							}
 						},
 						rb9 = {
@@ -5742,8 +5750,7 @@ ClosedCaptions._sounds = {
 									"We got it!",
 									"It's here!",
 									"It's here, it's here!"
-								},
-								DISABLED_assault_mode = {}
+								}
 							}
 						}
 					}
@@ -6971,7 +6978,11 @@ ClosedCaptions._sounds = {
 									"Bulldozer!",
 									"Got a Bulldozer!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"FUCK! BULLDOZER!",
+									"MOTHERFUCKIN' BULLDOZER!",
+									"BLOODY BULLDOZER!"
+								}
 							}
 						}
 					}
@@ -7006,7 +7017,12 @@ ClosedCaptions._sounds = {
 									"We've got a Shield!",
 									"Shield!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"AH, SHIT! SHIELD!",
+									"IT'S A SHIELD!",
+									"SHIELD!",
+									"WE'VE GOT A SHIELD!"
+								}
 							}
 						}
 					}
@@ -7035,7 +7051,12 @@ ClosedCaptions._sounds = {
 									"We've got a Shield!",
 									"Shield!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"AH, SHIT! SHIELD!",
+									"IT'S A SHIELD!",
+									"SHIELD!",
+									"WE'VE GOT A SHIELD!"
+								}
 							}
 						}
 					}
@@ -7069,7 +7090,11 @@ ClosedCaptions._sounds = {
 									"We've got a taser!",
 									"Taser!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"SHIT! TASER!",
+									"TASER!",
+									"LOOK OUT! TASER!"
+								}
 							}
 						}
 					}
@@ -7097,7 +7122,11 @@ ClosedCaptions._sounds = {
 									"We've got a taser!",
 									"Taser!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"SHIT! TASER!",
+									"TASER!",
+									"LOOK OUT! TASER!"
+								}
 							}
 						}
 					}
@@ -7163,7 +7192,11 @@ ClosedCaptions._sounds = {
 									"We've got a Cloaker!",
 									"Cloaker!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"CLOAKER SON OF A BITCH!",
+									"CLOAKER!",
+									"SHIT! CLOAKER!"
+								}
 							}
 						}
 					}
@@ -7184,7 +7217,11 @@ ClosedCaptions._sounds = {
 									"Watch out! Sniper!",
 									"Sniper!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"STAY BACK! SNIPER!",
+									"WATCH OUT! SNIPER!",
+									"SNIPER!"
+								}
 							}
 						}
 					}
@@ -7205,7 +7242,11 @@ ClosedCaptions._sounds = {
 									"Watch out! Sniper!",
 									"Sniper!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"STAY BACK! SNIPER!",
+									"WATCH OUT! SNIPER!",
+									"SNIPER!"
+								}
 							}
 						}
 					}
@@ -7268,7 +7309,13 @@ ClosedCaptions._sounds = {
 									"Turret! Watch out!",
 									"Turret! Bloody careful, now!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"Stay clear of that bloody TURRET!",
+									"FUCK! TURRET!",
+									"TURRET! BLOODY CAREFUL NOW!",
+									"SWAT TURRET!",
+									"FUCK ME! TURRET!"
+								}
 							}
 						}
 					}
@@ -7303,7 +7350,10 @@ ClosedCaptions._sounds = {
 									"Watch out! Captain!",
 									"It's a Captain!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"WATCH OUT! CAPTAIN!",
+									"IT'S A CAPTAIN!"
+								}
 							}
 						}
 					}
@@ -7327,11 +7377,16 @@ ClosedCaptions._sounds = {
 							line_variations = {
 								standard_mode = {
 									"It's an enemy Medic!",
-									"Look out! Medic!", --should these have "enemy" in front of them for clarity?
-									"Enemy Medic!",
+									"Look out, Medic!",
+									"Enemy Medic.",
 									"Shit, Medic!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"IT'S AN ENEMY MEDIC!",
+									"LOOK OUT! MEDIC!",
+									"ENEMY MEDIC!",
+									"SHIT, MEDIC!"
+								}
 							}
 						}
 					}
@@ -7366,12 +7421,12 @@ ClosedCaptions._sounds = {
 									"Killed a dozer.",
 								},
 								assault_mode = { --check for assault/whisper get stuffed line
-									"Bulldozer down!",
-									"Fuck off, dozer!",
-									"Fuck you, Bulldozer!",
-									"Dozer's history!",
-									"Killed a dozer!",
-									"Get stuffed, dozer fuck!"
+									"BULLDOZER DOWN!",
+									"FUCK OFF, DOZER!",
+									"FUCK YOU, BULLDOZER!",
+									"DOZER'S HISTORY!",
+									"KILLED A DOZER!",
+									"GET STUFFED, DOZER FUCK!"
 								}
 							}
 						}
@@ -7408,7 +7463,13 @@ ClosedCaptions._sounds = {
 									"Get stuffed, Shield fuck.",
 									"Fuck off, drongo Shield."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"KILLED A SHIELD!",
+									"BYE-BYE, ARSEHOLE SHIELD!",
+									"GOT THE FUCKIN' SHIELD!",
+									"GET STUFFED, SHIELD FUCK!",
+									"TOOK CARE OF THE SHIELD!"
+								}
 							}
 						}
 					}
@@ -7436,9 +7497,17 @@ ClosedCaptions._sounds = {
 									"Fuck off, Taser.",
 									"Taser's dead.",
 									"Get stuffed, Taser fuck.",
-									"Eat that, you tosser. (Taser)"
+									"Eat that, ya tosser. (Taser)"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"TASER'S HISTORY!",
+									"EAT THAT, YA TOSSER! (Taser)",
+									"GET STUFFED, TASER FUCK!",
+									"TASER'S HISTORY!",
+									"I GOT THE TASER!",
+									"TASER'S DEAD!",
+									"FUCK OFF, TASER!"
+								}
 							}
 						}
 					}
@@ -7468,7 +7537,14 @@ ClosedCaptions._sounds = {
 									"Sleep tight, Cloaker.",
 									"Sit on my dick, Cloaker."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"EAT THAT, CLOAKER FUCK!",
+									"GET STUFFED, CLOAKE FUCK!",
+									"SIT ON MY DICK, CLOAKER!",
+									"SEE YA, CLOAKER DIPSHIT!",
+									"CLOAKER'S DEAD!",
+									"SLEEP TIGHT, CLOAKER!"
+								}
 							}
 						}
 					}
@@ -7510,7 +7586,13 @@ ClosedCaptions._sounds = {
 									"Fuck off, Sniper.",
 									"Got a Sniper."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"TOOK CARE OF THE SNIPER!",
+									"SNIPER'S DEAD!",
+									"GET STUFFED, SNIPER FUCK!",
+									"FUCK OFF, SNIPER!",
+									"GOT A SNIPER!"
+								}
 							}
 						}
 					}
@@ -7537,7 +7619,11 @@ ClosedCaptions._sounds = {
 									"Try an' heal any of those wounds, ya pussy.",
 									"Bye-bye, Medic fuck."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"FUCK OFF, MEDIC!",
+									"TRY AN' HEAL THOSE WOUNDS, YA PUSSY!",
+									"BYE-BYE, MEDIC FUCK."
+								}
 							}
 						}
 					}
@@ -7568,8 +7654,7 @@ ClosedCaptions._sounds = {
 									"BLOODY HELL, I'VE BEEN FLASHED!",
 									"AAAGH, WHAT THE FUCK!",
 									"CRIKEY, I'M COMPLETELY BLIND!"
-								},
-								DISABLED_assault_mode = {}
+								}
 							}
 						}
 					}
@@ -7589,13 +7674,28 @@ ClosedCaptions._sounds = {
 						},
 						rb15 = {
 							line_variations = {
+								recombinable = true,
 								standard_mode = {
-									"AAGH, TEARGAS! [coughing] I'LL BLOODY KILL THE BASTARD WHO THREW THAT!",
-									"FUCK, TEARGAS! [coughing] THESE FUCKWITS ARE USING GAS!",
-									"TEARGAS! [coughing] WE NEED GAS MASKS, NOT CLOWN MASKS!",
-									"FUCK, TEARGAS! [coughing] FUCK, THAT STINGS BAD!"
-								},
-								DISABLED_assault_mode = {}
+									{
+										"MOTHERFUCKING TEARGAS!",
+										"TEARGAS!", 
+										"FUCK, TEARGAS!",
+										"[screaming in pain] TEARGAS!",
+										"FUCK! TEARGAS!"
+									},
+									{
+										"[coughing]",
+										"[coughing, choking]"
+									},
+									{
+										"THESE FUCKWITS ARE USING GAS!",
+										"I'LL FUCKING KILL THE BASTARD WHO THREW THAT!",
+										"CRIKEY! [coughing] HOW CAN GASSING BE LEGAL?!",
+										"CHRIST, THIS SHIT HURTS!",
+										"WE NEED GAS MASKS, NOT CLOWN MASKS!",
+										"FUCK, THAT STINGS BAD!"
+									}
+								}
 							}
 						}
 					}
@@ -7691,7 +7791,21 @@ ClosedCaptions._sounds = {
 										"[groaning in pain] Christ, this shit hurts!"
 									}
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									{
+										"[screaming in pain]",
+										"[groaning in pain]",
+										"[grunting in pain]"
+									},
+									{
+										"WHO'S GOT A BLOODY MEDIC BAG?!",
+										"MEDIC BAG, NOW!",
+										"I NEED A FUCKING MEDIC BAG!",
+										"I NEED A GODDAMN MEDIC BAG!",
+										"GET ME A BLOODY MEDIC BAG!",
+										"MEDIC BAG! ANYONE?!"
+									}
+								}
 							}
 						}
 					}
@@ -7771,7 +7885,21 @@ ClosedCaptions._sounds = {
 										"Get me some ammo!"
 									}
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									{
+										"NOT MUCH AMMO LEFT!",
+										"ALMOST OUT OF AMMO!",
+										"AMMO LOW!",
+										"ALMOST OUT OF BULLETS!",
+										"RUNNING LOW ON BULLETS!"
+									},
+									{
+										"WHO'S GOT SOME?!",
+										"ANYONE GOT AN AMMO BAG?!",
+										"COME ON, FOR FUCK'S SAKE!",
+										"GET ME SOME AMMO!"
+									}
+								}
 							}
 						}
 					}
@@ -7823,7 +7951,12 @@ ClosedCaptions._sounds = {
 									"Extra ammo over here.",
 									"I dropped an Ammo Bag over here."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"More bullets for ya, over here!",
+									"Get more ammo!",
+									"Come get  more ammo!",
+									"Extra ammo, right here!"
+								}
 							}
 						}
 					}
@@ -7871,7 +8004,12 @@ ClosedCaptions._sounds = {
 									"Medic Bag over here.", --two soundfile variations
 									"Some medic supplies here."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"Medic Bag for whoever needs it!",
+									"Medic Bag! Get patched up!",
+									"Medic Bag, right here!",
+									"Medic Bag, over here!"
+								}
 							}
 						}
 					}
@@ -7914,8 +8052,7 @@ ClosedCaptions._sounds = {
 									"[groans] I guess I owe you one.",
 									"[groans] Finally!",
 									"[groans] Thanks for that."
-								},
-								DISABLED_assault_mode = {}
+								}
 							}
 						}
 					}
@@ -7976,7 +8113,13 @@ ClosedCaptions._sounds = {
 									"I'll get you back up.",
 									"Let's get you up."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"LET'S GET YOU BACK UP!",
+									"LET'S GET YOU BACK IN BUSINESS!",
+									"I'LL GETCHA UP!",
+									"I GOTCHA!"
+									
+								}
 							}
 						}
 					}
@@ -8016,7 +8159,11 @@ ClosedCaptions._sounds = {
 									"Here's a First Aid Kit!",
 									"First Aid Kit here."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"FIRST AID KIT, HERE!",
+									"HERE'S A FIRST AID KIT!",
+									"HERE'S A FIRST AID KIT!"
+								}
 							}
 						}
 					}
@@ -8054,7 +8201,10 @@ ClosedCaptions._sounds = {
 									"Bodybag Case!",
 									"Got a Bodybag Case here!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"Bodybag Case here!",
+									"Bodybag Case right here!"
+								}
 							}
 						}
 					}
@@ -8138,8 +8288,7 @@ ClosedCaptions._sounds = {
 									"Get me up!",
 									"Help!",
 									"You gotta help me!"
-								},
-								DISABLED_assault_mode = {}
+								}
 							}
 						}
 					}
@@ -8243,7 +8392,14 @@ ClosedCaptions._sounds = {
 									"Get down on the ground.",
 									"Ge'down."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"DOWN!",
+									"GET DOWN!",
+									"DOWN ON THE GROUND!",
+									"GET DOWN ON THE GROUND!",
+									"GE'DOWN!",
+									"ON THE GROUND!"
+								}
 							}
 						}
 					}
@@ -8284,7 +8440,14 @@ ClosedCaptions._sounds = {
 									"On the ground.",
 									"On the ground."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"DOWN!",
+									"GET DOWN!",
+									"DOWN ON THE GROUND!",
+									"GET DOWN ON THE GROUND!",
+									"GE'DOWN!",
+									"ON THE GROUND!"
+								}
 							}
 						}
 					}
@@ -8349,7 +8512,12 @@ ClosedCaptions._sounds = {
 									"Don't make me say it again.",
 									"Did I stutter?"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"I SAID, 'DOWN!'",
+									"DID I STUTTER!",
+									"DON'T MAKE ME SAY IT AGAIN!",
+									"GET DOWN, OR GET KILLED!"
+								}
 							}
 						}
 					}
@@ -8399,7 +8567,13 @@ ClosedCaptions._sounds = {
 									"Don't move.",
 									"Don't move."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"STAY DOWN!",
+									"DON'T MOVE!",
+									"STAY!",
+									"STAY STILL!",
+									"STAY PUT!"
+								}
 							}
 						}
 					}
@@ -8452,7 +8626,13 @@ ClosedCaptions._sounds = {
 									"I can't imagine you've ever been a part of anything as remotely exciting as this!",
 									"Pretend you're dead, and you'll keep living, got it?",
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"STAY DOWN!",
+									"DON'T MOVE!",
+									"STAY!",
+									"STAY STILL!",
+									"STAY PUT!"
+								}
 							}
 						}
 					}
@@ -8491,7 +8671,13 @@ ClosedCaptions._sounds = {
 									"Stay down.",
 									"And don't move."
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"DON'T MOVE!",
+									"AND DON'T MOVE!",
+									"AND STAY THERE!",
+									"STAY PUT!",
+									"AND DON'T FUCKING MOVE!"
+								}
 							}
 						}
 					}
@@ -8538,7 +8724,19 @@ ClosedCaptions._sounds = {
 									"Get on ya' fuckin feet!",
 									"Get back in the fight, ya' tosser!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"HEY YOU! GET ON YA' FEET!",
+									"GET THE FUCK UP!",
+									"YOU AREN'T DONE YET!",
+									"GET UP AND KILL THESE DIPSHITS!",
+									"GET BACK IN THE FIGHT, FUCKWIT!",
+									"NO REST FOR THE WICKET! GET UP!",
+									"CRIKEY, GET THE FUCK UP!",
+									"ON YA' FEET, TOSSER!",
+									"YOU! ON YOUR FEET, NOW!",
+									"YOU! UP, NOW!",
+									"PULL YOURSELF UP, YA FUCKIN' DRONGO!"
+								}
 							}
 						}
 					}
@@ -8631,7 +8829,12 @@ ClosedCaptions._sounds = {
 									"Follow me!",
 									"Come on!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"FOLLOW ME, NOW!",
+									"ON ME, NOW!",
+									"COME WITH ME!",
+									"FOLLOW ME!"
+								}
 							}
 						}
 					}
@@ -8722,7 +8925,15 @@ ClosedCaptions._sounds = {
 									"Move it, you drongo!",
 									"Move!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"SHIFT IT!",
+									"FASTER, FASTER!",
+									"LEG IT, DRONGO!",
+									"COME ON!",
+									"MOVE!",
+									"GET A MOVE ON!",
+									"LET'S GO, LET'S GO!"
+								}
 							}
 						}
 					}
@@ -8757,7 +8968,12 @@ ClosedCaptions._sounds = {
 									"Get on your feet!",
 									"Get up and fight!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"HEY YOU! GET ON YA' FEET!",
+									"GET THE FUCK UP!",
+									"YOU! UP, NOW!",
+									"GET BACK IN THE FIGHT, FUCKWIT!"
+								}
 							}
 						}
 					}
@@ -8793,7 +9009,12 @@ ClosedCaptions._sounds = {
 									"Get on your feet!",
 									"Up with ya'!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"HEY YOU! GET ON YA' FEET!",
+									"GET THE FUCK UP!",
+									"YOU! UP, NOW!",
+									"GET BACK IN THE FIGHT, FUCKWIT!"
+								}
 							}
 						}
 					}
@@ -8840,23 +9061,24 @@ ClosedCaptions._sounds = {
 						rb15 = {
 							line_variations = {
 								standard_mode = {
-									"Tell us what we need to know!",
+									"Answer me, fucker!",
+									"COCKSUCKER!",
+									"Don't make me bring out the fury!",
+									"Don't make me crush your fuckin' head!",
+									"Don't play tough with me!",
 									"Fuckin' answer!",
 									"I'll break your fuckin' face!",
 									"I'll fuckin' kill ya!",
-									"I'll make ya wish you were dead, you understand?!",
-									"Don't make me bring out the fury!",
-									"Answer me, fucker!",
+									"I'll make ya wish you were DEAD, you understand?!",
+									"I'll rip your fuckin' face off!",
 									"I'll stomp your bloody throat!",
-									"COCKSUCKER!",
-									"Right now, dipshit!",
-									"TOSSER!",
-									"Don't play tough with me!",
-									"You wish to see tomorrow, you bastard?!",
-									"Don't make me crush your fuckin' head!",
 									"Listen up, tosser!",
+									"Right now, dipshit!",
 									"Spit it out!",
-									"I'll rip your fuckin' face off!"
+									"TOSSER!",
+									"Tell us what we need to know!",
+									"YOU LITTLE FUCKWIT!",
+									"You wish to see tomorrow, you bastard?!"
 								}
 							}
 						}
@@ -8893,7 +9115,11 @@ ClosedCaptions._sounds = {
 									"Hey, wait over there.",
 									"Wait over there.",
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"DON'T MOVE!",
+									"STAY STILL!",
+									"STAY!"
+								}
 							}
 						}
 					}
@@ -8956,7 +9182,20 @@ ClosedCaptions._sounds = {
 										"We've gotta get it fixed!",
 									}
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									{
+										"YOU HEAR THAT SHIT? THE DRILL MUST BE JAMMED!",
+										"THE DRILL'S FUCKING UP!",
+										"YOU HEAR THE BLOODY DRILL?! I THINK IT'S BLOODY STUCK!",
+										"THE DRILL IS JAMMED!"
+									},
+									{
+										"WE GOTTA FUCKING FIX IT!",
+										"FUCKING FIX THE THING!",
+										"SOMEBODY BETTER BLOODY FIX IT!",
+										"SOMEBODY BETTER FIX IT!"
+									}
+								}
 							}
 						}
 					}
@@ -9055,13 +9294,18 @@ ClosedCaptions._sounds = {
 									"The computer process is jammed!",
 									"The bloody computer is stuck!"
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									"BLOODY COMPUTER'S NOT WORKING!",
+									"COMPUTER IS HAVING A FUCKING MELTDOWN!",
+									"THE BLOODY COMPUTER IS STUCK!",
+									"SOMETHING'S WRONG WITH THE SHITTY COMPUTER!"
+								}
 							}
 						}
 					}
 				},
 				d03_sin = {
-					text = "Thermal Lance is broken",
+					text = "The Thermal Lance is broken!",
 					category = "heister_dialogue",
 					priority = 40,
 					variants = {
@@ -9165,7 +9409,20 @@ ClosedCaptions._sounds = {
 										"Someone's gotta fix it!"
 									}
 								},
-								DISABLED_assault_mode = {}
+								assault_mode = {
+									{
+										"IT'S JAMMED!",
+										"HEY! THIS SHIT HAS JAMMED!",
+										"THAT NOISE DOESN'T SOUND GOOD, DOES IT?!",
+										"THE FUCKER'S STUCK!"
+									},
+									{
+										"SOMEBODY BETTER FIX IT!",
+										"FUCKING FIX THE THING!",
+										"WE GOTTA FUCKING FIX IT!",
+										"SOMEONE'S GOTTA FIX IT!"
+									}
+								}
 							}
 						}
 					}
@@ -11661,10 +11918,22 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					disabled = true
 				},
+				l1n_a07a = {
+					text = "Huh?",
+					category = "enemy_chatter",
+					priority = 37,
+					max_distance = 1500
+				},
+				l1n_a16 = {
+					text = "Two-Four over here. Officer signalling for backup!",
+					category = "enemy_dialogue",
+					priority = 37,
+					max_distance = 1500
+				},
 				l1n_g90 = {
 					category = "enemy_chatter",
 					priority = 90,
-					text = "l1n_g90"
+					text = "[tactical chatter]"
 				},
 				l1n_h01 = {
 					category = "enemy_chatter",
@@ -11713,7 +11982,6 @@ ClosedCaptions._sounds = {
 					max_distance = 1500,
 					category = "enemy_death"
 				},
-
 				l2d_rdy = {
 					category = "enemy_chatter",
 					text = "Ready!",
@@ -11723,7 +11991,28 @@ ClosedCaptions._sounds = {
 				l2n_g90 = {
 					category = "enemy_chatter",
 					priority = 90,
-					text = "l2n_g90"
+					text = "[tactical chatter]",
+					line_variations = {
+						"We need another plan, this isn't workin'!",
+						"Maybe three, maybe six. Hard to say.",
+						"There are at least three of them!",
+						"Where are our units?! We need more black and whites out there!",
+						"They gotta be ex-military or something. Or more likely... present military! We're outgunned!",
+						"Two assailants confirmed. There might be more of them."
+					},
+				},
+				l2n_h01 = {
+					category = "enemy_chatter",
+					duration = 3,
+					text = "(Freeing hostage)",
+					max_distance = 1000,
+					priority = 90
+				},
+				l2n_hr01 = {
+					text = "[hurt]",
+					category = "enemy_death",
+					max_distance = 1500,
+					priority = 90
 				},
 				l2n_hlp = {
 					category = "enemy_chatter",
@@ -11837,8 +12126,8 @@ ClosedCaptions._sounds = {
 					disabled = true
 				},
 				l3n_a07a = {
-					text = "l3n_a07a",
-					category = "UNKNOWN", --alerted?
+					text = "Huh?",
+					category = "enemy_chatter", --alerted?
 					priority = 37,
 					max_distance = 1500
 				},
@@ -11854,8 +12143,7 @@ ClosedCaptions._sounds = {
 							"Get the canaries!",
 							"Get the hostages!",
 							"Get the civvies!"
-						},
-						DISABLED_assault_mode = {}
+						}
 					}
 				},
 				l3n_c01 = {
@@ -11875,8 +12163,7 @@ ClosedCaptions._sounds = {
 							"Smoke 'em!",
 							"Smoke 'em out!",
 							"Smoke!"
-						},
-						DISABLED_assault_mode = {}
+						}
 					}
 				},
 				l3n_h01 = {
@@ -11908,7 +12195,7 @@ ClosedCaptions._sounds = {
 				l3n_g90 = {
 					category = "enemy_chatter",
 					priority = 90,
-					text = "l3n_g90"
+					text = "[tactical chatter]",
 				},
 				l3n_mov = {
 					text = "Move!",
@@ -11934,8 +12221,8 @@ ClosedCaptions._sounds = {
 				},
 
 				l4n_a07a = {
-					text = "l3n_a07a",
-					category = "UNKNOWN",
+					text = "Huh?",
+					category = "enemy_chatter",
 					priority = 37,
 					max_distance = 1500
 				},
@@ -11960,7 +12247,7 @@ ClosedCaptions._sounds = {
 				l4n_g90 = {
 					category = "enemy_chatter",
 					priority = 90,
-					text = "l4n_g90"
+					text = "[tactical chatter]"
 				},
 				l4n_h01 = {
 					category = "enemy_chatter",
@@ -12276,13 +12563,19 @@ ClosedCaptions._sounds = {
 					max_distance = 4000,
 					priority = 60
 				},
+				tsr_tasered = {
+					text = "(taser feedback gibberish)",
+					category = "enemy_chatter",
+					max_distance = 1500,
+					priority = 60
+				},
 				tsr_x01a_any_3p = {
 					text = "[pain]",
 					max_distance = 1500,
-					category = "enemy_death"
+					category = "enemy_chatter"
 				},
 				tsr_x02a_any_3p = {
-					text = "[pain]",
+					text = "[death]",
 					max_distance = 1500,
 					duration = 2,
 					category = "enemy_death"
@@ -12978,7 +13271,7 @@ ClosedCaptions._sounds = {
 					}
 				},
 				cpa_a03_01 = {
-					override_name = "[megaphone cop]",
+					override_name = "Police Negotiator",
 					text = "Turret'll be here any second!",
 					category = "enemy_dialogue",
 					priority = 60,
@@ -12993,7 +13286,7 @@ ClosedCaptions._sounds = {
 					}
 				},
 				cpa_a04_01 = {
-					override_name = "[megaphone cop]",
+					override_name = "Police Negotiator",
 					text = "Turret's arrived!",
 					category = "enemy_dialogue",
 					priority = 60,
@@ -13191,139 +13484,139 @@ ClosedCaptions._sounds = {
 					category = "enemy_dialogue"
 				},
 				mga_death_scream = { -- unused afaik
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "[muted scream, megaphone feedback]",
 					category = "mission_dialogue",
 					priority = 37
 				},
 				mga_deploy_snipers = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Deploying snipers!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_generic_a = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "How's it going? Is everyone alright?",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_generic_b = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Give up! There's no way you'll get away with this!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_generic_c = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "We're past negotiations- you die tonight!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_hostage_assault_delay = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "We know you took hostages!", --alt. "very clever, we're delayed"
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_intro = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "This is the Washington Police, there is no way out!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_killed_civ_1st = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "You've killed a civilian! You're not helping me or yourself.",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_killed_civ_2nd = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Multiple kills, you're way outta line! This is madness!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_leave = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Fuck this, I'm hitting the golf course!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_robbers_clever = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Impressive! But you still won't get away!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_thermite = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Thermite to get into the vault? Ha! But now we have you trapped!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_vault_a = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "There's no way into the vault, give up!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_vault_b = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "That's a multilayer vault! Didn't think it'd be that easy did you?",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_vault_c = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "You've breached the vault, but now you're heavy and we're fast.",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_t01a_con_plu = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "We're willing to do a hostage trade.",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s01 = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Listen up! This is the police!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s02 = {
-					override_name = "Megaphone Cop",
-					text = "We know you're in there",
+					override_name = "Police Negotiator",
+					text = "We know you're in there!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s03 = {
-					override_name = "Megaphone Cop",
-					text = "We have you surrounded",
+					override_name = "Police Negotiator",
+					text = "We have you surrounded!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s04 = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Make no mistake, we're in charge of this situation!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s05 = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "Resistance is futile, give up!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s06 = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "This is your last warning!",
 					category = "mission_dialogue",
 					priority = 10
 				},
 				mga_s07 = {
-					override_name = "Megaphone Cop",
+					override_name = "Police Negotiator",
 					text = "We will not give up until all the hostages are released!",
 					category = "mission_dialogue",
 					priority = 10
@@ -14784,13 +15077,33 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Stop_bkn_pal_01 = {
+					category = "stops",
+					stops_line = "Play_bkn_pal_01"
+				},
+				Stop_bkn_pal_02 = {
+					category = "stops",
+					stops_line = "Play_bkn_pal_02"
+				},
+				Stop_bkn_pal_03 = {
+					category = "stops",
+					stops_line = "Play_bkn_pal_03"
+				},
+				Stop_bkn_pal_04 = {
+					category = "stops",
+					stops_line = "Play_bkn_pal_04"
+				},
+				Stop_bkn_pal_05 = {
+					category = "stops",
+					stops_line = "Play_bkn_pal_05"
+				},
 				Play_mch_pal_01 = {
 					override_name = "Mitchell",
 					category = "mission_dialogue",
 					text = "How do I make my money? Uh...",
+					duration = 15,
 					priority = 37,
 					max_distance = 4000,
---					duration = 10,
 					line_variations = {
 						standard_mode = {
 							"How do I make my money? ...publishing. [nervous chuckle] Yeah, publishing...",
@@ -14808,6 +15121,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					category = "mission_dialogue",
 					text = "[boasting about his money]",
+					duration = 15,
 					priority = 37,
 					max_distance = 4000,
 					line_variations = {
@@ -14840,6 +15154,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					category = "mission_dialogue",
 					text = "[boasting about expensive hookers]",
+					duration = 15,
 					priority = 37,
 					max_distance = 4000,
 					line_variations = {
@@ -14859,6 +15174,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					category = "mission_dialogue",
 					text = "[boasting about The King]",
+					duration = 15,
 					priority = 37,
 					max_distance = 4000,
 					line_variations = {
@@ -14902,6 +15218,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags. I'll show you the leak.",
 					priority = 10,
+					duration = 10,
 					max_distance = 4000,
 					category = "mission_dialogue",
 					override_color = ClosedCaptions.color_data.neutral1,
@@ -14925,6 +15242,7 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "It's just down here.",
 					priority = 10,
+					duration = 3,
 					max_distance = 4000,
 					category = "mission_dialogue",
 					line_variations = {
@@ -14937,10 +15255,10 @@ ClosedCaptions._sounds = {
 				},
 				Play_mch_pal_07 = {
 					override_name = "Mitchell",
+					text = "See those pipes, leaking down the walls! It's fucked! This is a $10,000 carpet!",
 					duration = 7,
 					priority = 10,
 					max_distance = 4000,
-					text = "See those pipes, leaking down the walls! It's fucked! This is a $10,000 carpet!",
 					category = "mission_dialogue",
 					line_variations = {
 						standard_mode = {
@@ -14953,10 +15271,10 @@ ClosedCaptions._sounds = {
 				Play_mch_pal_08 = {
 					override_name = "Mitchell",
 					text = "Hey, I'm not paying you guys to hang around! Get down there!",
+					duration = 7,
 					priority = 10,
 					max_distance = 4000,
 					category = "mission_dialogue",
-					duration = 7,
 					line_variations = {
 						standard_mode = {
 							"Hey, I'm not paying you guys to hang around! Get down there!",
@@ -14969,8 +15287,8 @@ ClosedCaptions._sounds = {
 					override_name = "Mitchell",
 					text = "Fix it, already!",
 					category = "mission_dialogue",
-					priority = 10,
 					duration = 20,
+					priority = 10,
 					max_distance = 4000,
 					line_variations = {
 						recombinable = true,
@@ -14992,6 +15310,7 @@ ClosedCaptions._sounds = {
 				Play_mch_pal_10 = {
 					override_name = "Mitchell",
 					text = "I hope it's free service.",
+					duration = 4,
 					priority = 10,
 					max_distance = 4000,
 					category = "mission_dialogue",
@@ -15006,6 +15325,7 @@ ClosedCaptions._sounds = {
 				Play_mch_pal_11 = {
 					override_name = "Mitchell",
 					text = "Aw, fuck!",
+					duration = 4,
 					priority = 10,
 					max_distance = 2000,
 					category = "mission_dialogue",
@@ -15019,8 +15339,9 @@ ClosedCaptions._sounds = {
 				},
 				Play_mch_pal_12 = {
 					override_name = "Mitchell",
-					text = "Play_mch_pal_12",
+					text = "[groans, scoffs] 'Bodhi's Pool Repair'... Fuck, I should've known!",
 					category = "mission_dialogue",
+					duration = 5,
 					max_distance = 2000,
 					priority = 10,
 					line_variations = {
@@ -15037,6 +15358,7 @@ ClosedCaptions._sounds = {
 				Play_mch_pal_13 = {
 					override_name = "Mitchell",
 					text = "Fucking clowns!",
+					duration = 3,
 					priority = 10,
 					max_distance = 2000,
 					category = "mission_dialogue",
@@ -15104,6 +15426,22 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Stop_bqg_pal_01 = {
+					category = "stops",
+					stops_line = "Play_bqg_pal_01"
+				},
+				Stop_bqg_pal_02 = {
+					category = "stops",
+					stops_line = "Play_bqg_pal_02"
+				},
+				Stop_bqg_pal_03 = {
+					category = "stops",
+					stops_line = "Play_bqg_pal_03"
+				},
+				Stop_bqg_pal_04 = {
+					category = "stops",
+					stops_line = "Play_bqg_pal_04"
+				},
 				Play_cm1_pal_01 = {
 					override_name = "Party 'Guest'",
 					category = "mission_dialogue",
@@ -15149,6 +15487,18 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				Stop_cm1_pal_01 = {
+					category = "stops",
+					stops_line = "Play_cm1_pal_01"
+				},
+				Stop_cm1_pal_02 = {
+					category = "stops",
+					stops_line = "Play_cm1_pal_02"
+				},
+				Stop_cm1_pal_02 = {
+					category = "stops",
+					stops_line = "Play_cm1_pal_03"
+				},
 				Play_cm2_pal_01 = {
 					override_name = "Mitchell's friend",
 					category = "mission_dialogue",
@@ -15178,6 +15528,14 @@ ClosedCaptions._sounds = {
 							"Hey, stay cool, brother!"
 						}
 					}
+				},
+				Stop_cm2_pal_01 = {
+					category = "stops",
+					stops_line = "Play_cm2_pal_01"
+				},
+				Stop_cm2_pal_02 = {
+					category = "stops",
+					stops_line = "Play_cm2_pal_02"
 				},
 				Play_pil_pal_01 = {
 					text = "Who are those people?",
@@ -15211,6 +15569,68 @@ ClosedCaptions._sounds = {
 					priority = 37,
 					max_distance = 1000,
 					category = "mission_dialogue"
+				},
+				Play_pil_pal_04 = {
+					text = "[Russian accent] You will never get away with this!",
+					category = "mission_dialogue",
+					priority = 37,
+					max_distance = 1000,
+					line_variations = {
+						standard_mode = {
+							"[Russian accent] Boris will get you! You'll never get away! You hear me?!",
+							"[Russian accent] You will never get away with this!",
+							"[Russian accent] If I catch you... you will never get away with that!",
+							"[Russian accent] This is private property!"
+						}
+					}
+				},
+				Stop_bqg_pal_01 = {
+					category = "stops",
+					stops_line = "Play_pil_pal_01"
+				},
+				Stop_pil_pal_02 = {
+					category = "stops",
+					stops_line = "Play_pil_pal_02"
+				},
+				Stop_pil_pal_03 = {
+					category = "stops",
+					stops_line = "Play_pil_pal_03"
+				},
+				Stop_pil_pal_04 = {
+					category = "stops",
+					stops_line = "Play_pil_pal_04"
+				},
+				Play_pmn_pal_01 = {
+					text = "Who are these guys?",
+					category = "mission_dialogue",
+					priority = 60,
+					max_distance = 1500,
+					line_variations  = {
+						standard_mode = {
+							"This isn't the action I came for!",
+							"Hey, I ain't got nothing to do with this!",
+							"This is harshing my buzz!",
+							"Not me, not me, not me!",
+							"I don't wanna die!"
+						}
+					}
+				},
+				Play_pwn_pal_01 = {
+					text = "Help! Help me!",
+					category = "mission_dialogue",
+					priority = 60,
+					max_distance = 1500,
+					line_variations  = {
+						standard_mode = {
+							"Please don't shoot! Don't shoot me, please!",
+							"They've got guns!",
+							"Please don't shoot! Please, don't shoot!",
+							"Don't, please! [screams]",
+							"[screams in fear] Get out!",
+							"What's happening?!",
+							"Help! Help me!"
+						}
+					}
 				},
 				cft_piano_music = {
 					override_name = "SFX",
@@ -16828,7 +17248,7 @@ ClosedCaptions._sounds = {
 			--goat simulator heist day 1		
 				Play_cpg_pt1_01 = {
 					text = "Leave the damn goats alone, clown!",
-					override_name = "Megaphone cop",
+					override_name = "Police Negotiator",
 					priority = 37,
 					category = "mission_dialogue",
 					line_variations = {
@@ -17798,9 +18218,7 @@ ClosedCaptions._sounds = {
 					text = "[car alarm beeping]",
 					priority = 50,
 					max_distance = 700,
-					loop_data = {
-						loop_interval = -1
-					}
+					duration = 15
 				},
 				car_alarm_on_fade_out = {
 					category = "stops",
@@ -18177,7 +18595,7 @@ ClosedCaptions._sounds = {
 					duration = 5
 				},
 				Play_kzo_glc_02 = {
-					text = "Shit, so many cops!"
+					text = "Shit, so many cops!",
 					line_variations = {
 						standard_mode = {
 							"What did you do to the bridge!?",
