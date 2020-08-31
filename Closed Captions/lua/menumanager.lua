@@ -49,10 +49,12 @@ ISSUES
 	* [ONGOING] any sounds that appear without a name (ie without a linked_unit to its SoundSource) will need a fallback_name
 --]]
 
---[[ priority data cheat sheet:
+--[[ priority data cheat sheet: 
 	priorities are roughly divided into tiers of 10,
 	so that lines can be consistently ranked separately 
-	between similar lines 
+	between similar lines.
+		(Note that this is part of my organizational system for sound_data,
+		and does not reflect any part of Overkill's code.)
 	
 	line priority is mainly determined by two factors: 
 		1) importance
@@ -64,26 +66,43 @@ ISSUES
 	The following is more of a guideline, less of a rule. There may be exceptions for lots of these
 		
 		Mission Dialogue: 1-10
+			07 Police Negotiator
+			10 everything, generally
 		Contractor VO: 11-20
-			24 "You're the last one left!"
+			13 General advice/assault info etc
+			14 "You're the last one left!"
 		Combat-relevant information: 21-30
+			20 Enemy Flashbang SFX
 			20 ECM Jammer active
 			21 ECM Feedback Active
 			21 Cloaker charges
 			22 Tasing/tasered
-			23 Inspire
+			23 Inspire Aced
 			24 "I need a Medic Bag!"
 			25 "I need Ammo!"
+			25 Placed XYZ deployable
 			26 "Help me up!"
+			26 I'll help you up.
 			27 "Uncuff me!"
 			27 "Follow me!"
 			28 Perk Deck ended
-		Heisters Spotting Enemies: 31-40
+		Heister Dialogue: 31-40
+			31 Pager answering
+			35 General dialogue (Go up/ etc)
+		Heisters Spotting Enemies: 41-50
+			* all 45 i guess
 		Heisters Killing Enemies: 41-50
 		Enemy Dialogue: 51-60
+			31 Pager ringing/other pager lines
+			55 General dialogue
 		Enemy Death: 61-70
+			65 Hurt/death
 		Civilian Dialogue: 71-80
+			75 Panic! At The Branch Bank
+			75 Also, all other civilian lines
 		Enemy Chatter: 81-90
+			84 Vaguely tactical chatter
+			85 Most chatter
 		SFX: Varies, typically 81-90
 		Ammo Pickups/Player sounds: 91-100
 			90 Mission-specific SFX (eg. Green Bridge Prison Transport opens)
@@ -92,34 +111,6 @@ ISSUES
 			93 Ammo Pickup (Not Gambler)
 			96 Throwable Pickup
 			98 SFX General/Misc
-	
-	
-	
-	
-	
-	
-	
-	
-		--mission dialogue is priority 1-10 so that any longer text isn't constantly moving around the screen
-		--vo is also usually around this range, depending
-		
-		- moment-to-moment important information like Inspire being used, Cloaker Charge, etc. are priority 11-20
-
-		
-		- most standard sfx are anywhere priority 21-40,
-			but may vary widely since that's a broad category
-			mission relevant sfx are usually around 37
-			mission-VITAL sfx are obviously higher
-			ammo pickups are 50-60ish
-		- heister callouts are 40-50
-			-"i need a medic bag" and similar are higher priority, 11-20
-		- special kills and special spotting is 50-60
-		- enemy callouts are 60-70
-			cloaker spawn/idle are 40
-			healed cop is 50
-			surrender/converted cop is 40
-		- enemy chatter is 90-100
-		
 --]]
 
 --note: custom colors from settings MUST LOAD BEFORE LoadSounds() !!!
@@ -272,6 +263,7 @@ ClosedCaptions.category_names_to_setting_names = {
 	mission_dialogue = "category_mission_dialogue",
 	contractor_vo = "category_contractor_vo",
 	sfx = "category_sfx",
+	ambient = "category_ambient",
 	heister_dialogue = "category_heister_dialogue",
 	heister_spots = "category_heister_spots",
 	heister_kills = "category_heister_kills",
@@ -306,6 +298,7 @@ ClosedCaptions.settings = { --default preset for settings; overridden by json mo
 	category_mission_dialogue = true,
 	category_contractor_vo = true,
 	category_sfx = true,
+	category_ambient = false,
 	category_heister_dialogue = true,
 	category_heister_spots = true,
 	category_heister_kills = true,
@@ -318,8 +311,7 @@ ClosedCaptions.settings = { --default preset for settings; overridden by json mo
 	DEFAULT_LINE_DURATION = 3 -- only applies to lines that don't have an expire_t or duration override specified
 }
 
-ClosedCaptions.active_lines = { --tracks currently active captions
-}
+ClosedCaptions.active_lines = {} --tracks currently active captions
 
 ClosedCaptions.languages = { -- no translations yet :( just english
 	"english" --index is implicit + important
