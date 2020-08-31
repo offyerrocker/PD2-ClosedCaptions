@@ -1,9 +1,7 @@
 --[[
 BEFORE FIRST PUBLIC RELEASE:
 
-* test mp
-
-* test ecm from other players
+* ecms from other players may not behave as expected
 
 * remove_by_source may remove sfx before local player dialogue
 	due to the way find_line searches for sound_source; todo search by source_id
