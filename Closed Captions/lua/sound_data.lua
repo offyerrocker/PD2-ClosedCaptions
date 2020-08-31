@@ -184,27 +184,28 @@ ClosedCaptions._sounds = {
 					text = "$CHARACTER_NAME! Help me up!",
 					macro = "character_name",
 					category = "heister_dialogue",
-					priority = 37
+					priority = 26
 				},
 				["f13@_sin"] = { --macroized
 					text = "$character_name, come uncuff me!",
 					macro = "character_name",
 					category = "heister_dialogue",
-					priority = 37
+					priority = 27
 				},
 				["f21@_sin"] = { --macroized
 					text = "$character_name, follow me!",
 					macro = "character_name",
 					category = "heister_dialogue",
-					priority = 37
+					priority = 27
 				},
 				["Play_ban_i20@"] = {
 					override_name = "Bain",
 					category = "contractor_vo",
 					is_locationless = true,
+					duration = 5,
 					macro = "character_name",
 					text = "$character_name, you're the last one standing! It's all up to you!",
-					priority = 37
+					priority = 24
 				}
 			},
 			vo = {
@@ -215,14 +216,14 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					override_source_id = true, --if true, generates a new source_id (which will not replace any existing voiceline captions); else if any other non-nil value, uses this as source_id
 					duration = 1,
-					priority = 50
+					priority = 93
 				},
 				pickup_ammo_health_boost = {
 					override_name = "SFX",
 					text = "(Gambler) picked up ammo",
 					override_source_id = true,
 					category = "sfx",
-					priority = 21,
+					priority = 92,
 					duration = 2
 				},
 				pickup_fak_skill = {
@@ -230,7 +231,7 @@ ClosedCaptions._sounds = {
 					text = "activated Uppers Ace",
 					override_source_id = true,
 					duration = 1,
-					priority = 11,
+					priority = 91,
 					category = "sfx"
 				},
 				wp_four_pick_up = {
@@ -238,21 +239,21 @@ ClosedCaptions._sounds = {
 					text = "picked up Shuriken",
 					override_source_id = true,
 					duration = 1,
-					priority = 25,
+					priority = 96,
 					category = "sfx"
 				},
 				wp_target_pick_up = {
 					override_name = "SFX",
 					text = "picked up Throwing Knife",
 					override_source_id = true,
-					duration = 25,
+					priority = 96
 					category = "sfx"
 				},
 				wp_ace_pick_up = {
 					override_name = "SFX",
 					text = "picked up Throwing Card",
 					override_source_id = true,
-					duration = 25,
+					priority = 96
 					category = "sfx"
 				},
 				wp_hur_pick_up = {
@@ -260,7 +261,7 @@ ClosedCaptions._sounds = {
 					text = "picked up Throwing Axe",
 					override_source_id = true,
 					duration = 1,
-					priority = 25,
+					priority = 96
 					category = "sfx"
 				},
 				wp_jav_pick_up = {
@@ -268,7 +269,7 @@ ClosedCaptions._sounds = {
 					text = "picked up Javelin",
 					override_source_id = true,
 					duration = 1,
-					priority = 25,
+					priority = 96
 					category = "sfx"
 				},
 				wp_arrow_pick_up = {
@@ -276,7 +277,7 @@ ClosedCaptions._sounds = {
 					text = "picked up Arrow",
 					override_source_id = true,
 					duration = 1,
-					priority = 25,
+					priority = 96
 					category = "sfx"
 				},
 				wp_hunterarrow_pick_up = {
@@ -284,33 +285,36 @@ ClosedCaptions._sounds = {
 					text = "picked up Compound Bow Arrow",
 					override_source_id = true,
 					duration = 1,
-					priority = 25,
+					priority = 96
 					category = "sfx"
 				},
 				cable_tie_apply = { --i think this only plays for local player, so i count it as a player sound
 					override_name = "SFX",
 					category = "sfx",
 					duration = 2,
-					priority = 50,
+					priority = 98,
+					disabled = true, --actually i feel like this doesn't need additional visual feedback in this case
 					text = "[cable tie rustles]"
 				},
 				perkdeck_cooldown_over = {
 					override_name = "SFX",
 					text = "(perk deck cooldown end)",
-					priority = 11,
+					priority = 28,
 					duration = 2,
 					category = "sfx"
 				},
 				nine_lives_skill = {
 					override_name = "SFX",
-					text = "(nine lives skill activates!)",
-					priority = 11,
+					text = "(nine lives skill activates!)", --does this mean swan song?
+					priority = 30,
+					disabled = true, --doesn't matter anyway. suddenly becoming alive has plenty of visual feedback
+					duration = 3,
 					category = "sfx"
 				},
 				tasered_loop = {
 					override_name = "SFX",
 					text = "(being tased!)",
-					priority = 11,
+					priority = 22,
 					category = "sfx",
 					loop_data = {
 						loop_interval = -1 --constant
@@ -319,103 +323,109 @@ ClosedCaptions._sounds = {
 				tasered_stop = {
 					category = "stops",
 					remove_by_source = true,
-					priority = 11,
 					stops_line = "tasered_loop"
 				},
 				melee_hit_body = { --some of these don't trigger since they're queued directly from the sound_source() and not through play() or say()
 					override_name = "SFX",
 					text = "(melee impact)",
-					priority = 20,
+					priority = 99,
 					category = "sfx",
 					disabled = true
 				},
 				player_armor_gone_stinger = {
 					override_name = "SFX",
 					text = "(armor broken!)",
-					priority = 12,
+					priority = 30,
 					category = "sfx",
 					disabled = true
 				},
 				shield_full_indicator = {
 					override_name = "SFX",
 					text = "(armor restored)",
-					priority = 12,
+					priority = 99,
 					category = "sfx",
 					disabled = true
 				},
 				player_sniper_hit_armor_gone = {
 					override_name = "SFX",
 					text = "(armor broken by sniper!)",
-					priority = 12,
+					priority = 30,
 					category = "sfx",
 					disabled = true
 				},
 				player_hit = {
 					override_name = "SFX",
 					text = "(armor damaged)",
-					priority = 13,
+					priority = 30,
 					category = "sfx",
 					disabled = true
 				},
 				player_hit_permadamage = {
 					override_name = "SFX",
 					text = "(health damaged!)",
-					priority = 11,
+					priority = 30,
 					category = "sfx",
 					disabled = true
 				},
 				critical_state_heart_loop = { --! needs a stop
 					override_name = "SFX",
 					text = "(low health heartbeat)",
-					priority = 12,
+					priority = 99,
+					category = "sfx",
+					disabled = true, --needs a loop
 					duration = 1,
 					loop_data = {
 						loop_interval = 1
-					},
-					category = "sfx"
+					}
 				},
 				concussion_effect_on = {
 					override_name = "SFX",
 					text = "(concussed)",
-					priority = 20,
-					category = "sfx"
+					category = "sfx",
+					disabled = true, --plenty of indication already
+					priority = 98
 				},
 				concussion_effect_off = {
 					override_name = "SFX",
-					text = "(concussion fades)",
+--					text = "(concussion fades)",
+					disabled = true,
 					priority = 20,
-					category = "sfx"
+					stops_line = "concussion_effect_on",
+					category = "stops"
 				},
 				concussion_player_disoriented_sfx = {
 					override_name = "SFX",
 					text = "(concussion disorientation)",
+					disabled = true,
 					priority = 20,
 					category = "sfx"
 				},
 				tinnitus_beep = {
 					override_name = "SFX",
 					text = "(tinnitus ringing)",
+					disabled = true, --let's not and say we didn't
 					priority = 20,
 					category = "sfx"
 				},
 				tinnitus_beep_stop = {
 					override_name = "SFX",
 					text = "(tinnitus stops)",
-					priority = 20,
+					disabled = true,
 					duration = 2,
-					category = "sfx"
+					stops_line = "tinnitus_beep",
+					category = "stops"
 				},
 
 
 
 --sfx/non-dialogue:
 	--mission equipment, player equipment (generally, interactable things)
-				ammo_bag_drop = {
+				ammo_bag_drop = { --ovk uses this as a generic sound 
 					override_name = "SFX",
 					text = "(bag impact)",
 					max_distance = 1500,
 					duration = 2,
-					priority = 37,
+					priority = 98,
 					category = "sfx"
 				},
 				bar_prison_transport_door_open_finished = {
@@ -423,7 +433,7 @@ ClosedCaptions._sounds = {
 					text = "(door sawing complete)",
 					max_distance = 2000,
 					duration = 2,
-					priority = 37,
+					priority = 90,
 					category = "sfx"
 				},
 				bag_light_drop = {
@@ -431,7 +441,7 @@ ClosedCaptions._sounds = {
 					text = "[light bag placed]",
 					category = "sfx",
 					max_distance = 1500,
-					priority = 37,
+					priority = 97,
 					duration = 3
 				},
 				bag_medium_drop = {
@@ -439,7 +449,7 @@ ClosedCaptions._sounds = {
 					text = "[medium bag placed]",
 					category = "sfx",
 					max_distance = 1500,
-					priority = 37,
+					priority = 97,
 					duration = 3
 				},
 				bag_heavy_drop = {
@@ -447,7 +457,7 @@ ClosedCaptions._sounds = {
 					text = "[heavy bag placed]",
 					category = "sfx",
 					max_distance = 1500,
-					priority = 37,
+					priority = 97,
 					duration = 3
 				},
 				blowtorch_guy = {
@@ -457,21 +467,21 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
-					priority = 36,
+					priority = 90,
 					category = "sfx"
 				},
 				blowtorch_guy_end_global = {
 					override_name = "SFX",
-					text = "(blowtorch stops)",
+--					text = "(blowtorch stops)",
+--					priority = 90,
 					stops_line = "blowtorch_guy",
-					priority = 36,
 					category = "sfx"
 				},
 				buzz_saw_aced = {
 					text = "[buzz saw grinds quietly]",
 					category = "sfx",
 					max_distance = 500,
-					priority = 37,
+					priority = 90,
 					duration = 5,
 					loop_data = {
 						loop_interval = -1
@@ -482,7 +492,7 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					override_name = "SFX",
 					max_distance = 1500,
-					priority = 37,
+					priority = 90,
 					loop_data = {
 						loop_interval = -1
 					}
@@ -492,7 +502,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					category = "sfx",
 					max_distance = 500,
-					priority = 37,
+					priority = 90,
 					loop_data = {
 						loop_interval = -1
 					}
@@ -500,7 +510,7 @@ ClosedCaptions._sounds = {
 				buzz_saw_end_aced = {
 --					text = "[aced buzz saw finishes]",
 					override_name = "SFX",
-					priority = 37,
+					priority = 90,
 					duration = 2,
 					category = "stops",
 					stops_line = "buzz_saw_aced"
@@ -510,7 +520,7 @@ ClosedCaptions._sounds = {
 					text = "beeps",
 					duration = 3,
 					max_distance = 1500,
-					priority = 37,
+					priority = 90,
 					category = "sfx"
 				},
 				card_reader_second_card = {
@@ -518,14 +528,14 @@ ClosedCaptions._sounds = {
 					text = "rapid beeps",
 					duration = 3,
 					max_distance = 1500,
-					priority = 37,
+					priority = 90,
 					category = "sfx"
 				},
 				camera_wrong_image = {
 					override_name = "SFX",
 					text = "[Camera loop active]",
 					category = "sfx",
-					priority = 36,
+					priority = 98,
 					max_distance = 3000,
 					loop_data = {
 						loop_interval = -1
@@ -539,25 +549,24 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
-					priority = 37
+					priority = 98
 				},
 				camera_wrong_image_outro_end = {
 					override_name = "SFX",
 					category = "stops",
-					stops_line = "camera_wrong_image_outro",
-					priority = 37
+					stops_line = "camera_wrong_image_outro"
 				},
 				container_drop = {
 					override_name = "SFX",
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					duration = 3,
 					text = "(cargo container drops)"
 				},
 				cooking_meth = {
 					override_name = "SFX",
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					max_distance = 500,
 					text = "[cooking meth]",
 					loop_data = {
@@ -568,24 +577,25 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					category = "stops",
 --					text = "[meth cooking stops]",
-					priority = 37,
+					priority = 90,
 					stops_line = "cooking_meth"
 				},
 				ecm_jammer_ready = {
 					override_name = "SFX",
 					category = "sfx",
 					override_source_id = true,
+					disabled = true, --don't see the use, really
 					duration = 2,
-					priority = 25,
+					priority = 20,
 					text = "[ECM Jammer ready]"
 				},
 				ecm_jammer_jam_signal = {
 					override_name = "SFX",
+					text = "[ECM Jammer active]",
 					category = "sfx",
 					override_source_id = true,
 					duration = 30,
-					priority = 25,
-					text = "[ECM Jammer active]"
+					priority = 20
 				},
 				ecm_jammer_jam_signal_stop = {
 					override_name = "SFX",
@@ -603,7 +613,7 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
-					priority = 25,
+					priority = 21,
 					text = "[ECM Feedback active]"
 				},
 				ecm_jammer_puke_signal_stop = {
@@ -613,7 +623,7 @@ ClosedCaptions._sounds = {
 					stops_line = "ecm_jammer_puke_signal",
 					remove_by_source = true,
 					duration = 2,
-					priority = 25
+					priority = 21
 				},
 				flare_start_loop = {
 					text = "[flare burns]",
@@ -623,7 +633,7 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
-					priority = 40
+					priority = 90
 				},
 				flare_end = {
 					category = "stops",
@@ -632,17 +642,17 @@ ClosedCaptions._sounds = {
 				goat_fan_woosh = {
 					override_name = "SFX",
 					text = "(oscillating Goat bleats)",
-					priority = 38,
+					priority = 90,
 					max_distance = 2000,
+					category = "sfx",
 					loop_data = {
 						loop_interval = -1
-					},
-					category = "sfx"
+					}
 				},
 				goat_hang_scaffold = {
 					override_name = "SFX",
 					text = "(Goat bleats from scaffolding)",
-					priority = 38,
+					priority = 90,
 					max_distance = 2000,
 					loop_data = {
 						loop_interval = 2,
@@ -654,7 +664,7 @@ ClosedCaptions._sounds = {
 				goat_kick = {
 					override_name = "SFX",
 					text = "(Goat kicks!)",
-					priority = 38,
+					priority = 90,
 					duration = 2,
 					max_distance = 700,
 					category = "sfx"
@@ -663,7 +673,7 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					text = "(Goat snores, sleep-bleats)",
 					max_distance = 2000,
-					priority = 38,
+					priority = 90,
 					loop_data = {
 						loop_interval = -1
 					},
@@ -674,14 +684,14 @@ ClosedCaptions._sounds = {
 					text = "(Goat bleats)",
 					max_distance = 2000,
 					duration = 2,
-					priority = 38,
+					priority = 90,
 					category = "sfx"
 				},
 				goat_says_meh_loop = {
 					override_name = "SFX",
 					text = "(Goat bleating)",
 					max_distance = 2000,
-					priority = 38,
+					priority = 90,
 					category = "sfx",
 					duration = 2,
 					loop_data = {
@@ -693,7 +703,7 @@ ClosedCaptions._sounds = {
 					text = "(Goat licks)",
 					duration = 3,
 					max_distance = 1000,
-					priority = 38,
+					priority = 90,
 					category = "sfx"
 				},
 				goat_headbutt = {
@@ -701,7 +711,7 @@ ClosedCaptions._sounds = {
 					text = "(Goat headbutts!)",
 					duration = 3,
 					max_distance = 1000,
-					priority = 38,
+					priority = 90,
 					category = "sfx"
 				},
 				glass_door_open = {
@@ -709,7 +719,7 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					override_name = "SFX",
 					max_distance = 1000,
-					priority = 37,
+					priority = 98,
 					duration = 2
 				},
 				hacking_device = {
@@ -717,7 +727,7 @@ ClosedCaptions._sounds = {
 					text = "[hacking noise]",
 					category = "sfx",
 					max_distance = 700,
-					priority = 37,
+					priority = 90,
 					duration = 10,
 					loop_data = {
 						loop_interval = -1
@@ -736,21 +746,21 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = 2
 					},
-					priority = 37,
+					priority = 90,
 					duration = 2
 				},
 				hos_phone_answer = {
 					override_name = "SFX",
 					text = "[hospital phone answered]",
 					category = "stops",
-					priority = 38,
+					priority = 90,
 					stops_line = "hos_phone_call",
 					duration = 2
 				},
 				inside_container = {
 					override_name = "SFX",
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					text = "(cargo container clanking)"
 				},
 				insert_usb_stick = {
@@ -758,13 +768,13 @@ ClosedCaptions._sounds = {
 					text = "[inserted USB stick]",
 					duration = 2,
 					max_distance = 700,
-					priority = 37,
+					priority = 98,
 					category = "sfx"
 				},
 				kick_open_container = {
 					override_name = "SFX",
 					category = "sfx",
-					priority = 37,
+					priority = 98,
 					duration = 2,
 					text = "(cargo container opens)"
 				},
@@ -774,7 +784,7 @@ ClosedCaptions._sounds = {
 					max_distance = 1000,
 					override_source_id = "keypad", --don't need eight of these on my screen
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				keypad_wrong_code_03 = {
@@ -783,7 +793,7 @@ ClosedCaptions._sounds = {
 					override_source_id = "keypad",
 					max_distance = 1000,
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				keypad_correct_code_03 = {
@@ -792,7 +802,7 @@ ClosedCaptions._sounds = {
 					override_source_id = "keypad",
 					max_distance = 1000,
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				keypad_wrong_code = {
@@ -801,7 +811,7 @@ ClosedCaptions._sounds = {
 					text = "[keypad wrong code]",
 					override_source_id = "keypad",
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				keypad_correct_code = {
@@ -810,7 +820,7 @@ ClosedCaptions._sounds = {
 					text = "[keypad correct code]",
 					override_source_id = "keypad",
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				laser_shutdown_left = {
@@ -818,7 +828,7 @@ ClosedCaptions._sounds = {
 					text = "[left laser deactivates]",
 					category = "sfx",
 					max_distance = 3000,
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				laser_shutdown_right = {
@@ -826,7 +836,7 @@ ClosedCaptions._sounds = {
 					text = "[right laser deactivates]",
 					category = "sfx",
 					max_distance = 3000,
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				laser_warning_on_left = {
@@ -834,7 +844,7 @@ ClosedCaptions._sounds = {
 					text = "[left laser activates]",
 					category = "sfx",
 					max_distance = 3000,
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				laser_warning_on_right = {
@@ -842,7 +852,7 @@ ClosedCaptions._sounds = {
 					text = "[right laser activates]",
 					category = "sfx",
 					max_distance = 3000,
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				magnetic_door_open = {
@@ -850,7 +860,7 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					override_name = "SFX",
 					max_distance = 1000,
-					priority = 37,
+					priority = 90,
 					duration = 2
 				},
 				metalsheet_place = {
@@ -858,7 +868,7 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					override_name = "SFX",
 					max_distance = 700,
-					priority = 37,
+					priority = 90,
 					duration = 2
 				},
 				server_room_door_open = {
@@ -866,15 +876,15 @@ ClosedCaptions._sounds = {
 					text = "[server room door opens]",
 					max_distance = 1500,
 					category = "sfx",
-					priority = 37,
+					priority = 90,
 					duration = 3
 				},
 				server_noise_loop = {
 					override_name = "SFX",
 					category = "sfx",
 					text = "[server noises]",
-					max_distance = 500,
-					priority = 37,
+					max_distance = 500, --needs stop sound, but limited distance means I'm fine with it
+					priority = 90,
 					duration = 5,
 					loop_data = {
 						loop_interval = 20
@@ -885,7 +895,7 @@ ClosedCaptions._sounds = {
 					text = "[hacking device finished]",
 					category = "sfx",
 					max_distance = 700,
-					priority = 37,
+					priority = 90,
 					duration = 2
 				},
 				sah_hacking_device_data_transfer_loop = {
@@ -895,7 +905,7 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
-					priority = 36,
+					priority = 90,
 					category = "sfx"
 				},
 				small_metal_door_open_02 = {
@@ -903,7 +913,7 @@ ClosedCaptions._sounds = {
 					category = "sfx",
 					override_name = "SFX",
 					max_distance = 1000,
-					priority = 37,
+					priority = 98,
 					duration = 2
 				},
 				table_saw = {
@@ -913,7 +923,7 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
-					priority = 36,
+					priority = 98,
 					category = "sfx"
 				},
 				table_saw_stop = {
@@ -921,7 +931,7 @@ ClosedCaptions._sounds = {
 					text = "(table saw stops)",
 					stops_line = "table_saw",
 					duration = 2,
-					priority = 36,
+					priority = 98,
 					category = "sfx"
 				},
 				thermite_paste_start = {
@@ -932,7 +942,7 @@ ClosedCaptions._sounds = {
 						loop_interval = -1
 					},
 					max_distance = 700,
-					priority = 37
+					priority = 98
 				},
 				thermite_paste_finish = {
 					category = "stops",
@@ -943,67 +953,69 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					category = "sfx",
 					duration = 1,
-					priority = 26,
+					priority = 98,
 					text = "[Trip mine set to Explosive Mode]"
 				},
 				trip_mine_attach = {
 					override_name = "SFX",
 					category = "sfx",
 					duration = 1,
-					priority = 26,
+					priority = 98,
 					text = "[Trip mine placed/warmup]"
 				},
 				trip_mine_beep_armed = {
 					override_name = "SFX",
 					category = "sfx",
 					duration = 1,
-					priority = 26,
+					priority = 98,
 					text = "[Trip mine activated]"
 				},
 				trip_mine_beep_explode = {
 					override_name = "SFX",
 					category = "sfx",
 					duration = 1,
-					priority = 25,
+					priority = 98,
 					text = "[Trip mine explosion triggered!]"
 				},
 				trip_mine_disarm = {
 					override_name = "SFX",
 					category = "sfx",
 					duration = 1,
-					priority = 26,
+					priority = 98,
 					text = "[Trip mine set to Sensor Mode]"
 				},
 				trip_mine_explode = {
 					override_name = "SFX",
 					category = "sfx",
 					duration = 1,
-					priority = 25,
+					priority = 98,
 					text = "[Trip mine explosion]"
 				},
 				trip_mine_sensor_alarm = {
 					override_name = "SFX",
 					category = "sfx",
 					duration = 2,
-					priority = 25,
+					priority = 98,
 					text = "[Trip mine sensor triggered]"
 				},
 				vial_break_2d = {
 					override_name = "SFX",
 					text = "(vial breaks)",
-					priority = 20,
+					priority = 90,
 					category = "sfx"
 				},
 				hlp_keycard_box_appear = {
 					override_name = "SFX",
 					text = "(keycard box appears)",
 					duration = 2,
+					priority = 90,
 					category = "sfx"
 				},
 				hlp_keycard_box_disappear = {
 					override_name = "SFX",
 					text = "(keycard box poofs)",
 					duration = 2,
+					priority = 90,
 					category = "sfx"
 				},
 
@@ -11739,15 +11751,10 @@ ClosedCaptions._sounds = {
 					text = "Hello? 911? I need help, there's armed robbers here!",
 					priority = 60
 				},
-				cm1_911_call = {
-					text = "cm1_911_call",
-					max_distance = 2000,
-					category = "UNKNOWN",
-					priority = 60
-				},
+
 				
 			
-				
+	
 				
 				
 				a02x_any = {
@@ -11757,6 +11764,12 @@ ClosedCaptions._sounds = {
 					category = "civilian_dialogue"
 				},
 				
+				cf1_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					priority = 60
+				},
 				cf1_a01x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
@@ -11775,6 +11788,13 @@ ClosedCaptions._sounds = {
 					max_distance = 3000,
 					priority = 37
 				},
+
+				cf2_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					priority = 60
+				},	
 				cf2_a01x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
@@ -11792,6 +11812,13 @@ ClosedCaptions._sounds = {
 					category = "civilian_dialogue",
 					max_distance = 3000,
 					priority = 37
+				},
+
+				cf3_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					priority = 60
 				},
 				cf3_a01x_any = {
 					text = "(screaming in fear)",
@@ -11811,6 +11838,13 @@ ClosedCaptions._sounds = {
 					max_distance = 3000,
 					priority = 37
 				},
+
+				cf4_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					priority = 60
+				},
 				cf4_a01x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
@@ -11828,6 +11862,13 @@ ClosedCaptions._sounds = {
 					category = "civilian_dialogue",
 					max_distance = 3000,
 					priority = 37
+				},
+
+				cf5_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					priority = 60
 				},
 				cf5_a01x_any = {
 					text = "(screaming in fear)",
@@ -11847,6 +11888,42 @@ ClosedCaptions._sounds = {
 					max_distance = 3000,
 					priority = 37
 				},
+
+				cm1_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"Hello? 911?",
+								"Hello?",
+								"Is anyone there?",
+								"C'mon... hello?",
+								"C'mon pick up the phone...",
+								"C'mon, c'mon... hello?",
+								"Yeah, yeah? Hello? Hello?"
+							},
+							{
+								"I need help, there's armed robbers here!",
+								"I'd like to report a robbery!",
+								"911? There's a robbery happening!",
+								"They have guns here! They're robbing this place!",
+								"Can you send the police? This is a robbery!",
+								"They've got guns! We need the police!",
+								"The police have to come! They have to come here now!",
+								"Send police, there's a robbery happening!",
+								"I don't know exactly what's happening but there's men here with guns!",
+								"There's a robbery in progress here! Send police!",
+								"Send the police, send them here now!",
+								"There's a robbery! A robbery in progress!",
+								"We need police! People have guns here!"
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					priority = 60
+				},
 				cm1_a01x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",
@@ -11864,6 +11941,41 @@ ClosedCaptions._sounds = {
 					category = "civilian_dialogue",
 					max_distance = 3000,
 					priority = 37
+				},
+
+				cm2_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"Is anyone there...?",
+								"H-hello?",
+								"Hello?",
+								"Uh, hello?",
+								"Hello? Please, answer!",
+								"Come on... hey! Hello?",
+								"Hello? Answer!",
+								"Please, please!",
+								"Hello? 911?"
+							},
+							{
+								"Please, send police! There's a robbery!",
+								"We need police! There's guns!",
+								"Men with guns! Send police!",
+								"I'd like to report a robbery!",
+								"Send police! Send them here now!",
+								"There's a robbery! A robbery is in progress!",
+								"The police have to come! They have to come here now!",
+								"...I'd like to report a robbery!",
+								"They have guns here! They're robbing this place!",
+								"There's a robbery happening!"
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					priority = 60
 				},
 				cm2_a01x_any = {
 					text = "(screaming in fear)",
@@ -11888,6 +12000,121 @@ ClosedCaptions._sounds = {
 					category = "civilian_dialogue",
 					max_distance = 3000,
 					priority = 37
+				},
+
+				cm3_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"C'mon, c'mon...",
+								"Is anyone there?",
+								"Pick up, pick up...",
+								"Pick up...",
+								"Yeah, hello?",
+								"I'm on hold?!",
+								"What's taking so long...?!",
+								"Please, please, please!"
+							},
+							{
+								"You've got to send police here! They've got guns!",
+								"I want to report a robbery!",
+								"911? There's a robbery happening!",
+								"I want to report a, a robbery!",
+								"There's a robbery! A robbery in progress!",
+								"We need police! People have guns here!",
+								"There's a robbery! Send someone here now!",
+								"Can you send police? This is a robbery!",
+								"Please, send police! There's a robbery!",
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					priority = 60
+				},
+
+				cm4_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"Uhh... hello?",
+								"Pick up, pick up...!",
+								"C'mon...",
+								"What's taking so long?",
+								"Yeah, hello?"
+							},
+							{
+								"911? There's a robbery here happening!",
+								"The police have to come! They have to come here now!",
+								"Send police! There's a robbery happening!",
+								"Please, send police! There's a robbery!",
+								"I'd like to report a robbery!",
+								"Can you send police? This is a robbery!",
+								"Finally! It's a robbery! Send someone here now!",
+								"I don't know what's happening but there's men here with guns!",
+								"We need police! People have guns here!",
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					priority = 60
+				},
+
+				cm5_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"C'mon, hey, hello?",
+								"Hello?",
+								"Please, please, please!",
+								"Hello, answer?!"
+							},
+							{
+								"911? There's a robbery happening!",
+								"We need police! People have guns here!",
+								"I don't know what's happening, but there's men in here with guns!",
+								"Can you send police? This is a robbery!",
+								"We need police! There's guns!",
+								"They have guns here, they're robbing this place!"
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					priority = 60
+				},
+
+				cm6_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"C'mon, hey, hello?",
+								"Hello?",
+								"Please, please, please!",
+								"Hello, answer?!"
+							},
+							{
+								"911? There's a robbery happening!",
+								"We need police! People have guns here!",
+								"I don't know what's happening, but there's men in here with guns!",
+								"Can you send police? This is a robbery!",
+								"We need police! There's guns!",
+								"They have guns here, they're robbing this place!"
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					priority = 60
 				},
 				a03x_any = {
 					text = "(screaming in fear)",
