@@ -601,7 +601,6 @@ ClosedCaptions._sounds = {
 					override_name = "SFX",
 					category = "stops",
 --					text = "[ECM Jammer stops]",
-					greedy_match = true,
 					remove_by_source = true, --since multiple ecms may be active at once, but each ecm only plays one sound at a time, ecm sounds should be removed by source
 					stops_line = "ecm_jammer_jam_signal",
 					duration = 2,
@@ -1042,11 +1041,12 @@ ClosedCaptions._sounds = {
 					override_name = "Witch",
 					override_color = ClosedCaptions.color_data.l4d_witch,
 					text = "[Groans Softly]",
-					priority = 99,
+					priority = 100,
 					duration = 3,
 					is_locationless = true,
 					loop_data = {
 						loop_interval = 3,
+						loop_interval_min = 15,
 						use_random_loop_interval = true
 					},
 					category = "sfx"
@@ -1857,7 +1857,8 @@ ClosedCaptions._sounds = {
 				},
 				large_fire_stop = { --needs a stops_line
 					override_name = "SFX",
-					text = "(fire stops)",
+					stops_line = "large_fire",
+--					text = "(fire stops)",
 					priority = 98,
 					category = "stops"
 				},
@@ -12082,7 +12083,7 @@ ClosedCaptions._sounds = {
 					max_distance = 3000,
 					duration = 2,
 					priority = 75
-				},				
+				},
 				cf1_a02x_any = {
 					text = "(screaming in fear)",
 					category = "civilian_dialogue",

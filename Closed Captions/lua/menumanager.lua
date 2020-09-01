@@ -1,12 +1,11 @@
 --[[
 BEFORE FIRST PUBLIC RELEASE:
 
-* ecms from other players may not behave as expected
-
-* remove_by_source may remove sfx before local player dialogue
-	due to the way find_line searches for sound_source; todo search by source_id
+* done?
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
+
+* remove_by_source may remove things that use overrride_source_id
 
 * stops category lines should do stuff with their removed items
 	* requires_removed parameter?
@@ -16,30 +15,28 @@ OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
 
 * in-menu caption preview
 
-* remove_by_source on death
-
-* go over priority values in sound_data
+* remove by source on death (enemies/beings only)
 
 * individual voice variations for vo_special
 
 * get murkywater name via unit key comparison to lookup table (check Idstring(unit):key())
 
-* todo conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
+* conditional check for existing vanilla subtitles when logging from DialogManager (if i can even... do that)
 
 * better multi-line support (see hoxton revenge tapes)
 
-* todo option to align vertical from top or from bottom?
-* todo option for lifetime multiplier for captions
+* menu option to align vertical from top or from bottom?
+* menu option for lifetime multiplier for captions
 
 * ambient sfx category
 
-* smooth movement for caption lines filling in unused space
 
 * todo layer custom user settings over sound_data
 	* todo documented custom template for those things
 		
+* smooth movement for caption lines filling in unused space
+
 ISSUES
-	* (test fix) out of range sounds still play and fadeout immediately
 	* (test fix) eammate ai have no identifying characteristics/data except for criminal variant, so they can't use voiceline variants
 	* (unconfirmed) generated voicelines are not... generating
 	* "$CHARACTER_NAME! Help me up!"
@@ -681,6 +678,7 @@ function ClosedCaptions:Update(t,dt)
 							if t >= item.expire_t then
 								item.loop_visible = not item.loop_visible
 								if item.loop_data.use_random_loop_interval then 
+									--reset expire_t to cause fadeout
 									item.expire_t = t + (item.duration or 5) + (item.loop_data.loop_interval_min or 0) + math.random(item.loop_data.loop_interval)
 								else
 									item.expire_t = t + (item.duration or 5) + (item.loop_visible and item.loop_data.loop_interval or 0)
@@ -714,9 +712,7 @@ function ClosedCaptions:Update(t,dt)
 							local caption_text = item.name .. ": " ..  self.get_random_variation(item.variation_data,item.is_recombinable)
 							self:log_debug(item.sound_id .. " caption text " .. caption_text)
 							item.panel:parent():remove(item.panel)
-							--if not  option fadein then panel set alpha 0
 							item.panel = self:_create_caption_text(caption_text,caption_name,caption_color,item.is_recombinable)
---							self:log_debug("var data " .. tostring(item.sound_id) .. " : " .. tostring(item.variation_data))
 						end
 						item.panel:hide()
 					end
@@ -973,12 +969,18 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position)
 
 --determine sound_data variant to use from sound_id
 	local function stop_line(_sound_data,f)
+		local use_greedy_match 
+		if _sound_data.greedy_match == nil then 
+			use_greedy_match = true --default to true
+		else
+			use_greedy_match = _sound_data.greedy_match
+		end
 		if _sound_data.remove_by_source and _sound_data.stops_line then 
-			self:find_line({sound_source = sound_source,unit = unit,sound_id = _sound_data.stops_line},_sound_data.greedy_match,f)
+			self:find_line({sound_source = sound_source,unit = unit,sound_id = _sound_data.stops_line},use_greedy_match,f)
 		elseif _sound_data.remove_by_source then 
-			self:find_line({sound_source = sound_source,unit = unit},_sound_data.greedy_match,f)
+			self:find_line({sound_source = sound_source,unit = unit},use_greedy_match,f)
 		elseif _sound_data.stops_line then 
-			self:find_line({sound_id = _sound_data.stops_line},_sound_data.greedy_match,f)
+			self:find_line({sound_id = _sound_data.stops_line},use_greedy_match,f)
 		end
 	end	
 	
@@ -1136,6 +1138,7 @@ function ClosedCaptions:_add_line(panel_text,source_id,text_color,data)
 	end
 	if not source_id then --used as panel_id
 		source_id = "UNNAMED_PANEL_" .. tostring(self.num_unnamed_caption)
+		self.num_unnamed_caption = self.num_unnamed_caption + 1
 	end
 
 	
