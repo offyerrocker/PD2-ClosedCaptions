@@ -20610,7 +20610,23 @@ ClosedCaptions._sounds = {
 					duration = 3,
 					priority = 65
 				},
-
+				bdz_heal = {
+					fallback_name = "Medic Dozer",
+					text = "(healed cop)",
+					max_distance = 1500,
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 65,
+					line_variations = {
+						standard_mode = {
+							"RESULTS ARE BACK! YOU'RE A BITCH!",
+							"DOCTOR SAYS: GET THE FUCK UP!",
+							"DOSE OF 'GET THE FUCK UP' OUGHTA FIX YA!",
+							"YOU'D NEVER GUESS I WENT TO MED SCHOOL! 'CAUSE I DIDN'T!",
+							"NO NURSES, NO AMBULANCE! JUST ME!"
+						}
+					}
+				},
 
 			--clk (cloaker)
 				clk_c01x_plu = {
@@ -26324,181 +26340,16 @@ ClosedCaptions._sounds = {
 					stops_line = "Play_man_ch_01",
 					remove_by_source = true
 				},
-		--hotline miami
-			--day 1
-				Play_com_hm1_01 = {
-					override_name = "Commissar",
-					text = "I don't know who you are!",
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm1_02 = {
-					override_name = "Commissar",
-					text = "You know what happens when you fuck with Russia?",
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm1_03 = {
-					override_name = "Commissar",
-					text = "You dumb asshole bastards!",
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm1_04 = {
-					override_name = "Commissar",
-					text = "I will kill you for this!",
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-			--day 2
-				Play_com_hm2_01 = {
-					override_name = "Commissar",
-					text = "You can't have Commissar!",
-					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm2_02 = {
-					override_name = "Commissar",
-					text = "I am watching you, you fucking dickfaces!",
-					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm2_03 = {
-					override_name = "Commissar",
-					text = "[laughs] Stay like this, I'm going to take a screenshot!",
-					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm2_04 = {
-					override_name = "Commissar",
-					text = "Welcome to the Labyrinth, motherfuckers!",
-					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm2_05 = {
-					override_name = "Commissar",
-					text = "The ground is full of bodies that dare take me on!",
-					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm2_06 = {
-					override_name = "Commissar",
-					text = "Sacks of wretched yankee dick!",
-					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm2_07 = {
-					override_name = "Commissar",
-					text = "Oh, you found me? How about losing me again? [feeble chuckle]",
-					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
-				Play_com_hm2_08 = {
-					override_name = "Commissar",
-					text = "Hey assholes, I'm enjoying a martini in here! How do you like that?",
-					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
-						standard_variation = {
-							"",
-							""
-						}
-					},
-					category = "mission_dialogue",
-					priority = 10,
-					duration = 6
-				},
+		--hotline miami day 2
 				Play_com_hm2_09 = {
 					override_name = "Commissar",
 					text = "[weakly] I spit on your grave, you fucking dickholes... [death gurgle]",
 					override_color = ClosedCaptions.color_data.boss_color,
-					DISABLED_line_variations = {
+					line_variations = {
 						standard_variation = {
-							"",
-							""
+							"[choking on blood] I don't want to die! I don't want to... [death gurgle]",
+							"I... spit on your graves... you dickholes...! [death gurgle]",
+							"Farewell, mama... farewell... darling Russia... [death gurgle]"
 						}
 					},
 					category = "mission_dialogue",
