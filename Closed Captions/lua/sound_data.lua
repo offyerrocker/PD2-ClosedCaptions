@@ -18582,9 +18582,13 @@ ClosedCaptions._sounds = {
 					duration = 3,
 					line_variations = {
 						standard_mode = {
-							"Huh?",
-							"[gasp]",
-							"Wha...?"
+							"(Huh?)",
+							"(...Huh?)",
+							"(Umm...)",
+							"(Wha...?)",
+							"(Hm?)",
+							"(Hmmm....)",
+							"(What the fuck?)"
 						}
 					}
 				},
@@ -18592,11 +18596,43 @@ ClosedCaptions._sounds = {
 					text = "(Signs of intruders!)",
 					category = "enemy_dialogue",
 					priority = 55,
-					duration = 4
+					duration = 4,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"(One-One reporting in.",
+								"(Second to First, over.",
+								"(One-Four reporting.",
+								"(Third here, reporting to First.",
+								"(This is One-One, reporting.",
+								"(Third to first reporting.",
+								"(Second to first, reporting.",
+								"(One-Four reporting.",
+								"(This is Second, reporting to First.",
+								"(Third to First, reporting.",
+								"(It's One-Four, reporting.",
+								"(One-One on line, reporting."
+								
+							},
+							{
+								"I see clear traces of breach.)",
+								"Breach found!)",
+								"Traces of trespassers here.)",
+								"I smell intruders...)",
+								"Some stranger here!)",
+								"Goddammit, this is illegal trespassing!)",
+								"I have spotted signs of trespassers.)",
+								"Clear signs of trespassing.)",
+								"There was a trespasser.)",
+								"I sense uninvited visitors.)"
+							}
+						}
+					}
 				},
 				r1n_burndeath = {
-					category = "enemy_death",
 					text = "[burns to death in Russian]", --because they recorded separate death lines for this and also because i can
+					category = "enemy_death",
 					max_distance = 1500,
 					duration = 5,
 					priority = 65
@@ -18613,62 +18649,302 @@ ClosedCaptions._sounds = {
 					text = "(Contact!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(The enemy!)",
+							"(They are here!)",
+							"(Contact!)",
+							"(Direct contact!)",
+							"(I see one of them!)",
+							"(Here they are!)",
+							"(I see one of these assholes!)",
+							"(The enemy is close!)",
+							"(I see one of them! Move, guys!)",
+							"(I see one of them, let's go!)",
+							"(Enemy forces detected!)",
+							"(Oh, I see them!)",
+							"(I see enemy forces!)",
+							"(I see an enemy!)",
+							"(I got contact!)"
+						}
+					}
 				},
 				r1n_d01 = {
 					category = "enemy_chatter",
 					text = "(Smoke!)",
 					max_distance = 1000,
 					duration = 2,
-					priority = 84
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"(Give me smoke!)",
+							"(Deploy smokescreen!)",
+							"(Smoke-screen!)",
+							"(Launch smoke!)",
+							"(Bring a smoke grenade here! Get ready!)",
+							"(Give them some smoke.)",
+							"(Smoke grenade. Quick!)"
+						}
+					}
 				},
 				r1n_g90 = {
 					text = "[chatter]",
 					category = "enemy_chatter",
 					priority = 85,
-					duration = 3
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"(Concentrate!)",
+							"(Let them bathe in their own blood!)",
+							"(Boss doesn't need them alive, dammit!)",
+							"(Ah, these bastards want a war! Well, we will give them real motherfucking war!)",
+							"(I can do this all day!)",
+							"(Attack!)",
+							"(Let's show them what we can do!)",
+							"(I'm riled up!)",
+							"(Get ready for the next round!)",
+							"(Let's kill them, dammit!)",
+							"(Boss will fuck us hard if we fuck up! Pull yourself together!)",
+							"(Come on, get up!)",
+							"(Boss won't tolerate our failure!)",
+							"(Regroup, ladies!)",
+							"(Boss ordered a massacre!)",
+							"(Come here, you bastards!)",
+							"(Leave no living soul - waste them all!)",
+							"(We can do this!)",
+							"(Come on, waste them!)",
+							"(They want more? They will get some.)",
+							"(KILL THOSE FUCKERS!)",
+							"(They think they've won! Hah, like hell they did!)",
+							"(Let them burn in hell!)",
+							"(DIE!)",
+							"(I want them all to DIE!)",
+							"(Fire, fire!)",
+							"(You bastard!)",
+							"(Pull yourself together, you pansies!)",
+							"(Sod off, sucker!)",
+							"(Show them where the hell's frozen!)",
+							"(OPEN FIRE!)",
+							"(Fire!)",
+							"(Slay those bastards!)",
+							"(Keep them in sight!)",
+							"(No one leaves!)",
+							"(This is a battle zone!)",
+							"(Crush those bastards!)",
+							"(They shouldn't have come here!)",
+							"(Who are these damn guys?!)",
+							"(Bastard!)",
+							"(Dammit!)",
+							"(LET'S FUCK THEM UP!)",
+							"(Let's do this, one more round!)",
+							"(KILL THEM ALL!)",
+							"(Yeah, kill them!)",
+							"(Kill them all!)",
+							"(Kill those suckers!)",
+							"(Keep going!)",
+							"(They shouldn't have come here!)",
+							"(Fire at will!)",
+							"(Oh, we'll fucking show them!)",
+							"(We'll get you!)",
+							"(Who's next?)",
+							"(It is us or them!)",
+							"(Give them some!)",
+							"(Give some to all of them!)",
+							"(Oh, those bastards want to take it like men!)",
+							"(Finish them off!)",
+							"(No-one is getting away from us!)",
+							"(Give them some heat!)",
+							"(Aim! Fire!)",
+							"(Fucking bastards in masks!)",
+							"(We'll dance on their graves!)",
+							"(These wankers in masks will pay with their lives!)",
+							"(Destroy them!)",
+							"(Bleed, you fuckers!)",
+							"(Fucking waste them!)",
+							"(Let them suck our dicks!)"
+						}
+					}
 				},
 				r1n_h01 = {
 					category = "enemy_chatter",
 					text = "(Go! Run to safety!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Get out of here.)",
+							"(Get out of here!)",
+							"(Get the hell out of here!)",
+							"(Get out! Come on, out!)",
+							"(Go get somewhere safe!)",
+							"(Even if you have utterly soiled your pants, get the hell out of here!)",
+							"(Leave, get out of here!)",
+							"(Go and hide somewhere!)",
+							"(Now go to cover.)",
+							"(Calm down!)",
+							"(Now go!)",
+							"(Come out!)"
+						}
+					}
 				},
 				r1n_hlp = {
 					category = "enemy_chatter",
 					text = "(Help!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(We need assistance, call for backup!)",
+							"(Cover me!)",
+							"(I need cover!)",
+							"(Cover me!)",
+							"(Help!)",
+							"(I need some damn help here!)",
+							"(We have wounded here, need help!)",
+							"(Help! Need assistance here!)",
+							"(Need reinforcements!)",
+							"(Dammit!)",
+							"(Cover me, goddammit!)",
+							"(They got someone.)",
+							"(Cover me!)",
+							"(Damn!)",
+							"(COVER ME!)",
+							"(Cover me, for fuck's sake!)",
+							"(Idiots, cover me!)",
+							"(Fuck all of your mothers, help me already!)"
+						}
+					}
 				},
 				r1n_i01 = {
-					text = "(Stop right there!)",
+					text = "(Stop!)",
 					category = "enemy_dialogue",
 					duration = 3,
 					priority = 75,
-					max_distance = 1500
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"(Stay where you are!)",
+							"(Don't move!)",
+							"(Don't move!)",
+							"(Don't move!)",
+							"(Freeze!)",
+							"(STOP!)",
+							"(Don't move!)",
+							"Stop!", --he says this one in english 
+							"(Twitch, and I'll bang your brains out, bitch!)",
+							"(Hold still, and don't you twitch an inch!)",
+							"(Freeze! On your knees, bitch!)",
+							"(Freeze, punk!)",
+							"(Stop it!)",
+							"(Stop right there, shitter!)"
+						}
+					}
 				},
 				r1n_mov = {
-					text = "(Move!)",
+					text = "(Regroup!)",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 2,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Grab your asses and let's go!)",
+							"(After me, one at a time.)",
+							"(After me, one by one!)",
+							"(Fire when ready!)",
+							"(GO!)",
+							"(Go!)",
+							"(Come on, move!)",
+							"(Hup-hup-hup!)",
+							"(Forward!)",
+							"(Move it, asshole!)",
+							"(Move it!)",
+							"(Push them!)",
+							"(Gather up and let's go!)",
+							"(Move your buns!)",
+							"(Move! Let's show them!)"
+						}
+					}
 				},
 				r1n_p01 = {
-					text = "(They have hostages! We need to delay the assault!)",
+					text = "(Boss said that hostages must stay alive, be careful!)",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(They have hostages!)",
+							"(Boss said that hostages must stay alive, be careful!)",
+							"(Boss ordered to guard those hostages!)",
+							"(Easy, guys, they got hostages. Watch out.)",
+							"(Stop! Don't attack, they've got hostages!)",
+							"(Whoa, whoa, hold your horses! Boss wants us to free a prisoner!)",
+							"(Wait, they got hostages.)",
+							"(They got hostages!)",
+							"(Everyone, they have a hostage!)",
+							"(Stop! We need to save the hostages before we attack!)",
+							"(They have a hostage! We have to slow down and prepare to attack. Boss's order.)"
+						}
+					}
 				},
 				r1n_rdy = {
 					category = "enemy_chatter",
 					text = "(Get ready!)",
 					max_distance = 1000,
 					duration = 2,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Stop! Take your positions!)",
+							"(Inhale, exhale, and start all over!)",
+							"(Get in positions.)",
+							"(Get in positions!)",
+							"(Charge up!)",
+							"(Get ready!)",
+							"(Ready!)",
+							"(Check your weapons!)",
+							"(Prepare for an attack.)",
+							"(Make sure your weapons are ready.)",
+							"(Get ready for another attack!)",
+							"(Get ready.)",
+							"(I'm ready!)",
+							"(Ready!)",
+							"(Uhhh... ready!)",
+							"(Get ready to attack!)",
+							"(Regrouping!)",
+							"(Take your positions!)",
+							"(Get ready and do it again!)",
+							"(What are we waiting for? Let's move!)",
+							"(Reload and get back to your position!)",
+							"Regrouping!",
+							"(Group!)"
+						}
+					}
+				},
+				r1n_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				r1n_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				r1n_s01x = {
+					text = "(surrendering)",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
 				},
 
 			--r2n (R - TWO - N)
@@ -18680,9 +18956,13 @@ ClosedCaptions._sounds = {
 					duration = 3,
 					line_variations = {
 						standard_mode = {
-							"Huh?",
-							"[gasp]",
-							"Wha...?"
+							"(Huh?)",
+							"(...Huh?)",
+							"(Umm...)",
+							"(Wha...?)",
+							"(Hm?)",
+							"(Hmmm....)",
+							"(What the fuck?)"
 						}
 					}
 				},
@@ -18690,11 +18970,43 @@ ClosedCaptions._sounds = {
 					text = "(Signs of intruders!)",
 					category = "enemy_dialogue",
 					priority = 55,
-					duration = 4
+					duration = 4,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"(One-One reporting in.",
+								"(Second to First, over.",
+								"(One-Four reporting.",
+								"(Third here, reporting to First.",
+								"(This is One-One, reporting.",
+								"(Third to first reporting.",
+								"(Second to first, reporting.",
+								"(One-Four reporting.",
+								"(This is Second, reporting to First.",
+								"(Third to First, reporting.",
+								"(It's One-Four, reporting.",
+								"(One-One on line, reporting."
+								
+							},
+							{
+								"I see clear traces of breach.)",
+								"Breach found!)",
+								"Traces of trespassers here.)",
+								"I smell intruders...)",
+								"Some stranger here!)",
+								"Goddammit, this is illegal trespassing!)",
+								"I have spotted signs of trespassers.)",
+								"Clear signs of trespassing.)",
+								"There was a trespasser.)",
+								"I sense uninvited visitors.)"
+							}
+						}
+					}
 				},
 				r2n_burndeath = {
-					category = "enemy_death",
 					text = "[burns to death in Russian]", --because they recorded separate death lines for this and also because i can
+					category = "enemy_death",
 					max_distance = 1500,
 					duration = 5,
 					priority = 65
@@ -18711,64 +19023,304 @@ ClosedCaptions._sounds = {
 					text = "(Contact!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(The enemy!)",
+							"(They are here!)",
+							"(Contact!)",
+							"(Direct contact!)",
+							"(I see one of them!)",
+							"(Here they are!)",
+							"(I see one of these assholes!)",
+							"(The enemy is close!)",
+							"(I see one of them! Move, guys!)",
+							"(I see one of them, let's go!)",
+							"(Enemy forces detected!)",
+							"(Oh, I see them!)",
+							"(I see enemy forces!)",
+							"(I see an enemy!)",
+							"(I got contact!)"
+						}
+					}
 				},
 				r2n_d01 = {
 					category = "enemy_chatter",
 					text = "(Smoke!)",
 					max_distance = 1000,
 					duration = 2,
-					priority = 84
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"(Give me smoke!)",
+							"(Deploy smokescreen!)",
+							"(Smoke-screen!)",
+							"(Launch smoke!)",
+							"(Bring a smoke grenade here! Get ready!)",
+							"(Give them some smoke.)",
+							"(Smoke grenade. Quick!)"
+						}
+					}
 				},
 				r2n_g90 = {
 					text = "[chatter]",
 					category = "enemy_chatter",
 					priority = 85,
-					duration = 3
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"(Concentrate!)",
+							"(Let them bathe in their own blood!)",
+							"(Boss doesn't need them alive, dammit!)",
+							"(Ah, these bastards want a war! Well, we will give them real motherfucking war!)",
+							"(I can do this all day!)",
+							"(Attack!)",
+							"(Let's show them what we can do!)",
+							"(I'm riled up!)",
+							"(Get ready for the next round!)",
+							"(Let's kill them, dammit!)",
+							"(Boss will fuck us hard if we fuck up! Pull yourself together!)",
+							"(Come on, get up!)",
+							"(Boss won't tolerate our failure!)",
+							"(Regroup, ladies!)",
+							"(Boss ordered a massacre!)",
+							"(Come here, you bastards!)",
+							"(Leave no living soul - waste them all!)",
+							"(We can do this!)",
+							"(Come on, waste them!)",
+							"(They want more? They will get some.)",
+							"(KILL THOSE FUCKERS!)",
+							"(They think they've won! Hah, like hell they did!)",
+							"(Let them burn in hell!)",
+							"(DIE!)",
+							"(I want them all to DIE!)",
+							"(Fire, fire!)",
+							"(You bastard!)",
+							"(Pull yourself together, you pansies!)",
+							"(Sod off, sucker!)",
+							"(Show them where the hell's frozen!)",
+							"(OPEN FIRE!)",
+							"(Fire!)",
+							"(Slay those bastards!)",
+							"(Keep them in sight!)",
+							"(No one leaves!)",
+							"(This is a battle zone!)",
+							"(Crush those bastards!)",
+							"(They shouldn't have come here!)",
+							"(Who are these damn guys?!)",
+							"(Bastard!)",
+							"(Dammit!)",
+							"(LET'S FUCK THEM UP!)",
+							"(Let's do this, one more round!)",
+							"(KILL THEM ALL!)",
+							"(Yeah, kill them!)",
+							"(Kill them all!)",
+							"(Kill those suckers!)",
+							"(Keep going!)",
+							"(They shouldn't have come here!)",
+							"(Fire at will!)",
+							"(Oh, we'll fucking show them!)",
+							"(We'll get you!)",
+							"(Who's next?)",
+							"(It is us or them!)",
+							"(Give them some!)",
+							"(Give some to all of them!)",
+							"(Oh, those bastards want to take it like men!)",
+							"(Finish them off!)",
+							"(No-one is getting away from us!)",
+							"(Give them some heat!)",
+							"(Aim! Fire!)",
+							"(Fucking bastards in masks!)",
+							"(We'll dance on their graves!)",
+							"(These wankers in masks will pay with their lives!)",
+							"(Destroy them!)",
+							"(Bleed, you fuckers!)",
+							"(Fucking waste them!)",
+							"(Let them suck our dicks!)"
+						}
+					}
 				},
 				r2n_h01 = {
 					category = "enemy_chatter",
 					text = "(Go! Run to safety!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Get out of here.)",
+							"(Get out of here!)",
+							"(Get the hell out of here!)",
+							"(Get out! Come on, out!)",
+							"(Go get somewhere safe!)",
+							"(Even if you have utterly soiled your pants, get the hell out of here!)",
+							"(Leave, get out of here!)",
+							"(Go and hide somewhere!)",
+							"(Now go to cover.)",
+							"(Calm down!)",
+							"(Now go!)",
+							"(Come out!)"
+						}
+					}
 				},
 				r2n_hlp = {
 					category = "enemy_chatter",
 					text = "(Help!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(We need assistance, call for backup!)",
+							"(Cover me!)",
+							"(I need cover!)",
+							"(Cover me!)",
+							"(Help!)",
+							"(I need some damn help here!)",
+							"(We have wounded here, need help!)",
+							"(Help! Need assistance here!)",
+							"(Need reinforcements!)",
+							"(Dammit!)",
+							"(Cover me, goddammit!)",
+							"(They got someone.)",
+							"(Cover me!)",
+							"(Damn!)",
+							"(COVER ME!)",
+							"(Cover me, for fuck's sake!)",
+							"(Idiots, cover me!)",
+							"(Fuck all of your mothers, help me already!)"
+						}
+					}
 				},
 				r2n_i01 = {
-					text = "(Stop right there!)",
+					text = "(Stop!)",
 					category = "enemy_dialogue",
 					duration = 3,
 					priority = 75,
-					max_distance = 1500
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"(Stay where you are!)",
+							"(Don't move!)",
+							"(Don't move!)",
+							"(Don't move!)",
+							"(Freeze!)",
+							"(STOP!)",
+							"(Don't move!)",
+							"Stop!", --he says this one in english 
+							"(Twitch, and I'll bang your brains out, bitch!)",
+							"(Hold still, and don't you twitch an inch!)",
+							"(Freeze! On your knees, bitch!)",
+							"(Freeze, punk!)",
+							"(Stop it!)",
+							"(Stop right there, shitter!)"
+						}
+					}
 				},
 				r2n_mov = {
-					text = "(Move!)",
+					text = "(Regroup!)",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 2,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Grab your asses and let's go!)",
+							"(After me, one at a time.)",
+							"(After me, one by one!)",
+							"(Fire when ready!)",
+							"(GO!)",
+							"(Go!)",
+							"(Come on, move!)",
+							"(Hup-hup-hup!)",
+							"(Forward!)",
+							"(Move it, asshole!)",
+							"(Move it!)",
+							"(Push them!)",
+							"(Gather up and let's go!)",
+							"(Move your buns!)",
+							"(Move! Let's show them!)"
+						}
+					}
 				},
 				r2n_p01 = {
-					text = "(They have hostages! We need to delay the assault!)",
+					text = "(Boss said that hostages must stay alive, be careful!)",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(They have hostages!)",
+							"(Boss said that hostages must stay alive, be careful!)",
+							"(Boss ordered to guard those hostages!)",
+							"(Easy, guys, they got hostages. Watch out.)",
+							"(Stop! Don't attack, they've got hostages!)",
+							"(Whoa, whoa, hold your horses! Boss wants us to free a prisoner!)",
+							"(Wait, they got hostages.)",
+							"(They got hostages!)",
+							"(Everyone, they have a hostage!)",
+							"(Stop! We need to save the hostages before we attack!)",
+							"(They have a hostage! We have to slow down and prepare to attack. Boss's order.)"
+						}
+					}
 				},
 				r2n_rdy = {
 					category = "enemy_chatter",
 					text = "(Get ready!)",
 					max_distance = 1000,
 					duration = 2,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Stop! Take your positions!)",
+							"(Inhale, exhale, and start all over!)",
+							"(Get in positions.)",
+							"(Get in positions!)",
+							"(Charge up!)",
+							"(Get ready!)",
+							"(Ready!)",
+							"(Check your weapons!)",
+							"(Prepare for an attack.)",
+							"(Make sure your weapons are ready.)",
+							"(Get ready for another attack!)",
+							"(Get ready.)",
+							"(I'm ready!)",
+							"(Ready!)",
+							"(Uhhh... ready!)",
+							"(Get ready to attack!)",
+							"(Regrouping!)",
+							"(Take your positions!)",
+							"(Get ready and do it again!)",
+							"(What are we waiting for? Let's move!)",
+							"(Reload and get back to your position!)",
+							"Regrouping!",
+							"(Group!)"
+						}
+					}
 				},
-
+				r2n_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				r2n_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				r2n_s01x = {
+					text = "(surrendering)",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				
 			--r3n (R - THREE - N)
 				r3n_a07a = {
 					text = "(spotted suspicious object)",
@@ -18778,9 +19330,13 @@ ClosedCaptions._sounds = {
 					duration = 3,
 					line_variations = {
 						standard_mode = {
-							"Huh?",
-							"[gasp]",
-							"Wha...?"
+							"(Huh?)",
+							"(...Huh?)",
+							"(Umm...)",
+							"(Wha...?)",
+							"(Hm?)",
+							"(Hmmm....)",
+							"(What the fuck?)"
 						}
 					}
 				},
@@ -18788,11 +19344,43 @@ ClosedCaptions._sounds = {
 					text = "(Signs of intruders!)",
 					category = "enemy_dialogue",
 					priority = 55,
-					duration = 4
+					duration = 4,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"(One-One reporting in.",
+								"(Second to First, over.",
+								"(One-Four reporting.",
+								"(Third here, reporting to First.",
+								"(This is One-One, reporting.",
+								"(Third to first reporting.",
+								"(Second to first, reporting.",
+								"(One-Four reporting.",
+								"(This is Second, reporting to First.",
+								"(Third to First, reporting.",
+								"(It's One-Four, reporting.",
+								"(One-One on line, reporting."
+								
+							},
+							{
+								"I see clear traces of breach.)",
+								"Breach found!)",
+								"Traces of trespassers here.)",
+								"I smell intruders...)",
+								"Some stranger here!)",
+								"Goddammit, this is illegal trespassing!)",
+								"I have spotted signs of trespassers.)",
+								"Clear signs of trespassing.)",
+								"There was a trespasser.)",
+								"I sense uninvited visitors.)"
+							}
+						}
+					}
 				},
 				r3n_burndeath = {
-					category = "enemy_death",
 					text = "[burns to death in Russian]", --because they recorded separate death lines for this and also because i can
+					category = "enemy_death",
 					max_distance = 1500,
 					duration = 5,
 					priority = 65
@@ -18809,64 +19397,304 @@ ClosedCaptions._sounds = {
 					text = "(Contact!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(The enemy!)",
+							"(They are here!)",
+							"(Contact!)",
+							"(Direct contact!)",
+							"(I see one of them!)",
+							"(Here they are!)",
+							"(I see one of these assholes!)",
+							"(The enemy is close!)",
+							"(I see one of them! Move, guys!)",
+							"(I see one of them, let's go!)",
+							"(Enemy forces detected!)",
+							"(Oh, I see them!)",
+							"(I see enemy forces!)",
+							"(I see an enemy!)",
+							"(I got contact!)"
+						}
+					}
 				},
 				r3n_d01 = {
 					category = "enemy_chatter",
 					text = "(Smoke!)",
 					max_distance = 1000,
 					duration = 2,
-					priority = 84
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"(Give me smoke!)",
+							"(Deploy smokescreen!)",
+							"(Smoke-screen!)",
+							"(Launch smoke!)",
+							"(Bring a smoke grenade here! Get ready!)",
+							"(Give them some smoke.)",
+							"(Smoke grenade. Quick!)"
+						}
+					}
 				},
 				r3n_g90 = {
 					text = "[chatter]",
 					category = "enemy_chatter",
 					priority = 85,
-					duration = 3
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"(Concentrate!)",
+							"(Let them bathe in their own blood!)",
+							"(Boss doesn't need them alive, dammit!)",
+							"(Ah, these bastards want a war! Well, we will give them real motherfucking war!)",
+							"(I can do this all day!)",
+							"(Attack!)",
+							"(Let's show them what we can do!)",
+							"(I'm riled up!)",
+							"(Get ready for the next round!)",
+							"(Let's kill them, dammit!)",
+							"(Boss will fuck us hard if we fuck up! Pull yourself together!)",
+							"(Come on, get up!)",
+							"(Boss won't tolerate our failure!)",
+							"(Regroup, ladies!)",
+							"(Boss ordered a massacre!)",
+							"(Come here, you bastards!)",
+							"(Leave no living soul - waste them all!)",
+							"(We can do this!)",
+							"(Come on, waste them!)",
+							"(They want more? They will get some.)",
+							"(KILL THOSE FUCKERS!)",
+							"(They think they've won! Hah, like hell they did!)",
+							"(Let them burn in hell!)",
+							"(DIE!)",
+							"(I want them all to DIE!)",
+							"(Fire, fire!)",
+							"(You bastard!)",
+							"(Pull yourself together, you pansies!)",
+							"(Sod off, sucker!)",
+							"(Show them where the hell's frozen!)",
+							"(OPEN FIRE!)",
+							"(Fire!)",
+							"(Slay those bastards!)",
+							"(Keep them in sight!)",
+							"(No one leaves!)",
+							"(This is a battle zone!)",
+							"(Crush those bastards!)",
+							"(They shouldn't have come here!)",
+							"(Who are these damn guys?!)",
+							"(Bastard!)",
+							"(Dammit!)",
+							"(LET'S FUCK THEM UP!)",
+							"(Let's do this, one more round!)",
+							"(KILL THEM ALL!)",
+							"(Yeah, kill them!)",
+							"(Kill them all!)",
+							"(Kill those suckers!)",
+							"(Keep going!)",
+							"(They shouldn't have come here!)",
+							"(Fire at will!)",
+							"(Oh, we'll fucking show them!)",
+							"(We'll get you!)",
+							"(Who's next?)",
+							"(It is us or them!)",
+							"(Give them some!)",
+							"(Give some to all of them!)",
+							"(Oh, those bastards want to take it like men!)",
+							"(Finish them off!)",
+							"(No-one is getting away from us!)",
+							"(Give them some heat!)",
+							"(Aim! Fire!)",
+							"(Fucking bastards in masks!)",
+							"(We'll dance on their graves!)",
+							"(These wankers in masks will pay with their lives!)",
+							"(Destroy them!)",
+							"(Bleed, you fuckers!)",
+							"(Fucking waste them!)",
+							"(Let them suck our dicks!)"
+						}
+					}
 				},
 				r3n_h01 = {
 					category = "enemy_chatter",
 					text = "(Go! Run to safety!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Get out of here.)",
+							"(Get out of here!)",
+							"(Get the hell out of here!)",
+							"(Get out! Come on, out!)",
+							"(Go get somewhere safe!)",
+							"(Even if you have utterly soiled your pants, get the hell out of here!)",
+							"(Leave, get out of here!)",
+							"(Go and hide somewhere!)",
+							"(Now go to cover.)",
+							"(Calm down!)",
+							"(Now go!)",
+							"(Come out!)"
+						}
+					}
 				},
 				r3n_hlp = {
 					category = "enemy_chatter",
 					text = "(Help!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(We need assistance, call for backup!)",
+							"(Cover me!)",
+							"(I need cover!)",
+							"(Cover me!)",
+							"(Help!)",
+							"(I need some damn help here!)",
+							"(We have wounded here, need help!)",
+							"(Help! Need assistance here!)",
+							"(Need reinforcements!)",
+							"(Dammit!)",
+							"(Cover me, goddammit!)",
+							"(They got someone.)",
+							"(Cover me!)",
+							"(Damn!)",
+							"(COVER ME!)",
+							"(Cover me, for fuck's sake!)",
+							"(Idiots, cover me!)",
+							"(Fuck all of your mothers, help me already!)"
+						}
+					}
 				},
 				r3n_i01 = {
-					text = "(Stop right there!)",
+					text = "(Stop!)",
 					category = "enemy_dialogue",
 					duration = 3,
 					priority = 75,
-					max_distance = 1500
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"(Stay where you are!)",
+							"(Don't move!)",
+							"(Don't move!)",
+							"(Don't move!)",
+							"(Freeze!)",
+							"(STOP!)",
+							"(Don't move!)",
+							"Stop!", --he says this one in english 
+							"(Twitch, and I'll bang your brains out, bitch!)",
+							"(Hold still, and don't you twitch an inch!)",
+							"(Freeze! On your knees, bitch!)",
+							"(Freeze, punk!)",
+							"(Stop it!)",
+							"(Stop right there, shitter!)"
+						}
+					}
 				},
 				r3n_mov = {
-					text = "(Move!)",
+					text = "(Regroup!)",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 2,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Grab your asses and let's go!)",
+							"(After me, one at a time.)",
+							"(After me, one by one!)",
+							"(Fire when ready!)",
+							"(GO!)",
+							"(Go!)",
+							"(Come on, move!)",
+							"(Hup-hup-hup!)",
+							"(Forward!)",
+							"(Move it, asshole!)",
+							"(Move it!)",
+							"(Push them!)",
+							"(Gather up and let's go!)",
+							"(Move your buns!)",
+							"(Move! Let's show them!)"
+						}
+					}
 				},
 				r3n_p01 = {
-					text = "(They have hostages! We need to delay the assault!)",
+					text = "(Boss said that hostages must stay alive, be careful!)",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(They have hostages!)",
+							"(Boss said that hostages must stay alive, be careful!)",
+							"(Boss ordered to guard those hostages!)",
+							"(Easy, guys, they got hostages. Watch out.)",
+							"(Stop! Don't attack, they've got hostages!)",
+							"(Whoa, whoa, hold your horses! Boss wants us to free a prisoner!)",
+							"(Wait, they got hostages.)",
+							"(They got hostages!)",
+							"(Everyone, they have a hostage!)",
+							"(Stop! We need to save the hostages before we attack!)",
+							"(They have a hostage! We have to slow down and prepare to attack. Boss's order.)"
+						}
+					}
 				},
 				r3n_rdy = {
 					category = "enemy_chatter",
 					text = "(Get ready!)",
 					max_distance = 1000,
 					duration = 2,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Stop! Take your positions!)",
+							"(Inhale, exhale, and start all over!)",
+							"(Get in positions.)",
+							"(Get in positions!)",
+							"(Charge up!)",
+							"(Get ready!)",
+							"(Ready!)",
+							"(Check your weapons!)",
+							"(Prepare for an attack.)",
+							"(Make sure your weapons are ready.)",
+							"(Get ready for another attack!)",
+							"(Get ready.)",
+							"(I'm ready!)",
+							"(Ready!)",
+							"(Uhhh... ready!)",
+							"(Get ready to attack!)",
+							"(Regrouping!)",
+							"(Take your positions!)",
+							"(Get ready and do it again!)",
+							"(What are we waiting for? Let's move!)",
+							"(Reload and get back to your position!)",
+							"Regrouping!",
+							"(Group!)"
+						}
+					}
 				},
-
+				r3n_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				r3n_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				r3n_s01x = {
+					text = "(surrendering)",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				
 			--r4n (R - FOUR - N)
 				r4n_a07a = {
 					text = "(spotted suspicious object)",
@@ -18876,9 +19704,13 @@ ClosedCaptions._sounds = {
 					duration = 3,
 					line_variations = {
 						standard_mode = {
-							"Huh?",
-							"[gasp]",
-							"Wha...?"
+							"(Huh?)",
+							"(...Huh?)",
+							"(Umm...)",
+							"(Wha...?)",
+							"(Hm?)",
+							"(Hmmm....)",
+							"(What the fuck?)"
 						}
 					}
 				},
@@ -18886,11 +19718,43 @@ ClosedCaptions._sounds = {
 					text = "(Signs of intruders!)",
 					category = "enemy_dialogue",
 					priority = 55,
-					duration = 4
+					duration = 4,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"(One-One reporting in.",
+								"(Second to First, over.",
+								"(One-Four reporting.",
+								"(Third here, reporting to First.",
+								"(This is One-One, reporting.",
+								"(Third to first reporting.",
+								"(Second to first, reporting.",
+								"(One-Four reporting.",
+								"(This is Second, reporting to First.",
+								"(Third to First, reporting.",
+								"(It's One-Four, reporting.",
+								"(One-One on line, reporting."
+								
+							},
+							{
+								"I see clear traces of breach.)",
+								"Breach found!)",
+								"Traces of trespassers here.)",
+								"I smell intruders...)",
+								"Some stranger here!)",
+								"Goddammit, this is illegal trespassing!)",
+								"I have spotted signs of trespassers.)",
+								"Clear signs of trespassing.)",
+								"There was a trespasser.)",
+								"I sense uninvited visitors.)"
+							}
+						}
+					}
 				},
 				r4n_burndeath = {
-					category = "enemy_death",
 					text = "[burns to death in Russian]", --because they recorded separate death lines for this and also because i can
+					category = "enemy_death",
 					max_distance = 1500,
 					duration = 5,
 					priority = 65
@@ -18907,64 +19771,304 @@ ClosedCaptions._sounds = {
 					text = "(Contact!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(The enemy!)",
+							"(They are here!)",
+							"(Contact!)",
+							"(Direct contact!)",
+							"(I see one of them!)",
+							"(Here they are!)",
+							"(I see one of these assholes!)",
+							"(The enemy is close!)",
+							"(I see one of them! Move, guys!)",
+							"(I see one of them, let's go!)",
+							"(Enemy forces detected!)",
+							"(Oh, I see them!)",
+							"(I see enemy forces!)",
+							"(I see an enemy!)",
+							"(I got contact!)"
+						}
+					}
 				},
 				r4n_d01 = {
 					category = "enemy_chatter",
 					text = "(Smoke!)",
 					max_distance = 1000,
 					duration = 2,
-					priority = 84
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"(Give me smoke!)",
+							"(Deploy smokescreen!)",
+							"(Smoke-screen!)",
+							"(Launch smoke!)",
+							"(Bring a smoke grenade here! Get ready!)",
+							"(Give them some smoke.)",
+							"(Smoke grenade. Quick!)"
+						}
+					}
 				},
 				r4n_g90 = {
 					text = "[chatter]",
 					category = "enemy_chatter",
 					priority = 85,
-					duration = 3
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"(Concentrate!)",
+							"(Let them bathe in their own blood!)",
+							"(Boss doesn't need them alive, dammit!)",
+							"(Ah, these bastards want a war! Well, we will give them real motherfucking war!)",
+							"(I can do this all day!)",
+							"(Attack!)",
+							"(Let's show them what we can do!)",
+							"(I'm riled up!)",
+							"(Get ready for the next round!)",
+							"(Let's kill them, dammit!)",
+							"(Boss will fuck us hard if we fuck up! Pull yourself together!)",
+							"(Come on, get up!)",
+							"(Boss won't tolerate our failure!)",
+							"(Regroup, ladies!)",
+							"(Boss ordered a massacre!)",
+							"(Come here, you bastards!)",
+							"(Leave no living soul - waste them all!)",
+							"(We can do this!)",
+							"(Come on, waste them!)",
+							"(They want more? They will get some.)",
+							"(KILL THOSE FUCKERS!)",
+							"(They think they've won! Hah, like hell they did!)",
+							"(Let them burn in hell!)",
+							"(DIE!)",
+							"(I want them all to DIE!)",
+							"(Fire, fire!)",
+							"(You bastard!)",
+							"(Pull yourself together, you pansies!)",
+							"(Sod off, sucker!)",
+							"(Show them where the hell's frozen!)",
+							"(OPEN FIRE!)",
+							"(Fire!)",
+							"(Slay those bastards!)",
+							"(Keep them in sight!)",
+							"(No one leaves!)",
+							"(This is a battle zone!)",
+							"(Crush those bastards!)",
+							"(They shouldn't have come here!)",
+							"(Who are these damn guys?!)",
+							"(Bastard!)",
+							"(Dammit!)",
+							"(LET'S FUCK THEM UP!)",
+							"(Let's do this, one more round!)",
+							"(KILL THEM ALL!)",
+							"(Yeah, kill them!)",
+							"(Kill them all!)",
+							"(Kill those suckers!)",
+							"(Keep going!)",
+							"(They shouldn't have come here!)",
+							"(Fire at will!)",
+							"(Oh, we'll fucking show them!)",
+							"(We'll get you!)",
+							"(Who's next?)",
+							"(It is us or them!)",
+							"(Give them some!)",
+							"(Give some to all of them!)",
+							"(Oh, those bastards want to take it like men!)",
+							"(Finish them off!)",
+							"(No-one is getting away from us!)",
+							"(Give them some heat!)",
+							"(Aim! Fire!)",
+							"(Fucking bastards in masks!)",
+							"(We'll dance on their graves!)",
+							"(These wankers in masks will pay with their lives!)",
+							"(Destroy them!)",
+							"(Bleed, you fuckers!)",
+							"(Fucking waste them!)",
+							"(Let them suck our dicks!)"
+						}
+					}
 				},
 				r4n_h01 = {
 					category = "enemy_chatter",
 					text = "(Go! Run to safety!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Get out of here.)",
+							"(Get out of here!)",
+							"(Get the hell out of here!)",
+							"(Get out! Come on, out!)",
+							"(Go get somewhere safe!)",
+							"(Even if you have utterly soiled your pants, get the hell out of here!)",
+							"(Leave, get out of here!)",
+							"(Go and hide somewhere!)",
+							"(Now go to cover.)",
+							"(Calm down!)",
+							"(Now go!)",
+							"(Come out!)"
+						}
+					}
 				},
 				r4n_hlp = {
 					category = "enemy_chatter",
 					text = "(Help!)",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(We need assistance, call for backup!)",
+							"(Cover me!)",
+							"(I need cover!)",
+							"(Cover me!)",
+							"(Help!)",
+							"(I need some damn help here!)",
+							"(We have wounded here, need help!)",
+							"(Help! Need assistance here!)",
+							"(Need reinforcements!)",
+							"(Dammit!)",
+							"(Cover me, goddammit!)",
+							"(They got someone.)",
+							"(Cover me!)",
+							"(Damn!)",
+							"(COVER ME!)",
+							"(Cover me, for fuck's sake!)",
+							"(Idiots, cover me!)",
+							"(Fuck all of your mothers, help me already!)"
+						}
+					}
 				},
 				r4n_i01 = {
-					text = "(Stop right there!)",
+					text = "(Stop!)",
 					category = "enemy_dialogue",
 					duration = 3,
 					priority = 75,
-					max_distance = 1500
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"(Stay where you are!)",
+							"(Don't move!)",
+							"(Don't move!)",
+							"(Don't move!)",
+							"(Freeze!)",
+							"(STOP!)",
+							"(Don't move!)",
+							"Stop!", --he says this one in english 
+							"(Twitch, and I'll bang your brains out, bitch!)",
+							"(Hold still, and don't you twitch an inch!)",
+							"(Freeze! On your knees, bitch!)",
+							"(Freeze, punk!)",
+							"(Stop it!)",
+							"(Stop right there, shitter!)"
+						}
+					}
 				},
 				r4n_mov = {
-					text = "(Move!)",
+					text = "(Regroup!)",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 2,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Grab your asses and let's go!)",
+							"(After me, one at a time.)",
+							"(After me, one by one!)",
+							"(Fire when ready!)",
+							"(GO!)",
+							"(Go!)",
+							"(Come on, move!)",
+							"(Hup-hup-hup!)",
+							"(Forward!)",
+							"(Move it, asshole!)",
+							"(Move it!)",
+							"(Push them!)",
+							"(Gather up and let's go!)",
+							"(Move your buns!)",
+							"(Move! Let's show them!)"
+						}
+					}
 				},
 				r4n_p01 = {
-					text = "(They have hostages! We need to delay the assault!)",
+					text = "(Boss said that hostages must stay alive, be careful!)",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(They have hostages!)",
+							"(Boss said that hostages must stay alive, be careful!)",
+							"(Boss ordered to guard those hostages!)",
+							"(Easy, guys, they got hostages. Watch out.)",
+							"(Stop! Don't attack, they've got hostages!)",
+							"(Whoa, whoa, hold your horses! Boss wants us to free a prisoner!)",
+							"(Wait, they got hostages.)",
+							"(They got hostages!)",
+							"(Everyone, they have a hostage!)",
+							"(Stop! We need to save the hostages before we attack!)",
+							"(They have a hostage! We have to slow down and prepare to attack. Boss's order.)"
+						}
+					}
 				},
 				r4n_rdy = {
 					category = "enemy_chatter",
 					text = "(Get ready!)",
 					max_distance = 1000,
 					duration = 2,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(Stop! Take your positions!)",
+							"(Inhale, exhale, and start all over!)",
+							"(Get in positions.)",
+							"(Get in positions!)",
+							"(Charge up!)",
+							"(Get ready!)",
+							"(Ready!)",
+							"(Check your weapons!)",
+							"(Prepare for an attack.)",
+							"(Make sure your weapons are ready.)",
+							"(Get ready for another attack!)",
+							"(Get ready.)",
+							"(I'm ready!)",
+							"(Ready!)",
+							"(Uhhh... ready!)",
+							"(Get ready to attack!)",
+							"(Regrouping!)",
+							"(Take your positions!)",
+							"(Get ready and do it again!)",
+							"(What are we waiting for? Let's move!)",
+							"(Reload and get back to your position!)",
+							"Regrouping!",
+							"(Group!)"
+						}
+					}
 				},
-
+				r4n_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				r4n_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				r4n_s01x = {
+					text = "(surrendering)",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				
 			--rbdz (russian bulldozer)
 				rbdz_entrance = {
 					text = "(Bulldozer spawned)",
@@ -18974,48 +20078,17 @@ ClosedCaptions._sounds = {
 					max_distance = 4000,
 					line_variations = {
 						standard_mode = {
-							"WHO WANTS A PIECE OF ME?",
-							"GONNA BREAK SOME SHIT!",
-							"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
-							"GET. OUT. OF. THE. WAY!",
-							"DOZER'S HERE, AND READY FOR ACTION!",
-							"CLOBBERIN' TIME!",
-							"MAKE WAY FOR THE BULLDOZER!",
-							"STAND BACK!",
-							"OKAY, I'M HERE... WHO WANTS TO DIE?!"
-						},
-						assault_mode = {
-							"BULLDOZER! GET OUT OF THE WAY!",
-							"BULLDOZER! MOVE ASIDE!",
-							"BULLDOZER! MAKE WAY!",
-							"BULLDOZER GOIN' IN!",
-							"BULLDOZER TIME!",
-							"SHOW ME WHERE THEY ARE!",
-							"BULLDOZER, COMING THROUGH!",
-							"BULLDOZER IN THE HOUSE!",
-							"DOZER IN THE HOUSE!",
-							"DOZER! MOVE ASIDE!",
-							"DOZER! STAND BACK!",
-							"DOZER! STAY BACK!",
-							"DOZER! GET OUT OF THE WAY!",
-							"STAY BACK!",
-							"STAND BACK!",
-							"GOING TO WORK!",
-							"GIVE ME SOME TIME TO WORK!", --unsure
-							"ALRIGHT, WHERE ARE THEY?!",
-							"ALRIGHT! WATCH... AND LEARN!",
-							"ASS-KICKIN' TIME!",
-							"MAKE WAY FOR THE DOZER!",
-							"MAKE WAY FOR THE BULLDOZER!",
-							"MOVE ASIDE! I GOT THIS!",
-							"TIME FOR SOME PAYBACK!",
-							"WHO WANTS A PIECE OF ME?!",
-							"WHERE ARE YOU?!",
-							"MOVE ASIDE!",
-							"I GOT THIS!",
-							"COME ON OUT WHEREVER YOU ARE!",
-							"SHOW ME WHERE THEY ARE!",
-							"OKAY, I'M HERE! WHO WANTS TO DIE?!"
+							"(BULLDOZER IS HERE!)",
+							"(GUYS, BULLDOZER!)",
+							"(LET THE DOZER PASS!)",
+							"(IT'S A DOZER! EVERYONE ASIDE!)",
+							"(LET A BULLDOZER PASS!)",
+							"(LET THE BULLDOZER PASS!)",
+							"(BULLDOZER HERE, COMING THROUGH!)",
+							"(IT'S A DOZER, COMING THROUGH!)",
+							"(IT'S DOZER, GET OUT OF MY WAY!)",
+							"(YOU'RE SO WEAK! HA-HA!)",
+							"(HERE'S BULLDOZER!)"
 						}
 					}
 				},
@@ -19027,20 +20100,7 @@ ClosedCaptions._sounds = {
 					max_distance = 4000,
 					line_variations = {
 						standard_mode = {
-							"ELITE BULLDOZER TIME!",
-							"ELITE DOZER, COMING THROUGH!",
-							"ELITE DOZER! STAND BACK!",
-							"ELITE DOZER! STAY BACK!",
-							"ELITES! FORWARD!",
-							"MAKE WAY FOR THE ELITE DOZER!",
-							"ARE YOU SURE YOU CAN HANDLE THE ELITES?",
-							"ELITE BULLDOZER! STAY BACK!",
-							"ELITE BULLDOZER! MAKE WAY!",
-							"ELITE DOZER! MOVE ASIDE!",
-							"ELITE BULLDOZER COMING THROUGH!",
-							"YOU'RE DEALING WITH THE ELITES NOW, SUCKERS!",
-							"ELITE DOZER IN THE HOUSE!",
-							"ELITE BULLDOZER! GET OUT OF THE WAY!"
+							"(ELITE BULLDOZER!)"
 						}
 					}
 				},
@@ -19049,131 +20109,21 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					line_variations = {
 						standard_mode = {
-							"ALRIGHT! HERE, AND READY TO KICK ASS!",
-							"ALRIGHT, WHERE ARE THEY?!",
-							"BACK THE FUCK UP!",
-							"BRINGING... THE PAIN!",
-							"BULLDOZER IN THE HOUSE!",
-							"BRINGING SOME HURT!",
-							"BULLDOZER COMING THROUGH!",
-							"BULLDOZER GOIN' IN!",
-							"BULLDOZER! MAKE WAY!",
-							"BULLDOZER! STAY BACK!",
-							"COMING THROUGH!",
-							"CAN'T STOP ME!",
-							"'CAREER CRIMINALS,' MY ASS!",
-							"COME ON OUT... WHEREVER YOU ARE!",
-							"DEATH PENALTY IN THREE... TWO... ONE!",
-							"DO YOU EVEN KNOW... HOW FUCKED YOU ARE?!",
-							"DO YOUR WORST!",
-							"DON'T KILL YOURSELF OR ANYTHING- THAT HONOR'S MINE!",
-							"DON'T YOU THINK YOU SHOULD LEAVE?! NOW?!",
-							"DON'T! MESS! WITH ME!",
-							"DOZER! MAKE WAY!",
-							"DOZER IN THE HOUSE!",
-							"DOZER'S HERE AND READY FOR ACTION!",
-							"ENGAGING TARGET!",
-							"EYES ON TARGET!",
-							"FIND SOMEWHERE GOOD TO HIDE!",
-							"FUCKING AMATEURS!",
-							"GET READY!",
-							"GIMME SOME ROOM TO WORK!",
-							"GIVE UP!",
-							"GIVE UP... AND MAYBE I WON'T STOP A MUDHOLE IN YOUR ASS!",
-							"GONNA BREAK SOME SHIT!",
-							"GONNA DROP A BUILDING ON 'EM!",
-							"GONNA SEND YOU TO HELL!",
-							"GONNA SHOW YOU THE LIGHT AT THE END OF THE TUNNEL!",
-							"GOT EYES ON TARGET!",
-							"HAHA, SUCKERS!",
-							"HERE TO END THIS!",
-							"HERE COMES SOME FUCKING HURT!",
-							"HIDE WHILE YOU CAN!",
-							"HOW DO YOU THINK THIS IS GONNA END?!",
-							"I BRING THE PAIN!",
-							"I CAN'T WAIT TO GET MY HANDS ON YOU!",
-							"I HEAR YOU!",
-							"I GIVE THIS GUY FIVE SECONDS!",
-							"I'VE GOT 'EM!",
-							"I GOT THIS ONE!",
-							"I GOT THIS!",
-							"I'LL DEAL WITH THIS ONE!",
-							"I'LL TAKE THIS ONE!",
-							"I'LL TAKE CARE OF THIS ONE MYSELF!",
-							"I'LL TAKE THIS ONE ALL ON MY OWN!",
-							"I'LL PICK THESE SUCKERS APART!",
-							"I'M THEIR PROBLEM NOW!",
-							"I'M UNSTOPPABLE!",
-							"I'MMA KICK YOUR ASS!",
-							"JUST A MATTER OF TIME!",
-							"JUST WAIT 'TIL I FIND YOU!",
-							"KISS YOUR ASS GOODBYE!",
-							"LET'S FINISH THIS!",
-							"LET'S SEE WHAT YOU GOT!",
-							"MAKE WAY FOR THE BULLDOZER!",
-							"MAKE WAY FOR THE DOZER!",
-							"MAKE WAY!",
-							"MOVE ASIDE!",
-							"MOVE ASIDE, I GOT THIS!",
-							"NEXT BULLET'S GOT YOUR NAME ON IT!",
-							"NOW YOU GOT MY ATTENTION... BIG MISTAKE!",
-							"OH, I SEE 'EM NOW!",
-							"OH, HE'S GONNA PAY!",
-							"OKAY, I'M HERE! WHO WANTS TO DIE?!",
-							"PICK 'EM, LAY 'EM DOWN!",
-							"PLEASE... STAY ALIVE A LITTLE BIT LONGER... SO I CAN KILL YOU MYSELF!",
-							"SHOOT 'EM UP!",
-							"SHOW ME WHERE THEY ARE!",
-							"SHOW ME WHAT YOU GOT!",
-							"STAY BACK!",
-							"STAND BACK!",
-							"TANGO AHEAD!",
-							"TANGO IN SIGHT!",
-							"TANGO SPOTTED!",
-							"TARGET AHEAD!",
-							"THAT'S ALL YOU GOT?!",
-							"THAT'S IT!",
-							"THEY'RE STILL ALIVE!",
-							"THIS GUY'S NO MATCH!",
-							"THIS ONE BELONGS TO ME!",
-							"THIS ONE'S MINE!",
-							"THIS WON'T TAKE LONG!",
-							"THIS... WON'T END WELL... FOR YOU!",
-							"TIME FOR SOME PAYBACK!",
-							"TIME TO SEND YOU TO HELL!",
-							"TOTAL ANNIHILATION IN THREE... TWO... ONE!",
-							"WANNA BANG HEADS?!",
-							"WATCH ME CRUSH THIS GUY!",
-							"WHAT'S THIS, AMATEUR HOUR?!",
-							"WHO WANTS A PIECE OF ME?!",
-							"WON'T BE LONG NOW!",
-							"WORLD OF HURT, COMING UP!",
-							"YOU ARE SO FUCKED!",
-							"YOU CAN STILL GIVE UP... BITCH!",
-							"YOU GOT NO CHANCE!",
-							"YOU FUCKED UP, BIG TIME!",
-							"YOU MADE A VERY BAD MISTAKE!",
-							"YOU MADE A BAD CALL!",
-							"YOU SHOULD'VE GIVEN UP BACK THERE!",
-							"YOU STEPPED IN IT!",
-							"YOU THINK YOU'RE BAD? YOU'RE NOTHIN'!",
-							"YOU WON'T STOP ME!",
-							"YOU'RE DEAD!",
-							"YOU'RE GONNA PAY!",
-							"YOU'RE GONNA WISH YOU'D STAYED HOME!",
-							"YOU'RE IN DEEP SHIT, NOW!",
-							"YOU'RE NO MATCH FOR ME!",
-							"YOU'RE NOTHING TO ME!",
-							"YOU'RE UP AGAINST THE WALL, AND I AM THE FUCKING WALL!"
+							"(IT'S GOING TO BE A MASSACRE!)"
 						}
 					}
 				},
 				rbdz_post_kill_taunt = {
-					text = "IT ALWAYS ENDS THE SAME!",
+					text = "[post kill taunt]",
 					max_distance = 1500,
 					category = "enemy_chatter",
 					duration = 3,
-					priority = 65
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"(YEAH, LIE HERE AND ROT, YOU PIECE OF SHIT!)"
+						}
+					}
 				},
 				rbdz_visor_lost = {
 					text = "[lost visor]",
@@ -19183,25 +20133,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					line_variations = {
 						standard_mode = {
-							"MY DAMN VISOR!",
-							"FUCK!",
-							"MY VISOR!",
-							"FUCKING HELL!",
-							"I'M SCREWED!",
-							"OH, SHIT!",
-							"SHIT JUST GOT REAL!",
-							"UH-OH!",
-							"THAT DAMN VISOR!",
-							"IMPRESSIVE... BUT FUTILE!",
-							"TOO LITTLE... TOO LATE!",
-							"HOLY SHIT!",
-							"AW, FUCK!",
-							"HAH! LIKE THAT WOULD STOP ME!",
-							"I'LL PUT YOU DOWN, WITH OR WITHOUT MY VISOR!",
-							"I'LL CRUSH YOU, WITH OR WITHOUT MY VISOR!",
-							"I'LL FUCK YOU UP, VISOR OR NO VISOR!",
-							"I'LL KICK YOUR ASS, VISOR OR NO VISOR!",
-							"THAT WON'T STOP ME!"
+							"(MY DAMN VISOR!)"
 						}
 					}
 				},
@@ -19230,8 +20162,7 @@ ClosedCaptions._sounds = {
 				},
 				rclk_m01x_plu = { --! todo
 					text = "???",
-					category = "sfx",
-					override_name = "SFX",
+					category = "UNKNOWN",
 					override_source_id = true,
 					max_distance = 700,
 					duration = 2,
@@ -19244,32 +20175,11 @@ ClosedCaptions._sounds = {
 					priority = 85,
 					line_variations = {
 						standard_mode = {
-							"Alright, the safeword is 'police brutality.",
-							"I got your DLC right here!",
-							"Speak up! Can't hear you!",
-							"Sometimes, wishes do come true!",
-							"We call this a 'difficulty tweak!'",
-							"Next time, check your corners!",
-							"THIS is the point of no return!",
-							"Didn't forget about me, did you?!",
-							"You call this 'putting up a fight?!'",
-							"I know, I know... I'm late.",
-							"You asked for it! Really!",
-							"You wanted me back, SO I'M BACK!",
-							"Listen here, I've got this drum solo I've been working on!",
-							"Miss me, didn't you?",
-							"You call this 'resisting arrest?!'",
-							"Ooh, that one's gonna hurt!",
-							"Work smarter, not harder!",
-							"I'm gonna beat the cellulites outta you!",
-							"Stop hitting yourself, stop hitting yourself!",
-							"I guess you're not as good as you thought!",
-							"I'm gonna turn you inside-out!",
-							"Better late than never!",
-							"Not so tough now, huh?",
-							"Try a little harder!",
-							"Who's the clown now?!",
-							"This might sting a little!"
+							"(You like that, huh? You like that?)",
+							"(That's what real pain is like!)",
+							"(I've got your DLC right here!)",
+							"(Stop hitting yourself, stop hitting yourself!)",
+							"(Say: 'Hello pain!')"
 						}
 					}
 				},
@@ -19280,17 +20190,11 @@ ClosedCaptions._sounds = {
 					priority = 85,
 					line_variations = {
 						standard_mode = {
-							"I bet you let yourself get beat up, just to hear what I have to say!",
-							"We gotta do this more often.",
-							"We gotta stop meeting like this, you know.", --WELL WHICH IS IT, CLOAKER
-							"Not as tough as they told me!",
-							"You got what was coming for ya!",
-							"Now cry for mom to change your diapers!",
-							"Wow, that was a nice workout. I think I'll have a protein drink and hit the shower.",
-							"What's left if you beat the shit out of a piece of shit?!",
-							"I expected better!",
-							"You wear that shit in your pants proudly, like a badge of honor!",
-							"Now, you can come back for more, any time you want!"
+							"(Let mommy change your diapers!)",
+							"(There, now you fucked up!)",
+							"(Did you forget about me?)",
+							"(How's that, you asshole?)",
+							"(Go cry about that on the forum like a little bitch!)"
 						}
 					}
 				},
@@ -19317,7 +20221,7 @@ ClosedCaptions._sounds = {
 				},
 				rclk_rdy = {
 					category = "enemy_chatter",
-					text = "(Get ready!)",
+					text = "(Ready!)",
 					max_distance = 1000,
 					duration = 2,
 					priority = 85
@@ -19340,7 +20244,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_death"
 				},
 				rtsr_c01 = {
-					text = "Perp spotted!",
+					text = "(I see the target!)",
 					max_distance = 1500,
 					duration = 3,
 					priority = 85,
@@ -19354,14 +20258,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					line_variations = {
 						standard_mode = {
-							"Elite Taser! Here to win this once and for all!",
-							"Elite Taser! Stay clear!",
-							"Elite Taser! Stand clear!",
-							"Elite Taser! Stand back!",
-							"Make way for the Elite Taser!",
-							"Elite Taser! Going through!",
-							"Elite Taser! Get out of the way!",
-							"Elite Taser! Make way!"
+							"(Move! Elite Taser coming!)"
 						}
 					}
 				},
@@ -19373,26 +20270,11 @@ ClosedCaptions._sounds = {
 					priority = 85,
 					line_variations = {
 						standard_mode = {
-							"Who ordered shock treatment?",
-							"Who ordered a lightning bolt?!",
-							"Who's AMPED?",
-							"Make way!",
-							"Taser! MOVE!",
-							"Taser! Clear!",
-							"Stay back!",
-							"Fifty thousand volts here!",
-							"Taser, going through?",
-							"Coming through!",
-							"Get out of the way!",
-							"Stand clear!",
-							"Flip the switch!",
-							"Charged and ready! Bring 'em on!",
-							"Charged and ready... let 'em come!",
-							"Get out of the way!",
-							"Make way for the Taser!",
-							"I'M AMPED!",
-							"Shock treatment prescribed!",
-							"Charged and ready... where are they?!"
+							"(Taser here, coming through!)",
+							"(Ready to stun!)",
+							"(Taser, incoming!)",
+							"(Get out of the way!)",
+							"(Taser is coming! Step aside!)"
 						}
 					}
 				},
@@ -19403,63 +20285,14 @@ ClosedCaptions._sounds = {
 					priority = 85,
 					line_variations = {
 						standard_mode = {
-							"Acquiring targets!",
-							"Almost at full power!",
-							"Amped up!",
-							"Amperage building!",
-							"Approaching perpetrator!",
-							"Bringin' the voltage!",
-							"CHAAARGE!",
-							"Charged and ready! Where are they?!",
-							"Charged and ready... let 'em come!",
-							"Charging up!",
-							"Charging... charging!",
-							"Coming through!",
-							"Contact imminent!",
-							"Engaging subject!",
-							"Eyes on perp!",
-							"Eyes on perp!",
-							"Fifty thousand volts here!",
-							"Gonna plug in!",
-							"Got eyes on the perpetrator!",
-							"High voltage!",
-							"Hope you're insulated!",
---											"Hostile spotted!", --not sure
-							"I got 'em!",
-							"I got fifty thousand volts here with your name on 'em!",
-							"I'll deal with this one!",
-							"I'll take care of this one myself!",
-							"I'm amped!",
-							"I'm feelin' kinda ELECTRIC!",
-							"I'm the fucking spark-man!",
-							"Imminent contact!",
-							"Just call me elec-man!",
-							"Let's amp this shit up!",
-							"Lightning bolt, lightning bolt, lightning bolt!",
-							"Make way!",
-							"Perp ahead!",
-							"Perp in sight!",
-							"Perp spotted!",
-							"Perp targeted!",
-							"Raising voltage!",
-							"Set to 'stun!'",
-							"Shock prepared!",
-							"Shocking!",
-							"Stay clear!",
-							"Subject still mobile!",
-							"Take the shot!",
---											"Taser got sent all those to kill!", --not sure what he says
-							"Taser gun charged and ready!",
-							"Taser! Get out of the way!",
-							"Taser! Stand back!",
-							"Taser, clear!",
-							"Taser, going through!",
-							"Taser, ready!",
-							"Taser- stay clear!",
-							"Taser... moved!",
-							"This one belongs to me!",
-							"Voltage to burn!",
-							"Wattage at full!"
+							"(Locked and loaded!)",
+							"(Shakin' good, OH!)",
+							"(Charging!)",
+							"(Opening fire!)",
+							"(Firing at a criminal!)",
+							"(I'll hit!)",
+							"(Yeah! I'm the damn Electro-Man!)",
+							"(Got some fifty thousand volts for you!)"
 						}
 					}
 				},
@@ -19468,7 +20301,7 @@ ClosedCaptions._sounds = {
 					max_distance = 1500,
 					duration = 3,
 					priority = 85,
-					category = "enemy_chatter"
+					category = "UNKNOWN"
 				},
 				rtsr_mov = {
 					text = "(Move!)",
@@ -19478,14 +20311,21 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter"
 				},
 				rtsr_post_tasing_taunt = {
-					text = "(tasing taunt)",
+					text = "(I got one!)",
 					category = "enemy_chatter",
 					max_distance = 4000,
 					duration = 3,
-					priority = 85
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"[insane cackling]",
+							"(I hope it wasn't painful!)",
+							"(That was niiiiice...)"
+						}
+					}
 				},
 				rtsr_tasered = {
-					text = "(taser feedback gibberish)",
+					text = "[taser feedback gibberish]",
 					category = "enemy_chatter",
 					max_distance = 1500,
 					duration = 3,
@@ -19987,6 +20827,7 @@ ClosedCaptions._sounds = {
 				},
 				cloaker_presence_loop = {
 					text = "(Cloaker idle)",
+					fallback_name = "Cloaker",
 					priority = 21,
 					max_distance = 1500,
 					category = "enemy_chatter",
@@ -20352,7 +21193,7 @@ ClosedCaptions._sounds = {
 					priority = 85
 				},
 				mdc_x02a_any_3p = {
-					category = "enemy_death"
+					category = "enemy_death",
 					text = "[death]",
 					max_distance = 1500,
 					duration = 3,
@@ -20361,6 +21202,7 @@ ClosedCaptions._sounds = {
 
 				rmdc_entrance = {
 					text = "(Russian Medic spawned)", --haha i am funni 
+					fallback_name = "Medic",
 					duration = 3,
 					priority = 85,
 					max_distance = 4000,
@@ -22118,7 +22960,7 @@ ClosedCaptions._sounds = {
 					}
 				},
 				Play_pil_pal_03 = {
-					text = "[angry Russian]",
+					text = "Ublyudok. (Bastard.)",
 					priority = 75,
 					duration = 5,
 					max_distance = 1000,
@@ -22139,7 +22981,7 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				Stop_bqg_pal_01 = {
+				Stop_pil_pal_01 = {
 					category = "stops",
 					stops_line = "Play_pil_pal_01"
 				},
@@ -22584,6 +23426,7 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+
 			--first world bank
 				Play_ism_fwb_01 = {
 					override_name = "Insider",
