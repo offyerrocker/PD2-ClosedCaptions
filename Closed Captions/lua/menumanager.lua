@@ -5,6 +5,12 @@ BEFORE FIRST PUBLIC RELEASE:
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
 
+* investigate playing sound by num event id: 3.5526148264182e-315
+
+* add remaining lines from https://docs.google.com/spreadsheets/d/1m0LBg2PKpB-bnWfOFj40AglCI1dLmAHLH3ydi3Y7uz8
+
+* Stop_all_music
+
 * remove_by_source may remove things that use overrride_source_id
 
 * stops category lines should do stuff with their removed items
@@ -893,7 +899,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position)
 	if not self:IsEnabled() then 
 		return
 	end
-	if not sound_id then 
+	if type(sound_id) ~= "string" then 
 		return
 	end
 	
@@ -994,7 +1000,9 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position)
 	if not sound_data then 
 		if (variant ~= "narrator") or (self:ShouldLogBainUnitVO()) then 
 			self:log_line(sound_id,{variant=variant,unit=unit,sound_source=sound_source,position=position})
-			self:AddToDebug(sound_id,variant)
+			if self:ShouldLogMissing() then 
+				self:AddToDebug(sound_id,variant)
+			end
 		end
 		sound_table.vo[sound_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
 		return

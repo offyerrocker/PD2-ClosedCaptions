@@ -515,6 +515,14 @@ ClosedCaptions._sounds = {
 					category = "stops",
 					stops_line = "buzz_saw_aced"
 				},
+				c4_beep_loop = {
+					text = "C4 beeping",
+					category = "sfx",
+					override_name = "SFX",
+					max_distance = 3000,
+					priority = 98,
+					disabled = true
+				},
 				card_reader_first_card = { --ovk decided to reuse this sound for hoxton revenge's laser grids activation noises, so... generic descriptions. yay.
 					override_name = "SFX",
 					text = "beeps",
@@ -2070,7 +2078,14 @@ ClosedCaptions._sounds = {
 				},
 				van_rear_door_close = {
 					category = "sfx",
-					text = "[rear door closes]",
+					text = "[van rear door closes]",
+					override_name = "SFX",
+					priority = 98,
+					duration = 2
+				},
+				van_rear_door_open = {
+					category = "sfx",
+					text = "[van rear door opens]",
 					override_name = "SFX",
 					priority = 98,
 					duration = 2
@@ -2788,31 +2803,7 @@ ClosedCaptions._sounds = {
 					priority = 13,
 					duration = 3
 				},
-
-
-
-
-			--player dialogue/callouts
-			
-			--enemy dialogue/chatter
-			
-			--heist-specific mission dialogue
-
-			
-			
-			
-
-
-
-
-
-
-
-
-
-
-
-
+		
 --heister speech
 	--heister reactions/dialogue
 				g01 = {
@@ -10211,6 +10202,15 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				tasered_3rd = { --loops; thirdperson
+					text = "tasered_3rd",
+					max_distance = 3000,
+					category = "sfx",
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 21
+				},
 				dsp_radio_checking_1 = {
 					text = "(answering pager)",
 					category = "heister_dialogue",
@@ -10370,8 +10370,1070 @@ ClosedCaptions._sounds = {
 					remove_by_source = true,
 					disabled = true
 				},
-				l2n_a15 = {
-					text = "Two-Three, reporting in. We got a situation.",
+
+				--cops/civs				
+	--civs
+		--generic
+				
+				["911_call"] = {
+					category = "civilian_dialogue",
+					max_distance = 2000,
+					text = "Hello? 911? I need help, there's armed robbers here!",
+					duration = 5,
+					priority = 75
+				},
+
+				a02x_any = {
+					text = "(panic)", --not kalm
+					max_distance = 3000,
+					category = "civilian_dialogue",
+					duration = 2,
+					priority = 75
+				},
+				
+				cf1_911_call = { --cfs don't have 911 call dialogue but eh may as well add it just in case
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					duration = 2,
+					priority = 75
+				},
+				cf1_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf1_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf1_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+
+				cf2_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					duration = 2,
+					priority = 75
+				},	
+				cf2_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf2_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf2_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+
+				cf3_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					duration = 2,
+					priority = 75
+				},
+				cf3_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf3_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf3_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+
+				cf4_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					duration = 2,
+					priority = 75
+				},
+				cf4_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf4_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf4_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+
+				cf5_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					category = "civilian_dialogue",
+					duration = 2,
+					priority = 75
+				},
+				cf5_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf5_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cf5_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+
+				cm1_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"Hello? 911?",
+								"Hello?",
+								"Is anyone there?",
+								"C'mon... hello?",
+								"C'mon pick up the phone...",
+								"C'mon, c'mon... hello?",
+								"Yeah, yeah? Hello? Hello?"
+							},
+							{
+								"I need help, there's armed robbers here!",
+								"I'd like to report a robbery!",
+								"911? There's a robbery happening!",
+								"They have guns here! They're robbing this place!",
+								"Can you send the police? This is a robbery!",
+								"They've got guns! We need the police!",
+								"The police have to come! They have to come here now!",
+								"Send police, there's a robbery happening!",
+								"I don't know exactly what's happening but there's men here with guns!",
+								"There's a robbery in progress here! Send police!",
+								"Send the police, send them here now!",
+								"There's a robbery! A robbery in progress!",
+								"We need police! People have guns here!"
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					duration = 6,
+					priority = 75
+				},
+				cm1_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cm1_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cm1_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+
+				cm2_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"Is anyone there...?",
+								"H-hello?",
+								"Hello?",
+								"Uh, hello?",
+								"Hello? Please, answer!",
+								"Come on... hey! Hello?",
+								"Hello? Answer!",
+								"Please, please!",
+								"Hello? 911?"
+							},
+							{
+								"Please, send police! There's a robbery!",
+								"We need police! There's guns!",
+								"Men with guns! Send police!",
+								"I'd like to report a robbery!",
+								"Send police! Send them here now!",
+								"There's a robbery! A robbery is in progress!",
+								"The police have to come! They have to come here now!",
+								"...I'd like to report a robbery!",
+								"They have guns here! They're robbing this place!",
+								"There's a robbery happening!"
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					duration = 5,
+					priority = 75
+				},
+				cm2_a01x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cm2_a02x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cm2_a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cm2_x01a_any_3p = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+				cm2_x02a_any_3p = {
+					text = "[death]",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+
+				cm3_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"C'mon, c'mon...",
+								"Is anyone there?",
+								"Pick up, pick up...",
+								"Pick up...",
+								"Yeah, hello?",
+								"I'm on hold?!",
+								"What's taking so long...?!",
+								"Please, please, please!"
+							},
+							{
+								"You've got to send police here! They've got guns!",
+								"I want to report a robbery!",
+								"911? There's a robbery happening!",
+								"I want to report a, a robbery!",
+								"There's a robbery! A robbery in progress!",
+								"We need police! People have guns here!",
+								"There's a robbery! Send someone here now!",
+								"Can you send police? This is a robbery!",
+								"Please, send police! There's a robbery!",
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					duration = 5,
+					priority = 75
+				},
+
+				cm4_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"Uhh... hello?",
+								"Pick up, pick up...!",
+								"C'mon...",
+								"What's taking so long?",
+								"Yeah, hello?"
+							},
+							{
+								"911? There's a robbery here happening!",
+								"The police have to come! They have to come here now!",
+								"Send police! There's a robbery happening!",
+								"Please, send police! There's a robbery!",
+								"I'd like to report a robbery!",
+								"Can you send police? This is a robbery!",
+								"Finally! It's a robbery! Send someone here now!",
+								"I don't know what's happening but there's men here with guns!",
+								"We need police! People have guns here!",
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					duration = 2,
+					priority = 75
+				},
+
+				cm5_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"C'mon, hey, hello?",
+								"Hello?",
+								"Please, please, please!",
+								"Hello, answer?!"
+							},
+							{
+								"911? There's a robbery happening!",
+								"We need police! People have guns here!",
+								"I don't know what's happening, but there's men in here with guns!",
+								"Can you send police? This is a robbery!",
+								"We need police! There's guns!",
+								"They have guns here, they're robbing this place!"
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					duration = 2,
+					priority = 75
+				},
+
+				cm6_911_call = {
+					text = "(calling 911!)",
+					max_distance = 2000,
+					line_variations = {
+						recombinable = true,
+						whisper_mode = {
+							{
+								"C'mon, hey, hello?",
+								"Hello?",
+								"Please, please, please!",
+								"Hello, answer?!"
+							},
+							{
+								"911? There's a robbery happening!",
+								"We need police! People have guns here!",
+								"I don't know what's happening, but there's men in here with guns!",
+								"Can you send police? This is a robbery!",
+								"We need police! There's guns!",
+								"They have guns here, they're robbing this place!"
+							}
+						}
+					},
+					category = "civilian_dialogue",
+					duration = 5,
+					priority = 75
+				},
+				a03x_any = {
+					text = "(screaming in fear)",
+					category = "civilian_dialogue",
+					max_distance = 3000,
+					duration = 2,
+					priority = 75
+				},
+			
+	
+	--cops
+			--l1d (L - ONE - D)
+				l1d_a08 = {
+					category = "enemy_dialogue",
+					text = "(spotted something suspicious)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75,
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"Wha...?"
+						}
+					}
+				},
+				l1d_att = {
+					category = "enemy_chatter",
+					text = "Go!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l1d_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l1d_c01 = {
+					category = "enemy_chatter",
+					text = "Contact!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l1d_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_d01 = {
+					category = "enemy_chatter",
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
+				l1d_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_e01 = {
+					category = "enemy_dialogue",
+					text = "Disable the Drill!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_e02 = {
+					category = "enemy_dialogue",
+					text = "Disable their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_e03 = {
+					category = "enemy_dialogue",
+					text = "Disable the power!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_e04 = {
+					category = "enemy_dialogue",
+					text = "Do what you can to slow them down!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l1d_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_h01 = {
+					category = "enemy_chatter",
+					text = "(Freed hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					duration = 3,
+					priority = 85
+				},
+				l1d_i01 = {
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
+				},
+				l1d_i03 = {
+					text = "(cuffed heister)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 55,
+					max_distance = 1500,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
+						}
+					}
+				},
+				l1d_l01 = {
+					text = "Recover the bags!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_lk3a = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l1d_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l1d_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_p01 = {
+					text = "They have hostages! We need to delay the assault!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_p03 = {
+					text = "No hostages left, full force forward!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1d_pos = {
+					category = "enemy_chatter",
+					text = "In position!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_rdy = {
+					category = "enemy_chatter",
+					text = "Get ready!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1d_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
+					duration = 3,
+					priority = 85,
+					max_distance = 1000,
+					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
+						}
+					}
+				},
+				l1d_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					max_distance = 1000
+				},
+				l1d_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				l1d_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				
+				
+				
+		--l1n (L - ONE - N)
+				l1n_a01 = {
+					text = "Gun! GUN!",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1500,
+					duration = 3
+				},
+				l1n_a02 = {
+					text = "Please stay back.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l1n_a03 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l1n_a05 = {
+					text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_dialogue for utility
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 6,
+					line_variations = {
+						standard_mode = {
+							"Two-Three here. Reporting in. All's clear over here. Out.",
+							"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
+							"Two-Three, reporting in. All is quiet on the western front. Out.",
+							"Feels like another boring evening.",
+							"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
+							"Seems like a good day for something to happen... right?",
+							"This is, uh, Two-Three reporting in. All clear. Over and out."
+						}
+					}
+				},
+				l1n_a06 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l1n_a07a = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"[gasp]",
+							"Wha...?"
+						}
+					}
+				},
+				l1n_a07b = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"What the heck...?",
+							"Who was that?",
+							"That's weird...",
+							"What on earth...?",
+							"What's going on here...?",
+							"That's strange...",
+							"What the hell...?"
+						}
+					}
+				},
+				l1n_a08 = {
+					text = "Intruder!",
+					category = "enemy_dialogue",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l1n_a09 = {
+					text = "Sound the alarm!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3
+				},
+				l1n_a10 = {
+					text = "Two-Four, reporting in. I've spotted a broken window. Shards of glass everywhere!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a broken window. Shards of glass everywhere!"
+								}
+							}
+						}
+					}
+				},
+				l1n_a11 = {
+					text = "Two-Four, reporting in. I've spotted a dead body here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a dead body here!"
+								}
+							}
+						}
+					}
+				},
+				l1n_a12 = {
+					text = "Two-Four, reporting in. I've spotted a dead officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a dead officer here!"
+								}
+							}
+						}
+					}
+				},
+				l1n_a13 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up civilian here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up civilian here!"
+								}
+							}
+						}
+					}
+				},
+				l1n_a14 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up officer here!"
+								}
+							}
+						}
+					}
+				},
+				l1n_a15 = {
+					text = "Two-Four, reporting in. We got a situation.",
 					category = "enemy_dialogue",
 					priority = 55,
 					duration = 4,
@@ -10380,10 +11442,10 @@ ClosedCaptions._sounds = {
 							recombinable = true,
 							whisper_mode = {
 								{
-									"Two-Three here.",
-									"Two-Three, reporting in.",
-									"Two-Three over here. Reporting in.",
-									"This is, uh, Two-Three reporting in."
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
 								},
 								{
 									"We got a situation.",
@@ -10393,6 +11455,1079 @@ ClosedCaptions._sounds = {
 							}
 						}
 					}
+				},
+				l1n_a16 = {
+					text = "Two-Four, reporting in. We got an officer signalling for help.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got an officer signalling for help."
+								}
+							}
+						}
+					}
+				},
+				l1n_a17 = {
+					text = "Two-Four, reporting in. There's a Security Door that shouldn't be open here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's a Security Door that shouldn't be open here."
+								}
+							}
+						}
+					}
+				},
+				l1n_a18 = {
+					text = "Two-Four, reporting in. Somebody set a fire over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody set a fire over here."
+								}
+							}
+						}
+					}
+				},
+				l1n_a19 = {
+					text = "Two-Four, reporting in. I've got a body bag over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've got a body bag over here."
+								}
+							}
+						}
+					}
+				},
+				l1n_a20 = {
+					text = "Two-Four, reporting in. I've spotted some kind of Sentry Gun here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some kind of Sentry Gun here."
+								}
+							}
+						}
+					}
+				},
+				l1n_a21 = {
+					text = "Two-Four, reporting in. I've spotted a Trip Mine here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a Trip Mine."
+								}
+							}
+						}
+					}
+				},
+				l1n_a22 = {
+					text = "Two-Four, reporting in. I've spotted a suspicious looking bag.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a suspicious looking bag."
+								}
+							}
+						}
+					}
+				},
+				l1n_a23 = {
+					text = "Two-Four, reporting in. There's signs of intruder here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's signs of intruder here."
+								}
+							}
+						}
+					}
+				},
+				l1n_a24 = {
+					text = "Two-Four, reporting in. Somebody's been messing with the computer here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody's been messing with the computer here."
+								}
+							}
+						}
+					}
+				},
+				l1n_a25 = {
+					text = "Two-Four, reporting in. I've spotted some heavy drilling equipment.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some heavy drilling equipment."
+								}
+							}
+						}
+					}
+				},
+				l1n_amm = {
+					text = "They've brought extra ammo with them!",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 4
+				},
+				l1d_att = {
+					category = "enemy_chatter",
+					text = "Weapons hot!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l1n_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l1n_c01 = {
+					category = "enemy_chatter",
+					text = "Contact!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l1n_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_d01 = {
+					category = "enemy_chatter",
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
+				l1n_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l1n_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_h01 = {
+					category = "enemy_chatter",
+					text = "(Freed hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					duration = 3,
+					priority = 85
+				},
+				l1n_i01 = {
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
+				},
+				l1n_i03 = {
+					text = "(cuffed heister)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 55,
+					max_distance = 1500,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
+						}
+					}
+				},
+				l1n_l01 = {
+					text = "Recover the bags!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_lk3a = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l1n_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l1n_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_p01 = {
+					text = "They have hostages! We need to delay the assault!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_p03 = {
+					text = "No hostages left, full force forward!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l1n_pos = {
+					category = "enemy_chatter",
+					text = "In position!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_rdy = {
+					category = "enemy_chatter",
+					text = "Get ready!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l1n_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
+					duration = 3,
+					priority = 85,
+					max_distance = 1000,
+					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
+						}
+					}
+				},
+				l1n_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					max_distance = 1000
+				},
+				l1n_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				l1n_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+	
+		-- l2d (L - TWO - D)		
+				l2d_a08 = {
+					text = "Intruder!",
+					category = "enemy_dialogue",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l2d_att = {
+					category = "enemy_chatter",
+					text = "Weapons hot!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l2d_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l2d_c01 = {
+					category = "enemy_chatter",
+					text = "Contact!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l2d_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_d01 = {
+					category = "enemy_chatter",
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
+				l2d_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_e01 = {
+					category = "enemy_chatter",
+					text = "Disable the Drill!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_e02 = {
+					category = "enemy_chatter",
+					text = "Disable their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_e03 = {
+					category = "enemy_chatter",
+					text = "Disable the power!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_e04 = {
+					category = "enemy_chatter",
+					text = "Do what you can to slow them down!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_e05 = {
+					category = "enemy_dialogue",
+					text = "Drill disabled!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_e06 = {
+					category = "enemy_dialogue",
+					text = "Got their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l2d_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_h01 = {
+					category = "enemy_chatter",
+					text = "(Freed hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					duration = 3,
+					priority = 85
+				},
+				l2d_i01 = {
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
+				},
+				l2d_i03 = {
+					text = "(cuffed heister)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 55,
+					max_distance = 1500,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
+						}
+					}
+				},
+				l2d_l01 = {
+					text = "Recover the bags!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_lk3a = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l2d_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l2d_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_p01 = {
+					text = "They have hostages! We need to delay the assault!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_p03 = {
+					text = "No hostages left, full force forward!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2d_pos = {
+					category = "enemy_chatter",
+					text = "In position!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_rdy = {
+					category = "enemy_chatter",
+					text = "Get ready!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2d_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
+					duration = 3,
+					priority = 85,
+					max_distance = 1000,
+					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
+						}
+					}
+				},
+				l2d_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					max_distance = 1000
+				},
+				l2d_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				l2d_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+
+
+		-- l2n (L - TWO - N)
+				l2n_a01 = {
+					text = "Gun! GUN!",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1500,
+					duration = 3
+				},
+				l2n_a02 = {
+					text = "Please stay back.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l2n_a03 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
 				},
 				l2n_a05 = {
 					text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_dialogue for utility
@@ -10409,6 +12544,27 @@ ClosedCaptions._sounds = {
 							"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
 							"Seems like a good day for something to happen... right?",
 							"This is, uh, Two-Three reporting in. All clear. Over and out."
+						}
+					}
+				},
+				l2n_a06 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l2n_a07a = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"[gasp]",
+							"Wha...?"
 						}
 					}
 				},
@@ -10429,6 +12585,392 @@ ClosedCaptions._sounds = {
 							"What the hell...?"
 						}
 					}
+				},
+				l2n_a08 = {
+					text = "Intruder!",
+					category = "enemy_dialogue",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l2n_a09 = {
+					text = "Sound the alarm!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3
+				},
+				l2n_a10 = {
+					text = "Two-Four, reporting in. I've spotted a broken window. Shards of glass everywhere!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a broken window. Shards of glass everywhere!"
+								}
+							}
+						}
+					}
+				},
+				l2n_a11 = {
+					text = "Two-Four, reporting in. I've spotted a dead body here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a dead body here!"
+								}
+							}
+						}
+					}
+				},
+				l2n_a12 = {
+					text = "Two-Four, reporting in. I've spotted a dead officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a dead officer here!"
+								}
+							}
+						}
+					}
+				},
+				l2n_a13 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up civilian here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up civilian here!"
+								}
+							}
+						}
+					}
+				},
+				l2n_a14 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up officer here!"
+								}
+							}
+						}
+					}
+				},
+				l2n_a15 = {
+					text = "Two-Four, reporting in. We got a situation.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got a situation.",
+									"Something's up.",
+									"There's something going on here."
+								}
+							}
+						}
+					}
+				},
+				l2n_a16 = {
+					text = "Two-Four, reporting in. We got an officer signalling for help.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got an officer signalling for help."
+								}
+							}
+						}
+					}
+				},
+				l2n_a17 = {
+					text = "Two-Four, reporting in. There's a Security Door that shouldn't be open here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's a Security Door that shouldn't be open here."
+								}
+							}
+						}
+					}
+				},
+				l2n_a18 = {
+					text = "Two-Four, reporting in. Somebody set a fire over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody set a fire over here."
+								}
+							}
+						}
+					}
+				},
+				l2n_a19 = {
+					text = "Two-Four, reporting in. I've got a body bag over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've got a body bag over here."
+								}
+							}
+						}
+					}
+				},
+				l2n_a20 = {
+					text = "Two-Four, reporting in. I've spotted some kind of Sentry Gun here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some kind of Sentry Gun here."
+								}
+							}
+						}
+					}
+				},
+				l2n_a21 = {
+					text = "Two-Four, reporting in. I've spotted a Trip Mine here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a Trip Mine."
+								}
+							}
+						}
+					}
+				},
+				l2n_a22 = {
+					text = "Two-Four, reporting in. I've spotted a suspicious looking bag.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a suspicious looking bag."
+								}
+							}
+						}
+					}
+				},
+				l2n_a23 = {
+					text = "Two-Four, reporting in. There's signs of intruder here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's signs of intruder here."
+								}
+							}
+						}
+					}
+				},
+				l2n_a24 = {
+					text = "Two-Four, reporting in. Somebody's been messing with the computer here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody's been messing with the computer here."
+								}
+							}
+						}
+					}
+				},
+				l2n_a25 = {
+					text = "Two-Four, reporting in. I've spotted some heavy drilling equipment.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some heavy drilling equipment."
+								}
+							}
+						}
+					}
+				},
+				l2n_amm = {
+					text = "They've brought extra ammo with them!",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 4
+				},
+				l2n_att = {
+					category = "enemy_chatter",
+					text = "Weapons hot!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
 				},
 				l2n_b01 = {
 					text = "Two-Three to Control. Entrance is clear.",
@@ -12023,6 +14565,307 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				l2n_b25 = {
+					text = "This is Two-Three. Glass shards everywhere! Clear signs of break-in! Send reinforcements!",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 3000,
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Glass shards everywhere! We've got clear signs of break-in! Send reinforcements!"
+							}
+						}
+					}
+				},
+				l2n_b26 = {
+					text = "This is Two-Three. Someone's tampered with this camera! Send backup!",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 3000,
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"Someone's tampered with this camera! Send backup!"
+							}
+						}
+					}
+				},
+				l2n_b27 = {
+					text = "This is Two-Three. I hear some kind of feedback! Send backup!",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 3000,
+					duration = 10,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"I hear some kind of noise, send backup!"
+							}
+						}
+					}
+				},
+				l2n_b28 = {
+					text = "Two-Three to Control. I'm outside the Lobby.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 10,
+					max_distance = 3000,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Two-Three to Control.",
+								"Two-Three to Dispatch.",
+								"Two-Three reporting.",
+								"Two-Three here, reporting in.",
+								"This is Two-Three, reporting in.",
+								"Report.",
+								"Reporting in.",
+								"This is Two-Three."
+							},
+							{
+								"I'm outside the Lobby."
+							},
+							{
+								"Over."
+							}
+						}
+					}
+				},
+				l2n_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l2n_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l2n_c01 = {
+					category = "enemy_chatter",
+					text = "Contact!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2n_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l2n_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_d01 = {
+					category = "enemy_chatter",
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
+				l2n_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l2n_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_h01 = {
+					category = "enemy_chatter",
+					text = "(Freed hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					duration = 3,
+					priority = 85
+				},
+				l2n_i01 = {
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
+				},
 				l2n_i02 = {
 					text = "attempting arrest",
 					category = "enemy_dialogue",
@@ -12044,645 +14887,148 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-
-				--cops/civs				
-	--civs
-		--
-				
-				["911_call"] = {
-					category = "civilian_dialogue",
-					max_distance = 2000,
-					text = "Hello? 911? I need help, there's armed robbers here!",
-					duration = 5,
-					priority = 75
-				},
-
-				
-			
-	
-				
-				
-				a02x_any = {
-					text = "(panic)", --not kalm
-					max_distance = 3000,
-					category = "civilian_dialogue",
-					duration = 2,
-					priority = 75
-				},
-				
-				cf1_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					category = "civilian_dialogue",
-					duration = 2,
-					priority = 75
-				},
-				cf1_a01x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf1_a02x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf1_a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-
-				cf2_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					category = "civilian_dialogue",
-					duration = 2,
-					priority = 75
-				},	
-				cf2_a01x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf2_a02x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf2_a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-
-				cf3_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					category = "civilian_dialogue",
-					duration = 2,
-					priority = 75
-				},
-				cf3_a01x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf3_a02x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf3_a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-
-				cf4_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					category = "civilian_dialogue",
-					duration = 2,
-					priority = 75
-				},
-				cf4_a01x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf4_a02x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf4_a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-
-				cf5_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					category = "civilian_dialogue",
-					duration = 2,
-					priority = 75
-				},
-				cf5_a01x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf5_a02x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cf5_a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-
-				cm1_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					line_variations = {
-						recombinable = true,
-						whisper_mode = {
-							{
-								"Hello? 911?",
-								"Hello?",
-								"Is anyone there?",
-								"C'mon... hello?",
-								"C'mon pick up the phone...",
-								"C'mon, c'mon... hello?",
-								"Yeah, yeah? Hello? Hello?"
-							},
-							{
-								"I need help, there's armed robbers here!",
-								"I'd like to report a robbery!",
-								"911? There's a robbery happening!",
-								"They have guns here! They're robbing this place!",
-								"Can you send the police? This is a robbery!",
-								"They've got guns! We need the police!",
-								"The police have to come! They have to come here now!",
-								"Send police, there's a robbery happening!",
-								"I don't know exactly what's happening but there's men here with guns!",
-								"There's a robbery in progress here! Send police!",
-								"Send the police, send them here now!",
-								"There's a robbery! A robbery in progress!",
-								"We need police! People have guns here!"
-							}
-						}
-					},
-					category = "civilian_dialogue",
-					duration = 6,
-					priority = 75
-				},
-				cm1_a01x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cm1_a02x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cm1_a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-
-				cm2_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					line_variations = {
-						recombinable = true,
-						whisper_mode = {
-							{
-								"Is anyone there...?",
-								"H-hello?",
-								"Hello?",
-								"Uh, hello?",
-								"Hello? Please, answer!",
-								"Come on... hey! Hello?",
-								"Hello? Answer!",
-								"Please, please!",
-								"Hello? 911?"
-							},
-							{
-								"Please, send police! There's a robbery!",
-								"We need police! There's guns!",
-								"Men with guns! Send police!",
-								"I'd like to report a robbery!",
-								"Send police! Send them here now!",
-								"There's a robbery! A robbery is in progress!",
-								"The police have to come! They have to come here now!",
-								"...I'd like to report a robbery!",
-								"They have guns here! They're robbing this place!",
-								"There's a robbery happening!"
-							}
-						}
-					},
-					category = "civilian_dialogue",
-					duration = 5,
-					priority = 75
-				},
-				cm2_a01x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cm2_a02x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cm2_a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-				cm2_x02a_any_3p = {
-					text = "[death]",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-
-				cm3_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					line_variations = {
-						recombinable = true,
-						whisper_mode = {
-							{
-								"C'mon, c'mon...",
-								"Is anyone there?",
-								"Pick up, pick up...",
-								"Pick up...",
-								"Yeah, hello?",
-								"I'm on hold?!",
-								"What's taking so long...?!",
-								"Please, please, please!"
-							},
-							{
-								"You've got to send police here! They've got guns!",
-								"I want to report a robbery!",
-								"911? There's a robbery happening!",
-								"I want to report a, a robbery!",
-								"There's a robbery! A robbery in progress!",
-								"We need police! People have guns here!",
-								"There's a robbery! Send someone here now!",
-								"Can you send police? This is a robbery!",
-								"Please, send police! There's a robbery!",
-							}
-						}
-					},
-					category = "civilian_dialogue",
-					duration = 5,
-					priority = 75
-				},
-
-				cm4_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					line_variations = {
-						recombinable = true,
-						whisper_mode = {
-							{
-								"Uhh... hello?",
-								"Pick up, pick up...!",
-								"C'mon...",
-								"What's taking so long?",
-								"Yeah, hello?"
-							},
-							{
-								"911? There's a robbery here happening!",
-								"The police have to come! They have to come here now!",
-								"Send police! There's a robbery happening!",
-								"Please, send police! There's a robbery!",
-								"I'd like to report a robbery!",
-								"Can you send police? This is a robbery!",
-								"Finally! It's a robbery! Send someone here now!",
-								"I don't know what's happening but there's men here with guns!",
-								"We need police! People have guns here!",
-							}
-						}
-					},
-					category = "civilian_dialogue",
-					duration = 2,
-					priority = 75
-				},
-
-				cm5_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					line_variations = {
-						recombinable = true,
-						whisper_mode = {
-							{
-								"C'mon, hey, hello?",
-								"Hello?",
-								"Please, please, please!",
-								"Hello, answer?!"
-							},
-							{
-								"911? There's a robbery happening!",
-								"We need police! People have guns here!",
-								"I don't know what's happening, but there's men in here with guns!",
-								"Can you send police? This is a robbery!",
-								"We need police! There's guns!",
-								"They have guns here, they're robbing this place!"
-							}
-						}
-					},
-					category = "civilian_dialogue",
-					duration = 2,
-					priority = 75
-				},
-
-				cm6_911_call = {
-					text = "(calling 911!)",
-					max_distance = 2000,
-					line_variations = {
-						recombinable = true,
-						whisper_mode = {
-							{
-								"C'mon, hey, hello?",
-								"Hello?",
-								"Please, please, please!",
-								"Hello, answer?!"
-							},
-							{
-								"911? There's a robbery happening!",
-								"We need police! People have guns here!",
-								"I don't know what's happening, but there's men in here with guns!",
-								"Can you send police? This is a robbery!",
-								"We need police! There's guns!",
-								"They have guns here, they're robbing this place!"
-							}
-						}
-					},
-					category = "civilian_dialogue",
-					duration = 5,
-					priority = 75
-				},
-				a03x_any = {
-					text = "(screaming in fear)",
-					category = "civilian_dialogue",
-					max_distance = 3000,
-					duration = 2,
-					priority = 75
-				},
-			
-	
-	--cops
-	
-				law_enf_puke = {
-					text = "[vomiting]",
-					category = "enemy_death",
-					max_distance = 1500,
-					duration = 4,
-					priority = 65
-				},
-				
-				l1n_a01 = {
-					text = "Squeeze those triggers!",
-					category = "enemy_chatter",
-					priority = 85,
-					duration = 3,
-					disabled = true
-				},
-				l1n_a06 = {
-					text = "[idle chatter]",
-					category = "enemy_chatter",
-					disabled = true
-				},
-				l1n_a07a = {
-					text = "Huh?",
-					category = "enemy_chatter",
-					priority = 85,
-					duration = 3,
-					max_distance = 1500
-				},
-				l1n_a16 = {
-					text = "Two-Four over here. Officer signalling for backup!",
+				l2n_i03 = {
+					text = "(cuffed heister)",
 					category = "enemy_dialogue",
-					priority = 85,
 					duration = 3,
-					max_distance = 1500
-				},
-				l1n_g90 = {
-					category = "enemy_chatter",
-					priority = 85,
-					duration = 3,
-					text = "[tactical chatter]"
-				},
-				l1n_h01 = {
-					category = "enemy_chatter",
-					duration = 3,
-					text = "(Freeing hostage)",
-					max_distance = 1000,
-					priority = 85
-				},
-				l1n_hr01 = {
-					text = "[hurt]",
-					category = "enemy_death",
+					priority = 55,
 					max_distance = 1500,
-					priority = 65
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
+						}
+					}
 				},
-				l1n_hlp = {
+				l2n_l01 = {
+					text = "Recover the bags!",
 					category = "enemy_chatter",
-					text = "HELP!",
-					max_distance = 700,
+					max_distance = 1000,
+					duration = 3,
 					priority = 85
 				},
-				l1n_mov = {
+				l2n_lk3a = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l2n_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l2n_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2n_mov = {
 					text = "Move!",
 					category = "enemy_chatter",
 					max_distance = 1000,
-					priority = 85
-				},
-				l1n_rdy = {
-					category = "enemy_chatter",
-					text = "Ready!",
-					max_distance = 1000,
-					priority = 85
-				},
-				l1n_t01 = {
-					category = "enemy_chatter",
-					text = "Looking for another way in.",
-					max_distance = 1000,
-					priority = 85
-				},
-				l1n_x01a_any_3p = {
-					text = "[pain]",
-					max_distance = 1500,
-					priority = 65,
 					duration = 2,
-					category = "enemy_death"
+					priority = 85
 				},
-				l1n_x02a_any_3p = {
-					text = "[death]",
-					max_distance = 1500,
-					priority = 65,
-					duration = 2,
-					category = "enemy_death"
-				},
-				l2d_rdy = {
+				l2n_p01 = {
+					text = "They have hostages! We need to delay the assault!",
 					category = "enemy_chatter",
-					text = "Ready!",
 					max_distance = 1000,
 					duration = 3,
 					priority = 85
 				},
-				l2n_g90 = {
+				l2n_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
 					category = "enemy_chatter",
-					duration = 3,
-					priority = 85,
-					text = "[tactical chatter]",
-					line_variations = {
-						"We need another plan, this isn't workin'!",
-						"Maybe three, maybe six. Hard to say.",
-						"There are at least three of them!",
-						"Where are our units?! We need more black and whites out there!",
-						"They gotta be ex-military or something. Or more likely... present military! We're outgunned!",
-						"Two assailants confirmed. There might be more of them."
-					},
-				},
-				l2n_h01 = {
-					category = "enemy_chatter",
-					duration = 3,
-					text = "(Freeing hostage)",
 					max_distance = 1000,
-					priority = 85
-				},
-				l2n_hr01 = {
-					text = "[hurt]",
-					category = "enemy_death",
-					max_distance = 1500,
-					duration = 3,
-					priority = 65
-				},
-				l2n_hlp = {
-					category = "enemy_chatter",
-					text = "HELP!",
-					max_distance = 700,
 					duration = 3,
 					priority = 85
 				},
-				l2n_x01a_any_3p = {
-					text = "[pain]",
-					duration = 3,
-					priority = 65,
-					max_distance = 1500,
-					category = "enemy_death"
-				},
-				l2n_x02a_any_3p = {
-					text = "[death]",
-					duration = 3,
-					priority = 65,
-					max_distance = 1500,
-					category = "enemy_death"
-				},
-				l2n_lk3b = {
-					category = "chatter",
-					text = "(very panicked chatter)",
-					duration = 3,
-					priority = 85,
-					max_distance = 1500,
-					line_variations = {
-						standard_mode = { --non-exhaustive
-							"CHRIST!",
-							"INSANE!",
-							"HOLY SHIT!",
-							"JEEZ!"
-						}
-					}
-				},
-				l2n_mov = {
-					text = "(tactical chatter)",
+				l2n_p03 = {
+					text = "No hostages left, full force forward!",
 					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l2n_pos = {
+					category = "enemy_chatter",
+					text = "In position!",
+					max_distance = 1000,
 					duration = 2,
-					priority = 85,
-					line_variations = {
-						standard_mode = {
-							"I see one of 'em!",
-							"I got contact!",
-							"Contact!",
-							"HARD contact!",
-							"Takedown!",
-							"DROP 'EM!",
-							"FIIIRE!",
-							"Fire at will!",
-							"Take 'em down!",
-							"LIGHT 'EM UP!",
-							"HELP!",
-							"Help!",
-							"Let 'er rip!",
-							"Go, GO!",
-							"GO!",
-							"Go, go, GO!",
-							"Move!",
-							"Move out!",
-							"Shred 'em!",
-							"Move, MOVE!",
-							"Move, now!",
-							"Move it!",
-							"Forward!",
-							"Cover me!",
-							"Gimme cover!",
-							"Formation!",
-							"Take positions!",
-							"Get ready!",
-							"Ready up!",
-							"Ready now!",
-							"Ready!",
-							"...Insane!",
-							"Oh... SHIT!",
-							"CHRIST ALMIGHTY!",
-							"I'll be damned!",
-							"Fuckin' hell!",
-							"Holy SHIT!",
-							"FUCK!"
-						}
-					}
+					priority = 85
+				},
+				l2n_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2n_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l2n_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
 				},
 				l2n_rdy = {
 					category = "enemy_chatter",
-					text = "Ready!",
+					text = "Get ready!",
 					max_distance = 1000,
-					duration = 3,
+					duration = 2,
 					priority = 85
-				},	
+				},
+				l2n_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
 				l2n_s01x = {
 					category = "enemy_dialogue",
 					text = "Okay, okay! Just don't shoot!",
@@ -12701,69 +15047,1104 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				l2n_p01 = {
+				l2n_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					max_distance = 1000
+				},
+				l2n_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				l2n_x01a_any_3p_01 = {
+					disabled = true,
+				},
+				l2n_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				l2n_x02a_any_3p_01 = {
+					disabled = true,
+				},
+				
+				
+			--l3d (L - THREE- D)
+				l3d_att = {
+					category = "enemy_chatter",
+					text = "Weapons hot!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l3d_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_d01 = {
+					category = "enemy_chatter",
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
+				l3d_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_e01 = {
+					category = "enemy_chatter",
+					text = "Disable the Drill!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_e02 = {
+					category = "enemy_chatter",
+					text = "Disable their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_e03 = {
+					category = "enemy_chatter",
+					text = "Disable the power!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_e04 = {
+					category = "enemy_chatter",
+					text = "Do what you can to slow them down!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_e05 = {
+					category = "enemy_dialogue",
+					text = "Drill disabled!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_e06 = {
+					category = "enemy_dialogue",
+					text = "Got their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l3d_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_h01 = {
+					category = "enemy_chatter",
+					text = "(Freed hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					duration = 3,
+					priority = 85
+				},
+				l3d_i01 = {
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
+				},
+				l3d_i02 = {
+					text = "attempting arrest",
+					category = "enemy_dialogue",
+					duration = 10,
+					priority = 55,
+					max_distance = 2000,
+					line_variations = {
+						standard_mode = {
+							"Hold still!",
+							"No sudden movements!",
+							"NO SUDDEN MOVEMENT.",
+							"Don't move a muscle!",
+							"DON'T MOVE A MUSCLE!",
+							"Don't even breathe!",
+							"No sudden moves!",
+							"NO SUDDEN MOVES!",
+							"STAY WHERE YOU ARE!",
+							"Don't even look at me!"
+						}
+					}
+				},
+				l3d_i03 = {
+					text = "(cuffed heister)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 55,
+					max_distance = 1500,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
+						}
+					}
+				},
+				l3d_l01 = {
+					text = "Recover the bags!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_lk3a = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l3d_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l3d_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_p01 = {
 					text = "They have hostages! We need to delay the assault!",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 3,
 					priority = 85
 				},
-
-				l3n_a06 = {
-					text = "[idle]",
-					category = "chatter",
-					disabled = true
+				l3d_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
 				},
-				l3n_a07a = {
-					text = "Huh?",
-					category = "enemy_chatter", --alerted?
+				l3d_p03 = {
+					text = "No hostages left, full force forward!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3d_pos = {
+					category = "enemy_chatter",
+					text = "In position!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_rdy = {
+					category = "enemy_chatter",
+					text = "Get ready!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3d_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
 					duration = 3,
 					priority = 85,
-					max_distance = 1500
-				},
-				l3n_civ = {
---					duration = 5,
-					text = "Rescue the hostages",
-					category = "enemy_chatter",
-					duration = 3,
-					priority = 84,
-					max_distance = 700,
+					max_distance = 1000,
 					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
 						standard_mode = {
-							"Get the civilians!",
-							"Get the canaries!",
-							"Get the hostages!",
-							"Get the civvies!"
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
 						}
 					}
+				},
+				l3d_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					max_distance = 1000
+				},
+				l3d_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				l3d_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+
+	--l3n (L - THREE - N)
+				l3n_a01 = {
+					text = "Gun! GUN!",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1500,
+					duration = 3
+				},
+				l3n_a02 = {
+					text = "Please stay back.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l3n_a03 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l3n_a05 = {
+					text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_dialogue for utility
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 6,
+					line_variations = {
+						standard_mode = {
+							"Two-Three here. Reporting in. All's clear over here. Out.",
+							"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
+							"Two-Three, reporting in. All is quiet on the western front. Out.",
+							"Feels like another boring evening.",
+							"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
+							"Seems like a good day for something to happen... right?",
+							"This is, uh, Two-Three reporting in. All clear. Over and out."
+						}
+					}
+				},
+				l3n_a06 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l3n_a07a = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"[gasp]",
+							"Wha...?"
+						}
+					}
+				},
+				l3n_a07b = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"What the heck...?",
+							"Who was that?",
+							"That's weird...",
+							"What on earth...?",
+							"What's going on here...?",
+							"That's strange...",
+							"What the hell...?"
+						}
+					}
+				},
+				l3n_a08 = {
+					text = "Intruder!",
+					category = "enemy_dialogue",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l3n_a09 = {
+					text = "Sound the alarm!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3
+				},
+				l3n_a10 = {
+					text = "Two-Four, reporting in. I've spotted a broken window. Shards of glass everywhere!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a broken window. Shards of glass everywhere!"
+								}
+							}
+						}
+					}
+				},
+				l3n_a11 = {
+					text = "Two-Four, reporting in. I've spotted a dead body here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a dead body here!"
+								}
+							}
+						}
+					}
+				},
+				l3n_a12 = {
+					text = "Two-Four, reporting in. I've spotted a dead officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a dead officer here!"
+								}
+							}
+						}
+					}
+				},
+				l3n_a13 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up civilian here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up civilian here!"
+								}
+							}
+						}
+					}
+				},
+				l3n_a14 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up officer here!"
+								}
+							}
+						}
+					}
+				},
+				l3n_a15 = {
+					text = "Two-Four, reporting in. We got a situation.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got a situation.",
+									"Something's up.",
+									"There's something going on here."
+								}
+							}
+						}
+					}
+				},
+				l3n_a16 = {
+					text = "Two-Four, reporting in. We got an officer signalling for help.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got an officer signalling for help."
+								}
+							}
+						}
+					}
+				},
+				l3n_a17 = {
+					text = "Two-Four, reporting in. There's a Security Door that shouldn't be open here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's a Security Door that shouldn't be open here."
+								}
+							}
+						}
+					}
+				},
+				l3n_a18 = {
+					text = "Two-Four, reporting in. Somebody set a fire over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody set a fire over here."
+								}
+							}
+						}
+					}
+				},
+				l3n_a19 = {
+					text = "Two-Four, reporting in. I've got a body bag over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've got a body bag over here."
+								}
+							}
+						}
+					}
+				},
+				l3n_a20 = {
+					text = "Two-Four, reporting in. I've spotted some kind of Sentry Gun here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some kind of Sentry Gun here."
+								}
+							}
+						}
+					}
+				},
+				l3n_a21 = {
+					text = "Two-Four, reporting in. I've spotted a Trip Mine here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a Trip Mine."
+								}
+							}
+						}
+					}
+				},
+				l3n_a22 = {
+					text = "Two-Four, reporting in. I've spotted a suspicious looking bag.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a suspicious looking bag."
+								}
+							}
+						}
+					}
+				},
+				l3n_a23 = {
+					text = "Two-Four, reporting in. There's signs of intruder here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's signs of intruder here."
+								}
+							}
+						}
+					}
+				},
+				l3n_a24 = {
+					text = "Two-Four, reporting in. Somebody's been messing with the computer here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody's been messing with the computer here."
+								}
+							}
+						}
+					}
+				},
+				l3n_a25 = {
+					text = "Two-Four, reporting in. I've spotted some heavy drilling equipment.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some heavy drilling equipment."
+								}
+							}
+						}
+					}
+				},
+				l3n_amm = {
+					text = "They've brought extra ammo with them!",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 4
+				},
+				l3n_att = {
+					category = "enemy_chatter",
+					text = "Weapons hot!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l3n_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
 				},
 				l3n_c01 = {
 					category = "enemy_chatter",
 					text = "Contact!",
-					max_distance = 700,
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l3n_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
 					duration = 3,
 					priority = 85
 				},
 				l3n_d01 = {
-					text = "Rescue the hostages",
 					category = "enemy_chatter",
-					duration = 3,
-					priority = 85,
-					max_distance = 700,
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
 					line_variations = {
 						standard_mode = {
-							"Deploy smoke!",
-							"Smoke 'em!",
-							"Smoke 'em out!",
-							"Smoke!"
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
 						}
 					}
 				},
+				l3n_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l3n_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
 				l3n_h01 = {
 					category = "enemy_chatter",
-					duration = 3,
-					text = "(Freeing hostage)",
+					text = "(Freed hostage)",
 					max_distance = 1000,
+					duration = 3,
 					priority = 85
 				},
 				l3n_hlp = {
@@ -12773,97 +16154,1319 @@ ClosedCaptions._sounds = {
 					duration = 3,
 					priority = 85
 				},
-				l3n_hr01 = {
-					text = "[hurt]",
-					category = "enemy_death",
-					max_distance = 1500,
-					duration = 3,
-					priority = 85
-				},
 				l3n_i01 = {
-					duration = 1,
-					text = "Freeze!",
-					category = "UNKNOWN",
-					max_distance = 1000,
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
 					duration = 3,
-					priority = 85
-				},
-				l3n_g90 = {
-					category = "enemy_chatter",
-					priority = 90,
-					text = "[tactical chatter]",
-				},
-				l3n_mov = {
-					text = "Move!",
-					category = "enemy_chatter",
-					max_distance = 1000,
-					duration = 3,
-					priority = 85
-				},
-				l3n_rdy = {
-					category = "enemy_chatter",
-					text = "Ready!",
-					max_distance = 1000,
-					duration = 3,
-					priority = 85
-				},
-				l3n_x01a_any_3p = {
-					text = "[pain]",
+					priority = 75,
 					max_distance = 1500,
-					duration = 3,
-					priority = 65,
-					category = "enemy_death"
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
 				},
-				l3n_x02a_any_3p = {
-					text = "[death]",
-					max_distance = 1500,
-					duration = 3,
-					priority = 65,
-					category = "enemy_death"
+				l3n_i02 = {
+					text = "attempting arrest",
+					category = "enemy_dialogue",
+					duration = 10,
+					priority = 55,
+					max_distance = 2000,
+					line_variations = {
+						standard_mode = {
+							"Hold still!",
+							"No sudden movements!",
+							"NO SUDDEN MOVEMENT.",
+							"Don't move a muscle!",
+							"DON'T MOVE A MUSCLE!",
+							"Don't even breathe!",
+							"No sudden moves!",
+							"NO SUDDEN MOVES!",
+							"STAY WHERE YOU ARE!",
+							"Don't even look at me!"
+						}
+					}
 				},
-
-				l4n_a07a = {
-					text = "Huh?",
-					category = "enemy_chatter",
-					duration = 3,
-					priority = 85,
-					max_distance = 1500
-				},
-				l4n_a01 = {
-					text = "(spotted heister)",
+				l3n_i03 = {
+					text = "(cuffed heister)",
 					category = "enemy_dialogue",
 					duration = 3,
 					priority = 55,
 					max_distance = 1500,
 					line_variations = {
+						recombinable = true,
 						standard_mode = {
-							"He's armed!",
-							"FREEZE!",
-							"STOP IT!",
-							"He's got a gun!",
-							"HOLD IT!",
-							"Gun! GUN!",
-							"He's got a weapon!",
-							"He has a gun!"
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
 						}
 					}
 				},
-				l4n_g90 = {
+				l3n_l01 = {
+					text = "Recover the bags!",
 					category = "enemy_chatter",
-					duration = 3,
-					priority = 85,
-					text = "[tactical chatter]"
-				},
-				l4n_h01 = {
-					category = "enemy_chatter",
-					text = "(Freeing hostage)",
 					max_distance = 1000,
 					duration = 3,
 					priority = 85
 				},
-				l4n_hr01 = {
+				l3n_lk3a = {
+					text = "(panicked chatter)",
 					category = "enemy_chatter",
-					text = "(hurt)",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l3n_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l3n_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_p01 = {
+					text = "They have hostages! We need to delay the assault!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_p03 = {
+					text = "No hostages left, full force forward!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l3n_pos = {
+					category = "enemy_chatter",
+					text = "In position!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_rdy = {
+					category = "enemy_chatter",
+					text = "Get ready!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l3n_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
+					duration = 3,
+					priority = 85,
+					max_distance = 1000,
+					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
+						}
+					}
+				},
+				l3n_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					max_distance = 1000
+				},
+				l3n_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				l3n_x01a_any_3p_02 = {
+					disabled = true
+				},
+				l3n_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+				l3n_x02a_any_3p_02 = {
+					disabled = true
+				},
+				
+				
+			--l4d (L - FOUR - D)
+				l4d_a08 = {
+					text = "Intruder!",
+					category = "enemy_dialogue",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l4d_att = {
+					category = "enemy_chatter",
+					text = "Weapons hot!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l4d_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l4d_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l4d_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_d01 = {
+					category = "enemy_chatter",
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
+				l4d_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_e01 = {
+					category = "enemy_chatter",
+					text = "Disable the Drill!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_e02 = {
+					category = "enemy_chatter",
+					text = "Disable their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_e03 = {
+					category = "enemy_chatter",
+					text = "Disable the power!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_e04 = {
+					category = "enemy_chatter",
+					text = "Do what you can to slow them down!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_e05 = {
+					category = "enemy_dialogue",
+					text = "Drill disabled!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_e06 = {
+					category = "enemy_dialogue",
+					text = "Got their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l4d_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_h01 = {
+					category = "enemy_chatter",
+					text = "(Freed hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					duration = 3,
+					priority = 85
+				},
+				l4d_i01 = {
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
+				},
+				l4d_i02 = {
+					text = "attempting arrest",
+					category = "enemy_dialogue",
+					duration = 10,
+					priority = 55,
+					max_distance = 2000,
+					line_variations = {
+						standard_mode = {
+							"Hold still!",
+							"No sudden movements!",
+							"NO SUDDEN MOVEMENT.",
+							"Don't move a muscle!",
+							"DON'T MOVE A MUSCLE!",
+							"Don't even breathe!",
+							"No sudden moves!",
+							"NO SUDDEN MOVES!",
+							"STAY WHERE YOU ARE!",
+							"Don't even look at me!"
+						}
+					}
+				},
+				l4d_i03 = {
+					text = "(cuffed heister)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 55,
+					max_distance = 1500,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
+						}
+					}
+				},
+				l4d_l01 = {
+					text = "Recover the bags!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_lk3a = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l4d_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l4d_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_p01 = {
+					text = "They have hostages! We need to delay the assault!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_p03 = {
+					text = "No hostages left, full force forward!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4d_pos = {
+					category = "enemy_chatter",
+					text = "In position!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_rdy = {
+					category = "enemy_chatter",
+					text = "Get ready!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4d_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
+					duration = 3,
+					priority = 85,
+					max_distance = 1000,
+					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
+						}
+					}
+				},
+				l4d_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					max_distance = 1000
+				},
+				l4d_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				l4d_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
+				},
+
+		--l4n (L - FOUR - N)
+				l4n_a01 = {
+					text = "Gun! GUN!",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1500,
+					duration = 3
+				},
+				l4n_a02 = {
+					text = "Please stay back.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l4n_a03 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l4n_a05 = {
+					text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_dialogue for utility
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 6,
+					line_variations = {
+						standard_mode = {
+							"Two-Three here. Reporting in. All's clear over here. Out.",
+							"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
+							"Two-Three, reporting in. All is quiet on the western front. Out.",
+							"Feels like another boring evening.",
+							"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
+							"Seems like a good day for something to happen... right?",
+							"This is, uh, Two-Three reporting in. All clear. Over and out."
+						}
+					}
+				},
+				l4n_a06 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l4n_a07a = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"[gasp]",
+							"Wha...?"
+						}
+					}
+				},
+				l4n_a07b = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"What the heck...?",
+							"Who was that?",
+							"That's weird...",
+							"What on earth...?",
+							"What's going on here...?",
+							"That's strange...",
+							"What the hell...?"
+						}
+					}
+				},
+				l4n_a08 = {
+					text = "Intruder!",
+					category = "enemy_dialogue",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l4n_a09 = {
+					text = "Sound the alarm!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3
+				},
+				l4n_a10 = {
+					text = "Two-Four, reporting in. I've spotted a broken window. Shards of glass everywhere!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a broken window. Shards of glass everywhere!"
+								}
+							}
+						}
+					}
+				},
+				l4n_a11 = {
+					text = "Two-Four, reporting in. I've spotted a dead body here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a dead body here!"
+								}
+							}
+						}
+					}
+				},
+				l4n_a12 = {
+					text = "Two-Four, reporting in. I've spotted a dead officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a dead officer here!"
+								}
+							}
+						}
+					}
+				},
+				l4n_a13 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up civilian here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up civilian here!"
+								}
+							}
+						}
+					}
+				},
+				l4n_a14 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up officer here!"
+								}
+							}
+						}
+					}
+				},
+				l4n_a15 = {
+					text = "Two-Four, reporting in. We got a situation.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got a situation.",
+									"Something's up.",
+									"There's something going on here."
+								}
+							}
+						}
+					}
+				},
+				l4n_a16 = {
+					text = "Two-Four, reporting in. We got an officer signalling for help.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got an officer signalling for help."
+								}
+							}
+						}
+					}
+				},
+				l4n_a17 = {
+					text = "Two-Four, reporting in. There's a Security Door that shouldn't be open here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's a Security Door that shouldn't be open here."
+								}
+							}
+						}
+					}
+				},
+				l4n_a18 = {
+					text = "Two-Four, reporting in. Somebody set a fire over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody set a fire over here."
+								}
+							}
+						}
+					}
+				},
+				l4n_a19 = {
+					text = "Two-Four, reporting in. I've got a body bag over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've got a body bag over here."
+								}
+							}
+						}
+					}
+				},
+				l4n_a20 = {
+					text = "Two-Four, reporting in. I've spotted some kind of Sentry Gun here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some kind of Sentry Gun here."
+								}
+							}
+						}
+					}
+				},
+				l4n_a21 = {
+					text = "Two-Four, reporting in. I've spotted a Trip Mine here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a Trip Mine."
+								}
+							}
+						}
+					}
+				},
+				l4n_a22 = {
+					text = "Two-Four, reporting in. I've spotted a suspicious looking bag.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a suspicious looking bag."
+								}
+							}
+						}
+					}
+				},
+				l4n_a23 = {
+					text = "Two-Four, reporting in. There's signs of intruder here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's signs of intruder here."
+								}
+							}
+						}
+					}
+				},
+				l4n_a24 = {
+					text = "Two-Four, reporting in. Somebody's been messing with the computer here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody's been messing with the computer here."
+								}
+							}
+						}
+					}
+				},
+				l4n_a25 = {
+					text = "Two-Four, reporting in. I've spotted some heavy drilling equipment.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some heavy drilling equipment."
+								}
+							}
+						}
+					}
+				},
+				l4n_amm = {
+					text = "They've brought extra ammo with them!",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 4
+				},
+				l4n_att = {
+					category = "enemy_chatter",
+					text = "Weapons hot!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4n_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l4n_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l4n_c01 = {
+					category = "enemy_chatter",
+					text = "Contact!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4n_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l4n_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_d01 = {
+					category = "enemy_chatter",
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
+				l4n_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l4n_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_h01 = {
+					category = "enemy_chatter",
+					text = "(Freed hostage)",
 					max_distance = 1000,
 					duration = 3,
 					priority = 85
@@ -12872,13 +17475,14 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					text = "HELP!",
 					max_distance = 700,
-					priority = 90
+					duration = 3,
+					priority = 85
 				},
 				l4n_i01 = {
 					text = "(spotted heister!)",
 					category = "enemy_dialogue",
 					duration = 3,
-					priority = 85,
+					priority = 75,
 					max_distance = 1500,
 					line_variations = {
 						standard_mode = {
@@ -12886,6 +17490,27 @@ ClosedCaptions._sounds = {
 							"Stop!",
 							"Hold it!",
 							"Freeze!"
+						}
+					}
+				},
+				l4n_i02 = {
+					text = "attempting arrest",
+					category = "enemy_dialogue",
+					duration = 10,
+					priority = 55,
+					max_distance = 2000,
+					line_variations = {
+						standard_mode = {
+							"Hold still!",
+							"No sudden movements!",
+							"NO SUDDEN MOVEMENT.",
+							"Don't move a muscle!",
+							"DON'T MOVE A MUSCLE!",
+							"Don't even breathe!",
+							"No sudden moves!",
+							"NO SUDDEN MOVES!",
+							"STAY WHERE YOU ARE!",
+							"Don't even look at me!"
 						}
 					}
 				},
@@ -12919,11 +17544,18 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				l4n_l01 = {
+					text = "Recover the bags!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
 				l4n_lk3a = {
 					text = "(panicked chatter)",
 					category = "enemy_chatter",
 					duration = 3,
-					priority = 55,
+					priority = 85,
 					max_distance = 1500,
 					line_variations = {
 						standard_mode = {
@@ -12933,8 +17565,50 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				l4n_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l4n_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
 				l4n_mov = {
 					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4n_p01 = {
+					text = "They have hostages! We need to delay the assault!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l4n_p03 = {
+					text = "No hostages left, full force forward!",
 					category = "enemy_chatter",
 					max_distance = 1000,
 					duration = 3,
@@ -12942,16 +17616,44 @@ ClosedCaptions._sounds = {
 				},
 				l4n_pos = {
 					category = "enemy_chatter",
-					text = "I'm in position.",
+					text = "In position!",
 					max_distance = 1000,
-					duration = 3,
+					duration = 2,
+					priority = 85
+				},
+				l4n_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4n_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l4n_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
 					priority = 85
 				},
 				l4n_rdy = {
 					category = "enemy_chatter",
-					text = "Ready!",
+					text = "Get ready!",
 					max_distance = 1000,
-					duration = 3,
+					duration = 2,
+					priority = 85
+				},
+				l4n_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
 					priority = 85
 				},
 				l4n_s01x = {
@@ -12972,21 +17674,837 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				l4n_x01a_any_3p = {
-					fallback_name = "(male)",
-					text = "[death]",
+				l4n_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
 					duration = 3,
+					max_distance = 1000
+				},
+				l4n_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
 					priority = 65,
-					category = "enemy_death"
+					duration = 3,
+					max_distance = 1000
+				},
+				l4n_x01a_any_3p_03 = {
+					disabled = true
 				},
 				l4n_x02a_any_3p = {
 					text = "[death]",
-					max_distance = 1500,
-					duration = 3,
+					category = "enemy_death",
 					priority = 65,
-					category = "enemy_death"
+					duration = 3,
+					max_distance = 1500
+				},
+				l4n_x02a_any_3p_03 = {
+					disabled = true
+				},
+			
+			--l5d (L - FIVE - D)
+				l5d_a08 = {
+					text = "Intruder!",
+					category = "enemy_dialogue",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l5d_bak = {
+					category = "enemy_chatter",
+					text = "Watch your backgrounds! Civilians on scene!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l5d_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				l5d_ch1 = {
+					category = "enemy_chatter",
+					text = "Watch out for trip mines!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_ch2 = {
+					category = "enemy_chatter",
+					text = "Watch out for the Sentry Gun!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_ch3 = {
+					category = "enemy_chatter",
+					text = "They have some kind of Jammer!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_ch4 = {
+					category = "enemy_chatter",
+					text = "That maniac has a fucking Saw!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_civ = {
+					category = "enemy_chatter",
+					text = "Get the hostages!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_clr = {
+					category = "enemy_chatter",
+					text = "Clear!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_cn1 = {
+					category = "enemy_dialogue",
+					text = "(converted to Joker)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 75
+				},
+				l5d_cr1 = {
+					category = "enemy_chatter",
+					text = "(freeing a Hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_d01 = {
+					category = "enemy_chatter",
+					text = "Deploy smoke.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84,
+					line_variations = {
+						standard_mode = {
+							"Smoke.",
+							"Deploy smoke.",
+							"Smoke 'em out.",
+							"Smoke 'em."
+						}
+					}
+				},
+				l5d_d02 = {
+					category = "enemy_dialogue",
+					text = "Throwing a Flashbang!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_e01 = {
+					category = "enemy_chatter",
+					text = "Disable the Drill!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_e02 = {
+					category = "enemy_chatter",
+					text = "Disable their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_e03 = {
+					category = "enemy_chatter",
+					text = "Disable the power!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_e04 = {
+					category = "enemy_chatter",
+					text = "Do what you can to slow them down!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_e05 = {
+					category = "enemy_dialogue",
+					text = "Drill disabled!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_e06 = {
+					category = "enemy_dialogue",
+					text = "Got their gear!",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					disabled = true
+				},
+				l5d_gr1a = {
+					category = "enemy_chatter",
+					text = "Rescue team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_gr1b = {
+					category = "enemy_chatter",
+					text = "Rescue team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_gr1c = {
+					category = "enemy_chatter",
+					text = "Rescue team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_gr1d = {
+					category = "enemy_chatter",
+					text = "Rescue team Delta going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_gr2a = {
+					category = "enemy_chatter",
+					text = "Assault team Alpha going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_gr2b = {
+					category = "enemy_chatter",
+					text = "Assault team Bravo going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_gr2c = {
+					category = "enemy_chatter",
+					text = "Assault team Charlie going in.",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_gr2d = {
+					category = "enemy_chatter",
+					text = "Assault team Delta going in",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_h10 = { --internal typo, evidently
+					category = "enemy_chatter",
+					text = "(Freed hostage)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_hlp = {
+					category = "enemy_chatter",
+					text = "HELP!",
+					max_distance = 700,
+					duration = 3,
+					priority = 85
+				},
+				l5d_i01 = {
+					text = "(spotted heister!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Stop it!",
+							"Stop!",
+							"Hold it!",
+							"Freeze!"
+						}
+					}
+				},
+				l5d_i02 = {
+					text = "attempting arrest",
+					category = "enemy_dialogue",
+					duration = 10,
+					priority = 55,
+					max_distance = 2000,
+					line_variations = {
+						standard_mode = {
+							"Hold still!",
+							"No sudden movements!",
+							"NO SUDDEN MOVEMENT.",
+							"Don't move a muscle!",
+							"DON'T MOVE A MUSCLE!",
+							"Don't even breathe!",
+							"No sudden moves!",
+							"NO SUDDEN MOVES!",
+							"STAY WHERE YOU ARE!",
+							"Don't even look at me!"
+						}
+					}
+				},
+				l5d_i03 = {
+					text = "(cuffed heister)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 55,
+					max_distance = 1500,
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"It's over...",
+								"You're done.",
+								"It's over, now...",
+								"This ends now...",
+								"You're done!"
+							},
+							{
+								"You piece of shit!",
+								"Scumbag!",
+								"You son of a bitch!"
+							},
+							{
+								"[mockingly] I hope you like prison food.",
+								"You're going away for a loooong time.",
+								"Get ready to do some hard time.",
+								"I hope you drop the soap... a lot."
+							}
+						}
+					}
+				},
+				l5d_l01 = {
+					text = "Recover the bags!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_lk3a = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ!",
+							"Fuckin' hell!",
+							"Christ almighty!"
+						}
+					}
+				},
+				l5d_lk3b = {
+					text = "(panicked chatter)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					max_distance = 1500,
+					line_variations = {
+						standard_mode = {
+							"Christ...",
+							"Fuckin' hell...",
+							"Jeez..."
+						}
+					}
+				},
+				l5d_m01 = {
+					text = "Cease fire, exit point!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_mov = {
+					text = "Move!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_p01 = {
+					text = "They have hostages! We need to delay the assault!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_p02 = {
+					text = "Get those hostages out! They're delaying our assaults!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_p03 = {
+					text = "No hostages left, full force forward!",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				l5d_pos = {
+					category = "enemy_chatter",
+					text = "In position!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_prm = {
+					category = "enemy_chatter",
+					text = "Stand by!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_pus = {
+					category = "enemy_chatter",
+					text = "Push!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_r01 = {
+					category = "enemy_chatter",
+					text = "Roger.",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_rdy = {
+					category = "enemy_chatter",
+					text = "Get ready!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_rrl = {
+					category = "enemy_chatter",
+					text = "He's reloading!",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				l5d_s01x = {
+					category = "enemy_dialogue",
+					text = "Okay, okay! Just don't shoot!",
+					duration = 3,
+					priority = 85,
+					max_distance = 1000,
+					line_variations = {
+						assault_mode = {
+							"Alright! Just don't shoot!",
+							"Okay, okay! Just don't shoot!"
+						},
+						standard_mode = {
+							"Okay, okay! Don't shoot!",
+							"Okay, just don't shoot!",
+							"Okay! Just- just don't shoot!"
+						}
+					}
+				},
+				l5d_t01 = {
+					text = "Looking for another way in.",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3,
+					max_distance = 1000
+				},
+				l5d_x01a_any_3p = {
+					text = "[pain]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3,
+					max_distance = 1000
+				},
+				l5d_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 3,
+					max_distance = 1500
 				},
 
+			--l5n (L - FIVE - N)
+				l5n_a01 = {
+					text = "Gun! GUN!",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1500,
+					duration = 3
+				},
+				l5n_a02 = {
+					text = "Please stay back.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l5n_a03 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l5n_a05 = {
+					text = "(talking casually with pager operator)", --can be idle chatter or reporting clear, so marked as enemy_dialogue for utility
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 6,
+					line_variations = {
+						standard_mode = {
+							"Two-Three here. Reporting in. All's clear over here. Out.",
+							"Two-Three here. Uh, reporting in. Everything's in order over here. Over and out.",
+							"Two-Three, reporting in. All is quiet on the western front. Out.",
+							"Feels like another boring evening.",
+							"Hey, what would happen if Pinocchio said, 'My nose will grow'?",
+							"Seems like a good day for something to happen... right?",
+							"This is, uh, Two-Three reporting in. All clear. Over and out."
+						}
+					}
+				},
+				l5n_a06 = {
+					text = "Sorry, this area is for personnel only.",
+					category = "enemy_chatter",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l5n_a08 = {
+					text = "Intruder!",
+					category = "enemy_dialogue",
+					priority = 85,
+					max_distance = 1000,
+					duration = 3
+				},
+				l5n_a09 = {
+					text = "Sound the alarm!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3
+				},
+				l5n_a13 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up civilian here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up civilian here!"
+								}
+							}
+						}
+					}
+				},
+				l5n_a14 = {
+					text = "Two-Four, reporting in. I've spotted a tied-up officer here!",
+					category = "enemy_dialogue",
+					priority = 65,
+					max_distance = 1000,
+					duration = 3,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a tied-up officer here!"
+								}
+							}
+						}
+					}
+				},
+				l5n_a15 = {
+					text = "Two-Four, reporting in. We got a situation.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got a situation.",
+									"Something's up.",
+									"There's something going on here."
+								}
+							}
+						}
+					}
+				},
+				l5n_a16 = {
+					text = "Two-Four, reporting in. We got an officer signalling for help.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"We got an officer signalling for help."
+								}
+							}
+						}
+					}
+				},
+				l5n_a17 = {
+					text = "Two-Four, reporting in. There's a Security Door that shouldn't be open here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's a Security Door that shouldn't be open here."
+								}
+							}
+						}
+					}
+				},
+				l5n_a18 = {
+					text = "Two-Four, reporting in. Somebody set a fire over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody set a fire over here."
+								}
+							}
+						}
+					}
+				},
+				l5n_a19 = {
+					text = "Two-Four, reporting in. I've got a body bag over here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've got a body bag over here."
+								}
+							}
+						}
+					}
+				},
+				l5n_a20 = {
+					text = "Two-Four, reporting in. I've spotted some kind of Sentry Gun here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some kind of Sentry Gun here."
+								}
+							}
+						}
+					}
+				},
+				l5n_a21 = {
+					text = "Two-Four, reporting in. I've spotted a Trip Mine here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a Trip Mine."
+								}
+							}
+						}
+					}
+				},
+				l5n_a22 = {
+					text = "Two-Four, reporting in. I've spotted a suspicious looking bag.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted a suspicious looking bag."
+								}
+							}
+						}
+					}
+				},
+				l5n_a23 = {
+					text = "Two-Four, reporting in. There's signs of intruder here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"There's signs of intruder here."
+								}
+							}
+						}
+					}
+				},
+				l5n_a24 = {
+					text = "Two-Four, reporting in. Somebody's been messing with the computer here.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"Somebody's been messing with the computer here."
+								}
+							}
+						}
+					}
+				},
+				l5n_a25 = {
+					text = "Two-Four, reporting in. I've spotted some heavy drilling equipment.",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4,
+					variants = {
+						line_variations = {
+							recombinable = true,
+							whisper_mode = {
+								{
+									"Two-Four here.",
+									"Two-Four, reporting in.",
+									"Two-Four over here. Reporting in.",
+									"This is, uh, Two-Four reporting in."
+								},
+								{
+									"I've spotted some heavy drilling equipment."
+								}
+							}
+						}
+					}
+				},
+				l5n_amm = {
+					text = "They've brought extra ammo with them!",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 4
+				},
+
+			--f11n (F - ONE - ONE - N) (unknown unit)
 				fl1n_a23 = {
 					category = "enemy_dialogue",
 					text = "Two-Two reporting in, there's signs of intruders here...",
@@ -13017,6 +18535,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_death"
 				},
 
+			--lt2 (L - T - TWO) (gangster)
 				lt2_c01 = {
 					max_distance = 1500,
 					duration = 3,
@@ -13052,16 +18571,782 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-
-				taser_charge = {
-					override_name = "SFX",
-					category = "sfx",
-					text = "(Taser charge)",
-					max_distance = 4000,
+	
+		--russian forces
+			--r1n (R - ONE - N)
+				r1n_a07a = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
 					duration = 3,
-					priority = 22
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"[gasp]",
+							"Wha...?"
+						}
+					}
 				},
-				tsr_elite = {
+				r1n_a23 = {
+					text = "(Signs of intruders!)",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4
+				},
+				r1n_burndeath = {
+					category = "enemy_death",
+					text = "[burns to death in Russian]", --because they recorded separate death lines for this and also because i can
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				r1n_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				r1n_c01 = {
+					category = "enemy_chatter",
+					text = "(Contact!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r1n_d01 = {
+					category = "enemy_chatter",
+					text = "(Smoke!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84
+				},
+				r1n_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3
+				},
+				r1n_h01 = {
+					category = "enemy_chatter",
+					text = "(Go! Run to safety!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r1n_hlp = {
+					category = "enemy_chatter",
+					text = "(Help!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r1n_i01 = {
+					text = "(Stop right there!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500
+				},
+				r1n_mov = {
+					text = "(Move!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				r1n_p01 = {
+					text = "(They have hostages! We need to delay the assault!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r1n_rdy = {
+					category = "enemy_chatter",
+					text = "(Get ready!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+
+			--r2n (R - TWO - N)
+				r2n_a07a = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"[gasp]",
+							"Wha...?"
+						}
+					}
+				},
+				r2n_a23 = {
+					text = "(Signs of intruders!)",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4
+				},
+				r2n_burndeath = {
+					category = "enemy_death",
+					text = "[burns to death in Russian]", --because they recorded separate death lines for this and also because i can
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				r2n_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				r2n_c01 = {
+					category = "enemy_chatter",
+					text = "(Contact!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r2n_d01 = {
+					category = "enemy_chatter",
+					text = "(Smoke!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84
+				},
+				r2n_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3
+				},
+				r2n_h01 = {
+					category = "enemy_chatter",
+					text = "(Go! Run to safety!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r2n_hlp = {
+					category = "enemy_chatter",
+					text = "(Help!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r2n_i01 = {
+					text = "(Stop right there!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500
+				},
+				r2n_mov = {
+					text = "(Move!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				r2n_p01 = {
+					text = "(They have hostages! We need to delay the assault!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r2n_rdy = {
+					category = "enemy_chatter",
+					text = "(Get ready!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+
+			--r3n (R - THREE - N)
+				r3n_a07a = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"[gasp]",
+							"Wha...?"
+						}
+					}
+				},
+				r3n_a23 = {
+					text = "(Signs of intruders!)",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4
+				},
+				r3n_burndeath = {
+					category = "enemy_death",
+					text = "[burns to death in Russian]", --because they recorded separate death lines for this and also because i can
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				r3n_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				r3n_c01 = {
+					category = "enemy_chatter",
+					text = "(Contact!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r3n_d01 = {
+					category = "enemy_chatter",
+					text = "(Smoke!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84
+				},
+				r3n_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3
+				},
+				r3n_h01 = {
+					category = "enemy_chatter",
+					text = "(Go! Run to safety!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r3n_hlp = {
+					category = "enemy_chatter",
+					text = "(Help!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r3n_i01 = {
+					text = "(Stop right there!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500
+				},
+				r3n_mov = {
+					text = "(Move!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				r3n_p01 = {
+					text = "(They have hostages! We need to delay the assault!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r3n_rdy = {
+					category = "enemy_chatter",
+					text = "(Get ready!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+
+			--r4n (R - FOUR - N)
+				r4n_a07a = {
+					text = "(spotted suspicious object)",
+					category = "enemy_dialogue",
+					priority = 55,
+					max_distance = 2000,
+					duration = 3,
+					line_variations = {
+						standard_mode = {
+							"Huh?",
+							"[gasp]",
+							"Wha...?"
+						}
+					}
+				},
+				r4n_a23 = {
+					text = "(Signs of intruders!)",
+					category = "enemy_dialogue",
+					priority = 55,
+					duration = 4
+				},
+				r4n_burndeath = {
+					category = "enemy_death",
+					text = "[burns to death in Russian]", --because they recorded separate death lines for this and also because i can
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				r4n_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 5,
+					priority = 65
+				},
+				r4n_c01 = {
+					category = "enemy_chatter",
+					text = "(Contact!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r4n_d01 = {
+					category = "enemy_chatter",
+					text = "(Smoke!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 84
+				},
+				r4n_g90 = {
+					text = "[chatter]",
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3
+				},
+				r4n_h01 = {
+					category = "enemy_chatter",
+					text = "(Go! Run to safety!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r4n_hlp = {
+					category = "enemy_chatter",
+					text = "(Help!)",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r4n_i01 = {
+					text = "(Stop right there!)",
+					category = "enemy_dialogue",
+					duration = 3,
+					priority = 75,
+					max_distance = 1500
+				},
+				r4n_mov = {
+					text = "(Move!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				r4n_p01 = {
+					text = "(They have hostages! We need to delay the assault!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				r4n_rdy = {
+					category = "enemy_chatter",
+					text = "(Get ready!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+
+			--rbdz (russian bulldozer)
+				rbdz_entrance = {
+					text = "(Bulldozer spawned)",
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter",
+					max_distance = 4000,
+					line_variations = {
+						standard_mode = {
+							"WHO WANTS A PIECE OF ME?",
+							"GONNA BREAK SOME SHIT!",
+							"GONNA DROP ON THESE CRIMINALS LIKE A FUCKING PIANO!",
+							"GET. OUT. OF. THE. WAY!",
+							"DOZER'S HERE, AND READY FOR ACTION!",
+							"CLOBBERIN' TIME!",
+							"MAKE WAY FOR THE BULLDOZER!",
+							"STAND BACK!",
+							"OKAY, I'M HERE... WHO WANTS TO DIE?!"
+						},
+						assault_mode = {
+							"BULLDOZER! GET OUT OF THE WAY!",
+							"BULLDOZER! MOVE ASIDE!",
+							"BULLDOZER! MAKE WAY!",
+							"BULLDOZER GOIN' IN!",
+							"BULLDOZER TIME!",
+							"SHOW ME WHERE THEY ARE!",
+							"BULLDOZER, COMING THROUGH!",
+							"BULLDOZER IN THE HOUSE!",
+							"DOZER IN THE HOUSE!",
+							"DOZER! MOVE ASIDE!",
+							"DOZER! STAND BACK!",
+							"DOZER! STAY BACK!",
+							"DOZER! GET OUT OF THE WAY!",
+							"STAY BACK!",
+							"STAND BACK!",
+							"GOING TO WORK!",
+							"GIVE ME SOME TIME TO WORK!", --unsure
+							"ALRIGHT, WHERE ARE THEY?!",
+							"ALRIGHT! WATCH... AND LEARN!",
+							"ASS-KICKIN' TIME!",
+							"MAKE WAY FOR THE DOZER!",
+							"MAKE WAY FOR THE BULLDOZER!",
+							"MOVE ASIDE! I GOT THIS!",
+							"TIME FOR SOME PAYBACK!",
+							"WHO WANTS A PIECE OF ME?!",
+							"WHERE ARE YOU?!",
+							"MOVE ASIDE!",
+							"I GOT THIS!",
+							"COME ON OUT WHEREVER YOU ARE!",
+							"SHOW ME WHERE THEY ARE!",
+							"OKAY, I'M HERE! WHO WANTS TO DIE?!"
+						}
+					}
+				},
+				rbdz_entrance_elite = {
+					text = "(Elite Bulldozer spawned)",
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter",
+					max_distance = 4000,
+					line_variations = {
+						standard_mode = {
+							"ELITE BULLDOZER TIME!",
+							"ELITE DOZER, COMING THROUGH!",
+							"ELITE DOZER! STAND BACK!",
+							"ELITE DOZER! STAY BACK!",
+							"ELITES! FORWARD!",
+							"MAKE WAY FOR THE ELITE DOZER!",
+							"ARE YOU SURE YOU CAN HANDLE THE ELITES?",
+							"ELITE BULLDOZER! STAY BACK!",
+							"ELITE BULLDOZER! MAKE WAY!",
+							"ELITE DOZER! MOVE ASIDE!",
+							"ELITE BULLDOZER COMING THROUGH!",
+							"YOU'RE DEALING WITH THE ELITES NOW, SUCKERS!",
+							"ELITE DOZER IN THE HOUSE!",
+							"ELITE BULLDOZER! GET OUT OF THE WAY!"
+						}
+					}
+				},
+				rbdz_g90 = {
+					text = "(Bulldozer taunt)",
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"ALRIGHT! HERE, AND READY TO KICK ASS!",
+							"ALRIGHT, WHERE ARE THEY?!",
+							"BACK THE FUCK UP!",
+							"BRINGING... THE PAIN!",
+							"BULLDOZER IN THE HOUSE!",
+							"BRINGING SOME HURT!",
+							"BULLDOZER COMING THROUGH!",
+							"BULLDOZER GOIN' IN!",
+							"BULLDOZER! MAKE WAY!",
+							"BULLDOZER! STAY BACK!",
+							"COMING THROUGH!",
+							"CAN'T STOP ME!",
+							"'CAREER CRIMINALS,' MY ASS!",
+							"COME ON OUT... WHEREVER YOU ARE!",
+							"DEATH PENALTY IN THREE... TWO... ONE!",
+							"DO YOU EVEN KNOW... HOW FUCKED YOU ARE?!",
+							"DO YOUR WORST!",
+							"DON'T KILL YOURSELF OR ANYTHING- THAT HONOR'S MINE!",
+							"DON'T YOU THINK YOU SHOULD LEAVE?! NOW?!",
+							"DON'T! MESS! WITH ME!",
+							"DOZER! MAKE WAY!",
+							"DOZER IN THE HOUSE!",
+							"DOZER'S HERE AND READY FOR ACTION!",
+							"ENGAGING TARGET!",
+							"EYES ON TARGET!",
+							"FIND SOMEWHERE GOOD TO HIDE!",
+							"FUCKING AMATEURS!",
+							"GET READY!",
+							"GIMME SOME ROOM TO WORK!",
+							"GIVE UP!",
+							"GIVE UP... AND MAYBE I WON'T STOP A MUDHOLE IN YOUR ASS!",
+							"GONNA BREAK SOME SHIT!",
+							"GONNA DROP A BUILDING ON 'EM!",
+							"GONNA SEND YOU TO HELL!",
+							"GONNA SHOW YOU THE LIGHT AT THE END OF THE TUNNEL!",
+							"GOT EYES ON TARGET!",
+							"HAHA, SUCKERS!",
+							"HERE TO END THIS!",
+							"HERE COMES SOME FUCKING HURT!",
+							"HIDE WHILE YOU CAN!",
+							"HOW DO YOU THINK THIS IS GONNA END?!",
+							"I BRING THE PAIN!",
+							"I CAN'T WAIT TO GET MY HANDS ON YOU!",
+							"I HEAR YOU!",
+							"I GIVE THIS GUY FIVE SECONDS!",
+							"I'VE GOT 'EM!",
+							"I GOT THIS ONE!",
+							"I GOT THIS!",
+							"I'LL DEAL WITH THIS ONE!",
+							"I'LL TAKE THIS ONE!",
+							"I'LL TAKE CARE OF THIS ONE MYSELF!",
+							"I'LL TAKE THIS ONE ALL ON MY OWN!",
+							"I'LL PICK THESE SUCKERS APART!",
+							"I'M THEIR PROBLEM NOW!",
+							"I'M UNSTOPPABLE!",
+							"I'MMA KICK YOUR ASS!",
+							"JUST A MATTER OF TIME!",
+							"JUST WAIT 'TIL I FIND YOU!",
+							"KISS YOUR ASS GOODBYE!",
+							"LET'S FINISH THIS!",
+							"LET'S SEE WHAT YOU GOT!",
+							"MAKE WAY FOR THE BULLDOZER!",
+							"MAKE WAY FOR THE DOZER!",
+							"MAKE WAY!",
+							"MOVE ASIDE!",
+							"MOVE ASIDE, I GOT THIS!",
+							"NEXT BULLET'S GOT YOUR NAME ON IT!",
+							"NOW YOU GOT MY ATTENTION... BIG MISTAKE!",
+							"OH, I SEE 'EM NOW!",
+							"OH, HE'S GONNA PAY!",
+							"OKAY, I'M HERE! WHO WANTS TO DIE?!",
+							"PICK 'EM, LAY 'EM DOWN!",
+							"PLEASE... STAY ALIVE A LITTLE BIT LONGER... SO I CAN KILL YOU MYSELF!",
+							"SHOOT 'EM UP!",
+							"SHOW ME WHERE THEY ARE!",
+							"SHOW ME WHAT YOU GOT!",
+							"STAY BACK!",
+							"STAND BACK!",
+							"TANGO AHEAD!",
+							"TANGO IN SIGHT!",
+							"TANGO SPOTTED!",
+							"TARGET AHEAD!",
+							"THAT'S ALL YOU GOT?!",
+							"THAT'S IT!",
+							"THEY'RE STILL ALIVE!",
+							"THIS GUY'S NO MATCH!",
+							"THIS ONE BELONGS TO ME!",
+							"THIS ONE'S MINE!",
+							"THIS WON'T TAKE LONG!",
+							"THIS... WON'T END WELL... FOR YOU!",
+							"TIME FOR SOME PAYBACK!",
+							"TIME TO SEND YOU TO HELL!",
+							"TOTAL ANNIHILATION IN THREE... TWO... ONE!",
+							"WANNA BANG HEADS?!",
+							"WATCH ME CRUSH THIS GUY!",
+							"WHAT'S THIS, AMATEUR HOUR?!",
+							"WHO WANTS A PIECE OF ME?!",
+							"WON'T BE LONG NOW!",
+							"WORLD OF HURT, COMING UP!",
+							"YOU ARE SO FUCKED!",
+							"YOU CAN STILL GIVE UP... BITCH!",
+							"YOU GOT NO CHANCE!",
+							"YOU FUCKED UP, BIG TIME!",
+							"YOU MADE A VERY BAD MISTAKE!",
+							"YOU MADE A BAD CALL!",
+							"YOU SHOULD'VE GIVEN UP BACK THERE!",
+							"YOU STEPPED IN IT!",
+							"YOU THINK YOU'RE BAD? YOU'RE NOTHIN'!",
+							"YOU WON'T STOP ME!",
+							"YOU'RE DEAD!",
+							"YOU'RE GONNA PAY!",
+							"YOU'RE GONNA WISH YOU'D STAYED HOME!",
+							"YOU'RE IN DEEP SHIT, NOW!",
+							"YOU'RE NO MATCH FOR ME!",
+							"YOU'RE NOTHING TO ME!",
+							"YOU'RE UP AGAINST THE WALL, AND I AM THE FUCKING WALL!"
+						}
+					}
+				},
+				rbdz_post_kill_taunt = {
+					text = "IT ALWAYS ENDS THE SAME!",
+					max_distance = 1500,
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 65
+				},
+				rbdz_visor_lost = {
+					text = "[lost visor]",
+					priority = 85,
+					duration = 5,
+					max_distance = 4000,
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"MY DAMN VISOR!",
+							"FUCK!",
+							"MY VISOR!",
+							"FUCKING HELL!",
+							"I'M SCREWED!",
+							"OH, SHIT!",
+							"SHIT JUST GOT REAL!",
+							"UH-OH!",
+							"THAT DAMN VISOR!",
+							"IMPRESSIVE... BUT FUTILE!",
+							"TOO LITTLE... TOO LATE!",
+							"HOLY SHIT!",
+							"AW, FUCK!",
+							"HAH! LIKE THAT WOULD STOP ME!",
+							"I'LL PUT YOU DOWN, WITH OR WITHOUT MY VISOR!",
+							"I'LL CRUSH YOU, WITH OR WITHOUT MY VISOR!",
+							"I'LL FUCK YOU UP, VISOR OR NO VISOR!",
+							"I'LL KICK YOUR ASS, VISOR OR NO VISOR!",
+							"THAT WON'T STOP ME!"
+						}
+					}
+				},
+
+			--rckl (russian cloaker)
+				rclk_burnhurt = {
+					text = "[fire hurt]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3
+				},
+				rclk_burndeath = {
+					text = "[fire death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 5					
+				},
+				rclk_c01x_plu = {
+					text = "(Cloaker whoosh!)",
+					category = "sfx",
+					override_name = "SFX",
+					override_source_id = true,
+					max_distance = 700,
+					duration = 2,
+					priority = 85
+				},
+				rclk_m01x_plu = { --! todo
+					text = "???",
+					category = "sfx",
+					override_name = "SFX",
+					override_source_id = true,
+					max_distance = 700,
+					duration = 2,
+					priority = 85
+				},
+				rcloaker_taunt_during_assault = {
+					text = "(Cloaker taunt)",
+					category = "enemy_chatter",
+					duration = 5,
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"Alright, the safeword is 'police brutality.",
+							"I got your DLC right here!",
+							"Speak up! Can't hear you!",
+							"Sometimes, wishes do come true!",
+							"We call this a 'difficulty tweak!'",
+							"Next time, check your corners!",
+							"THIS is the point of no return!",
+							"Didn't forget about me, did you?!",
+							"You call this 'putting up a fight?!'",
+							"I know, I know... I'm late.",
+							"You asked for it! Really!",
+							"You wanted me back, SO I'M BACK!",
+							"Listen here, I've got this drum solo I've been working on!",
+							"Miss me, didn't you?",
+							"You call this 'resisting arrest?!'",
+							"Ooh, that one's gonna hurt!",
+							"Work smarter, not harder!",
+							"I'm gonna beat the cellulites outta you!",
+							"Stop hitting yourself, stop hitting yourself!",
+							"I guess you're not as good as you thought!",
+							"I'm gonna turn you inside-out!",
+							"Better late than never!",
+							"Not so tough now, huh?",
+							"Try a little harder!",
+							"Who's the clown now?!",
+							"This might sting a little!"
+						}
+					}
+				},
+				rcloaker_taunt_after_assault = {
+					text = "(Cloaker taunt)",
+					category = "enemy_chatter",
+					duration = 5,
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"I bet you let yourself get beat up, just to hear what I have to say!",
+							"We gotta do this more often.",
+							"We gotta stop meeting like this, you know.", --WELL WHICH IS IT, CLOAKER
+							"Not as tough as they told me!",
+							"You got what was coming for ya!",
+							"Now cry for mom to change your diapers!",
+							"Wow, that was a nice workout. I think I'll have a protein drink and hit the shower.",
+							"What's left if you beat the shit out of a piece of shit?!",
+							"I expected better!",
+							"You wear that shit in your pants proudly, like a badge of honor!",
+							"Now, you can come back for more, any time you want!"
+						}
+					}
+				},
+				rclk_x01a_any_3p = {
+					text = "[hurt]",
+					category = "enemy_death",
+					max_distance = 1500,
+					duration = 2,
+					priority = 65
+				},
+				rclk_x02a_any_3p = {
+					text = "[death]",
+					category = "enemy_death",
+					max_distance = 1500,
+					duration = 2,
+					priority = 65
+				},
+				rclk_mov = {
+					text = "(Move!)",
+					category = "enemy_chatter",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				rclk_rdy = {
+					category = "enemy_chatter",
+					text = "(Get ready!)",
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				
+				
+			--rtsr (russian taser)
+				rtsr_burnhurt = {
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter"
+				},
+				rtsr_burndeath = {
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 2,
+					priority = 65,
+					category = "enemy_death"
+				},
+				rtsr_c01 = {
+					text = "Perp spotted!",
+					max_distance = 1500,
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter"
+				},
+				rtsr_elite = {
 					text = "(Elite Taser Entrance)",
 					max_distance = 2000,
 					duration = 3,
@@ -13080,7 +19365,7 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				tsr_entrance = {
+				rtsr_entrance = {
 					text = "(Taser entrance)",
 					category = "enemy_chatter",
 					max_distance = 4000,
@@ -13111,7 +19396,7 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				tsr_g90 = {
+				rtsr_g90 = {
 					text = "(Taser taunt)",
 					category = "enemy_chatter",
 					duration = 3,
@@ -13178,180 +19463,60 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				tsr_hr01 = {
-					text = "[hurt]",
-					category = "enemy_death",
+				rtsr_m01 = { --! todo
+					text = "???",
 					max_distance = 1500,
 					duration = 3,
-					priority = 65
+					priority = 85,
+					category = "enemy_chatter"
 				},
-				tsr_post_tasing_taunt = {
+				rtsr_mov = {
+					text = "(Move!)",
+					max_distance = 1500,
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter"
+				},
+				rtsr_post_tasing_taunt = {
 					text = "(tasing taunt)",
 					category = "enemy_chatter",
 					max_distance = 4000,
 					duration = 3,
 					priority = 85
 				},
-				tsr_tasered = {
+				rtsr_tasered = {
 					text = "(taser feedback gibberish)",
-					category = "enemy_death",
+					category = "enemy_chatter",
 					max_distance = 1500,
 					duration = 3,
 					priority = 85,
 				},
-				tsr_x01a_any_3p = {
+				rtsr_x01a_any_3p = {
 					text = "[pain]",
 					max_distance = 1500,
 					duration = 3,
-					priority = 65,
+					priority = 85,
 					category = "enemy_chatter"
 				},
-				tsr_x02a_any_3p = {
+				rtsr_x02a_any_3p = {
 					text = "[death]",
 					max_distance = 1500,
 					duration = 2,
-					priority = 85,
+					priority = 65,
 					category = "enemy_death"
 				},
 
-				mdc_g90 = {
-					text = "(Medic taunt)",
+	--special units
+			--bdz (bulldozer)
+				bdz_c01 = {
+					text = "(Bulldozer spots player!)",
 					category = "enemy_chatter",
-					max_distance = 2000,
-					duration = 3,
-					priority = 85,
 					line_variations = {
 						standard_mode = {
-							"Don't let them escape!",
-							"Go! Go!",
-							"Get 'em!",
-							"Cops ALWAYS win!",
-							"They won't know what hit 'em!",
-							"Fight the law... the law wins!",
-							"Keep your heads down!",
-							"C'mon, we're winning!",
-							"We got 'em now!",
-							"Advance! We have 'em cornered!",
-							"End of the line for these crooks!",
-							"Take 'em down!",
-							"Let's waste 'em!",
-							"Don't let them get away!",
-							"Don't let them escape!",
-							"These guys are fucked!",
-							"Stay patient, and we'll take them!",
-							"What goes around, comes around!",
-							"No fear! Let's take 'em out!",
-							"C'mon, c'mon!",
-							"I got your back, guys!",
-							"These assholes are goin' down!",
-							"Eliminate hostiles!",
-							"Try to surround them!",
-							"See you in the prison medical ward!",
-							"Backup, BACKUP!",
-							"Are you sure you want to do this?",
-							"They have no chance!",
-							"Get 'em! GET 'EM!",
-							"Make 'em regret getting up this morning!",
-							"Watch it!"
+							"I'LL TAKE THIS ALL BY MYSELF!"
 						}
 					}
 				},
-				mdc_heal = {
-					text = "(healed cop)",
-					duration = 3,
-					priority = 85,
-					category = "enemy_dialogue",
-					line_variations = {
-						standard_mode = {
-							"Almost out of painkillers!",
-							"At em again, buddy!",
-							"Choose life, then bring death!",
-							"Don't eat so much lead!",
-							"Don't eat so much lead...",
-							"Don't get mad, get even.",
-							"Don't thank me, just get up!",
-							"Easy, now, be still.",
-							"Glad you brought a Medic?",
-							"Gonna sew this up.",
-							"I hope I don't get shot here.",
-							"I'll get you back in action.",
-							"I'll patch you up.",
-							"I'll patch you up for now.",
-							"It missed your heart by inches!",
-							"It's just a flesh wound!",
-							"It's not pretty, man.",
-							"It's okay, it's okay!",
-							"Just breathe calmly.",
-							"Keep calm, I got you.",
-							"Learn to duck, maybe?",
-							"Let's get you fixed.",
-							"No pain, no gain.",
-							"No, you're not gonna die...",
-							"Nope, ain't got morphine.",
-							"Now don't get shot again!",
-							"Now you can hold a gun again.",
-							"Now do the same to them.",
-							"Retiring yet? No?",
-							"Scars just add character!",
-							"Sorry, outta morphine.",
-							"Stay calm, I've seen worse.",
-							"Take two of these!",
-							"Take two of these, and call me in the morning!",
-							"They can't kill you, buddy!",
-							"This is nothing! You'll be fine.",
-							"This might hurt.",
-							"Welcome to my clinic!",
-							"Woah, they shot you THERE?!",
-							"You were lucky, this time.",
-							"You'll be fine!",
-							"You'll be fine, buddy!",
-							"You'll be fine, here!",
-							"You'll owe me a beer.",
-							"You're lucky to be alive!",
-							"You're not dead yet.",
-							"[sardonic] Next time, shoot them first."
-						}
-					},
-					max_distance = 4000,
-					priority = 50
-				},
-				mdc_x02a_any_3p = {
-					text = "[death]",
-					duration = 3,
-					priority = 85,
-					max_distance = 1500,
-					category = "enemy_death"
-				},
-				mdc_hr01 = {
-					category = "enemy_chatter",
-					text = "[hurt]",
-					max_distance = 1000,
-					duration = 3,
-					priority = 65
-				},
-				mdc_x01a_any_3p = {
-					category = "enemy_chatter",
-					text = "[pain]",
-					max_distance = 1000,
-					duration = 3,
-					priority = 65
-				},
-		
-				shd_x02a_any_3p_01 = {
-					text = "[Shield death]",
-					max_distance = 1500,
-					category = "enemy_death",
-					duration = 3,
-					priority = 65
-				},
-				shield_identification = {
-					text = "(Shield clanking)",
-					category = "enemy_chatter",
-					max_distance = 4000,
-					duration = 2,
-					priority = 65
-				},
-
 				bdz_entrance = {
 					text = "(Bulldozer spawned)",
 					duration = 3,
@@ -13402,6 +19567,31 @@ ClosedCaptions._sounds = {
 							"COME ON OUT WHEREVER YOU ARE!",
 							"SHOW ME WHERE THEY ARE!",
 							"OKAY, I'M HERE! WHO WANTS TO DIE?!"
+						}
+					}
+				},
+				bdz_entrance_elite = {
+					text = "(Elite Bulldozer spawned)",
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter",
+					max_distance = 4000,
+					line_variations = {
+						standard_mode = {
+							"ELITE BULLDOZER TIME!",
+							"ELITE DOZER, COMING THROUGH!",
+							"ELITE DOZER! STAND BACK!",
+							"ELITE DOZER! STAY BACK!",
+							"ELITES! FORWARD!",
+							"MAKE WAY FOR THE ELITE DOZER!",
+							"ARE YOU SURE YOU CAN HANDLE THE ELITES?",
+							"ELITE BULLDOZER! STAY BACK!",
+							"ELITE BULLDOZER! MAKE WAY!",
+							"ELITE DOZER! MOVE ASIDE!",
+							"ELITE BULLDOZER COMING THROUGH!",
+							"YOU'RE DEALING WITH THE ELITES NOW, SUCKERS!",
+							"ELITE DOZER IN THE HOUSE!",
+							"ELITE BULLDOZER! GET OUT OF THE WAY!"
 						}
 					}
 				},
@@ -13529,10 +19719,10 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				bdz_x02a_any_3p = {
-					text = "[Bulldozer death]",
+				bdz_post_kill_taunt = {
+					text = "IT ALWAYS ENDS THE SAME!",
 					max_distance = 1500,
-					category = "enemy_death",
+					category = "enemy_chatter",
 					duration = 3,
 					priority = 65
 				},
@@ -13566,12 +19756,125 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-
-				cloaker_spawn = {
-					text = "[Cloaker spawned]",
+				bdz_x01a_any_3p = {
+					text = "[pain]",
+					max_distance = 1500,
 					category = "enemy_chatter",
+					duration = 3,
+					priority = 65
+				},
+				bdz_x02a_any_3p = {
+					text = "[death]",
+					max_distance = 1500,
+					category = "enemy_death",
+					duration = 3,
+					priority = 65
+				},
+
+
+			--clk (cloaker)
+				clk_c01x_plu = {
+					text = "(Cloaker whoosh!)",
+					category = "sfx",
+					override_name = "SFX",
+					override_source_id = true,
+					max_distance = 700,
 					duration = 2,
 					priority = 85
+				},
+				clk_baton_enter = {
+					text = "(Cloaker baton)",
+					category = "sfx",
+					override_name = "SFX",
+					override_source_id = true,
+					max_distance = 1000,
+					disabled = true,
+					duration = 2,
+					priority = 85
+				},
+				clk_baton_swing = {
+					text = "(Cloaker swings baton)",
+					category = "sfx",
+					override_name = "SFX",
+					override_source_id = true,
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				clk_crawl_in = {
+					text = "(Cloaker crawls in)",
+					category = "sfx",
+					override_name = "SFX",
+					override_source_id = true,
+					max_distance = 700,
+					duration = 2,
+					priority = 85
+				},
+				clk_crawl_out = {
+					text = "(Cloaker crawls out)",
+					category = "sfx",
+					override_name = "SFX",
+					disabled = true,
+					override_source_id = true,
+					max_distance = 700,
+					duration = 2,
+					priority = 85
+				},
+				clk_grab_baton = {
+					text = "(Cloaker grabs baton)",
+					category = "sfx",
+					override_name = "SFX",
+					disabled = true,
+					override_source_id = true,
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				clk_jump = {
+					text = "(Cloaker jumps)",
+					category = "sfx",
+					override_name = "SFX",
+					override_source_id = true,
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				clk_kick_impact = {
+					text = "(Cloaker kick impact!)",
+					category = "sfx",
+					override_name = "SFX",
+					override_source_id = true,
+					max_distance = 1000,
+					duration = 2,
+					priority = 85
+				},
+				clk_punch_3p = {
+					text = "(Cloaker punch!)",
+					max_distance = 1500,
+					duration = 3,
+					category = "enemy_dialogue",
+					priority = 21
+				},
+				clk_punch_3rd_person_3p = {
+					text = "(Cloaker dropkick!)",
+					max_distance = 1500,
+					duration = 3,
+					category = "enemy_dialogue",
+					priority = 21
+				},
+				clk_roundkick = {
+					text = "(Cloaker roundhouse kick!)",
+					max_distance = 1500,
+					duration = 3,
+					category = "enemy_dialogue",
+					priority = 21
+				},
+				clk_turn = {
+					text = "(Cloaker turn!)",
+					max_distance = 1500,
+					duration = 3,
+					category = "enemy_dialogue",
+					priority = 21
 				},
 				cloaker_taunt_during_assault = {
 					text = "(Cloaker taunt)",
@@ -13630,26 +19933,6 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-				rcloaker_taunt_during_assault = { --russian cloaker
-					text = "(Cloaker taunt)",
-					category = "enemy_chatter",
-					duration = 5,
-					priority = 85
-				},
-				rcloaker_taunt_after_assault = {  --russian cloaker
-					text = "(Cloaker taunt)",
-					category = "enemy_chatter",
-					duration = 3,
-					priority = 85
-				},
-				clk_c01x_plu = {
-					text = "(Cloaker lunge!)",
-					category = "sfx",
-					override_name = "SFX",
-					override_source_id = true,
-					duration = 2,
-					priority = 85
-				},
 				clk_x02a_any_3p = {
 					text = "[death]",
 					category = "enemy_death",
@@ -13657,18 +19940,23 @@ ClosedCaptions._sounds = {
 					duration = 2,
 					priority = 65
 				},
-				cloaker_detect_christmas_mono = {
-					text = "(FESTIVE CLOAKER CHARGE!)",
-					priority = 21,
-					duration = 7,
-					category = "enemy_chatter"
+				clk_burnhurt = {
+					text = "[fire hurt]",
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3
 				},
-				cloaker_detect_christmas_stop = {
---					text = "(Festive Cloaker charge stops)",
---					duration = 2,
-					category = "stops",
-					remove_by_source = true,
-					stops_line = "cloaker_detect_christmas_mono"
+				clk_burndeath = {
+					text = "[fire death]",
+					category = "enemy_death",
+					priority = 65,
+					duration = 5					
+				},
+				cloaker_spawn = {
+					text = "[Cloaker spawned]",
+					category = "enemy_chatter",
+					duration = 2,
+					priority = 85
 				},
 				cloaker_detect_mono = {
 					text = "(CLOAKER CHARGE!)", --wololololo
@@ -13684,13 +19972,26 @@ ClosedCaptions._sounds = {
 					stops_line = "cloaker_detect_mono",
 					remove_by_source = true
 				},
-				cloaker_presence_loop = { --needs max distance
+				cloaker_detect_christmas_mono = {
+					text = "(FESTIVE CLOAKER CHARGE!)",
+					priority = 21,
+					duration = 7,
+					category = "enemy_chatter"
+				},
+				cloaker_detect_christmas_stop = {
+--					text = "(Festive Cloaker charge stops)",
+--					duration = 2,
+					category = "stops",
+					remove_by_source = true,
+					stops_line = "cloaker_detect_christmas_mono"
+				},
+				cloaker_presence_loop = {
 					text = "(Cloaker idle)",
 					priority = 21,
 					max_distance = 1500,
 					category = "enemy_chatter",
 					loop_data = {
-						loop_interval = -1 --constant
+						loop_interval = -1
 					}
 				},
 				cloaker_presence_stop = {
@@ -13699,144 +20000,197 @@ ClosedCaptions._sounds = {
 					stops_line = "cloaker_presence_loop",
 					remove_by_source = true
 				},
-				clk_punch_3rd_person_3p = {
-					text = "(Cloaker lunge!)",
+
+			--tsr (taser)
+				tsr_c01 = {
+					text = "Perp spotted!",
 					max_distance = 1500,
 					duration = 3,
-					category = "enemy_dialogue",
-					priority = 21
+					priority = 85,
+					category = "enemy_chatter"
 				},
-		
-				entrance = {
+				tsr_entrance = {
+					text = "(Taser entrance)",
+					category = "enemy_chatter",
+					max_distance = 4000,
 					duration = 3,
 					priority = 85,
-					max_distance = 4000,
-					variants = {
-						tank = {
-							text = "(Bulldozer spawned)",
-							category = "enemy_chatter",
-							line_variations = { --copied from bdz_entrance
-								standard_mode = {
-									"ASS-KICKIN' TIME!",
-									"BULLDOZER GOIN' IN!",
-									"BULLDOZER TIME!",
-									"BULLDOZER! STAY BACK!",
-									"BULLDOZER'S HERE AND READY FOR ACTION!",
-									"BULLDOZER! GET OUT OF THE WAY!",
-									"CLOBBERIN' TIME!",
-									"COME OUT AND PLAY!",
-									"COMING THROUGH!",
-									"DOZER! MAKE WAY!",
-									"DOZER! GET OUT OF THE WAY!",
-									"DOZER'S HERE, AND READY FOR ACTION!",
-									"GET. OUT. OF. THE. WAY!",
-									"GONNA BREAK SOME SHIT!",
-									"GONNA BREAK SOME SHIT!",
-									"GONNA DROP ON THESE SHITHEADS LIKE A FUCKING PIANO!",
-									"MAKE WAY FOR THE BULLDOZER!",
-									"OKAY, I'M HERE... WHO WANTS TO DIE?!",
-									"SHOW ME WHERE THEY ARE!",
-									"STAND BACK!",
-									"WHO WANTS A PIECE OF ME?"
-								},
-								assault_mode = {
-									"ALRIGHT! WATCH... AND LEARN!",
-									"ALRIGHT, WHERE ARE THEY?!",
-									"ASS-KICKIN' TIME!",
-									"BULLDOZER GOIN' IN!",
-									"BULLDOZER IN THE HOUSE!",
-									"BULLDOZER TIME!",
-									"BULLDOZER! GET OUT OF THE WAY!",
-									"BULLDOZER! MAKE WAY!",
-									"BULLDOZER! MOVE ASIDE!",
-									"BULLDOZER, COMING THROUGH!",
-									"COME ON OUT WHEREVER YOU ARE!",
-									"DOZER IN THE HOUSE!",
-									"DOZER! GET OUT OF THE WAY!",
-									"DOZER! MOVE ASIDE!",
-									"DOZER! STAND BACK!",
-									"DOZER! STAY BACK!",
-									"GIVE ME SOME TIME TO WORK!", --unsure
-									"GOING TO WORK!",
-									"I GOT THIS!",
-									"MAKE WAY FOR THE BULLDOZER!",
-									"MAKE WAY FOR THE DOZER!",
-									"MOVE ASIDE! I GOT THIS!",
-									"MOVE ASIDE!",
-									"OKAY, I'M HERE! WHO WANTS TO DIE?!",
-									"SHOW ME WHERE THEY ARE!",
-									"SHOW ME WHERE THEY ARE!",
-									"STAND BACK!",
-									"STAY BACK!",
-									"TIME FOR SOME PAYBACK!",
-									"WHERE ARE YOU?!",
-									"WHO WANTS A PIECE OF ME?!"
-								}
-							}
-						},
-						taser = {
-							text = "(Taser spawned)",
-							category = "enemy_chatter",
-							line_variations = {
-								max_distance = 4000,
-								standard_mode = {
-									"Who ordered shock treatment?",
-									"Who ordered a lightning bolt?!",
-									"Who's AMPED?",
-									"Make way!",
-									"Taser! MOVE!",
-									"Taser! Clear!",
-									"Stay back!",
-									"Fifty thousand volts here!",
-									"Taser, going through?",
-									"Coming through!",
-									"Get out of the way!",
-									"Stand clear!",
-									"Flip the switch!",
-									"Charged and ready! Bring 'em on!",
-									"Charged and ready... let 'em come!",
-									"Get out of the way!",
-									"Make way for the Taser!",
-									"I'M AMPED!",
-								}
-							}
-						},
-						medic = {
-							text = "(Medic spawned)",
-							category = "enemy_chatter",
-							line_variations = {
-								standard_mode = {
-									"Somebody order a Medic?",
-									"Medic in the house!",
-									"Painkiller in the house!",
-									"Medic here to sort things out!",
-									"Alright, who's got a boo-boo?",
-									"Emergency!",
-									"Got a band-aid here!",
-									"Who's got a sore foot?",
-									"Improv field hospital here!",
-									"Medical officer, here!",
-									"Ibuprofen in the house!",
-									"Hurt, or heal?",
-									"Medical support is here.",
-									"I'm here. Let's do this!",
-									"What's the situation?",
-									"Okay, guys, I'm here.",
-									"No pain, no gain!",
-									"Who needs a hit?",
-									"Comin' through!",
-									"Who's got a bruise?",
-									"Never fear, Medic is here!",
-									"I got your wounded, guys!",
-									"Let me take your pain away!",
-									"Kill or cure- what's it gonna be?",
-									"Keep calm- I got this!",
-									"It looks like a surgery ward, there's blood all over!"
-								}
-							}
+					line_variations = {
+						standard_mode = {
+							"Who ordered shock treatment?",
+							"Who ordered a lightning bolt?!",
+							"Who's AMPED?",
+							"Make way!",
+							"Taser! MOVE!",
+							"Taser! Clear!",
+							"Stay back!",
+							"Fifty thousand volts here!",
+							"Taser, going through?",
+							"Coming through!",
+							"Get out of the way!",
+							"Stand clear!",
+							"Flip the switch!",
+							"Charged and ready! Bring 'em on!",
+							"Charged and ready... let 'em come!",
+							"Get out of the way!",
+							"Make way for the Taser!",
+							"I'M AMPED!",
+							"Shock treatment prescribed!",
+							"Charged and ready... where are they?!"
 						}
 					}
 				},
+				tsr_elite = {
+					text = "(Elite Taser Entrance)",
+					max_distance = 2000,
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter",
+					line_variations = {
+						standard_mode = {
+							"Elite Taser! Here to win this once and for all!",
+							"Elite Taser! Stay clear!",
+							"Elite Taser! Stand clear!",
+							"Elite Taser! Stand back!",
+							"Make way for the Elite Taser!",
+							"Elite Taser! Going through!",
+							"Elite Taser! Get out of the way!",
+							"Elite Taser! Make way!"
+						}
+					}
+				},
+				tsr_g90 = {
+					text = "(Taser taunt)",
+					category = "enemy_chatter",
+					duration = 3,
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"Acquiring targets!",
+							"Almost at full power!",
+							"Amped up!",
+							"Amperage building!",
+							"Approaching perpetrator!",
+							"Bringin' the voltage!",
+							"CHAAARGE!",
+							"Charged and ready! Where are they?!",
+							"Charged and ready... let 'em come!",
+							"Charging up!",
+							"Charging... charging!",
+							"Coming through!",
+							"Contact imminent!",
+							"Engaging subject!",
+							"Eyes on perp!",
+							"Eyes on perp!",
+							"Fifty thousand volts here!",
+							"Gonna plug in!",
+							"Got eyes on the perpetrator!",
+							"High voltage!",
+							"Hope you're insulated!",
+--											"Hostile spotted!", --not sure
+							"I got 'em!",
+							"I got fifty thousand volts here with your name on 'em!",
+							"I'll deal with this one!",
+							"I'll take care of this one myself!",
+							"I'm amped!",
+							"I'm feelin' kinda ELECTRIC!",
+							"I'm the fucking spark-man!",
+							"Imminent contact!",
+							"Just call me elec-man!",
+							"Let's amp this shit up!",
+							"Lightning bolt, lightning bolt, lightning bolt!",
+							"Make way!",
+							"Perp ahead!",
+							"Perp in sight!",
+							"Perp spotted!",
+							"Perp targeted!",
+							"Raising voltage!",
+							"Set to 'stun!'",
+							"Shock prepared!",
+							"Shocking!",
+							"Stay clear!",
+							"Subject still mobile!",
+							"Take the shot!",
+--											"Taser got sent all those to kill!", --not sure what he says
+							"Taser gun charged and ready!",
+							"Taser! Get out of the way!",
+							"Taser! Stand back!",
+							"Taser, clear!",
+							"Taser, going through!",
+							"Taser, ready!",
+							"Taser- stay clear!",
+							"Taser... moved!",
+							"This one belongs to me!",
+							"Voltage to burn!",
+							"Wattage at full!"
+						}
+					}
+				},
+				tsr_post_tasing_taunt = {
+					text = "(tasing taunt)",
+					category = "enemy_chatter",
+					max_distance = 4000,
+					duration = 3,
+					priority = 85
+				},
+				tsr_tasered = {
+					text = "(taser feedback gibberish)",
+					category = "enemy_chatter",
+					max_distance = 1500,
+					duration = 3,
+					priority = 85,
+				},
+				tsr_x01a_any_3p = {
+					text = "[pain]",
+					max_distance = 1500,
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter"
+				},
+				tsr_x02a_any_3p = {
+					text = "[death]",
+					max_distance = 1500,
+					duration = 2,
+					priority = 65,
+					category = "enemy_death"
+				},
+				tsr_burnhurt = {
+					text = "[fire hurt]",
+					max_distance = 1500,
+					duration = 3,
+					priority = 85,
+					category = "enemy_chatter"
+				},
+				tsr_burndeath = {
+					text = "[fire death]",
+					max_distance = 1500,
+					duration = 2,
+					priority = 65,
+					category = "enemy_death"
+				},
+				taser_charge = {
+					override_name = "SFX",
+					category = "sfx",
+					text = "(Taser charge)",
+					override_source_id = true,
+					max_distance = 4000,
+					duration = 3,
+					priority = 22
+				},
+				
+				
+			--shd (shield); no unit-specific lines aside from this sfx
+				shield_identification = {
+					fallback_name = "SFX",
+					text = "(Shield clanking)",
+					category = "enemy_chatter",
+					max_distance = 4000, --it's loud.
+					duration = 2,
+					priority = 65
+				},
+				
+				
+			--mdc (medic)
 				mdc_entrance = {
 					text = "(Medic spawned)",
 					duration = 3,
@@ -13875,6 +20229,136 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
+				mdc_g90 = {
+					text = "(Medic taunt)",
+					category = "enemy_chatter",
+					max_distance = 2000,
+					duration = 3,
+					priority = 85,
+					line_variations = {
+						standard_mode = {
+							"Don't let them escape!",
+							"Go! Go!",
+							"Get 'em!",
+							"Cops ALWAYS win!",
+							"They won't know what hit 'em!",
+							"Fight the law... the law wins!",
+							"Keep your heads down!",
+							"C'mon, we're winning!",
+							"We got 'em now!",
+							"Advance! We have 'em cornered!",
+							"End of the line for these crooks!",
+							"Take 'em down!",
+							"Let's waste 'em!",
+							"Don't let them get away!",
+							"Don't let them escape!",
+							"These guys are fucked!",
+							"Stay patient, and we'll take them!",
+							"What goes around, comes around!",
+							"No fear! Let's take 'em out!",
+							"C'mon, c'mon!",
+							"I got your back, guys!",
+							"These assholes are goin' down!",
+							"Eliminate hostiles!",
+							"Try to surround them!",
+							"See you in the prison medical ward!",
+							"Backup, BACKUP!",
+							"Are you sure you want to do this?",
+							"They have no chance!",
+							"Get 'em! GET 'EM!",
+							"Make 'em regret getting up this morning!",
+							"Watch it!"
+						}
+					}
+				},
+				mdc_heal = {
+					text = "(healed cop)",
+					duration = 3,
+					priority = 85,
+					category = "enemy_dialogue",
+					line_variations = {
+						standard_mode = {
+							"Almost out of painkillers!",
+							"At em again, buddy!",
+							"Choose life, then bring death!",
+							"Don't eat so much lead!",
+							"Don't eat so much lead...",
+							"Don't get mad, get even.",
+							"Don't thank me, just get up!",
+							"Easy, now, be still.",
+							"Glad you brought a Medic?",
+							"Gonna sew this up.",
+							"I hope I don't get shot here.",
+							"I'll get you back in action.",
+							"I'll patch you up.",
+							"I'll patch you up for now.",
+							"It missed your heart by inches!",
+							"It's just a flesh wound!",
+							"It's not pretty, man.",
+							"It's okay, it's okay!",
+							"Just breathe calmly.",
+							"Keep calm, I got you.",
+							"Learn to duck, maybe?",
+							"Let's get you fixed.",
+							"No pain, no gain.",
+							"No, you're not gonna die...",
+							"Nope, ain't got morphine.",
+							"Now don't get shot again!",
+							"Now you can hold a gun again.",
+							"Now do the same to them.",
+							"Retiring yet? No?",
+							"Scars just add character!",
+							"Sorry, outta morphine.",
+							"Stay calm, I've seen worse.",
+							"Take two of these!",
+							"Take two of these, and call me in the morning!",
+							"They can't kill you, buddy!",
+							"This is nothing! You'll be fine.",
+							"This might hurt.",
+							"Welcome to my clinic!",
+							"Woah, they shot you THERE?!",
+							"You were lucky, this time.",
+							"You'll be fine!",
+							"You'll be fine, buddy!",
+							"You'll be fine, here!",
+							"You'll owe me a beer.",
+							"You're lucky to be alive!",
+							"You're not dead yet.",
+							"[sardonic] Next time, shoot them first."
+						}
+					},
+					max_distance = 4000,
+					priority = 50
+				},
+				mdc_burnhurt = {
+					category = "enemy_chatter",
+					text = "[fire hurt]",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				mdc_burndeath = {
+					category = "enemy_death",
+					text = "[fire death]",
+					max_distance = 1000,
+					duration = 3,
+					priority = 65
+				},
+				mdc_x01a_any_3p = {
+					category = "enemy_chatter",
+					text = "[pain]",
+					max_distance = 1000,
+					duration = 3,
+					priority = 85
+				},
+				mdc_x02a_any_3p = {
+					category = "enemy_death"
+					text = "[death]",
+					max_distance = 1500,
+					duration = 3,
+					priority = 65
+				},
+
 				rmdc_entrance = {
 					text = "(Russian Medic spawned)", --haha i am funni 
 					duration = 3,
@@ -13882,34 +20366,129 @@ ClosedCaptions._sounds = {
 					max_distance = 4000,
 					category = "enemy_chatter"
 				},
-				entrance_elite = {
-					duration = 3,
-					priority = 85,
-					max_distance = 4000,
+				
+				
+			--swatturret (swat turret) (revolver ocelot)
+				swatturret_alert = {
+					text = "[SWAT Turret alerted beeps!]",
 					category = "enemy_chatter",
-					variants = {
-						tank = {
-							line_variations = {
-								standard_mode = {
-									"ELITE BULLDOZER TIME!",
-									"ELITE DOZER, COMING THROUGH!",
-									"ELITE DOZER! STAND BACK!",
-									"ELITE DOZER! STAY BACK!",
-									"ELITES! FORWARD!",
-									"MAKE WAY FOR THE ELITE DOZER!",
-									"ARE YOU SURE YOU CAN HANDLE THE ELITES?",
-									"ELITE BULLDOZER! STAY BACK!",
-									"ELITE BULLDOZER! MAKE WAY!",
-									"ELITE DOZER! MOVE ASIDE!",
-									"ELITE BULLDOZER COMING THROUGH!",
-									"YOU'RE DEALING WITH THE ELITES NOW, SUCKERS!",
-									"ELITE DOZER IN THE HOUSE!",
-									"ELITE BULLDOZER! GET OUT OF THE WAY!"
-								}
-							}
-						}
+					max_distance = 3000,
+					priority = 85,
+					duration = 2
+				},
+				swatturret_cooldown = {
+					text = "[SWAT Turret cooldown]",
+					category = "enemy_chatter",
+					max_distance = 3000,
+					priority = 85,
+					duration = 10
+				},
+				swatturret_destroy = {
+					text = "[SWAT Turret death explosion!]",
+					category = "enemy_death",
+					max_distance = 3000,
+					priority = 65,
+					duration = 3
+				},
+				swatturret_fire = {
+					text = "[SWAT Turret firing!]",
+					category = "enemy_chatter",
+					max_distance = 3000,
+					priority = 85,
+					loop_data = {
+						loop_interval = -1
 					}
 				},
+				swatturret_fire_end = {
+					category = "stops",
+					stops_line = "swatturret_fire",
+					remove_by_source = true
+				},
+				swatturret_disarmed_loop = {
+					text = "[SWAT Turret disarmed]",
+					category = "enemy_chatter",
+					max_distance = 3000,
+					priority = 85,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				swatturret_disarmed_loop_stop = {
+					category = "stops",
+					remove_by_source = true,
+					stops_line = "swatturret_disarmed_loop"
+				},
+				swatturret_mount = {
+					text = "[mechanical whirring]",
+					max_distance = 3000,
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3
+				},
+				swatturret_plate_off = {
+					text = "[armor plate destroyed clang!]",
+					max_distance = 3000,
+					category = "enemy_chatter",
+					priority = 65,
+					duration = 3
+				},
+				swatturret_pressure_release = {
+					text = "[steam hissing]",
+					max_distance = 3000,
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3
+				},
+				swatturret_reload = {
+					text = "[SWAT Turret reloading]",
+					max_distance = 3000,
+					category = "enemy_chatter",
+					priority = 85,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				swatturret_reload_end = {
+					category = "stops",
+					text = "[SWAT Turret reloaded]",
+					max_distance = 3000,
+					remove_by_source = true,
+					stops_line = "swatturret_reload"
+				},
+				swatturret_spin_loop = {
+					text = "[SWAT Turret whirs!]",
+					max_distance = 3000,
+					category = "enemy_chatter",
+					priority = 85,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				swatturret_spin_start = {
+					text = "[SWAT Turret spins up!]",
+					max_distance = 3000,
+					category = "enemy_chatter",
+					priority = 85,
+					loop_data = {
+						loop_interval = -1
+					}
+				},
+				swatturret_spin_stop = {
+					category = "stops",
+					remove_by_source = true,
+					stops_line = "swatturret_spin_loop"
+				},
+				swatturret_weakspot_hit = {
+					text = "[weak spot hit!]",
+					max_distance = 3000,
+					category = "enemy_chatter",
+					priority = 85,
+					duration = 3
+				},
+				
+				
+				
+			--cpa (captain winters/megaphone police negotiator)
 				cpa_a02_01 = {
 					override_name = "Police Negotiator",
 					duration = 3,
@@ -14061,23 +20640,13 @@ ClosedCaptions._sounds = {
 						}
 					}
 				},
-
-				burndeath = {
-					text = "[burn death]",
-					max_distance = 1500,
+			
+				law_enf_puke = {
+					text = "[vomiting]",
 					category = "enemy_death",
-					duration = 3,
+					max_distance = 1500,
+					duration = 4,
 					priority = 65
-				},
-
-				tasered_3rd = { --loops
-					text = "tasered_3rd",
-					max_distance = 3000,
-					category = "sfx",
-					loop_data = {
-						loop_interval = -1
-					},
-					priority = 21
 				},
 				tasered_shock = {
 					text = "(tasered!)",
@@ -14129,6 +20698,7 @@ ClosedCaptions._sounds = {
 					priority = 50,
 					duration = 5
 				},
+
 				dsp_radio_buzz = {
 					override_name = "SFX",
 					text = "(idle pager buzz)", --nonalert, idle sound
@@ -14150,6 +20720,7 @@ ClosedCaptions._sounds = {
 					priority = 31,
 					category = "enemy_dialogue"
 				},
+
 				mga_death_scream = { -- unused afaik
 					override_name = "Police Negotiator",
 					text = "[muted scream, megaphone feedback]",
@@ -14310,829 +20881,6 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					duration = 5,
 					priority = 7
-				},
-				a01 = {
-					text = "They've got a gun!",
-					category = "enemy_dialogue",
-					max_distance = 1500,
-					duration = 3,
-					priority = 55
-				},
-				a02 = {
-					text = "Please stay back.",
-					category = "mission_dialogue",
-					max_distance = 1500,
-					duration = 3,
-					priority = 55
-				},
-				a03 = {
-					text = "Sorry, this area is for personnel only.",
-					category = "mission_dialogue",
-					max_distance = 1500,
-					duration = 3,
-					priority = 55
-				},
-				a05 = {
-					text = "Two-Four reporting in, all quiet here.",
-					category = "enemy_dialogue",
-					max_distance = 1500,
-					duration = 3,
-					priority = 55
-				},
-				a06 = {
-					text = "[idling about]",
-					category = "enemy_chatter",
-					duration = 3,
-					priority = 85
-				},
-				a07a = {
-					text = "Alerted",
-					category = "enemy_dialogue",
-					duration = 3,
-					priority = 55,
-					max_distance = 1500,
-					line_variations = {
-						whisper_mode = {
-							"Wha-?",
-							"Hm?",
-							"Huh?",
-							"What was that?"
-						}
-					}
-				},
-				a07b = {
-					category = "enemy_dialogue",
-					text = "(spots something suspicious)",
-					duration = 2,
-					priority = 55,
-					max_distance = 1500,
-					category = "enemy_dialogue",
-					line_variations = {
-						whisper_mode = {
-							"That's weird...",
-							"Strange..."
-						}
-					}
-				},
-				a08 = {
-					category = "enemy_dialogue",
-					text = "(spotted heister!)",
-					duration = 3,
-					priority = 55,
-					category = "enemy_dialogue",
-					max_distance = 1500,
-					line_variations = {
-						whisper_mode = {
-							"Shit!",
-							"Hey!",
-							"Intruder!"
-						}
-					}
-				},
-				a09 = {
-					category = "enemy_dialogue",
-					text = "Sound the alarm!",
-					duration = 3,
-					priority = 55,
-					max_distance = 1500,
-					category = "enemy_dialogue",
-					line_variations = {
-						whisper_mode = {
-							"Sound the alarm!",
-							"Sound the alarm immediately!"
-						}
-					}
-				},
-				a10 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, there's a broken window here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a11 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, there's a dead body here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a12 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, I've spotted a dead officer...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a13 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, I've spotted a tied up civilian...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a14 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, I've spotted a tied up officer...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a15 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, we've got a situation here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a16 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, we've got an officer signalling for help...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a17 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, there's a security door that shouldn't be open here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a18 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, somebody set a fire over here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a19 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, I've got a bodybag over here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a20 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, I've spotted some kind of sentry gun over here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a21 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, I've spotted a trip mine...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a22 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, I've spotted a suspicious bag...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a23 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, there's signs of intruders here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},				
-				a24 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, somebody's been messing with the computer here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				a25 = {
-					category = "enemy_dialogue",
-					text = "Two-Two reporting in, I've spotted some heavy drilling equipment here...",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				amm = {
-					category = "enemy_chatter",
-					text = "They've brought extra ammo with them!",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				att = {
-					category = "enemy_chatter",
-					text = "Weapons hot!", --fire at will, gogogo!
-					max_distance = 700,
-					duration = 5,
-					priority = 55
-				},
-				b01 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Entrance is A-OK. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b02 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Hall A is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b03 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Hall B is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b04 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Hall C is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b05 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Hall D is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b06 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Roof is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b07 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Basement is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b08 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Ground Floor is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b09 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Second Floor is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b10 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Third Floor is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b11 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Pool Area is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b12 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Balcony is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b13 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Living Room is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b14 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Corridor is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b15 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Lobby is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b16 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Security Door is shut and locked, everything's fine. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b17 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Security Room is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b18 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, camera is working fine, no sign of tampering. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b19 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Staircase is all clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b20 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Penthouse is clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b21 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, Garage is clear. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b22 = {
-					category = "enemy_dialogue",
-					text = "Moving on.",
-					max_distance = 1500,
-					duration = 3,
-					priority = 55
-				},
-				b23 = {
-					category = "enemy_dialogue",
-					text = "Two-Three to Control, could someone buzz me through the door?.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b24 = {
-					category = "enemy_dialogue",
-					text = "Two-Three to Control, this whole place is clear, I'm going home. Over and out.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b25 = {
-					category = "enemy_dialogue",
-					text = "Reporting in, glass shards everywhere! Signs of break in! Send reinforcements!",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b26 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, someone's been fiddling with this camera. Send backup!",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b27 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, I hear some kind of noise. Send backup!",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				b28 = {
-					category = "enemy_dialogue",
-					text = "Two-Three reporting in, I'm outside the lobby. Over.",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				bak = {
-					category = "enemy_dialogue",
-					text = "Watch your background, civilians on scene!",
-					max_distance = 1500,
-					duration = 5,
-					priority = 55
-				},
-				burndeath = { --!
-					category = "enemy_death",
-					text = "[fire death]",
-					max_distance = 700,
-					duration = 3,
-					priority = 65
-				},
-				burnhurt = {
-					category = "enemy_chatter",
-					text = "[fire hurt]",
-					max_distance = 700,
-					duration = 3,
-					priority = 65,
-					line_variations = {
-						standard_mode = {
-							"[panicked gasping on fire]",
-							"[hyperventilating on fire]",
-							"[screams on fire]"
-						}
-					}
-				},
-				c01 = {
-					category = "enemy_chatter",
-					text = "Contact!",
-					max_distance = 700,
-					duration = 2,
-					priority = 85
-				},
-				ch1 = {
-					category = "enemy_chatter",
-					text = "Watch out for the trip mines!",
-					max_distance = 700,
-					duration = 3,
-					priority = 85
-				},
-				ch2 = {
-					category = "enemy_chatter",
-					text = "Watch out for the sentry gun!",
-					max_distance = 700,
-					duration = 3,
-					priority = 85
-				},
-				ch3 = {
-					category = "enemy_chatter",
-					text = "Argh! Some kind of jammer!",
-					max_distance = 700,
-					duration = 3,
-					priority = 85
-				}, --ecm feedback
-				ch4 = {
-					category = "enemy_chatter",
-					text = "That maniac has a fucking SAW!",
-					max_distance = 700,
-					duration = 4,
-					priority = 85
-				},
-				civ = {
-					category = "enemy_chatter",
-					text = "Get the hostages!",
-					max_distance = 700,
-					duration = 2,
-					priority = 85
-				},
-				clr = {
-					category = "enemy_chatter",
-					text = "Area clear.",
-					max_distance = 700,
-					duration = 2,
-					priority = 85
-				},
-				cn1 = {
-					category = "enemy_dialogue",
-					text = "(converted to joker)",
-					max_distance = 700,
-					duration = 3,
-					priority = 55,
-					line_variations = {
-						standard_mode = {
-							"Yeah... okay...",
-							"You're going to hell for this."
-						}
-					}
-				},
-				cr1 = {
-					category = "enemy_chatter",
-					text = "(to hostage) Hey, stay calm, we're getting you out.",
-					max_distance = 1000,
-					duration = 4,
-					priority = 84
-				},
-				l1d_d01 = {
-					category = "enemy_dialogue",
-					text = "Deploy smoke.",
-					max_distance = 1000,
-					duration = 2,
-					priority = 84,
-					line_variations = {
-						standard_mode = {
-							"Smoke.",
-							"Deploy smoke.",
-							"Smoke 'em out.",
-							"Smoke 'em."
-						}
-					}
-				},
-				d01 = {
-					category = "enemy_dialogue",
-					text = "Deploy smoke.",
-					max_distance = 1000,
-					duration = 2,
-					priority = 84
-				},
-				d02 = {
-					category = "enemy_dialogue",
-					text = "Throwing a flashbang!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 84
-				},
-				e01 = {
-					category = "enemy_chatter",
-					text = "Disable that drill!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 84
-				},
-				e02 = {
-					category = "enemy_chatter",
-					text = "Disable their gear!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 84
-				},
-				e03 = {
-					category = "enemy_chatter",
-					text = "Disabling the power!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 84
-				},
-				e04 = {
-					category = "enemy_chatter",
-					text = "Do what you can to slow them down.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				e05 = {
-					category = "enemy_chatter",
-					text = "Drill is disabled, over.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				e06 = {
-					category = "enemy_chatter",
-					text = "Disabled their gear.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				gr1a = {
-					category = "enemy_chatter",
-					text = "Rescue team Alpha going in.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				gr1b = {
-					category = "enemy_chatter",
-					text = "Rescue team Bravo going in.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				gr1c = {
-					category = "enemy_chatter",
-					text = "Rescue team Charlie going in.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				gr1d = {
-					category = "enemy_chatter",
-					text = "Rescue team Delta going in.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				gr2a = {
-					category = "enemy_chatter",
-					text = "Assault team Alpha going in.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				gr2b = {
-					category = "enemy_chatter",
-					text = "Assault team Bravo going in.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				gr2c = {
-					category = "enemy_chatter",
-					text = "Assault team Charlie going in.",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				gr2d = {
-					category = "enemy_chatter",
-					text = "Assault team Delta going in",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				h01 = {
-					category = "enemy_chatter",
-					text = "(Freeing hostage)",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				hlp = {
-					category = "enemy_chatter",
-					text = "HELP!",
-					max_distance = 700,
-					duration = 3,
-					priority = 85
-				},
-				hr01 = {
-					text = "[hurt]",
-					category = "enemy_death",
-					max_distance = 1500,
-					duration = 3,
-					priority = 65
-				},
-				i01 = {
-					category = "enemy_chatter",
-					duration = 1,
-					text = "Freeze!",
-					max_distance = 1000,
-					duration = 3,
-					priority = 85,
-					line_variations = {
-						"Hold it!",
-						"Freeze!",
-						"Stop!",
-						"Stop it!"
-					}
-				},
-				i02 = {
-					category = "enemy_chatter",
-					text = "No sudden movements!",
-					max_distance = 1000,
-					duration = 3,
-					priority = 85
-				},
-				i03 = {
-					category = "enemy_chatter",
-					text = "This ends now!",
-					max_distance = 1000,
-					duration = 3,
-					priority = 85
-				},
-				l01 = {
-					category = "enemy_chatter",
-					text = "Get those bags!",
-					max_distance = 1000,
-					duration = 3,
-					priority = 84
-				},
-				lk3a = {
-					category = "enemy_chatter",
-					text = "Jeez!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				lk3b = {
-					category = "enemy_chatter",
-					text = "Fucking hell!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				m01 = {
-					category = "enemy_chatter",
-					text = "Cease fire, exit point!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				med = {
-					category = "enemy_chatter",
-					text = "There's a doctor bag! They must have a field medic!",
-					max_distance = 1000,
-					duration = 3,
-					priority = 85
-				},	
-				mov = {
-					text = "Move!",
-					category = "enemy_chatter",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				pos = {
-					category = "enemy_chatter",
-					text = "I'm in position.",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				prm = {
-					category = "enemy_chatter",
-					text = "Wait for my signal.",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				pus = {
-					category = "enemy_chatter",
-					text = "Rush them!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				r01 = {
-					category = "enemy_chatter",
-					text = "Roger that.",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				rdy = {
-					category = "enemy_chatter",
-					text = "Ready!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				l1d_att = {
-					category = "enemy_chatter",
-					text = "Go!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85,
-					line_variations = {
-						standard_mode = {
-							"Go!",
-							"Go! Go!"
-						}
-					}
-				},
-				rrl = {
-					category = "enemy_chatter",
-					text = "He's reloading!",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				s01x = { --cop surrender
-					category = "enemy_dialogue",
-					text = "Okay, okay! Just don't shoot!",
-					duration = 3,
-					priority = 55,
-					max_distance = 1000,
-					line_variations = {
-						assault_mode = {
-							"Alright! Just don't shoot!",
-							"Okay, okay! Just don't shoot!"
-						},
-						standard_mode = {
-							"Okay, okay! Don't shoot!",
-							"Okay, just don't shoot!",
-							"Okay! Just- just don't shoot!"
-						}
-					}
-				},
-				t01 = {
-					category = "enemy_chatter",
-					text = "Looking for another way in.",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				x01a_any_3p = {
-					category = "enemy_chatter",
-					text = "[pain]",
-					max_distance = 1000,
-					duration = 2,
-					priority = 85
-				},
-				x02a_any_3p = {
-					text = "[death]",
-					max_distance = 1500,
-					duration = 2,
-					priority = 65,
-					category = "enemy_death"
 				},
 
 --mission specific dialogue
@@ -19067,7 +24815,7 @@ ClosedCaptions._sounds = {
 					duration = 30,
 					priority = 98
 				},
-				dah_npc_impact_glass_01 = {
+				dah_npc_impact_glass_01 = { --ceo dropped out of helicopter, strikes glass skylight
 					category = "sfx",
 					override_name = "SFX",
 					text = "[body impacts glass]",
@@ -19710,6 +25458,209 @@ ClosedCaptions._sounds = {
 					category = "stops",
 					stops_line = "packing_box_loop",
 					remove_by_source = true
+				},
+
+		--car shop
+				Play_man_ch_01 = {
+					category = "mission_dialogue",
+					max_distance = 1500,
+					text = "(Car Shop Manager)",
+					duration = 10,
+					DISABLED_line_variations = {
+						whisper_mode = {
+							"hello my name jeff"
+						}
+					},
+					priority = 10,
+					loop_data = {
+						loop_interval = 5,
+					}
+				},
+				Stop_man_ch_01 = { --taking a guess that this will work
+					category = "stops",
+					stops_line = "Play_man_ch_01",
+					remove_by_source = true
+				},
+		--hotline miami
+			--day 1
+				Play_com_hm1_01 = {
+					override_name = "Commissar",
+					text = "I don't know who you are!",
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm1_02 = {
+					override_name = "Commissar",
+					text = "You know what happens when you fuck with Russia?",
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm1_03 = {
+					override_name = "Commissar",
+					text = "You dumb asshole bastards!",
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm1_04 = {
+					override_name = "Commissar",
+					text = "I will kill you for this!",
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+			--day 2
+				Play_com_hm2_01 = {
+					override_name = "Commissar",
+					text = "You can't have Commissar!",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm2_02 = {
+					override_name = "Commissar",
+					text = "I am watching you, you fucking dickfaces!",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm2_03 = {
+					override_name = "Commissar",
+					text = "[laughs] Stay like this, I'm going to take a screenshot!",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm2_04 = {
+					override_name = "Commissar",
+					text = "Welcome to the Labyrinth, motherfuckers!",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm2_05 = {
+					override_name = "Commissar",
+					text = "The ground is full of bodies that dare take me on!",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm2_06 = {
+					override_name = "Commissar",
+					text = "Sacks of wretched yankee dick!",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm2_07 = {
+					override_name = "Commissar",
+					text = "Oh, you found me? How about losing me again? [feeble chuckle]",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm2_08 = {
+					override_name = "Commissar",
+					text = "Hey assholes, I'm enjoying a martini in here! How do you like that?",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
+				},
+				Play_com_hm2_09 = {
+					override_name = "Commissar",
+					text = "[weakly] I spit on your grave, you fucking dickholes... [death gurgle]",
+					override_color = ClosedCaptions.color_data.boss_color,
+					DISABLED_line_variations = {
+						standard_variation = {
+							"",
+							""
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 6
 				}
 			}
 		}
