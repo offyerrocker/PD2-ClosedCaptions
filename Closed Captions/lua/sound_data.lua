@@ -480,6 +480,7 @@ ClosedCaptions._sounds = {
 				buzz_saw_aced = {
 					text = "[buzz saw grinds quietly]",
 					category = "sfx",
+					override_name = "SFX",
 					max_distance = 500,
 					priority = 90,
 					duration = 5,
@@ -506,6 +507,14 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					}
+				},
+				buzz_saw_end = {
+--					text = "[buzz saw finishes]",
+					override_name = "SFX",
+					priority = 90,
+					duration = 2,
+					category = "stops",
+					stops_line = "buzz_saw"
 				},
 				buzz_saw_end_aced = {
 --					text = "[aced buzz saw finishes]",
@@ -1454,6 +1463,7 @@ ClosedCaptions._sounds = {
 					text = "(radio stops)",
 					stops_line = "christmas_radio",
 					remove_by_source = true,
+					greedy_match = false,
 					duration = 2,
 					priority = 98,
 					category = "stops"
@@ -1484,6 +1494,7 @@ ClosedCaptions._sounds = {
 					stops_line = "jukebox_shuffle",
 					duration = 2,
 					remove_by_source = true,
+					greedy_match = false,
 					priority = 98,
 					category = "sfx"
 				},
@@ -1495,6 +1506,26 @@ ClosedCaptions._sounds = {
 					loop_data = {
 						loop_interval = -1
 					},
+					category = "sfx"
+				},
+				jukebox_biker = {
+					override_name = "SFX",
+					text = "(music plays)",
+					max_distance = 1700,
+					loop_data = {
+						loop_interval = -1
+					},
+					priority = 98,
+					category = "sfx"
+				},
+				jukebox_biker_stop = {
+					override_name = "SFX",
+					text = "(music stops)",
+					stops_line = "jukebox_shuffle",
+					duration = 2,
+					remove_by_source = true,
+					greedy_match = false,
+					priority = 98,
 					category = "sfx"
 				},
 				rvd_radio_music_start = {
@@ -1512,6 +1543,7 @@ ClosedCaptions._sounds = {
 					text = "(radio music stops)",
 					category = "stops",
 					remove_by_source = true,
+					greedy_match = false,
 					stops_line = "rvd_radio_music_start"					
 				},
 				diegetic_club_music = {
@@ -20173,6 +20205,7 @@ ClosedCaptions._sounds = {
 					category = "enemy_chatter",
 					duration = 5,
 					priority = 85,
+					max_distance = 1500,
 					line_variations = {
 						standard_mode = {
 							"(You like that, huh? You like that?)",
@@ -20920,6 +20953,7 @@ ClosedCaptions._sounds = {
 					text = "(Taser taunt)",
 					category = "enemy_chatter",
 					duration = 3,
+					max_distance = 2000,
 					priority = 85,
 					line_variations = {
 						standard_mode = {
@@ -25784,7 +25818,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 4,
-					line_variation = {
+					line_variations = {
 						whisper_mode = {
 							"Yeah, boss. All's quiet down here.",
 							"No, no, it ain't like that. Yeah, he's downtown. [pause] Okay make sure he gets it.",
@@ -25801,7 +25835,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 4,
-					line_variation = {
+					line_variations = {
 						standard_mode = {
 							"What are you doing to my paintings?!",
 							"You people have no respect for art! NO RESPECT!",
@@ -25814,7 +25848,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 5,
-					line_variation = {
+					line_variations = {
 						standard_mode = {
 							"YOU'RE DESTROYING MY THINGS OUT OF ENVY, HUH? MOTHERFUCKER!",
 							"STOP DESTROYING MY THINGS!",
@@ -25835,7 +25869,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 4,
-					line_variation = {
+					line_variations = {
 						standard_mode = {
 							"I CAN'T BELIEVE YOU DESTROYED MY CAR!",
 							"MY CAR!",
@@ -25852,7 +25886,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 4,
-					line_variation = {
+					line_variations = {
 						standard_mode = {
 							"Fuck you! I'm coming out to destroy you!",
 							"Argh, you fuckers! I'm coming for you!",
@@ -25867,7 +25901,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 4,
-					line_variation = {
+					line_variations = {
 						standard_mode = {
 							"I will BURY you!",
 							"You made your last mistake!",
@@ -25895,7 +25929,7 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 5,
-					line_variation = {
+					line_variations = {
 						standard_mode = {
 							"You can't take me! I'm Ernesto Sosa, and you're going DOWN!",
 							"Hey, you bastards! You forgot to make an appointment!",
@@ -26153,7 +26187,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_01 = {
 					text = "(drunken babbling)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"[slurring] There was something up there, tonight... something... looked like a sleigh.",
 							"...and we all went wang-hang on the 'Nam poontang. [giggles]",
 							"Danang... Saigon... I seen all them places, on TV.",
@@ -26175,7 +26209,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_02 = {
 					text = "(I frew up...)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"My head feels like someone shat in it...",
 							"Was that... carrots? I ain't eat-ed carrots since '94!",
 							"[groans loudly] That's not good."
@@ -26190,7 +26224,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_03 = {
 					text = "(Cheers!)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"This one's for you, Johnny!",
 							"Merry Christmas, motherfuckas!",
 							"Whew! Seasonal greetings, you buncha assholes!"
@@ -26205,7 +26239,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_04 = {
 					text = "(drunken babbling)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"[slurred] Forest? But I'm supposed to be delivering presents tonight. [burp]",
 							"[slurred] This don't look like my count-pit. [drunken laugh] Cockpit.",
 							"[wondrous] I was dreaming about coloured ponies... [irate] OH, FUCK OFF."
@@ -26220,7 +26254,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_05 = {
 					text = "(drunken babbling)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"[groans loudly] Just bugger off... ASSHOLE!",
 							"[slurring] Just give me... FIVE MINUTES! ...to rest, my ass...",
 							"I dreamt I was back in 'Nam! I was... [burp] ...happy! I was... Johnny?"
@@ -26235,7 +26269,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_06 = {
 					text = "(leaving on the chopper)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"Hey... [burps] ...hold still! You know how to fly? Goddammit, I'll show ya...",
 							"Thanks, freaks! [drunken laughing] See you on the other side'a the... bottle...",
 							"[slurring] Merry... Christmas!",
@@ -26251,7 +26285,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_07 = {
 					text = "(vomiting, coughing)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"[coughing violently]"
 						}
 					},
@@ -26264,7 +26298,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_08 = {
 					text = "(incoherent drunken moaning)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"[vomiting, groaning]",
 							"[moaning]"
 						}
@@ -26278,7 +26312,7 @@ ClosedCaptions._sounds = {
 				Play_pt2_cp1_09 = {
 					text = "(incoherent drunken moaning)",
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"[vomiting, groaning]",
 							"[moaning]",
 							"[coughing violently]"
@@ -26346,7 +26380,7 @@ ClosedCaptions._sounds = {
 					text = "[weakly] I spit on your grave, you fucking dickholes... [death gurgle]",
 					override_color = ClosedCaptions.color_data.boss_color,
 					line_variations = {
-						standard_variation = {
+						standard_mode = {
 							"[choking on blood] I don't want to die! I don't want to... [death gurgle]",
 							"I... spit on your graves... you dickholes...! [death gurgle]",
 							"Farewell, mama... farewell... darling Russia... [death gurgle]"
@@ -26355,7 +26389,78 @@ ClosedCaptions._sounds = {
 					category = "mission_dialogue",
 					priority = 10,
 					duration = 6
+				},
+		--alaskan deal
+				Play_crw_wwh_01 = {
+					override_name = "Crew Member",
+					text = "You must help free captain with saw! He is behind door!",
+--					override_color = ClosedCaptions.color_data.
+					line_variations = { 
+						standard_mode = {
+							"You must help free captain with saw! He is behind door!",
+							"They locked up the captain! You- you get him out, please?",
+							"The captain is trap behind door. You can break with saw."
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 4
+				},
+				Play_cpt_wwh_01 = {
+					override_name = "Captain",
+					text = "Ah, good, Butcher sent help. Untie me now, please.",
+					line_variations = {
+						standard_mode = {
+							"Well, look at this! I thought I was never getting out of there. Will you untie me, please?",
+							"Do pekla! Finally, Butcher send help! Will you untie me, please?",
+							"Ah, good, Butcher sent help. Untie me now, please."
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 4
+				},
+				Play_cpt_wwh_02 = {
+					override_name = "Captain",
+					text = "I will get back to ship alone. Will contact you with instructions.",
+					line_variations = {
+						standard_mode = {
+							"I get back to ship alone. Will contact you with instructions.",
+							"I will go back to boat and contact you with instructions."
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 3
+				},
+				Play_cpt_wwh_03 = {
+					override_name = "Captain",
+					text = "[radio static] Hello? I am coming through? Boat will need more fuel to make international waters!",
+					line_variations = {
+						standard_mode = {
+							"[radio static] Okay, we can make international waters with ship! But must have more diesel  fuel!",
+							"[radio static] You hear me? We need more fuel for ship to make international waters!",
+							"[radio static] Hello? I am coming through? Boat will need more fuel to make international waters!"
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 8
+				},
+				Play_cpt_wwh_04 = {
+					override_name = "Captain",
+					line_variations = {
+						standard_mode = {
+							"Look out for hose line and pump for diesel.",
+							"See if you can find fuel pump and hose somewhere near.",
+							"Diesel pump and hose somewhere around dock."
+						}
+					},
+					category = "mission_dialogue",
+					priority = 10,
+					duration = 5
 				}
+				
 			}
 		}
 	},

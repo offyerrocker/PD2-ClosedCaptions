@@ -20,6 +20,14 @@
 			"callback" : "callback_closedcaptions_clear_queue"
 		},
 		{
+			"type" : "toggle",
+			"id" : "closedcaptions_use_fadein",
+			"title" : "menu_closedcaptions_use_fadein_title",
+			"description" : "menu_closedcaptions_use_fadein_desc",
+			"callback" : "callback_closedcaptions_use_fadein",
+			"value" : "caption_use_fadein"
+		},
+		{
 			"type" : "slider",
 			"id" : "closedcaptions_set_x",
 			"title" : "menu_closedcaptions_set_x_title",

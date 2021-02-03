@@ -1,9 +1,11 @@
 --[[
-BEFORE FIRST PUBLIC RELEASE:
 
-* done?
+SUPER IMPORTANT STUFF:
+* bug where stops_line category doesn't always apply, see: christmas_radio, christmas_radio_stops on white xmas. todo investigate and check if the stops line is played from a different source
 
 OTHER STUFF WHICH IS IMPORTANT TOO, I GUESS:
+
+* revamp removes_by_source system
 
 * investigate playing sound by num event id: 3.5526148264182e-315
 
@@ -290,6 +292,7 @@ ClosedCaptions.settings = { --default preset for settings; overridden by json mo
 	caption_w = 800,
 	caption_margin_v = 8,
 	captions_max_count = 5,
+	caption_use_fadein = false,
 	caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 	caption_font_size = 20,
 	caption_use_player_names = false,
@@ -461,6 +464,11 @@ end
 --settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
 function ClosedCaptions:UsePlayerName()
 	return self.settings.caption_use_player_names
+end
+
+--settings getter; if true, caption alpha starts at 0 and fades in to full opacity over a short duration
+function ClosedCaptions:IsFadeinEnabled()
+	return self.settings.caption_use_fadein
 end
 
 --checks enabled categories, compares them, and determines if current line is allowed by this setting
@@ -709,7 +717,7 @@ function ClosedCaptions:Update(t,dt)
 					item.panel:set_alpha(math.min(item.panel:alpha() + (dt / self.settings.caption_fadeout_time),1))
 				end
 			elseif item.panel:visible() then 
-				if item.panel:alpha() > 0 then  
+				if item.panel:alpha() > 0 then
 					item.panel:set_alpha(math.max(item.panel:alpha() - (dt / self.settings.caption_fadeout_time),0))
 					if item.panel:alpha() <= 0 then 
 						if item.loop_data and item.loop_data.use_random_variations and item.variation_data then 
@@ -792,12 +800,18 @@ function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locat
 	local ver_text_margin = 8
 	local w = self.settings.caption_w
 	local h = 100  --default
+	local start_alpha
+	if self:IsFadeinEnabled() then 
+		start_alpha = 0
+	else
+		start_alpha = 1
+	end
 	item_panel = panel:panel({
 		name = panel_name,
 		y = panel:h(),
 		w = w,
 		h = 100,
----		alpha = 0, --fades in;  TODO option for this
+		alpha = start_alpha,
 		visible = true
 	})
 	local subtitle = item_panel:text({
@@ -899,6 +913,14 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position)
 	if not self:IsEnabled() then 
 		return
 	end
+	
+	--sounds played from other players are sometimes sent as direct event id numbers
+	if type(sound_id) == "number" then 
+		if self._sounds.event_ids[sound_id] then 
+			sound_id = self:reverse_lookup_event_id(sound_id)
+		end
+	end
+	
 	if type(sound_id) ~= "string" then 
 		return
 	end
@@ -1365,6 +1387,10 @@ Hooks:Add( "MenuManagerInitialize", "MenuManagerInitialize_closedcaptions", func
 			end
 		end
 		last_click = t
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_use_fadein = function(self,item)
+		ClosedCaptions.settings.caption_use_fadein = item:value() == "on"
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_set_w = function(self,item)
