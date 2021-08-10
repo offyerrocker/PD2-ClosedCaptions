@@ -1138,6 +1138,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position)
 	
 	color = variant_data.override_color or color or variant_data.fallback_color
 	
+	name = name or "???"
 	local data = {
 		name = name,
 		text_color = color,
@@ -1156,7 +1157,7 @@ function ClosedCaptions:add_line(sound_id,unit,sound_source,position)
 		expire_t = t + (variant_data.duration or self.settings.DEFAULT_LINE_DURATION)
 	}
 	
-	self:_add_line(utf8.to_upper(name) .. ": " .. text,source_id,color,data)
+	self:_add_line(tostring(name) .. ": " .. text,source_id,color,data)
 end
 
 --given processed data (complete caption text including speaker name, unique source identifier, text color, expiration time, etc):
