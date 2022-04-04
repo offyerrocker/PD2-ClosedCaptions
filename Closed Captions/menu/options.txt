@@ -280,13 +280,14 @@
 			"size" : 24
 		},
 		{
-			"type" : "DISABLED_BECAUSE_THIS_MOD_HAS_NOT_BEEN_TRANSLATED_YET_multiple_choice",
+			"type" : "multiple_choice",
 			"id" : "closedcaptions_set_language",
 			"title" : "closedcaptions_set_language_title",
 			"description" : "closedcaptions_set_language_desc",
 			"callback" : "callback_closedcaptions_set_language",
 			"items" : [
-				"closedcaptions_language_1"
+				"closedcaptions_language_1",
+				"closedcaptions_language_2"
 			],
 			"value" : "language"
 		},

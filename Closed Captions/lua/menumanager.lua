@@ -821,6 +821,7 @@ function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locat
 		y = ver_text_margin / 2,
 --		w = item_panel:w(),
 --		align = "center", --todo
+		word_wrap = true,
 		font = tweak_data.hud_players.ammo_font,
 		font_size = self.settings.caption_font_size,
 		color = text_color,
@@ -829,38 +830,6 @@ function ClosedCaptions:_create_caption_text(text,panel_name,text_color,is_locat
 		visible = true
 	})
 
-	local function check_text_spillover()
-	--returns true if it is too large
-		local s_x,s_y,s_w,s_h = subtitle:text_rect()
-		return s_w >= (self.settings.caption_w)--horizontal margin
-	end
-
-	--this multi-line spillover capability does not cover cases where a single word (where a "word" is any string of characters delimited by a single space character " ")
-	--so uh. todo
-	if check_text_spillover() then 
-		local words = string.split(text," ")
-		if #words > 0 then 
-			local new_text
-			for i = 1,#words,1 do 
-				if words[i] and words[i] ~= "" then
-	--			for i = #words,1,-1 do 
-					if new_text then 
-						new_text = new_text .. " "
-					else
-						new_text = ""
-					end
-					subtitle:set_text(new_text .. words[i])
-					if check_text_spillover() then 
-						new_text = new_text .. "\n"
-					end
-					new_text = new_text .. words[i]
-				end
-			end
-		else
-			--todo that thing i just said
-		end		
-	end
-	
 	local s_x,s_y,s_w,s_h = subtitle:text_rect()
 	subtitle:set_w(s_w)
 	subtitle:set_h(s_h)
