@@ -4,7 +4,7 @@
 	"phalanx_minion" : "Phalanx Shield",
 	"phalanx_vip" : "Captain Winters",
 	"captain" : "Captain",
-	"captain_female" : "Captain",	
+	"captain_female" : "Captain",
 	"tank" : "Bulldozer",
 	"tank_medic" : "Medic Dozer",
 	"tank_mini" : "Minigun Dozer",
@@ -56,8 +56,7 @@
 	"triad_boss_no_armor" : "Yufu Wang",
 	"zeal_heavy_swat" : "Zeal Heavy SWAT",
 	"zeal_swat" : "Zeal SWAT",
-	
-	
+
 	"autumn" : "Captain Autumn",
 	"biker_guard" : "Biker",
 	"boom" : "Grenadier",

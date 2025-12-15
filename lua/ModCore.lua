@@ -1,10 +1,9 @@
 ClosedCaptions = { -- _G.ClosedCaptions or 
-	_ws = nil,
-	_panel = nil,
 	_MOD_PATH = ModPath,
 	_SETTINGS_PATH = SavePath .. "closedcaptions_settings.txt",
 	_ASSETS_PATH = ModPath .. "assets/",
 	_LOCALIZATION_DIRECTORY_PATH = ModPath .. "l10n/",
+	_LOCALIZATION_FILE_NAME = "menu_strings.json", -- menu strings and main mod localization (nothing directly related to subtitles themselves)
 	_SOUNDDATA_PATH = ModPath .. "data/",
 	_MANUAL_LOAD_ASSETS = {
 		texture = {
@@ -13,49 +12,55 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	},
 	languages = {},
 	default_settings = {
-		caption_use_player_names = true,
-		caption_font_size = 16,
-		captions_max_count = 5
+		use_hide_hud_keybind = true, -- if true, will be hidden/shown along with the hud when the player uses the vanilla "Hide HUD" keybind
+		
+--		caption_use_player_names = true,
+--		master_enabled = true,
+--		logging_enabled = false,
+--		log_missing = false,
+--		log_ids = false,
+--		log_debug = false,
+--		log_bainunit_vo = false, --no menu option (intentional)
+--		language = 1,
+--		caption_x = 0,
+--		caption_y = 150,
+--		caption_w = 800,
+--		caption_margin_v = 8,
+--		captions_max_count = 5,
+--		caption_use_fadein = false,
+--		caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
+--		caption_font_size = 16,
+--		caption_use_player_names = false,
+--		caption_allcaps_names = true,
+--		caption_variation_mode = 2,
+--		caption_empty_voicelines = true, -- show the caption if the line does not have an actual sound file recorded for it
+--		category_mission_dialogue = true,
+--		category_contractor_vo = true,
+--		category_sfx = true,
+--		category_ambient = false,
+--		category_heister_dialogue = true,
+--		category_heister_spots = true,
+--		category_heister_kills = true,
+--		category_civilian_dialogue = 2,
+--		category_enemy_dialogue = 1,
+--		category_enemy_chatter = 2,
+--		category_enemy_death = 2,
+--		category_specialenemy_chatter = true,
+--		category_specialenemy_death = true	
 	},
 	settings = {}, -- populated from default settings, then from user save json
+	_ws = nil,
+	_panel = nil,
 	_soundsources = {
 		--[[
 			[SoundSource 0xd34db33f] = {
 				events = {
-					menu_subtitlemod_speaker_unit_
-					menu_subtitlemod_speaker_cont_
-					
+					v51 = EventInstance
 				}
 			},
-
 		--]]
 	},
 	_sound_data = {}, -- subtitle data, indexed by event_id
-	_HEISTER_NAMES = { --[[ example data; populated on load
-		russian 	= "Dallas",
-		german 		= "Wolf",
-		spanish 	= "Chains",
-		american 	= "Houston",
-		jowi 		= "John Wick",
-		old_hoxton 	= "Hoxton",
-		female_1 	= "Clover",
-		dragan 		= "Dragan",
-		jacket 		= "Jacket",
-		bonnie 		= "Bonnie",
-		sokol 		= "Sokol",
-		dragon 		= "Jiro",
-		bodhi 		= "Bodhi",
-		jimmy 		= "Jimmy",
-		sydney 		= "Sydney",
-		wild 		= "Rust",
-		chico 		= "Scarface",
-		max 		= "Sangres",
-		joy 		= "Joy",
-		myh 		= "Duke",
-		ecp_male 	= "Ethan",
-		ecp_female 	= "Hila"
-	--]]
-	},
 	_UNIT_NAMES = {}, -- populated on load from data file
 	_NARRATOR_PREFIXES = {
 		Play_ban_ = "menu_subtitlemod_speaker_cont_bain",
@@ -64,8 +69,6 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	active_lines = {} -- currently playing captions, with live data such as panel, vector3/locationless flag
 }
 for k,v in pairs(ClosedCaptions.default_settings) do ClosedCaptions.settings[k] = v end
-
---ClosedCaptions._sound_data_filename = "sound_data.lua"
 
 ClosedCaptions._libraries = ClosedCaptions._libraries or {}
 function ClosedCaptions:require(path) -- local only; relative path to mod folder
@@ -84,6 +87,25 @@ function ClosedCaptions:require(path) -- local only; relative path to mod folder
 end
 
 
+
+
+
+
+
+
+
+
+function ClosedCaptions:HideCaptionsPanel()
+	if alive(self._panel) then
+		self._panel:hide()
+	end
+end
+
+function ClosedCaptions:ShowCaptionsPanel()
+	if alive(self._panel) then
+		self._panel:show()
+	end
+end
 
 function ClosedCaptions.CreateBGBox(parent,bgbox_config,panel_config,child_config)
 	local w = (bgbox_config and bgbox_config.w) or parent:w()
@@ -286,31 +308,13 @@ function ClosedCaptions:setup()
 --		managers.hud:add_updator("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
 --	end
 
-	self:ReadSoundData()
-	self:ReadUnitNames()
-	
 	self:hook_soundsource()
-	
-	self:populate_character_names()
-end
-
-Hooks:Register("ClosedCaptions_OnSettingsChanged")
-function ClosedCaptions:clbk_on_settings_changed(changed_settings)
-	Hooks:Call("ClosedCaptions_OnSettingsChanged",self.settings,changed_settings)
 end
 
 function ClosedCaptions:update(t,dt)
 	
-	
-	
 end
 Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
-
-function ClosedCaptions:populate_character_names()
-	for _,data in pairs(tweak_data.criminals._characters) do 
-		self._HEISTER_NAMES[data.name] = managers.localization:text("menu_" .. data.name)
-	end
-end
 
 function ClosedCaptions:Log(a,...)
 	if _G.Log then
@@ -324,77 +328,41 @@ function ClosedCaptions:Print(...)
 	end
 end
 
+
+-- ============================== Settings getters
+--settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
+function ClosedCaptions:UsePlayerName()
+	return self.settings.caption_use_player_names
+end
+
+function ClosedCaptions:UseCapitalNames()
+	return true
+end
+
+function ClosedCaptions:IsCaptionCategoryEnabled()
+	return true
+end
+
+function ClosedCaptions:ShouldLogMissing()
+	return true
+end
+
+function ClosedCaptions:IsLineRandomizationEnabled()
+	return true
+end
+
+function ClosedCaptions:GetColor(color_id)
+	return Color.white
+end
+
+
+
+
+
 function ClosedCaptions:ReadSoundData()
 	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
 end
 
-function ClosedCaptions:ReadUnitNames()
-	local file = io.open(self._SOUNDDATA_PATH .. "unit_names.json","r+")
-	self._UNIT_NAMES = json.decode(file.read("*all"))
-	file:close()
-end
-
-Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",callback(ClosedCaptions,ClosedCaptions,"setup"))
-
-	--Registers assets into the game's db so that they can be loaded later 
-function ClosedCaptions:CheckResourcesAdded(skip_load)
-	local assets = self._MANUAL_LOAD_ASSETS
-	for asset_type_str,data in pairs(assets) do
-		local asset_type_ids = Idstring(asset_type_str)
-		for _,path in pairs(data) do
-			
-			if DB:has(asset_type_ids, path) then 
-				self:Log("Asset " .. asset_type_str .. " at path " .. path .. " is verified.")
-			else
-				self:Log("Asset " .. asset_type_str .. " at path " .. path .. " is not created!")
-				if not skip_load then 
-					local full_asset_path = self._ASSETS_PATH .. path
-					BLT.AssetManager:CreateEntry(Idstring(path),asset_type_ids,full_asset_path .. "." .. asset_type_str)
-				end
-			end
-		end
-	end
-end
-
---Loads assets into memory so that they can be used in-game
-function ClosedCaptions:CheckResourcesReady(skip_load,done_loading_cb)
-	self:Log("Checking font assets...")
-	
-	local assets = self._MANUAL_LOAD_ASSETS
-	
-	local dyn_pkg = DynamicResourceManager.DYN_RESOURCES_PACKAGE
-
-	if done_loading_cb and done_loading_cb ~= false then 
-	
-		done_loading_cb = function(done,resource_type_ids,resource_ids)
-			if done then 
-				self:Log("Completed manual asset loading for " .. tostring(resource_ids))
-			end
-		end
-		
-	end
-	
-	local resources_ready = true
-	for asset_type_str,data in pairs(assets) do
-		local asset_type_ids = Idstring(asset_type_str)
-		for _,path in pairs(data) do
-			if not managers.dyn_resource:is_resource_ready(asset_type_ids,Idstring(path),dyn_pkg) then 
-				if not skip_load then 
-					--register_loading(path)
-					self:Log("Creating DB entry for " .. tostring(asset_type_ids) .. ", " .. tostring(path) .. ", " .. tostring(self._ASSETS_PATH .. path .. "." .. asset_type_str))
-					managers.dyn_resource:load(asset_type_ids, Idstring(path), dyn_pkg, done_loading_cb)
-				end
-				self:Log("Asset " .. tostring(asset_type_str) .. " at path " .. path .. " is not ready!" .. (skip_load and " Skipped loading for " or " Started manual load for ") .. path)
-				resources_ready = false
-			else
-				self:Log("Asset " .. tostring(asset_type_str) .. " at path " .. path .. " is ready.")
-			end
-			
-		end
-	end
-	
-	return resources_ready
-end
 
 function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	local text,text_color,color_range,panel_name = self:get_subtitle_display_data(event_id,unit,sound_source,position)
@@ -402,6 +370,17 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	self:_create_caption_text(text,text_color,color_range,panel_name)
 end
 
+-- todo return the caption data, not just the panel
+function ClosedCaptions:get_subtitle(event_id,unit)
+	local panel_name = event_id .. "_" .. tostring(unit:key())
+	
+	local item_panel = self._panel:child(panel_name)
+	return alive(item_panel) and item_panel
+end
+
+function ClosedCaptions:hide_subtitle(event_id,unit,sound_source,position)
+
+end
 
 local AnimateLibrary = ClosedCaptions:require("lua/AnimateLibrary")
 function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_name)
@@ -539,17 +518,12 @@ function ClosedCaptions:_remove_subtitle(id)
 	end
 end
 
---settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
-function ClosedCaptions:UsePlayerName()
-	return self.settings.caption_use_player_names
-end
-
-function ClosedCaptions:GetColor(color_id)
-	return Color.white
-end
-
 function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,position)
 	
+	
+	
+	
+	--[[
 	local name,variant,color,is_locationless,tweak_table
 	
 	
@@ -745,6 +719,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	
 	local str = string.format("%s: %s",speaker_str,text)
 	return str,text_color,color_tbl,event_id .. "_" .. tostring(unit:key())
+	--]]
 end
 
 function ClosedCaptions:__get_subtitle_display_data(event_id,unit)
@@ -818,23 +793,8 @@ function ClosedCaptions:__get_subtitle_display_data(event_id,unit)
 	return str,text_color,color_tbl,event_id .. "_" .. tostring(unit:key())
 end
 
-function ClosedCaptions:UseCapitalNames()
-	return true
-end
-
-function ClosedCaptions:IsCaptionCategoryEnabled()
-	return true
-end
-
-function ClosedCaptions:ShouldLogMissing()
-	return true
-end
-
-function ClosedCaptions:IsLineRandomizationEnabled()
-	return true
-end
-
 --chooses a random caption variation from the sound_table
+-- todo skip_chance for each part?
 function ClosedCaptions.get_random_variation(variations_tbl,is_recombinable)
 	if is_recombinable then
 		local variation_text
@@ -859,7 +819,8 @@ function ClosedCaptions.get_random_variation(variations_tbl,is_recombinable)
 end
 
 
--- SoundSource management
+
+-- ============================== SoundSource management
 
 function ClosedCaptions:hook_soundsource()
 	
@@ -1026,14 +987,71 @@ end
 
 
 
+-- ============================== Custom assets
+
+--Registers assets into the game's db so that they can be loaded later 
+function ClosedCaptions:CheckResourcesAdded(skip_load)
+	local assets = self._MANUAL_LOAD_ASSETS
+	for asset_type_str,data in pairs(assets) do
+		local asset_type_ids = Idstring(asset_type_str)
+		for _,path in pairs(data) do
+			
+			if DB:has(asset_type_ids, path) then 
+				self:Log("Asset " .. asset_type_str .. " at path " .. path .. " is verified.")
+			else
+				self:Log("Asset " .. asset_type_str .. " at path " .. path .. " is not created!")
+				if not skip_load then 
+					local full_asset_path = self._ASSETS_PATH .. path
+					BLT.AssetManager:CreateEntry(Idstring(path),asset_type_ids,full_asset_path .. "." .. asset_type_str)
+				end
+			end
+		end
+	end
+end
+
+--Loads assets into memory so that they can be used in-game
+function ClosedCaptions:CheckResourcesReady(skip_load,done_loading_cb)
+	self:Log("Checking font assets...")
+	
+	local assets = self._MANUAL_LOAD_ASSETS
+	
+	local dyn_pkg = DynamicResourceManager.DYN_RESOURCES_PACKAGE
+
+	if done_loading_cb and done_loading_cb ~= false then 
+	
+		done_loading_cb = function(done,resource_type_ids,resource_ids)
+			if done then 
+				self:Log("Completed manual asset loading for " .. tostring(resource_ids))
+			end
+		end
+		
+	end
+	
+	local resources_ready = true
+	for asset_type_str,data in pairs(assets) do
+		local asset_type_ids = Idstring(asset_type_str)
+		for _,path in pairs(data) do
+			if not managers.dyn_resource:is_resource_ready(asset_type_ids,Idstring(path),dyn_pkg) then 
+				if not skip_load then 
+					--register_loading(path)
+					self:Log("Creating DB entry for " .. tostring(asset_type_ids) .. ", " .. tostring(path) .. ", " .. tostring(self._ASSETS_PATH .. path .. "." .. asset_type_str))
+					managers.dyn_resource:load(asset_type_ids, Idstring(path), dyn_pkg, done_loading_cb)
+				end
+				self:Log("Asset " .. tostring(asset_type_str) .. " at path " .. path .. " is not ready!" .. (skip_load and " Skipped loading for " or " Started manual load for ") .. path)
+				resources_ready = false
+			else
+				self:Log("Asset " .. tostring(asset_type_str) .. " at path " .. path .. " is ready.")
+			end
+			
+		end
+	end
+	
+	return resources_ready
+end
 
 
 
-
-
-
-
--- Language swapping
+-- ============================== Localization management
 
 function ClosedCaptions:LoadLanguage(localizationmanager,user_language)
 	localizationmanager = localizationmanager or managers.localization
@@ -1043,6 +1061,25 @@ function ClosedCaptions:LoadLanguage(localizationmanager,user_language)
 		if language_data then
 			if language_data.file_path then
 				localizationmanager:load_localization_file(language_data.file_path,true)
+				
+				if language_data.folder_path then
+					localizationmanager:load_localization_file(language_data.folder_path .. "subtitles.json",true)
+					localizationmanager:load_localization_file(language_data.folder_path .. "speakers.json",true)
+					
+					-- because the unit list gets edited so often (relatively),
+					-- it gets disorganized very easily,
+					-- so i'm not bothering with localizing it using the actual loc system,
+					-- because that would require a lot of name mangling and i'm tired of it
+					local unit_names_path = Application:nice_path(language_data.folder_path .. "unit_names.json", false)
+					if SystemFS:exists(unit_names_path) then	
+						local file = io.open(unit_names_path, "r")
+						if file then
+							local unit_names = json.decode(file:read("*all"))
+							self._UNIT_NAMES = unit_names
+							file:close()
+						end
+					end
+				end
 				self.settings._language_index = language_data.index
 			else
 				self:Log("ERROR! No file path for language: " .. tostring(user_language))
@@ -1062,33 +1099,37 @@ end
 
 -- Index the localization folder to get a list of all available languages
 function ClosedCaptions:LoadLanguageFiles()
-	-- For each localization file in the localization folder...
-	for i,filename in ipairs(SystemFS:list(self._LOCALIZATION_DIRECTORY_PATH)) do 
-		local localization_file_path = self._LOCALIZATION_DIRECTORY_PATH .. filename
-		local file = io.open(localization_file_path, "r")
-		-- ...open the file...
-		if file then
-		
-			-- ...read the contents and get the name of the language from the contents (not from the filename!)...
-			local localized_strings = json.decode(file:read("*all"))
-			local lang_name = localized_strings and (type(localized_strings) == "table") and localized_strings.menu_closedcaptions_language_name
-			-- ...and "register" the file so that the mod knows that it is a selectable language
-			if lang_name then 
-				self.languages[filename] = {
-					index = i,
-					localized_language_name = lang_name,
-					file_path = localization_file_path
-				}
+	-- For each language folder in the localization folder...
+	for i,foldername in ipairs(SystemFS:list(self._LOCALIZATION_DIRECTORY_PATH,true)) do 
+		local folder_path = self._LOCALIZATION_DIRECTORY_PATH .. foldername
+		local localization_file_path = folder_path .. self._LOCALIZATION_FILE_NAME
+		-- ...check for the main localization file inside...
+		if SystemFS:exists( Application:nice_path( localization_file_path, false )) then
+			local file = io.open(localization_file_path, "r")
+			-- ...open the file...
+			if file then
+				-- ...read the contents and get the name of the language from the contents (not from the filename!)...
+				local localized_strings = json.decode(file:read("*all"))
+				local lang_name = localized_strings and (type(localized_strings) == "table") and localized_strings.menu_closedcaptions_language_name
+				-- ...and "register" the file so that the mod knows that it is a selectable language
+				if lang_name then 
+					self.languages[foldername] = {
+						index = i,
+						localized_language_name = lang_name,
+						folder_path = folder_path
+						file_path = localization_file_path
+					}
+				end
+			
 			end
-		
-		end
-		-- If this file is the currently selected language,
-		-- Then set the _language_index so that the multiple choice setting reflects that this is the currently selected language
-		if filename == self:GetCurrentLanguageName() then 
-			self.settings._language_index = i
-			-- Language order is not guaranteed- particularly if a new language is added which interferes with the alphabetical order-
-			-- which is why the filename is saved and not the index number of the language,
-			-- and the index number is "generated" on load instead of being written here in settings
+			-- If this file is the currently selected language,
+			-- Then set the _language_index so that the multiple choice setting reflects that this is the currently selected language
+			if foldername == self:GetCurrentLanguageName() then 
+				self.settings._language_index = i
+				-- Language order is not guaranteed- particularly if a new language is added which interferes with the alphabetical order-
+				-- which is why the filename is saved and not the index number of the language,
+				-- and the index number is "generated" on load instead of being written here in settings
+			end
 		end
 	end
 end
@@ -1100,6 +1141,15 @@ Hooks:Add("LocalizationManagerPostInit", "ClosedCaptions_LocalizationManagerPost
 		ClosedCaptions:LoadLanguage(self)
 	end
 )
+
+
+
+-- ============================== Menu
+
+Hooks:Register("ClosedCaptions_OnSettingsChanged")
+function ClosedCaptions:clbk_on_settings_changed(changed_settings)
+	Hooks:Call("ClosedCaptions_OnSettingsChanged",self.settings,changed_settings)
+end
 
 Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(menu_manager)
 	-- anything that changes settings should then call:
@@ -1136,7 +1186,7 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 		end
 	end
 	
-	MenuCallbackHandler.callback_hevhud_language_name = function(self,item)
+	MenuCallbackHandler.callback_closedcaptions_language_name = function(self,item)
 		local index = item:value()
 		ClosedCaptions.settings._language_index = index
 		for filename,data in pairs(self._languages) do 
@@ -1151,7 +1201,11 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 		ClosedCaptions:Log("Error loading localization! Invalid selection index: " .. tostring(index))
 	end
 	
+	ClosedCaptions:ReadSoundData()
+	ClosedCaptions:LoadLanguageFiles()
 	ClosedCaptions:CheckResourcesReady()
 end)
+
+Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",callback(ClosedCaptions,ClosedCaptions,"setup"))
 
 ClosedCaptions:CheckResourcesAdded()
