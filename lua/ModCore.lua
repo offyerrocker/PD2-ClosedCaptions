@@ -446,7 +446,9 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_n
 		visible = true
 	})
 	if color_range then
-		subtitle:set_range_color(color_range)
+		for i=1,#color_range,3 do 
+			subtitle:set_range_color(color_range[i],color_range[i+1],color_range[i+2])
+		end
 	end
 	local txc,tyc,twc,thc = subtitle:text_rect()
 	
@@ -460,9 +462,9 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_n
 	item_panel:set_h(thc + margin_ver)
 	
 	-- center subtitle
-	item_panel:set_x((panel_w - item_panel:w()) / 2)
+	item_panel:set_x((parent_w - item_panel:w()) / 2)
 	
-	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(item_panel),function(settings,changed_settings)
+	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(panel_name),function(settings,changed_settings)
 		if table.contains(changed_settings,"caption_font_size") then
 			-- todo recreate?
 		--[[
@@ -492,6 +494,8 @@ function ClosedCaptions:_remove_subtitle(id) -- todo remove caption data, not ju
 			self._panel:remove(item_panel)
 		end,duration,nil,0)
 	end
+	
+	Hooks:Remove("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(id))
 end
 
 function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,position)
