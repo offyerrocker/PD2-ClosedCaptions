@@ -5,6 +5,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	_LOCALIZATION_DIRECTORY_PATH = ModPath .. "l10n/",
 	_LOCALIZATION_FILE_NAME = "menu_strings.json", -- menu strings and main mod localization (nothing directly related to subtitles themselves)
 	_SOUNDDATA_PATH = ModPath .. "data/",
+	_MENU_PATH = ModPath .. "menu/options.json",
 	_MANUAL_LOAD_ASSETS = {
 		texture = {
 			"guis/textures/closedcaptions_bgbox_atlas"
@@ -14,39 +15,41 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	default_settings = {
 		use_hide_hud_keybind = true, -- if true, will be hidden/shown along with the hud when the player uses the vanilla "Hide HUD" keybind
 		
---		caption_use_player_names = true,
 --		master_enabled = true,
 --		logging_enabled = false,
 --		log_missing = false,
 --		log_ids = false,
 --		log_debug = false,
 --		log_bainunit_vo = false, --no menu option (intentional)
---		language = 1,
+		language_name = "english",
+		_language_index = 1,
 --		caption_x = 0,
 --		caption_y = 150,
 --		caption_w = 800,
 --		caption_margin_v = 8,
---		captions_max_count = 5,
---		caption_use_fadein = false,
---		caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
---		caption_font_size = 16,
---		caption_use_player_names = false,
---		caption_allcaps_names = true,
---		caption_variation_mode = 2,
---		caption_empty_voicelines = true, -- show the caption if the line does not have an actual sound file recorded for it
---		category_mission_dialogue = true,
---		category_contractor_vo = true,
---		category_sfx = true,
---		category_ambient = false,
---		category_heister_dialogue = true,
---		category_heister_spots = true,
---		category_heister_kills = true,
---		category_civilian_dialogue = 2,
---		category_enemy_dialogue = 1,
---		category_enemy_chatter = 2,
---		category_enemy_death = 2,
---		category_specialenemy_chatter = true,
---		category_specialenemy_death = true	
+		captions_max_count = 5,
+		caption_use_fadein = false,
+		caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
+		caption_font_size = 16,
+		caption_allcaps_names = true,
+		caption_variation_mode = 2,
+		caption_use_player_names = true,
+		caption_empty_voicelines = true, -- show the caption if the line does not have an actual sound file recorded for it
+		caption_separate_speaker_color = true,
+
+		category_mission_dialogue = true,
+		category_contractor_vo = true,
+		category_sfx = true,
+		category_ambient = false,
+		category_heister_dialogue = true,
+		category_heister_spots = true,
+		category_heister_kills = true,
+		category_civilian_dialogue = 2,
+		category_enemy_dialogue = 1,
+		category_enemy_chatter = 2,
+		category_enemy_death = 2,
+		category_specialenemy_chatter = true,
+		category_specialenemy_death = true	
 	},
 	settings = {}, -- populated from default settings, then from user save json
 	_ws = nil,
@@ -66,11 +69,43 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		Play_ban_ = "menu_subtitlemod_speaker_cont_bain",
 		Play_loc_ = "menu_subtitlemod_speaker_cont_locke"
 	},
-	active_lines = {} -- currently playing captions, with live data such as panel, vector3/locationless flag
+	_CATEGORY_NAMES_TO_SETTING_NAMES = {
+		mission_dialogue = "category_mission_dialogue",
+		contractor_vo = "category_contractor_vo",
+		sfx = "category_sfx",
+		ambient = "category_ambient",
+		heister_dialogue = "category_heister_dialogue",
+		heister_spots = "category_heister_spots",
+		heister_kills = "category_heister_kills",
+		civilian_dialogue = "category_civilian_dialogue",
+		enemy_dialogue = "category_enemy_dialogue",
+		enemy_chatter = "category_enemy_chatter",
+		enemy_death = "category_enemy_death",
+	--	specialenemy_dialogue = "category_specialenemy_dialogue",
+		specialenemy_chatter = "category_specialenemy_chatter",
+		specialenemy_death = "category_specialenemy_death"
+	},
+	_queue_active_subtitles = {}, -- the order to iterate current subtitles; ordered list
+	_active_subtitles = {}, -- currently playing captions, with live data such as panel, vector3/locationless flag
+	_libraries = {} -- for require()
 }
 for k,v in pairs(ClosedCaptions.default_settings) do ClosedCaptions.settings[k] = v end
 
-ClosedCaptions._libraries = ClosedCaptions._libraries or {}
+
+-- ============================== Utils
+
+function ClosedCaptions:Log(a,...)
+	if _G.Log then
+		return _G.Log("[ClosedCaptions]" .. tostring(a))
+	end
+end
+
+function ClosedCaptions:Print(...)
+	if _G.Print then
+		return _G.Print(...)
+	end
+end
+
 function ClosedCaptions:require(path) -- local only; relative path to mod folder
 	if self._libraries[path] then
 		return self._libraries[path]
@@ -87,13 +122,591 @@ function ClosedCaptions:require(path) -- local only; relative path to mod folder
 end
 
 
+-- ============================== Settings getters (individual)
+--settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
+
+
+--settings getter; enables caption priority system; otherwise it's a normal first-in first-out queue
+function ClosedCaptions:IsPriorityEnabled() 
+	return self.settings.caption_order == 1
+end
+
+--settings getter; allows caption variation (for lines that have them) if enabled; else, chooses more generic text description
+function ClosedCaptions:IsLineRandomizationEnabled()
+	return self.settings.caption_variation_mode == 1
+end
+
+--allows heister to play captions for queued lines that have no actual soundfile; no menu option at the moment; default enabled
+function ClosedCaptions:AllowEmptyVoicelines()
+	return self.settings.caption_empty_voicelines
+end
+
+--settings getter; if true, speaker names are in all capital letters
+function ClosedCaptions:UseCapitalNames()
+	return self.settings.caption_allcaps_names
+end
+
+--settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
+function ClosedCaptions:UsePlayerName()
+	return self.settings.caption_use_player_names
+end
+
+--settings getter; if true, caption alpha starts at 0 and fades in to full opacity over a short duration
+function ClosedCaptions:IsFadeinEnabled()
+	return self.settings.caption_use_fadein
+end
+
+--checks enabled categories, compares them, and determines if current line is allowed by this setting
+function ClosedCaptions:IsCaptionCategoryEnabled(category,is_special_enemy)
+--since sometimes enemies and special enemies share death lines), this is written in this function instead of the sound_data, in the event that:
+--    a) overkill adds a new special enemy (though unlikely) and i'm not around to adjust the sound_data;
+-- or b) modders add a new special enemy (they already exist)
+	if category == "enemy_death" then 
+		if is_special_enemy then 
+			category = "specialenemy_death"
+		end
+	elseif category == "enemy_chatter" then 
+		if is_special_enemy then 
+			category = "specialenemy_chatter"
+		end
+	end
+	
+	if category and self._CATEGORY_NAMES_TO_SETTING_NAMES[category] then 
+		return self.settings[self._CATEGORY_NAMES_TO_SETTING_NAMES[category]]
+	elseif category == "UNKNOWN" then
+		return false
+	else
+		--self:log_debug("IsCaptionCategoryEnabled() Unknown category " .. tostring(category),{color=Color.yellow})
+		return nil
+	end
+end
+
+function ClosedCaptions:GetColor(color_id)
+	return Color.white
+end
+
+-- ============================== Misc settings management
+
+function ClosedCaptions:change_setting(setting,new_value,skip_clbk)
+	self.settings[setting] = new_value
+	if not skip_clbk then
+		self:clbk_on_settings_changed({
+			setting = new_value
+		})
+	end
+end
+
+Hooks:Register("ClosedCaptions_OnSettingsChanged")
+function ClosedCaptions:clbk_on_settings_changed(changed_settings)
+	Hooks:Call("ClosedCaptions_OnSettingsChanged",self.settings,changed_settings)
+end
+
+function ClosedCaptions:get_setting(setting,fallback)
+	if self.settings[setting] == nil then
+		return fallback
+	end
+	return self.settings[setting]
+end
 
 
 
+-- ============================== Subtitle management
+
+--initializes mod data;
+--creates workspace to display captions on, registers the update method
+function ClosedCaptions:setup()
+--	self:LoadSounds()
+	self._ws = managers.gui_data:create_saferect_workspace() --managers.gui_data:create_fullscreen_workspace()
+	self._panel = self._ws and self._ws:panel()
+	self._panel:set_layer(1000)
+
+	self._BGBOX_PANEL_CONFIG = {alpha=0.5,valign="grow",halign="grow",tile_size=8}
+	self._BGBOX_TILE_CONFIG = {color=Color(0,0,0)}
+	
+--	self:SetVisible(self:IsEnabled())
+--	self:SetPanelX(self.settings.caption_x)
+	--caption y setting is actually applied within eaach caption so don't do it here
+	
+--	if managers.hud then
+--		managers.hud:add_updator("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"update"))
+--	end
+
+	self:hook_soundsource()
+end
+
+local player_pos = Vector3()
+local source_pos = Vector3()
+function ClosedCaptions:update(t,dt)
+
+	local viewport_cam = managers.viewport:get_current_camera()
+	if not viewport_cam then return end
+	
+	local player_aim = viewport_cam:rotation():yaw()
+	mvector3.set(player_pos,viewport_cam:position())
+	local MAX_SUBTITLES = self.settings.captions_max_count
+	
+	local current_num = 0
+	for i=#self._queue_active_subtitles,1,-1 do 
+		local item = self._active_subtitles[self._queue_active_subtitles[i]]
+		if alive(item.panel) then
+			if current_num < MAX_SUBTITLES then
+				local to_state = nil
+				if item.is_locationless then
+					
+				else
+					local has_source
+					-- determine if this caption is left/right of player viewport
+					if alive(item.sound_source) then
+						has_source = true
+						mvector3.set(source_pos,item.sound_source:get_position())
+					elseif alive(item.unit) then
+						has_source = true
+						mvector3.set(source_pos,item.unit:position())
+					end
+		--				local angle_to = ((ClosedCaptions.angle_from(player_pos,source_pos) - player_aim + 270) % 360) - 180
+		--				item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
+		--				item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
+					if has_source then
+						if to_state == 1 and item.max_distance then 
+							if source_pos and mvector3.distance_sq(player_pos,source_pos) >= item.max_distance*item.max_distance then 
+								to_state = 2
+							end
+						end
+					end
+				-- if settings.animation_smooth then
+				end
+				
+				
+				if item.state ~= to_state then
+					if to_state == 1 then -- show
+--						item.panel:animate(AnimateLibrary.animate_alpha_lerp)
+					elseif to_state == 2 then -- hiding
+--						item.panel:animate(AnimateLibrary.animate_alpha_lerp)
+					elseif to_state == 3 then -- delete
+					end
+					item.state = to_state
+				end
+				
+				
+				
+			else
+				-- panel removed somehow; 
+				-- remove immediately
+				self._active_subtitles[k] = nil
+				table.remove(self._queue_active_subtitles,i)
+				to_state = 3
+			end
+			
+			if to_state == 1 or to_state == 2 then
+				current_num = current_num + 1
+			end
+		end
+	end
+end
+Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
 
 
+function ClosedCaptions:get_subtitle_data(event_id,unit)
+	
+	
+	
+	
+	
+	
+end
+
+-- create panel from the given event data,
+-- bootstrap the updater to handle frame updates for tasks like left/right audio position detection or fadeout animations
+function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
+	--local subtitle_data = self:get_subtitle_data(event_id,unit)
+	
+	
+	-- make panel
+	local text,text_color,color_range = self:get_subtitle_display_data(event_id,unit,sound_source,position)
+	
+	local id = event_id .. "_" .. tostring(unit:key())
+	local item_panel = self:_create_caption_text(text,text_color,color_range,id)
+	
+	local loop_data
+	local is_recombinable
+	local is_locationless
+	local max_distance
+	local variation_data
+	local state_data = {
+		panel = item_panel,
+		state = 2 -- 1:visible, 2:hidden, 3:removing
+	}
+	
+	local duration = self.settings.caption_fadeout_time
+--	item_panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
+
+	
+	table.sort(self._queue_active_subtitles,function(a,b)
+		return a.priority > b.priority
+	end)
+	
+	self._active_subtitles[id] = state_data
+	--]]
+end
+
+-- todo return the caption data, not just the panel
+function ClosedCaptions:get_subtitle(event_id,unit)
+	local panel_name = event_id .. "_" .. tostring(unit:key())
+	
+	local item_panel = self._panel:child(panel_name)
+	return alive(item_panel) and item_panel
+end
+
+function ClosedCaptions:hide_subtitle(event_id,unit,sound_source,position)
+
+end
+
+local AnimateLibrary = ClosedCaptions:require("lua/AnimateLibrary")
+function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_name)
+	local panel = self._panel
+	if not alive(panel) then
+		return
+	end
+	
+	--[[
+	local item_panel = panel:child(panel_name)
+	if item_panel and alive(item_panel) then 
+		self:find_line({panel = item_panel},nil,"_remove_line")
+--		panel:remove(item_panel)
+	end
+	--]]
+	local arrow_margin_hor = 4
+	local margin_ver = 4
+	local margin_hor = 4
+	local parent_w = panel:w()
+	
+	local item_panel = panel:panel({
+		name = panel_name,
+		w = nil,
+		h = nil,
+		alpha = 0
+	})
+	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
+	
+	local arrow_left = item_panel:text({
+		name = "arrow_left",
+		text = "<",
+		visible = true,
+		x = arrow_margin_hor,
+		y = 0,
+		align = "left",
+		vertical = "center",
+		valign = "grow",
+		halign = "grow",
+		font = tweak_data.hud_players.ammo_font,
+		font_size = self.settings.caption_font_size,
+		color = text_color,
+		layer = 2
+	})
+	local arrow_right = item_panel:text({
+		name = "arrow_right",
+		text = ">",
+		visible = true,
+		x = -arrow_margin_hor,
+		y = 0,
+		align = "right",
+		vertical = "center",
+		valign = "grow",
+		halign = "grow",
+		font = tweak_data.hud_players.ammo_font,
+		font_size = self.settings.caption_font_size,
+		color = text_color,
+		layer = 2
+	})
+	
+	local txa,tya,twa,tha = arrow_left:text_rect()
+	local txb,tyb,twb,thb = arrow_right:text_rect()
+--	local margin_left = twa
+--	local margin_right = twb
+	
+--	local line_h = self.settings.caption_font_size
+--	local hor_text_margin,ver_text_margin = 2,2
+	local subtitle = item_panel:text({
+		name = "subtitle",
+		text = text,
+--		x = margin_hor/2,
+--		y = margin_ver/2,
+--		w = item_panel:w() - (margin_left + margin_right),
+--		h = line_h,
+		align = "center",
+		vertical = "center", -- note: center doesn't work properly with custom fonts
+		word_wrap = true,
+		valign = "grow",
+		halign = "grow",
+		font = tweak_data.hud_players.ammo_font,
+		font_size = self.settings.caption_font_size,
+		color = text_color,
+		layer = 2,
+		alpha = 1,
+		visible = true
+	})
+	if color_range then
+		subtitle:set_range_color(color_range)
+	end
+	local txc,tyc,twc,thc = subtitle:text_rect()
+	
+	
+	-- can't be larger than 70% of screen width
+	item_panel:set_w(math.min(arrow_margin_hor+arrow_margin_hor+twa+twb+twc,parent_w * 0.7) + margin_hor)
+	
+	local num_lines = subtitle:number_of_lines()
+	local line_height = subtitle:line_height()
+	thc = num_lines * line_height
+	item_panel:set_h(thc + margin_ver)
+	
+	-- center subtitle
+	item_panel:set_x((panel_w - item_panel:w()) / 2)
+	
+	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(item_panel),function(settings,changed_settings)
+		if table.contains(changed_settings,"caption_font_size") then
+			-- todo recreate?
+		--[[
+			local caption = self:get_caption(panel_name)
+			if alive(caption) then
+				local font_size = settings.caption_font_size
+				caption:child("subtitle"):set_font_size(font_size)
+				caption:child("arrow_left"):set_font_size(font_size)
+				caption:child("arrow_right"):set_font_size(font_size)
+			end
+		--]]
+		end
+	end)
+	
+	return item_panel
+end
+
+function ClosedCaptions:remove_subtitle(event_id,unit)
+	self:_remove_subtitle(event_id .. "_" .. tostring(unit:key()))
+end
+
+function ClosedCaptions:_remove_subtitle(id) -- todo remove caption data, not just panel
+	local item_panel = self._panel:child(id)
+	if alive(item_panel) then
+		local duration = 0.5
+		item_panel:animate(AnimateLibrary.animate_alpha_lerp,function(o)
+			self._panel:remove(item_panel)
+		end,duration,nil,0)
+	end
+end
+
+function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,position)
+	
+	local sound_data = self._sound_data.vo[event_id]
+	if not sound_data then
+		return
+	end
+	
+	local text
+	local variation_data = sound_data
+	if sound_data.voice_variations and sound_data.voice_variations[voice] then
+		variation_data = sound_data
+	end
+	
+	local variations = variation_data.line_variations or sound_data.line_variations
+	if variations and self:IsLineRandomizationEnabled() then 
+		
+		local is_recombinable = variations.recombinable
+		
+		local is_whisper_mode = managers.groupai:state():whisper_mode()
+		local is_assault_mode = managers.groupai:state():get_assault_mode()
+		if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
+			variation_data = variations.whisper_mode
+			text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
+		elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
+			variation_data = variations.assault_mode
+			text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
+		elseif variations.standard_mode then --no requirements
+			variation_data = variations.standard_mode
+			text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
+		end
+	end
+	
+	local name,variant,color,is_locationless,tweak_table
+	
+	-- get speaker string
+	if alive(unit) then 
+		if unit == managers.dialog._bain_unit then
+			--is from vo
+			local narrator_prefix = managers.dialog._narrator_prefix
+			if self._NARRATOR_PREFIXES[narrator_prefix] then
+				name = self._NARRATOR_PREFIXES[narrator_prefix]
+			end
+			variant = "narrator"
+		else
+			name = managers.criminals:character_name_by_unit(unit)
+			if name then --is criminal
+				local switch = sound_source:get_switch()
+				if switch and switch.robber then 
+					variant = switch.robber
+					if switch.int_ext == "first" then
+						is_locationless = true
+					end
+				end
+				name = managers.localization:text("menu_" .. tostring(name))
+				local color_id = managers.criminals:character_color_id_by_unit(unit)
+				color = color_id and tweak_data.chat_colors[color_id] --should this use cc's peer colors?
+				local peer_id = managers.criminals:character_peer_id_by_unit(unit) 
+				if peer_id then 
+					if self:UsePlayerName() then 
+						local peer = managers.network:session():peer(peer_id)
+						name = peer and peer:name() or name
+					end
+				end
+			elseif managers.enemy:is_enemy(unit) then 
+				tweak_table = unit:base()._tweak_table
+				if unit:sound() then 
+					variant = unit:sound()._prefix
+				end
+				color = self:GetColor("law1")
+				variant = variant or tweak_table
+				name = tweak_table and self._UNIT_NAMES[tweak_table]
+				is_special_enemy = managers.groupai:state():is_enemy_special(unit)
+				--should bosses be considered special enemies for the purposes of category checks?
+				--(vanilla game does not consider hector/sosa to be special enemies)
+			elseif managers.enemy:is_civilian(unit) then 
+				if unit:sound() then 
+					variant = unit:sound()._prefix
+				end
+				color = self:GetColor("neutral1")
+
+				tweak_table = unit:base()._tweak_table
+				name = tweak_table and self._UNIT_NAMES[tweak_table]
+				variant = variant or tweak_table
+			end
+		end
+	end
+	
+	-- get subtitle text
+	if not sound_data then 
+		self._sound_data.vo[event_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
+		return
+	elseif sound_data.disabled then
+		return
+	end
+	
+	if variant and sound_data.variants and sound_data.variants[variant] then 
+		variation_data = sound_data.variants[variant]
+	elseif sound_data.text then 
+		text = sound_data.text
+	else
+		if sound_data.category == "stops" then 
+			return
+		else
+			self:Log("Error- sound " .. tostring(event_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
+		end
+		return
+	end
+	
+	if variation_data.disabled then
+		return
+	end
+	
+	text = text or variation_data.text or sound_data.text
 
 
+	local category = variation_data.category or sound_data.category	
+	if category == "stops" then 
+		return
+	else
+		local category_allowed = self:IsCaptionCategoryEnabled(category,is_special_enemy)
+		
+		if category_allowed == false then 
+--			self:log_debug("Category is not allowed! (id " .. tostring(event_id) .. ", category " .. tostring(sound_data.category) .. ")")
+			return
+		elseif category_allowed == nil then 
+			--if unknown or undefined category then log the sound (if logging is enabled)
+			if not self:ShouldLogMissing() then 
+				return
+			end
+--			self:log_debug("Category is not set for this line! (id " .. tostring(event_id) .. ", category " .. tostring(sound_data.category) .. ")")
+		else
+			if category_allowed == 1 then --always enabled
+			elseif category_allowed == 2 then --stealth-only
+				if not is_whisper_mode then 
+					return
+				end
+			elseif category_allowed == 3 then --loud-only
+				if not is_assault_mode then 
+					return
+				end
+			elseif category_allowed == 4 then --never allowed
+				return
+			end
+		end
+	end
+	
+	if not text then
+		return
+	end
+	
+	self:Print("Playing " .. tostring(event_id) .. " from unit " .. tostring(unit) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
+	
+	name = variation_data.override_name or name or variation_data.fallback_name
+	
+	
+	if self:UseCapitalNames() then 
+		name = utf8.to_upper(name)
+	end
+	
+	--local t = Application:time()
+	
+	name = name or "???"
+	
+	local DIFFERENT_COLOR_TEXT = self.settings.caption_separate_speaker_color
+	
+	local speaker_str = name
+	local speaker_color = color
+	local text_color = color
+	if DIFFERENT_COLOR_TEXT then
+		text_color = Color.white
+	end
+	
+	local speaker_len = utf8.len(speaker_str)
+	local text_len = utf8.len(text)
+	
+	local color_tbl = {
+		0,
+		speaker_len+1,
+		speaker_color,
+		
+		speaker_len+1,
+		speaker_len+text_len+2,
+		text_color
+	}
+	
+	local str = string.format("%s: %s",speaker_str,text)
+	return str,text_color,color_tbl
+end
+
+--chooses a random caption variation from the sound_table
+-- todo skip_chance for each part?
+function ClosedCaptions.get_random_variation(variations_tbl,is_recombinable)
+	if is_recombinable then
+		local variation_text
+		for _,combinable_parts in pairs(variations_tbl) do 
+			local new_text = combinable_parts[math.random(#combinable_parts)]
+			if new_text ~= "" then 
+				if variation_text then
+					variation_text = variation_text .. " "
+				else
+					variation_text = ""
+				end
+				variation_text = variation_text .. new_text
+			end
+		end
+		return variation_text
+	else
+		local num_variants = #variations_tbl
+		if num_variants > 0 then 
+			return variations_tbl[math.random(num_variants)]
+		end
+	end
+end
 
 function ClosedCaptions:HideCaptionsPanel()
 	if alive(self._panel) then
@@ -288,537 +901,6 @@ function ClosedCaptions.CreateBGBox(parent,bgbox_config,panel_config,child_confi
 	return panel
 end
 
---initializes mod data;
---creates workspace to display captions on, registers the Update() method
-
-function ClosedCaptions:setup()
---	self:LoadSounds()
-	self._ws = managers.gui_data:create_saferect_workspace() --managers.gui_data:create_fullscreen_workspace()
-	self._panel = self._ws and self._ws:panel()
-	self._panel:set_layer(1000)
-
-	self._BGBOX_PANEL_CONFIG = {alpha=0.5,valign="grow",halign="grow",tile_size=8}
-	self._BGBOX_TILE_CONFIG = {color=Color(0,0,0)}
-	
---	self:SetVisible(self:IsEnabled())
---	self:SetPanelX(self.settings.caption_x)
-	--caption y setting is actually applied within eaach caption so don't do it here
-	
---	if managers.hud then
---		managers.hud:add_updator("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
---	end
-
-	self:hook_soundsource()
-end
-
-function ClosedCaptions:update(t,dt)
-	
-end
-Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
-
-function ClosedCaptions:Log(a,...)
-	if _G.Log then
-		return _G.Log("[ClosedCaptions]" .. tostring(a))
-	end
-end
-
-function ClosedCaptions:Print(...)
-	if _G.Print then
-		return _G.Print(...)
-	end
-end
-
-
--- ============================== Settings getters
---settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
-function ClosedCaptions:UsePlayerName()
-	return self.settings.caption_use_player_names
-end
-
-function ClosedCaptions:UseCapitalNames()
-	return true
-end
-
-function ClosedCaptions:IsCaptionCategoryEnabled()
-	return true
-end
-
-function ClosedCaptions:ShouldLogMissing()
-	return true
-end
-
-function ClosedCaptions:IsLineRandomizationEnabled()
-	return true
-end
-
-function ClosedCaptions:GetColor(color_id)
-	return Color.white
-end
-
-
-
-
-
-function ClosedCaptions:ReadSoundData()
-	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
-end
-
-
-function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
-	local text,text_color,color_range,panel_name = self:get_subtitle_display_data(event_id,unit,sound_source,position)
-	
-	self:_create_caption_text(text,text_color,color_range,panel_name)
-end
-
--- todo return the caption data, not just the panel
-function ClosedCaptions:get_subtitle(event_id,unit)
-	local panel_name = event_id .. "_" .. tostring(unit:key())
-	
-	local item_panel = self._panel:child(panel_name)
-	return alive(item_panel) and item_panel
-end
-
-function ClosedCaptions:hide_subtitle(event_id,unit,sound_source,position)
-
-end
-
-local AnimateLibrary = ClosedCaptions:require("lua/AnimateLibrary")
-function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_name)
-	local panel = self._panel
-	if not alive(panel) then
-		return
-	end
-	
-	--[[
-	local item_panel = panel:child(panel_name)
-	if item_panel and alive(item_panel) then 
-		self:find_line({panel = item_panel},nil,"_remove_line")
---		panel:remove(item_panel)
-	end
-	--]]
-	local arrow_margin_hor = 4
-	local margin_ver = 4
-	local margin_hor = 4
-	local parent_w = panel:w()
-	
-	local item_panel = panel:panel({
-		name = panel_name,
-		w = nil,
-		h = nil,
-		alpha = 0
-	})
-	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
-	
-	local arrow_left = item_panel:text({
-		name = "arrow_left",
-		text = "<",
-		visible = true,
-		x = arrow_margin_hor,
-		y = 0,
-		align = "left",
-		vertical = "center",
-		valign = "grow",
-		halign = "grow",
-		font = tweak_data.hud_players.ammo_font,
-		font_size = self.settings.caption_font_size,
-		color = text_color,
-		layer = 2
-	})
-	local arrow_right = item_panel:text({
-		name = "arrow_right",
-		text = ">",
-		visible = true,
-		x = -arrow_margin_hor,
-		y = 0,
-		align = "right",
-		vertical = "center",
-		valign = "grow",
-		halign = "grow",
-		font = tweak_data.hud_players.ammo_font,
-		font_size = self.settings.caption_font_size,
-		color = text_color,
-		layer = 2
-	})
-	
-	local txa,tya,twa,tha = arrow_left:text_rect()
-	local txb,tyb,twb,thb = arrow_right:text_rect()
---	local margin_left = twa
---	local margin_right = twb
-	
---	local line_h = self.settings.caption_font_size
---	local hor_text_margin,ver_text_margin = 2,2
-	local subtitle = item_panel:text({
-		name = "subtitle",
-		text = text,
---		x = margin_hor/2,
---		y = margin_ver/2,
---		w = item_panel:w() - (margin_left + margin_right),
---		h = line_h,
-		align = "center",
-		vertical = "center", -- note: center doesn't work properly with custom fonts
-		word_wrap = true,
-		valign = "grow",
-		halign = "grow",
-		font = tweak_data.hud_players.ammo_font,
-		font_size = self.settings.caption_font_size,
-		color = text_color,
-		layer = 2,
-		alpha = 1,
-		visible = true
-	})
-	if color_range then
-		subtitle:set_range_colors(color_range)
-	end
-	local txc,tyc,twc,thc = subtitle:text_rect()
-	
-	
-	-- can't be larger than 70% of screen width
-	item_panel:set_w(math.min(arrow_margin_hor+arrow_margin_hor+twa+twb+twc,parent_w * 0.7) + margin_hor)
-	
-	local num_lines = subtitle:number_of_lines()
-	local line_height = subtitle:line_height()
-	thc = num_lines * line_height
-	item_panel:set_h(thc + margin_ver)
-	
-	-- center subtitle
-	item_panel:set_x((panel_w - item_panel:w()) / 2)
-	
-	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(item_panel),function(settings,changed_settings)
-		if table.contains(changed_settings,"caption_font_size") then
-			-- todo recreate?
-		--[[
-			local caption = self:get_caption(panel_name)
-			if alive(caption) then
-				local font_size = settings.caption_font_size
-				caption:child("subtitle"):set_font_size(font_size)
-				caption:child("arrow_left"):set_font_size(font_size)
-				caption:child("arrow_right"):set_font_size(font_size)
-			end
-		--]]
-		end
-	end)
-	
-	local duration = 0.5
-	item_panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
-	
-	return item_panel
-end
-
-function ClosedCaptions:remove_subtitle(event_id,unit)
-	self:_remove_subtitle(event_id .. "_" .. tostring(unit:key()))
-end
-
-function ClosedCaptions:_remove_subtitle(id)
-	local item_panel = self._panel:child(id)
-	if alive(item_panel) then
-		local duration = 0.5
-		item_panel:animate(AnimateLibrary.animate_alpha_lerp,function(o)
-			self._panel:remove(item_panel)
-		end,duration,nil,0)
-	end
-end
-
-function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,position)
-	
-	
-	
-	
-	--[[
-	local name,variant,color,is_locationless,tweak_table
-	
-	
-	local is_whisper_mode = managers.groupai:state():whisper_mode()
-	local is_assault_mode = managers.groupai:state():get_assault_mode()
-	
-	
-	-- get speaker string
-	if alive(unit) then 
-		if unit == managers.dialog._bain_unit then
-			--is from vo
-			local narrator_prefix = managers.dialog._narrator_prefix
-			if self._NARRATOR_PREFIXES[narrator_prefix] then
-				name = self._NARRATOR_PREFIXES[narrator_prefix]
-			end
-			variant = "narrator"
-		else
-			name = managers.criminals:character_name_by_unit(unit)
-			if name then --is criminal
-				local switch = sound_source:get_switch()
-				if switch and switch.robber then 
-					variant = switch.robber
-					if switch.int_ext == "first" then
-						is_locationless = true
-					end
-				end
-				name = managers.localization:text("menu_" .. tostring(name))
-				local color_id = managers.criminals:character_color_id_by_unit(unit)
-				color = color_id and tweak_data.chat_colors[color_id] --should this use cc's peer colors?
-				local peer_id = managers.criminals:character_peer_id_by_unit(unit) 
-				if peer_id then 
-					if self:UsePlayerName() then 
-						local peer = managers.network:session():peer(peer_id)
-						name = peer and peer:name() or name
-					end
-				end
-			elseif managers.enemy:is_enemy(unit) then 
-				tweak_table = unit:base()._tweak_table
-				if unit:sound() then 
-					variant = unit:sound()._prefix
-				end
-				color = self:GetColor("law1")
-				variant = variant or tweak_table
-				name = tweak_table and self._UNIT_NAMES[tweak_table]
-				is_special_enemy = managers.groupai:state():is_enemy_special(unit)
-				--should bosses be considered special enemies for the purposes of category checks?
-				--(vanilla game does not consider hector/sosa to be special enemies)
-			elseif managers.enemy:is_civilian(unit) then 
-				if unit:sound() then 
-					variant = unit:sound()._prefix
-				end
-				color = self:GetColor("neutral1")
-
-				tweak_table = unit:base()._tweak_table
-				name = tweak_table and self._UNIT_NAMES[tweak_table]
-				variant = variant or tweak_table
-			end
-		end
-	end
-	
-	local sound_data = sound_table.vo[event_id]
-	local variant_data = sound_data
-	
-	-- get subtitle text
-	if not sound_data then 
-		sound_table.vo[event_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
-		return
-	elseif sound_data.disabled then
-		return
-	end
-	
-	if variant and sound_data.variants and sound_data.variants[variant] then 
-		variant_data = sound_data.variants[variant]
-	elseif sound_data.text then 
-		text = sound_data.text
-	else
-		if sound_data.category == "stops" then 
-			return
-		else
-			self:Log("Error- sound " .. tostring(event_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
-		end
-		return
-	end
-	
-	local variations = variant_data.line_variations or sound_data.line_variations
-	if variations and self:IsLineRandomizationEnabled() then 
-		
-		is_recombinable = variations.recombinable
-		
-		if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
-			variation_data = variations.whisper_mode
-			text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
-			
-		elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
-			variation_data = variations.assault_mode
-			text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
-			
-		elseif not is_whisper_mode and variations.assault_break_mode then --if otherwise loud
-			variation_data = variations.assault_break_mode
-			text = ClosedCaptions.get_random_variation(variations.assault_break_mode,is_recombinable)
-			
-		elseif variations.standard_mode then --no requirements
-			variation_data = variations.standard_mode
-			text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
-		end
-	end
-	
-	if variant_data.disabled then
-		return
-	end
-	
-	text = text or variant_data.text or sound_data.text
-
-
-	local category = variant_data.category or sound_data.category	
-	if category == "stops" then 
-		return
-	else
-		local category_allowed = self:IsCaptionCategoryEnabled(category,is_special_enemy)
-		
-		if category_allowed == false then 
---			self:log_debug("Category is not allowed! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
-			return
-		elseif category_allowed == nil then 
-			--if unknown or undefined category then log the sound (if logging is enabled)
-			if not self:ShouldLogMissing() then 
-				return
-			end
---			self:log_debug("Category is not set for this line! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
-		else
-			if category_allowed == 1 then --always enabled
-			elseif category_allowed == 2 then --stealth-only
-				if not is_whisper_mode then 
-					return
-				end
-			elseif category_allowed == 3 then --loud-only
-				if not is_assault_mode then 
-					return
-				end
-			elseif category_allowed == 4 then --never allowed
-				return
-			end
-		end
-	end
-
-
-	if variant_data.override_source_id then 
-		if variant_data.override_source_id == true then 
-			source_id = nil
-		else
-			source_id = variant_data.override_source_id
-		end
-	end
-	
-	if not text then
-		return
-	end
-	
-	self:Print("Playing " .. tostring(sound_id) .. " from unit " .. tostring(unit) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
-	
-	name = variant_data.override_name or name or variant_data.fallback_name
-	
-	
-	if self:UseCapitalNames() then 
-		name = utf8.to_upper(name)
-	end
-	
-	--local t = Application:time()
-	
-	name = name or "???"
-	
-	local DIFFERENT_COLOR_TEXT = false
-	
-	local speaker_str = name
-	local speaker_color = color
-	local text_color = color
-	if DIFFERENT_COLOR_TEXT then
-		text_color = Color.white
-	end
-	
-	local speaker_len = utf8.len(speaker_str)
-	local text_len = utf8.len(text)
-	
-	local color_tbl = {
-		0,
-		speaker_len+1,
-		speaker_color,
-		
-		speaker_len+1,
-		speaker_len+text_len+2,
-		text_color
-	}
-	
-	local str = string.format("%s: %s",speaker_str,text)
-	return str,text_color,color_tbl,event_id .. "_" .. tostring(unit:key())
-	--]]
-end
-
-function ClosedCaptions:__get_subtitle_display_data(event_id,unit)
-	local subtitle_data = self._sound_data.vo[event_id]
-	if not subtitle_data or self._sound_data.disabled_sounds[event_id] then
-		--self:Print("Unknown event data for ",event_id)
-		return
-	end
-	local lang_data = self.languages[self:GetCurrentLanguageName()]
-	local speaker,text
-	local char_id,speech_prefix
-	if subtitle_data.category == "sfx" then
-		speaker = managers.localization:text("menu_subtitlemod_speaker_sfx")
-	elseif subtitle_data.category == "contractor_vo" then
-		speaker = managers.localization:text(subtitle_data.name or "menu_subtitlemod_speaker_cont_bain")
-	else
-		-- is unit
-		if alive(unit) then
-			local ubase = unit:base()
-			char_id = ubase and ubase._tweak_table --string key to character tweakdata
-			local char_td = char_id and tweak_data.character[char_id]
-			speech_prefix = char_td and char_td.speech_prefix
-			
-			local speaker_name = char_id and "menu_subtitlemod_speaker_unit_" .. char_id
-			
-			if subtitle_data.name then
-				speaker = managers.localization:text(subtitle_data.name)
-			elseif self._HEISTER_NAMES[char_id] then
-				speaker = self._HEISTER_NAMES[char_id]
-			elseif speaker_name and lang_data[speaker_name] then
-				speaker = managers.localization:text(speaker_name)
-			else
-				speaker = managers.localization:text("menu_subtitlemod_speaker_unknown")
-			end
-		end
-		
-	end
-	
-	if subtitle_data.prefix_variations and speech_prefix and subtitle_data.prefix_variations[speech_prefix] then
-		-- variations per character (dallas, jacket, clover, etc)
-		local variations = subtitle_data.prefix_variations[speech_prefix]
-		text = variations[math.random(#variations)]
-	elseif subtitle_data.random_variations then
-		-- randomized variations
-		local variations = subtitle_data.random_variations
-		text = variations[math.random(#variations)]
-	elseif subtitle_data.text then
-		text = subtitle_data.text
-	else
-		text = "menu_subtitlemod_line_" .. event_id
-	end
-	
-	local speaker_str = managers.localization:text(speaker)
-	local speaker_color = Color.green
-	local text_color = Color.white
-	
-	local speaker_len = utf8.len(speaker_str)
-	local text_len = utf8.len(text)
-	
-	local color_tbl = {
-		0,
-		speaker_len+1,
-		speaker_color,
-		
-		speaker_len+1,
-		speaker_len+text_len+2,
-		text_color
-	}
-	
-	local str = string.format("%s: %s",speaker_str,text)
-	return str,text_color,color_tbl,event_id .. "_" .. tostring(unit:key())
-end
-
---chooses a random caption variation from the sound_table
--- todo skip_chance for each part?
-function ClosedCaptions.get_random_variation(variations_tbl,is_recombinable)
-	if is_recombinable then
-		local variation_text
-		for _,combinable_parts in pairs(variations_tbl) do 
-			local new_text = combinable_parts[math.random(#combinable_parts)]
-			if new_text ~= "" then 
-				if variation_text then
-					variation_text = variation_text .. " "
-				else
-					variation_text = ""
-				end
-				variation_text = variation_text .. new_text
-			end
-		end
-		return variation_text
-	else
-		local num_variants = #variations_tbl
-		if num_variants > 0 then 
-			return variations_tbl[math.random(num_variants)]
-		end
-	end
-end
-
-
 
 -- ============================== SoundSource management
 
@@ -830,7 +912,7 @@ function ClosedCaptions:hook_soundsource()
 		
 		SoundSource._post_event = SoundSource._post_event or SoundSource.post_event
 		function SoundSource:post_event(event,clbk,cookie,marker,event_type,...)
-			
+			Print("Cookie",cookie)
 			if clbk then
 				local old_clbk = clbk
 				local new_clbk = function(...)
@@ -870,7 +952,7 @@ function ClosedCaptions:hook_soundsource()
 				end
 			end
 			
-			ClosedCaptions:register_soundsource_postevent(self,event,unit,result)
+			ClosedCaptions:register_soundsource_postevent(self,event,cookie,result)
 			
 			return result
 			
@@ -894,18 +976,9 @@ function ClosedCaptions:hook_soundsource()
 			
 			
 			local result = {self:_post_event(event, clbk, cookie, marker, event_type,...)}
-			ClosedCaptions:register_soundsource_postevent(self,event,event_instance)
+			ClosedCaptions:register_soundsource_postevent(self,event,cookie,result and result[1])
 			return unpack(result)
 		end)
-		
-		--[[
-		Hooks:PostHook(SoundSource,"post_event","closedcaptions_soundsource_postevent",function(self,event,clbk,cookie,marker,event_type,...)
-			if not SILENCE2 then
-				Print("Post event:",type(event),event,"clbk",clbk,"cookie",cookie,"marker",marker,"event_type",event_type,...)	
-			end
-			ClosedCaptions:add_line(event,SoundSource.get_link and SoundSource.get_link(self),self,SoundSource.get_position and SoundSource.get_position(self))
-		end)
-		--]]
 	end
 	
 	
@@ -915,7 +988,7 @@ function ClosedCaptions:hook_soundsource()
 		for ss_key,data in pairs(self._soundsources) do 
 			for event_id,event_instance in pairs(data.events) do
 				if event_instance == event_instance then
-					-- stop this sound
+					-- interrupt this sound
 					self:clbk_stop_postevent(event_id,data.source)
 					break
 				end
@@ -928,7 +1001,7 @@ end
 function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit)
 	if not event_id then return end
 	
-	self:Print("clbk_stop_postevent","event_id",event_id,"sound_source",sound_source,unit)
+	--self:Print("clbk_stop_postevent","event_id",event_id,"sound_source",sound_source,unit)
 	
 	local key = tostring(sound_source:key())
 	local data = self._soundsources[key]
@@ -953,12 +1026,7 @@ function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit)
 	self:remove_subtitle(event_id,unit)
 end
 
-function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,unit,event_instance)
-	local key = tostring(sound_source:key())
-	self._soundsources[key] = self._soundsources[key] or {
-		source = sound_source,
-		events = {}
-	}
+function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,unit,event_instance,...)
 	
 	
 --	if self._soundsources[key].events[event_id] == event_instance then
@@ -966,10 +1034,18 @@ function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,uni
 		-- (reroll text eg repeat enemy markings)
 --	end
 	if self._sound_data.vo[event_id] then
+		self:Print("Playing subtitle",event_id,sound_source,unit,event_instance,...)
+		local key = tostring(sound_source:key())
+		self._soundsources[key] = self._soundsources[key] or {
+			source = sound_source,
+			events = {}
+		}
+		self._soundsources[key].events[event_id] = event_instance
 		self:start_subtitle(event_id,unit,sound_source,sound_source:get_position())
+	else
+		self:Print("No subtitle data for",event_id)
 	end
 	
-	self._soundsources[key].events[event_id] = event_instance
 end
 
 function ClosedCaptions:unregister_source(sound_source)
@@ -978,6 +1054,7 @@ function ClosedCaptions:unregister_source(sound_source)
 	self._soundsources[key] = nil
 end
 
+-- callback for when a sound naturally reaches its end
 function ClosedCaptions._clbk_soundsource_post_event(event_id,instance,sound_source,event_type,unit,...)
 --	Print("_clbk_soundsource_post_event",event_id,"instance",instance,"sound_source",sound_source,"event_type",event_type,"unit",unit,"...",...)
 	if event_type == "end_of_event" then
@@ -985,69 +1062,6 @@ function ClosedCaptions._clbk_soundsource_post_event(event_id,instance,sound_sou
 	end
 end
 
-
-
--- ============================== Custom assets
-
---Registers assets into the game's db so that they can be loaded later 
-function ClosedCaptions:CheckResourcesAdded(skip_load)
-	local assets = self._MANUAL_LOAD_ASSETS
-	for asset_type_str,data in pairs(assets) do
-		local asset_type_ids = Idstring(asset_type_str)
-		for _,path in pairs(data) do
-			
-			if DB:has(asset_type_ids, path) then 
-				self:Log("Asset " .. asset_type_str .. " at path " .. path .. " is verified.")
-			else
-				self:Log("Asset " .. asset_type_str .. " at path " .. path .. " is not created!")
-				if not skip_load then 
-					local full_asset_path = self._ASSETS_PATH .. path
-					BLT.AssetManager:CreateEntry(Idstring(path),asset_type_ids,full_asset_path .. "." .. asset_type_str)
-				end
-			end
-		end
-	end
-end
-
---Loads assets into memory so that they can be used in-game
-function ClosedCaptions:CheckResourcesReady(skip_load,done_loading_cb)
-	self:Log("Checking font assets...")
-	
-	local assets = self._MANUAL_LOAD_ASSETS
-	
-	local dyn_pkg = DynamicResourceManager.DYN_RESOURCES_PACKAGE
-
-	if done_loading_cb and done_loading_cb ~= false then 
-	
-		done_loading_cb = function(done,resource_type_ids,resource_ids)
-			if done then 
-				self:Log("Completed manual asset loading for " .. tostring(resource_ids))
-			end
-		end
-		
-	end
-	
-	local resources_ready = true
-	for asset_type_str,data in pairs(assets) do
-		local asset_type_ids = Idstring(asset_type_str)
-		for _,path in pairs(data) do
-			if not managers.dyn_resource:is_resource_ready(asset_type_ids,Idstring(path),dyn_pkg) then 
-				if not skip_load then 
-					--register_loading(path)
-					self:Log("Creating DB entry for " .. tostring(asset_type_ids) .. ", " .. tostring(path) .. ", " .. tostring(self._ASSETS_PATH .. path .. "." .. asset_type_str))
-					managers.dyn_resource:load(asset_type_ids, Idstring(path), dyn_pkg, done_loading_cb)
-				end
-				self:Log("Asset " .. tostring(asset_type_str) .. " at path " .. path .. " is not ready!" .. (skip_load and " Skipped loading for " or " Started manual load for ") .. path)
-				resources_ready = false
-			else
-				self:Log("Asset " .. tostring(asset_type_str) .. " at path " .. path .. " is ready.")
-			end
-			
-		end
-	end
-	
-	return resources_ready
-end
 
 
 
@@ -1116,7 +1130,7 @@ function ClosedCaptions:LoadLanguageFiles()
 					self.languages[foldername] = {
 						index = i,
 						localized_language_name = lang_name,
-						folder_path = folder_path
+						folder_path = folder_path,
 						file_path = localization_file_path
 					}
 				end
@@ -1144,17 +1158,153 @@ Hooks:Add("LocalizationManagerPostInit", "ClosedCaptions_LocalizationManagerPost
 
 
 
--- ============================== Menu
-
-Hooks:Register("ClosedCaptions_OnSettingsChanged")
-function ClosedCaptions:clbk_on_settings_changed(changed_settings)
-	Hooks:Call("ClosedCaptions_OnSettingsChanged",self.settings,changed_settings)
+-- ============================== I/O
+function ClosedCaptions:ReadSoundData()
+	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
 end
+
+--load settings from save txt
+function ClosedCaptions:Load()
+	local file = io.open(self._SETTINGS_PATH, "r")
+	if file then
+		for k, v in pairs(json.decode(file:read("*all"))) do
+			self.settings[k] = v
+		end
+	end
+end
+
+--save settings to save txt
+function ClosedCaptions:Save()
+	local file = io.open(self._SETTINGS_PATH,"w+")
+	if file then
+		file:write(json.encode(self.settings))
+		file:close()
+	end
+end
+
+
+-- ============================== Custom assets
+
+--Registers assets into the game's db so that they can be loaded later 
+function ClosedCaptions:CheckResourcesAdded(skip_load)
+	local assets = self._MANUAL_LOAD_ASSETS
+	for asset_type_str,data in pairs(assets) do
+		local asset_type_ids = Idstring(asset_type_str)
+		for _,path in pairs(data) do
+			
+			if DB:has(asset_type_ids, path) then 
+				self:Log("Asset " .. asset_type_str .. " at path " .. path .. " is verified.")
+			else
+				self:Log("Asset " .. asset_type_str .. " at path " .. path .. " is not created!")
+				if not skip_load then 
+					local full_asset_path = self._ASSETS_PATH .. path
+					BLT.AssetManager:CreateEntry(Idstring(path),asset_type_ids,full_asset_path .. "." .. asset_type_str)
+				end
+			end
+		end
+	end
+end
+
+--Loads assets into memory so that they can be used in-game
+function ClosedCaptions:CheckResourcesReady(skip_load,done_loading_cb)
+	self:Log("Checking font assets...")
+	
+	local assets = self._MANUAL_LOAD_ASSETS
+	
+	local dyn_pkg = DynamicResourceManager.DYN_RESOURCES_PACKAGE
+
+	if done_loading_cb and done_loading_cb ~= false then 
+	
+		done_loading_cb = function(done,resource_type_ids,resource_ids)
+			if done then 
+				self:Log("Completed manual asset loading for " .. tostring(resource_ids))
+			end
+		end
+		
+	end
+	
+	local resources_ready = true
+	for asset_type_str,data in pairs(assets) do
+		local asset_type_ids = Idstring(asset_type_str)
+		for _,path in pairs(data) do
+			if not managers.dyn_resource:is_resource_ready(asset_type_ids,Idstring(path),dyn_pkg) then 
+				if not skip_load then 
+					--register_loading(path)
+					self:Log("Creating DB entry for " .. tostring(asset_type_ids) .. ", " .. tostring(path) .. ", " .. tostring(self._ASSETS_PATH .. path .. "." .. asset_type_str))
+					managers.dyn_resource:load(asset_type_ids, Idstring(path), dyn_pkg, done_loading_cb)
+				end
+				self:Log("Asset " .. tostring(asset_type_str) .. " at path " .. path .. " is not ready!" .. (skip_load and " Skipped loading for " or " Started manual load for ") .. path)
+				resources_ready = false
+			else
+				self:Log("Asset " .. tostring(asset_type_str) .. " at path " .. path .. " is ready.")
+			end
+			
+		end
+	end
+	
+	return resources_ready
+end
+
+
+-- ============================== Menu
 
 Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(menu_manager)
 	-- anything that changes settings should then call:
 	-- Hooks:Call("hevhud_on_config_changed",self.config)
 	-- Hooks:Call("hevhud_on_settings_changed",self.settings)
+	
+	MenuCallbackHandler.callback_closedcaptions_category_mission_dialogue = function(self,item)
+		ClosedCaptions.settings.category_mission_dialogue = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_contractor_vo = function(self,item)
+		ClosedCaptions.settings.category_contractor_vo = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_sfx = function(self,item)
+		ClosedCaptions.settings.category_sfx = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_heister_dialogue = function(self,item)
+		ClosedCaptions.settings.category_heister_dialogue = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_heister_spots = function(self,item)
+		ClosedCaptions.settings.category_heister_spots = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_heister_kills = function(self,item)
+		ClosedCaptions.settings.category_heister_kills = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_civilian_dialogue = function(self,item)
+		ClosedCaptions.settings.category_civilian_dialogue = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_enemy_dialogue = function(self,item)
+		ClosedCaptions.settings.category_enemy_dialogue = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_enemy_chatter = function(self,item)
+		ClosedCaptions.settings.category_enemy_chatter = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_enemy_death = function(self,item)
+		ClosedCaptions.settings.category_enemy_death = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_specialenemy_chatter = function(self,item)
+		ClosedCaptions.settings.category_specialenemy_chatter = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_category_specialenemy_death = function(self,item)
+		ClosedCaptions.settings.category_specialenemy_death = item:value() == "on"
+	end
+	
+	
+	
+	
+	
 	
 	
 	MenuCallbackHandler.callback_closedcaptions_menu_general_focus = function(self,focus)
@@ -1204,6 +1354,8 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	ClosedCaptions:ReadSoundData()
 	ClosedCaptions:LoadLanguageFiles()
 	ClosedCaptions:CheckResourcesReady()
+	
+	--MenuHelper:LoadFromJsonFile(ClosedCaptions._MENU_PATH, ClosedCaptions, ClosedCaptions.settings)
 end)
 
 Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",callback(ClosedCaptions,ClosedCaptions,"setup"))
