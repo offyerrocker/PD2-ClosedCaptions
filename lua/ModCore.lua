@@ -121,6 +121,47 @@ function ClosedCaptions:require(path) -- local only; relative path to mod folder
 	return result
 end
 
+-- finds the angle between two points, EXCLUDING z-distance (height); in other words, only two-dimensional (left/right) angle
+-- converts to angle with ranges (-180 , 180); for result range 0-360, do +180 to result, or modulo 360
+function ClosedCaptions.vec2_angle(a,b,c,d)
+	a = a or "nil"
+	b = b or "nil"
+	c = c or "nil"
+	d = d or "nil"
+	local function do_angle(x1,y1,x2,y2)
+		local angle = 0
+		local x = x2 - x1 --x diff
+		local y = y2 - y1 --y diff
+		if x ~= 0 then 
+			angle = math.atan(y / x) % 180
+			if y == 0 then 
+				if x > 0 then 
+					angle = 180 --right
+				else
+					angle = 0 --left 
+				end
+			elseif y > 0 then 
+				angle = angle - 180
+			end
+		else
+			if y > 0 then
+				angle = 270 --up
+			else
+				angle = 90 --down
+			end
+		end
+		
+		return angle
+	end
+	local vectype = type(Vector3())
+	if (type(a) == vectype) and (type(b) == vectype) then  --vector pos diff
+		return do_angle(a.x,a.y,b.x,b.y)
+	elseif (type(a) == "number") and (type(b) == "number") and (type(c) == "number") and (type(d) == "number") then --manual x/y pos diff
+		return do_angle(a,b,c,d)
+	else
+		return
+	end
+end
 
 -- ============================== Settings getters (individual)
 --settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
@@ -212,6 +253,8 @@ end
 
 -- ============================== Subtitle management
 
+local AnimateLibrary = ClosedCaptions:require("lua/AnimateLibrary")
+
 --initializes mod data;
 --creates workspace to display captions on, registers the update method
 function ClosedCaptions:setup()
@@ -246,11 +289,12 @@ function ClosedCaptions:update(t,dt)
 	local MAX_SUBTITLES = self.settings.captions_max_count
 	
 	local current_num = 0
-	for i=#self._queue_active_subtitles,1,-1 do 
-		local item = self._active_subtitles[self._queue_active_subtitles[i]]
-		if alive(item.panel) then
+	for i=#self._queue_active_subtitles,1,-1 do
+		local id = self._queue_active_subtitles[i]
+		local item = self._active_subtitles[id]
+		local to_state = 1
+		if item and alive(item.panel) then
 			if current_num < MAX_SUBTITLES then
-				local to_state = nil
 				if item.is_locationless then
 					
 				else
@@ -263,9 +307,11 @@ function ClosedCaptions:update(t,dt)
 						has_source = true
 						mvector3.set(source_pos,item.unit:position())
 					end
-		--				local angle_to = ((ClosedCaptions.angle_from(player_pos,source_pos) - player_aim + 270) % 360) - 180
-		--				item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
-		--				item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
+					
+					local angle_to = ((ClosedCaptions.angle_from(player_pos,source_pos) - player_aim + 270) % 360) - 180
+					item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
+					item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
+					
 					if has_source then
 						if to_state == 1 and item.max_distance then 
 							if source_pos and mvector3.distance_sq(player_pos,source_pos) >= item.max_distance*item.max_distance then 
@@ -273,33 +319,37 @@ function ClosedCaptions:update(t,dt)
 							end
 						end
 					end
-				-- if settings.animation_smooth then
 				end
-				
-				
-				if item.state ~= to_state then
-					if to_state == 1 then -- show
---						item.panel:animate(AnimateLibrary.animate_alpha_lerp)
-					elseif to_state == 2 then -- hiding
---						item.panel:animate(AnimateLibrary.animate_alpha_lerp)
-					elseif to_state == 3 then -- delete
-					end
-					item.state = to_state
-				end
-				
-				
-				
 			else
-				-- panel removed somehow; 
-				-- remove immediately
-				self._active_subtitles[k] = nil
-				table.remove(self._queue_active_subtitles,i)
-				to_state = 3
+				to_state = 2
 			end
 			
-			if to_state == 1 or to_state == 2 then
-				current_num = current_num + 1
+			if item.state ~= to_state then
+				if to_state == 1 then -- show
+					item.panel:show()
+					
+					local duration = self.settings.caption_fadeout_time
+					item.panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
+					
+				elseif to_state == 2 then -- hiding
+					local duration = self.settings.caption_fadeout_time
+					item.panel:animate(AnimateLibrary.animate_alpha_lerp,function(o) o:hide() end,duration,nil,0)
+				end
+				item.state = to_state
 			end
+			
+		else
+			to_state = 3
+		end
+		
+		if to_state == 1 or to_state == 2 then
+			current_num = current_num + 1
+		elseif to_state == 3 then
+			item.state = to_state
+			-- panel removed somehow; 
+			-- remove immediately
+			self:_remove_subtitle(id)
+			table.remove(self._queue_active_subtitles,i)
 		end
 	end
 end
@@ -322,31 +372,37 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	
 	
 	-- make panel
-	local text,text_color,color_range = self:get_subtitle_display_data(event_id,unit,sound_source,position)
+	local text,text_color,color_range,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
 	
 	local id = event_id .. "_" .. tostring(unit:key())
 	local item_panel = self:_create_caption_text(text,text_color,color_range,id)
 	
-	local loop_data
-	local is_recombinable
-	local is_locationless
-	local max_distance
-	local variation_data
+	
+	local loop_data = variation_data.loop_data
+	local is_recombinable = variation_data.is_recombinable
+	local is_locationless = variation_data.is_locationless or unit == managers.player:local_player()
+	local max_distance = variation_data.max_distance
+	local priority = variation_data.priority or 0
 	local state_data = {
 		panel = item_panel,
-		state = 2 -- 1:visible, 2:hidden, 3:removing
+		state = 2, -- 1:visible, 2:hidden, 3:removing
+		sound_source = sound_source,
+		unit = unit,
+		max_distance = max_distance,
+		priority = priority,
+		is_recombinable = is_recombinable,
+		is_locationless = is_locationless,
+		loop_data = loop_data
+--		variation_data = variation_data,
 	}
-	
-	local duration = self.settings.caption_fadeout_time
---	item_panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
 
 	
+	table.insert(self._queue_active_subtitles,1,id)
 	table.sort(self._queue_active_subtitles,function(a,b)
-		return a.priority > b.priority
+		return self._active_subtitles[a].priority > self._active_subtitles[b].priority
 	end)
 	
 	self._active_subtitles[id] = state_data
-	--]]
 end
 
 -- todo return the caption data, not just the panel
@@ -361,7 +417,6 @@ function ClosedCaptions:hide_subtitle(event_id,unit,sound_source,position)
 
 end
 
-local AnimateLibrary = ClosedCaptions:require("lua/AnimateLibrary")
 function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_name)
 	local panel = self._panel
 	if not alive(panel) then
@@ -384,7 +439,8 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_n
 		name = panel_name,
 		w = nil,
 		h = nil,
-		alpha = 0
+		alpha = 1,
+		visible = false
 	})
 	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
 	
@@ -486,15 +542,26 @@ function ClosedCaptions:remove_subtitle(event_id,unit)
 	self:_remove_subtitle(event_id .. "_" .. tostring(unit:key()))
 end
 
-function ClosedCaptions:_remove_subtitle(id) -- todo remove caption data, not just panel
+function ClosedCaptions:_remove_subtitle(id,instant) -- todo remove caption data, not just panel
 	local item_panel = self._panel:child(id)
 	if alive(item_panel) then
-		local duration = 0.5
-		item_panel:animate(AnimateLibrary.animate_alpha_lerp,function(o)
+		if instant then
 			self._panel:remove(item_panel)
-		end,duration,nil,0)
+		else
+			local duration = self.settings.caption_fadeout_time
+			item_panel:animate(AnimateLibrary.animate_alpha_lerp,function(o)
+				self._panel:remove(item_panel)
+			end,duration,nil,0)
+		end
 	end
 	
+	self._active_subtitles[id] = nil
+	for i,_id in pairs(self._queue_active_subtitles) do 
+		if _id == id then
+			table.remove(self._queue_active_subtitles,i)
+			return
+		end
+	end
 	Hooks:Remove("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(id))
 end
 
@@ -684,7 +751,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	}
 	
 	local str = string.format("%s: %s",speaker_str,text)
-	return str,text_color,color_tbl
+	return str,text_color,color_tbl,variation_data
 end
 
 --chooses a random caption variation from the sound_table
@@ -989,11 +1056,11 @@ function ClosedCaptions:hook_soundsource()
 	-- used to prematurely stop sounds
 	Hooks:PostHook(EventInstance,"stop","closedcaptions_eventinstance_stop",function(self,...)
 		-- todo better lookup than bruteforce
-		for ss_key,data in pairs(self._soundsources) do 
+		for ss_key,data in pairs(ClosedCaptions._soundsources) do 
 			for event_id,event_instance in pairs(data.events) do
 				if event_instance == event_instance then
 					-- interrupt this sound
-					self:clbk_stop_postevent(event_id,data.source)
+					ClosedCaptions:clbk_stop_postevent(event_id,data.source)
 					break
 				end
 			end
