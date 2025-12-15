@@ -13,13 +13,14 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	},
 	languages = {},
 	default_settings = {
+		caption_use_player_names = true,
 		caption_font_size = 16,
 		captions_max_count = 5
 	},
 	settings = {}, -- populated from default settings, then from user save json
 	_soundsources = {
 		--[[
-			[Source 0xd34db33f] = {
+			[SoundSource 0xd34db33f] = {
 				events = {
 					menu_subtitlemod_speaker_unit_
 					menu_subtitlemod_speaker_cont_
@@ -54,7 +55,13 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		ecp_male 	= "Ethan",
 		ecp_female 	= "Hila"
 	--]]
-	}
+	},
+	_UNIT_NAMES = {}, -- populated on load from data file
+	_NARRATOR_PREFIXES = {
+		Play_ban_ = "menu_subtitlemod_speaker_cont_bain",
+		Play_loc_ = "menu_subtitlemod_speaker_cont_locke"
+	},
+	active_lines = {} -- currently playing captions, with live data such as panel, vector3/locationless flag
 }
 for k,v in pairs(ClosedCaptions.default_settings) do ClosedCaptions.settings[k] = v end
 
@@ -278,8 +285,9 @@ function ClosedCaptions:setup()
 --	if managers.hud then
 --		managers.hud:add_updator("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"Update"))
 --	end
-	
-	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
+
+	self:ReadSoundData()
+	self:ReadUnitNames()
 	
 	self:hook_soundsource()
 	
@@ -316,6 +324,15 @@ function ClosedCaptions:Print(...)
 	end
 end
 
+function ClosedCaptions:ReadSoundData()
+	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
+end
+
+function ClosedCaptions:ReadUnitNames()
+	local file = io.open(self._SOUNDDATA_PATH .. "unit_names.json","r+")
+	self._UNIT_NAMES = json.decode(file.read("*all"))
+	file:close()
+end
 
 Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",callback(ClosedCaptions,ClosedCaptions,"setup"))
 
@@ -379,8 +396,8 @@ function ClosedCaptions:CheckResourcesReady(skip_load,done_loading_cb)
 	return resources_ready
 end
 
-function ClosedCaptions:start_subtitle(event_id,unit)
-	local text,text_color,color_range,panel_name = self:get_subtitle_display_data(event_id,unit)
+function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
+	local text,text_color,color_range,panel_name = self:get_subtitle_display_data(event_id,unit,sound_source,position)
 	
 	self:_create_caption_text(text,text_color,color_range,panel_name)
 end
@@ -522,9 +539,217 @@ function ClosedCaptions:_remove_subtitle(id)
 	end
 end
 
-function ClosedCaptions:get_subtitle_display_data(event_id,unit)
-	local subtitle_data = self._sound_data[event_id]
-	if not subtitle_data then
+--settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
+function ClosedCaptions:UsePlayerName()
+	return self.settings.caption_use_player_names
+end
+
+function ClosedCaptions:GetColor(color_id)
+	return Color.white
+end
+
+function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,position)
+	
+	local name,variant,color,is_locationless,tweak_table
+	
+	
+	local is_whisper_mode = managers.groupai:state():whisper_mode()
+	local is_assault_mode = managers.groupai:state():get_assault_mode()
+	
+	
+	-- get speaker string
+	if alive(unit) then 
+		if unit == managers.dialog._bain_unit then
+			--is from vo
+			local narrator_prefix = managers.dialog._narrator_prefix
+			if self._NARRATOR_PREFIXES[narrator_prefix] then
+				name = self._NARRATOR_PREFIXES[narrator_prefix]
+			end
+			variant = "narrator"
+		else
+			name = managers.criminals:character_name_by_unit(unit)
+			if name then --is criminal
+				local switch = sound_source:get_switch()
+				if switch and switch.robber then 
+					variant = switch.robber
+					if switch.int_ext == "first" then
+						is_locationless = true
+					end
+				end
+				name = managers.localization:text("menu_" .. tostring(name))
+				local color_id = managers.criminals:character_color_id_by_unit(unit)
+				color = color_id and tweak_data.chat_colors[color_id] --should this use cc's peer colors?
+				local peer_id = managers.criminals:character_peer_id_by_unit(unit) 
+				if peer_id then 
+					if self:UsePlayerName() then 
+						local peer = managers.network:session():peer(peer_id)
+						name = peer and peer:name() or name
+					end
+				end
+			elseif managers.enemy:is_enemy(unit) then 
+				tweak_table = unit:base()._tweak_table
+				if unit:sound() then 
+					variant = unit:sound()._prefix
+				end
+				color = self:GetColor("law1")
+				variant = variant or tweak_table
+				name = tweak_table and self._UNIT_NAMES[tweak_table]
+				is_special_enemy = managers.groupai:state():is_enemy_special(unit)
+				--should bosses be considered special enemies for the purposes of category checks?
+				--(vanilla game does not consider hector/sosa to be special enemies)
+			elseif managers.enemy:is_civilian(unit) then 
+				if unit:sound() then 
+					variant = unit:sound()._prefix
+				end
+				color = self:GetColor("neutral1")
+
+				tweak_table = unit:base()._tweak_table
+				name = tweak_table and self._UNIT_NAMES[tweak_table]
+				variant = variant or tweak_table
+			end
+		end
+	end
+	
+	local sound_data = sound_table.vo[event_id]
+	local variant_data = sound_data
+	
+	-- get subtitle text
+	if not sound_data then 
+		sound_table.vo[event_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
+		return
+	elseif sound_data.disabled then
+		return
+	end
+	
+	if variant and sound_data.variants and sound_data.variants[variant] then 
+		variant_data = sound_data.variants[variant]
+	elseif sound_data.text then 
+		text = sound_data.text
+	else
+		if sound_data.category == "stops" then 
+			return
+		else
+			self:Log("Error- sound " .. tostring(event_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
+		end
+		return
+	end
+	
+	local variations = variant_data.line_variations or sound_data.line_variations
+	if variations and self:IsLineRandomizationEnabled() then 
+		
+		is_recombinable = variations.recombinable
+		
+		if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
+			variation_data = variations.whisper_mode
+			text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
+			
+		elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
+			variation_data = variations.assault_mode
+			text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
+			
+		elseif not is_whisper_mode and variations.assault_break_mode then --if otherwise loud
+			variation_data = variations.assault_break_mode
+			text = ClosedCaptions.get_random_variation(variations.assault_break_mode,is_recombinable)
+			
+		elseif variations.standard_mode then --no requirements
+			variation_data = variations.standard_mode
+			text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
+		end
+	end
+	
+	if variant_data.disabled then
+		return
+	end
+	
+	text = text or variant_data.text or sound_data.text
+
+
+	local category = variant_data.category or sound_data.category	
+	if category == "stops" then 
+		return
+	else
+		local category_allowed = self:IsCaptionCategoryEnabled(category,is_special_enemy)
+		
+		if category_allowed == false then 
+--			self:log_debug("Category is not allowed! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+			return
+		elseif category_allowed == nil then 
+			--if unknown or undefined category then log the sound (if logging is enabled)
+			if not self:ShouldLogMissing() then 
+				return
+			end
+--			self:log_debug("Category is not set for this line! (id " .. tostring(sound_id) .. ", category " .. tostring(sound_data.category) .. ")")
+		else
+			if category_allowed == 1 then --always enabled
+			elseif category_allowed == 2 then --stealth-only
+				if not is_whisper_mode then 
+					return
+				end
+			elseif category_allowed == 3 then --loud-only
+				if not is_assault_mode then 
+					return
+				end
+			elseif category_allowed == 4 then --never allowed
+				return
+			end
+		end
+	end
+
+
+	if variant_data.override_source_id then 
+		if variant_data.override_source_id == true then 
+			source_id = nil
+		else
+			source_id = variant_data.override_source_id
+		end
+	end
+	
+	if not text then
+		return
+	end
+	
+	self:Print("Playing " .. tostring(sound_id) .. " from unit " .. tostring(unit) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
+	
+	name = variant_data.override_name or name or variant_data.fallback_name
+	
+	
+	if self:UseCapitalNames() then 
+		name = utf8.to_upper(name)
+	end
+	
+	--local t = Application:time()
+	
+	name = name or "???"
+	
+	local DIFFERENT_COLOR_TEXT = false
+	
+	local speaker_str = name
+	local speaker_color = color
+	local text_color = color
+	if DIFFERENT_COLOR_TEXT then
+		text_color = Color.white
+	end
+	
+	local speaker_len = utf8.len(speaker_str)
+	local text_len = utf8.len(text)
+	
+	local color_tbl = {
+		0,
+		speaker_len+1,
+		speaker_color,
+		
+		speaker_len+1,
+		speaker_len+text_len+2,
+		text_color
+	}
+	
+	local str = string.format("%s: %s",speaker_str,text)
+	return str,text_color,color_tbl,event_id .. "_" .. tostring(unit:key())
+end
+
+function ClosedCaptions:__get_subtitle_display_data(event_id,unit)
+	local subtitle_data = self._sound_data.vo[event_id]
+	if not subtitle_data or self._sound_data.disabled_sounds[event_id] then
 		--self:Print("Unknown event data for ",event_id)
 		return
 	end
@@ -557,9 +782,6 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit)
 		end
 		
 	end
-	
---	local is_whisper_mode = managers.groupai:state():whisper_mode()
---	local is_assault_mode = managers.groupai:state():get_assault_mode()
 	
 	if subtitle_data.prefix_variations and speech_prefix and subtitle_data.prefix_variations[speech_prefix] then
 		-- variations per character (dallas, jacket, clover, etc)
@@ -594,6 +816,46 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit)
 	
 	local str = string.format("%s: %s",speaker_str,text)
 	return str,text_color,color_tbl,event_id .. "_" .. tostring(unit:key())
+end
+
+function ClosedCaptions:UseCapitalNames()
+	return true
+end
+
+function ClosedCaptions:IsCaptionCategoryEnabled()
+	return true
+end
+
+function ClosedCaptions:ShouldLogMissing()
+	return true
+end
+
+function ClosedCaptions:IsLineRandomizationEnabled()
+	return true
+end
+
+--chooses a random caption variation from the sound_table
+function ClosedCaptions.get_random_variation(variations_tbl,is_recombinable)
+	if is_recombinable then
+		local variation_text
+		for _,combinable_parts in pairs(variations_tbl) do 
+			local new_text = combinable_parts[math.random(#combinable_parts)]
+			if new_text ~= "" then 
+				if variation_text then
+					variation_text = variation_text .. " "
+				else
+					variation_text = ""
+				end
+				variation_text = variation_text .. new_text
+			end
+		end
+		return variation_text
+	else
+		local num_variants = #variations_tbl
+		if num_variants > 0 then 
+			return variations_tbl[math.random(num_variants)]
+		end
+	end
 end
 
 
@@ -743,7 +1005,7 @@ function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,uni
 		-- (reroll text eg repeat enemy markings)
 --	end
 	if self._sound_data.vo[event_id] then
-		self:start_subtitle(event_id,unit)
+		self:start_subtitle(event_id,unit,sound_source,sound_source:get_position())
 	end
 	
 	self._soundsources[key].events[event_id] = event_instance
@@ -845,7 +1107,7 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	-- Hooks:Call("hevhud_on_settings_changed",self.settings)
 	
 	
-	MenuCallbackHandler.callback_hevhud_menu_general_focus = function(self,focus)
+	MenuCallbackHandler.callback_closedcaptions_menu_general_focus = function(self,focus)
 		if focus then
 			if ClosedCaptions.menu_data.populated_languages_menu then
 				return
@@ -892,37 +1154,4 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	ClosedCaptions:CheckResourcesReady()
 end)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ClosedCaptions:CheckResourcesAdded()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

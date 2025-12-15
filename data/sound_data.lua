@@ -226,7 +226,7 @@ return {
 		},
 		pickup_fak_skill = {
 			override_name = "SFX",
-			text = "activated Uppers Ace",
+			text = "activated Uppers Aced",
 			override_source_id = true,
 			duration = 1,
 			priority = 91,
@@ -288,22 +288,21 @@ return {
 		},
 		cable_tie_apply = { --i think this only plays for local player, so i count it as a player sound
 			override_name = "SFX",
+			text = "[cable tie rustles]",
 			category = "sfx",
 			duration = 2,
-			priority = 98,
-			disabled = true, --actually i feel like this doesn't need additional visual feedback in this case
-			text = "[cable tie rustles]"
+			priority = 98
 		},
 		perkdeck_cooldown_over = {
 			override_name = "SFX",
-			text = "(perk deck cooldown end)",
+			text = "perk deck cooldown ends",
 			priority = 28,
 			duration = 2,
 			category = "sfx"
 		},
 		nine_lives_skill = {
 			override_name = "SFX",
-			text = "(nine lives skill activates!)", --does this mean swan song?
+			text = "nine lives skill activates!", --does this mean swan song?
 			priority = 30,
 			disabled = true, --doesn't matter anyway. suddenly becoming alive has plenty of visual feedback
 			duration = 3,
@@ -311,7 +310,7 @@ return {
 		},
 		tasered_loop = {
 			override_name = "SFX",
-			text = "(being tased!)",
+			text = "being tased!",
 			priority = 22,
 			category = "sfx",
 			loop_data = {
@@ -325,49 +324,49 @@ return {
 		},
 		melee_hit_body = { --some of these don't trigger since they're queued directly from the sound_source() and not through play() or say()
 			override_name = "SFX",
-			text = "(melee impact)",
+			text = "melee impact",
 			priority = 99,
 			category = "sfx",
 			disabled = true
 		},
 		player_armor_gone_stinger = {
 			override_name = "SFX",
-			text = "(armor broken!)",
+			text = "armor broken!",
 			priority = 30,
 			category = "sfx",
 			disabled = true
 		},
 		shield_full_indicator = {
 			override_name = "SFX",
-			text = "(armor restored)",
+			text = "armor restored",
 			priority = 99,
 			category = "sfx",
 			disabled = true
 		},
 		player_sniper_hit_armor_gone = {
 			override_name = "SFX",
-			text = "(armor broken by sniper!)",
+			text = "armor broken by sniper!",
 			priority = 30,
 			category = "sfx",
 			disabled = true
 		},
 		player_hit = {
 			override_name = "SFX",
-			text = "(armor damaged)",
+			text = "armor damaged",
 			priority = 30,
 			category = "sfx",
 			disabled = true
 		},
 		player_hit_permadamage = {
 			override_name = "SFX",
-			text = "(health damaged!)",
+			text = "health damaged!",
 			priority = 30,
 			category = "sfx",
 			disabled = true
 		},
 		critical_state_heart_loop = { --! needs a stop
 			override_name = "SFX",
-			text = "(low health heartbeat)",
+			text = "low health heartbeat",
 			priority = 99,
 			category = "sfx",
 			disabled = true, --needs a loop
@@ -378,14 +377,14 @@ return {
 		},
 		concussion_effect_on = {
 			override_name = "SFX",
-			text = "(concussed)",
+			text = "concussed",
 			category = "sfx",
 			disabled = true, --plenty of indication already
 			priority = 98
 		},
 		concussion_effect_off = {
 			override_name = "SFX",
---					text = "(concussion fades)",
+			text = "concussion fades",
 			disabled = true,
 			priority = 20,
 			stops_line = "concussion_effect_on",
@@ -393,21 +392,21 @@ return {
 		},
 		concussion_player_disoriented_sfx = {
 			override_name = "SFX",
-			text = "(concussion disorientation)",
+			text = "concussion disorientation",
 			disabled = true,
 			priority = 20,
 			category = "sfx"
 		},
 		tinnitus_beep = {
 			override_name = "SFX",
-			text = "(tinnitus ringing)",
+			text = "tinnitus ringing",
 			disabled = true, --let's not and say we didn't
 			priority = 20,
 			category = "sfx"
 		},
 		tinnitus_beep_stop = {
 			override_name = "SFX",
-			text = "(tinnitus stops)",
+			text = "tinnitus stops",
 			disabled = true,
 			duration = 2,
 			stops_line = "tinnitus_beep",
@@ -420,7 +419,7 @@ return {
 --mission equipment, player equipment (generally, interactable things)
 		ammo_bag_drop = { --ovk uses this as a generic sound 
 			override_name = "SFX",
-			text = "(bag impact)",
+			text = "bag impact",
 			max_distance = 1500,
 			duration = 2,
 			priority = 98,
@@ -428,7 +427,7 @@ return {
 		},
 		bar_prison_transport_door_open_finished = {
 			override_name = "SFX",
-			text = "(door sawing complete)",
+			text = "door sawing complete",
 			max_distance = 2000,
 			duration = 2,
 			priority = 90,
@@ -436,7 +435,7 @@ return {
 		},
 		bag_light_drop = {
 			override_name = "SFX",
-			text = "[light bag placed]",
+			text = "light bag placed",
 			category = "sfx",
 			max_distance = 1500,
 			priority = 97,
@@ -444,7 +443,7 @@ return {
 		},
 		bag_medium_drop = {
 			override_name = "SFX",
-			text = "[medium bag placed]",
+			text = "medium bag placed",
 			category = "sfx",
 			max_distance = 1500,
 			priority = 97,
@@ -452,7 +451,7 @@ return {
 		},
 		bag_heavy_drop = {
 			override_name = "SFX",
-			text = "[heavy bag placed]",
+			text = "heavy bag placed",
 			category = "sfx",
 			max_distance = 1500,
 			priority = 97,
@@ -460,7 +459,7 @@ return {
 		},
 		blowtorch_guy = {
 			override_name = "SFX",
-			text = "(blowtorch hissing)",
+			text = "blowtorch hissing",
 			max_distance = 2500,
 			loop_data = {
 				loop_interval = -1
@@ -470,13 +469,13 @@ return {
 		},
 		blowtorch_guy_end_global = {
 			override_name = "SFX",
---					text = "(blowtorch stops)",
---					priority = 90,
+			text = "blowtorch stops",
+			priority = 90,
 			stops_line = "blowtorch_guy",
 			category = "sfx"
 		},
 		buzz_saw_aced = {
-			text = "[buzz saw grinds quietly]",
+			text = "buzz saw grinds quietly",
 			category = "sfx",
 			override_name = "SFX",
 			max_distance = 500,
@@ -487,7 +486,7 @@ return {
 			}
 		},
 		buzz_saw_jam = {
-			text = "[jammed buzz saw screeches!]",
+			text = "jammed buzz saw screeches!",
 			category = "sfx",
 			override_name = "SFX",
 			max_distance = 1500,
@@ -497,7 +496,7 @@ return {
 			}
 		},
 		buzz_saw = {
-			text = "[buzz saw grinds]",
+			text = "buzz saw grinds",
 			override_name = "SFX",
 			category = "sfx",
 			max_distance = 500,
@@ -507,7 +506,7 @@ return {
 			}
 		},
 		buzz_saw_end = {
---					text = "[buzz saw finishes]",
+			text = "buzz saw finishes",
 			override_name = "SFX",
 			priority = 90,
 			duration = 2,
@@ -515,7 +514,7 @@ return {
 			stops_line = "buzz_saw"
 		},
 		buzz_saw_end_aced = {
---					text = "[aced buzz saw finishes]",
+			text = "aced buzz saw finishes",
 			override_name = "SFX",
 			priority = 90,
 			duration = 2,
@@ -548,7 +547,7 @@ return {
 		},
 		camera_wrong_image = {
 			override_name = "SFX",
-			text = "[Camera loop active]",
+			text = "looped camera whirs",
 			category = "sfx",
 			priority = 98,
 			max_distance = 3000,
@@ -560,7 +559,7 @@ return {
 			override_name = "SFX",
 			category = "stops",
 			stops_line = "camera_wrong_image",
-			text = "[Camera loop ending!]",
+			text = "camera loop ending!",
 			loop_data = {
 				loop_interval = -1
 			},
@@ -576,14 +575,14 @@ return {
 			category = "sfx",
 			priority = 90,
 			duration = 3,
-			text = "(cargo container drops)"
+			text = "cargo container drops!"
 		},
 		cooking_meth = {
 			override_name = "SFX",
 			category = "sfx",
 			priority = 90,
 			max_distance = 500,
-			text = "[cooking meth]",
+			text = "meth bubbles",
 			loop_data = {
 				loop_interval = -1
 			}
@@ -591,7 +590,7 @@ return {
 		cooking_meth_stop = {
 			override_name = "SFX",
 			category = "stops",
---					text = "[meth cooking stops]",
+			text = "meth cooking stops",
 			priority = 90,
 			stops_line = "cooking_meth"
 		},
@@ -602,11 +601,11 @@ return {
 			disabled = true, --don't see the use, really
 			duration = 2,
 			priority = 20,
-			text = "[ECM Jammer ready]"
+			text = "ecm jammer ready"
 		},
 		ecm_jammer_jam_signal = {
 			override_name = "SFX",
-			text = "[ECM Jammer active]",
+			text = "ecm jammer active",
 			category = "sfx",
 			override_source_id = true,
 			duration = 30,
@@ -615,7 +614,7 @@ return {
 		ecm_jammer_jam_signal_stop = {
 			override_name = "SFX",
 			category = "stops",
---					text = "[ECM Jammer stops]",
+			text = "ecm jammer stops",
 			remove_by_source = true, --since multiple ecms may be active at once, but each ecm only plays one sound at a time, ecm sounds should be removed by source
 			stops_line = "ecm_jammer_jam_signal",
 			duration = 2,
@@ -629,19 +628,19 @@ return {
 				loop_interval = -1
 			},
 			priority = 21,
-			text = "[ECM Feedback active]"
+			text = "ecm feedback active"
 		},
 		ecm_jammer_puke_signal_stop = {
 			override_name = "SFX",
 			category = "stops",
---					text = "[ECM Feedback stops]",
+			text = "ecm feedback stops",
 			stops_line = "ecm_jammer_puke_signal",
 			remove_by_source = true,
 			duration = 2,
 			priority = 21
 		},
 		flare_start_loop = {
-			text = "[flare burns]",
+			text = "flare burns",
 			override_name = "SFX",
 			category = "sfx",
 			max_distance = 1500,
@@ -656,7 +655,7 @@ return {
 		},
 		goat_fan_woosh = {
 			override_name = "SFX",
-			text = "(oscillating Goat bleats)",
+			text = "(oscillating goat bleating)",
 			priority = 90,
 			max_distance = 2000,
 			category = "sfx",
@@ -666,7 +665,7 @@ return {
 		},
 		goat_hang_scaffold = {
 			override_name = "SFX",
-			text = "(Goat bleats from scaffolding)",
+			text = "(bleating)",
 			priority = 90,
 			max_distance = 2000,
 			loop_data = {
@@ -678,15 +677,15 @@ return {
 		},
 		goat_kick = {
 			override_name = "SFX",
-			text = "(Goat kicks!)",
+			text = "goat kicks!",
 			priority = 90,
 			duration = 2,
 			max_distance = 700,
 			category = "sfx"
 		},
 		goat_sleep = {
-			override_name = "SFX",
-			text = "(Goat snores, sleep-bleats)",
+			override_name = "Goat",
+			text = "(snoring, sleep-bleating)",
 			max_distance = 2000,
 			priority = 90,
 			loop_data = {
@@ -695,16 +694,16 @@ return {
 			category = "sfx"
 		},
 		goat_says_meh = {
-			override_name = "SFX",
-			text = "(Goat bleats)",
+			override_name = "Goat",
+			text = "(bleats)",
 			max_distance = 2000,
 			duration = 2,
 			priority = 90,
 			category = "sfx"
 		},
 		goat_says_meh_loop = {
-			override_name = "SFX",
-			text = "(Goat bleating)",
+			override_name = "Goat",
+			text = "Ba-a-ah.",
 			max_distance = 2000,
 			priority = 90,
 			category = "sfx",
@@ -715,7 +714,7 @@ return {
 		},
 		goat_lick = {
 			override_name = "SFX",
-			text = "(Goat licks)",
+			text = "(licks)",
 			duration = 3,
 			max_distance = 1000,
 			priority = 90,
@@ -723,14 +722,14 @@ return {
 		},
 		goat_headbutt = {
 			override_name = "SFX",
-			text = "(Goat headbutts!)",
+			text = "headbutts!",
 			duration = 3,
 			max_distance = 1000,
 			priority = 90,
 			category = "sfx"
 		},
 		glass_door_open = {
-			text = "[glass door opens]",
+			text = "glass door opens",
 			category = "sfx",
 			override_name = "SFX",
 			max_distance = 1000,
@@ -739,7 +738,7 @@ return {
 		},
 		hacking_device = {
 			override_name = "SFX", --looped
-			text = "[hacking noise]",
+			text = "(hacking noises)",
 			category = "sfx",
 			max_distance = 700,
 			priority = 90,
@@ -755,7 +754,7 @@ return {
 		},				
 		hos_phone_call = {
 			override_name = "SFX",
-			text = "[hospital phone ringing]",
+			text = "(hospital phone ringing)",
 			category = "sfx",
 			max_distance = 2500,
 			loop_data = {
@@ -766,7 +765,7 @@ return {
 		},
 		hos_phone_answer = {
 			override_name = "SFX",
-			text = "[hospital phone answered]",
+			text = "(hospital phone answered)",
 			category = "stops",
 			priority = 90,
 			stops_line = "hos_phone_call",
@@ -774,13 +773,13 @@ return {
 		},
 		inside_container = {
 			override_name = "SFX",
+			text = "(metal clanking)",
 			category = "sfx",
-			priority = 90,
-			text = "(cargo container clanking)"
+			priority = 90
 		},
 		insert_usb_stick = {
 			override_name = "SFX",
-			text = "[inserted USB stick]",
+			text = "(usb stick clicks)",
 			duration = 2,
 			max_distance = 700,
 			priority = 98,
@@ -788,10 +787,10 @@ return {
 		},
 		kick_open_container = {
 			override_name = "SFX",
+			text = "(cargo container opens)",
 			category = "sfx",
 			priority = 98,
-			duration = 2,
-			text = "(cargo container opens)"
+			duration = 2
 		},
 		keypad_button_press_03 = {
 			override_name = "SFX",
@@ -804,7 +803,7 @@ return {
 		},
 		keypad_wrong_code_03 = {
 			override_name = "SFX",
-			text = "(wrong keypad code)",
+			text = "(negative keypad beeps)",
 			override_source_id = "keypad",
 			max_distance = 1000,
 			category = "sfx",
@@ -813,7 +812,7 @@ return {
 		},
 		keypad_correct_code_03 = {
 			override_name = "SFX",
-			text = "(correct keypad code)",
+			text = "(positive keypad trill)",
 			override_source_id = "keypad",
 			max_distance = 1000,
 			category = "sfx",
@@ -823,7 +822,7 @@ return {
 		keypad_wrong_code = {
 			override_name = "SFX",
 			max_distance = 1000,
-			text = "[keypad wrong code]",
+			text = "(negative keypad beeps)",
 			override_source_id = "keypad",
 			category = "sfx",
 			priority = 90,
@@ -832,7 +831,7 @@ return {
 		keypad_correct_code = {
 			override_name = "SFX",
 			max_distance = 1000,
-			text = "[keypad correct code]",
+			text = "(positive keypad trill)",
 			override_source_id = "keypad",
 			category = "sfx",
 			priority = 90,
@@ -840,7 +839,7 @@ return {
 		},
 		laser_shutdown_left = {
 			override_name = "SFX",
-			text = "[left laser deactivates]",
+			text = "left laser deactivates",
 			category = "sfx",
 			max_distance = 3000,
 			priority = 90,
@@ -848,7 +847,7 @@ return {
 		},
 		laser_shutdown_right = {
 			override_name = "SFX",
-			text = "[right laser deactivates]",
+			text = "right laser deactivates",
 			category = "sfx",
 			max_distance = 3000,
 			priority = 90,
@@ -856,7 +855,7 @@ return {
 		},
 		laser_warning_on_left = {
 			override_name = "SFX",
-			text = "[left laser activates]",
+			text = "left laser activates",
 			category = "sfx",
 			max_distance = 3000,
 			priority = 90,
@@ -864,14 +863,14 @@ return {
 		},
 		laser_warning_on_right = {
 			override_name = "SFX",
-			text = "[right laser activates]",
+			text = "right laser activates",
 			category = "sfx",
 			max_distance = 3000,
 			priority = 90,
 			duration = 3
 		},
 		magnetic_door_open = {
-			text = "[magnetic door opens]",
+			text = "magnetic door opens",
 			category = "sfx",
 			override_name = "SFX",
 			max_distance = 1000,
@@ -879,7 +878,7 @@ return {
 			duration = 2
 		},
 		metalsheet_place = {
-			text = "[metal sheet placed]",
+			text = "metal sheet placed",
 			category = "sfx",
 			override_name = "SFX",
 			max_distance = 700,
@@ -888,7 +887,7 @@ return {
 		},
 		server_room_door_open = {
 			override_name = "SFX",
-			text = "[server room door opens]",
+			text = "server room door opens",
 			max_distance = 1500,
 			category = "sfx",
 			priority = 90,
@@ -897,7 +896,7 @@ return {
 		server_noise_loop = {
 			override_name = "SFX",
 			category = "sfx",
-			text = "[server noises]",
+			text = "(server noises)",
 			max_distance = 500, --needs stop sound, but limited distance means I'm fine with it
 			priority = 90,
 			duration = 5,
@@ -907,7 +906,7 @@ return {
 		},
 		sah_hacking_device_data_transfer_finish = {
 			override_name = "SFX",
-			text = "[hacking device finished]",
+			text = "hacking device finishes",
 			category = "sfx",
 			max_distance = 700,
 			priority = 90,
@@ -943,14 +942,14 @@ return {
 		},
 		table_saw_stop = {
 			override_name = "SFX",
-			text = "(table saw stops)",
+			text = "table saw stops",
 			stops_line = "table_saw",
 			duration = 2,
 			priority = 98,
 			category = "sfx"
 		},
 		thermite_paste_start = {
-			text = "(thermite paste burns)",
+			text = "thermite paste burns",
 			override_name = "SFX",
 			category = "sfx",
 			loop_data = {
@@ -969,53 +968,53 @@ return {
 			category = "sfx",
 			duration = 1,
 			priority = 98,
-			text = "[Trip mine set to Explosive Mode]"
+			text = "(trip mine set to explosive mode)"
 		},
 		trip_mine_attach = {
 			override_name = "SFX",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
-			text = "[Trip mine placed/warmup]"
+			text = "(trip mine placed)"
 		},
 		trip_mine_beep_armed = {
 			override_name = "SFX",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
-			text = "[Trip mine activated]"
+			text = "(trip mine armed)"
 		},
 		trip_mine_beep_explode = {
 			override_name = "SFX",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
-			text = "[Trip mine explosion triggered!]"
+			text = "(trip mine triggered explosion!)"
 		},
 		trip_mine_disarm = {
 			override_name = "SFX",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
-			text = "[Trip mine set to Sensor Mode]"
+			text = "(trip mine set to sensor mode)"
 		},
 		trip_mine_explode = {
 			override_name = "SFX",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
-			text = "[Trip mine explosion]"
+			text = "(trip mine explodes!)"
 		},
 		trip_mine_sensor_alarm = {
 			override_name = "SFX",
 			category = "sfx",
 			duration = 2,
 			priority = 98,
-			text = "[Trip mine sensor triggered]"
+			text = "(trip mine sensor triggered!)"
 		},
 		vial_break_2d = {
 			override_name = "SFX",
-			text = "(vial breaks)",
+			text = "(vial breaks!)",
 			priority = 90,
 			category = "sfx"
 		},
@@ -1593,14 +1592,14 @@ return {
 		},
 		alarm_kosugi_on_slow_fade_02 = {
 			override_name = "SFX",
-			text = "[alarm sounds]",
+			text = "[alarm klaxon!]",
 			duration = 30,
 			priority = 90,
 			category = "sfx"
 		},
 		alarm_museum_on_slow_fade = {
 			override_name = "SFX",
-			text = "[ALARM KLAXON]",
+			text = "[alarm klaxon!]",
 			duration = 30,
 			priority = 90,
 			category = "sfx"
@@ -1608,7 +1607,7 @@ return {
 		alarm_countdown_loop = {
 			override_name = "SFX",
 			max_distance = 2000,
-			text = "[Slow countdown ticking]",
+			text = "[slow countdown ticking]",
 			category = "sfx",
 			loop_data = {
 				loop_interval = -1 --constant
@@ -1618,12 +1617,12 @@ return {
 		alarm_countdown_ticking_down_10sec = {
 			override_name = "SFX",
 			max_distance = 2000,
-			text = "[Slow alarm countdown: 10s left!",
+			text = "[countdown ticks faster!]",
 			category = "sfx"
 		},
 		alarm_countdown_loop_stop = {
 			override_name = "SFX",
-			text = "[Alarm countdown stops]",
+			text = "[countdown stops]",
 			category = "stops",
 			stops_line = "alarm_countdown_loop",
 			duration = 2,
@@ -1716,7 +1715,7 @@ return {
 		},
 		cft_manhole_cover_slide = {
 			override_name = "SFX",
-			text = "[manhole cover slides]",
+			text = "manhole cover slides",
 			max_distance = 2000,
 			duration = 2,
 			priority = 98,
@@ -1724,7 +1723,7 @@ return {
 		},
 		manhole_opens = {
 			override_name = "SFX",
-			text = "[manhole cover opens]",
+			text = "manhole cover opens",
 			max_distance = 2000,
 			duration = 2,
 			priority = 98,
@@ -2078,7 +2077,7 @@ return {
 			category = "sfx"
 		},
 		whistling_attention = {
-			text = "[whistle]",
+			text = "(whistle!)",
 			fallback_name = "SFX",
 			category = "mission_dialogue",
 			priority = 98,
@@ -2120,15 +2119,7 @@ return {
 			priority = 98,
 			duration = 2
 		},
-
-
-
-		vo_special = { --i have no idea what this is or when it plays or why
-			category = "UNKNOWN",
-			disabled = true
-		},
-
-
+		
 --contractor vo
 		Play_pln_drl_wrn_snd = {
 			override_name = "Bain",
@@ -3549,32 +3540,34 @@ return {
 			category = "heister_dialogue",
 			priority = 35,
 			duration = 2,
-			rb3 = {
-				text = "Straight ahead!"							
-			},
-			rb4 = {
-				line_variations = {
-					standard_mode = {
-						"Straight on!",
-						"Straight ahead!"
+			variants = {
+				rb3 = {
+					text = "Straight ahead!"							
+				},
+				rb4 = {
+					line_variations = {
+						standard_mode = {
+							"Straight on!",
+							"Straight ahead!"
+						}
 					}
-				}
-			},
-			rb9 = {
-				line_variations = {
-					standard_mode = {
-						"Your destination is directly ahead.",
-						"Your destination is ahead.",
-						"Your destination [tape skips] directly ahead.",
-						"Your destination [tape skips] ahead."
+				},
+				rb9 = {
+					line_variations = {
+						standard_mode = {
+							"Your destination is directly ahead.",
+							"Your destination is ahead.",
+							"Your destination [tape skips] directly ahead.",
+							"Your destination [tape skips] ahead."
+						}
 					}
-				}
-			},
-			rb15 = {
-				line_variations = {
-					standard_mode = {
-						"Straight on!",
-						"Straight ahead!"
+				},
+				rb15 = {
+					line_variations = {
+						standard_mode = {
+							"Straight on!",
+							"Straight ahead!"
+						}
 					}
 				}
 			}
@@ -3984,57 +3977,59 @@ return {
 			category = "special_kills",
 			priority = 45,
 			duration = 2,
-			rb3 = {
-				line_variations = {
-					standard_mode = {
-						"The Bulldozer's down!",
-						"The Bulldozer taken care of!",
-						"I took out the Bulldozer!",
-						"The Bulldozer's history!"										
-					},
-					DISABLED_assault_mode = {}
-				}
-			},
-			rb4 = {
-				line_variations = {
-					standard_mode = {
-						"Bulldozer down!",
-						"Bulldozer eliminated!",
-						"Bulldozer taken care of!",
-						"Bulldozer's history!"
-					},
-					DISABLED_assault_mode = {}
-				}
-			},
-			rb9 = {
-				line_variations = {
-					standard_mode = {
-						"-dozer non-operational.",
-						"Bulldozer out of service.",
-						"Bulldozer non-operational.",
-						"Bulldozer non-operational. [tape rewinding] You can thank me later.",
-						"Bulldozer non-operational. [tape rewinding] I believe 'hurrays' are in order.",
-						"Bulldozer disabled.",
-						"Bulldozer no longer in working order."
+			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"The Bulldozer's down!",
+							"The Bulldozer taken care of!",
+							"I took out the Bulldozer!",
+							"The Bulldozer's history!"										
+						},
+						DISABLED_assault_mode = {}
 					}
-				}
-			},
-			rb15 = {
-				line_variations = {
-					standard_mode = { --! check whisper variant for get stuffed
-						"Bulldozer down!",
-						"Fuck off, dozer!",
-						"Fuck you, Bulldozer!",
-						"Dozer's history!",
-						"Killed a dozer!"
-					},
-					assault_mode = {
-						"Bulldozer down!",
-						"Fuck off, dozer!",
-						"Fuck you, Bulldozer!",
-						"Dozer's history!",
-						"Killed a dozer!",
-						"Get stuffed, dozer fuck!"
+				},
+				rb4 = {
+					line_variations = {
+						standard_mode = {
+							"Bulldozer down!",
+							"Bulldozer eliminated!",
+							"Bulldozer taken care of!",
+							"Bulldozer's history!"
+						},
+						DISABLED_assault_mode = {}
+					}
+				},
+				rb9 = {
+					line_variations = {
+						standard_mode = {
+							"-dozer non-operational.",
+							"Bulldozer out of service.",
+							"Bulldozer non-operational.",
+							"Bulldozer non-operational. [tape rewinding] You can thank me later.",
+							"Bulldozer non-operational. [tape rewinding] I believe 'hurrays' are in order.",
+							"Bulldozer disabled.",
+							"Bulldozer no longer in working order."
+						}
+					}
+				},
+				rb15 = {
+					line_variations = {
+						standard_mode = { --! check whisper variant for get stuffed
+							"Bulldozer down!",
+							"Fuck off, dozer!",
+							"Fuck you, Bulldozer!",
+							"Dozer's history!",
+							"Killed a dozer!"
+						},
+						assault_mode = {
+							"Bulldozer down!",
+							"Fuck off, dozer!",
+							"Fuck you, Bulldozer!",
+							"Dozer's history!",
+							"Killed a dozer!",
+							"Get stuffed, dozer fuck!"
+						}
 					}
 				}
 			}
@@ -9840,8 +9835,7 @@ return {
 					}
 				},
 				cop = {
-					text = "a01x_any unknown??? oopsie woopsie!!!",
-					category = "UNKNOWN"
+					disabled = "missing"
 				},
 				civilian = {
 					text = "(fear)",
@@ -9896,53 +9890,55 @@ return {
 			category = "heister_dialogue",
 			priority = 35,
 			duration = 5,
-			rb4 = {
-				line_variations = {
-					standard_mode = {
-						"I'm coming!",
-						"Be right there!",
-						"As fast as I can!",
-						"I'm comin' for ya!",
-						"I'll be there in a flash!",
-						"I'll be there in an instant!"
-					}
-				}
-			},
-			rb9 = {
-				line_variations = {
-					recombinable = true,
-					standard_mode = {
-						{
-							"-will arrive shortly.",
-							"-we are coming.",
-							"I am happy to help.",
-							"Help is on the way!",
-							"We will arrive shortly.",
-							"I will gladly help."
-						},
-						{										
-							"[tape rewinding] Please hold.",
-							"[tape rewinding] Don't panic.",
-							"[tape rewinding] Please be patient.",
-							"Stay calm and don't panic."
+			variants = {
+				rb4 = {
+					line_variations = {
+						standard_mode = {
+							"I'm coming!",
+							"Be right there!",
+							"As fast as I can!",
+							"I'm comin' for ya!",
+							"I'll be there in a flash!",
+							"I'll be there in an instant!"
 						}
 					}
-				}
-			},
-			rb15 = {
-				line_variations = {
-					recombinable = true,
-					standard_mode = {
-						{
-							"I'm comin'.",
-							"On the way.",
-							"As soon as I can.",
-							"I'm right there."
-						},
-						{
-							"Hang in there!",
-							"Bloody hang in there!",
-							"Just hang on!"
+				},
+				rb9 = {
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"-will arrive shortly.",
+								"-we are coming.",
+								"I am happy to help.",
+								"Help is on the way!",
+								"We will arrive shortly.",
+								"I will gladly help."
+							},
+							{										
+								"[tape rewinding] Please hold.",
+								"[tape rewinding] Don't panic.",
+								"[tape rewinding] Please be patient.",
+								"Stay calm and don't panic."
+							}
+						}
+					}
+				},
+				rb15 = {
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"I'm comin'.",
+								"On the way.",
+								"As soon as I can.",
+								"I'm right there."
+							},
+							{
+								"Hang in there!",
+								"Bloody hang in there!",
+								"Just hang on!"
+							}
 						}
 					}
 				}
@@ -9953,21 +9949,23 @@ return {
 			category = "heister_dialogue",
 			priority = 35,
 			duration = 3,
-			rb4 = {
-				line_variations = {
-					standard_mode = {
-						"Gotcha!",
-						"Gotcha."
+			variants = {
+				rb4 = {
+					line_variations = {
+						standard_mode = {
+							"Gotcha!",
+							"Gotcha."
+						}
 					}
-				}
-			},
-			rb9 = {
+				},
+				rb9 = {
 				line_variations = {
 					standard_mode = {
 						"Yes, I understand.",
 						"Message received."
 					}
 				}
+			}
 			}
 		},
 		s09a = { --thirdperson?
@@ -13448,15 +13446,7 @@ return {
 						"Not a mouse is stirring.",
 						"Everything's clear here.",
 						"Everything's peaches and cream.",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"" 
+						""
 					},
 					{
 						"I repeat, Basement is A-OK.",
@@ -13464,11 +13454,6 @@ return {
 						"Repeat, Basement is clear.",
 						"Repeat, no signs of trespassing in the Basement.",
 						"Repeat, this place is A-OK.",
-						"",
-						"",
-						"",
-						"",
-						"",
 						""
 					},
 					{
@@ -14587,7 +14572,7 @@ return {
 						"Heading back to the GenSec station."
 					},
 					{
-						"Ooover'n'out.",
+						"O-over'n'out.",
 						"Over and out.",
 						"Over... and... out!",
 						"Over and out!"
@@ -21250,7 +21235,7 @@ return {
 		},
 
 		rmdc_entrance = {
-			text = "(Russian Medic spawned)", --haha i am funni 
+			text = "(Russian Medic spawned)",
 			fallback_name = "Medic",
 			duration = 3,
 			priority = 85,
@@ -26358,9 +26343,9 @@ return {
 			max_distance = 1500,
 			text = "(Car Shop Manager)",
 			duration = 10,
-			DISABLED_line_variations = {
+			line_variations = {
 				whisper_mode = {
-					"hello my name jeff"
+					"(managerial chatter)"
 				}
 			},
 			priority = 10,
@@ -26368,11 +26353,11 @@ return {
 				loop_interval = 5,
 			}
 		},
-		Stop_man_ch_01 = { --taking a guess that this will work
-			category = "stops",
-			stops_line = "Play_man_ch_01",
-			remove_by_source = true
-		},
+--		Stop_man_ch_01 = { --taking a guess that this will work
+--			category = "stops",
+--			stops_line = "Play_man_ch_01",
+--			remove_by_source = true
+--		},
 --hotline miami day 2
 		Play_com_hm2_09 = {
 			override_name = "Commissar",
