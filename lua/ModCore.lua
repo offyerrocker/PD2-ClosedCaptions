@@ -287,6 +287,7 @@ function ClosedCaptions:update(t,dt)
 	local player_aim = viewport_cam:rotation():yaw()
 	mvector3.set(player_pos,viewport_cam:position())
 	local MAX_SUBTITLES = self.settings.captions_max_count
+	local angle_threshold = 45
 	
 	local current_num = 0
 	for i=#self._queue_active_subtitles,1,-1 do
@@ -637,7 +638,8 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		end
 	end
 	
-	local name,variant,color,is_locationless,tweak_table
+	local name,variant,is_locationless,tweak_table
+	local color = Color.white
 	
 	-- get speaker string
 	if alive(unit) then 
