@@ -351,7 +351,6 @@ function ClosedCaptions:update(t,dt)
 			-- panel removed somehow; 
 			-- remove immediately
 			self:_remove_subtitle(id)
-			table.remove(self._queue_active_subtitles,i)
 		end
 	end
 end
