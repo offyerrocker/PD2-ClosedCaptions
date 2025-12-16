@@ -9398,8 +9398,10 @@
       "text":"large_fire"
    },
    "g51":{
-      "category":"UNKNOWN",
-      "text":"g51"
+      "category":"heister_dialogue",
+      "priority":35,
+      "max_distance":1000,
+      "text":"The police are retreating!"
    },
    "cf1_911_call":{
       "duration":2,

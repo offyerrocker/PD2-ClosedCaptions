@@ -4101,8 +4101,10 @@ return {
 			priority = 35
 		},
 		g51 = {
-			text = "{g51}.",
-			category = "UNKNOWN"
+			text = "The police are retreating!",
+			priority = 35,
+			max_distance = 1000,
+			category = "heister_dialogue"
 		},
 		g60 = {
 			text = "Oh, shit...",
