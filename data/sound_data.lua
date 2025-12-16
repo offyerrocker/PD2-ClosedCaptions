@@ -207,6 +207,218 @@ return {
 		}
 	},
 	vo = {
+		-- i only have wolf's variants done for these
+		f11a_sin = {
+			category = "heister_dialogue",
+			text = "Dallas! Help me up!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"Hey, Dallas!",
+						"Dallas!",
+						"Yo, Dallas!"
+					},
+					{
+						"Give me a hand!",
+						"Help me up!",
+						"You gotta help me!",
+						"You gotta help me up!",
+						"Help!",
+						"Over here!",
+						"I need help!"
+					}
+				}
+			}
+		},
+		f11b_sin = {
+			category = "heister_dialogue",
+			text = "Dallas! Help me up!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"Hey, Chains!",
+						"Chains!",
+						"Yo, Chains!"
+					},
+					{
+						"Give me a hand!",
+						"Help me up!",
+						"You gotta help me!",
+						"You gotta help me up!",
+						"Help!",
+						"Over here!",
+						"I need help!"
+					}
+				}
+			}
+		},
+		f11c_sin = {
+			category = "heister_dialogue",
+			text = "Hoxton! Help me up!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"HOXTON!",
+						"Hey, Hoxton!",
+						"Yo, Hoxton!"
+					},
+					{
+						"HELP ME!",
+						"Give me a hand!",
+						"Help me up!",
+						"You gotta help me!",
+						"You gotta help me up!",
+						"Help!",
+						"Over here!",
+						"I need help!"
+					}
+				}
+			}
+		},
+		f13a_sin = {
+			category = "heister_dialogue",
+			text = "Dallas! Get me outta these cuffs!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"Hey, Dallas!",
+						"Dallas!"
+					},
+					{
+						"Come pick these cuffs!",
+						"Come break me out!",
+						"Break me outta here!",
+						"Break me out!",
+						"Get these cuffs off!",
+						"Get me outta here!",
+						"Get me outta these cuffs!",
+						"Let me outta these cuffs!"
+					}
+				}
+			}
+		},
+		f13b_sin = {
+			category = "heister_dialogue",
+			text = "Dallas! Help me up!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"Hey, Chains!",
+						"Chains!"
+					},
+					{
+						"Come pick these cuffs!",
+						"Come break me out!",
+						"Break me outta here!",
+						"Break me out!",
+						"Get these cuffs off!",
+						"Get me outta here!",
+						"Get me outta these cuffs!",
+						"Let me outta these cuffs!"
+					}
+				}
+			}
+		},
+		f13d_sin = {
+			category = "heister_dialogue",
+			text = "Hoxton! Get me outta these cuffs!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"Hoxtalicious!",
+						"Hoxtonite!",
+						"The Hox!",
+						"Hoxtable!",
+						"Hoxtatron!",
+						"Hoxinator!",
+						"The Hoxtifier!",
+						"El Hoxo!" -- i apologise if i got this wrong, i can't quite parse it
+					},
+					{
+						"Come pick these cuffs!",
+						"Come break me out!",
+						"Break me outta here!",
+						"Break me out!",
+						"Get these cuffs off!",
+						"Get me outta here!",
+						"Get me outta these cuffs!",
+						"Let me outta these cuffs!"
+					}
+				}
+			}
+		},
+		f21a_sin = {
+			category = "heister_dialogue",
+			text = "Chains! Follow me!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"Hey, Dallas!",
+						"Dallas!"
+					}
+					{
+						"Come with me!",
+						"Come with me! Move it!",
+						"Follow me!",
+						"Follow my lead!",
+						"Follow me quickly!"
+					}
+				}
+			}
+		},
+		f21b_sin = {
+			category = "heister_dialogue",
+			text = "Chains! Follow me!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"Hey, Chains!",
+						"Chains!"
+					}
+					{
+						"Come with me!",
+						"Come with me! Move it!",
+						"Follow me!",
+						"Follow my lead!",
+						"Follow me quickly!"
+					}
+				}
+			}
+		},
+		f21d_sin = {
+			category = "heister_dialogue",
+			text = "Hey, Hoxton! Follow me!",
+			rb3 = {
+				line_variations = {
+					recombinable = true,
+					{
+						"Hoxtalicious!",
+						"Hoxtonite!",
+						"The Hox!",
+						"Hoxtable!",
+						"Hoxtatron!",
+						"Hoxinator!",
+						"The Hoxtifier!"
+					},
+					{
+						"Follow me!",
+						"Come with me!",
+						"Follow my lead!",
+						"Come with me, move it!"
+					}
+				}
+			}
+		},
+	
+	
 	--player sounds (ammo/throwable pickup, perkdeck end, armor broken, etc)
 		pickup_ammo = {
 			override_name = "SFX",
