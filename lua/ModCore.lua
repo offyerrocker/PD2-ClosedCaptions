@@ -11,11 +11,10 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 			"guis/textures/closedcaptions_bgbox_atlas"
 		}
 	},
-	languages = {},
+	_languages = {},
 	default_settings = {
+		captions_visible = true,
 		use_hide_hud_keybind = true, -- if true, will be hidden/shown along with the hud when the player uses the vanilla "Hide HUD" keybind
-		
---		master_enabled = true,
 --		logging_enabled = false,
 --		log_missing = false,
 --		log_ids = false,
@@ -27,6 +26,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 --		caption_y = 150,
 --		caption_w = 800,
 --		caption_margin_v = 8,
+		caption_order = 1,
 		captions_max_count = 5,
 		caption_use_fadein = false,
 		caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
@@ -49,9 +49,11 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		category_enemy_chatter = 2,
 		category_enemy_death = 2,
 		category_specialenemy_chatter = true,
-		category_specialenemy_death = true	
+		category_specialenemy_death = true
 	},
 	settings = {}, -- populated from default settings, then from user save json
+	populated_languages_menu_done = false, -- used to populate language multiplechoice selector
+	_queued_change_language_desired = false, -- used when user changes the language in the menu
 	_ws = nil,
 	_panel = nil,
 	_soundsources = {
@@ -167,9 +169,9 @@ end
 --settings getter; if true, uses player name for heisters (eg. "xX420692bOnGsLamMeR004Xx" instead of "Ethan")
 
 
---settings getter; enables caption priority system; otherwise it's a normal first-in first-out queue
-function ClosedCaptions:IsPriorityEnabled() 
-	return self.settings.caption_order == 1
+--settings getter; 1: use set priority values; 2: use first-in, first-out; 3: use first-in, last-out
+function ClosedCaptions:GetCaptionPriorityMode() 
+	return self.settings.caption_order
 end
 
 --settings getter; allows caption variation (for lines that have them) if enabled; else, chooses more generic text description
@@ -401,14 +403,21 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		loop_data = loop_data
 --		variation_data = variation_data,
 	}
-
 	
 	self._active_subtitles[id] = state_data
 	
-	table.insert(self._queue_active_subtitles,id)
-	table.sort(self._queue_active_subtitles,function(a,b)
-		return self._active_subtitles[a].priority > self._active_subtitles[b].priority
-	end)
+	local prio_mode = self:GetCaptionPriorityMode()
+	if prio_mode == 1 then -- use priority values from subtitle data
+		table.insert(self._queue_active_subtitles,id)
+		table.sort(self._queue_active_subtitles,function(a,b)
+			return self._active_subtitles[a].priority > self._active_subtitles[b].priority
+		end)
+	elseif prio_mode == 3 then -- filo
+		table.insert(self._queue_active_subtitles,11,id)
+	else
+		-- default to fifo
+		table.insert(self._queue_active_subtitles,#self._queue_active_subtitles+1,id)
+	end
 end
 
 -- todo return the caption data, not just the panel
@@ -435,6 +444,8 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		item_panel = nil
 	end
 	
+	local use_fadein = self:IsFadeinEnabled()
+	
 	local arrow_margin_hor = 4
 	local margin_ver = 4
 	local margin_hor = 4
@@ -444,7 +455,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		name = panel_name,
 		w = nil,
 		h = nil,
-		alpha = 1,
+		alpha = use_fadein and 0 or 1,
 		visible = false
 	})
 	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
@@ -539,6 +550,11 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		--]]
 		end
 	end)
+	
+	if use_fadein then
+		local duration = self.settings.caption_fadeout_time
+		item_panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
+	end
 	
 	return item_panel
 end
@@ -833,6 +849,12 @@ end
 function ClosedCaptions:ShowCaptionsPanel()
 	if alive(self._panel) then
 		self._panel:show()
+	end
+end
+
+function ClosedCaptions:SetCaptionsPanelVisible(state)
+	if alive(self._panel) then
+		self._panel:set_visible(state)
 	end
 end
 
@@ -1188,7 +1210,7 @@ function ClosedCaptions:LoadLanguage(localizationmanager,user_language)
 	localizationmanager = localizationmanager or managers.localization
 	if localizationmanager then 
 		user_language = user_language or self:GetCurrentLanguageName()
-		local language_data = user_language and self.languages[user_language]
+		local language_data = user_language and self._languages[user_language]
 		if language_data then
 			if language_data.file_path then
 				localizationmanager:load_localization_file(language_data.file_path,true)
@@ -1232,7 +1254,7 @@ end
 function ClosedCaptions:LoadLanguageFiles()
 	-- For each language folder in the localization folder...
 	for i,foldername in ipairs(SystemFS:list(self._LOCALIZATION_DIRECTORY_PATH,true)) do 
-		local folder_path = self._LOCALIZATION_DIRECTORY_PATH .. foldername
+		local folder_path = Application:nice_path(self._LOCALIZATION_DIRECTORY_PATH .. foldername,true)
 		local localization_file_path = folder_path .. self._LOCALIZATION_FILE_NAME
 		-- ...check for the main localization file inside...
 		if SystemFS:exists( Application:nice_path( localization_file_path, false )) then
@@ -1244,7 +1266,7 @@ function ClosedCaptions:LoadLanguageFiles()
 				local lang_name = localized_strings and (type(localized_strings) == "table") and localized_strings.menu_closedcaptions_language_name
 				-- ...and "register" the file so that the mod knows that it is a selectable language
 				if lang_name then 
-					self.languages[foldername] = {
+					self._languages[foldername] = {
 						index = i,
 						localized_language_name = lang_name,
 						folder_path = folder_path,
@@ -1256,6 +1278,7 @@ function ClosedCaptions:LoadLanguageFiles()
 			-- If this file is the currently selected language,
 			-- Then set the _language_index so that the multiple choice setting reflects that this is the currently selected language
 			if foldername == self:GetCurrentLanguageName() then 
+				self:Print("Loading ClosedCaptions language:",foldername)
 				self.settings._language_index = i
 				-- Language order is not guaranteed- particularly if a new language is added which interferes with the alphabetical order-
 				-- which is why the filename is saved and not the index number of the language,
@@ -1281,7 +1304,7 @@ function ClosedCaptions:ReadSoundData()
 end
 
 --load settings from save txt
-function ClosedCaptions:Load()
+function ClosedCaptions:LoadSettings()
 	local file = io.open(self._SETTINGS_PATH, "r")
 	if file then
 		for k, v in pairs(json.decode(file:read("*all"))) do
@@ -1291,7 +1314,7 @@ function ClosedCaptions:Load()
 end
 
 --save settings to save txt
-function ClosedCaptions:Save()
+function ClosedCaptions:SaveSettings()
 	local file = io.open(self._SETTINGS_PATH,"w+")
 	if file then
 		file:write(json.encode(self.settings))
@@ -1363,12 +1386,61 @@ function ClosedCaptions:CheckResourcesReady(skip_load,done_loading_cb)
 end
 
 
+function ClosedCaptions:ClearAllSubtitles()
+	for id,item in pairs(self._active_subtitles) do 
+		self:_remove_subtitle(id,true)
+	end
+end
+
 -- ============================== Menu
 
 Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(menu_manager)
 	-- anything that changes settings should then call:
 	-- Hooks:Call("hevhud_on_config_changed",self.config)
 	-- Hooks:Call("hevhud_on_settings_changed",self.settings)
+	
+	
+	MenuCallbackHandler.callback_closedcaptions_set_visible = function(self,item)
+		local enabled = item:value() == "on"
+		ClosedCaptions.settings.captions_visible = enabled
+		ClosedCaptions:SetCaptionsPanelVisible(enabled)
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_clear_queue = function(self)
+		ClosedCaptions:ClearAllSubtitles()
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_use_fadein = function(self,item)
+		ClosedCaptions.settings.caption_use_fadein = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_max = function(self,item)
+		ClosedCaptions.settings.captions_max_count = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_fadeout_time = function(self,item)
+		ClosedCaptions.settings.caption_fadeout_time = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_set_font_size = function(self,item)
+		ClosedCaptions.settings.caption_font_size = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_caption_variation_mode = function(self,item)
+		ClosedCaptions.settings.caption_variation_mode = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_caption_order = function(self,item)
+		ClosedCaptions.settings.caption_order = tonumber(item:value())
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_use_player_names = function(self,item)
+		ClosedCaptions.settings.caption_use_player_names = item:value() == "on"
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_use_allcaps_names = function(self,item)
+		ClosedCaptions.settings.caption_allcaps_names = item:value() == "on"
+	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_mission_dialogue = function(self,item)
 		ClosedCaptions.settings.category_mission_dialogue = item:value() == "on"
@@ -1417,23 +1489,31 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	MenuCallbackHandler.callback_closedcaptions_category_specialenemy_death = function(self,item)
 		ClosedCaptions.settings.category_specialenemy_death = item:value() == "on"
 	end
+	--[[
+	MenuCallbackHandler.callback_closedcaptions_enable_logging_master = function(self,item)
+		ClosedCaptions.settings.logging_enabled = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_logging_missing = function(self,item)
+		ClosedCaptions.settings.log_missing = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_logging_ids = function(self,item)
+		ClosedCaptions.settings.log_ids = item:value() == "on"
+	end
+	MenuCallbackHandler.callback_closedcaptions_enable_logging_debug = function(self,item)
+		ClosedCaptions.settings.log_debug = item:value() == "on"
+	end
+	--]]
 	
-	
-	
-	
-	
-	
-	
-	MenuCallbackHandler.callback_closedcaptions_menu_general_focus = function(self,focus)
+	MenuCallbackHandler.callback_closedcaptions_focus = function(self,focus)
 		if focus then
-			if ClosedCaptions.menu_data.populated_languages_menu then
+			if ClosedCaptions.populated_languages_menu_done then
 				return
 			end
 			
-			local menu_item = MenuHelper:GetMenu(ClosedCaptions.menu_data.menu_ids.general) or {_items = {}}
+			local menu_item = MenuHelper:GetMenu("closedcaptions_options") or {_items = {}}
 			for _,item in pairs(menu_item._items) do 
-				if item._parameters and item._parameters.name == "closedcaptions_language_name" then 
-					for lang_name,lang_data in pairs(ClosedCaptions.languages) do 
+				if item._parameters and item._parameters.name == "closedcaptions_select_language" then 
+					for lang_name,lang_data in pairs(ClosedCaptions._languages) do 
 						item:add_option(
 							CoreMenuItemOption.ItemOption:new(
 								{
@@ -1449,18 +1529,22 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 					break
 				end
 			end
-			ClosedCaptions.menu_data.populated_languages_menu = true
+			ClosedCaptions.populated_languages_menu_done = true
 		end
 	end
 	
-	MenuCallbackHandler.callback_closedcaptions_language_name = function(self,item)
+	MenuCallbackHandler.callback_closedcaptions_select_language = function(self,item)
 		local index = item:value()
 		ClosedCaptions.settings._language_index = index
-		for filename,data in pairs(self._languages) do 
+		for filename,data in pairs(ClosedCaptions._languages) do 
 			if data.index == index then
-				ClosedCaptions:LoadLanguage(nil,filename)
-				ClosedCaptions.settings.language_name = filename
-				ClosedCaptions:SaveSettings()
+				ClosedCaptions._queued_change_language_desired = filename
+				-- instead of loading immediately when the selector changes,
+				-- only apply the setting when the user exits the menu
+				-- (because the subtitle file is large and will likely cause a slight loading hitch)
+--				ClosedCaptions:LoadLanguage(nil,filename)
+--				ClosedCaptions.settings.language_name = filename
+--				ClosedCaptions:SaveSettings()
 				return
 			end
 		end
@@ -1468,13 +1552,31 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 		ClosedCaptions:Log("Error loading localization! Invalid selection index: " .. tostring(index))
 	end
 	
+	MenuCallbackHandler.callback_closedcaptions_close = function(self)
+		--if not enabled, then clear all active lines on menu close
+--		if not ClosedCaptions:IsEnabled() then 
+--			ClosedCaptions:ClearAllSubtitles()
+--		end
+		--todo confirm save prompt?
+		
+		if ClosedCaptions._queued_change_language_desired then
+			if ClosedCaptions._queued_change_language_desired ~= ClosedCaptions:GetCurrentLanguageName() then
+				ClosedCaptions:LoadLanguage(nil,ClosedCaptions._queued_change_language_desired)
+			end
+			ClosedCaptions._queued_change_language_desired = nil
+		end
+		
+		ClosedCaptions:SaveSettings()
+	end
+	
+	ClosedCaptions:LoadSettings()
 	ClosedCaptions:ReadSoundData()
-	ClosedCaptions:LoadLanguageFiles()
 	ClosedCaptions:CheckResourcesReady()
 	
-	--MenuHelper:LoadFromJsonFile(ClosedCaptions._MENU_PATH, ClosedCaptions, ClosedCaptions.settings)
+	MenuHelper:LoadFromJsonFile(ClosedCaptions._MENU_PATH, ClosedCaptions, ClosedCaptions.settings)
 end)
 
 Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",callback(ClosedCaptions,ClosedCaptions,"setup"))
 
+ClosedCaptions:LoadLanguageFiles()
 ClosedCaptions:CheckResourcesAdded()

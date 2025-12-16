@@ -2,15 +2,16 @@
 	"menu_id" : "closedcaptions_options",
 	"parent_menu_id" : "blt_options",
 	"title" : "menu_closedcaptions_title",
+	"focus_changed_callback" : "callback_closedcaptions_focus",
 	"back_callback" : "callback_closedcaptions_close",
 	"items" : [
 		{
 			"type" : "toggle",
-			"id" : "closedcaptions_master_enable",
-			"title" : "menu_closedcaptions_master_enable_title",
-			"description" : "menu_closedcaptions_master_enable_desc",
-			"callback" : "callback_closedcaptions_master_enable",
-			"value" : "master_enabled"
+			"id" : "closedcaptions_set_visible",
+			"title" : "menu_closedcaptions_set_visible_title",
+			"description" : "menu_closedcaptions_set_visible_desc",
+			"callback" : "callback_closedcaptions_set_visible",
+			"value" : "captions_visible"
 		},
 		{
 			"type" : "button",
@@ -20,60 +21,21 @@
 			"callback" : "callback_closedcaptions_clear_queue"
 		},
 		{
+			"type" : "multiple_choice",
+			"id" : "closedcaptions_select_language",
+			"title" : "closedcaptions_select_language_title",
+			"description" : "closedcaptions_select_language_desc",
+			"callback" : "callback_closedcaptions_select_language",
+			"items" : [],
+			"value" : "_language_index"
+		},
+		{
 			"type" : "toggle",
 			"id" : "closedcaptions_use_fadein",
 			"title" : "menu_closedcaptions_use_fadein_title",
 			"description" : "menu_closedcaptions_use_fadein_desc",
 			"callback" : "callback_closedcaptions_use_fadein",
 			"value" : "caption_use_fadein"
-		},
-		{
-			"type" : "slider",
-			"id" : "closedcaptions_set_x",
-			"title" : "menu_closedcaptions_set_x_title",
-			"description" : "menu_closedcaptions_set_x_desc",
-			"callback" : "callback_closedcaptions_set_x",
-			"value" : "caption_x",
-			"default_value" : 0,
-			"min" : -1280,
-			"max" : 1280,
-			"step" : 1
-		},
-		{
-			"type" : "slider",
-			"id" : "closedcaptions_set_y",
-			"title" : "menu_closedcaptions_set_y_title",
-			"description" : "menu_closedcaptions_set_y_desc",
-			"callback" : "callback_closedcaptions_set_y",
-			"value" : "caption_y",
-			"default_value" : 200,
-			"min" : 0,
-			"max" : 1000,
-			"step" : 1
-		},
-		{
-			"type" : "slider",
-			"id" : "closedcaptions_set_w",
-			"title" : "menu_closedcaptions_set_w_title",
-			"description" : "menu_closedcaptions_set_w_desc",
-			"callback" : "callback_closedcaptions_set_w",
-			"value" : "caption_w",
-			"default_value" : 200,
-			"min" : 1,
-			"max" : 1280,
-			"step" : 1
-		},
-		{
-			"type" : "slider",
-			"id" : "closedcaptions_set_vmargin",
-			"title" : "menu_closedcaptions_set_vmargin_title",
-			"description" : "menu_closedcaptions_set_vmargin_desc",
-			"callback" : "callback_closedcaptions_set_vmargin",
-			"value" : "caption_margin_v",
-			"default_value" : 10,
-			"min" : 0,
-			"max" : 100,
-			"step" : 1
 		},
 		{
 			"type" : "slider",
@@ -119,7 +81,7 @@
 			"callback" : "callback_closedcaptions_caption_variation_mode",
 			"items" : [
 				"menu_closedcaptions_variations_randomized",
-				"menu_closedcaptions_variations_descriptive"
+				"menu_closedcaptions_variations_static"
 			],
 			"value" : "caption_variation_mode"
 		},
@@ -131,7 +93,8 @@
 			"callback" : "callback_closedcaptions_caption_order",
 			"items" : [
 				"menu_closedcaptions_order_priority",
-				"menu_closedcaptions_order_queue"
+				"menu_closedcaptions_order_fifo",
+				"menu_closedcaptions_order_filo"
 			],
 			"value" : "caption_order"
 		},
@@ -280,19 +243,7 @@
 			"size" : 24
 		},
 		{
-			"type" : "multiple_choice",
-			"id" : "closedcaptions_set_language",
-			"title" : "closedcaptions_set_language_title",
-			"description" : "closedcaptions_set_language_desc",
-			"callback" : "callback_closedcaptions_set_language",
-			"items" : [
-				"closedcaptions_language_1",
-				"closedcaptions_language_2"
-			],
-			"value" : "language"
-		},
-		{
-			"type" : "toggle",
+			"type" : "DISABLED_toggle",
 			"id" : "closedcaptions_enable_logging_master",
 			"title" : "menu_closedcaptions_enable_logging_master_title",
 			"description" : "menu_closedcaptions_enable_logging_master_desc",
@@ -304,7 +255,7 @@
 			"size" : 4
 		},
 		{
-			"type" : "toggle",
+			"type" : "DISABLED_toggle",
 			"id" : "closedcaptions_enable_logging_missing",
 			"title" : "menu_closedcaptions_enable_logging_missing_title",
 			"description" : "menu_closedcaptions_enable_logging_missing_desc",
@@ -312,7 +263,7 @@
 			"value" : "log_missing"
 		},
 		{
-			"type" : "toggle",
+			"type" : "DISABLED_toggle",
 			"id" : "closedcaptions_enable_logging_ids",
 			"title" : "menu_closedcaptions_enable_logging_ids_title",
 			"description" : "menu_closedcaptions_enable_logging_ids_desc",
@@ -320,7 +271,7 @@
 			"value" : "log_ids"
 		},
 		{
-			"type" : "toggle",
+			"type" : "DISABLED_toggle",
 			"id" : "closedcaptions_enable_logging_debug",
 			"title" : "menu_closedcaptions_enable_logging_debug_title",
 			"description" : "menu_closedcaptions_enable_logging_debug_desc",
