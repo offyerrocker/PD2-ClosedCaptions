@@ -275,7 +275,10 @@ function ClosedCaptions:setup()
 --	if managers.hud then
 --		managers.hud:add_updator("ClosedCaptions_update",callback(ClosedCaptions,ClosedCaptions,"update"))
 --	end
-
+	
+	
+	self:process_macros(self._sound_data)
+	
 	self:hook_soundsource()
 end
 
@@ -407,97 +410,8 @@ function ClosedCaptions:update(t,dt)
 end
 Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
 
--- create panel from the given event data,
--- bootstrap the updater to handle frame updates for tasks like left/right audio position detection or fadeout animations
-function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
-	local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
-	
-	if not variation_data then
-		return
-	end
 
-	local id = event_id .. "_" .. tostring(sound_source:key())
-	local state_data = self:_get_subtitle(id)
-	
-	if state_data then
-		if state_data.state == 3 then
-			self:_remove_subtitle(id,true)
-			state_data = nil
-		elseif alive(state_data.panel) then
-			state_data.panel:set_alpha(1)
-			self:_set_subtitle_text(state_data.panel,text,color_ranges)
-			return
-		end
-	end
-	
-	local end_t = nil
-	
-	local is_player = unit == managers.player:local_player()
-	if not is_player and variation_data.duration then
-		local t = TimerManager:game():time()
-		end_t = t + variation_data.duration
-	end
-	
-	-- make panel
-	local item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
-	
-	local loop_data = variation_data.loop_data
-	local is_recombinable = variation_data.is_recombinable
-	local is_locationless = variation_data.is_locationless or is_player
-	local max_distance = variation_data.max_distance
-	local priority = variation_data.priority or 0
-	local distance = 100000
-	state_data = {
-		panel = item_panel,
-		state = 2, -- 1:visible, 2:hidden, 3:removing
-		sound_source = sound_source,
-		unit = unit,
-		max_distance = max_distance,
-		priority = priority,
-		is_recombinable = is_recombinable,
-		is_locationless = is_locationless,
-		loop_data = loop_data,
-		distance = distance,
-		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds)
---		variation_data = variation_data,
-	}
-	
-	self._active_subtitles[id] = state_data
-	
-	local prio_mode = self:GetCaptionPriorityMode()
-	if prio_mode == 1 then -- use priority values from subtitle data
-		table.insert(self._queue_active_subtitles,id)
-		table.sort(self._queue_active_subtitles,function(a,b)
-			return self._active_subtitles[a].priority > self._active_subtitles[b].priority
-		end)
-	elseif prio_mode == 2 then -- proximity; sorted every frame anyway
-	--[[
-		if position then
-			local viewport_cam = managers.viewport:get_current_camera()
-			if viewport_cam then 
-				distance = mvector3.distance(position,viewport_cam:position())
-			end
-		end
-		--]]
-	elseif prio_mode == 3 then -- fifo
-		table.insert(self._queue_active_subtitles,#self._queue_active_subtitles+1,id)
-	elseif prio_mode == 4 then -- filo
-		table.insert(self._queue_active_subtitles,11,id)
-	end
-end
-
--- todo return the caption data, not just the panel
-function ClosedCaptions:get_subtitle(event_id,sound_source)
-	
-	local id = event_id .. "_" .. tostring(sound_source:key())
-	
-	return self:_get_subtitle(id)
-end
-
-function ClosedCaptions:_get_subtitle(id)
-	return self._active_subtitles[id]
-end
-
+-- create the subtitle panel
 function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_name)
 	local panel = self._panel
 	if not alive(panel) then
@@ -623,6 +537,113 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	end
 	
 	return item_panel
+end
+
+
+
+-- create panel from the given event data,
+-- bootstrap the updater to handle frame updates for tasks like left/right audio position detection or fadeout animations
+function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
+	if type(sound_id) == "number" then
+		self:Print("Received number event id",event_id)
+		return
+	end
+	
+	local sound_data = self._sound_data
+	if sound_data.disabled_sounds[event_id] then
+		return
+	end
+	
+	local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
+	if not variation_data then
+		return
+	end
+	if variation_data.stops_line then -- stop all lines from this sound source (previously only stopped specific line)
+		self:unregister_source(sound_source)
+	end
+	if not text then 
+		return
+	end
+
+	local id = event_id .. "_" .. tostring(sound_source:key())
+	local state_data = self:_get_subtitle(id)
+	
+	if state_data then
+		if state_data.state == 3 then
+			self:_remove_subtitle(id,true)
+			state_data = nil
+		elseif alive(state_data.panel) then
+			state_data.panel:set_alpha(1)
+			self:_set_subtitle_text(state_data.panel,text,color_ranges)
+			return
+		end
+	end
+	
+	local end_t = nil
+	
+	local is_player = unit == managers.player:local_player()
+	if not is_player and variation_data.duration then
+		local t = TimerManager:game():time()
+		end_t = t + variation_data.duration
+	end
+	
+	-- make panel
+	local item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
+	
+	local loop_data = variation_data.loop_data
+	local is_recombinable = variation_data.is_recombinable
+	local is_locationless = variation_data.is_locationless or is_player
+	local max_distance = variation_data.max_distance
+	local priority = variation_data.priority or 0
+	local distance = 100000
+	state_data = {
+		panel = item_panel,
+		state = 2, -- 1:visible, 2:hidden, 3:removing
+		sound_source = sound_source,
+		unit = unit,
+		max_distance = max_distance,
+		priority = priority,
+		is_recombinable = is_recombinable,
+		is_locationless = is_locationless,
+		loop_data = loop_data,
+		distance = distance,
+		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds)
+--		variation_data = variation_data,
+	}
+	
+	self._active_subtitles[id] = state_data
+	
+	local prio_mode = self:GetCaptionPriorityMode()
+	if prio_mode == 1 then -- use priority values from subtitle data
+		table.insert(self._queue_active_subtitles,id)
+		table.sort(self._queue_active_subtitles,function(a,b)
+			return self._active_subtitles[a].priority > self._active_subtitles[b].priority
+		end)
+	elseif prio_mode == 2 then -- proximity; sorted every frame anyway
+--		if position then
+--			local viewport_cam = managers.viewport:get_current_camera()
+--			if viewport_cam then 
+--				distance = mvector3.distance(position,viewport_cam:position())
+--			end
+--		end
+	elseif prio_mode == 3 then -- fifo
+		table.insert(self._queue_active_subtitles,#self._queue_active_subtitles+1,id)
+	elseif prio_mode == 4 then -- filo
+		table.insert(self._queue_active_subtitles,11,id)
+	end
+	--]]
+end
+
+-- todo return the caption data, not just the panel
+function ClosedCaptions:get_subtitle(event_id,sound_source)
+	
+	local id = event_id .. "_" .. tostring(sound_source:key())
+	
+	return self:_get_subtitle(id)
+end
+
+function ClosedCaptions:_get_subtitle(id)
+	return self._active_subtitles[id]
 end
 
 function ClosedCaptions:_set_subtitle_text(item_panel,text,color_ranges)
@@ -1112,6 +1133,27 @@ function ClosedCaptions.CreateBGBox(parent,params,panel_config,child_config)
 	return panel
 end
 
+--used to generate sounds that are not significantly different save for characters' names
+function ClosedCaptions:process_macros(sound_data)
+	for sound_name_raw,vo_data in pairs(sound_data.vo_special) do 
+		if vo_data.macro == "character_name" then 
+			for char_index,char_data in pairs(managers.criminals._characters) do 
+				if char_data.static_data and char_data.static_data.ssuffix then
+					local prefix = char_data.static_data.ssuffix
+					local id = string.gsub(sound_name_raw,"@",prefix)
+					local data = sound_data.vo[id]
+					if not data then
+						data = table.deep_map_copy(vo_data)
+						sound_data.vo[id] = data
+					end
+					local character_name = managers.localization:text("menu_" .. char_data.name)
+					data.text = string.gsub(data.text,"$CHARACTER_NAME",utf8.to_upper(character_name))
+					data.text = string.gsub(data.text,"$character_name",character_name)
+				end
+			end
+		end
+	end
+end
 
 -- ============================== SoundSource management
 
@@ -1257,13 +1299,14 @@ function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,uni
 --	end
 	if self._sound_data.vo[event_id] and not self._sound_data.vo[event_id].disabled then
 		self:Print("Playing subtitle",event_id,sound_source,unit,event_instance,...)
+		self:start_subtitle(event_id,unit,sound_source,sound_source:get_position()) -- start before registering, so that stop events from cc sound data will only stop other events from the soundsource
+		
 		local key = tostring(sound_source:key())
 		self._soundsources[key] = self._soundsources[key] or {
 			source = sound_source,
 			events = {}
 		}
 		self._soundsources[key].events[event_id] = event_instance
-		self:start_subtitle(event_id,unit,sound_source,sound_source:get_position())
 	else
 --		self:Print("No subtitle data for",event_id)
 	end
@@ -1390,7 +1433,8 @@ Hooks:Add("LocalizationManagerPostInit", "ClosedCaptions_LocalizationManagerPost
 
 -- ============================== I/O
 function ClosedCaptions:ReadSoundData()
-	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
+	local sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
+	self._sound_data = sound_data
 end
 
 --load settings from save txt

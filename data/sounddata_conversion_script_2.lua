@@ -7,7 +7,7 @@ local WRITE = true
 local FLATTEN_RECOMBINATIONS = false
 
 local SOUND_DATA_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.lua"
-local DATA_OUT_PATH = ClosedCaptions._SOUNDDATA_PATH .. "test_data.json"
+local DATA_OUT_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.json"
 local L10N_OUT_PATH = ClosedCaptions._SOUNDDATA_PATH .. "test_l10n.json"
 local sound_data = blt.vm.dofile(SOUND_DATA_PATH)
 
@@ -202,9 +202,6 @@ for event_id,data in pairs(sound_data.vo) do
 	end
 	
 	
-	
-	
-	
 	-- voice variants- important in cases like p01,
 	-- which is "the robbers have hostages!" for cops, but "alright let's do this" for heisters
 	if data.variants then
@@ -229,13 +226,9 @@ for event_id,data in pairs(sound_data.vo) do
 		new_data.line_variations = process_line_variations(nil,data)
 	else
 --		Print("None of the above",event_id)
-		if data.stops_line or data.remove_by_source then
-			new_data.disabled = true
-		else
-			for k,enabled in pairs(ALLOWED_FIELDS) do 
-				if enabled then
-					new_data[k] = data[k]
-				end
+		for k,enabled in pairs(ALLOWED_FIELDS) do 
+			if enabled then
+				new_data[k] = data[k]
 			end
 		end
 	end
