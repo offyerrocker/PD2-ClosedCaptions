@@ -362,7 +362,7 @@ return {
 					{
 						"Hey, Dallas!",
 						"Dallas!"
-					}
+					},
 					{
 						"Come with me!",
 						"Come with me! Move it!",
@@ -382,7 +382,7 @@ return {
 					{
 						"Hey, Chains!",
 						"Chains!"
-					}
+					},
 					{
 						"Come with me!",
 						"Come with me! Move it!",
