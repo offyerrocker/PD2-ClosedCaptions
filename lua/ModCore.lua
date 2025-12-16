@@ -345,7 +345,9 @@ function ClosedCaptions:update(t,dt)
 		if to_state == 1 or to_state == 2 then
 			current_num = current_num + 1
 		elseif to_state == 3 then
-			item.state = to_state
+			if item then
+				item.state = to_state
+			end
 			-- panel removed somehow; 
 			-- remove immediately
 			self:_remove_subtitle(id)
@@ -368,14 +370,28 @@ end
 -- create panel from the given event data,
 -- bootstrap the updater to handle frame updates for tasks like left/right audio position detection or fadeout animations
 function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
-	--local subtitle_data = self:get_subtitle_data(event_id,unit)
+	local id = event_id .. "_" .. tostring(unit:key())
+	local state_data = self:get_subtitle_data(event_id,unit)
+	local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
+	
+	
+	if state_data then
+		if state_data.state == 3 then
+			self:_remove_subtitle(id,true)
+			state_data = nil
+		elseif alive(state_data.panel) then
+			state_data.panel:set_alpha(1)
+			self:_set_subtitle_text(state_data.panel,text,color_ranges)
+			return
+		end
+	end
+	
+	
+	
 	
 	
 	-- make panel
-	local text,text_color,color_range,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
-	
-	local id = event_id .. "_" .. tostring(unit:key())
-	local item_panel = self:_create_caption_text(text,text_color,color_range,id)
+	local item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
 	
 	
 	local loop_data = variation_data.loop_data
@@ -383,7 +399,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	local is_locationless = variation_data.is_locationless or unit == managers.player:local_player()
 	local max_distance = variation_data.max_distance
 	local priority = variation_data.priority or 0
-	local state_data = {
+	state_data = {
 		panel = item_panel,
 		state = 2, -- 1:visible, 2:hidden, 3:removing
 		sound_source = sound_source,
@@ -407,17 +423,19 @@ end
 
 -- todo return the caption data, not just the panel
 function ClosedCaptions:get_subtitle(event_id,unit)
+	
 	local panel_name = event_id .. "_" .. tostring(unit:key())
 	
-	local item_panel = self._panel:child(panel_name)
-	return alive(item_panel) and item_panel
+	if self._active_subtitles[panel_name] then
+		return self._active_subtitles[panel_name]
+	end
 end
 
 function ClosedCaptions:hide_subtitle(event_id,unit,sound_source,position)
 
 end
 
-function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_name)
+function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_name)
 	local panel = self._panel
 	if not alive(panel) then
 		return
@@ -501,9 +519,9 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_n
 		alpha = 1,
 		visible = true
 	})
-	if color_range then
-		for i=1,#color_range,3 do 
-			subtitle:set_range_color(color_range[i],color_range[i+1],color_range[i+2])
+	if color_ranges then
+		for i=1,#color_ranges,3 do 
+			subtitle:set_range_color(color_ranges[i],color_ranges[i+1],color_ranges[i+2])
 		end
 	end
 	local txc,tyc,twc,thc = subtitle:text_rect()
@@ -537,6 +555,33 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_range,panel_n
 	
 	return item_panel
 end
+
+function ClosedCaptions:_set_subtitle_text(item_panel,text,color_ranges)
+	local subtitle = item_panel:child("subtitle")
+	
+	local parent_w = panel:w()
+	local margin_ver = 4
+	subtitle:set_text(text)
+	subtitle:clear_range_color()
+	
+	if color_ranges then
+		for i=1,#color_ranges,3 do 
+			subtitle:set_range_color(color_ranges[i],color_ranges[i+1],color_ranges[i+2])
+		end
+	end
+	local txc,tyc,twc,thc = subtitle:text_rect()
+	
+	item_panel:set_w(math.min(arrow_margin_hor+arrow_margin_hor+twa+twb+twc,parent_w * 0.7) + margin_hor)
+	
+	local num_lines = subtitle:number_of_lines()
+	local line_height = subtitle:line_height()
+	thc = num_lines * line_height
+	item_panel:set_h(thc + margin_ver)
+	
+	-- center subtitle
+	item_panel:set_x((parent_w - item_panel:w()) / 2)
+end
+
 
 function ClosedCaptions:remove_subtitle(event_id,unit)
 	self:_remove_subtitle(event_id .. "_" .. tostring(unit:key()))
@@ -740,7 +785,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	local speaker_len = utf8.len(speaker_str)
 	local text_len = utf8.len(text)
 	
-	local color_tbl = {
+	local color_ranges = {
 		0,
 		speaker_len+1,
 		speaker_color,
@@ -751,7 +796,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	}
 	
 	local str = string.format("%s: %s",speaker_str,text)
-	return str,text_color,color_tbl,variation_data
+	return str,text_color,color_ranges,variation_data
 end
 
 --chooses a random caption variation from the sound_table
