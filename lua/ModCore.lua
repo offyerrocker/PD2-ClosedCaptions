@@ -380,13 +380,8 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		end
 	end
 	
-	
-	
-	
-	
 	-- make panel
 	local item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
-	
 	
 	local loop_data = variation_data.loop_data
 	local is_recombinable = variation_data.is_recombinable
@@ -576,12 +571,11 @@ function ClosedCaptions:_set_subtitle_text(item_panel,text,color_ranges)
 	item_panel:set_x((parent_w - item_panel:w()) / 2)
 end
 
-
 function ClosedCaptions:remove_subtitle(event_id,sound_source,instant)
 	self:_remove_subtitle(event_id .. "_" .. tostring(sound_source:key()),instant)
 end
 
-function ClosedCaptions:_remove_subtitle(id,instant) -- todo remove caption data, not just panel
+function ClosedCaptions:_remove_subtitle(id,instant)
 	local item_panel = self._panel:child(id)
 	if alive(item_panel) then
 		if instant then
@@ -594,6 +588,8 @@ function ClosedCaptions:_remove_subtitle(id,instant) -- todo remove caption data
 		end
 	end
 	
+	Hooks:Remove("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(id))
+	
 	self._active_subtitles[id] = nil
 	for i,_id in pairs(self._queue_active_subtitles) do 
 		if _id == id then
@@ -601,7 +597,6 @@ function ClosedCaptions:_remove_subtitle(id,instant) -- todo remove caption data
 			return
 		end
 	end
-	Hooks:Remove("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(id))
 end
 
 function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,position)
