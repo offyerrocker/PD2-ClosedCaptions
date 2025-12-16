@@ -308,12 +308,13 @@ function ClosedCaptions:update(t,dt)
 						mvector3.set(source_pos,item.unit:position())
 					end
 					
-					local angle_to = ((ClosedCaptions.angle_from(player_pos,source_pos) - player_aim + 270) % 360) - 180
-					item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
-					item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
 					
 					if has_source then
-						if to_state == 1 and item.max_distance then 
+						local angle_to = ((ClosedCaptions.vec2_angle(player_pos,source_pos) - player_aim + 270) % 360) - 180
+						item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
+						item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
+						
+						if item.max_distance then 
 							if source_pos and mvector3.distance_sq(player_pos,source_pos) >= item.max_distance*item.max_distance then 
 								to_state = 2
 							end
@@ -327,13 +328,13 @@ function ClosedCaptions:update(t,dt)
 			if item.state ~= to_state then
 				if to_state == 1 then -- show
 					item.panel:show()
-					
-					local duration = self.settings.caption_fadeout_time
-					item.panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
+					--local duration = self.settings.caption_fadeout_time
+					--item.panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
 					
 				elseif to_state == 2 then -- hiding
-					local duration = self.settings.caption_fadeout_time
-					item.panel:animate(AnimateLibrary.animate_alpha_lerp,function(o) o:hide() end,duration,nil,0)
+					item.panel:hide()
+					--local duration = self.settings.caption_fadeout_time
+					--item.panel:animate(AnimateLibrary.animate_alpha_lerp,function(o) o:hide() end,duration,nil,0)
 				end
 				item.state = to_state
 			end
@@ -366,7 +367,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	end
 
 	local id = event_id .. "_" .. tostring(sound_source:key())
-	local state_data = self:get_subtitle(event_id,sound_source)
+	local state_data = self:_get_subtitle(id)
 	
 	if state_data then
 		if state_data.state == 3 then
@@ -401,22 +402,24 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	}
 
 	
-	table.insert(self._queue_active_subtitles,1,id)
+	self._active_subtitles[id] = state_data
+	
+	table.insert(self._queue_active_subtitles,id)
 	table.sort(self._queue_active_subtitles,function(a,b)
 		return self._active_subtitles[a].priority > self._active_subtitles[b].priority
 	end)
-	
-	self._active_subtitles[id] = state_data
 end
 
 -- todo return the caption data, not just the panel
 function ClosedCaptions:get_subtitle(event_id,sound_source)
 	
-	local panel_name = event_id .. "_" .. tostring(sound_source:key())
+	local id = event_id .. "_" .. tostring(sound_source:key())
 	
-	if self._active_subtitles[panel_name] then
-		return self._active_subtitles[panel_name]
-	end
+	return self:_get_subtitle(id)
+end
+
+function ClosedCaptions:_get_subtitle(id)
+	return self._active_subtitles[id]
 end
 
 function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_name)
@@ -425,19 +428,18 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		return
 	end
 	
-	--[[
 	local item_panel = panel:child(panel_name)
 	if item_panel and alive(item_panel) then 
-		self:find_line({panel = item_panel},nil,"_remove_line")
---		panel:remove(item_panel)
+		panel:remove(item_panel)
+		item_panel = nil
 	end
-	--]]
+	
 	local arrow_margin_hor = 4
 	local margin_ver = 4
 	local margin_hor = 4
 	local parent_w = panel:w()
 	
-	local item_panel = panel:panel({
+	item_panel = panel:panel({
 		name = panel_name,
 		w = nil,
 		h = nil,
@@ -449,7 +451,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	local arrow_left = item_panel:text({
 		name = "arrow_left",
 		text = "<",
-		visible = true,
+		visible = false,
 		x = arrow_margin_hor,
 		y = 0,
 		align = "left",
@@ -464,7 +466,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	local arrow_right = item_panel:text({
 		name = "arrow_right",
 		text = ">",
-		visible = true,
+		visible = false,
 		x = -arrow_margin_hor,
 		y = 0,
 		align = "right",
@@ -575,21 +577,26 @@ function ClosedCaptions:remove_subtitle(event_id,sound_source,instant)
 end
 
 function ClosedCaptions:_remove_subtitle(id,instant)
-	local item_panel = self._panel:child(id)
-	if alive(item_panel) then
-		if instant then
-			self._panel:remove(item_panel)
-		else
-			local duration = self.settings.caption_fadeout_time
-			item_panel:animate(AnimateLibrary.animate_alpha_lerp,function(o)
+	local item = self._active_subtitles[id]
+	
+	if item then
+		local item_panel = item.panel
+		if alive(item_panel) then
+			if instant then
 				self._panel:remove(item_panel)
-			end,duration,nil,0)
+			else
+				local duration = self.settings.caption_fadeout_time
+				item_panel:animate(AnimateLibrary.animate_alpha_lerp,function(o)
+					self._panel:remove(item_panel)
+				end,duration,nil,0)
+			end
 		end
 	end
 	
+	self._active_subtitles[id] = nil
+	
 	Hooks:Remove("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(id))
 	
-	self._active_subtitles[id] = nil
 	for i,_id in pairs(self._queue_active_subtitles) do 
 		if _id == id then
 			table.remove(self._queue_active_subtitles,i)
@@ -748,7 +755,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		return
 	end
 	
-	self:Print("Playing " .. tostring(event_id) .. " from unit " .. tostring(unit) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
+--	self:Print("Playing " .. tostring(event_id) .. " from unit " .. tostring(unit) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
 	
 	name = variation_data.override_name or name or variation_data.fallback_name
 	
@@ -1019,7 +1026,7 @@ function ClosedCaptions:hook_soundsource()
 		
 		SoundSource._post_event = SoundSource._post_event or SoundSource.post_event
 		function SoundSource:post_event(event,clbk,cookie,marker,event_type,...)
-			Print("Cookie",cookie)
+--			ClosedCaptions:Print("Cookie",cookie)
 			if clbk then
 				local old_clbk = clbk
 				local new_clbk = function(...)
@@ -1108,11 +1115,11 @@ end
 function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit,instant)
 	if not event_id then return end
 	
-	--self:Print("clbk_stop_postevent","event_id",event_id,"sound_source",sound_source,unit)
 	
 	local key = tostring(sound_source:key())
 	local data = self._soundsources[key]
 	if data then 
+		self:Print("Sound stopped:",event_id,"sound_source",sound_source,"unit",unit)
 		
 		if data.events[event_id] then
 			data.events[event_id] = nil
@@ -1150,7 +1157,7 @@ function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,uni
 		self._soundsources[key].events[event_id] = event_instance
 		self:start_subtitle(event_id,unit,sound_source,sound_source:get_position())
 	else
-		self:Print("No subtitle data for",event_id)
+--		self:Print("No subtitle data for",event_id)
 	end
 	
 end
@@ -1165,6 +1172,7 @@ end
 function ClosedCaptions._clbk_soundsource_post_event(event_id,instance,sound_source,event_type,unit,...)
 --	Print("_clbk_soundsource_post_event",event_id,"instance",instance,"sound_source",sound_source,"event_type",event_type,"unit",unit,"...",...)
 	if event_type == "end_of_event" then
+		
 		ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit)
 	end
 end
