@@ -357,23 +357,17 @@ function ClosedCaptions:update(t,dt)
 end
 Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
 
-
-function ClosedCaptions:get_subtitle_data(event_id,unit)
-	
-	
-	
-	
-	
-	
-end
-
 -- create panel from the given event data,
 -- bootstrap the updater to handle frame updates for tasks like left/right audio position detection or fadeout animations
 function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
-	local id = event_id .. "_" .. tostring(unit:key())
-	local state_data = self:get_subtitle_data(event_id,unit)
 	local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
 	
+	if not variation_data then
+		return
+	end
+
+	local id = event_id .. "_" .. tostring(sound_source:key())
+	local state_data = self:get_subtitle(event_id,sound_source)
 	
 	if state_data then
 		if state_data.state == 3 then
@@ -422,17 +416,13 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 end
 
 -- todo return the caption data, not just the panel
-function ClosedCaptions:get_subtitle(event_id,unit)
+function ClosedCaptions:get_subtitle(event_id,sound_source)
 	
-	local panel_name = event_id .. "_" .. tostring(unit:key())
+	local panel_name = event_id .. "_" .. tostring(sound_source:key())
 	
 	if self._active_subtitles[panel_name] then
 		return self._active_subtitles[panel_name]
 	end
-end
-
-function ClosedCaptions:hide_subtitle(event_id,unit,sound_source,position)
-
 end
 
 function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_name)
@@ -559,11 +549,15 @@ end
 function ClosedCaptions:_set_subtitle_text(item_panel,text,color_ranges)
 	local subtitle = item_panel:child("subtitle")
 	
-	local parent_w = panel:w()
+	local parent_w = self._panel:w()
 	local margin_ver = 4
+	local margin_hor = 4
+	local arrow_margin_hor = 4
 	subtitle:set_text(text)
 	subtitle:clear_range_color()
 	
+	local txa,tya,twa,tha = item_panel:child("arrow_left"):text_rect()
+	local txb,tyb,twb,thb = item_panel:child("arrow_right"):text_rect()
 	if color_ranges then
 		for i=1,#color_ranges,3 do 
 			subtitle:set_range_color(color_ranges[i],color_ranges[i+1],color_ranges[i+2])
@@ -583,8 +577,8 @@ function ClosedCaptions:_set_subtitle_text(item_panel,text,color_ranges)
 end
 
 
-function ClosedCaptions:remove_subtitle(event_id,unit)
-	self:_remove_subtitle(event_id .. "_" .. tostring(unit:key()))
+function ClosedCaptions:remove_subtitle(event_id,sound_source,instant)
+	self:_remove_subtitle(event_id .. "_" .. tostring(sound_source:key()),instant)
 end
 
 function ClosedCaptions:_remove_subtitle(id,instant) -- todo remove caption data, not just panel
@@ -631,13 +625,13 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		local is_whisper_mode = managers.groupai:state():whisper_mode()
 		local is_assault_mode = managers.groupai:state():get_assault_mode()
 		if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
-			variation_data = variations.whisper_mode
+--			variation_data = variations.whisper_mode
 			text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
 		elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
-			variation_data = variations.assault_mode
+--			variation_data = variations.assault_mode
 			text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
 		elseif variations.standard_mode then --no requirements
-			variation_data = variations.standard_mode
+--			variation_data = variations.standard_mode
 			text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
 		end
 	end
@@ -794,6 +788,9 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		speaker_len+text_len+2,
 		text_color
 	}
+	
+	--foo1 = sound_data
+	--foo2 = variation_data
 	
 	local str = string.format("%s: %s",speaker_str,text)
 	return str,text_color,color_ranges,variation_data
@@ -1105,7 +1102,7 @@ function ClosedCaptions:hook_soundsource()
 			for event_id,event_instance in pairs(data.events) do
 				if event_instance == event_instance then
 					-- interrupt this sound
-					ClosedCaptions:clbk_stop_postevent(event_id,data.source)
+					ClosedCaptions:clbk_stop_postevent(event_id,data.source,nil,true)
 					break
 				end
 			end
@@ -1114,7 +1111,7 @@ function ClosedCaptions:hook_soundsource()
 
 end
 
-function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit)
+function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit,instant)
 	if not event_id then return end
 	
 	--self:Print("clbk_stop_postevent","event_id",event_id,"sound_source",sound_source,unit)
@@ -1139,7 +1136,7 @@ function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit)
 		end
 	end
 	
-	self:remove_subtitle(event_id,unit)
+	self:remove_subtitle(event_id,sound_source,instant)
 end
 
 function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,unit,event_instance,...)
@@ -1149,7 +1146,7 @@ function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,uni
 --		-- interrupt alpha decay, refresh
 		-- (reroll text eg repeat enemy markings)
 --	end
-	if self._sound_data.vo[event_id] then
+	if self._sound_data.vo[event_id] and not self._sound_data.vo[event_id].disabled then
 		self:Print("Playing subtitle",event_id,sound_source,unit,event_instance,...)
 		local key = tostring(sound_source:key())
 		self._soundsources[key] = self._soundsources[key] or {
