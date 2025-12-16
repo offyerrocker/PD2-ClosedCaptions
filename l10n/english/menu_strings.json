@@ -23,6 +23,7 @@
 	"menu_closedcaptions_order_priority" : "Importance",
 	"menu_closedcaptions_order_fifo" : "Newest first",
 	"menu_closedcaptions_order_filo" : "Oldest first",
+	"menu_closedcaptions_order_proximity" : "Closest first",
 	"menu_closedcaptions_use_player_names_title" : "Use Player Names",
 	"menu_closedcaptions_use_player_names_desc" : "Use the player's name instead of the heister character's name.",
 	"menu_closedcaptions_use_allcaps_names_title" : "Names in All Capitals",

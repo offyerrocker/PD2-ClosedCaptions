@@ -93,6 +93,7 @@
 			"callback" : "callback_closedcaptions_caption_order",
 			"items" : [
 				"menu_closedcaptions_order_priority",
+				"menu_closedcaptions_order_proximity",
 				"menu_closedcaptions_order_fifo",
 				"menu_closedcaptions_order_filo"
 			],

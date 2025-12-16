@@ -13,6 +13,18 @@ cookoff: gangster death lingers forever
 
 
 
+
+carshop manager chatter
+	Play_man_ch1_01 
+
+
+
+
+
+
+
+
+
 currently needs beardlib to manage soundsource-unit linking
 
 

@@ -26,7 +26,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 --		caption_y = 150,
 --		caption_w = 800,
 --		caption_margin_v = 8,
-		caption_order = 1,
+		caption_order = 2,
 		captions_max_count = 5,
 		caption_use_fadein = false,
 		caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
@@ -283,7 +283,6 @@ local player_pos = Vector3()
 local source_pos = Vector3()
 local tmp_vec1 = Vector3()
 function ClosedCaptions:update(t,dt)
-
 	local viewport_cam = managers.viewport:get_current_camera()
 	if not viewport_cam then return end
 	
@@ -291,6 +290,8 @@ function ClosedCaptions:update(t,dt)
 	mvector3.set(player_pos,viewport_cam:position())
 	local MAX_SUBTITLES = self.settings.captions_max_count
 	local angle_threshold = 45
+	
+	local use_proximity_sort = self:GetCaptionPriorityMode() == 2
 	
 	local current_num = 0
 	local y = 0
@@ -300,8 +301,13 @@ function ClosedCaptions:update(t,dt)
 		local to_state = 1
 		if item and alive(item.panel) then
 			if current_num <= MAX_SUBTITLES then
+				if item.end_t and item.end_t <= t then
+					to_state = 3
+				end
+				
 				if item.is_locationless then
-					
+					-- lines from the narrator (bain, locke), which should not diegetically have spatial information
+					-- or sounds from the local player, which do not need it
 				else
 					local has_source
 					-- determine if this caption is left/right of player viewport
@@ -328,8 +334,21 @@ function ClosedCaptions:update(t,dt)
 						item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
 						
 						if item.max_distance then 
-							if source_pos and mvector3.distance_sq(player_pos,source_pos) >= item.max_distance*item.max_distance then 
-								to_state = 2
+							if source_pos then
+								if use_proximity_sort then
+									-- may as well calculate the actual distance
+									local distance = mvector3.distance(player_pos,source_pos)
+									if distance >= item.max_distance then 
+										to_state = 2
+									end
+									item.distance = distance
+								else
+									local distance = mvector3.distance_sq(player_pos,source_pos)
+									if distance >= item.max_distance*item.max_distance then 
+										to_state = 2
+									end
+								end
+								
 							end
 						end
 					else
@@ -338,11 +357,6 @@ function ClosedCaptions:update(t,dt)
 				end
 			else
 				to_state = 2
-			end
-			
-			if to_state == 1 then
-				item.panel:set_y(y)
-				y = item.panel:bottom() + 2
 			end
 			if item.state ~= to_state then
 				if to_state == 1 then -- show
@@ -361,8 +375,10 @@ function ClosedCaptions:update(t,dt)
 			to_state = 3
 		end
 		
-		if to_state == 1 or to_state == 2 then
+		if to_state == 1 then
 			current_num = current_num + 1
+			item.panel:set_y(y)
+			y = item.panel:bottom() + 2
 		elseif to_state == 3 then
 			if item then
 				item.state = to_state
@@ -371,6 +387,22 @@ function ClosedCaptions:update(t,dt)
 			-- remove immediately
 			self:_remove_subtitle(id)
 		end
+	end
+	
+	if use_proximity_sort then
+		table.sort(self._queue_active_subtitles,function(a,b)
+			local item_a = self._active_subtitles[a]
+			if item_a.is_locationless then
+				return true
+			end
+			
+			local item_b = self._active_subtitles[b]
+			if item_b.is_locationless then
+				return false
+			end
+			
+			return item_a.distance <= item_b.distance
+		end)
 	end
 end
 Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
@@ -398,14 +430,23 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		end
 	end
 	
+	local end_t = nil
+	
+	local is_player = unit == managers.player:local_player()
+	if not is_player and variation_data.duration then
+		local t = TimerManager:game():time()
+		end_t = t + variation_data.duration
+	end
+	
 	-- make panel
 	local item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
 	
 	local loop_data = variation_data.loop_data
 	local is_recombinable = variation_data.is_recombinable
-	local is_locationless = variation_data.is_locationless or unit == managers.player:local_player()
+	local is_locationless = variation_data.is_locationless or is_player
 	local max_distance = variation_data.max_distance
 	local priority = variation_data.priority or 0
+	local distance = 100000
 	state_data = {
 		panel = item_panel,
 		state = 2, -- 1:visible, 2:hidden, 3:removing
@@ -415,7 +456,9 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		priority = priority,
 		is_recombinable = is_recombinable,
 		is_locationless = is_locationless,
-		loop_data = loop_data
+		loop_data = loop_data,
+		distance = distance,
+		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds)
 --		variation_data = variation_data,
 	}
 	
@@ -428,6 +471,14 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 			return self._active_subtitles[a].priority > self._active_subtitles[b].priority
 		end)
 	elseif prio_mode == 2 then -- proximity; sorted every frame anyway
+	--[[
+		if position then
+			local viewport_cam = managers.viewport:get_current_camera()
+			if viewport_cam then 
+				distance = mvector3.distance(position,viewport_cam:position())
+			end
+		end
+		--]]
 	elseif prio_mode == 3 then -- fifo
 		table.insert(self._queue_active_subtitles,#self._queue_active_subtitles+1,id)
 	elseif prio_mode == 4 then -- filo
@@ -468,7 +519,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	
 	item_panel = panel:panel({
 		name = panel_name,
-		w = nil,
+		w = nil, -- inherit from parent panel
 		h = nil,
 		alpha = use_fadein and 0 or 1,
 		visible = false
@@ -817,20 +868,23 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	local speaker_len = utf8.len(speaker_str)
 	local text_len = utf8.len(text)
 	
-	local color_ranges = {
-		0,
-		speaker_len+1,
-		speaker_color,
-		
-		speaker_len+1,
-		speaker_len+text_len+2,
-		text_color
-	}
+	local color_ranges
 	
-	--foo1 = sound_data
-	--foo2 = variation_data
-	
-	local str = string.format("%s: %s",speaker_str,text)
+	local str 
+	if speaker_len > 0 then
+		str = string.format("%s: %s",speaker_str,text)
+		color_ranges = {
+			0,
+			speaker_len+1,
+			speaker_color,
+			
+			speaker_len+1,
+			speaker_len+text_len+2,
+			text_color
+		}
+	else
+		str = tostring(text) -- just the line, no colon, if no speaker string
+	end
 	return str,text_color,color_ranges,variation_data
 end
 

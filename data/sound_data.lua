@@ -21282,8 +21282,8 @@ return {
 			stops_line = "swatturret_fire",
 			remove_by_source = true
 		},
-		swatturret_disarmed_loop = {
-			text = "[SWAT Turret disarmed]",
+		swatturret_disarmed_loop = { -- ecm'd
+			text = "[SWAT Turret hacked]",
 			category = "enemy_chatter",
 			max_distance = 3000,
 			priority = 85,
