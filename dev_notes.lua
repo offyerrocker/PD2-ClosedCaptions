@@ -7,9 +7,13 @@ TODO
 
 
 
+no unit names by tweak table
+cookoff: gangster death lingers forever
 
 
 
+
+currently needs beardlib to manage soundsource-unit linking
 
 
 

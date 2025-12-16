@@ -56,6 +56,9 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	_queued_change_language_desired = false, -- used when user changes the language in the menu
 	_ws = nil,
 	_panel = nil,
+	_BGBOX_PARAMS = {tile_size=8},
+	_BGBOX_PANEL_CONFIG = {alpha=0.5,valign="grow",halign="grow"},
+	_BGBOX_TILE_CONFIG = {color=Color(0,0,0)},
 	_soundsources = {
 		--[[
 			[SoundSource 0xd34db33f] = {
@@ -66,7 +69,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		--]]
 	},
 	_sound_data = {}, -- subtitle data, indexed by event_id
-	_UNIT_NAMES = {}, -- populated on load from data file
+	_UNIT_NAMES = {}, -- populated on load from loc file
 	_NARRATOR_PREFIXES = {
 		Play_ban_ = "menu_subtitlemod_speaker_cont_bain",
 		Play_loc_ = "menu_subtitlemod_speaker_cont_locke"
@@ -264,9 +267,6 @@ function ClosedCaptions:setup()
 	self._ws = managers.gui_data:create_saferect_workspace() --managers.gui_data:create_fullscreen_workspace()
 	self._panel = self._ws and self._ws:panel()
 	self._panel:set_layer(1000)
-
-	self._BGBOX_PANEL_CONFIG = {alpha=0.5,valign="grow",halign="grow",tile_size=8}
-	self._BGBOX_TILE_CONFIG = {color=Color(0,0,0)}
 	
 --	self:SetVisible(self:IsEnabled())
 --	self:SetPanelX(self.settings.caption_x)
@@ -281,6 +281,7 @@ end
 
 local player_pos = Vector3()
 local source_pos = Vector3()
+local tmp_vec1 = Vector3()
 function ClosedCaptions:update(t,dt)
 
 	local viewport_cam = managers.viewport:get_current_camera()
@@ -292,25 +293,34 @@ function ClosedCaptions:update(t,dt)
 	local angle_threshold = 45
 	
 	local current_num = 0
+	local y = 0
 	for i=#self._queue_active_subtitles,1,-1 do
 		local id = self._queue_active_subtitles[i]
 		local item = self._active_subtitles[id]
 		local to_state = 1
 		if item and alive(item.panel) then
-			if current_num < MAX_SUBTITLES then
+			if current_num <= MAX_SUBTITLES then
 				if item.is_locationless then
 					
 				else
 					local has_source
 					-- determine if this caption is left/right of player viewport
-					if alive(item.sound_source) then
-						has_source = true
-						mvector3.set(source_pos,item.sound_source:get_position())
-					elseif alive(item.unit) then
-						has_source = true
-						mvector3.set(source_pos,item.unit:position())
+					if item.sound_source and alive(item.sound_source) then
+						tmp_vec1 = item.sound_source:get_position()
+						if tmp_vec1 then
+							has_source = true
+							mvector3.set(source_pos,tmp_vec1)
+						end
 					end
-					
+					--[[ temp disabled
+					if not has_source and item.unit and alive(item.unit) then
+						tmp_vec1 = item.unit:position()
+						if tmp_vec1 then
+							has_source = true
+							mvector3.set(source_pos,tmp_vec1)
+						end
+					end
+					--]]
 					
 					if has_source then
 						local angle_to = ((ClosedCaptions.vec2_angle(player_pos,source_pos) - player_aim + 270) % 360) - 180
@@ -322,18 +332,23 @@ function ClosedCaptions:update(t,dt)
 								to_state = 2
 							end
 						end
+					else
+						to_state = 3
 					end
 				end
 			else
 				to_state = 2
 			end
 			
+			if to_state == 1 then
+				item.panel:set_y(y)
+				y = item.panel:bottom() + 2
+			end
 			if item.state ~= to_state then
 				if to_state == 1 then -- show
 					item.panel:show()
 					--local duration = self.settings.caption_fadeout_time
 					--item.panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
-					
 				elseif to_state == 2 then -- hiding
 					item.panel:hide()
 					--local duration = self.settings.caption_fadeout_time
@@ -412,11 +427,11 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		table.sort(self._queue_active_subtitles,function(a,b)
 			return self._active_subtitles[a].priority > self._active_subtitles[b].priority
 		end)
-	elseif prio_mode == 3 then -- filo
-		table.insert(self._queue_active_subtitles,11,id)
-	else
-		-- default to fifo
+	elseif prio_mode == 2 then -- proximity; sorted every frame anyway
+	elseif prio_mode == 3 then -- fifo
 		table.insert(self._queue_active_subtitles,#self._queue_active_subtitles+1,id)
+	elseif prio_mode == 4 then -- filo
+		table.insert(self._queue_active_subtitles,11,id)
 	end
 end
 
@@ -458,7 +473,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		alpha = use_fadein and 0 or 1,
 		visible = false
 	})
-	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
+	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
 	
 	local arrow_left = item_panel:text({
 		name = "arrow_left",
@@ -769,11 +784,15 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		end
 	end
 	
+--	if category == "sfx" then
+--		name = "SFX"
+--	end
+	
 	if not text then
 		return
 	end
 	
---	self:Print("Playing " .. tostring(event_id) .. " from unit " .. tostring(unit) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position))
+	self:Print("Playing " .. tostring(event_id) .. " from tweaktable " .. tostring(tweak_table) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position) .. " from unit " .. tostring(unit and unit:key()))
 	
 	name = variation_data.override_name or name or variation_data.fallback_name
 	
@@ -858,9 +877,9 @@ function ClosedCaptions:SetCaptionsPanelVisible(state)
 	end
 end
 
-function ClosedCaptions.CreateBGBox(parent,bgbox_config,panel_config,child_config)
-	local w = (bgbox_config and bgbox_config.w) or parent:w()
-	local h = (bgbox_config and bgbox_config.h) or parent:h()
+function ClosedCaptions.CreateBGBox(parent,params,panel_config,child_config)
+	local w = (params and params.w) or parent:w()
+	local h = (params and params.h) or parent:h()
 	local panel = parent:panel({
 		name = "bgbox",
 		w = w,
@@ -872,15 +891,15 @@ function ClosedCaptions.CreateBGBox(parent,bgbox_config,panel_config,child_confi
 		panel:configure(panel_config)
 	end
 	
-	--local tile_w_scale = bgbox_config and (bgbox_config.w_scale or bgbox_config.scale) or 1
-	--local tile_h_scale = bgbox_config and (bgbox_config.h_scale or bgbox_config.scale) or 1
+	--local tile_w_scale = params and (params.w_scale or params.scale) or 1
+	--local tile_h_scale = params and (params.h_scale or params.scale) or 1
 	
 	-- individual tile sizes in texture file
 	local RAW_BITMAP_W = 16
 	local RAW_BITMAP_H = 16
 	
-	local tile_w = bgbox_config and (bgbox_config.w or bgbox_config.tile_size) or RAW_BITMAP_W -- or (tile_w_scale * RAW_BITMAP_W)
-	local tile_h = bgbox_config and (bgbox_config.h or bgbox_config.tile_size) or RAW_BITMAP_H -- or (tile_h_scale * RAW_BITMAP_H)
+	local tile_w = params and (params.w or params.tile_size) or RAW_BITMAP_W -- or (tile_w_scale * RAW_BITMAP_W)
+	local tile_h = params and (params.h or params.tile_size) or RAW_BITMAP_H -- or (tile_h_scale * RAW_BITMAP_H)
 	
 	local hor_size = w - (tile_w + tile_w)
 	local ver_size = h - (tile_h + tile_h)
@@ -1050,7 +1069,7 @@ function ClosedCaptions:hook_soundsource()
 		
 		SoundSource._post_event = SoundSource._post_event or SoundSource.post_event
 		function SoundSource:post_event(event,clbk,cookie,marker,event_type,...)
---			ClosedCaptions:Print("Cookie",cookie)
+			ClosedCaptions:Print("Postevent",event,clbk,cookie,marker,event_type,...)
 			if clbk then
 				local old_clbk = clbk
 				local new_clbk = function(...)
@@ -1090,7 +1109,7 @@ function ClosedCaptions:hook_soundsource()
 				end
 			end
 			
-			ClosedCaptions:register_soundsource_postevent(self,event,cookie,result)
+			ClosedCaptions:register_soundsource_postevent(self,event,cookie or data.unit,result)
 			
 			return result
 			
@@ -1134,6 +1153,17 @@ function ClosedCaptions:hook_soundsource()
 		end
 	end)
 
+	
+	Hooks:PreHook(SoundSource,"stop","closedcaptions_soundsource_stop",function(self)
+		Print("Stopping soundsource",self)
+		ClosedCaptions:unregister_source(self)
+	end)
+	
+	Hooks:PreHook(SoundSource,"delete","closedcaptions_soundsource_delete",function(self)
+		Print("Deleting soundsource",self)
+		ClosedCaptions:unregister_source(self)
+	end)
+	
 end
 
 function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit,instant)
@@ -1188,7 +1218,13 @@ end
 
 function ClosedCaptions:unregister_source(sound_source)
 	local key = tostring(sound_source:key())
-	
+	local data = self._soundsources[key]
+	if data then 
+		for event_id,event_instance in pairs(data.events) do 
+			self:remove_subtitle(event_id,sound_source)
+			data.events[event_id] = nil
+		end
+	end
 	self._soundsources[key] = nil
 end
 
