@@ -1,7 +1,7 @@
 --[[
 
-
 blt.vm.dofile("mods/PD2-ClosedCaptions/data/sounddata_conversion_script_2.lua")
+
 --]]
 local WRITE = true
 local FLATTEN_RECOMBINATIONS = false
@@ -26,7 +26,8 @@ local ALLOWED_FIELDS = { -- if true, the field will be copied from the original 
 	greedy_match = false,
 	remove_by_source = false,
 	stops_line = false,
-	override_source_id = false
+	override_source_id = false,
+	conversation = false -- for long lines, or multiple lines with multiple speakers packed into one sound file
 }
 
 local REPLACEMENT_OVERRIDE_NAMES = {
@@ -231,6 +232,10 @@ for event_id,data in pairs(sound_data.vo) do
 				new_data[k] = data[k]
 			end
 		end
+	end
+	
+	if data.conversation then
+		new_data.conversation = process_line_variations(nil,data.conversation)
 	end
 	
 	new_sound_data[event_id] = new_data

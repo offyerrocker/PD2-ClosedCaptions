@@ -15,8 +15,8 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	default_settings = {
 		captions_visible = true,
 		use_hide_hud_keybind = true, -- if true, will be hidden/shown along with the hud when the player uses the vanilla "Hide HUD" keybind
---		logging_enabled = false,
---		log_missing = false,
+		logging_enabled = false,
+		log_missing = false,
 --		log_ids = false,
 --		log_debug = false,
 --		log_bainunit_vo = false, --no menu option (intentional)
@@ -49,7 +49,26 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		category_enemy_chatter = 2,
 		category_enemy_death = 2,
 		category_specialenemy_chatter = true,
-		category_specialenemy_death = true
+		category_specialenemy_death = true,
+		
+		color_generic = 0xffffff,
+		color_bain = 0x1999e5,
+		color_locke = 0x33e519,
+		color_contractor_vo = 0xffffff,
+		color_criminal1 = 0x00ffff,
+		color_law1 = 0xffcc00,
+		color_boss = 0xe51900,
+		color_neutral1 = 0x00ff00,
+		color_neutral2 = 0x00000ff,
+		color_mobster1 = 0xff7f00,
+		color_peer1 = 0x00ff00,
+		color_peer2 = 0x0000ff,
+		color_peer3 = 0xff0000,
+		color_peer4 = 0xffff00,
+		color_l4d_witch = 0xdf9ee3,
+		color_l4d_bill = 0x1a821a,
+		color_mrpurple = 0x194cff,
+		color_mrblue = 0x9919ff
 	},
 	settings = {}, -- populated from default settings, then from user save json
 	populated_languages_menu_done = false, -- used to populate language multiplechoice selector
@@ -92,21 +111,58 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	},
 	_queue_active_subtitles = {}, -- the order to iterate current subtitles; ordered list
 	_active_subtitles = {}, -- currently playing captions, with live data such as panel, vector3/locationless flag
-	_libraries = {} -- for require()
+	_libraries = {}, -- for require()
+	_debug_missing_lines_list = {}, -- holds missing lines (debug only)
+	_debug_silenced_lines = {},
+	_COLORS = {}
 }
 for k,v in pairs(ClosedCaptions.default_settings) do ClosedCaptions.settings[k] = v end
 
+function ClosedCaptions:LoadColors()
+	
+	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_on_changed_color_settings",function(settings,changed_settings)
+	end)
+	
+	local settings = self.settings
+	
+	self._COLORS.generic = self.convert_color_dec(settings.color_generic)
+	self._COLORS.bain = self.convert_color_dec(settings.bain)
+	self._COLORS.locke = self.convert_color_dec(settings.locke)
+	self._COLORS.criminal1 = self.convert_color_dec(settings.criminal1)
+	self._COLORS.neutral1 = self.convert_color_dec(settings.neutral1)
+	self._COLORS.neutral2 = self.convert_color_dec(settings.neutral2)
+	self._COLORS.law1 = self.convert_color_dec(settings.law1)
+	self._COLORS.mobster1 = self.convert_color_dec(settings.mobster1)
+	self._COLORS.boss = self.convert_color_dec(settings.boss)
+	self._COLORS.peer1 = self.convert_color_dec(settings.peer1)
+	self._COLORS.peer2 = self.convert_color_dec(settings.peer2)
+	self._COLORS.peer3 = self.convert_color_dec(settings.peer3)
+	self._COLORS.peer4 = self.convert_color_dec(settings.peer4)
+	self._COLORS.contractor_vo = self.convert_color_dec(settings.contractor_vo)
+	self._COLORS.l4d_bill = self.convert_color_dec(settings.l4d_bill)
+	self._COLORS.l4d_witch = self.convert_color_dec(settings.l4d_witch)
+	self._COLORS.mrpurple = self.convert_color_dec(settings.mrpurple)
+	self._COLORS.mrblue = self.convert_color_dec(settings.mrblue)
+end
+
+function ClosedCaptions.convert_color_dec(n)
+	return Color(string.format("%06x",n))
+end
+
+function ClosedCaptions.color_to_colorstring(color) -- from colorpicker; serialize a Color userdata as a hexadecimal string
+	return string.format("%02x%02x%02x", math.min(math.max(color.r * 255,0),0xff),math.min(math.max(color.g * 255,0),0xff),math.min(math.max(color.b * 255,0),0xff))
+end
 
 -- ============================== Utils
 
 function ClosedCaptions:Log(a,...)
-	if _G.Log then
+	if _G.Log and self.settings.logging_enabled then
 		return _G.Log("[ClosedCaptions]" .. tostring(a))
 	end
 end
 
 function ClosedCaptions:Print(...)
-	if _G.Print then
+	if _G.Print and self.settings.logging_enabled then
 		return _G.Print(...)
 	end
 end
@@ -227,8 +283,13 @@ function ClosedCaptions:IsCaptionCategoryEnabled(category,is_special_enemy)
 	end
 end
 
+--settings getter; allows logging missing lines (disk-write heavy since even foley lines are recorded)
+function ClosedCaptions:ShouldLogMissing()
+	return self.settings.log_missing
+end
+
 function ClosedCaptions:GetColor(color_id)
-	return Color.white
+	return self._COLORS[color_id] or Color.white
 end
 
 -- ============================== Misc settings management
@@ -304,6 +365,22 @@ function ClosedCaptions:update(t,dt)
 		local to_state = 1
 		if item and alive(item.panel) then
 			if current_num <= MAX_SUBTITLES then
+				if item.conversation_data then
+					local convo_data = item.conversation_data
+					convo_data.next_t = convo_data.next_t - dt
+					if convo_data.next_t <= 0 then
+						convo_data.current_index = convo_data.current_index + 1
+						if convo_data.current_index > #convo_data.sentences then
+							to_state = 3
+							convo_data.next_t = math.huge
+						else
+							convo_data.next_t = convo_data.next_t + (convo_data.intervals and convo_data.intervals[convo_data.current_index]) or convo_data.interval
+							if convo_data.color_ranges and convo_data.color_ranges[convo_data.current_index] then
+								self:_set_subtitle_text(item.panel,convo_data.sentences[convo_data.current_index],convo_data.color_ranges[convo_data.current_index])
+							end
+						end
+					end
+				end
 				if item.end_t and item.end_t <= t then
 					to_state = 3
 				end
@@ -556,10 +633,12 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	
 	local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
 	if not variation_data then
+		--self:Print("No variation_data",event_id)
 		return
 	end
-	if variation_data.stops_line then -- stop all lines from this sound source (previously only stopped specific line)
+	if variation_data.stops_line or variation_data.category == "stops" then -- stop all other lines from this sound source (previously only stopped specific line)
 		self:unregister_source(sound_source)
+		self:Print("Stop line detected:",event_id,sound_source)
 	end
 	if not text then 
 		return
@@ -596,6 +675,41 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	local max_distance = variation_data.max_distance
 	local priority = variation_data.priority or 0
 	local distance = 100000
+	local conversation_data
+	if variation_data.conversation then
+		do return end
+		
+		-- todo process this in sound data loading
+		local sentences = {}
+		local color_ranges = {}
+		local sp = string.split(string.gsub(managers.localization:text(variation_data.conversation.text),"\n",""),"$b")
+		local speakers = {}
+		for speaker_index,speaker_id in pairs(variation_data.conversation.speakers) do	
+			local name = managers.localization(speaker_id)
+			speakers[speaker_index] = name
+			
+			local range_col = self:GetColor(variation_data.conversation.colors[speaker_index])
+			color_ranges[speaker_index] = {0,utf8.len(name)+1,range_col or Color.white}
+		end
+		
+		for i,line in ipairs(sp) do 
+			local sentence = line
+			for speaker_index,speaker_name in pairs(speakers) do 
+				sentence = string.gsub(sentence,"$" .. speaker_index,speaker_name)
+			end
+			sentences[i] = sentence
+		end
+		local interval = variation_data.conversation.duration / #sp
+		conversation_data = {
+			interval = interval,
+			intervals = variation_data.conversation.intervals or nil,
+			color_ranges = color_ranges,
+			conversation = variation_data.conversation,
+			sentences = sentences,
+			current_index = 0,
+			next_t = 0
+		}
+	end
 	state_data = {
 		panel = item_panel,
 		state = 2, -- 1:visible, 2:hidden, 3:removing
@@ -607,6 +721,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		is_locationless = is_locationless,
 		loop_data = loop_data,
 		distance = distance,
+		conversation_data = conversation_data,
 		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds)
 --		variation_data = variation_data,
 	}
@@ -810,12 +925,12 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	elseif sound_data.text then 
 		text = sound_data.text
 	else
-		if sound_data.category == "stops" then 
-			return
-		else
-			self:Log("Error- sound " .. tostring(event_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
-		end
-		return
+--		if sound_data.category == "stops" then 
+--			return nil,nil,nil,sound_data
+--		else
+--			self:Log("Error- sound " .. tostring(event_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
+--		end
+--		return
 	end
 	
 	if variation_data.disabled then
@@ -823,11 +938,10 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	end
 	
 	text = text or variation_data.text or sound_data.text
-
-
+	
 	local category = variation_data.category or sound_data.category	
 	if category == "stops" then 
-		return
+		return nil,nil,nil,sound_data
 	else
 		local category_allowed = self:IsCaptionCategoryEnabled(category,is_special_enemy)
 		
@@ -864,7 +978,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		return
 	end
 	
-	self:Print("Playing " .. tostring(event_id) .. " from tweaktable " .. tostring(tweak_table) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position) .. " from unit " .. tostring(unit and unit:key()))
+	--self:Print("Playing " .. tostring(event_id) .. " from tweaktable " .. tostring(tweak_table) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position) .. " from unit " .. tostring(unit and unit:key()))
 	
 	name = variation_data.override_name or name or variation_data.fallback_name
 	
@@ -1135,6 +1249,8 @@ end
 
 --used to generate sounds that are not significantly different save for characters' names
 function ClosedCaptions:process_macros(sound_data)
+	if not managers.criminals then return end
+	
 	for sound_name_raw,vo_data in pairs(sound_data.vo_special) do 
 		if vo_data.macro == "character_name" then 
 			for char_index,char_data in pairs(managers.criminals._characters) do 
@@ -1165,7 +1281,7 @@ function ClosedCaptions:hook_soundsource()
 		
 		SoundSource._post_event = SoundSource._post_event or SoundSource.post_event
 		function SoundSource:post_event(event,clbk,cookie,marker,event_type,...)
-			ClosedCaptions:Print("Postevent",event,clbk,cookie,marker,event_type,...)
+--			ClosedCaptions:Print("Postevent",event,clbk,cookie,marker,event_type,...)
 			if clbk then
 				local old_clbk = clbk
 				local new_clbk = function(...)
@@ -1251,12 +1367,12 @@ function ClosedCaptions:hook_soundsource()
 
 	
 	Hooks:PreHook(SoundSource,"stop","closedcaptions_soundsource_stop",function(self)
-		Print("Stopping soundsource",self)
+		--ClosedCaptions:Print("Stopping soundsource",self)
 		ClosedCaptions:unregister_source(self)
 	end)
 	
 	Hooks:PreHook(SoundSource,"delete","closedcaptions_soundsource_delete",function(self)
-		Print("Deleting soundsource",self)
+		--ClosedCaptions:Print("Deleting soundsource",self)
 		ClosedCaptions:unregister_source(self)
 	end)
 	
@@ -1269,7 +1385,7 @@ function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit,instant)
 	local key = tostring(sound_source:key())
 	local data = self._soundsources[key]
 	if data then 
-		self:Print("Sound stopped:",event_id,"sound_source",sound_source,"unit",unit)
+		--self:Print("Sound stopped:",event_id,"sound_source",sound_source,"unit",unit)
 		
 		if data.events[event_id] then
 			data.events[event_id] = nil
@@ -1297,17 +1413,22 @@ function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,uni
 --		-- interrupt alpha decay, refresh
 		-- (reroll text eg repeat enemy markings)
 --	end
-	if self._sound_data.vo[event_id] and not self._sound_data.vo[event_id].disabled then
-		self:Print("Playing subtitle",event_id,sound_source,unit,event_instance,...)
-		self:start_subtitle(event_id,unit,sound_source,sound_source:get_position()) -- start before registering, so that stop events from cc sound data will only stop other events from the soundsource
-		
-		local key = tostring(sound_source:key())
-		self._soundsources[key] = self._soundsources[key] or {
-			source = sound_source,
-			events = {}
-		}
-		self._soundsources[key].events[event_id] = event_instance
-	else
+	if not self._sound_data.disabled_sounds[event_id] then
+		if self._sound_data.vo[event_id] then
+			--self:Print("Playing subtitle",event_id,sound_source,unit,event_instance,...)
+			self:start_subtitle(event_id,unit,sound_source,sound_source:get_position()) -- start before registering, so that stop events from cc sound data will only stop other events from the soundsource
+			
+			local key = tostring(sound_source:key())
+			self._soundsources[key] = self._soundsources[key] or {
+				source = sound_source,
+				events = {}
+			}
+			self._soundsources[key].events[event_id] = event_instance
+		else
+			if self:ShouldLogMissing() then
+				self:RecordMissingLine(event_id)
+			end
+		end
 --		self:Print("No subtitle data for",event_id)
 	end
 	
@@ -1327,7 +1448,7 @@ end
 
 -- callback for when a sound naturally reaches its end
 function ClosedCaptions._clbk_soundsource_post_event(event_id,instance,sound_source,event_type,unit,...)
---	Print("_clbk_soundsource_post_event",event_id,"instance",instance,"sound_source",sound_source,"event_type",event_type,"unit",unit,"...",...)
+--	self:Print("_clbk_soundsource_post_event",event_id,"instance",instance,"sound_source",sound_source,"event_type",event_type,"unit",unit,"...",...)
 	if event_type == "end_of_event" then
 		
 		ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit)
@@ -1456,6 +1577,34 @@ function ClosedCaptions:SaveSettings()
 	end
 end
 
+function ClosedCaptions:RecordMissingLine(event_id)
+	if not self._debug_silenced_lines[event_id] then
+		table.insert(self._debug_missing_lines_list,#self._debug_missing_lines_list+1,event_id)
+		self._debug_silenced_lines[event_id] = true
+	end
+end
+
+function ClosedCaptions:DumpMissingLines(do_write,fresh)
+	
+	local s = ""
+	for i,v in ipairs(self._debug_missing_lines_list) do 
+		self._debug_missing_lines_list[i] = nil
+		s = s .. "\n" .. v
+	end
+	
+	if do_write then
+		local level_data = managers.job:current_level_data()
+		local level_name = level_data and level_data.name_id
+		s = string.rep("=",60) .. tostring(level_name) .. "\n" .. s
+		
+		local file = io.open(self._DEBUG_LIST_MISSING_LINES_PATH,fresh and "w+" or "a")
+		if file then
+			file:write(s)
+			file:close()
+		end
+	end
+	
+end
 
 -- ============================== Custom assets
 

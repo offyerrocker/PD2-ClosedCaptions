@@ -41,5 +41,8 @@
 	"hud_subtitlemod_speaker_twitch" : "Twitch",
 	"hud_subtitlemod_speaker_winters" : "Captain Winters",
 	"hud_subtitlemod_speaker_wwh_captain" : "Captain",
-	"hud_subtitlemod_speaker_wwh_crew" : "Crew Member"
+	"hud_subtitlemod_speaker_wwh_crew" : "Crew Member",
+	"hud_subtitlemod_speaker_gen_civilian_1" : "Man 1",
+	"hud_subtitlemod_speaker_gen_civilian_2" : "Man 2"
+	
 }

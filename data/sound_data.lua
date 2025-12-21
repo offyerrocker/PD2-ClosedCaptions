@@ -2064,14 +2064,14 @@ return {
 			text = "(hospital PA announces emergency)",
 			duration = 5,
 			priority = 98,
-			category = "sfx"
+			category = "ambient"
 		},
 		hos_pa_announcement_generic = {
 			override_name = "SFX",
 			text = "(hospital PA announcement)",
 			duration = 5,
 			priority = 98,
-			category = "sfx"
+			category = "ambient"
 		},
 		hos_wardrobe_change = {
 			text = "[clothes rustling]",
@@ -2092,7 +2092,7 @@ return {
 			text = "(hospital PA announcement)",
 			duration = 5,
 			priority = 98,
-			category = "sfx"
+			category = "ambient"
 		},
 		large_fire = {
 			override_name = "SFX",
@@ -2102,7 +2102,7 @@ return {
 			loop_data = {
 				loop_interval = -1
 			},
-			category = "sfx"
+			category = "ambient"
 		},
 		large_fire_stop = { --needs a stops_line
 			override_name = "SFX",
@@ -2331,6 +2331,252 @@ return {
 			priority = 98,
 			duration = 2
 		},
+		
+		TRAI_Gate_Unlock = {
+			category = "sfx",
+			text = "gate unlocks",
+			priority = 98,
+			duration = 2
+		},
+		TRAI_Gate_Open = {
+			category = "sfx",
+			text = "gate creaks open",
+			priority = 98,
+			duration = 2
+		},
+		TRAI_Gate_Open_STOP = {
+			category = "sfx",
+			text = "gate clanks",
+			priority = 98,
+			duration = 2
+		},
+		TRAI_Walkie_Talkie = {
+			category = "sfx",
+			text = "walkie-talkie crackles",
+			priority = 98,
+			duration = 2
+		},
+		TRAI_Crane_Move_Arm = {
+			category = "sfx",
+			text = "crane arm moves",
+			priority = 98,
+			duration = 2
+		},
+		open_body_container = {
+			category = "sfx",
+			text = "dumpster opens",
+			priority = 98,
+			duration = 2
+		},
+		close_body_container = {
+			category = "sfx",
+			text = "dumpster closes",
+			priority = 98,
+			duration = 2
+		},
+		Play_bag_generic_throw = {
+			category = "sfx",
+			text = "bag thrown",
+			priority = 98,
+			duration = 2
+		},
+		heli_loop = {
+			category = "ambient",
+			text = "helicopter flies",
+			priority = 98,
+			duration = 2
+		},
+		drone_loop_start = {
+			category = "sfx",
+			text = "drone buzzes",
+			priority = 98,
+			duration = 2
+		},
+		drone_loop_stop = {
+			category = "sfx",
+			stops_line = "drone_loop_start",
+			text = "drone stops",
+			priority = 98,
+			duration = 2
+		},
+		pick_up_crowbar = {
+			category = "sfx",
+			text = "crowbar picked up",
+			priority = 98,
+			duration = 2
+		},
+		drone_camera_malfunction_stop = {
+			category = "sfx",
+			text = "crowbar picked up",
+			priority = 98,
+			duration = 2
+		},
+		Play_civ02_trai_01 = {
+			category = "sfx",
+			text = "bag thrown",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"Copy that. Opening Gate 2.",
+				"Alright, alright! Hang on a sec.",
+				"Copy, copy... [sigh]. Stand clear.",
+				"Fine... stand by."
+			}
+		},
+		
+		
+		coffee_machine_start = {
+			category = "sfx",
+			text = "coffee machine whirs",
+			priority = 98,
+			duration = 7
+		},
+		
+		coffee_machine_start = {
+			category = "sfx",
+			text = "coffee machine beeps",
+			priority = 98,
+			duration = 3
+		},
+		
+		
+		-- when a voiceline is so long you need to invent a whole new system for it
+		Play_pent_civs_lobby = { -- dialogue from penthouse lobby in mountain master
+			category = "civilian_dialogue",
+			text = "(chatter)", -- "chatter" does not do justice to the 115 lines in this dialogue
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_gen_civilian_1",
+					[2] = "hud_subtitlemod_speaker_gen_civilian_2"
+				},
+				colors = {
+					[1] = "neutral1",
+					[2] = "neutral2"
+				},
+				timing = {
+				-- 1 = 3.6, -- example for timing of individual sub-lines in the conversation
+				-- 2 = 1.2,
+				},
+				text = 
+[[$1:So you just took it and ran?$b
+$2HIM! I took HIM and ran. It's a dog, not a thing.$b
+$1:Whatever. That's straight-up stealing.$b
+$2I'd beg to differ.$b
+$1:What would you call it then?$b
+$2A rescue operation.$b
+$1:You 'rescued' a chihuahua from a retired old lady?$b
+$2She's fifty! So, not really at death's door. And she's not retired, she's running a health insurance scam.$b
+$1:Still, though. You stole her dog.$b
+$2Rescued. She's overfeeding him. Carl looks like a plump football.$b
+$1:The dog's name is 'Carl?'$b
+$2Yeah, so?$b
+$1:You can't give a regular human-sounding name to a pet!$b
+$2Why not?$b
+$1:I mean, it sounds ridiculous! 'Meet my dog carl and my cat anna!" come on.$b
+$2Anyway, Carl will be better off with another family.$b
+$1:So... what, you're gonna adopt him anyway?$b
+$2I'm gonna put him on a diet first.$b
+$1:And then what? What about the serial number tattoo, or microchip?$b
+$2Shit! I didn't think about that.$b
+$1:Planning to do some ad-hoc surgery on the poor bastard on your kitchen table?$b
+$2Of course not! That's sick!$b
+$1:So what're you gonna do then?$b
+$2I'll have to pay some veterinarian under the table!$b
+$1:You teling me you're gonna track down some shady black-market Doctor Doolittle?$b
+$2I guess so... 'cause I ain't bringing Carl back to my old neighbor.$b
+$1:What if she calls the cops?$b
+$2That boat... has already sailed.$b
+$1:Are you kidding me?!$b
+$2No, there was a uniformed cop at our door the other day.$b
+$1:Jesus! Aren't you scared you're gonna get busted?$b
+$2Nah, I don't think a missing dog is high up on their list.$b
+$1:You're probably right. The police got their hands full already.$b
+$2Damn straight! High-stakes violent robberies, gangs? They're probably busy.$b
+$1:Speaking of crimes, I think we got some Asian wise guys coming.$b
+$2'Asian wise guys?' You mean triads?$b
+$1:'Triads? What's 'triads?'$b
+$2Chinese mafia.$b
+$1:Oh, yeah, that.$b
+$2:Asian wise guys is a weird way of putting it.$b
+$1:Why?$b
+$2:The expression 'Asian wise guys' is an American-Italian mob... thing.$b
+$1:Wait a minute, just a minute you said 'Chinese mafia.' Isn't that juist as weird in that case?$b
+$2:Oh... yeah. Okay, you win that one.$b
+$1:As I was saying, I think we got some people from the... 'triads' in this building.$b
+$2:O-kay, I'll bite, why do you think that?$b
+$1:I've seen a bunch of Chinese dudes here with extensive ink.$b
+$2:They've got tattoos, so what?$b
+$1:Tattoos are given more common in Hong Kong, sure, but unless there's a tattoo convention, these guys are triad members.$b
+$2:How do you know they're from Hong Kong?$b
+$1:Mostly guessing. There's organized crime in big cities, and Cantonese is the main dialect in Hong Kong.$b
+$2:What? How... how the hell do you know that?$b
+$1:Way back, I dated a girl from Hong Kong for a couple of years. I picked up a thing or two.$b
+$2:Oh yeah! Back in college, right? That exchange student?$b
+$1:Yep. Anyway, I think we got some triad members in this place.$b
+$2:What was her name again?$b
+$1:What?$b
+$2:The girl from Hong Kong! what was her name?$b
+$1:Why do you wanna know that?$b
+$2:It's not an odd question!$b
+$1:It kind of is.$b
+$2:No it isn't! If you talk about someone, asking for their name isn't weird.$b
+$1:Her name... isn't important.$b
+$2:Why are you so defensive? It's not like I'm gonna track her down in Hong Kong and try to date her.$b
+$1:I... don't like to talk about her, alright? It didn't end well.$b
+$2:See, now I'm curious about that.$b
+$1:Why are you so goddamn nosy, huh?$b
+$2:We've known each other for seven years, and you've barely talked about this girl.$b
+$1:Her name is Meijing, okay?$b
+$2:And?$b
+$1:No way. If you want the full rundown, you're gonna buy me lots of drinks first.$b
+$2:Deal. Tomorrow night at the Tweaked Edge?$b
+$1:Since you're buying? Sure.$b
+$2:By the way, how long have we been waiting?$b
+$1:Half an hour? Forty-five?$b
+$2:Why do we always show up on time when we know Jake is constantly late?$b
+$1:Cause the few times we have shown up late, he gets wigged out.$b
+$2:Did you text him?$b
+$1:Yeah, ten minutes ago.$b
+$2:What's his excue for being late this time?$b
+$1:Well, he hasn't gotten back to me.$b
+$2:C'mon. That's just a dick move. I'm hungry as hell.$b
+$1:[scoffs] You and me both.$b
+$2:Screw Jake! Let's go and grab some food and meet him at the theater.$b
+$1:Yeah, I'm kinda picking up what you're throwing down here.$b
+$2:What do you wanna eat? Mexican food, maybe?$b
+$1:Nah, I had burritos for lunch yesterday.$b
+$2:What about pizza?$b
+$1:Ehh... too much cheese.$b
+$2:You love cheese! I've seen you stuff your face with double cheese pizza!$b
+$1:I'm trying to get the calories down a bit...$b
+$2:Okay, whatever. What about hamburgers then?$b
+$1:Works for me.$b
+$2:Wheredo you wanna go?$b
+$1:What's the name of that place with the square burgers?$b
+$2:I have no idea, but I don't want 'square burgers'.$b
+$1:What's wrong with square burgers?$b
+$2:Burgers should be round. Otherwise it's some... weird sandwich.$b
+$1:Technically, a burger is a sandwich.$b
+$2:No, it isn't.$b
+$1:Duh, yeah. A burger has to have a cooked and hot filling.$b
+$2:By that definition, a sloppy joe or a grilled cheese is a hamburger.$b
+$1:I misspoke. A hamburger must have a cooked patty of ground meat between the buns.$b
+$2:So if you have a whole piece of chicken or fish between two buns, it doesn't count as a burger?$b
+$1:Nope! Then it's a sandwich.$b
+$2:That's stupid.$b
+$1:Really? Would you classify a philly cheeese steak as a hamburger?$b
+$2:Go to hell!$b
+$1:I'm right, and you know it!$b
+$2:Yeah, yeah... since you don't wany your burger square, where do you wanna go?$b
+$1:Let's go to... Hungry Bob's!$b
+$2:Never heard of it.$b
+$1:It's a new franchise, but they've got awesome burgers. ROUND burgers.$b
+$2:Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
+			},
+			duration = 300,
+			priority = 75
+		},
+		
 		
 --contractor vo
 		Play_pln_drl_wrn_snd = {
@@ -26647,6 +26893,7 @@ return {
 		},
 		Play_cpt_wwh_04 = {
 			override_name = "Captain",
+			text = "Look out for hose line and pump for diesel.",
 			line_variations = {
 				standard_mode = {
 					"Look out for hose line and pump for diesel.",
@@ -26657,6 +26904,16 @@ return {
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 5
+		},
+		
+		
+		-- Black Cat
+		Play_bar_chca_01 = {
+			override_name = "Captain",
+			text = "I've been waiting. Your equipment is waiting in one of the cabin lavatories, but there's a small complication - vault security's been changed. Lee Deng still has the code, but you'll need Sun Hong's handprint as well to open it. I was able to acquire some impression wax and store it with your gear. Good luck.",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 17
 		}
 		
 	}
