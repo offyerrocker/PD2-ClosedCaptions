@@ -194,7 +194,7 @@ ClosedCaptions.enemy_prefixes = {
 
 --used for getting the localized speaker name from the unit's tweak_table
 ClosedCaptions.unit_names = {
-	["nil"] = "oopsie woopsie OwO uwu i made a fuckie wuckie~ a widdle fucko boingo!!! ugu~", --i'm sorry
+	["nil"] = "[Unknown]",
 	civilian = "Civilian",
 	civilian_female = "Civilian",
 	phalanx_minion = "Phalanx Shield",
@@ -426,7 +426,7 @@ function ClosedCaptions:ShouldLogMissing()
 	return self.settings.log_missing
 end
 
---settings getter; hidden option; dev only basically. i don't lines with subtitles to get recorded, and bain's lines generally do.
+--settings getter; hidden option; dev only basically. not all lines have subtitles, but bain's lines generally do.
 function ClosedCaptions:ShouldLogBainUnitVO()
 	return self.settings.log_bainunit_vo
 end
