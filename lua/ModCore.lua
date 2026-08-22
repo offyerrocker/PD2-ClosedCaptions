@@ -367,7 +367,7 @@ function ClosedCaptions:update(t,dt)
 			if item.conversation_data then
 				local convo_data = item.conversation_data
 				convo_data.next_t = convo_data.next_t - dt
-				Console:SetTracker(string.format("convo %0.2f",convo_data.next_t),1)
+				--Console:SetTracker(string.format("convo %0.2f",convo_data.next_t),1)
 				if convo_data.next_t <= 0 then
 					convo_data.current_index = convo_data.current_index + 1
 					if convo_data.current_index > #convo_data.sentences then
