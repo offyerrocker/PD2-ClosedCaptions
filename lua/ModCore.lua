@@ -1356,7 +1356,7 @@ function ClosedCaptions:hook_soundsource()
 		-- todo better lookup than bruteforce
 		for ss_key,data in pairs(ClosedCaptions._soundsources) do 
 			for event_id,event_instance in pairs(data.events) do
-				if event_instance == event_instance then
+				if event_instance == self then
 					-- interrupt this sound
 					ClosedCaptions:clbk_stop_postevent(event_id,data.source,nil,true)
 					break
