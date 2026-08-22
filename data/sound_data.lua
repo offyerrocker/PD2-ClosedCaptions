@@ -2591,7 +2591,7 @@ $2: Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
 					[2] = "neutral2"
 				},
 				timing = {
-					2,0.8,2.9,1.3,2.6,1,6.3,2.6,2.5,4.6,1.5,1.5,2.4,3.9,2,8.3,2.6,2.8,2.7,3.7,1.3,4.2,3.5,1.7,1.3,3.9,2.3,4.4,1.7,5.1,2.7,4.1,6.3,2.5,6,4.2,1.2,2.6,2.6,3.1,2.6,3.8,6,2.2,4.5,2.9,9.8,3.6,1.8,5.5,4.2,3.8,5.9,3.5,2.2,5.3,7.7,1.6,3.8,2.3,1.2,1.5,2.3,1.2,1.9,3.7,3.4,1.5,4.2,3.7,4,1.8,5.2,7.4,7.3,3.3,1.2,2.6,3.8,5.8,2.5,4.1,3,2.9,4.3,2.4,8.2,2.9
+					2.0,0.8,2.9,1.3,2.6,1.0,6.3,2.6,2.5,4.6,1.5,1.5,2.4,3.9,2.0,8.3,2.6,2.8,2.7,3.7,1.3,4.2,3.5,1.7,1.3,3.9,2.3,4.4,1.7,5.1,2.7,4.1,6.3,2.5,6.0,4.2,1.2,2.6,2.6,3.1,2.6,3.8,6.0,2.2,4.5,2.9,2.5,7.3,3.6,1.8,5.5,4.2,3.8,5.9,3.5,2.2,5.3,7.7,1.6,3.8,2.3,1.2,1.5,2.3,1.2,1.9,3.7,3.4,1.5,4.2,3.7,4.0,1.8,5.2,1.3,5.0,8.4,3.3,1.2,2.6,3.8,5.8,2.5,4.1,3.0,2.9,4.3,2.4,2.2,6.0,2.9
 				},
 				text = "hud_subtitlemod_convo_Play_buyers_chca_01",
 				convo = [[$1: The guy is fuckin' nuts.$b
@@ -2619,7 +2619,7 @@ $2: Guy who runs the place, Lee... Deng, I think his name was?$b
 $1: Huh. Sounds like something made up for a video game.$b
 $2: The dude's legit.$b
 $1: How d'ya figure?$b
-$2: Has whole teeth, smiled alot, lotta tattoos too.$b
+$2: Has gold teeth, smiled alot, lotta tattoos too.$b
 $1: Sounds like your run-of-the-mill gangster.$b
 $2: Yeah, but this guy walks around here like he owns the place.$b
 $1: Yeah, he probably does!$b
@@ -2638,9 +2638,10 @@ $1: They were paying chickenshit money!$b
 $2: At least they were paying! We haven't seen a dime in months!$b
 $1: ANYWAY, that space show has been getting awful ratings. It's not gonna be around long.$b
 $2: Eh, unless they sell it to one of the streamers.$b
-$1: Yeah, maybe. Still, you want to be known as a 'space guy'?$b
+$1: Yeah, maybe. Still, you really want to be known as a 'space guy'?$b
 $2: Better than 'the shark movie that never gets made' guy.$b
-$1: It'll get made, it'll get made! Even if we don't clean out here, investors are gonna go nuts once they find out we have Lana playing the lead role!$b
+$1: It'll get made, it'll get made!$b
+$1: Even if we don't clean out here, investors are gonna go nuts once they find out we have Lana playing the lead role!$b
 $2: *whistles* She DOES look good in a bathing suit.$b
 $1: She won't be wearing one.$b
 $2: WHAT? well, what's the point of getting Lana Leonard if she's not gonna be... showing it off?$b
@@ -2649,7 +2650,7 @@ $2: Well, still. I think it's a wasted opportunity.$b
 $1: The shark... is in the CUPBOARD. Why the HELL would she be wearing a bathing suit?$b
 $2: Maybe she's on her way out to the pool or something.$b
 $1: In a midtown high-rise?$b
-$2: Okay, okay. Well... at least tell me we're getting a better effects team this time around?$b
+$2: Okay, okay. Well... at least tell me we're getting a better FX team this time around?$b
 $1: Oho, yeah we are! Johns told me we're going all practical on this one. No CGI, not even the blood!$b
 $2: ...Can we afford that?$b
 $1: Sure we can! just gotta come back from here with a nice haul.$b
@@ -2678,12 +2679,12 @@ $1: Hey at least my way, they have a chance at getting some money back.$b
 $2: Huh. You've got a point... MAYBE.$b
 $1: You know, I think I saw that Lee Deng guy hanging around the spa.$b
 $2: Maybe we should get ourselves a couple of massages?$b
-$1: Ueah... maybe we should.$b
+$1: Yeah... maybe we should.$b
 $2: Ooh, on the way, we gotta stop and get a closer look at that big fuckin' chandelier.$b
 $1: What's with you and decor?$b
 $2: Hey, my girl's into interior decorating.$b
-$1: If I get a good look at the big lamp, I'll have something to distract her with when she asks what we were doing on this boat.$b
-$2: Uh huh. right.]]
+$2: If I get a good look at the big lamp, I'll have something to distract her with when she asks what we were doing on this boat.$b
+$1: Uh huh. right.]]
 			},
 			duration = 303,
 			priority = 75
