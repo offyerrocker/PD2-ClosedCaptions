@@ -2454,128 +2454,241 @@ return {
 					[2] = "neutral2"
 				},
 				timing = {
-				-- 1 = 3.6, -- example for timing of individual sub-lines in the conversation
-				-- 2 = 1.2,
+					1.6,4.1,2.2,1.4,1.7,1.5,3.2,3.3,3.9,2.5,4.6,2.1,1.4,2.8,1.0,4.9,2.8,2.8,2.0,3.3,2.3,3.9,1.9,1.5,2.9,3.9,3.0,1.5,2.6,1.7,3.0,2.2,3.4,3.1,4.7,4.3,3.3,1.9,1.5,1.9,2.6,0.8,4.7,5.0,3.0,4.3,2.8,3.2,1.9,6.4,1.9,6.4,3.0,4.3,3.5,4.3,1.7,0.7,2.3,1.5,1.7,1.4,4.3,1.6,4.9,3.8,2.4,2.1,4.2,1.9,1.1,3.8,2.5,1.8,2.7,1.9,4.3,3.4,1.2,1.5,2.4,1.4,3.0,1.5,3.7,2.6,2.6,2.4,1.2,2.3,3.7,2.0,3.5,2.0,2.5,3.7,1.8,4.4,2.3,1.1,1.2,3.2,3.5,5.7,4.6,2.6,1.2,3.3,1.2,1.8,4.3,3.9,1.1,4.6,3.7
+
 				},
-				text = 
-[[$1:So you just took it and ran?$b
-$2HIM! I took HIM and ran. It's a dog, not a thing.$b
-$1:Whatever. That's straight-up stealing.$b
-$2I'd beg to differ.$b
-$1:What would you call it then?$b
-$2A rescue operation.$b
-$1:You 'rescued' a chihuahua from a retired old lady?$b
-$2She's fifty! So, not really at death's door. And she's not retired, she's running a health insurance scam.$b
-$1:Still, though. You stole her dog.$b
-$2Rescued. She's overfeeding him. Carl looks like a plump football.$b
-$1:The dog's name is 'Carl?'$b
-$2Yeah, so?$b
-$1:You can't give a regular human-sounding name to a pet!$b
-$2Why not?$b
-$1:I mean, it sounds ridiculous! 'Meet my dog carl and my cat anna!" come on.$b
-$2Anyway, Carl will be better off with another family.$b
-$1:So... what, you're gonna adopt him anyway?$b
-$2I'm gonna put him on a diet first.$b
-$1:And then what? What about the serial number tattoo, or microchip?$b
-$2Shit! I didn't think about that.$b
-$1:Planning to do some ad-hoc surgery on the poor bastard on your kitchen table?$b
-$2Of course not! That's sick!$b
-$1:So what're you gonna do then?$b
-$2I'll have to pay some veterinarian under the table!$b
-$1:You teling me you're gonna track down some shady black-market Doctor Doolittle?$b
-$2I guess so... 'cause I ain't bringing Carl back to my old neighbor.$b
-$1:What if she calls the cops?$b
-$2That boat... has already sailed.$b
-$1:Are you kidding me?!$b
-$2No, there was a uniformed cop at our door the other day.$b
-$1:Jesus! Aren't you scared you're gonna get busted?$b
-$2Nah, I don't think a missing dog is high up on their list.$b
-$1:You're probably right. The police got their hands full already.$b
-$2Damn straight! High-stakes violent robberies, gangs? They're probably busy.$b
-$1:Speaking of crimes, I think we got some Asian wise guys coming.$b
-$2'Asian wise guys?' You mean triads?$b
-$1:'Triads? What's 'triads?'$b
-$2Chinese mafia.$b
-$1:Oh, yeah, that.$b
-$2:Asian wise guys is a weird way of putting it.$b
-$1:Why?$b
-$2:The expression 'Asian wise guys' is an American-Italian mob... thing.$b
-$1:Wait a minute, just a minute you said 'Chinese mafia.' Isn't that juist as weird in that case?$b
-$2:Oh... yeah. Okay, you win that one.$b
-$1:As I was saying, I think we got some people from the... 'triads' in this building.$b
-$2:O-kay, I'll bite, why do you think that?$b
-$1:I've seen a bunch of Chinese dudes here with extensive ink.$b
-$2:They've got tattoos, so what?$b
-$1:Tattoos are given more common in Hong Kong, sure, but unless there's a tattoo convention, these guys are triad members.$b
-$2:How do you know they're from Hong Kong?$b
-$1:Mostly guessing. There's organized crime in big cities, and Cantonese is the main dialect in Hong Kong.$b
-$2:What? How... how the hell do you know that?$b
-$1:Way back, I dated a girl from Hong Kong for a couple of years. I picked up a thing or two.$b
-$2:Oh yeah! Back in college, right? That exchange student?$b
-$1:Yep. Anyway, I think we got some triad members in this place.$b
-$2:What was her name again?$b
-$1:What?$b
-$2:The girl from Hong Kong! what was her name?$b
-$1:Why do you wanna know that?$b
-$2:It's not an odd question!$b
-$1:It kind of is.$b
-$2:No it isn't! If you talk about someone, asking for their name isn't weird.$b
-$1:Her name... isn't important.$b
-$2:Why are you so defensive? It's not like I'm gonna track her down in Hong Kong and try to date her.$b
-$1:I... don't like to talk about her, alright? It didn't end well.$b
-$2:See, now I'm curious about that.$b
-$1:Why are you so goddamn nosy, huh?$b
-$2:We've known each other for seven years, and you've barely talked about this girl.$b
-$1:Her name is Meijing, okay?$b
-$2:And?$b
-$1:No way. If you want the full rundown, you're gonna buy me lots of drinks first.$b
-$2:Deal. Tomorrow night at the Tweaked Edge?$b
-$1:Since you're buying? Sure.$b
-$2:By the way, how long have we been waiting?$b
-$1:Half an hour? Forty-five?$b
-$2:Why do we always show up on time when we know Jake is constantly late?$b
-$1:Cause the few times we have shown up late, he gets wigged out.$b
-$2:Did you text him?$b
-$1:Yeah, ten minutes ago.$b
-$2:What's his excue for being late this time?$b
-$1:Well, he hasn't gotten back to me.$b
-$2:C'mon. That's just a dick move. I'm hungry as hell.$b
-$1:[scoffs] You and me both.$b
-$2:Screw Jake! Let's go and grab some food and meet him at the theater.$b
-$1:Yeah, I'm kinda picking up what you're throwing down here.$b
-$2:What do you wanna eat? Mexican food, maybe?$b
-$1:Nah, I had burritos for lunch yesterday.$b
-$2:What about pizza?$b
-$1:Ehh... too much cheese.$b
-$2:You love cheese! I've seen you stuff your face with double cheese pizza!$b
-$1:I'm trying to get the calories down a bit...$b
-$2:Okay, whatever. What about hamburgers then?$b
-$1:Works for me.$b
-$2:Wheredo you wanna go?$b
-$1:What's the name of that place with the square burgers?$b
-$2:I have no idea, but I don't want 'square burgers'.$b
-$1:What's wrong with square burgers?$b
-$2:Burgers should be round. Otherwise it's some... weird sandwich.$b
-$1:Technically, a burger is a sandwich.$b
-$2:No, it isn't.$b
-$1:Duh, yeah. A burger has to have a cooked and hot filling.$b
-$2:By that definition, a sloppy joe or a grilled cheese is a hamburger.$b
-$1:I misspoke. A hamburger must have a cooked patty of ground meat between the buns.$b
-$2:So if you have a whole piece of chicken or fish between two buns, it doesn't count as a burger?$b
-$1:Nope! Then it's a sandwich.$b
-$2:That's stupid.$b
-$1:Really? Would you classify a philly cheeese steak as a hamburger?$b
-$2:Go to hell!$b
-$1:I'm right, and you know it!$b
-$2:Yeah, yeah... since you don't wany your burger square, where do you wanna go?$b
-$1:Let's go to... Hungry Bob's!$b
-$2:Never heard of it.$b
-$1:It's a new franchise, but they've got awesome burgers. ROUND burgers.$b
-$2:Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
+				text = "hud_subtitlemod_convo_Play_pent_civs_lobby",
+				convo = [[$1: You just took it and ran?$b
+$2: HIM! I took HIM and ran. It's a dog, not a thing.$b
+$1: Whatever. That's straight-up stealing.$b
+$2: I'd beg to differ.$b
+$1: What the hell would you call it, then?$b
+$2: A rescue operation.$b
+$1: You 'rescued' a chihuahua from a retired old lady?$b
+$2: She's fifty! So, not really at death's door.$b
+$2: And she's not retired, she's running a health insurance scam.$b
+$1: Still, though. You stole her dog.$b
+$2: Rescued! She's overfeeding him. Carl looks like a plump football.$b
+$1: The dog's name is 'Carl?'$b
+$2: Yeah, so?$b
+$1: You can't give a regular human-sounding name to a pet!$b
+$2: Why not?$b
+$1: I mean, it sounds ridiculous! 'Meet my dog, Carl, and my cat, Anna!" Come on.$b
+$2: Anyway, Carl will be better off with another family.$b
+$1: So... what, you're gonna adopt him anyway?$b
+$2: I'm gonna put him on a diet first.$b
+$1: And then what? What about the serial number tattoo and microchip?$b
+$2: Shit! I didn't think about that.$b
+$1: Planning to do some ad-hoc surgery on the poor bastard on your kitchen table?$b
+$2: Of course not! That's sick!$b
+$1: So what're you gonna do then?$b
+$2: I'll have to pay some veterinarian under the table!$b
+$1: You telling me you're gonna track down some shady black-market Doctor Doolittle?$b
+$2: I guess so... 'cause I ain't bringing Carl back to my old neighbor.$b
+$1: What if she calls the cops?$b
+$2: That boat... has already sailed.$b
+$1: Are you kidding me?!$b
+$2: No, there was a uniformed cop at our door the other day.$b
+$1: Jesus! Aren't you scared you're gonna get busted?$b
+$2: Nah, I don't think a missing dog is high up on their list.$b
+$1: You're probably right. The police got their hands full already.$b
+$2: Damn straight! High-stakes violent robberies, gangs? They're busy.$b
+$1: Speaking of crimes, I think we got some Asian wise guys coming.$b
+$2: 'Asian wise guys?' You mean triads?$b
+$1: [SCOFFS] What's 'triads?'$b
+$2: Chinese mafia.$b
+$1: Oh, yeah, that.$b
+$2: 'Asian wise guys' is a weird way of putting it.$b
+$1: Why?$b
+$2: The expression 'Asian wise guys' is an American-Italian mob... thing.$b
+$1: Wait, a second ago you said 'Chinese mafia.' Isn't that just as weird in that case?$b
+$2: Oh... yeah. Okay, you win that one.$b
+$1: As I was saying, I think we got some people from the... 'triads' in this building.$b
+$2: O-kay, I'll bite, why do you think that?$b
+$1: I've seen a bunch of Chinese dudes here with extensive ink.$b
+$2: They've got tattoos, so what?$b
+$1: Tattoos are given more common in Hong Kong, sure, but unless there's a tattoo convention, these guys are triad members.$b
+$2: How do you know they're from Hong Kong?$b
+$1: Mostly guessing. There's organized crime in big cities, and Cantonese is the main dialect in Hong Kong.$b
+$2: What? How... how the hell do you know that?$b
+$1: Way back, I dated a girl from Hong Kong for a couple years. I picked up a thing or two.$b
+$2: Oh yeah! Back in college, right? That exchange student?$b
+$1: Yep. Anyway, I think we got some triad members in this place.$b
+$2: What was her name again?$b
+$1: What?$b
+$2: The girl from Hong Kong! what was her name?$b
+$1: Why do you wanna know that?$b
+$2: It's not an odd question!$b
+$1: It kind of is.$b
+$2: No it isn't! If you talk about someone, asking for their name isn't weird.$b
+$1: Her name... isn't important.$b
+$2: Why are you so defensive? It's not like I'm gonna track her down in Hong Kong and try to date her.$b
+$1: I... don't like to talk about her, alright? It didn't end well.$b
+$2: See, now I'm curious about that.$b
+$1: Why are you so goddamn nosy, huh?$b
+$2: We've known each other for seven years, and you've barely talked about this girl.$b
+$1: Her name is Meijing, okay?$b
+$2: And?$b
+$1: No way. If you want the full rundown, you're gonna buy me lots of drinks first.$b
+$2: Deal. Tomorrow night at the Tweaked Edge?$b
+$1: Since you're buying? Sure.$b
+$2: By the way, how long have we been waiting?$b
+$1: Half an hour? Forty-five?$b
+$2: Why do we always show up on time when we know Jake is constantly late?$b
+$1: 'Cause the few times we have shown up late, he always wigged out.$b
+$2: Did you text him?$b
+$1: Yeah, ten minutes ago.$b
+$2: What's his excuse for being late this time?$b
+$1: Well, he hasn't gotten back to me.$b
+$2: C'mon. That's just a dick move. I'm hungry as hell.$b
+$1: [SCOFFS] You and me both.$b
+$2: Screw Jake! Let's go and grab some food and meet him at the theater.$b
+$1: Yeah, I'm kinda picking up what you're throwing down here.$b
+$2: What do you wanna eat? Mexican food, maybe?$b
+$1: Nah, I had burritos for lunch yesterday.$b
+$2: What about pizza?$b
+$1: Ehh... too much cheese.$b
+$2: You love cheese! I've seen you stuff your face with double cheese pizza!$b
+$1: I'm trying to get the calories down a bit...$b
+$2: Okay, whatever. What about hamburgers then?$b
+$1: Works for me. Where do you wanna go?$b
+$2: What's the name of that place with the square burgers?$b
+$1: I have no idea, but I don't want 'square burgers'.$b
+$2: What's wrong with square burgers?$b
+$1: Burgers should be round. Otherwise it's some... weird sandwich.$b
+$2: Technically, a burger is a sandwich.$b
+$1: No, it isn't.$b
+$2: Duh, yeah.$b
+$1: A burger has to have a cooked and hot filling.$b
+$2: By that definition, a sloppy joe or a grilled cheese is a hamburger.$b
+$1: I misspoke. A hamburger must have a cooked patty of ground meat between the buns.$b
+$2: So if you have a whole piece of chicken or fish between two buns, it doesn't count as a burger?$b
+$1: Nope! Then it's a sandwich.$b
+$2: That's stupid.$b
+$1: Really? Would you classify a philly cheese steak as a hamburger?$b
+$2: Go to hell!$b
+$1: I'm right, and you know it!$b
+$2: Yeah, yeah... since you don't wany your burger square, where do you wanna go?$b
+$1: Let's go to... Hungry Bob's!$b
+$2: Never heard of it.$b
+$1: It's a new franchise, but they've got awesome burgers. ROUND burgers.$b
+$2: Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
 			},
 			duration = 300,
 			priority = 75
 		},
+		
+		Play_buyers_chca_01 = { -- dialogue from atrium civs in black cat
+			category = "civilian_dialogue",
+			text = "(chatter)",
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_gen_civilian_1",
+					[2] = "hud_subtitlemod_speaker_gen_civilian_2"
+				},
+				colors = {
+					[1] = "neutral1",
+					[2] = "neutral2"
+				},
+				timing = {
+					2,0.8,2.9,1.3,2.6,1,6.3,2.6,2.5,4.6,1.5,1.5,2.4,3.9,2,8.3,2.6,2.8,2.7,3.7,1.3,4.2,3.5,1.7,1.3,3.9,2.3,4.4,1.7,5.1,2.7,4.1,6.3,2.5,6,4.2,1.2,2.6,2.6,3.1,2.6,3.8,6,2.2,4.5,2.9,9.8,3.6,1.8,5.5,4.2,3.8,5.9,3.5,2.2,5.3,7.7,1.6,3.8,2.3,1.2,1.5,2.3,1.2,1.9,3.7,3.4,1.5,4.2,3.7,4,1.8,5.2,7.4,7.3,3.3,1.2,2.6,3.8,5.8,2.5,4.1,3,2.9,4.3,2.4,8.2,2.9
+				},
+				text = "hud_subtitlemod_convo_Play_buyers_chca_01",
+				convo = [[$1: The guy is fuckin' nuts.$b
+$2: Huh?$b
+$1: He's nuts! This is going to ruin us!$b
+$2: How d'ya figure?$b
+$1: He doesn't have the cash for 'Shark in the Cupboard 5'.$b
+$2: So?$b
+$1: And he thinks sending us here to gamble away the pitch money he got from the bank is gonna make it all okay?$b
+$2: If we do this right, maybe it will.$b
+$1: Are you a gambler? Cause, cause I'm not a gambler.$b
+$2: If your next sentence contains the word 'lover,' I'm throwing you overboard.$b
+$1: I'm serious, man!$b
+$2: So am I.$b
+$1: Well, that's not where I was going.$b
+$2: Okay then, but I think Bruck Johns knows what he's doing!$b
+$1: Uh huh. What's your basis for that?$b
+$2: He's done it before, back in '98, with the first one? I was just a lark. Took me to Vegas and we cleaned out!$b
+$1: And you got enough dough to back the show?$b
+$2: Well, yeah, it was only a two mil budget.$b
+$1: Yeah- that's only a fifth of what we need for this!$b
+$2: Yeah, but from what I've heard, you can really strike it in this place! $b
+$1: Who told you that?$b
+$2: Guy who runs the place, Lee... Deng, I think his name was?$b
+$1: Huh. Sounds like something made up for a video game.$b
+$2: The dude's legit.$b
+$1: How d'ya figure?$b
+$2: Has whole teeth, smiled alot, lotta tattoos too.$b
+$1: Sounds like your run-of-the-mill gangster.$b
+$2: Yeah, but this guy walks around here like he owns the place.$b
+$1: Yeah, he probably does!$b
+$2: Ah, he's just a local boss! The head honcho is still that 'Wang' guy.$b
+$1: Oho, the one we were supposed to buy that statue from?$b
+$2: Right. Man, I don't even wanna think about that. Just forget I brought it up.$b
+$1: Wasn't our fault that shit went bad. How were we supposed to know the place was gonna get robbed by those clown dudes?$b
+$2: With our luck, this place will get robbed too.$b
+$1: We're in the middle of the fucking ocean! Who'd be so stupid to try a robbery here?$b
+$2: I don't know! Maybe it'll be like... one of those secret agent movies.$b
+$1: So?$b
+$2: So, the ship always sinks in those!$b
+$1: You're getting worked up about nothing!$b
+$2: We shoulda taken that deal on that space show...$b
+$1: They were paying chickenshit money!$b
+$2: At least they were paying! We haven't seen a dime in months!$b
+$1: ANYWAY, that space show has been getting awful ratings. It's not gonna be around long.$b
+$2: Eh, unless they sell it to one of the streamers.$b
+$1: Yeah, maybe. Still, you want to be known as a 'space guy'?$b
+$2: Better than 'the shark movie that never gets made' guy.$b
+$1: It'll get made, it'll get made! Even if we don't clean out here, investors are gonna go nuts once they find out we have Lana playing the lead role!$b
+$2: *whistles* She DOES look good in a bathing suit.$b
+$1: She won't be wearing one.$b
+$2: WHAT? well, what's the point of getting Lana Leonard if she's not gonna be... showing it off?$b
+$1: Dude, keep it down! You don't wanna announce it to the world!$b
+$2: Well, still. I think it's a wasted opportunity.$b
+$1: The shark... is in the CUPBOARD. Why the HELL would she be wearing a bathing suit?$b
+$2: Maybe she's on her way out to the pool or something.$b
+$1: In a midtown high-rise?$b
+$2: Okay, okay. Well... at least tell me we're getting a better effects team this time around?$b
+$1: Oho, yeah we are! Johns told me we're going all practical on this one. No CGI, not even the blood!$b
+$2: ...Can we afford that?$b
+$1: Sure we can! just gotta come back from here with a nice haul.$b
+$2: What if, uh...$b
+$1: ...What?$b
+$2: Ah, nevermind.$b
+$1: Oh, come on! tell me!$b
+$2: Nah, forget it.$b
+$1: Spill it, man!$b
+$2: What if we get these guys to opt in on a piece of the film?$b
+$1: You want to get in bed... with GANGSTERS?$b
+$2: Hey, money is money! $b
+$1: Johns would be furious! More people that want to tell him what's what!$b
+$2: Yeah, maybe! But he'd have to give US more control!$b
+$1: And they would probably want to give notes on the script.$b
+$2: Why would they care? It's an investment.$b
+$1: And... if the movie flops? They don't seem like the understanding types.$b
+$2: It's not gonna flop.$b
+$1: You willing to risk a couple of fingers on that? How about an organ or two?$b
+$2: Hey, I figure, the worst that happens is, they put a hit on Bruck Johns, and then we move up to the top, eh?$b
+$1: Unless we end up being collateral damage!$b
+$2: Nah.$b
+$1: How are you so tough all of a sudden?$b
+$2: I don't know! It's just an idea. It doesn't seem more dangerous than cleaning out their casino.$b
+$1: Hey at least my way, they have a chance at getting some money back.$b
+$2: Huh. You've got a point... MAYBE.$b
+$1: You know, I think I saw that Lee Deng guy hanging around the spa.$b
+$2: Maybe we should get ourselves a couple of massages?$b
+$1: Ueah... maybe we should.$b
+$2: Ooh, on the way, we gotta stop and get a closer look at that big fuckin' chandelier.$b
+$1: What's with you and decor?$b
+$2: Hey, my girl's into interior decorating.$b
+$1: If I get a good look at the big lamp, I'll have something to distract her with when she asks what we were doing on this boat.$b
+$2: Uh huh. right.]]
+			},
+			duration = 303,
+			priority = 75
+		},
+		
 		
 		
 --contractor vo

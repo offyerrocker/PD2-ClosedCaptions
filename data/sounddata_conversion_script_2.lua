@@ -3,6 +3,7 @@
 blt.vm.dofile("mods/PD2-ClosedCaptions/data/sounddata_conversion_script_2.lua")
 
 --]]
+
 local WRITE = true
 local FLATTEN_RECOMBINATIONS = false
 
@@ -27,7 +28,8 @@ local ALLOWED_FIELDS = { -- if true, the field will be copied from the original 
 	remove_by_source = false,
 	stops_line = false,
 	override_source_id = false,
-	conversation = false -- for long lines, or multiple lines with multiple speakers packed into one sound file
+	conversation = false, -- for long lines, or multiple lines with multiple speakers packed into one sound file
+	convo = false -- the whole conversation as one string, with custom notation for line breaks and speakers
 }
 
 local REPLACEMENT_OVERRIDE_NAMES = {
@@ -97,7 +99,7 @@ for event_id,data in pairs(sound_data.vo) do
 	-- default, single subtitle string (no variation)
 	if data.text then
 		new_loc_data[event_id] = data.text
-		new_data.text = event_id
+		new_data.text = "hud_subtitlemod_" .. event_id
 	end
 	
 	local process_line_variations
@@ -199,6 +201,13 @@ for event_id,data in pairs(sound_data.vo) do
 				new_line_variations[k] = v
 			end
 		end
+		
+		if _data.convo then
+			local conv_loc_id = "hud_subtitlemod_convo_" .. event_id
+			new_loc_data[conv_loc_id] = _data.convo
+		end
+		
+		
 		return new_line_variations
 	end
 	
@@ -242,11 +251,16 @@ for event_id,data in pairs(sound_data.vo) do
 end
 
 if WRITE then
+	--[[ 
 	local file = io.open(DATA_OUT_PATH,"w+")
-	file:write(json.encode(new_sound_data))
+	file:write(json.encode({
+		vo = new_sound_data,
+		disabled_sounds = sound_data.disabled_sounds,
+		vo_special = sound_data.vo_special
+	}))
 	file:flush()
 	file:close()
-	
+	--]]
 	
 	
 	local file = io.open(L10N_OUT_PATH,"w+")
@@ -254,3 +268,5 @@ if WRITE then
 	file:flush()
 	file:close()
 end
+
+return true

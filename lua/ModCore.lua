@@ -87,7 +87,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 			},
 		--]]
 	},
-	_sound_data = {}, -- subtitle data, indexed by event_id
+	_sound_data = { disabled_sounds = {}, vo = {}, vo_special = {}}, -- subtitle data, indexed by event_id
 	_UNIT_NAMES = {}, -- populated on load from loc file
 	_NARRATOR_PREFIXES = {
 		Play_ban_ = "menu_subtitlemod_speaker_cont_bain",
@@ -364,23 +364,28 @@ function ClosedCaptions:update(t,dt)
 		local item = self._active_subtitles[id]
 		local to_state = 1
 		if item and alive(item.panel) then
-			if current_num <= MAX_SUBTITLES then
-				if item.conversation_data then
-					local convo_data = item.conversation_data
-					convo_data.next_t = convo_data.next_t - dt
-					if convo_data.next_t <= 0 then
-						convo_data.current_index = convo_data.current_index + 1
-						if convo_data.current_index > #convo_data.sentences then
-							to_state = 3
-							convo_data.next_t = math.huge
-						else
-							convo_data.next_t = convo_data.next_t + (convo_data.intervals and convo_data.intervals[convo_data.current_index]) or convo_data.interval
-							if convo_data.color_ranges and convo_data.color_ranges[convo_data.current_index] then
-								self:_set_subtitle_text(item.panel,convo_data.sentences[convo_data.current_index],convo_data.color_ranges[convo_data.current_index])
-							end
-						end
+			if item.conversation_data then
+				local convo_data = item.conversation_data
+				convo_data.next_t = convo_data.next_t - dt
+				Console:SetTracker(string.format("convo %0.2f",convo_data.next_t),1)
+				if convo_data.next_t <= 0 then
+					convo_data.current_index = convo_data.current_index + 1
+					if convo_data.current_index > #convo_data.sentences then
+						self:Print("Reached end of conversation",id)
+						to_state = 3
+						convo_data.next_t = math.huge
+					else
+						local sentence = convo_data.sentences[convo_data.current_index]
+						self:Print("Next sentence in conversation",id,convo_data.current_index,":",sentence.text)
+						convo_data.next_t = convo_data.next_t + (convo_data.intervals and convo_data.intervals[convo_data.current_index] or 1)
+						local color_ranges = sentence.color_range_index and convo_data.color_ranges and convo_data.color_ranges[sentence.color_range_index]
+						self:_set_subtitle_text(item.panel,sentence.text,color_ranges)
 					end
 				end
+			end
+			
+			
+			if current_num <= MAX_SUBTITLES then
 				if item.end_t and item.end_t <= t then
 					to_state = 3
 				end
@@ -658,6 +663,8 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		end
 	end
 	
+	self:Print("Playing subtitle",event_id,sound_source,unit)
+	
 	local end_t = nil
 	
 	local is_player = unit == managers.player:local_player()
@@ -666,9 +673,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		end_t = t + variation_data.duration
 	end
 	
-	-- make panel
-	local item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
-	
+	local item_panel
 	local loop_data = variation_data.loop_data
 	local is_recombinable = variation_data.is_recombinable
 	local is_locationless = variation_data.is_locationless or is_player
@@ -677,16 +682,14 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	local distance = 100000
 	local conversation_data
 	if variation_data.conversation then
-		do return end
-		
 		-- todo process this in sound data loading
 		local sentences = {}
 		local color_ranges = {}
 		local sp = string.split(string.gsub(managers.localization:text(variation_data.conversation.text),"\n",""),"$b")
-		local speakers = {}
+		local speaker_names = {}
 		for speaker_index,speaker_id in pairs(variation_data.conversation.speakers) do	
-			local name = managers.localization(speaker_id)
-			speakers[speaker_index] = name
+			local name = managers.localization:text(speaker_id)
+			speaker_names[speaker_index] = name
 			
 			local range_col = self:GetColor(variation_data.conversation.colors[speaker_index])
 			color_ranges[speaker_index] = {0,utf8.len(name)+1,range_col or Color.white}
@@ -694,21 +697,31 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		
 		for i,line in ipairs(sp) do 
 			local sentence = line
-			for speaker_index,speaker_name in pairs(speakers) do 
-				sentence = string.gsub(sentence,"$" .. speaker_index,speaker_name)
+			local color_range_index = nil
+			for speaker_index,speaker_name in pairs(speaker_names) do 
+				if not color_range_index and string.find(sentence,"^%$" .. speaker_index) then
+					color_range_index = speaker_index
+				end
+				sentence = string.gsub(sentence,"%$" .. speaker_index,speaker_name)
 			end
-			sentences[i] = sentence
+			sentences[i] = {
+				text = sentence,
+				color_range_index = color_range_index
+			}
 		end
-		local interval = variation_data.conversation.duration / #sp
+		--local interval = variation_data.duration / #sp
 		conversation_data = {
-			interval = interval,
-			intervals = variation_data.conversation.intervals or nil,
+			intervals = variation_data.conversation.timing or nil,
 			color_ranges = color_ranges,
 			conversation = variation_data.conversation,
 			sentences = sentences,
-			current_index = 0,
-			next_t = 0
+			current_index = 1,
+			next_t = variation_data.conversation.timing[1]
 		}
+		
+		item_panel = self:_create_caption_text(sentences[1].text,Color.white,sentences[1].color_range_index and color_ranges[sentences[1].color_range_index],id)
+	else
+		item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
 	end
 	state_data = {
 		panel = item_panel,
@@ -722,6 +735,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		loop_data = loop_data,
 		distance = distance,
 		conversation_data = conversation_data,
+		--start_t = Application:time(),
 		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds)
 --		variation_data = variation_data,
 	}
@@ -1277,8 +1291,7 @@ function ClosedCaptions:hook_soundsource()
 	
 	-- hook soundsource methods	
 	if BeardLib then
-		-- beardlib compat
-		
+		-- use beardlib's existing soundmanager library
 		SoundSource._post_event = SoundSource._post_event or SoundSource.post_event
 		function SoundSource:post_event(event,clbk,cookie,marker,event_type,...)
 --			ClosedCaptions:Print("Postevent",event,clbk,cookie,marker,event_type,...)
@@ -1415,7 +1428,6 @@ function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,uni
 --	end
 	if not self._sound_data.disabled_sounds[event_id] then
 		if self._sound_data.vo[event_id] then
-			--self:Print("Playing subtitle",event_id,sound_source,unit,event_instance,...)
 			self:start_subtitle(event_id,unit,sound_source,sound_source:get_position()) -- start before registering, so that stop events from cc sound data will only stop other events from the soundsource
 			
 			local key = tostring(sound_source:key())
@@ -1554,8 +1566,15 @@ Hooks:Add("LocalizationManagerPostInit", "ClosedCaptions_LocalizationManagerPost
 
 -- ============================== I/O
 function ClosedCaptions:ReadSoundData()
-	local sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
-	self._sound_data = sound_data
+	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
+
+	--[[
+	local file = io.open(self._SOUNDDATA_PATH .. "sound_data.json", "r")
+	if file then
+		self._sound_data = json.decode(file:read("*all"))
+	end
+	--]]
+	
 end
 
 --load settings from save txt
@@ -1863,3 +1882,33 @@ Hooks:Add("BaseNetworkSessionOnLoadComplete","ClosedCaptions_OnLoadComplete",cal
 
 ClosedCaptions:LoadLanguageFiles()
 ClosedCaptions:CheckResourcesAdded()
+
+
+-- add dev console commands
+Hooks:Add("ConsoleMod_RegisterCommands","closedcaptions_load_dev_commands",function(console)
+
+	console:RegisterCommand("captions",{
+		str = nil,
+		desc = "Development tools for Closed Captions. Subcommands: export",
+		manual = "/captions [subcmd]",
+		arg_desc = "",
+		parameters = {},
+		func = function(params,args,meta_params)
+			local _args = string.split(args," ")
+			
+--			if #_args == 0 then
+--				console:Log("No args found!")
+--				return
+--			end
+			
+			local subcmd = _args[1]
+			
+			if subcmd == "export" then
+				console:Log("Exporting sound_data.lua to sound_data.json and l10n...")
+				local path = ClosedCaptions._MOD_PATH .. "data/sounddata_conversion_script_2.lua"
+				console:Print(blt.vm.dofile(path))
+			end
+		end
+	})
+	
+end) --command registration close
