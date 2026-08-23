@@ -734,7 +734,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	
 	local end_t = nil
 	
-	local is_player = unit == managers.player:local_player()
+	local is_player = alive(unit) and unit == managers.player:local_player()
 	if not is_player and variation_data.duration then
 		local t = TimerManager:game():time()
 		end_t = t + variation_data.duration
