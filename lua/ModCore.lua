@@ -365,37 +365,37 @@ function ClosedCaptions:update(t,dt)
 		local to_state = 1
 		if item and alive(item.panel) then
 			
-			if current_num <= MAX_SUBTITLES then
-				
-				if item.conversation_data then
-				
-					to_state = 2
-					-- this subtitle actually acts as a "manager" for the individual speaker lines in a conversation
-					-- so don't show it
-					local convo_data = item.conversation_data
-					--Console:SetTracker(string.format("convo %0.2f",convo_data.next_t),1)
-					if convo_data.next_t <= t then
-						convo_data.current_index = convo_data.current_index + 1
+			
+			if item.conversation_data then
+			
+				to_state = 2
+				-- this subtitle actually acts as a "manager" for the individual speaker lines in a conversation
+				-- so don't show it
+				local convo_data = item.conversation_data
+				--Console:SetTracker(string.format("convo %0.2f",convo_data.next_t),1)
+				if convo_data.next_t <= t then
+					convo_data.current_index = convo_data.current_index + 1
+					
+					if convo_data.current_index > #convo_data.sentences then
+						self:Print("Reached end of conversation",id)
+						to_state = 3
 						
-						if convo_data.current_index > #convo_data.sentences then
-							self:Print("Reached end of conversation",id)
-							to_state = 3
-							
-							convo_data.next_t = math.huge
-						else
-							--convo_data.next_t = convo_data.intervals and convo_data.intervals[convo_data.current_index] or (t + 1)
-							--[[
-							self:Print("Next sentence in conversation",id,convo_data.current_index,":",sentence.text)
-							convo_data.next_t = convo_data.next_t + (convo_data.intervals and convo_data.intervals[convo_data.current_index] or 1)
-							local color_ranges = sentence.color_range_index and convo_data.color_ranges and convo_data.color_ranges[sentence.color_range_index]
-							self:_set_subtitle_text(item.panel,sentence.text,color_ranges)
-							--]]
-							self:add_conversation_subtitle(t,item)
-							
-						end
+						convo_data.next_t = math.huge
+					else
+						--convo_data.next_t = convo_data.intervals and convo_data.intervals[convo_data.current_index] or (t + 1)
+						--[[
+						self:Print("Next sentence in conversation",id,convo_data.current_index,":",sentence.text)
+						convo_data.next_t = convo_data.next_t + (convo_data.intervals and convo_data.intervals[convo_data.current_index] or 1)
+						local color_ranges = sentence.color_range_index and convo_data.color_ranges and convo_data.color_ranges[sentence.color_range_index]
+						self:_set_subtitle_text(item.panel,sentence.text,color_ranges)
+						--]]
+						self:add_conversation_subtitle(t,item)
+						
 					end
 				end
-			
+			end
+		
+			if current_num <= MAX_SUBTITLES then
 				if item.end_t and item.end_t <= t then
 					to_state = 3
 				end
@@ -835,7 +835,6 @@ end
 
 -- todo return the caption data, not just the panel
 function ClosedCaptions:get_subtitle(event_id,sound_source)
-	
 	local id = event_id .. "_" .. tostring(sound_source:key())
 	
 	return self:_get_subtitle(id)
