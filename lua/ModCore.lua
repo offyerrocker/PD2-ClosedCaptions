@@ -364,28 +364,38 @@ function ClosedCaptions:update(t,dt)
 		local item = self._active_subtitles[id]
 		local to_state = 1
 		if item and alive(item.panel) then
-			if item.conversation_data then
-				local convo_data = item.conversation_data
-				convo_data.next_t = convo_data.next_t - dt
-				--Console:SetTracker(string.format("convo %0.2f",convo_data.next_t),1)
-				if convo_data.next_t <= 0 then
-					convo_data.current_index = convo_data.current_index + 1
-					if convo_data.current_index > #convo_data.sentences then
-						self:Print("Reached end of conversation",id)
-						to_state = 3
-						convo_data.next_t = math.huge
-					else
-						local sentence = convo_data.sentences[convo_data.current_index]
-						self:Print("Next sentence in conversation",id,convo_data.current_index,":",sentence.text)
-						convo_data.next_t = convo_data.next_t + (convo_data.intervals and convo_data.intervals[convo_data.current_index] or 1)
-						local color_ranges = sentence.color_range_index and convo_data.color_ranges and convo_data.color_ranges[sentence.color_range_index]
-						self:_set_subtitle_text(item.panel,sentence.text,color_ranges)
-					end
-				end
-			end
-			
 			
 			if current_num <= MAX_SUBTITLES then
+				
+				if item.conversation_data then
+				
+					to_state = 2
+					-- this subtitle actually acts as a "manager" for the individual speaker lines in a conversation
+					-- so don't show it
+					local convo_data = item.conversation_data
+					--Console:SetTracker(string.format("convo %0.2f",convo_data.next_t),1)
+					if convo_data.next_t <= t then
+						convo_data.current_index = convo_data.current_index + 1
+						
+						if convo_data.current_index > #convo_data.sentences then
+							self:Print("Reached end of conversation",id)
+							to_state = 3
+							
+							convo_data.next_t = math.huge
+						else
+							--convo_data.next_t = convo_data.intervals and convo_data.intervals[convo_data.current_index] or (t + 1)
+							--[[
+							self:Print("Next sentence in conversation",id,convo_data.current_index,":",sentence.text)
+							convo_data.next_t = convo_data.next_t + (convo_data.intervals and convo_data.intervals[convo_data.current_index] or 1)
+							local color_ranges = sentence.color_range_index and convo_data.color_ranges and convo_data.color_ranges[sentence.color_range_index]
+							self:_set_subtitle_text(item.panel,sentence.text,color_ranges)
+							--]]
+							self:add_conversation_subtitle(t,item)
+							
+						end
+					end
+				end
+			
 				if item.end_t and item.end_t <= t then
 					to_state = 3
 				end
@@ -492,6 +502,63 @@ function ClosedCaptions:update(t,dt)
 end
 Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
 
+
+function ClosedCaptions:add_conversation_subtitle(t,item)
+	local event_id = item.event_id
+	local addr = string.match(tostring(item.sound_source),"%d+") or "None" -- "0x%x+" for regular hex address finding; in this case, just use the sound source instance id
+	local convo_data = item.conversation_data
+	local id = "convo_" .. addr .. "_" .. event_id .. convo_data.current_index -- id for the child subtitle
+	if self._active_subtitles[id] then
+		return
+	end
+	
+	t = t or TimerManager:game():time()
+	
+	local sentence = convo_data.sentences[convo_data.current_index]
+	local timestamp = (convo_data.intervals and convo_data.intervals[convo_data.current_index] or 1) 
+	local end_t = convo_data.start_t + timestamp
+	local elapsed = t - convo_data.start_t
+	
+--	self:Print("Next sentence in conversation",event_id,convo_data.current_index,":",sentence.text,"ends",timestamp - elapsed)
+	convo_data.next_t = end_t
+	local color_ranges = sentence.color_range_index and convo_data.color_ranges and convo_data.color_ranges[sentence.color_range_index]
+	
+	
+	local variation_data = self._sound_data.vo[event_id]
+	
+	local item_panel = self:_create_caption_text(sentence.text,Color.white,color_ranges,id)
+	local state_data = {
+		event_id = event_id,
+		panel = item_panel,
+		state = 2,
+		sound_source = item.sound_source,
+		unit = item.unit,
+		max_distance = variation_data.max_distance,
+		priority = variation_data.priority or 0,
+		is_recombinable = variation_data.is_recombinable,
+		is_locationless = variation_data.is_locationless,
+		loop_data = nil,
+		distance = 100000,
+		conversation_data = nil,
+		end_t = end_t + 1 -- extra 1 second buffer
+	}
+	
+	self._active_subtitles[id] = state_data
+	
+	local prio_mode = self:GetCaptionPriorityMode()
+	if prio_mode == 1 then -- use priority values from subtitle data
+		table.insert(self._queue_active_subtitles,id)
+		table.sort(self._queue_active_subtitles,function(a,b)
+			return self._active_subtitles[a].priority > self._active_subtitles[b].priority
+		end)
+	elseif prio_mode == 2 then -- proximity; sorted every frame anyway
+	elseif prio_mode == 3 then -- fifo
+		table.insert(self._queue_active_subtitles,#self._queue_active_subtitles+1,id)
+	elseif prio_mode == 4 then -- filo
+		table.insert(self._queue_active_subtitles,11,id)
+	end
+	
+end
 
 -- create the subtitle panel
 function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_name)
@@ -710,20 +777,24 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 			}
 		end
 		--local interval = variation_data.duration / #sp
+		local t = TimerManager:game():time()
 		conversation_data = {
 			intervals = variation_data.conversation.timing or nil,
 			color_ranges = color_ranges,
 			conversation = variation_data.conversation,
 			sentences = sentences,
-			current_index = 1,
-			next_t = variation_data.conversation.timing[1]
+			current_index = 0, -- somehow this is still one ahead of what it should be
+			start_t = t,
+			next_t = t + 0
 		}
 		
-		item_panel = self:_create_caption_text(sentences[1].text,Color.white,sentences[1].color_range_index and color_ranges[sentences[1].color_range_index],id)
+		item_panel = self:_create_caption_text("DEBUG_CONVO",Color.white,nil,id)
+		--item_panel = self:_create_caption_text(sentences[1].text,Color.white,sentences[1].color_range_index and color_ranges[sentences[1].color_range_index],id)
 	else
 		item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
 	end
 	state_data = {
+		event_id = event_id, -- only used for conversations
 		panel = item_panel,
 		state = 2, -- 1:visible, 2:hidden, 3:removing
 		sound_source = sound_source,
@@ -735,8 +806,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		loop_data = loop_data,
 		distance = distance,
 		conversation_data = conversation_data,
-		--start_t = Application:time(),
-		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds)
+		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds) or for conversations
 --		variation_data = variation_data,
 	}
 	
@@ -813,6 +883,16 @@ function ClosedCaptions:_remove_subtitle(id,instant)
 	local item = self._active_subtitles[id]
 	
 	if item then
+		if item.conversation_data then
+			-- remove children 
+			for _id,_item in pairs(self._active_subtitles) do 
+				if _item ~= item and _item.event_id == item.event_id and _item.sound_source == item.sound_source then
+					-- queue removal next frame
+					_item.end_t = -1
+				end
+			end
+			
+		end
 		local item_panel = item.panel
 		if alive(item_panel) then
 			if instant then

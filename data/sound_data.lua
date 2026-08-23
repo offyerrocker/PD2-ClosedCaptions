@@ -2454,8 +2454,7 @@ return {
 					[2] = "neutral2"
 				},
 				timing = {
-					1.6,4.1,2.2,1.4,1.7,1.5,3.2,3.3,3.9,2.5,4.6,2.1,1.4,2.8,1.0,4.9,2.8,2.8,2.0,3.3,2.3,3.9,1.9,1.5,2.9,3.9,3.0,1.5,2.6,1.7,3.0,2.2,3.4,3.1,4.7,4.3,3.3,1.9,1.5,1.9,2.6,0.8,4.7,5.0,3.0,4.3,2.8,3.2,1.9,6.4,1.9,6.4,3.0,4.3,3.5,4.3,1.7,0.7,2.3,1.5,1.7,1.4,4.3,1.6,4.9,3.8,2.4,2.1,4.2,1.9,1.1,3.8,2.5,1.8,2.7,1.9,4.3,3.4,1.2,1.5,2.4,1.4,3.0,1.5,3.7,2.6,2.6,2.4,1.2,2.3,3.7,2.0,3.5,2.0,2.5,3.7,1.8,4.4,2.3,1.1,1.2,3.2,3.5,5.7,4.6,2.6,1.2,3.3,1.2,1.8,4.3,3.9,1.1,4.6,3.7
-
+					1.62,5.7,7.9,9.3,11,12.5,15.7,19,22.9,25.4,30,32.1,33.5,36.3,37.3,42.2,45,47.8,49.8,53.1,55.4,59.3,61.2,62.7,65.6,69.5,72.5,74,76.6,78.3,81.3,83.5,86.9,90,94.7,99,102.3,104.2,105.7,107.6,110.2,111.0,115.7,120.7,123.7,128,130.8,134.0,135.9,142.3,144.2,150.6,153.6,157.9,161.4,165.7,167.4,168.1,170.4,171.9,173.6,175,179.3,180.9,185.8,189.6,192,194.1,198.3,200.2,201.3,205.1,207.6,209.4,212.1,214.0,218.3,221.7,222.9,224.4,226.8,228.2,231.2,232.7,236.4,239.0,241.6,244,245.2,247.5,251.2,253.2,256.7,258.7,261.2,264.9,266.7,271.1,273.4,274.5,275.7,278.9,282.4,288.1,292.7,295.3,296.5,299.8,301.0,302.8,307.1,311.0,312.1,316.7,320.4
 				},
 				text = "hud_subtitlemod_convo_Play_pent_civs_lobby",
 				convo = [[$1: You just took it and ran?$b
@@ -2591,7 +2590,7 @@ $2: Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
 					[2] = "neutral2"
 				},
 				timing = {
-					2.0,0.8,2.9,1.3,2.6,1.0,6.3,2.6,2.5,4.6,1.5,1.5,2.4,3.9,2.0,8.3,2.6,2.8,2.7,3.7,1.3,4.2,3.5,1.7,1.3,3.9,2.3,4.4,1.7,5.1,2.7,4.1,6.3,2.5,6.0,4.2,1.2,2.6,2.6,3.1,2.6,3.8,6.0,2.2,4.5,2.9,2.5,7.3,3.6,1.8,5.5,4.2,3.8,5.9,3.5,2.2,5.3,7.7,1.6,3.8,2.3,1.2,1.5,2.3,1.2,1.9,3.7,3.4,1.5,4.2,3.7,4.0,1.8,5.2,1.3,5.0,8.4,3.3,1.2,2.6,3.8,5.8,2.5,4.1,3.0,2.9,4.3,2.4,2.2,6.0,2.9
+					2.0,2.8,5.7,7.0,9.6,10.6,16.9,19.5,22.0,26.6,28.1,29.6,32.0,35.9,37.9,46.2,48.8,51.6,54.3,58.0,59.3,63.5,67.0,68.7,70.0,73.9,76.2,80.6,82.3,87.4,90.1,94.2,100.5,103.0,109.0,113.2,114.4,117.0,119.6,122.7,125.3,129.1,135.1,137.3,141.8,144.7,147.2,154.5,158.1,159.9,165.4,169.6,173.4,179.3,182.8,185.0,190.3,198.0,199.6,203.4,205.7,206.9,208.4,210.7,211.9,213.8,217.5,220.9,222.4,226.6,230.3,234.3,236.1,241.3,242.6,247.6,256.0,259.3,260.5,263.1,266.9,272.7,275.2,279.3,282.3,285.2,289.5,291.9,294.1,300.1,303.0
 				},
 				text = "hud_subtitlemod_convo_Play_buyers_chca_01",
 				convo = [[$1: The guy is fuckin' nuts.$b
@@ -23958,83 +23957,207 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_snippet_hb3_01 = {
-			override_name = "Tape Recording",
 			priority = 10,
 			max_distance = 700,
 			text = "(incriminating tape recording of The Rat)",
 			category = "mission_dialogue",
 			duration = 29,
-			line_variations = {
-				standard_mode = {
-					"\nINTERVIEWER: [amused] Is it true? You're getting access to Crime.net?\nTHE RAT: Fuck you!\nINTERVIEWER: Are you familiar with Bain's crew, the PAYDAY clowns?\nTHE RAT: I've seen the news. First World Bank. Very impressive.\nINTERVIEWER: Well, Hector, maybe they've been giving the Bureau quite the headache. We can make good things happen for you IF...\nTHE RAT: [sighs]\nINTERVIEWER: ...you help us... to get closer to them.\nTHE RAT: Rat them out, you mean? What could you possibly offer me? [tape clicks off]"
-				}
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_interviewer",
+					[2] = "hud_subtitlemod_speaker_rat"
+				},
+				colors = {
+					[1] = "boss",
+					[2] = "law1"
+				},
+				timing = {
+					1.3,4.8,6.1,8.7,12.3,16.7,19.4,20.0,23.3,27.0,28.0
+				},
+				text = "hud_subtitlemod_convo_Play_snippet_hb3_01",
+				convo = [[
+[tape clicks on]$b
+$1: [AMUSED] Is it true? You're getting access to Crime.net?$b
+$2: Fuck you!$b
+$1: Are you familiar with Bain's crew, the PAYDAY clowns?$b
+$2: I've seen the news. First World Bank. Very impressive.$b
+$1: Well, Hector, maybe they've been giving the Bureau quite a headache.$b
+$1: We can make good things happen for you IF...$b
+$2: [SIGHS]$b
+$1: ...you help us... to get closer to them.$b
+$2: Rat them out, you mean? What could you possibly offer me?$b
+[tape clicks off] ]]
 			}
 		},
 		Play_snippet_hb3_02 = {
-			override_name = "Tape Recording",
 			priority = 10,
 			max_distance = 700,
 			text = "(incriminating tape recording of The Rat)",
 			category = "mission_dialogue",
 			duration = 50,
-			line_variations = {
-				standard_mode = {
-					"\nINTERVIEWER: I'm getting impatient, Hector. Look. I know you're connected to Bain. if you want this little 'arrangement' of ours to continue, you'd better give me something on the clowns.\nTHE RAT: Fuck you, dog.\nINTERVIEWER: This dog needs a bone. Or this dog will hump your leg, amigo.\nTHE RAT: [sighs] I can give you one of them, but that's all. I still need them to take care of a few things.\nINTERVIEWER: We want Dallas.\nTHE RAT: No. He's the leader. It'll have to be another. I'll be in touch.\nINTERVIEWER: It'd better be soon. Your ass is on the line here.\nTHE RAT: Yeah, yeah...\nINTERVIEWER: You wanna do time? I'll let every lowlife in Mount Olivet have a piece of your ass. [tape clicks off]"
-				}
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_interviewer",
+					[2] = "hud_subtitlemod_speaker_rat"
+				},
+				colors = {
+					[1] = "boss",
+					[2] = "law1"
+				},
+				timing = {
+					1.0,6.1,12.3,14.1,18.6,23.9,25.0,29.7,32.9,33.9,39.9,41.0
+				},
+				text = "hud_subtitlemod_convo_Play_snippet_hb3_02",
+				convo = [[
+[tape clicks on]$b
+$1: I'm getting impatient, Hector. Look. I know you're connected to Bain.$b
+$1: If you want this little 'arrangement' of ours to continue, you'd better give me something on the clowns.$b
+$2: Fuck you, dog.$b
+$1: This dog needs a bone. Or this dog will hump your leg, amigo.$b
+$2: [sighs] I can give you one of them, but that's all. I still need them to take care of a few things.$b
+$1: We want Dallas.$b
+$2: No. He's the leader. It'll have to be another. I'll be in touch.$b
+$1: It'd better be soon. Your ass is on the line here, amigo.$b
+$2: [SIGHS] Yeah, yeah...$b
+$1: You wanna do time? I'll let every lowlife in Mount Olive have a piece of your ass.$b
+[tape clicks off]
+]]
 			}
 		},
 		Play_snippet_hb3_03 = {
-			override_name = "Tape Recording",
 			priority = 10,
 			max_distance = 700,
 			text = "(incriminating tape recording of The Rat)",
 			category = "mission_dialogue",
 			duration = 29,
-			line_variations = {
-				standard_mode = {
-					"\nINTERVIEWER: We have him in custody.\nTHE RAT: The English one, yes?\nINTERVIEWER: Yes. They call him 'Hoxton.' Tough son of a bitch. Biting and spitting... almost got away!\nTheRat: That's him. ...Then I trust this matter is settled? You got what you wanted.\nINTERVIEWER: 'SETTLED?' Jesus Christ, Hector. Nothing is settled. This is only the start. Only a matter of time before the public demands the heads of ALL of these fucking clowns... And with your help, I intend to deliver. [tape clicks off]"
-				}
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_interviewer",
+					[2] = "hud_subtitlemod_speaker_rat"
+				},
+				colors = {
+					[1] = "boss",
+					[2] = "law1"
+				},
+				timing = {
+					1.7,3.1,8.3,10.4,14.1,18.4,20.0,23.8,28.1,29.0
+				},
+				text = "hud_subtitlemod_convo_Play_snippet_hb3_03",
+				convo = [[
+[tape clicks on]$b
+$1: We have him in custody.$b
+$2: The English one, yes?$b
+$1: Yes. They call him 'Hoxton.' Tough son of a bitch.$b
+$1: Biting and spitting... almost got away!$b
+$2: That's him. ...Then I trust this matter is settled? You got what you wanted.$b
+$1: 'SETTLED?' Jesus Christ, Hector. Nothing is settled. This is only the start.$b
+$1: Won't be long before the public demands the heads of ALL of these fucking clowns...$b
+$1: And with your help, I intend to deliver.$b
+[tape clicks off] ]]
 			}
 		},
-		Play_snippet_hb3_04= {
-			override_name = "Tape Recording",
+		Play_snippet_hb3_04 = {
 			priority = 10,
 			max_distance = 700,
 			text = "(incriminating tape recording of The Rat)",
 			category = "mission_dialogue",
 			duration = 29,
-			line_variations = {
-				standard_mode = {
-					"\nINTERVIEWER: You've had your fun. But it's over now, you hear? The Mendozas were on our payroll too, you know! You fucking piece of shit, you work for us, Hector! We OWN you! That rivalry shit gets left at the border! THE RAT: The Mendozas disrespected me! They deserved-\nINTERVIEWER: Jesus Christ, do you ever listen to yourself? The public wants blood, Hector! They want the PAYDAY Gang on death row, and if you don't wanna share a cell with those bastards, you'd better give me something I can work with! [tape clicks off]"
-				}
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_interviewer",
+					[2] = "hud_subtitlemod_speaker_rat"
+				},
+				colors = {
+					[1] = "boss",
+					[2] = "law1"
+				},
+				timing = {
+					1.0,6.0,7.1,10.8,11.1,13.4,15.8,20.6,22.7,22.9,29.4,30.0
+				},
+				text = "hud_subtitlemod_convo_Play_snippet_hb3_04",
+				convo = [[
+[tape clicks on]$b
+$1: You've had your fun.$b
+$1: But it's over now, you hear? The Mendozas were on our payroll too, you know!$b
+$2: Yeah, yeah...$b
+$1: You fucking piece of shit, you work for us, Hector! We OWN you!$b
+$2: [SIGHS]$b
+$1: That rivalry shit gets left at the border!$b
+$2: The Mendozas disrespected me! They deserved-$b
+$1: Jesus Christ, do you ever listen to yourself? The public wants blood, Hector!$b
+$1: They want the PAYDAY Gang on death row-$b
+$2: [SIGHS]$b
+$1: -and if you don't wanna share a cell with those bastards, you'd better give me something I can work with!$b
+[tape clicks off] ]]
 			}
 		},
 		Play_snippet_hb3_05 = {
-			override_name = "Tape Recording",
 			priority = 10,
 			max_distance = 700,
-			duration = 23,
 			text = "(incriminating tape recording of The Rat)",
 			category = "mission_dialogue",
-			line_variations = {
-				standard_mode = {
-					"\nTHE RAT: It's a white box van you'll be looking for. Meat truck. They'll be inside with the product.\nINTERVIEWER: Won't Bain be suspicious? It might look like a setup.\nTHE RAT: [sighs] I'm losing millions in product on this. He won't doubt me! You just worry about how you'll stop the clowns when they realize what's going on.\nINTERVIEWER: Don't worry, we'll have them completely surrounded. What're they gonna do? Try to shoot their way out? [tape clicks off]"
-				}
+			duration = 23,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_interviewer",
+					[2] = "hud_subtitlemod_speaker_rat"
+				},
+				colors = {
+					[1] = "boss",
+					[2] = "law1"
+				},
+				timing = {
+					1.0,3.8,5.4,8.2,12.4,16.2,19.4,22.1
+				},
+				text = "hud_subtitlemod_convo_Play_snippet_hb3_05",
+				convo = [[
+[tape clicks on]$b
+$2: It's a white box van you'll be looking for. A meat truck.$b
+$2: They'll be inside with the product.$b
+$1: Won't Bain be suspicious? It might look like a setup.$b
+$2: [sighs] I'm losing millions in product on this. He won't doubt me!$b
+$2: You just worry about how you'll stop the clowns when they realize what's going on.$b
+$1: Don't worry, we'll have them completely surrounded.$b
+$1: What're they gonna do? Try to shoot their way out?$b
+[tape clicks off] ]]
 			}
 		},
 		Play_snippet_hb3_06 = {
-			override_name = "Tape Recording",
 			priority = 10,
 			max_distance = 700,
-			duration = 45,
+			text = "(incriminating tape recording of The Rat)",
 			category = "mission_dialogue",
-			line_variations = {
-				standard_mode = {
-					"\nINTERVIEWER: You heard about the incident at the Courthouse? [pause] They got Hoxton back.\nTHE RAT: [scoffs] And you let them waltz right into your fucking headquarters?! Do they know about me?\nINTERVIEWER: We're not stupid, Hector. Nothing points to you directly.\nTHE RAT: [exasperated sigh]\nINTERVIEWER: But if we allow them time to dig through all the data, they'll put two and two together, and they might figure out why that meat truck of yours was conveniently surrounded.\nTHE RAT: [groans] Shit! Putas! Fucking putas! They'll know!\nINTERVIEWER: Hector, we're running out of time. I've prepared a safehouse. It'll keep you protected while you work with my agents to build a case against the clowns. From what I've learned about them over the month, I'd say your life depends on it.\nTHE RAT: ...Putas. [tape clicks off]"
-				}
+			duration = 45,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_interviewer",
+					[2] = "hud_subtitlemod_speaker_rat"
+				},
+				colors = {
+					[1] = "boss",
+					[2] = "law1"
+				},
+				timing = {
+					0.9,4.6,10.1,13.2,14.0,19.2,23.1,28.3,32.4,37.5,42.4,44.8,45.3
+				},
+				text = "hud_subtitlemod_convo_Play_snippet_hb3_06",
+				convo = [[
+[tape clicks on]$b
+$1: You heard about the incident at the Courthouse? [pause] They got Hoxton back.$b
+$2: [scoffs] And you let them waltz right into your fucking headquarters?! Do they know about me?$b
+$1: We're not stupid, Hector. Nothing points to you directly.$b
+$2: [EXASPERATED SIGH]$b
+$1: But if we allow them time to dig through all the data, they'll put two and two together.$b
+$1: They might figure out why that meat truck of yours was conveniently surrounded.$b
+$2: [GROANS] Shit! Putas! Fucking putas! They'll know!$b
+$1: Hector, we're running out of time. I've prepared a safehouse.$b
+$1: We'll keep you protected while you work with my agents to build a case against the clowns.$b
+$1: From what I've learned about them over the month, I'd say your life depends on it.$b
+$2: ...Putas.$b
+[tape clicks off] ]]
 			}
 		},
-
+		
 	--first world bank
 		Play_ism_fwb_01 = {
 			override_name = "Insider",

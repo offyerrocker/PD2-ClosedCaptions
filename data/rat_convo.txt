@@ -1,0 +1,180 @@
+
+[[
+[tape clicks on]$b
+$1: [AMUSED] Is it true? You're getting access to Crime.net?$b
+$2: Fuck you!$b
+$1: Are you familiar with Bain's crew, the PAYDAY clowns?$b
+$2: I've seen the news. First World Bank. Very impressive.$b
+$1: Well, Hector, maybe they've been giving the Bureau quite a headache.$b
+$1: We can make good things happen for you IF...$b
+$2: [SIGHS]$b
+$1: ...you help us... to get closer to them.$b
+$2: Rat them out, you mean? What could you possibly offer me?$b
+[tape clicks off] ]]
+1.3
+4.8
+6.1
+8.7
+12.3
+16.7
+19.4
+20.0
+23.3
+27
+28
+
+
+
+
+
+
+
+[[
+[tape clicks on]$b
+$1: I'm getting impatient, Hector. Look. I know you're connected to Bain.
+$1: If you want this little 'arrangement' of ours to continue, you'd better give me something on the clowns.$b
+$2: Fuck you, dog.$b
+$1: This dog needs a bone. Or this dog will hump your leg, amigo.$b
+$2: [sighs] I can give you one of them, but that's all. I still need them to take care of a few things.$b
+$1: We want Dallas.$b
+$2: No. He's the leader. It'll have to be another. I'll be in touch.$b
+$1: It'd better be soon. Your ass is on the line here, amigo.$b
+$2: [SIGHS] Yeah, yeah...$b
+$1: You wanna do time? I'll let every lowlife in Mount Olive have a piece of your ass.$b
+[tape clicks off]
+]]
+
+0
+1
+6.1
+12.3
+14.1
+18.6
+23.9
+25
+29.7
+32.9
+33.9
+39.9
+41
+
+
+
+
+
+[[
+[tape clicks on]$b
+$1: We have him in custody.$b
+$2: The English one, yes?$b
+$1: Yes. They call him 'Hoxton.' Tough son of a bitch.$b
+$1: Biting and spitting... almost got away!$b
+$2: That's him. ...Then I trust this matter is settled? You got what you wanted.$b
+$1: 'SETTLED?' Jesus Christ, Hector. Nothing is settled. This is only the start.
+$1: Won't be long before the public demands the heads of ALL of these fucking clowns...
+$1: And with your help, I intend to deliver.$b
+[tape clicks off] ]]
+1.7
+3.1
+8.3 
+10.4
+14.1
+18.4
+20.0
+23.84
+28.1
+29
+
+
+
+
+
+
+[[
+[tape clicks on]$b
+$1: You've had your fun.$b
+$1: But it's over now, you hear? The Mendozas were on our payroll too, you know!
+$2: Yeah, yeah...$b
+$1: You fucking piece of shit, you work for us, Hector! We OWN you!
+$2: [SIGHS]$b
+$1: That rivalry shit gets left at the border!$b
+$2: The Mendozas disrespected me! They deserved-$b
+$1: Jesus Christ, do you ever listen to yourself? The public wants blood, Hector!$b
+$1: They want the PAYDAY Gang on death row-$b
+$2: [SIGHS]$b
+$1: -and if you don't wanna share a cell with those bastards, you'd better give me something I can work with!$b
+[tape clicks off] ]]
+
+1.0
+6.0
+7.1
+10.8
+11.1
+13.4
+15.8
+20.6
+22.7
+22.9
+29.4
+30
+ 
+
+
+
+
+
+
+
+
+
+
+[[
+[tape clicks on]$b
+$2: It's a white box van you'll be looking for. A meat truck.$b
+$2: They'll be inside with the product.$b
+$1: Won't Bain be suspicious? It might look like a setup.$b
+$2: [sighs] I'm losing millions in product on this. He won't doubt me!$b
+$2: You just worry about how you'll stop the clowns when they realize what's going on.$b
+$1: Don't worry, we'll have them completely surrounded.$b
+$1: What're they gonna do? Try to shoot their way out?$b
+[tape clicks off] ]]
+
+1
+3.8
+5.4
+8.2
+12.4
+16.2
+19.4
+22.1
+
+
+
+
+[[
+[tape clicks on]$b
+$1: You heard about the incident at the Courthouse? [pause] They got Hoxton back.$b
+$2: [scoffs] And you let them waltz right into your fucking headquarters?! Do they know about me?$b
+$1: We're not stupid, Hector. Nothing points to you directly.$b
+$2: [EXASPERATED SIGH]$b
+$1: But if we allow them time to dig through all the data, they'll put two and two together.$b
+$1: They might figure out why that meat truck of yo urs was conveniently surrounded.$b
+$2: [GROANS] Shit! Putas! Fucking putas! They'll know!$b
+$1: Hector, we're running out of time. I've prepared a safehouse.$b
+$1: We'll keep you protected while you work with my agents to build a case against the clowns.$b
+$1: From what I've learned about them over the month, I'd say your life depends on it.$b
+$2: ...Putas.$b
+[tape clicks off] ]]
+
+0.9
+4.6
+10.1
+13.21
+14.0
+19.2
+23.1
+28.3
+32.4
+37.5
+42.4
+44.8
+45.3

@@ -63,124 +63,22 @@ UNUSED LEGACY LOCALIZATIONS:
 --]]
 
 
-if false then -- sample convert absolute timestamps to fragment sentence durations
+
+
+if false then -- sample format absolute timestamps 
 	local s = [[
-	0
-	1.62
-	5.7
-	7.9
-	9.3
-	11
-	12.5
-	15.7
-	19
-	22.9
-	25.4
-	30
-	32.1
-	33.5
-	36.3
-	37.3
-	42.2
-	45
-	47.8
-	49.8
-	53.1
-	55.4
-	59.3
-	61.2
-	62.7
-	65.6
-	69.5
-	72.5
-	74
-	76.6
-	78.3
-	81.3
-	83.5
-	86.9
-	90
-	94.7
-	99
-	102.3
-	104.2
-	105.7
-	107.6
-	110.2
-	111.0
-	115.7
-	120.7
-	123.7
-	128
-	130.8
-	134.0
-	135.9
-	142.3
-	144.2
-	150.6
-	153.6
-	157.9
-	161.4
-	165.7
-	167.4
-	168.1
-	170.4
-	171.9
-	173.6
-	175
-	179.3
-	180.9
-	185.8
-	189.6
-	192
-	194.1
-	198.3
-	200.2
-	201.3
-	205.1
-	207.6
-	209.4
-	212.1
-	214.0
-	218.3
-	221.7
-	222.9
-	224.4
-	226.8
-	228.2
-	231.2
-	232.7
-	236.4
-	239.0
-	241.6
-	244
-	245.2
-	247.5
-	251.2
-	253.2
-	256.7
-	258.7
-	261.2
-	264.9
-	266.7
-	271.1
-	273.4
-	274.5
-	275.7
-	278.9
-	282.4
-	288.1
-	292.7
-	295.3
-	296.5
-	299.8
-	301.0
-	302.8
-	307.1
-	311.0
-	312.1
-	316.7
-	320.4
+0.9
+4.6
+10.1
+13.21
+19.2
+23.1
+28.3
+32.4
+37.5
+42.4
+44.8
+45.3
 	]]
 
 
@@ -190,7 +88,27 @@ if false then -- sample convert absolute timestamps to fragment sentence duratio
 	local i = 0
 	local b = string.split(s,"\n")
 	for j,v in ipairs(b) do 
-		if v ~= "" then
+		local _s = string.gsub(v,"%s","")
+		if _s ~= "" then
+			i = i + 1
+			local n = tonumber(v)
+			if out then
+				out = out .. "," .. string.format("%0.1f",n)
+			else
+				out = string.format("%0.1f",n)
+			end
+		end
+	end
+	Print(out)
+	--[[ -- sample convert absolute timestamps to fragment sentence durations 
+	local out = nil
+	local results = {}
+	local prev = 0
+	local i = 0
+	local b = string.split(s,"\n")
+	for j,v in ipairs(b) do 
+		local _s = string.gsub(v,"%s","")
+		if _s ~= "" then
 			i = i + 1
 			local n = tonumber(v)
 			local duration = n - prev
@@ -205,6 +123,7 @@ if false then -- sample convert absolute timestamps to fragment sentence duratio
 	end
 	Print(out)
 
+--]]
 	--logall(results)
 end
 
