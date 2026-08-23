@@ -6,6 +6,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	_LOCALIZATION_FILE_NAME = "menu_strings.json", -- menu strings and main mod localization (nothing directly related to subtitles themselves)
 	_SOUNDDATA_PATH = ModPath .. "data/",
 	_MENU_PATH = ModPath .. "menu/options.json",
+	_DEBUG_LIST_MISSING_LINES_PATH = SavePath .. "CLOSEDCAPTIONS_r3_MISSINGLINES.txt",
 	_MANUAL_LOAD_ASSETS = {
 		texture = {
 			"guis/textures/closedcaptions_bgbox_atlas"
@@ -344,8 +345,8 @@ function ClosedCaptions:setup()
 end
 
 local player_pos = Vector3()
-local source_pos = Vector3()
-local tmp_vec1 = Vector3()
+local source_pos = Vector3() -- do not rely on this, as it may be nil
+local tmp_vec1 = Vector3() 
 function ClosedCaptions:update(t,dt)
 	local viewport_cam = managers.viewport:get_current_camera()
 	if not viewport_cam then return end
