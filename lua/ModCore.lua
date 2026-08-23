@@ -293,6 +293,10 @@ function ClosedCaptions:GetColor(color_id)
 	return self._COLORS[color_id] or Color.white
 end
 
+function ClosedCaptions:ShouldInterceptVanillaSubtitles()
+	return true
+end
+
 -- ============================== Misc settings management
 
 function ClosedCaptions:change_setting(setting,new_value,skip_clbk)
@@ -366,7 +370,6 @@ function ClosedCaptions:update(t,dt)
 		local to_state = 1
 		if item and alive(item.panel) then
 			
-			
 			if item.conversation_data then
 			
 				to_state = 2
@@ -397,6 +400,7 @@ function ClosedCaptions:update(t,dt)
 			end
 		
 			if current_num <= MAX_SUBTITLES then
+
 				if item.end_t and item.end_t <= t then
 					to_state = 3
 				end
@@ -543,22 +547,7 @@ function ClosedCaptions:add_conversation_subtitle(t,item)
 		conversation_data = nil,
 		end_t = end_t + 1 -- extra 1 second buffer
 	}
-	
-	self._active_subtitles[id] = state_data
-	
-	local prio_mode = self:GetCaptionPriorityMode()
-	if prio_mode == 1 then -- use priority values from subtitle data
-		table.insert(self._queue_active_subtitles,id)
-		table.sort(self._queue_active_subtitles,function(a,b)
-			return self._active_subtitles[a].priority > self._active_subtitles[b].priority
-		end)
-	elseif prio_mode == 2 then -- proximity; sorted every frame anyway
-	elseif prio_mode == 3 then -- fifo
-		table.insert(self._queue_active_subtitles,#self._queue_active_subtitles+1,id)
-	elseif prio_mode == 4 then -- filo
-		table.insert(self._queue_active_subtitles,11,id)
-	end
-	
+	self:_start_subtitle(state_data,id)
 end
 
 -- create the subtitle panel
@@ -689,7 +678,76 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	return item_panel
 end
 
-
+-- intercept base game subtitles from bain/locke/contractor soup du jour
+function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
+	local id = "corepresenter_" .. event_id
+	
+	--local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
+	
+	local text = managers.localization:text(event_id,macros)
+	
+	local variation_data = self._sound_data.vo[event_id]
+	if variation_data then
+	--[[
+		local name = variation_data.override_name or name or variation_data.fallback_name
+		
+		
+		if self:UseCapitalNames() then 
+			name = utf8.to_upper(name)
+		end
+		
+		local DIFFERENT_COLOR_TEXT = self.settings.caption_separate_speaker_color
+		
+		local speaker_str = name
+		local speaker_color = color
+		local text_color = color
+		if DIFFERENT_COLOR_TEXT then
+			text_color = Color.white
+		end
+		
+		local speaker_len = utf8.len(speaker_str)
+		local text_len = utf8.len(text)
+		
+		local color_ranges
+		
+		if speaker_len > 0 then
+			text = string.format("%s: %s",speaker_str,text)
+			color_ranges = {
+				0,
+				speaker_len+1,
+				speaker_color,
+				
+				speaker_len+1,
+				speaker_len+text_len+2,
+				text_color
+			}
+		end
+	--]]
+	else
+		self:Print("Unknown contractor subtitle",event_id)
+	end
+	
+	local item_panel = ClosedCaptions:_create_caption_text(text,Color.white,nil,id)
+	
+	local state_data = {
+		event_id = event_id, -- only used for conversations
+		panel = item_panel,
+		state = 2, -- 1:visible, 2:hidden, 3:removing
+		sound_source = nil,
+		unit = nil,
+		max_distance = nil,
+		priority = 1,
+		is_recombinable = false,
+		is_locationless = true,
+		loop_data = nil,
+		distance = nil,
+		conversation_data = nil,
+		end_t = TimerManager:game():time() + duration
+--		variation_data = variation_data,
+	}
+	
+	ClosedCaptions:_start_subtitle(state_data,id)
+end
 
 -- create panel from the given event data,
 -- bootstrap the updater to handle frame updates for tasks like left/right audio position detection or fadeout animations
@@ -811,6 +869,10 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 --		variation_data = variation_data,
 	}
 	
+	self:_start_subtitle(state_data,id)
+end
+
+function ClosedCaptions:_start_subtitle(state_data,id)
 	self._active_subtitles[id] = state_data
 	
 	local prio_mode = self:GetCaptionPriorityMode()
@@ -831,7 +893,6 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	elseif prio_mode == 4 then -- filo
 		table.insert(self._queue_active_subtitles,11,id)
 	end
-	--]]
 end
 
 -- todo return the caption data, not just the panel

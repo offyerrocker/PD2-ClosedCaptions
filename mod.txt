@@ -15,6 +15,10 @@
 		{
 			"hook_id" : "lib/managers/hudmanager",
 			"script_path" : "lua/hudmanager.lua"
+		},
+		{
+			"hook_id" : "core/lib/managers/subtitle/coresubtitlemanager",
+			"script_path" : "lua/coresubtitlemanager.lua"
 		}
 	]
 }
