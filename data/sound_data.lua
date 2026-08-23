@@ -2411,9 +2411,9 @@ return {
 			priority = 98,
 			duration = 2
 		},
-		Play_civ02_trai_01 = {
-			category = "sfx",
-			text = "bag thrown",
+		Play_civ02_trai_01 = { -- needs override
+			category = "civilian_dialogue",
+			text = "Opening the gate.",
 			priority = 98,
 			duration = 2,
 			line_variations = {
@@ -2425,18 +2425,362 @@ return {
 		},
 		
 		
+		-- mountain master
 		coffee_machine_start = {
 			category = "sfx",
 			text = "coffee machine whirs",
 			priority = 98,
 			duration = 7
 		},
-		
 		coffee_machine_start = {
 			category = "sfx",
 			text = "coffee machine beeps",
 			priority = 98,
 			duration = 3
+		},
+		
+		
+		-- Yacht Heist idle civ dialogue
+		 -- can't be specific about the speaker because both the male civ and female civ lines are mixed in as variations of the same event
+		Play_civ_fish_01 = { 
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				-- male
+				"I wonder how much this thing cost him.",
+				"McKendrick has been great for business. Let's hope we can get him re-elected.",
+				"I wonder if he ever takes this thing to the Caribbean.",
+				"I wonder how much staff they have here. Must be expensive to maintain.",
+				"It's a little bit too much, isn't it?",
+				"The lifeboat on this thing is bigger than my boat.",
+				"Damn, this thing is giving me boat envy.",
+				"We should take our boat to the Bahamas this summer.",
+				"It's a good party. It should be, considering what we paid.",
+				
+				-- female
+				"Powell's really rich, isn't he?",
+				"I love this boat. It's so cool!",
+				"I heard it's some Irish guy who owns this boat.",
+				"We need a strong mayor in Washington! Only McKendrick can do the job.",
+				"Lifestyles of the rich and famous!",
+				"Wow, look at that!",
+				"It's nice here.",
+				"It's so nice here.",
+				"McKendrick's done so much for the community. I'm glad we can support him like this.",
+				"Imagine if we had a yacht like this!",
+				"I can imagine McKendrick as president or governor one day."
+			}
+		},
+		Play_civ_fish_02 = { --dining room
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"This is a nice dining room.",
+				"I love to dine in style.",
+				
+				"I hope I remembered to tell them I want vegetarian...",
+				"I wish we'd been dining here as well!"
+			}
+		},
+		Play_civ_fish_03 = { -- aquarium
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"How many aquariums does this guy need?",
+				"This makes me want to go fishing.",
+				
+				"Oh! That's a... what's that fish called?",
+				"I find aquariums so relaxing to look at."
+			}
+		},
+		Play_civ_fish_04 = { -- balcony
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"New York, New York...",
+				"Hey, you can see Manhattan here...",
+				"Ah... the sea air is really nice.",
+				"Wow, look at that view!"
+			}
+		},
+		Play_civ_fish_05 = { --bedroom
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"Wow! He's got plenty of room for guests here.",
+				"I wonder who sleeps here!",
+				
+				"Oh, that's cool. We should get something like that for our bedroom at home.",
+				"You think anyone would notice if we... you know! [playful giggle]"
+			}
+		},
+		Play_civ_fish_06 = { --kitchen
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"Well, this is a big kitchen.",
+				"Think the guard would mind if I grabbed a snack? I could ask.",
+				
+				"I'm a bit hungry, actually.",
+				"Wow, it's all dark and gloomy down here."
+			}
+		},
+		Play_civ_fish_07 = { 
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"Wow, look at that!",
+				"I've never been in a place like this before!",
+				
+				"Wow, look at this place!",
+				"What are we doing down here, anyway?"
+			}
+		},
+		Play_civ_fish_08 = { -- library
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"Should we go outside?",
+				"This is a pretty cool library!",
+				
+				"Oh, so many books! Do you think he's read them?",
+				"Oh, those flowers are nice."
+			}
+		},
+		Play_civ_fish_09 = { -- cigar + wine lounge
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"Oh, that's really good wine.",
+				"I think is my favorite part of the boat. Wines and cigars! Yeah!",
+				"This is a nice place to hang out.",
+				"So he smokes, then? Cigars, at least."
+			}
+		},
+		
+		
+		
+		Play_pot_fish_01 = { -- tape recorder
+			category = "civilian_dialogue",
+			text = "(idle chatter)",
+			priority = 98,
+			duration = 2,
+			line_variations = {
+				"Okay, uh, I understand we have cleared to anchor just off Manhattan, right? I like it. Security should be good around the area. I'm a little nervous with so many VIPs attending!",
+				"Hi, it's me, Laura. Okay, listen, just to give you a heads-up: Senator Simmons personally called. The senator has his schedule full at the moment and can't attend the fundraiser personally, but he's asking his contacts to donate to the campaign.",
+				"Hi, this is Laura, from Party Bangers. I just wanna confirm the ticket price for the fundraiser. It's ten grand per person, right?",
+				"Hi! Listen, what's with this 'don't move the furniture' under any circumstances? I'd suggested we need it to be flexible, but that security guy nearly bit my head off! Whatever, if you want to do it like that, it's fine, just... you know, be polite, yeah?",
+				"Hi, it's Laura, just want to repeat this so we're clear on security. The lower levels of the boat will be accessible, but only by those with special invitations. And the rooms will be patrolled by guards. The main party for everyone is upstairs, okay?"
+			}
+		},
+		
+		
+		Play_ncr_fish_01 = { -- news team
+			category = "civilian_dialogue",
+			text = "(news crew filming)",
+			priority = 98,
+			duration = 20,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_newsciv"
+				},
+				colors = {
+					[1] = "neutral1"
+				},
+				timing = {
+					3.6,8.7,14.1,17.8,20
+				},
+				text = "hud_subtitlemod_convo_Play_ncr_fish_01",
+				convo = [[
+$1: As the campaign for the mayoral election gets going,$b
+$1: Nancy Bukowski seems to be sailing up as the main challenger to Bob McKendrick!$b
+$1: Bob McKendrick's 'tough on crime' stance and his defense of the second amendment have been popular with voters,$b
+$1: but many feel that he hasn't been able to deliver on his promises!$b
+$1: It might be a close race this year!]]
+			}
+		},
+		Play_ncr_fish_02 = { -- news team in dining room
+			category = "civilian_dialogue",
+			text = "(news crew filming)",
+			priority = 98,
+			duration = 10,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_newsciv"
+				},
+				colors = {
+					[1] = "neutral1"
+				},
+				timing = {
+					3.1,5.3,10
+				},
+				text = "hud_subtitlemod_convo_Play_ncr_fish_02",
+				convo = [[
+$1: So this is the luxurious dining room!$b
+$1: Food is brought up from the kitchen downstairs,$b
+$1: and guests may enjoy a high-quality meal in these very exclusive surroundings!
+]]
+			}
+		},
+		Play_ncr_fish_03 = { -- news team in aquarium
+			category = "civilian_dialogue",
+			text = "(news crew filming)",
+			priority = 98,
+			duration = 15,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_newsciv"
+				},
+				colors = {
+					[1] = "neutral1"
+				},
+				timing = {
+					5.0,9.0,11.8,15
+				},
+				text = "hud_subtitlemod_convo_Play_ncr_fish_03",
+				convo = [[
+$1: As you can see here, Powell has a collection of rare... uh... fish!$b
+$1: There are various, uh... colors, and sizes, and, uh...$b
+$1: [NORMAL VOICE] Tom, can we cut? This isn't working.$b
+$1: I don't know what to say about those goddamn fishes.
+]]
+			}
+		},
+		Play_ncr_fish_04 = { -- news team (balcony)
+			category = "civilian_dialogue",
+			text = "(news crew filming)",
+			priority = 98,
+			duration = 15,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_newsciv"
+				},
+				colors = {
+					[1] = "neutral1"
+				},
+				timing = {
+					5.6,8.3,12.13,15
+				},
+				text = "hud_subtitlemod_convo_Play_ncr_fish_04",
+				convo = [[
+$1: As you can see, we're standing here on the aft deck of this beautiful yacht!$b
+$1: The views of New York City are stunning!$b
+$1: The funraiser for Washington Mayor McKendrick is ongoing just above us here,$b
+$1: and it's a beautiful night here in New York!
+]]
+			}
+		},
+		Play_ncr_fish_05 = { -- news team (bedroom)
+			category = "civilian_dialogue",
+			text = "(news crew filming)",
+			priority = 98,
+			duration = 17,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_newsciv"
+				},
+				colors = {
+					[1] = "neutral1"
+				},
+				timing = {
+					4.0,9.8,14.9,17
+				},
+				text = "hud_subtitlemod_convo_Play_ncr_fish_05",
+				convo = [[
+$1: There are four of these luxurious bedrooms here on the yacht!$b
+$1: I expect you'd sleep rather well here if you were on a long cruise in, say, the Caribbean!$b
+$1: Once again, I'd like to point out how privileged we are to get an inside look at this amazing yacht...$b
+$1: with access to these private rooms.
+]]
+			}
+		},
+		Play_ncr_fish_06 = { -- news team (kitchen)
+			category = "civilian_dialogue",
+			text = "(news crew filming)",
+			priority = 98,
+			duration = 22,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_newsciv"
+				},
+				colors = {
+					[1] = "neutral1"
+				},
+				timing = {
+					3.2,9.6,18.2,21
+				},
+				text = "hud_subtitlemod_convo_Play_ncr_fish_06",
+				convo = [[
+$1: This is where it all happens, food-wise!$b
+$1: On cruises, a large kitchen staff will be working here to keep passengers happy and well-fed.$b
+$1: It's amazing how big how this place is, and it's really a testament to the use of this vessel as a luxury retreat for the wealthy!$b
+$1: [NORMAL VOICE] ...Tom, do you think we could snag a beer from the fridge here?
+]]
+			}
+		},
+		Play_ncr_fish_07 = { -- news team (library)
+			category = "civilian_dialogue",
+			text = "(news crew filming)",
+			priority = 98,
+			duration = 14,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_newsciv"
+				},
+				colors = {
+					[1] = "neutral1"
+				},
+				timing = {
+					5.4,8.0,14
+				},
+				text = "hud_subtitlemod_convo_Play_ncr_fish_07",
+				convo = [[
+$1: As you can see, the library here is a balcony with views of the downstairs dining room!$b
+$1: The owner has a huge collection of books here!$b
+$1: I know I saw some Sartre here, and there was definitely some Tolstoy, too!
+]]
+			}
+		},
+		Play_ncr_fish_08 = { -- news team (cigar+wine lounge)
+			category = "civilian_dialogue",
+			text = "(news crew filming)",
+			priority = 98,
+			duration = 14,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_newsciv"
+				},
+				colors = {
+					[1] = "neutral1"
+				},
+				timing = {
+					6.4,9.6,14
+				},
+				text = "hud_subtitlemod_convo_Play_ncr_fish_08",
+				convo = [[
+$1: So yeah, this is where the yacht's owner and guests can sit down and enjoy a nice glass of wine!$b
+$1: There are also large tobacco humidors in this area,$b
+$1: so it's definitely what you might call 'a relax zone!'
+]]
+			}
 		},
 		
 		
