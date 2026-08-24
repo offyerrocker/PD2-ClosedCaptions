@@ -6412,6 +6412,15 @@ $1: Uh huh. right.]]
 			priority = 26,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Guys! You gotta help me!",
+							"Hey guys! Over here!",
+							"Anybody! I need help!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -6433,6 +6442,9 @@ $1: Uh huh. right.]]
 			category = "heister_dialogue",
 			priority = 35,
 			variants = {
+				rb3 = {
+					text = "Jump!"
+				},
 				rb4 = {
 					text = "Jump!"
 				}
@@ -6444,6 +6456,16 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Let's roll!",
+							"Okay, let's do this!",
+							"Okay, let's roll!",
+							"Alright! Let's rock and roll!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -6738,6 +6760,9 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					text = "Okay, we got the keycard."
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -6900,6 +6925,9 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
+				rb3 = {
+					text = "Alright, it's on! Better clear the room!"
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -7034,6 +7062,9 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					text = "That's everything!"
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -7067,6 +7098,9 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					text = "The drill's done."
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -7196,6 +7230,9 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
+				rb3 = {
+					text = "I thought I heard them in the ventilation shafts- watch out!"
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -7288,6 +7325,9 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 2,
 			variants = {
+				rb3 = {
+					text = "I've got him!"
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -7318,9 +7358,7 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 2,
 			variants = {
-				rb3 = {
-					disabled = "missing"
-				},
+				rb3 = nil,
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -7351,9 +7389,7 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 2,
 			variants = {
-				rb3 = {
-					disabled = "missing"
-				},
+				rb3 = nil,
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -7385,7 +7421,7 @@ $1: Uh huh. right.]]
 			duration = 3,
 			variants = {
 				rb3 = {
-					text = "Find that manager!",
+					text = "Find that manager!"
 				},
 				rb4 = {
 					text = "Where's the goddamn manager?"
@@ -7556,9 +7592,7 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
-				rb3 = {
-					disabled = "missing" --no lines :(
-				},
+				rb3 = nil, --no lines :(
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -7828,7 +7862,7 @@ $1: Uh huh. right.]]
 					line_variations = {
 						standard_mode = {
 							"That's what I'm talking about!",
-							"Yes! YES!",
+							"Yes! YES!"
 						}
 					}
 				},
@@ -7856,6 +7890,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 2,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Okay, we got a lot. Should we settle for that?",
+							"Alright, are we fine yet?"
+						}
+					}
+				},
 				rb4 = {
 					text = "Is that enough?"
 				},
@@ -7873,6 +7915,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Nah, let's get all of it!",
+							"Grab all of it!"
+						}
+					}
+				},
 				rb4 = {
 					text = "Nah, get all of it!"
 				},
@@ -7937,6 +7987,13 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"We got the dough, let's scram!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8061,6 +8118,13 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"WOOOOOHOOOOO!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8128,6 +8192,13 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I got the crowbar!" -- two deliveries
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8161,6 +8232,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Okay, get in the chair!",
+							"Get in the chair!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8193,6 +8272,15 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"It's a Bulldozer!",
+							"Watch out! Bulldozer!",
+							"I've spotted a Bulldozer!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8231,6 +8319,16 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"IT'S A MOTHAFUCKIN' BULLDOZER!",
+							"IT'S A FUCKIN' BULLDOZER!",
+							"BULLDOZER!",
+							"BULLDOZER!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8265,6 +8363,17 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I've spotted a Shield!",
+							"Shield!",
+							"Shield!",
+							"I've got a Shield over here!",
+							"It's a Shield!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8306,6 +8415,17 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I've got a Shield!",
+							"Shield!",
+							"IT'S A FUCKIN' SHIELD!",
+							"SHIELD, SHIELD!",
+							"SHIELD!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8341,6 +8461,17 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Taser!",
+							"Taser!",
+							"Taser spotted!",
+							"I've spotted a Taser, look out!",
+							"It's a Taser, watch out!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8380,6 +8511,17 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"OH SHIT, TASER!",
+							"TASER, TASER!",
+							"TASER!",
+							"IT'S A FUCKIN' TASER!",
+							"IT'S A MOTHERFUCKIN' TASER!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8413,6 +8555,18 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I've got a Cloaker over here! There's probably more!",
+							"Cloaker! Watch out for Cloakers!",
+							"Cloaker! Remember, they move in groups!",
+							"Cloaker! Watch your backs!",
+							"I've spotted a Cloaker!",
+							"Cloaker! Remember, if there's one, there's more!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8450,6 +8604,17 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"FUCKING CLOAKER!",
+							"AH SHIT! CLOAKER!",
+							"CLOAKER!",
+							"CLOAKER!",
+							"CLOAKER!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8485,6 +8650,9 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					text = "Sniper!" -- only one delivery
+				},
 				rb4 = {
 					text = "Sniper!"
 				},
@@ -8511,6 +8679,9 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					text = "Sniper!" -- he has two deliveries but they're both Sniper!
+				},
 				rb4 = {
 					text = "Sniper!"
 				},
@@ -8537,6 +8708,14 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Watch out!",
+							"Watch your backs!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8560,6 +8739,22 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Turret spotted!",
+							"It's a fuckin' Turret!"
+						},
+						assault_mode = {
+							"Fuckin' Turret!",
+							"Oh, shit! There's a Turret!",
+							"Oh, shit! That's a Turret!",
+							"MOTHERFUCKIN' TURRET!",
+							"Shit, a Turret!",
+							"Mothafuckin' Turret!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8608,6 +8803,21 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"It's a Captain!",
+							"Kapten Klänning!", -- captain dress
+							"Captain here!"
+						},
+						assault_mode = {
+							"Mothafucking Captain!",
+							"Kapten på ingång!", -- captain incoming!
+							"Shit, that's a Captain!",
+							"Aw, shit, that's a Captain!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8647,6 +8857,23 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"It's a Medic!",
+							"Medic spotted!",
+							"We got a Medic here!",
+						},
+						assault_mode = {
+							"It's a fuckin' Medic!",
+							"Shit, that's a Medic!",
+							"Awww, shit, that's a Medic!",
+							"Mothafuckin' Medic!",
+							"We got a Medic here!",
+							"En jävla Doktor!" -- a fucking doctor!
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8681,6 +8908,16 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I took out the Bulldozer.",
+							"The Bulldozer's taken care of.",
+							"Bulldozer's down.",
+							"The Bulldozer's history."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8723,6 +8960,16 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"The Shield's taken care of.",
+							"The Shield's history.",
+							"The Shield's down.",
+							"I took out the Shield."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8766,6 +9013,16 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I took out the Taser!",
+							"I took out the Taser.",
+							"Taser's taken care of.",
+							"The Taser's history!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8805,6 +9062,16 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = { --no assault specific lines?
+							"I took out one of the Cloakers!",
+							"One of the Cloaker's history!",
+							"One Cloaker's down!",
+							"One Cloaker taken care of!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = { --no assault specific lines?
@@ -8843,6 +9110,14 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Gotcha!",
+							"Bullseye!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8892,6 +9167,22 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Took care of the Medic!",
+							"Medic down!",
+							"Nästa!" -- next!
+						},
+						assault_mode = {
+							"Medic taken care of!",
+							"Took care of the Medic!",
+							"An apple a day keeps the Medic away!",
+							"Doktorn är död, han har brett sig på bröd!", -- the doctor is dead, he's been spread on bread!
+							"Jag mördade Mediken!" -- I murdered the medic!
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8922,7 +9213,7 @@ $1: Uh huh. right.]]
 			text = "SMOKE!",
 			category = "heister_dialogue",
 			priority = 35,
-			duration = 3,
+			duration = 3
 		},
 		g41x_any = {
 			text = "I'm blind! MY EYES!",
@@ -8930,6 +9221,7 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
+				rb3 = nil, -- none for wolf
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -8958,6 +9250,7 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = nil, -- none for wolf
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9000,6 +9293,35 @@ $1: Uh huh. right.]]
 			priority = 20,
 			duration = 6,
 			variants = {
+				rb3 = {
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Agh, I feel like shit.",
+								"[groans] I'm hurt bad!"
+							},
+							{
+								"Anybody got a Medic Bag to share?",
+								"Anybody got a Medic Bag?"
+							}
+						},
+						assault_mode = {
+							{
+								"I'm hurt!",
+								"[screams in pain] I'm hurt!",
+								"[screams in pain] I'm dying!",
+								"[screams in pain]"
+							},
+							{
+								"Anybody got a Medic Bag?",
+								"Medic Bag! Anyone?!",
+								"Somebody drop a Medic Bag!",
+								"I need a Medic Bag!"
+							}
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						recombinable = true,
@@ -9108,6 +9430,21 @@ $1: Uh huh. right.]]
 			priority = 25,
 			duration = 6,
 			variants = {
+				rb3 = {
+					line_variations = {
+						recombinable = true,
+						standard_mode = { 
+							{
+								"I ain't got no ammo left.",
+								"I'm all out of ammo!",
+								"I'm out!"
+							},
+							{
+								"Anybody got an Ammo Bag to share?"
+							}
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						recombinable = true,
@@ -9200,6 +9537,14 @@ $1: Uh huh. right.]]
 			priority = 25,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I've placed an Ammo Bag over here.",
+							"I've dropped an Ammo Bag over here."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9258,6 +9603,14 @@ $1: Uh huh. right.]]
 			priority = 25,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I've got some medical supplies over here!",
+							"There's a medical bag over here!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9312,6 +9665,17 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Thanks.",
+							"Thanks.",
+							"Thanks.",
+							"Thanks.", -- he has like four variants of this
+							"[groans] Thanks."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9351,13 +9715,13 @@ $1: Uh huh. right.]]
 			}
 		},
 		s07x_sin = {
-			text = "(electrical tasing crackling)",
+			text = "[electrocuted gibberish]",
 			category = "heister_dialogue",
 			priority = 22,
 			duration = 5,
 			variants = {
 				rb3 = {
-					text = "[electrocuted gibberish]"
+					text = "AGHGHGHGGGHH-!"
 				}
 			}
 		},
@@ -9367,6 +9731,17 @@ $1: Uh huh. right.]]
 			priority = 26,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"You'll be up in a second.",
+							"Let's get you back in business.",
+							"Let's get you back up and runnin'.",
+							"I'll get you up.",
+							"I'll help you up."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9425,6 +9800,7 @@ $1: Uh huh. right.]]
 			priority = 25,
 			duration = 4,
 			variants = {
+				rb3 = nil, -- no lines for wolf
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9470,6 +9846,7 @@ $1: Uh huh. right.]]
 			priority = 25,
 			duration = 3,
 			variants = {
+				rb3 = nil, -- wolf has no voicelines for this
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9478,7 +9855,7 @@ $1: Uh huh. right.]]
 							"Bodybag Case, right here.",
 							"Bodybag Case deployed!"
 						},
-						assault_mode = { --why were assault variantions recorded
+						assault_mode = { --why were assault variations recorded
 							"Got a Bodybag Case here!",
 							"Bodybag Case"
 						}
@@ -9520,6 +9897,14 @@ $1: Uh huh. right.]]
 				rb4 = {
 					line_variations = {
 						standard_mode = {
+							"Okay, that was the last of my Cable Ties.",
+							"That's the last of 'em.",
+						}
+					}
+				},
+				rb4 = {
+					line_variations = {
+						standard_mode = {
 							"That was the last of my Cable Ties.",
 							"That was the last Cable Tie I had.",
 							"Okay, that was the last of my Cable Ties.",
@@ -9542,6 +9927,26 @@ $1: Uh huh. right.]]
 			priority = 26,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							{
+								"Anybody!",
+								"Guys!",
+								"Somebody!",
+								"Hey guys!"
+							},
+							{
+								"Help!",
+								"Help me up!",
+								"Over here!",
+								"I need help!",
+								"You gotta help me!",
+								"Give me a hand!"
+							}
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						recombinable = true,
@@ -9599,6 +10004,14 @@ $1: Uh huh. right.]]
 			priority = 27,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Time to make use of those old lockpicking skills...",
+							"I'll pick these cuffs in no time."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9626,6 +10039,13 @@ $1: Uh huh. right.]]
 			priority = 27,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"O-kay. Cuffs are off."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9655,6 +10075,16 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Get down on the ground!",
+							"Get DOWN!",
+							"Everybody, on the ground!",
+							"Down on the ground!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9713,6 +10143,17 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"On the ground!",
+							"On the ground!", -- two separate readings
+							"Get down on the ground!",
+							"Down!",
+							"Get down!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9762,6 +10203,21 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb4 = {
+					line_variations = {
+						standard_mode = {
+							"I said, get down!",
+							"I said, GET DOWN ON THE GROUND!",
+							"I said, DOWN ON THE GROUND!",
+							"I'm not gonna say it again!",
+							"I'm not gonna say it again!", -- two different readings
+							"You heard what I said?",
+							"Don't make me say it again!",
+							"NOW!" -- [down] NOW!
+						},
+						assault_mode = nil,
+					},
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9833,6 +10289,18 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Stay down, everyone!",
+							"Stay down!",
+							"Everybody stay down!",
+							"Nobody move!",
+							"Stay! DOWN!"
+						},
+						assault_mode = nil
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9890,6 +10358,17 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Stay still!",
+							"Stay down!",
+							"Don't move!",
+							"Stay where you are!"
+						},
+						DISABLED_assault_mode = {}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -9951,13 +10430,26 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
-				rb4 = {
+				rb3 = {
 					line_variations = {
 						standard_mode = {
 							"And stay there!",
 							"And stay put.",
 							"And stay down.",
 							"And don't you dare move.",
+							"And don't move."
+						},
+						DISABLED_assault_mode = {}
+					}
+				},
+				rb4 = {
+					line_variations = {
+						standard_mode = {
+							"Stay there!",
+							"Stay put!",
+							"Stay down!",
+							"And stay down!",
+							"And don't get up!",
 							"And don't move."
 						},
 						DISABLED_assault_mode = {}
@@ -9997,6 +10489,17 @@ $1: Uh huh. right.]]
 			priority = 23,
 			duration = 4,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Hey, you! Get up!",
+							"Get the fuck up!",
+							"You get the fuck up!",
+							"You! GET UP!"
+						},
+						DISABLED_assault_mode = {} --we need you, buddy! Stand up!
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -10057,6 +10560,25 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						whisper_mode = {
+							"[whispering] Keep it low.",
+							"[whispering] Don't make a sound.",
+							"[whispering] Watch it, guys.",
+							"[whispering] We're invisible.",
+							"[whispering] Guard.",
+							"[whispering] There's a guard here.",
+							"[whispering] Got a guard.",
+							"[whispering] Guard over here.",
+							"[whispering] There's one.",
+							"[whispering] They haven't spotted us.",
+							"[whispering] They're all over.",
+							"[whispering] Got one over here.",
+							"[whispering] Guard- stay clear."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						whisper_mode = {
@@ -27107,7 +27629,7 @@ $2: ...Putas.$b
 			duration = 8
 		},
 		Play_mrp_rvd_04 = {
-			text = "(complaining that heisters were slow)",
+			text = "The FUCK took so long, man?!",
 			category = "mission_dialogue",
 			override_name = "Mr. Purple",
 			override_source_id = "mrp",
