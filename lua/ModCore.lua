@@ -333,6 +333,8 @@ function ClosedCaptions:guess_speaker_from_string_id(event_id)
 		return "hud_subtitlemod_speaker_vlad"
 	elseif string.find(s,"^gem") then -- gemma mcshay
 		return "hud_subtitlemod_speaker_gem"
+	elseif string.find(s,"^kee") then
+		return "hud_subtitlemod_speaker_kee"
 	elseif string.find(s,"^cha") then
 		return "hud_subtitlemod_speaker_charon"
 	elseif string.find(s,"^mrp") then
