@@ -676,7 +676,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		-- maximum of 10 line breaks
 		local total_s = nil
 		--
-		for i=0,9,1 do 
+		for i=0,1,1 do 
 			local world_y2 = wy + (i+0.5) * line_height
 			local end_index = subtitle:point_to_index(world_x2,world_y2)
 			if end_index > 0 then
