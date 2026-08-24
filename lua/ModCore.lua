@@ -331,6 +331,10 @@ function ClosedCaptions:guess_speaker_from_string_id(event_id)
 		return "hud_subtitlemod_speaker_charon"
 	elseif string.find(s,"^loc") then
 		return "hud_subtitlemod_speaker_locke"
+	elseif string.find(s,"^mrp") then
+		return "hud_subtitlemod_speaker_rvd_purple"
+	elseif string.find(s,"^mrb") then
+		return "hud_subtitlemod_speaker_rvd_blue"
 	end
 end
 
@@ -589,8 +593,6 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		alpha = use_fadein and 0 or 1,
 		visible = false
 	})
-	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
-	
 	local arrow_left = item_panel:text({
 		name = "arrow_left",
 		text = "<",
@@ -627,20 +629,23 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 --	local margin_left = twa
 --	local margin_right = twb
 	
---	local line_h = self.settings.caption_font_size
---	local hor_text_margin,ver_text_margin = 2,2
+	local margin_sum = arrow_margin_hor+arrow_margin_hor+twa+twb
+	-- can't be larger than 70% of screen width
+	-- get the final width of the text component, after overflow splitting
+	local max_panel_w = (parent_w * 0.7) - margin_sum
+
 	local subtitle = item_panel:text({
 		name = "subtitle",
 		text = text,
 --		x = margin_hor/2,
 --		y = margin_ver/2,
---		w = item_panel:w() - (margin_left + margin_right),
+		w = max_panel_w,
 --		h = line_h,
-		align = "left", -- will be set center later
-		vertical = "top", -- note: vertical center doesn't work properly with custom fonts
-		word_wrap = false,
-		valign = "grow",
-		halign = "grow",
+		align = "center",
+		vertical = "center", -- note: vertical center doesn't work properly with custom fonts
+		wrap = true,
+		--valign = "grow", -- don't use these, as the w and h should be used for the bounding box of the text's word wrap
+		--halign = "grow",
 		font = tweak_data.hud_players.ammo_font,
 		font_size = self.settings.caption_font_size,
 		color = text_color,
@@ -654,123 +659,15 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		end
 	end
 	local txc,tyc,twc,thc = subtitle:text_rect()
-	local line_height = subtitle:line_height()
+	subtitle:set_h(thc + margin_ver)
 	
-	local margin_sum = arrow_margin_hor+arrow_margin_hor+twa+twb
-	-- can't be larger than 70% of screen width
-	-- get the final width of the text component, after overflow splitting
-	local max_panel_w = (parent_w * 0.7) - margin_sum
-	
-	
-	local max_text_w
-	if twc > max_panel_w then
-		-- overflow
-		max_text_w = max_panel_w
-		
-		--local max_text_w =  text_w - (arrow_margin_hor + arrow_margin_hor)
-		
-		local wx = subtitle:world_x()
-		local wy = subtitle:world_y()
-		local world_x2 = wx + max_text_w
-		
-		-- maximum of 10 line breaks
-		local total_s = nil
-		--
-		for i=0,1,1 do 
-			local world_y2 = wy + (i+0.5) * line_height
-			local end_index = subtitle:point_to_index(world_x2,world_y2)
-			if end_index > 0 then
-				
-				-- searching backwards, find next space in the substring
-				-- for a cleaner split, rather than splitting it in the middle of a word
-				local str = subtitle:text()
-				local subs = utf8.sub(str,1,end_index)
-	--			local sa,sb = string.find(subs,".*%s") -- may run into issues with some char sets; should use a utf8 solution if possible
-				local sb = utf8.find_char(utf8.reverse(subs)," ") -- can't use special characters, only string literals :(
-				local sub_len = utf8.len(subs)
-				if sb and sb < sub_len then
-					end_index = sub_len - sb
-				end
-				
-				if total_s then
-					total_s =  total_s .. "\n" .. utf8.sub(str,1,end_index)
-				else
-					total_s = utf8.sub(str,1,end_index)
-				end
-					
-				
-				subtitle:set_text(
-					utf8.sub(str,end_index+1,-1)
-				)
-				
-	--			if new_str then
-	--				new_str = new_str .. "\n" .. utf8.sub(text,i,i+end_index)
-	--			else
-	--				new_str = utf8.sub(text,i,i+end_index)
-	--			end
-			else
-				-- assume that the text doesn't have included line breaks
-				break
-			end
-		end
-		subtitle:set_text(total_s or text)
-		--]]
-	else
-		max_text_w = twc
-	end
-	-- panel is set to this width later
-	local new_panel_w = max_text_w + margin_sum
-	
-	
-	
-	item_panel:set_w(new_panel_w)
-	--item_panel:set_w(text_w + margin_hor)
-	
---	foored = ClosedCaptions._panel:rect({color=Color.red,w=10,h=10,x=world_x2-5,y=world_y2-5})
-	--[[
-	for i=1,ClosedCaptions._panel:w(),1 do 
-		for j=1,ClosedCaptions._panel:h(),1 do 
-			local end_index = subtitle:point_to_index(wx+i,wy+j)
-			if end_index and end_index > 0 then
-				Print("Found a thingy?",end_index,i,j,utf8.sub(text,1,end_index))
-				break
-			end
-		end
-	end
-	--]]
-	
-	subtitle:set_align("center")
-	subtitle:set_vertical("center")
-	--[[
-	local text_len = utf8.len(text)
-	if end_index and end_index < text_len and end_index > 0 then
-		local new_str
-		for i=1,text_len,end_index do 
-			if new_str then
-				new_str = new_str .. "\n" .. utf8.sub(text,i,i+end_index-1)
-			else
-				new_str = utf8.sub(text,i,i+end_index-1)
-			end
-		end
-		
-		local new_text = utf8.sub(text,1,end_index - 1) .. "\n" .. utf8.sub(text,end_index,-1)
-		subtitle:set_text(new_text)
-		self:Print("overflow",end_index,text,new_text)
-		subtitle:set_w(max_text_w)
-	else
-		self:Print("underflow",world_x2,world_y2,end_index,utf8.len(text))
-	end
-	--]]
-	
-	
+	item_panel:set_w(twc + margin_sum)
+	subtitle:set_x((item_panel:w() - subtitle:w()) / 2)
 	
 	local num_lines = subtitle:number_of_lines()
-	thc = num_lines * line_height
+	thc = num_lines * subtitle:line_height()
 	item_panel:set_h(thc + margin_ver)
-	subtitle:set_h(item_panel:h())
---	Print("Size",num_lines,text_w,subtitle:h())
 	
-	-- center subtitle
 	item_panel:set_x((parent_w - item_panel:w()) / 2)
 	
 	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(panel_name),function(settings,changed_settings)
@@ -787,6 +684,8 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		--]]
 		end
 	end)
+	
+	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
 	
 	if use_fadein then
 		local duration = self.settings.caption_fadeout_time
@@ -1357,6 +1256,8 @@ function ClosedCaptions.CreateBGBox(parent,params,panel_config,child_config)
 	local h = (params and params.h) or parent:h()
 	local panel = parent:panel({
 		name = "bgbox",
+		x = params.x or nil,
+		y = params.y or nil,
 		w = w,
 		h = h,
 		alpha = 0.5,
@@ -2179,6 +2080,10 @@ Hooks:Add("ConsoleMod_RegisterCommands","closedcaptions_load_dev_commands",funct
 				console:Log("Exporting sound_data.lua to sound_data.json and l10n...")
 				local path = ClosedCaptions._MOD_PATH .. "data/sounddata_conversion_script_2.lua"
 				console:Print(blt.vm.dofile(path))
+			elseif subcmd == "missing" then
+				logall(ClosedCaptions._debug_missing_lines_list)
+			elseif subcmd == "list" then
+				logall(ClosedCaptions._active_subtitles)
 			end
 		end
 	})

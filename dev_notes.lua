@@ -25,7 +25,8 @@ no unit names by tweak table
 cookoff: gangster death lingers forever
 
 
-
+resdogs
+	Play_loc_rvd_02 - includes a baked snippet at the end of mr blue going "i'll take care of our lil boy here"
 
 
 carshop manager chatter
