@@ -320,7 +320,19 @@ function ClosedCaptions:get_setting(setting,fallback)
 	return self.settings[setting]
 end
 
-
+-- i hate this because it relies entirely on the developers sticking to consistent naming practices for sound event ids, so i can't verify it.
+-- but i'm also realistically probably not going to be able to catalogue all of the multiple thousands of lines in this game.
+-- (notable exception sounds should be handled by putting their data inside the sound_data file)
+function ClosedCaptions:guess_speaker_from_string_id(event_id)
+	local s = string.gsub(event_id,"^[Pp]lay_","") -- remove 
+	if string.find(s,"^pln") then
+		return "hud_subtitlemod_speaker_bain"
+	elseif string.find(s,"^cha") then
+		return "hud_subtitlemod_speaker_charon"
+	elseif string.find(s,"^loc") then
+		return "hud_subtitlemod_speaker_locke"
+	end
+end
 
 -- ============================== Subtitle management
 
@@ -778,6 +790,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	
 	if use_fadein then
 		local duration = self.settings.caption_fadeout_time
+		item_panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
 	end
 	
 	return item_panel
@@ -830,6 +843,18 @@ function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
 	--]]
 	else
 		local speaker_id = self:guess_speaker_from_string_id(event_id)
+		if speaker_id then
+			
+			local speaker_name
+			if self:UseCapitalNames() then
+				speaker_name = managers.localization:to_upper_text(speaker_id)
+			else
+				speaker_name = managers.localization:text(speaker_name)
+			end
+			text = speaker_name .. ": " .. text
+		end
+		
+		
 		self:Print("Unknown contractor subtitle",event_id)
 	end
 	
