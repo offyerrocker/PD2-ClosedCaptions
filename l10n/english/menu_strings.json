@@ -31,7 +31,7 @@
 	"menu_closedcaptions_category_mission_dialogue_title" : "Category: Mission Dialogue",
 	"menu_closedcaptions_category_mission_dialogue_desc" : "Enable Captions for Mission Dialogue",
 	"menu_closedcaptions_category_contractor_vo_title" : "Category: Contractor VO",
-	"menu_closedcaptions_category_contractor_vo_desc" : "Enable Captions for Contractor Voice-Over lines.",
+	"menu_closedcaptions_category_contractor_vo_desc" : "Enable Captions for uncaptioned Contractor Voice-Over lines.\nNote: This option does not affect lines with base-game subtitles.",
 	"menu_closedcaptions_category_sfx_title" : "Category: SFX",
 	"menu_closedcaptions_category_sfx_desc" : "Enable Captions for Sound Effects",
 	"menu_closedcaptions_category_heister_dialogue_title" : "Category: Heister Dialogue",
