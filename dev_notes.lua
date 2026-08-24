@@ -1,6 +1,10 @@
 --[[
 
 
+
+-- conversations are not respecting distance
+
+
 so yeah the whole technical idea behind the mod (and sound_data specifically)
 is extrapolating data about the sound line solely based on the event id and whatever info we can get via lua
 such as whether the game is stealth or loud (which we can get).
@@ -28,11 +32,13 @@ carshop manager chatter
 	Play_man_ch1_01 
 
 
+oil whatever
+	Play_new_deep_01
+	Play_gab_deep_01
 
-
-
-
-
+generic bain callouts 
+	Play_pln_pow_01
+	play_pln_gen_bfr_10
 
 
 currently needs beardlib to manage soundsource-unit linking
