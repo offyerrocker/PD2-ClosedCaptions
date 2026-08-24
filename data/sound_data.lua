@@ -10634,6 +10634,16 @@ $1: Uh huh. right.]]
 			priority = 27,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Come with me.",
+							"Come with me!",
+							"Follow me.",
+							"Follow me quickly!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -10678,6 +10688,20 @@ $1: Uh huh. right.]]
 			priority = 45,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						whisper_mode = {
+							"[whispering] Watch it, guys.",
+							"[whispering] Watch out, guys.",
+							"[whispering] There!",
+							"[whispering] There's one.",
+							"[whispering] They're all over!",
+							"[whispering] Keep it low.",
+							"[whispering] Got one over here.",
+							"[whispering] We're invisible."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						whisper_mode = {
@@ -10726,6 +10750,15 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Get a move on!",
+							"Move!",
+							"Get movin'!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -10779,6 +10812,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Up, up!",
+							"GET UP!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -10820,6 +10861,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Up, up!",
+							"GET UP!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -10862,6 +10911,19 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"YOU HEAR ME!?",
+							"You hear me?",
+							"GIVE IT!",
+							"You had it coming! GIVE IN!",
+							"OH YEAH! Spill it!",
+							"HEY MOTHAFUCKA!",
+							"Spill it!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -10928,6 +10990,15 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Don't move!",
+							"Stay still!",
+							"Stay where you are!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -10969,6 +11040,22 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"You hear that? The drill's jammed.",
+								"Sounds like the drill has jammed.",
+								
+							},
+							{
+								"Somebody's gotta restart it!",
+								"Somebody's gotta fix it!"
+							}
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						recombinable = true,
@@ -10986,8 +11073,7 @@ $1: Uh huh. right.]]
 								"One of us has to fix it!",
 								"Somebody gotta restart it."
 							}
-						},
-						DISABLED_assault_mode = {}
+						}
 					}
 				},
 				rb9 = {
@@ -11046,6 +11132,21 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"Here we go again! The drill's stuck.",
+								"The drill's stuck again."
+							},
+							{
+								"Somebody gotta restart it!",
+								"Somebody gotta fix it!"
+							}
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						recombinable = true,
@@ -11103,12 +11204,20 @@ $1: Uh huh. right.]]
 				}
 			}
 		},
-		d03_plu = {
+		d03_plu = { -- not sure why saw lines are in here
 			text = "Spotted a busted computer.",
 			category = "heister_dialogue",
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"A saw is stuck, I can hear it!",
+							"You hear that? One of the saws must have jammed!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11117,8 +11226,7 @@ $1: Uh huh. right.]]
 							"Sounds like the computer's all fouled up!",
 							"Appears like the computer's busted!",
 							"Appears like the computer ain't workin' right!"
-						},
-						DISABLED_assault_mode = {}
+						}
 					}
 				},
 				rb9 = {
@@ -11152,6 +11260,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Aw, the saw is stuck! I can hear it!",
+							"It sounds like the saw has jammed!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11177,6 +11293,14 @@ $1: Uh huh. right.]]
 				rb4 = {
 					line_variations = {
 						standard_mode = {
+							"A saw is squeaking again!",
+							"One of the saws is stuck again!"
+						}
+					}
+				},
+				rb4 = {
+					line_variations = {
+						standard_mode = {
 							"Computer's beeping again!",
 							"We gotta fix the computer again!",
 							"A machine ain't workin' again!",
@@ -11195,6 +11319,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Time to fix that saw again!",
+							"The saw is squeaking again!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11218,6 +11350,22 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						recombinable = true,
+						standard_mode = {
+							{
+								"You hear that? It's jammed!",
+								"It's stuck, I can hear it!"
+							},
+							{
+								"Somebody's gotta restart it!",
+								"Somebody's gotta fix it!"
+							}
+						},
+						DISABLED_assault_mode = {}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						recombinable = true,
@@ -11386,7 +11534,8 @@ $1: Uh huh. right.]]
 		}, --mask up				
 		i01x_any = {
 			text = "[Anticipation phase]",
-			category = "UNKNOWN"
+			category = "UNKNOWN",
+			disabled = true
 		},
 		r01x_sin = { --bot 'follow me' response; short delay
 			text = "Gotcha.",
@@ -11394,6 +11543,16 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I'm comin'!",
+							"I'm comin'.",
+							"Comin'!",
+							"Okay."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11431,6 +11590,16 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 5,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Be right there!",
+							"As fast as I can! Hang in there!",
+							"I'm coming for ya! You hang in there!",
+							"I'll be there in a flash! You hang in there, now!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11490,6 +11659,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Gotcha!",
+							"Gotcha."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11549,6 +11726,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Just a couple of minutes left.",
+							"Just a few minutes left now."
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11568,6 +11753,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"We're halfway through!",
+							"We're about halfway through now!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11588,6 +11781,14 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 3,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Any second now!",
+							"Just a couple more seconds!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11609,6 +11810,15 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 2,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Hands up! No sudden movements!",
+							"Stick 'em up!",
+							"Put 'em up!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11672,6 +11882,16 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 2,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Down on your knees!",
+							"On your knees!",
+							"Get on your knees!",
+							"Get down on your knees!"
+						}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11728,6 +11948,18 @@ $1: Uh huh. right.]]
 			priority = 35,
 			duration = 2,
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"Now cuff yourself!",
+							"Cuff yourself!",
+							"Cuff yourself.",
+							"Put your cuffs on!",
+							"Handcuff yourself!"
+						},
+						DISABLED_assault_mode = {}
+					}
+				},
 				rb4 = {
 					line_variations = {
 						standard_mode = {
@@ -11771,7 +12003,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		tasered_3rd = { --loops; thirdperson
-			text = "tasered_3rd",
+			text = "[taser crackles]",
 			max_distance = 3000,
 			category = "sfx",
 			loop_data = {
@@ -11785,6 +12017,54 @@ $1: Uh huh. right.]]
 			priority = 31,
 			duration = 10, --default pager answer time is 10s
 			variants = {
+				rb3 = {
+					line_variations = {
+						standard_mode = {
+							"I bet it's sunspots. I read about them in the Times.",
+							"Yeah, I'm... just watching the clock.",
+							"Yeah, I'm, I'm... watching the clock.",
+							"Nothing really happening here.",
+							"Uh... it's uh, nothing? Could it be a problem on your end?",
+							"Eh, d- uh, uh... I don't see much. Over.",
+							"I don't hear anything. Maybe sunspots?",
+							"Uh... nothing out of the ordinary. Over...?",
+							"I'd doublecheck your end. I have little faith in our... technical support.",
+							"Are you meaning to tell me that these pagers are not waterproof? I was conducting some experiments in that... area of things.",
+							"I heard that noise too. I got the shivers now, but I'm be fine. I'll be fine.",
+							"Uh, uh, uh, uh... status, uh... totally, completely normal.",
+							"No, every-everything is fine here.",
+							"Nothing out of the ordinary... over.",
+							"Uh... I think the problem is on your end.",
+							"Sorry we just had a small weapons malfunction over here... uh... over? Sir.",
+							"Nope. Maybe the problem is on your side.",
+							"Uhhhhh... I was draining the mongoose. Um, it needed draining.",
+							"I was draining the mongoose! Had a margarita for lunch.",
+							"Uhhhh... everything's fine over here.",
+							"You know, that... probably was my fault. I hit it by accident.",
+							"Hell if I know. I read a Stephen King book, though. Started exactly like this.",
+							"Uh, I don't know! Maybe it's a problem. But I... doubt it.",
+							"Uh, sorry, it's, uh... all good. Over here. ...Over.",
+							"Uh, uh, uh! Status... good. Over.",
+							"This place isn't haunted, is it? ...I'll be fine.",
+							"Leave your message at the beep. BEEP! ...No, I'm kidding. It's me, Steve. It's all fine.",
+							"[higher voice] You've reached... S... [deeper voice] Steve! [higher voice] He's unavailable at the moment. Leave your number at the beep. BEEP! No, I'm kidding. It's me, Steve. It's all right here.", -- two nearly identical deliveries but one says 'steve' in a slightly deeper voice
+							"S- uh, s-status normal... sir. Over.",
+							"Uhhhhhhh... I think... we're all fine... down here. Uh, it's a little warm.",
+							"It's good down here. But I think the thermostat is a bit high.",
+							"Uh, not a lot to report, to be honest, over.",
+							"Uh, are these pagers not waterproof?",
+							"I doubt that was anything. These devices tend to freak out, you know?",
+							"Are you sure? Really sure? I didn't hear anything.",
+							"My bad, I just, uh, well, I... hair gel... situation. Yeah.",
+							"Uh, we have some... might big... rats.",
+							"I was shaking off the squirrel! Give me a break.",
+							"I... don't think that was... anything. At all.",
+							"Oh yeah, uh, I might have accidentally fallen down.",
+							"Well, uh, next time it goes off, we can see... but I don't see anything now.",
+							"I was in the bathroom, uh... if you wanna know the truth, today was Mexican day."
+						}
+					}
+				},
 				rb4 = { --incomplete
 					line_variations = {
 						standard_mode = {

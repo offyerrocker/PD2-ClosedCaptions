@@ -327,12 +327,14 @@ function ClosedCaptions:guess_speaker_from_string_id(event_id)
 	local s = string.gsub(event_id,"^[Pp]lay_","") -- remove 
 	if string.find(s,"^pln") then
 		return "hud_subtitlemod_speaker_bain"
-	elseif string.find(s,"^vld") then
-		return "hud_subtitlemod_speaker_vlad"
-	elseif string.find(s,"^cha") then
-		return "hud_subtitlemod_speaker_charon"
 	elseif string.find(s,"^loc") then
 		return "hud_subtitlemod_speaker_locke"
+	elseif string.find(s,"^vld") then
+		return "hud_subtitlemod_speaker_vlad"
+	elseif string.find(s,"^gem") then -- gemma mcshay
+		return "hud_subtitlemod_speaker_gem"
+	elseif string.find(s,"^cha") then
+		return "hud_subtitlemod_speaker_charon"
 	elseif string.find(s,"^mrp") then
 		return "hud_subtitlemod_speaker_rvd_purple"
 	elseif string.find(s,"^mrb") then
