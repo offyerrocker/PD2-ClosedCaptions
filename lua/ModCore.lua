@@ -756,7 +756,7 @@ function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
 			if self:UseCapitalNames() then
 				speaker_name = managers.localization:to_upper_text(speaker_id)
 			else
-				speaker_name = managers.localization:text(speaker_name)
+				speaker_name = managers.localization:text(speaker_id)
 			end
 			text = speaker_name .. ": " .. text
 		end
@@ -795,12 +795,12 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		return
 	end
 	
-	local sound_data = self._sound_data
-	if sound_data.disabled_sounds[event_id] then
+	if self._sound_data.disabled_sounds[event_id] then
 		return
 	end
+	local sound_data = self._sound_data.vo[event_id]
 	
-	local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
+	local text,text_color,color_ranges,variation_data,conversation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
 	if not variation_data then
 		--self:Print("No variation_data",event_id)
 		return
@@ -832,30 +832,29 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	local end_t = nil
 	
 	local is_player = alive(unit) and unit == managers.player:local_player()
-	if not is_player and variation_data.duration then
+	if not is_player and (variation_data.duration or sound_data.duration) then
 		local t = TimerManager:game():time()
-		end_t = t + variation_data.duration
+		end_t = t + (variation_data.duration or sound_data.duration)
 	end
 	
 	local item_panel
-	local loop_data = variation_data.loop_data
-	local is_recombinable = variation_data.is_recombinable
-	local is_locationless = variation_data.is_locationless or is_player
-	local max_distance = variation_data.max_distance
-	local priority = variation_data.priority or 0
+	local loop_data = sound_data.loop_data
+	local is_recombinable = sound_data.is_recombinable
+	local is_locationless = sound_data.is_locationless or is_player
+	local max_distance = sound_data.max_distance
+	local priority = sound_data.priority or 0
 	local distance = 100000
-	local conversation_data
-	if variation_data.conversation then
+	if conversation_data then
 		-- todo process this in sound data loading
 		local sentences = {}
 		local color_ranges = {}
-		local sp = string.split(string.gsub(managers.localization:text(variation_data.conversation.text),"\n",""),"$b")
+		local sp = string.split(string.gsub(managers.localization:text(conversation_data.text),"\n",""),"$b")
 		local speaker_names = {}
-		for speaker_index,speaker_id in pairs(variation_data.conversation.speakers) do	
+		for speaker_index,speaker_id in pairs(conversation_data.speakers) do	
 			local name = managers.localization:text(speaker_id)
 			speaker_names[speaker_index] = name
 			
-			local range_col = self:GetColor(variation_data.conversation.colors[speaker_index])
+			local range_col = self:GetColor(conversation_data.colors[speaker_index])
 			color_ranges[speaker_index] = {0,utf8.len(name)+1,range_col or Color.white}
 		end
 		
@@ -865,6 +864,9 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 			for speaker_index,speaker_name in pairs(speaker_names) do 
 				if not color_range_index and string.find(sentence,"^%$" .. speaker_index) then
 					color_range_index = speaker_index
+				end
+				if self:UseCapitalNames() then
+					speaker_name = utf8.to_upper(speaker_name)
 				end
 				sentence = string.gsub(sentence,"%$" .. speaker_index,speaker_name)
 			end
@@ -876,9 +878,9 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		--local interval = variation_data.duration / #sp
 		local t = TimerManager:game():time()
 		conversation_data = {
-			intervals = variation_data.conversation.timing or nil,
+			intervals = conversation_data.timing or nil,
 			color_ranges = color_ranges,
-			conversation = variation_data.conversation,
+			conversation = conversation_data,
 			sentences = sentences,
 			current_index = 0, -- somehow this is still one ahead of what it should be
 			start_t = t,
@@ -1017,6 +1019,7 @@ function ClosedCaptions:_remove_subtitle(id,instant)
 	end
 end
 
+-- returns str,text_color,color_ranges,variation_data,conversation_data
 function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,position)
 	
 	local sound_data = self._sound_data.vo[event_id]
@@ -1100,21 +1103,25 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		return
 	end
 	
-		
+	local conversation_data
 	local variations = variation_data.line_variations or sound_data.line_variations
 	if variations and self:IsLineRandomizationEnabled() then 
-		local is_recombinable = variations.recombinable
-		local is_whisper_mode = groupai_state and groupai_state:whisper_mode()
-		local is_assault_mode = groupai_state and groupai_state:get_assault_mode()
-		if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
---			variation_data = variations.whisper_mode
-			text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
-		elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
---			variation_data = variations.assault_mode
-			text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
-		elseif variations.standard_mode then --no requirements
---			variation_data = variations.standard_mode
-			text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
+		if variations.conversation then
+			conversation_data = table.random(variations.conversation)
+		else
+			local is_recombinable = variations.recombinable
+			local is_whisper_mode = groupai_state and groupai_state:whisper_mode()
+			local is_assault_mode = groupai_state and groupai_state:get_assault_mode()
+			if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
+	--			variation_data = variations.whisper_mode
+				text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
+			elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
+	--			variation_data = variations.assault_mode
+				text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
+			elseif variations.standard_mode then --no requirements
+	--			variation_data = variations.standard_mode
+				text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
+			end
 		end
 	elseif sound_data.text then 
 		text = sound_data.text
@@ -1126,6 +1133,8 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 --		end
 --		return
 	end
+	
+	conversation_data = conversation_data or variation_data.conversation
 	
 	if variation_data.disabled then
 		return
@@ -1214,7 +1223,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	else
 		str = tostring(text) -- just the line, no colon, if no speaker string
 	end
-	return str,text_color,color_ranges,variation_data
+	return str,text_color,color_ranges,variation_data,conversation_data
 end
 
 --chooses a random caption variation from the sound_table

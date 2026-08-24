@@ -9,7 +9,7 @@ local FLATTEN_RECOMBINATIONS = false
 
 local SOUND_DATA_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.lua"
 local DATA_OUT_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.json"
-local L10N_OUT_PATH = ClosedCaptions._SOUNDDATA_PATH .. "test_l10n.json"
+local L10N_OUT_PATH = ClosedCaptions._SOUNDDATA_PATH .. "subtitles.json"
 local sound_data = blt.vm.dofile(SOUND_DATA_PATH)
 
 local ALLOWED_FIELDS = { -- if true, the field will be copied from the original data
@@ -80,7 +80,8 @@ local REPLACEMENT_OVERRIDE_NAMES = {
 local REPLACEMENT_VARIATION_NAMES = {
 	standard_mode = "gen",
 	assault_mode = "ass",
-	whisper_mode = "ste"
+	whisper_mode = "ste",
+	conversation = "cnv"
 }
 
 
@@ -179,14 +180,21 @@ for event_id,data in pairs(sound_data.vo) do
 						
 					elseif type(var_data) == "table" then
 						local var_id = REPLACEMENT_VARIATION_NAMES[var_type]
+						
 						if var_id then
 							new_line_variations[var_id] = {}
-							
-							for variation_index,variation_text in pairs(var_data) do 
-								-- eg v10_var_gen_1_5
-								local loc_id = _event_id .. "_state_" .. var_id .. "_var_" .. variation_index
-								new_line_variations[var_id][variation_index] = loc_id
-								new_loc_data[loc_id] = variation_text
+							if var_type == "conversation" then
+								for variation_index,conversation_data in pairs(var_data) do 
+									local conv_loc_id = "hud_subtitlemod_" .. var_id .. "_var_" ..  variation_index .. "_" .. event_id
+									new_loc_data[conv_loc_id] = conversation_data.convo
+								end
+							else
+								for variation_index,variation_text in pairs(var_data) do 
+									-- eg v10_var_gen_1_5
+									local loc_id = _event_id .. "_state_" .. var_id .. "_var_" .. variation_index
+									new_line_variations[var_id][variation_index] = loc_id
+									new_loc_data[loc_id] = variation_text
+								end
 							end
 						else
 							-- only catches disabled groups at this point
@@ -200,12 +208,13 @@ for event_id,data in pairs(sound_data.vo) do
 				-- regular override for standard definitions (text,priority,category,max_distance,duration)
 				new_line_variations[k] = v
 			end
+			
+			if _data.convo then
+				local conv_loc_id = "hud_subtitlemod_" .. REPLACEMENT_VARIATION_NAMES.conversation .. "_" .. event_id
+				new_loc_data[conv_loc_id] = _data.convo
+			end
 		end
 		
-		if _data.convo then
-			local conv_loc_id = "hud_subtitlemod_convo_" .. event_id
-			new_loc_data[conv_loc_id] = _data.convo
-		end
 		
 		
 		return new_line_variations

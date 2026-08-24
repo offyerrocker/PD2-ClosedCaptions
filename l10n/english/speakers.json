@@ -9,6 +9,7 @@
 	"hud_subtitlemod_speaker_charon" : "Charon",
 	"hud_subtitlemod_speaker_gem" : "McShay",
 	"hud_subtitlemod_speaker_kee" : "Keegan",
+	"hud_subtitlemod_speaker_rainey" : "Rainey",
 	"hud_subtitlemod_speaker_dentist" : "The Dentist",
 	"hud_subtitlemod_speaker_artdealer" : "Art Buyer",
 	"hud_subtitlemod_speaker_bankcustomer" : "Bank Customer",
@@ -50,6 +51,8 @@
 	"hud_subtitlemod_speaker_winters" : "Captain Winters",
 	"hud_subtitlemod_speaker_wwh_captain" : "Captain",
 	"hud_subtitlemod_speaker_wwh_crew" : "Crew Member",
+	"hud_subtitlemod_speaker_unknown_male" : "Man",
+	"hud_subtitlemod_speaker_unknown_female" : "Woman",
 	"hud_subtitlemod_speaker_gen_civilian_1" : "Man 1",
 	"hud_subtitlemod_speaker_gen_civilian_2" : "Man 2"
 	

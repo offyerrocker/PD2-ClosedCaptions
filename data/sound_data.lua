@@ -2609,7 +2609,7 @@ return {
 				timing = {
 					3.6,8.7,14.1,17.8,20
 				},
-				text = "hud_subtitlemod_convo_Play_ncr_fish_01",
+				text = "hud_subtitlemod_cnv_Play_ncr_fish_01",
 				convo = [[
 $1: As the campaign for the mayoral election gets going,$b
 $1: Nancy Bukowski seems to be sailing up as the main challenger to Bob McKendrick!$b
@@ -2633,7 +2633,7 @@ $1: It might be a close race this year!]]
 				timing = {
 					3.1,5.3,10
 				},
-				text = "hud_subtitlemod_convo_Play_ncr_fish_02",
+				text = "hud_subtitlemod_cnv_Play_ncr_fish_02",
 				convo = [[
 $1: So this is the luxurious dining room!$b
 $1: Food is brought up from the kitchen downstairs,$b
@@ -2656,7 +2656,7 @@ $1: and guests may enjoy a high-quality meal in these very exclusive surrounding
 				timing = {
 					5.0,9.0,11.8,15
 				},
-				text = "hud_subtitlemod_convo_Play_ncr_fish_03",
+				text = "hud_subtitlemod_cnv_Play_ncr_fish_03",
 				convo = [[
 $1: As you can see here, Powell has a collection of rare... uh... fish!$b
 $1: There are various, uh... colors, and sizes, and, uh...$b
@@ -2680,7 +2680,7 @@ $1: I don't know what to say about those goddamn fishes.
 				timing = {
 					5.6,8.3,12.13,15
 				},
-				text = "hud_subtitlemod_convo_Play_ncr_fish_04",
+				text = "hud_subtitlemod_cnv_Play_ncr_fish_04",
 				convo = [[
 $1: As you can see, we're standing here on the aft deck of this beautiful yacht!$b
 $1: The views of New York City are stunning!$b
@@ -2704,7 +2704,7 @@ $1: and it's a beautiful night here in New York!
 				timing = {
 					4.0,9.8,14.9,17
 				},
-				text = "hud_subtitlemod_convo_Play_ncr_fish_05",
+				text = "hud_subtitlemod_cnv_Play_ncr_fish_05",
 				convo = [[
 $1: There are four of these luxurious bedrooms here on the yacht!$b
 $1: I expect you'd sleep rather well here if you were on a long cruise in, say, the Caribbean!$b
@@ -2728,7 +2728,7 @@ $1: with access to these private rooms.
 				timing = {
 					3.2,9.6,18.2,21
 				},
-				text = "hud_subtitlemod_convo_Play_ncr_fish_06",
+				text = "hud_subtitlemod_cnv_Play_ncr_fish_06",
 				convo = [[
 $1: This is where it all happens, food-wise!$b
 $1: On cruises, a large kitchen staff will be working here to keep passengers happy and well-fed.$b
@@ -2752,7 +2752,7 @@ $1: [NORMAL VOICE] ...Tom, do you think we could snag a beer from the fridge her
 				timing = {
 					5.4,8.0,14
 				},
-				text = "hud_subtitlemod_convo_Play_ncr_fish_07",
+				text = "hud_subtitlemod_cnv_Play_ncr_fish_07",
 				convo = [[
 $1: As you can see, the library here is a balcony with views of the downstairs dining room!$b
 $1: The owner has a huge collection of books here!$b
@@ -2775,7 +2775,7 @@ $1: I know I saw some Sartre here, and there was definitely some Tolstoy, too!
 				timing = {
 					6.4,9.6,14
 				},
-				text = "hud_subtitlemod_convo_Play_ncr_fish_08",
+				text = "hud_subtitlemod_cnv_Play_ncr_fish_08",
 				convo = [[
 $1: So yeah, this is where the yacht's owner and guests can sit down and enjoy a nice glass of wine!$b
 $1: There are also large tobacco humidors in this area,$b
@@ -2801,7 +2801,7 @@ $1: so it's definitely what you might call 'a relax zone!'
 				timing = {
 					1.62,5.7,7.9,9.3,11,12.5,15.7,19,22.9,25.4,30,32.1,33.5,36.3,37.3,42.2,45,47.8,49.8,53.1,55.4,59.3,61.2,62.7,65.6,69.5,72.5,74,76.6,78.3,81.3,83.5,86.9,90,94.7,99,102.3,104.2,105.7,107.6,110.2,111.0,115.7,120.7,123.7,128,130.8,134.0,135.9,142.3,144.2,150.6,153.6,157.9,161.4,165.7,167.4,168.1,170.4,171.9,173.6,175,179.3,180.9,185.8,189.6,192,194.1,198.3,200.2,201.3,205.1,207.6,209.4,212.1,214.0,218.3,221.7,222.9,224.4,226.8,228.2,231.2,232.7,236.4,239.0,241.6,244,245.2,247.5,251.2,253.2,256.7,258.7,261.2,264.9,266.7,271.1,273.4,274.5,275.7,278.9,282.4,288.1,292.7,295.3,296.5,299.8,301.0,302.8,307.1,311.0,312.1,316.7,320.4
 				},
-				text = "hud_subtitlemod_convo_Play_pent_civs_lobby",
+				text = "hud_subtitlemod_cnv_Play_pent_civs_lobby",
 				convo = [[$1: You just took it and ran?$b
 $2: HIM! I took HIM and ran. It's a dog, not a thing.$b
 $1: Whatever. That's straight-up stealing.$b
@@ -2937,7 +2937,7 @@ $2: Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
 				timing = {
 					2.0,2.8,5.7,7.0,9.6,10.6,16.9,19.5,22.0,26.6,28.1,29.6,32.0,35.9,37.9,46.2,48.8,51.6,54.3,58.0,59.3,63.5,67.0,68.7,70.0,73.9,76.2,80.6,82.3,87.4,90.1,94.2,100.5,103.0,109.0,113.2,114.4,117.0,119.6,122.7,125.3,129.1,135.1,137.3,141.8,144.7,147.2,154.5,158.1,159.9,165.4,169.6,173.4,179.3,182.8,185.0,190.3,198.0,199.6,203.4,205.7,206.9,208.4,210.7,211.9,213.8,217.5,220.9,222.4,226.6,230.3,234.3,236.1,241.3,242.6,247.6,256.0,259.3,260.5,263.1,266.9,272.7,275.2,279.3,282.3,285.2,289.5,291.9,294.1,300.1,303.0
 				},
-				text = "hud_subtitlemod_convo_Play_buyers_chca_01",
+				text = "hud_subtitlemod_cnv_Play_buyers_chca_01",
 				convo = [[$1: The guy is fuckin' nuts.$b
 $2: Huh?$b
 $1: He's nuts! This is going to ruin us!$b
@@ -25221,7 +25221,7 @@ $1: Uh huh. right.]]
 				timing = {
 					1.3,4.8,6.1,8.7,12.3,16.7,19.4,20.0,23.3,27.0,28.0
 				},
-				text = "hud_subtitlemod_convo_Play_snippet_hb3_01",
+				text = "hud_subtitlemod_cnv_Play_snippet_hb3_01",
 				convo = [[
 [tape clicks on]$b
 $1: [AMUSED] Is it true? You're getting access to Crime.net?$b
@@ -25254,7 +25254,7 @@ $2: Rat them out, you mean? What could you possibly offer me?$b
 				timing = {
 					1.0,6.1,12.3,14.1,18.6,23.9,25.0,29.7,32.9,33.9,39.9,41.0
 				},
-				text = "hud_subtitlemod_convo_Play_snippet_hb3_02",
+				text = "hud_subtitlemod_cnv_Play_snippet_hb3_02",
 				convo = [[
 [tape clicks on]$b
 $1: I'm getting impatient, Hector. Look. I know you're connected to Bain.$b
@@ -25289,7 +25289,7 @@ $1: You wanna do time? I'll let every lowlife in Mount Olive have a piece of you
 				timing = {
 					1.7,3.1,8.3,10.4,14.1,18.4,20.0,23.8,28.1,29.0
 				},
-				text = "hud_subtitlemod_convo_Play_snippet_hb3_03",
+				text = "hud_subtitlemod_cnv_Play_snippet_hb3_03",
 				convo = [[
 [tape clicks on]$b
 $1: We have him in custody.$b
@@ -25321,7 +25321,7 @@ $1: And with your help, I intend to deliver.$b
 				timing = {
 					1.0,6.0,7.1,10.8,11.1,13.4,15.8,20.6,22.7,22.9,29.4,30.0
 				},
-				text = "hud_subtitlemod_convo_Play_snippet_hb3_04",
+				text = "hud_subtitlemod_cnv_Play_snippet_hb3_04",
 				convo = [[
 [tape clicks on]$b
 $1: You've had your fun.$b
@@ -25356,7 +25356,7 @@ $1: -and if you don't wanna share a cell with those bastards, you'd better give 
 				timing = {
 					1.0,3.8,5.4,8.2,12.4,16.2,19.4,22.1
 				},
-				text = "hud_subtitlemod_convo_Play_snippet_hb3_05",
+				text = "hud_subtitlemod_cnv_Play_snippet_hb3_05",
 				convo = [[
 [tape clicks on]$b
 $2: It's a white box van you'll be looking for. A meat truck.$b
@@ -25387,7 +25387,7 @@ $1: What're they gonna do? Try to shoot their way out?$b
 				timing = {
 					0.9,4.6,10.1,13.2,14.0,19.2,23.1,28.3,32.4,37.5,42.4,44.8,45.3
 				},
-				text = "hud_subtitlemod_convo_Play_snippet_hb3_06",
+				text = "hud_subtitlemod_cnv_Play_snippet_hb3_06",
 				convo = [[
 [tape clicks on]$b
 $1: You heard about the incident at the Courthouse? [pause] They got Hoxton back.$b
@@ -28398,6 +28398,505 @@ $2: ...Putas.$b
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 17
+		},
+		
+		-- Hostile Takeover
+		Play_rai_corp_01 = {
+			speaker_id = "hud_subtitlemod_speaker_rainey",
+			text = "(incriminating voicemail)",
+			line_variations = { 
+				standard_mode = {
+					"You think I can't see your browser history, Gabriel? I know you're looking into the guys that ripped off your brother. For fuck's sake, don't do anything stupid. We can't go near this Midland Ranch thing until the heat dies down. You'll get revenge, but you need to be patient.",
+					"Gabriel? I know you're lookin' into the crew that hit Midland Ranch. Do not seek retaliation. Understand me? We're all pissed about what happened to your brother, but we've got to put as much distance between SERA and those guns as possible. We'll hit back when I say it's time.",
+					"Gabriel. Listen to me. I know you're pissed about what happened to Esteban. He did good work for us. But Midland Ranch is way too hot for us right now. We can't risk implicating SERA in your brother's racket. No kickin' down doors until this cools off."
+				}
+			},
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 15
+		},
+		Play_rai_corp_02 = {
+			speaker_id = "hud_subtitlemod_speaker_rainey",
+			text = "(SERA propaganda)",
+			line_variations = { 
+				standard_mode = {
+					"Here at SERA Inc., we're not trying to invent the wheel- we're trying to make the wheel better! Oil is here to stay, but through our new advancements in carbon capture technology, we plan to cut CO2 emissions at all our refineries by over 50% over the next decade. For the first time, petroleum and clean energy will be one and the same! All thanks to SERA - Oil You Can Trust™!",
+					"When I founded SERA Inc., I knew breaking into the oil industry wouldn't be easy. The competition is fierce! Resources are limited, and some folks think 'petroleum' is a dirty word. But I remember what my momma always said: 'Think bigger!' We're called 'Sustainable Energy and Research Applications' for a reason! We're not just making petroleum- we're making new ways to make petroleum! The future begins at SERA - Oil You Can Trust!™"
+				}
+			},
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 15
+		},
+				
+		Play_ars_corp = { -- blackmail recording
+			category = "mission_dialogue",
+			text = "(incriminating recording of Rainey soliciting sabotage)",
+			priority = 98,
+			duration = 20,
+			line_variations = {
+				conversation = {
+					{
+						speakers = {
+							[1] = "hud_subtitlemod_speaker_rainey",
+							[2] = "hud_subtitlemod_speaker_unknown_male"
+						},
+						colors = {
+							[1] = "boss",
+							[2] = "neutral1"
+						},
+						timing = {
+							5.5,16,18
+						},
+						text = "hud_subtitlemod_cnv_var_1_Play_ars_corp",
+						convo = [[
+$2: Do you want it to look like an accident, or are you trying to... send a message?$b
+$1: Accident. Needs to look like Keegan Oil skimped on their oil safety protocols. No one can trace the fire back to SERA. That's why I hired a foreigner for this job.$b
+$2: Consider it done.$b
+]]
+					},
+					{
+						speakers = {
+							[1] = "hud_subtitlemod_speaker_rainey",
+							[2] = "hud_subtitlemod_speaker_unknown_male"
+						},
+						colors = {
+							[1] = "boss",
+							[2] = "neutral1"
+						},
+						timing = {
+							4.3,8.4,15.4,21
+						},
+						text = "hud_subtitlemod_cnv_var_2_Play_ars_corp",
+						convo = [[
+$1: Before you blow up the tanker, be sure to spill a few gallons first.$b
+$1: I want Keegan to be on the EPA's shitlist.$b
+$2: You... are aware the ecological damage could be, uh... cómo se dice... severe?$b
+$1: Doesn't matter. I wanna put that hick out of business. Whatever it takes.
+]]
+					},
+					{
+						speakers = {
+							[1] = "hud_subtitlemod_speaker_rainey",
+							[2] = "hud_subtitlemod_speaker_unknown_male"
+						},
+						colors = {
+							[1] = "boss",
+							[2] = "neutral1"
+						},
+						timing = {
+							7.0,14.0,16.0
+						},
+						text = "hud_subtitlemod_cnv_var_3_Play_ars_corp",
+						convo = [[
+$2: When I blow the refinery... people could die. [chuckles] They usually do. Are you ready for that, Miss Rainey?$b
+$1: It's the price of business! If Keegan wanted to play it safe, he shoulda stuck to smuggling.$b
+$2: Okay. [speaks spanish]
+]]
+					}
+				}
+			}
+		},
+		
+		
+		-- tracy dialogs
+		Play_mee_corp_01 = {
+			category = "civilian_dialogue",
+			text = "(chatter)",
+			priority = 98,
+			duration = 140,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_female",
+					[2] = "hud_subtitlemod_speaker_unknown_male"
+				},
+				colors = {
+					[1] = "neutral2",
+					[2] = "neutral1"
+				},
+				timing = {
+					3.2,7.9,11.7,15.4,17.1,18.4,24.7,27.3,29.8,36.0,38.7,40.5,43.0,46.3,49.5,54.7,58.4,61.6,63.9,66.7,68.7,72.0,76.2,79.6,81.8,84.1,88.9,92.5,99.6,102.0,105.2,108.7,111.2,113.2,117.2,121.7,126.5,129.2,131.4,135.5,137.2,139.8
+				},
+				text = "hud_subtitlemod_cnv_Play_mee_corp_01",
+				convo = [[
+$1: Let's make this quick. I've got a lot to do before the event.$b
+$2: Hey. You dragged me up here, and you're not the only one who's busy.$b
+$1: I want to run through your presentation. Make sure it's aligned with our branding.$b
+$2: Woah, woah, woah, wait. I'm not giving a presentation.$b
+$1: Yes, you are.$b
+$2: No, I'm not.$b
+$1: Yes, you are! I introduce the product, then you come in and explain the technical specs.$b
+$2: Wh-why did no-one tell me about this?$b
+$1: I sent you an email! Months ago!$b
+$2: Aw, shit. I kinda set your emails to go straight to my spam folder.$b
+$1: Nice. Really nice.$b
+$2: I think I'w m gonna be sick.$b
+$1: Ugh. You're fine, get a grip.$b
+$2: There is no way I'm going on that stage tonight.$b
+$1: You have to. You're the bulk of the presentation.$b
+$2: You know I hate public speaking! Why would you base this whole event around me?$b
+$1: Because no-one on the marketing team knows what this thing does!$b
+$2: How is that possible? You named it!$b
+$1: And I did a damned good job!$b
+$2: It is a TERRIBLE name, Tracy.$b
+$1: Ugh, this again.$b
+$2: 'Neo-2?' Are you serious?$b
+$1: It's sleek, it's futuristic, it rhymes with CO2.$b
+$2: It sounds like a shitty 'Matrix' spin-off!$b
+$1: Why does everyone keep saying that?$b
+$2: Because it's true!$b
+$1: The name's locked. It's a good name. And- and we're not rehashing this!$b
+$2: Stupid. So, so stupid.$b
+$1: Look, you're gonna do fine! Just.. throw out a bunch of cool sounding science lingo, and... y'nno, try not to sweat too much.$b
+$2: What if I ... vomit on stage?$b
+$1: You- ...is that a possibility?$b
+$2: Sometimes, when I get really nervous, I vomit.$b
+$1: Okay, well, don't do that.$b
+$2: I can't help it!$b
+$1: Then take a Xanax or something. Chill out.$b
+$2: This is the least chill scenario I can possibly imagine!$b
+$1: And it's happening whether you like it or not, so quit bitching and get your shit together.$b
+$2: I hate you so much for this.$b
+$1: I couldn't care less what you think of me.$b
+$2: Ugh, I gotta go... figure out what I'm gonna say.$b
+$1: Yeah, you do that.$b
+$2: Yeah, thanks for nothing.$b
+]]
+			}
+		},
+		Play_mar_corp_01 = {
+			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			category = "civilian_dialogue",
+			text = "(chatter)",
+			priority = 98,
+			duration = 20,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_female"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					1,2,3,4,5,6
+				},
+				text = "hud_subtitlemod_cnv_Play_mar_corp_01",
+				convo = [[
+$1:asdfkjasldfkj $b
+$1:asdfkjasldfkj $b
+$1:asdfkjasldfkj $b
+$1:asdfkjasldfkj $b
+]]
+			}
+		},
+		Play_mar_corp_02 = {
+			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			category = "civilian_dialogue",
+			text = "(chatter)",
+			priority = 98,
+			duration = 20,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_female"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					4.2,8.8,13.1,17
+				},
+				text = "hud_subtitlemod_cnv_Play_mar_corp_02",
+				convo = [[
+$1: If Ms. Rainey's video fucks up during the event, it's your ass.$b
+$1: Where are the VIP placecards? Who the fuck's in charge of the placecards?$b
+$1: If the step-and-repeat's not up in seven minutes, somebody's getting fired!$b
+$1: You call this an event space? [scoffs] The interns could do better than this!$b
+]]
+			}
+		},
+		Play_mar_corp_03 = {
+			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			category = "civilian_dialogue",
+			text = "(chatter)",
+			priority = 98,
+			duration = 20,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_female"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					3.7,10
+				},
+				text = "hud_subtitlemod_cnv_Play_mar_corp_03",
+				convo = [[
+$1: Wait, is that... ugh, that's my car alarm!$b
+$1: I swear to god, if there's so much as a fucking smudge on my car, someone's getting sued!
+]]
+			}
+		},
+		Play_mar_corp_04 = {
+			category = "civilian_dialogue",
+			text = "(chatter)",
+			priority = 98,
+			duration = 68,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_female"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					4.2,7.3,10.0,14.3,18.9,28.2,32.8,36.0,37.4,40.7,44.2,47.4,51.5,55.7,59.9,63.3,66.0
+				},
+				text = "hud_subtitlemod_cnv_Play_mar_corp_04",
+				convo = [[
+$1: Hey, yeah, I'm fine. Just... pissed off.$b
+$1: The curtain dropped while I was practicing my speech.$b
+$1: I think someone's fucking with me. $b
+$1: It's unbelievable! How am I the only professional around here?$b
+$1: This event needs to be perfect, but does anyone care? No! Of course not!$b
+$1: THEY won't have to walk into Ms. Rainey's office and explain why her product reveal was a complete disaster!$b
+$1: [sighs] That woman scares the shit out of me.$b
+$1: If people had any idea what she does on the side? [scoffs]$b
+$1: I mean, I barely know, but I know enough. Probably too much.$b
+$1: I'd quit if I didn't think she'd have me shot!$b
+$1: [laughs] No, I'm kidding... kinda.$b
+$1: Ugh, I am not paid enough for this crap...$b
+$1: All my coworkers are either stupid, criminals, or both.$b
+$1: Jesus! The culture here is so toxic.$b
+$1: When this event's done, I'm gonna need to let off some serious steam.$b
+$1: Maybe I'll smash the copier and blame one of the interns!$b
+$1: [sighs happily] That always chills me out.$b
+]]
+			}
+		},
+		Play_mar_corp_05 = {
+			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			category = "civilian_dialogue",
+			priority = 75,
+			duration = 5,
+			max_distance = 2000,
+			text = "Not again!",
+			line_variations = {
+				standard_mode = {
+					"Oh, God. It's just like the fortune cookie said!",
+					"Dammit, not again!",
+					"UGH. This is the last thing I need tonight.",
+					"Is this about what happened in Cabo? I can explain!",
+					"Please! I just do marketing!"
+				}
+			}
+		},
+		Play_mar_corp_06 = {
+			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			category = "civilian_dialogue",
+			priority = 75,
+			duration = 5,
+			max_distance = 2000,
+			text = "Where the hell is he?",
+			line_variations = {
+				standard_mode = {
+					"I can't believe he's late. [scoffs] Today of all days.",
+					"Where the hell is he?",
+					"If this guy is so smart, why is he always late, huh?"
+				}
+			}
+		},
+		Play_mar_corp_07 = {
+			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			category = "civilian_dialogue",
+			priority = 75,
+			duration = 4,
+			max_distance = 2000,
+			text = "My windshield!",
+			line_variations = {
+				standard_mode = {
+					"Son of a bitch!",
+					"Whoever did this is DEAD!",
+					"Ughhh, my windshield's fucked! I can't drive home in this!"
+				}
+			}
+		},
+		Play_pho_corp_01 = {
+			category = "civilian_dialogue",
+			text = "(talking on phone)",
+			priority = 98,
+			duration = 120,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_male"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					3.3,6.7,9.2,13.8,17.1,21.4,26.1,30.0,33.3,37.5,40.9,43.8,49.2,54.4,59.2,63.4,66.4,70.8,73.7,79.5,82.8,86.5,90.4,97.7,102.2,105.1,108.5,113.3,115.0
+				},
+				text = "hud_subtitlemod_cnv_Play_mee_corp_04",
+				convo = [[
+$1: Hey, babe, uh, I gotta stay late tonight.$b
+$1: I know, but there's this company event...$b
+$1: I totally forgot about it.$b
+$1: I don't know, something about a Neo... thing?$b
+$1: I don't actually remember what it's called.$b
+$1: It's like a filter for CO2 or some shit.$b
+$1: No, I'm... I'm sorry, but I, I can't get out of this one.$b
+$1: Super important. Like, the most important thing I've ever done.$b
+$1: Babe, come on, don't say that.$b
+$1: No, nothing's more important than you, you know that.$b
+$1: But I can't bail on this, it's my job.$b
+$1: Can't we just go to the show another night?$b
+$1: Jeeesus, it's a show about cats, how sold out can it really be?$b
+$1: Ugh, please, don't start. Just don't fuckin' start.$b
+$1: I didn't choose this! I don't wanna be stuck at work all night.$b
+$1: We can go to a different play. Or we could rent the movie version.$b
+$1: Then why are you freaking out?$b
+$1: Of course you'd fuckin say that, you've never had a work commitment in your life.$b
+$1: Because you don't work!$b
+$1: I'm not saying that reiki healing isn't a job, it's only a job when you have clients.$b
+$1: Your mom and sisters don't count.$b
+$1: My energy isn't toxic, it's pissed off!$b
+$1: Oh, nice, yeah, give my ticket to Brad!$b
+$1: Oh I'm sure he'd love to see a stupid play about giant dancing cats! Sounds like his thing!$b
+$1: Come on! He's not cultured, he wants to sleep with you!$b
+$1: It's not immature if it's true!$b
+$1: Fine, take him, see if I care!$b
+$1: And heal his aura while you're at it. I'm sure he'll love that.$b
+$1: Whatever. Fuck.$b
+]]
+			}
+		},
+		Play_pho_corp_02 = {
+			category = "civilian_dialogue",
+			text = "(talking on phone)",
+			priority = 98,
+			duration = 100,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_male"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					2.9,6.3,12.1,15.5,19.7,22.9,25.6,28.6,32.4,36.0,39.6,42.8,46.5,49.4,52.6,55.6,58.9,62.5,66.2,69.7,72.5,77.1,80.3,83.2,85.8,89.3,93.7,95.0
+				},
+				text = "hud_subtitlemod_cnv_Play_pho_corp_02",
+				convo = [[
+$1: Yo! You do deliveries, right?$b
+$1: Okay, sick. I need like an eighth of indica.$b
+$1: Still got the, uh, cookie dough? Perfect, yeah, that's what I need!$b
+$1: Yeah, yeah, I got the cash on me, no problem.$b
+$1: You're gonna bring that to the SERA office, 13 Alamo Street.$b
+$1: Huh? Wha- are you serious?$b
+$1: What do you mean, you won't deliver here?$b
+$1: Bro, you're not bringing it through security.$b
+$1: You park outside the gate, and I come to you.$b
+$1: It's not risky, there's like zero risk to you.$b
+$1: I'm the one who has to bring the... [sotto] weed... [normal voice] back into my office!$b
+$1: I have to, man! I'm dying out here!$b
+$1: [exasperated sigh] They're making me stay late for some stupid event.$b
+$1: No way I'm doing this shit sober.$b
+$1: Seriously? You're killin' me!$b
+$1: Park down the street, then! I'll walk!$b
+$1: Oh. My. God. Those are just rumors, dude!$b
+$1: SERA's, like, a totally normal company.$b
+$1: I've been working here for a year and I haven't seen anything weird.$b
+$1: You're paranoid, man, fuckin' paranoid!$b
+$1: Fine, I'll call another dealer!$b
+$1: Oh, I got others! You're the only weed dealer in Dallas, asshole!$b
+$1: And maybe I will go to him from now on!$b
+$1: Your shit's too expensive anyway.$b
+$1: I'm a jerk? You're the jerk, man!$b
+$1: You've abandoned me in my time of need!$b
+$1: I've been a loyal customer for five years, and you play me like this?$b
+$1: Yeah, fuck you too!$b
+]]
+			}
+		},
+		Play_pho_corp_03 = {
+			category = "civilian_dialogue",
+			text = "(talking on phone)",
+			priority = 98,
+			duration = 89,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_male"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					2.2,5.3,8.5,11.7,13.6,17.1,20.8,24.4,26.4,29.0,32.8,36.3,40.1,44.3,48.0,50.2,53.9,57.4,59.4,64.8,67.3,70.6,73.1,76.2,79.2,81.4,84.1,86.5,87.5
+				},
+				text = "hud_subtitlemod_cnv_Play_pho_corp_03",
+				convo = [[
+Yo! What's up?$b
+Mn, nothing much. Stuck at work.$b
+[sighs] Yeah, it's gonna be a late one.$b
+Got some stupid event I gotta go to.$b
+What'chu up to?$b
+Oh, no shit? What club are you guys hitting?$b
+Oh, man, they've got the hottest girls there.$b
+Food's pretty good... for a strip club.$b
+You gotta ask for 'Kimberly.'$b
+Best lap dance I ever got.$b
+Careful in that parking lot, though. Rough part of town.$b
+Yeah, a buddy of mine got mugged on the way to his car.$b
+Yeah, yeah, I- I know you always got that switchblade on you.$b
+I've seen! You're like a crazy person with that knife.$b
+Oh, yeah. I remember Houston. $b
+I still can't believe you never got arrested.$b
+I mean, I know they started it, but still.$b
+How many guys did you stab? Four? Five?$b
+[jokingly] You're outta control!$b
+[sighs] But, uh, anyway, have fun! And don't drink too much, you know how you get.$b
+And dude, no coke.$b
+I'm serious, you always lose your shit on coke.$b
+I'm not being lame!$b
+Fine, but I'm not bailing you out again.$b
+I won't! I'm serious this time.$b
+Fuck around and find out.$b
+Yeah, yeah, whatever.$b
+Okay, I gotta go.$b
+You too. Bye, mom.
+]]
+			}
+		},
+		Play_mar_corp_03A = {
+			category = "civilian_dialogue",
+			text = "(grumbling about wrecked car)",
+			priority = 98,
+			duration = 43,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_unknown_female"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					3.2,7.8,10.5,14.3,17.5,22.7,30.2,33.2,37.7,43.0
+				},
+				text = "hud_subtitlemod_cnv_Play_mar_corp_03A",
+				convo = [[
+$1: Shit, shit, shit! This is just what I need...$b
+$1: What's the point of having security if they can't even guard the goddamn parking lot?$b
+$1: This is supposed to be a private campus! $b
+$1: Unless... [gasp] What if it's an inside job?$b
+$1: Have I pissed off anyone lately?$b
+$1: Could be one of the lab nerds. They hated that I got to name the Neo-2 instead of them.$b
+$1: But like come on! They were gonna call it the 'zeolite membrane electromagnetic polymer filter!' Blegh!$b
+$1: Yeah, that really rolls off the tongue.$b
+$1: Or maybe it was one of the interns!$b
+$1: Ugh, sneaky little jerks!$b
+$1: If they don't like working for free, they can find their college credits someplace else!
+]]
+			}
 		}
 		
 	}
