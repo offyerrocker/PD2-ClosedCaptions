@@ -1043,7 +1043,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	
 	local name,variant,is_locationless,tweak_table
 	local color = Color.white
-	
+	local is_special_enemy
 	-- get speaker string
 	if alive(unit) then 
 		if unit == managers.dialog._bain_unit then
