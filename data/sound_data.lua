@@ -2275,6 +2275,7 @@ return {
 			stops_line = "tick_tock_play"
 		},
 		tire_blow = {
+			disabled = true,
 			text = "(tire pops)",
 			override_name = "SFX",
 			category = "sfx",
@@ -3036,6 +3037,106 @@ $1: Uh huh. right.]]
 		
 		
 --contractor vo
+		
+		-- getaway driver lines (not twitch; radio filtered simon viklund)
+		Play_drv_ukranian_stage1_01 = { 
+			override_name = "Getaway Driver",
+			text = "I'll wait here with the van.",
+			category = "contractor_vo",
+			is_locationless = nil,
+			priority = 13,
+			duration = 5,
+			line_variations = {
+				standard_mode = {
+					"Engine's running. I'll wait for you. Don't stick around too long!",
+					"I'll wait for you here. Don't take too long!"
+				}
+			}
+		},
+		Play_drv_ukranian_stage1_02 = { 
+			override_name = "Getaway Driver",
+			text = "Too much heat! I gotta split! I'll come back in a few!",
+			category = "contractor_vo",
+			is_locationless = nil,
+			priority = 13,
+			duration = 5
+		},
+		Play_drv_ukranian_stage1_03 = { 
+			override_name = "Getaway Driver",
+			text = "I'm there in thirty seconds, hang tight!",
+			category = "contractor_vo",
+			is_locationless = nil,
+			priority = 13,
+			duration = 5,
+			line_variations = {
+				standard_mode = {
+					"I'm there in thirty secs, guys, hang tight!",
+					"Alright, I'm heading back, I'll be there in thirty seconds!",
+					"Here I come, get ready! Thirty seconds!",
+					"I'm here, guys! Where the fuck are you?!"
+				}
+			}
+		},
+		Play_drv_ukranian_stage1_04 = { 
+			override_name = "Getaway Driver",
+			text = "I'm here! Hurry the fuck up, or I'll split!",
+			category = "contractor_vo",
+			is_locationless = nil,
+			priority = 13,
+			duration = 5,
+			line_variations = {
+				standard_mode = {
+					"I'm here! Hurry the fuck up, or I'll split!",
+					"Hurry the fuck up!",
+					"Guys, I'm waiting! I can't stay long, hurry up!"
+				}
+			}
+		},
+		Play_drv_ukranian_stage1_05 = { 
+			override_name = "Getaway Driver",
+			text = "So many cops here, guys! Hurry!",
+			category = "contractor_vo",
+			is_locationless = nil,
+			priority = 13,
+			duration = 5,
+			line_variations = {
+				standard_mode = {
+					"Cops outside the store! Stay cool.",
+					"So many cops here, guys! Hurry!",
+					"I see a lot of cops outside! ALL the cops!"
+				}
+			}
+		},
+		Play_drv_ukranian_stage1_06 = { 
+			override_name = "Getaway Driver",
+			text = "As soon as you get everyone in, we're leavin'.",
+			category = "contractor_vo",
+			is_locationless = nil,
+			priority = 13,
+			duration = 5,
+			line_variations = {
+				standard_mode = {
+					"As soon as we have everyone here, we're gone.",
+					"As soon as you get everyone in, we're leavin'.",
+					"When you're done, we're getting the fuck out."
+				}
+			}
+		},
+		Play_drv_ukranian_stage1_07 = { 
+			override_name = "Getaway Driver",
+			text = "Lots a' bags! Nice work!",
+			category = "contractor_vo",
+			is_locationless = nil,
+			priority = 13,
+			duration = 5,
+			line_variations = {
+				standard_mode = {
+					"Lots a' bags! Nice work!",
+					"That's a lot of bags, guys!",
+					"Ho-ly shit. Next time I'll come with a bigger car!"
+				}
+			}
+		},
 		Play_pln_drl_wrn_snd = {
 			override_name = "Bain",
 			text = "Remember to keep bystanders away from the drill! They'll get alerted just from the noise!",
