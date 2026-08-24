@@ -28470,7 +28470,7 @@ $2: Consider it done.$b
 						text = "hud_subtitlemod_cnv_var_2_Play_ars_corp",
 						convo = [[
 $1: Before you blow up the tanker, be sure to spill a few gallons first.$b
-$1: I want Keegan to be on the EPA's shitlist.$b
+$1: I want Keegan Oil on the EPA's shitlist.$b
 $2: You... are aware the ecological damage could be, uh... cómo se dice... severe?$b
 $1: Doesn't matter. I wanna put that hick out of business. Whatever it takes.
 ]]
@@ -28892,12 +28892,38 @@ $1: Have I pissed off anyone lately?$b
 $1: Could be one of the lab nerds. They hated that I got to name the Neo-2 instead of them.$b
 $1: But like come on! They were gonna call it the 'zeolite membrane electromagnetic polymer filter!' Blegh!$b
 $1: Yeah, that really rolls off the tongue.$b
-$1: Or maybe it was one of the interns!$b
-$1: Ugh, sneaky little jerks!$b
+$1: Or maybe it was one of the interns! Ugh, sneaky little jerks!$b
 $1: If they don't like working for free, they can find their college credits someplace else!
 ]]
 			}
+		},
+		Play_civ_corp_05 = {
+			category = "civilian_dialogue",
+			text = "(noticed car alarm)",
+			priority = 98,
+			duration = 43,
+			line_variations = {
+				standard_mode = {
+					"Oh, no...",
+					"Something wrong?",
+					"Everything okay?"
+					
+				}
+			}
+		},
+		Play_civ_corp_04 = {
+			category = "civilian_dialogue",
+			text = "(noticed car alarm)",
+			priority = 98,
+			duration = 43,
+			line_variations = {
+				standard_mode = {
+					"What's happening?",
+					"What's going on?",
+					"Ooh, how embarrassing."
+					
+				}
+			}
 		}
-		
 	}
 }

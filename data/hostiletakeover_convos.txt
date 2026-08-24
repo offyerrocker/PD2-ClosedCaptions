@@ -427,3 +427,7 @@ You're one of the biggest smugglers in Texas. If you don't mind me asking, why s
 When my granddaughter was born, I took a hard look at things. I make a lot of money, but it's dirty. Hard to leave dirty money in your will. Guess I'm doing this for her.
 ]/loc corp_intro_02_03
 That's a blerrie good reason, I'd say. And we're glad to help.
+
+Play_civ_corp_01
+Play_civ_corp_02
+Play_civ_corp_03
