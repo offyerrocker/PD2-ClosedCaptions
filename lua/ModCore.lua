@@ -1157,7 +1157,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		else
 			name = managers.criminals:character_name_by_unit(unit)
 			if name then --is criminal
-				local switch = sound_source:get_switch()
+				local switch = alive(sound_source) and sound_source:get_switch()
 				if switch and switch.robber then 
 					variant = switch.robber
 					if switch.int_ext == "first" then
