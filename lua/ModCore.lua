@@ -327,6 +327,8 @@ function ClosedCaptions:guess_speaker_from_string_id(event_id)
 	local s = string.gsub(event_id,"^[Pp]lay_","") -- remove 
 	if string.find(s,"^pln") then
 		return "hud_subtitlemod_speaker_bain"
+	elseif string.find(s,"^vld") then
+		return "hud_subtitlemod_speaker_vlad"
 	elseif string.find(s,"^cha") then
 		return "hud_subtitlemod_speaker_charon"
 	elseif string.find(s,"^loc") then
@@ -335,6 +337,8 @@ function ClosedCaptions:guess_speaker_from_string_id(event_id)
 		return "hud_subtitlemod_speaker_rvd_purple"
 	elseif string.find(s,"^mrb") then
 		return "hud_subtitlemod_speaker_rvd_blue"
+	elseif string.find(s,"^pyr") then -- alesso pyrotech guy
+		return "hud_subtitlemod_speaker_pyr"
 	end
 end
 
@@ -1021,25 +1025,8 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	if sound_data.voice_variations and sound_data.voice_variations[voice] then
 		variation_data = sound_data
 	end
-	
-	local variations = variation_data.line_variations or sound_data.line_variations
-	if variations and self:IsLineRandomizationEnabled() then 
-		
-		local is_recombinable = variations.recombinable
-		
-		local is_whisper_mode = managers.groupai:state():whisper_mode()
-		local is_assault_mode = managers.groupai:state():get_assault_mode()
-		if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
---			variation_data = variations.whisper_mode
-			text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
-		elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
---			variation_data = variations.assault_mode
-			text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
-		elseif variations.standard_mode then --no requirements
---			variation_data = variations.standard_mode
-			text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
-		end
-	end
+	local groupai_state = managers.groupai and managers.groupai:state()
+
 	
 	local name,variant,is_locationless,tweak_table
 	local color = Color.white
@@ -1081,7 +1068,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 				color = self:GetColor("law1")
 				variant = variant or tweak_table
 				name = tweak_table and self._UNIT_NAMES[tweak_table]
-				is_special_enemy = managers.groupai:state():is_enemy_special(unit)
+				is_special_enemy = groupai_state and groupai_state:is_enemy_special(unit)
 				--should bosses be considered special enemies for the purposes of category checks?
 				--(vanilla game does not consider hector/sosa to be special enemies)
 			elseif managers.enemy:is_civilian(unit) then 
@@ -1097,6 +1084,10 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		end
 	end
 	
+	if variant and sound_data.variants and sound_data.variants[variant] then 
+		variation_data = sound_data.variants[variant]
+	end
+	
 	-- get subtitle text
 	if not sound_data then 
 		self._sound_data.vo[event_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
@@ -1105,8 +1096,22 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		return
 	end
 	
-	if variant and sound_data.variants and sound_data.variants[variant] then 
-		variation_data = sound_data.variants[variant]
+		
+	local variations = variation_data.line_variations or sound_data.line_variations
+	if variations and self:IsLineRandomizationEnabled() then 
+		local is_recombinable = variations.recombinable
+		local is_whisper_mode = groupai_state and groupai_state:whisper_mode()
+		local is_assault_mode = groupai_state and groupai_state:get_assault_mode()
+		if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
+--			variation_data = variations.whisper_mode
+			text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
+		elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
+--			variation_data = variations.assault_mode
+			text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
+		elseif variations.standard_mode then --no requirements
+--			variation_data = variations.standard_mode
+			text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
+		end
 	elseif sound_data.text then 
 		text = sound_data.text
 	else
