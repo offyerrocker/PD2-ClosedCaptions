@@ -23,8 +23,13 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 --		log_bainunit_vo = false, --no menu option (intentional)
 		language_name = "english",
 		_language_index = 1,
---		caption_x = 0,
---		caption_y = 150,
+		caption_x = 0,
+		caption_y = 150,
+		caption_w_scale = 0.7, -- caption window is sized to 70% of max window/workspace size
+		caption_vertical_invert = false, -- if true, "top" captions appear at the bottom; if false, "top" captions appear at the top
+		dialog_x = 100, -- customization window position
+		dialog_y = 100,
+		
 --		caption_w = 800,
 --		caption_margin_v = 8,
 		caption_order = 2,
@@ -76,6 +81,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	_queued_change_language_desired = false, -- used when user changes the language in the menu
 	_ws = nil,
 	_panel = nil,
+	_window_instance = nil, -- holds the customize dialog window
 	_BGBOX_PARAMS = {tile_size=8},
 	_BGBOX_PANEL_CONFIG = {alpha=0.5,valign="grow",halign="grow"},
 	_BGBOX_TILE_CONFIG = {color=Color(0,0,0)},
@@ -355,8 +361,12 @@ local AnimateLibrary = ClosedCaptions:require("lua/AnimateLibrary")
 function ClosedCaptions:setup()
 --	self:LoadSounds()
 	self._ws = managers.gui_data:create_saferect_workspace() --managers.gui_data:create_fullscreen_workspace()
-	self._panel = self._ws and self._ws:panel()
-	self._panel:set_layer(1000)
+	local ws_panel = self._ws:panel()
+	ws_panel:set_layer(1000) -- draw on top of basically everything
+	self._panel = ws_panel:panel({
+		name = "captions_panel",
+		layer = 3
+	})
 	
 --	self:SetVisible(self:IsEnabled())
 --	self:SetPanelX(self.settings.caption_x)
@@ -640,7 +650,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	local margin_sum = arrow_margin_hor+arrow_margin_hor+twa+twb
 	-- can't be larger than 70% of screen width
 	-- get the final width of the text component, after overflow splitting
-	local max_panel_w = (parent_w * 0.7) - margin_sum
+	local max_panel_w = (parent_w * self.settings.caption_w_scale) - margin_sum
 
 	local subtitle = item_panel:text({
 		name = "subtitle",
@@ -1278,7 +1288,7 @@ function ClosedCaptions.CreateBGBox(parent,params,panel_config,child_config)
 		y = params.y or nil,
 		w = w,
 		h = h,
-		alpha = 0.5,
+		alpha = 0.5, --default; overridden from panel config
 		layer = -1
 	})
 	if panel_config then
@@ -1298,7 +1308,7 @@ function ClosedCaptions.CreateBGBox(parent,params,panel_config,child_config)
 	local hor_size = w - (tile_w + tile_w)
 	local ver_size = h - (tile_h + tile_h)
 	
-	local color = Color.black
+	local color = params.color or Color.black
 	local texture = "guis/textures/closedcaptions_bgbox_atlas"
 	local corner_topleft = panel:bitmap({
 		name = "corner_topleft",
@@ -1475,6 +1485,19 @@ function ClosedCaptions:process_macros(sound_data)
 		end
 	end
 end
+
+-- called when the settings are changed;
+-- reposition all caption ui elements accordingly
+function ClosedCaptions:RealignPanel()
+
+end
+
+function ClosedCaptions:ClearAllSubtitles()
+	for id,item in pairs(self._active_subtitles) do 
+		self:_remove_subtitle(id,true)
+	end
+end
+
 
 -- ============================== SoundSource management
 
@@ -1879,11 +1902,44 @@ function ClosedCaptions:CheckResourcesReady(skip_load,done_loading_cb)
 end
 
 
-function ClosedCaptions:ClearAllSubtitles()
-	for id,item in pairs(self._active_subtitles) do 
-		self:_remove_subtitle(id,true)
+-- ============================== Customization Dialog Box
+function ClosedCaptions:CreateCustomizeDialog()
+	local dialog_data = {
+		parent = self,
+		id = "ClosedCaptionsCustomize",
+		title = managers.localization:text("dialog_closedcaptions_customize_window_title"),
+		text = "placeholder text",
+		settings = self.settings,
+		save_settings_callback = callback(self,self,"SaveSettings"),
+		realign_hud_callback = callback(self,self,"RealignPanel"),
+		button_list = {} --not used
+	}
+	local dialog_class = self:require("lua/HUDPlacementCustomizeDialog")
+	self._window_instance = ConsoleModDialog:new(managers.system_menu,dialog_data)
+end
+
+function ClosedCaptions:ShowCustomizeDialog()
+	if self._window_instance then
+		managers.system_menu:_show_instance(self._window_instance,true)
 	end
 end
+function ClosedCaptions:HideCustomizeDialog()
+	if self._window_instance then
+		self._window_instance:hide()
+	end
+end
+function ClosedCaptions:ToggleCustomizeDialog()
+	if self._window_instance then
+		local state = not self._window_instance:is_focused()
+		if state then 
+			self:ShowCustomizeDialog()
+		else
+			self:HideCustomizeDialog()
+		end
+	end
+end
+
+
 
 -- ============================== Menu
 
@@ -1901,6 +1957,14 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	
 	MenuCallbackHandler.callback_closedcaptions_clear_queue = function(self)
 		ClosedCaptions:ClearAllSubtitles()
+	end
+	MenuCallbackHandler.callback_closedcaptions_toggle_customize = function(self)
+		if ClosedCaptions._window_instance and not ClosedCaptions._window_instance._destroyed then
+			ClosedCaptions:ToggleCustomizeDialog()
+		else
+			ClosedCaptions:CreateCustomizeDialog()
+			ClosedCaptions:ToggleCustomizeDialog()
+		end
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_use_fadein = function(self,item)

@@ -14,6 +14,19 @@
 			"value" : "captions_visible"
 		},
 		{
+			"type" : "keybind",
+			"id" : "closedcaptions_toggle_customize",
+			"title" : "menu_closedcaptions_toggle_customize_title",
+			"description" : "menu_closedcaptions_toggle_customize_desc",
+			"keybind_id" : "closedcaptions_togglecustomizedialog",
+			"run_in_game" : true,
+			"run_in_menu" : false,
+			"default_keybind" : "",
+			"default_key" : "",
+			"button" : "",
+			"func" : "callback_closedcaptions_toggle_customize"
+		},
+		{
 			"type" : "button",
 			"id" : "closedcaptions_clear_queue",
 			"title" : "menu_closedcaptions_clear_queue_title",

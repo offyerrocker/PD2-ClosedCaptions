@@ -1,8 +1,14 @@
 --[[
 
-
-
+- todo before release:
 -- conversations are not respecting distance
+-- placement customization
+-- menu/game state handling
+-- anim subtitle removal handling
+
+
+
+
 
 
 so yeah the whole technical idea behind the mod (and sound_data specifically)
@@ -73,19 +79,20 @@ UNUSED LEGACY LOCALIZATIONS:
 
 
 if false then -- sample format absolute timestamps 
-	local s = [[
-0.9
-4.6
-10.1
-13.21
-19.2
-23.1
-28.3
-32.4
-37.5
-42.4
-44.8
-45.3
+
+
+
+
+	local s = [[3.2
+7.8
+10.5
+14.3
+17.5
+22.7 
+30.2
+33.2
+37.7
+43
 	]]
 
 
@@ -107,6 +114,11 @@ if false then -- sample format absolute timestamps
 		end
 	end
 	Print(out)
+	
+	
+	
+	
+	
 	--[[ -- sample convert absolute timestamps to fragment sentence durations 
 	local out = nil
 	local results = {}

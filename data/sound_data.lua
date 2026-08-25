@@ -2333,36 +2333,6 @@ return {
 			duration = 2
 		},
 		
-		TRAI_Gate_Unlock = {
-			category = "sfx",
-			text = "gate unlocks",
-			priority = 98,
-			duration = 2
-		},
-		TRAI_Gate_Open = {
-			category = "sfx",
-			text = "gate creaks open",
-			priority = 98,
-			duration = 2
-		},
-		TRAI_Gate_Open_STOP = {
-			category = "sfx",
-			text = "gate clanks",
-			priority = 98,
-			duration = 2
-		},
-		TRAI_Walkie_Talkie = {
-			category = "sfx",
-			text = "walkie-talkie crackles",
-			priority = 98,
-			duration = 2
-		},
-		TRAI_Crane_Move_Arm = {
-			category = "sfx",
-			text = "crane arm moves",
-			priority = 98,
-			duration = 2
-		},
 		open_body_container = {
 			category = "sfx",
 			text = "dumpster opens",
@@ -2412,6 +2382,8 @@ return {
 			priority = 98,
 			duration = 2
 		},
+
+		-- Lost in Transit
 		Play_civ02_trai_01 = { -- needs override
 			category = "civilian_dialogue",
 			text = "Opening the gate.",
@@ -2424,7 +2396,37 @@ return {
 				"Fine... stand by."
 			}
 		},
-		
+		TRAI_Gate_Unlock = {
+			category = "sfx",
+			text = "gate unlocks",
+			priority = 98,
+			duration = 2
+		},
+		TRAI_Gate_Open = {
+			category = "sfx",
+			text = "gate creaks open",
+			priority = 98,
+			duration = 2
+		},
+		TRAI_Gate_Open_STOP = {
+			category = "sfx",
+			text = "gate clanks",
+			priority = 98,
+			duration = 2
+		},
+		TRAI_Walkie_Talkie = {
+			category = "sfx",
+			text = "walkie-talkie crackles",
+			priority = 98,
+			duration = 2
+		},
+		TRAI_Crane_Move_Arm = {
+			category = "sfx",
+			text = "crane arm moves",
+			priority = 98,
+			duration = 2
+		},
+
 		
 		-- mountain master
 		coffee_machine_start = {
@@ -24897,6 +24899,16 @@ $1: Uh huh. right.]]
 			text = "[classical piano music]"
 		},
 		
+		
+		-- Shadow Raid
+		Play_pln_ko1_01 = {
+			text = "All personnel, get ready for drop.",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 5,
+			override_name = "Murkywater Intercom"
+		},
+		
 --undercover		
 		Play_txm_man_01 = {
 			override_name = "Taxman",
@@ -26697,13 +26709,6 @@ $2: ...Putas.$b
 				}
 			}
 		},
-		Play_pln_ko1_01 = {
-			text = "All personnel, get ready for drop.",
-			category = "mission_dialogue",
-			priority = 10,
-			duration = 5,
-			override_name = "Murkywater Intercom"
-		},
 	--go bank
 		Play_btm_cs1_01 = {
 			override_name = "Bank Teller",
@@ -27869,7 +27874,7 @@ $2: ...Putas.$b
 					"Go home, you bastards! You can't get in here!",
 					"Hey, motherfuckers... you ain't got no chance!",
 					"You think you can take me down, eh? Think again!",
-					"Don't make me come down there, eh?"							
+					"Don't make me come down there, eh?"
 				}
 			}
 		},
