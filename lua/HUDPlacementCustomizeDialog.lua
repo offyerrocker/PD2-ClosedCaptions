@@ -140,7 +140,7 @@ function HUDPlacementCustomizeDialog:create_gui()
 			drag_pointer = "grab",
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
-			mouse_click_callback = function(o,x,y) --click (on releasing if this object is the currently held object)
+			mouse_click_callback = function(o,button,x,y) --click (on releasing if this object is the currently held object)
 				if self._save_settings_callback then 
 					self._save_settings_callback()
 				end
@@ -207,7 +207,7 @@ function HUDPlacementCustomizeDialog:create_gui()
 				self._target_drag_x_start,self._target_drag_y_start = panel:position()
 			end,
 			mouse_release_callback = nil,
-			mouse_drag_event_callback = function(o,x,y,btn)
+			mouse_drag_event_callback = function(o,x,y)
 				local d_x = x - self._mouse_drag_x_start
 				local d_y = y - self._mouse_drag_y_start
 				

@@ -398,6 +398,8 @@ function ClosedCaptions:update(t,dt)
 	local viewport_cam = managers.viewport:get_current_camera()
 	if not viewport_cam then return end
 	
+	local vertical_reverse = self.settings.caption_vertical_invert -- sort captions from bottom upward
+	
 	local player_aim = viewport_cam:rotation():yaw()
 	mvector3.set(player_pos,viewport_cam:position())
 	local MAX_SUBTITLES = self.settings.captions_max_count
@@ -407,6 +409,8 @@ function ClosedCaptions:update(t,dt)
 	
 	local current_num = 0
 	local y = 0
+	local h = self._panel:h() -- vertical_reverse only
+	
 	for i=#self._queue_active_subtitles,1,-1 do
 		local id = self._queue_active_subtitles[i]
 		local item = self._active_subtitles[id]
@@ -520,8 +524,13 @@ function ClosedCaptions:update(t,dt)
 		
 		if to_state == 1 then
 			current_num = current_num + 1
-			item.panel:set_y(y)
-			y = item.panel:bottom() + 2
+			if vertical_reverse then
+				item.panel:set_bottom(h - y)
+				y = item.panel:y() - 2
+			else
+				item.panel:set_y(y)
+				y = item.panel:bottom() + 2
+			end
 		elseif to_state == 3 then
 			if item then
 				item.state = to_state
