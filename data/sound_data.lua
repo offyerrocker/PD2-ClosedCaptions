@@ -24901,7 +24901,8 @@ $1: Uh huh. right.]]
 		
 		
 		-- Shadow Raid
-		Play_pln_ko1_01 = {
+		-- Play_pln_ko1_01 -- this is the intro text actually
+		Play_ta_ko1_01 = { -- i cannot for the life of me make out what he's saying
 			text = "All personnel, get ready for drop.",
 			category = "mission_dialogue",
 			priority = 10,
