@@ -26,6 +26,8 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		caption_x = 0,
 		caption_y = 150,
 		caption_w_scale = 0.7, -- caption window is sized to 70% of max window/workspace size
+		caption_w = 1280,
+		caption_h = 720,
 		caption_vertical_invert = false, -- if true, "top" captions appear at the bottom; if false, "top" captions appear at the top
 		dialog_x = 100, -- customization window position
 		dialog_y = 100,
@@ -360,22 +362,159 @@ local AnimateLibrary = ClosedCaptions:require("lua/AnimateLibrary")
 --creates workspace to display captions on, registers the update method
 function ClosedCaptions:setup()
 --	self:LoadSounds()
-	self._ws = managers.gui_data:create_saferect_workspace() --managers.gui_data:create_fullscreen_workspace()
+	self._ws = managers.gui_data:create_fullscreen_workspace() --managers.gui_data:create_fullscreen_workspace()
 	local ws_panel = self._ws:panel()
 	ws_panel:set_layer(1000) -- draw on top of basically everything
+	
+	local w = self.settings.caption_w
+	local h = self.settings.caption_h
+	local resizer_w = 64
+	local resizer_h = 64
+	
 	self._panel = ws_panel:panel({
 		name = "captions_panel",
+		w = w,
+		h = h,
 		layer = 3
 	})
 	
-	self._caption_area_rect = self._panel:rect({
-		name = "caption_area_rect",
-		color = Color.white,
-		alpha = 0.15,
-		layer = -3,
-		visible = false
-		
+	
+	
+	local customize_area = self._panel:panel({
+		name = "customize_area",
+		valign = "grow",
+		halign = "grow",
+		visible = false,
+		layer = -4
 	})
+	self._customize_panel = customize_area
+	
+	local drag_rect = customize_area:rect({
+		name = "rect",
+		color = Color.white,
+		valign = "grow",
+		halign = "grow",
+		alpha = 0.15,
+		layer = 1
+	})
+	local function populate_resizer(panel,text)
+		panel:text({
+			name = "label",
+			text = text,
+			font = tweak_data.hud_players.ammo_font,
+			font_size = 12,
+			vertical = "center",
+			align = "center",
+			valign = "grow",
+			halign = nil,
+			wrap = true,
+			layer = -2
+		})
+		panel:rect({
+			name = "rect",
+			valign = "grow",
+			halign = "grow",
+			color = Color(1,1,0.5),
+			alpha = 0.5,
+			layer = -3
+		})
+	end
+	
+	local resize_left = customize_area:panel({
+		name = "resize_left",
+		halign = "left",
+		valign = "center",
+		w = resizer_w,
+		h = resizer_h,
+		x = 0,
+		y = (h - resizer_h) / 2,
+		layer = -3
+	})
+	populate_resizer(resize_left,"□")
+	
+	local resize_right = customize_area:panel({
+		name = "resize_right",
+		halign = "right",
+		valign = "center",
+		w = resizer_w,
+		h = resizer_h,
+		x = w - resizer_w,
+		y = (h - resizer_h) / 2,
+		layer = -3
+	})
+	populate_resizer(resize_right,"□")
+	
+	local resize_top = customize_area:panel({
+		name = "resize_top",
+		halign = "center",
+		valign = "top",
+		w = resizer_w,
+		h = resizer_h,
+		x = (w - resizer_w)/2,
+		y = 0,
+		layer = -3
+	})
+	populate_resizer(resize_top,"□")
+	
+	local resize_bottom = customize_area:panel({
+		name = "resize_bottom",
+		halign = "center",
+		valign = "bottom",
+		w = resizer_w,
+		h = resizer_h,
+		x = (w - resizer_w)/2,
+		y = (h-resizer_h),
+		layer = -3
+	})
+	populate_resizer(resize_bottom,"□")
+	
+	local resize_topleft = customize_area:panel({
+		name = "resize_topleft",
+		halign = "left",
+		valign = "top",
+		w = resizer_w,
+		h = resizer_h,
+		x = 0,
+		y = 0,
+		layer = -3
+	})
+	populate_resizer(resize_topleft,"□")
+	
+	local resize_topright = customize_area:panel({
+		name = "resize_topright",
+		halign = "right",
+		valign = "top",
+		w = resizer_w,
+		h = resizer_h,
+		x = w - resizer_w,
+		y = 0,
+		layer = -3
+	})
+	populate_resizer(resize_topright,"□")
+	
+	local resize_bottomleft = customize_area:panel({
+		name = "resize_bottomleft",
+		halign = "left",
+		valign = "bottom",
+		w = resizer_w,
+		h = resizer_h,
+		x = 0,
+		y = h - resizer_h,
+		layer = -3
+	})
+	populate_resizer(resize_bottomleft,"□")
+	
+	local resize_bottomright = customize_area:panel({
+		name = "resize_bottomright",
+		halign = "right",
+		valign = "bottom",
+		w = resizer_w,
+		h = resizer_h,
+		x = w - resizer_w,
+		y = h - resizer_h,
+		layer = -3
+	})
+	populate_resizer(resize_bottomright,"□")
 	
 --	self:SetVisible(self:IsEnabled())
 --	self:SetPanelX(self.settings.caption_x)

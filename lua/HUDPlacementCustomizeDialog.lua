@@ -132,10 +132,13 @@ function HUDPlacementCustomizeDialog:create_gui()
 	
 	
 	local bgbox = self.CreateBGBox(panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
-	
+	local MIN_CAPTIONS_W = 200
+	local MIN_CAPTIONS_H = 200
+	local MAX_CAPTIONS_W = 100
+	local MAX_CAPTIONS_H = 100
 	self._ui_objects = {
-		captions_panel = { -- key must EXACTLY match the name of the gui object!
-			object = self._data.parent._panel,
+		customize_area = { -- key must EXACTLY match the name of the gui object!
+			object = self._data.parent._customize_panel,
 			mouseover_point = "hand",
 			drag_pointer = "grab",
 			mouseover_event_start_callback = nil,
@@ -149,21 +152,8 @@ function HUDPlacementCustomizeDialog:create_gui()
 				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
 				self._held_object = o
 				
-				self._target_drag_x_start,self._target_drag_y_start = o:position()
-				
-				--[[
-				if button == ids_mouse1 then
-					-- move
-				elseif button == ids_mouse2 then
-				self._target_drag_cx_start,self._target_drag_cy_start = o:center()
-				self._target_drag_w_start,self._target_drag_h_start = o:size()
-					-- resize
-					--self._target_drag_x1_start,self._target_drag_y1_start = o:position()
-					
-					--self._target_drag_x2_start = o:left()
-					--self._target_drag_y2_start = o:bottom()
-				end
-				--]]
+				local obj = self._data.parent._panel
+				self._target_drag_x_start,self._target_drag_y_start = obj:position()
 			end,
 			mouse_drag_event_callback = function(o,x,y)
 				local d_x = x - self._mouse_drag_x_start
@@ -174,7 +164,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					local start_x = self._target_drag_x_start
 					local start_y = self._target_drag_y_start
 					
-					local bw,bh = o:size()
+					local obj = self._data.parent._panel
+					local parent_panel = obj:parent()
+					
+					local bw,bh = obj:size()
 					local min_x = max_window_hidden_hor_margin - bw
 					local min_y = max_window_hidden_ver_margin - bh
 					local max_x = parent_panel:w() - max_window_hidden_hor_margin
@@ -182,14 +175,148 @@ function HUDPlacementCustomizeDialog:create_gui()
 					local to_x = math.clamp( start_x + d_x, min_x, max_x )
 					local to_y = math.clamp( start_y + d_y, min_y, max_y )
 					
-					o:set_position(to_x,to_y)
+					obj:set_position(to_x,to_y)
 					
 					self.inherited_settings.caption_x = to_x
 					self.inherited_settings.caption_y = to_y
 				end
 			end
 		},
-		
+		resize_right = {
+			object = self._data.parent._customize_panel:child("resize_right"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = function(o,button,x,y) --click (on releasing if this object is the currently held object)
+				if self._save_settings_callback then 
+					self._save_settings_callback()
+				end
+			end,
+			mouse_press_callback = function(o,button,x,y) -- on initial press
+				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
+				self._held_object = o
+				
+				local obj = self._data.parent._panel
+				self._target_drag_x_start,self._target_drag_y_start = obj:position()
+				self._target_drag_cx_start,self._target_drag_cy_start = obj:center()
+				self._target_drag_w_start,self._target_drag_h_start = obj:size()
+				self._target_drag_x2_start = obj:left()
+				self._target_drag_y2_start = obj:bottom()
+			end,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					-- move
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					
+					local bw,bh = obj:size()
+					
+					local min_w = 200
+					local max_w = parent:w()
+					local to_w = math.clamp(self._target_drag_w_start + d_x,min_w,max_w)
+					obj:set_w(to_w)
+					--obj:set_left(self._target_drag_x_start)
+					
+					self.inherited_settings.caption_w = to_w
+				end
+			end
+		},
+		resize_left = {
+			object = self._data.parent._customize_panel:child("resize_left"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = function(o,button,x,y) --click (on releasing if this object is the currently held object)
+				if self._save_settings_callback then 
+					self._save_settings_callback()
+				end
+			end,
+			mouse_press_callback = function(o,button,x,y) -- on initial press
+				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
+				self._held_object = o
+				
+				local obj = self._data.parent._panel
+				self._target_drag_x_start,self._target_drag_y_start = obj:position()
+				self._target_drag_cx_start,self._target_drag_cy_start = obj:center()
+				self._target_drag_w_start,self._target_drag_h_start = obj:size()
+				self._target_drag_x2_start = obj:left()
+				self._target_drag_y2_start = obj:bottom()
+			end,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					-- move
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					local bw,bh = obj:size()
+					local min_w = 200
+					local max_w = parent:w()
+					local to_w = math.clamp(self._target_drag_w_start - d_x,min_w,max_w)
+					obj:set_right(self._target_drag_x2_start)
+					obj:set_w(to_w)
+					
+					self.inherited_settings.caption_w = to_w
+				end
+			end
+		},
+		resize_bottom = {
+			object = self._data.parent._customize_panel:child("resize_bottom"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = function(o,button,x,y) --click (on releasing if this object is the currently held object)
+				if self._save_settings_callback then 
+					self._save_settings_callback()
+				end
+			end,
+			mouse_press_callback = function(o,button,x,y) -- on initial press
+				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
+				self._held_object = o
+				
+				local obj = self._data.parent._panel
+				self._target_drag_x_start,self._target_drag_y_start = obj:position()
+				self._target_drag_cx_start,self._target_drag_cy_start = obj:center()
+				self._target_drag_w_start,self._target_drag_h_start = obj:size()
+				self._target_drag_x2_start = obj:left()
+				self._target_drag_y2_start = obj:bottom()
+			end,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					-- move
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					
+					local bw,bh = obj:size()
+					
+					local min_h = 200
+					local max_h = parent:w()
+					local to_h = math.clamp(self._target_drag_h_start + d_y,min_h,max_h)
+					obj:set_h(to_h)
+					
+					self.inherited_settings.caption_h = to_h
+				end
+			end
+		},
 		dialog_window = {
 			object = panel,
 			mouseover_pointer = "hand", --arrow link hand grab
@@ -249,7 +376,7 @@ function HUDPlacementCustomizeDialog:create_gui()
 	table.sort(sorted_ui_objects,function(a,b)
 		local data_a = self._ui_objects[a]
 		local data_b = self._ui_objects[b]
-		if data_a.object:layer() < data_b.object:layer() then
+		if data_a.object:layer() > data_b.object:layer() then
 			return true
 		end
 		return false
@@ -343,7 +470,7 @@ function HUDPlacementCustomizeDialog:show()
 	end
 	
 	
-	self._data.parent._caption_area_rect:show()
+	self._data.parent._customize_panel:show()
 	self:set_input_enabled(true)
 --	managers.menu:post_event("prompt_enter") --snd
 	self._visible = true
@@ -370,7 +497,7 @@ function HUDPlacementCustomizeDialog:hide()
 	self._key_held_t = nil
 	self._visible = false
 	self._parent_panel:hide()
-	self._data.parent._caption_area_rect:hide()
+	self._data.parent._customize_panel:hide()
 --	managers.menu:post_event("menu_exit")
 	self._manager:event_dialog_hidden(self)
 end
@@ -550,6 +677,10 @@ function HUDPlacementCustomizeDialog:callback_mouse_released(o,button,x,y)
 		self._target_drag_y_start = nil
 		self._mouse_drag_x_start = nil
 		self._mouse_drag_y_start = nil
+		self._target_drag_cx_start,self._target_drag_cy_start = nil,nil
+		self._target_drag_w_start,self._target_drag_h_start = nil,nil
+		self._target_drag_x2_start,self._target_drag_y2_start = nil,nil
+		
 		self._held_button = nil
 	end
 end
