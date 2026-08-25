@@ -9,11 +9,15 @@ mkb AND controller friendly
 --]]
 
 
-core:module("SystemMenuManager") -- setfenv to core to yoink the BaseDialog class global
-local HUDPlacementCustomizeDialog = HUDPlacementCustomizeDialog or class(BaseDialog)
---local env = setmetatable({}, {__index=_G})
---setfenv(1,{_G=_G}) -- go back to regular global env
+local env = getfenv(1)
 
+core:module("SystemMenuManager") -- setfenv to core to yoink the BaseDialog class global
+local HUDPlacementCustomizeDialog = class(BaseDialog)
+--local env = setmetatable({}, {__index=_G})
+setfenv(1,env) -- go back to regular global env
+
+local ids_mouse1 = Idstring("0")
+local ids_mouse2 = Idstring("1")
 
 --HUDPlacementCustomizeDialog.INPUT_IGNORE_DELAY_INTERVAL = 0.1 -- ignore input for this many seconds after opening, to prevent misinputs
 
@@ -33,14 +37,19 @@ function HUDPlacementCustomizeDialog:init(manager,data,...)
 	
 	self.inherited_settings = self._data.settings
 	
-	self._fullscreen_ws = self._data._ws
+	self._fullscreen_ws = self._data.workspace
 	
 	self._text_color = Color.white
 	
 	self._mouse_drag_x_start = nil
 	self._mouse_drag_y_start = nil
 	self._held_object = nil
+	self._held_button = nil -- idstring of current mousedrag/hold button
 	
+	self._ui_objects = nil
+	self._sorted_ui_objects = nil
+	
+	self:create_gui()
 end
 
 
@@ -49,6 +58,8 @@ end
 function HUDPlacementCustomizeDialog:create_gui()
 	local settings = self.inherited_settings
 	
+	local max_window_hidden_hor_margin = 0 --no more than this many pixels of the window can be horizontally hidden (above or below the edge of the screen)
+	local max_window_hidden_ver_margin = 0 --no more than this many pixels of the window can be vertically hidden (above or below the edge of the screen)
 	local window_w = 200
 	local window_h = 200
 	
@@ -78,7 +89,7 @@ function HUDPlacementCustomizeDialog:create_gui()
 	local header_title = panel:text({
 		name = "header_title",
 		font = tweak_data.hud_players.ammo_font,
-		font_size = 24, --!
+		font_size = 16, --!
 		text = self._data.title,
 		x = 0,
 		y = 0,
@@ -92,8 +103,8 @@ function HUDPlacementCustomizeDialog:create_gui()
 		name = "reset_button",
 		x = 100,
 		y = 100,
-		w = 20,
-		h = 50,
+		w = 50,
+		h = 20,
 		alpha = 1,
 		layer = 3
 	})
@@ -107,7 +118,7 @@ function HUDPlacementCustomizeDialog:create_gui()
 	local reset_label = reset_button:text({
 		name = "reset_label",
 		font = tweak_data.hud_players.ammo_font,
-		font_size = 24, --!
+		font_size = 12, --!
 		text = self._data.title,
 		align = "center",
 		vertical = "center",
@@ -123,88 +134,99 @@ function HUDPlacementCustomizeDialog:create_gui()
 	local bgbox = self.CreateBGBox(panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
 	
 	self._ui_objects = {
-		captions_body = {
+		captions_panel = { -- key must EXACTLY match the name of the gui object!
 			object = self._data.parent._panel,
 			mouseover_point = "hand",
 			drag_pointer = "grab",
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
-			mouse_left_click_callback = function(o,x,y) --left click (on releasing if this object is the currently held object)
+			mouse_click_callback = function(o,x,y) --click (on releasing if this object is the currently held object)
 				if self._save_settings_callback then 
 					self._save_settings_callback()
 				end
 			end,
-			mouse_left_press_callback = function(o,x,y) --left click (on initial press)
+			mouse_press_callback = function(o,button,x,y) -- on initial press
 				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
 				self._held_object = o
-				self._target_drag_x_start,self._target_drag_y_start = panel:position()
+				
+				self._target_drag_x_start,self._target_drag_y_start = o:position()
+				
+				--[[
+				if button == ids_mouse1 then
+					-- move
+				elseif button == ids_mouse2 then
+				self._target_drag_cx_start,self._target_drag_cy_start = o:center()
+				self._target_drag_w_start,self._target_drag_h_start = o:size()
+					-- resize
+					--self._target_drag_x1_start,self._target_drag_y1_start = o:position()
+					
+					--self._target_drag_x2_start = o:left()
+					--self._target_drag_y2_start = o:bottom()
+				end
+				--]]
 			end,
 			mouse_drag_event_callback = function(o,x,y)
 				local d_x = x - self._mouse_drag_x_start
 				local d_y = y - self._mouse_drag_y_start
 				
-				local start_x = self._target_drag_x_start
-				local start_y = self._target_drag_y_start
-				
-				
-				local bw,bh = o:size()
-				local min_x = max_window_hidden_hor_margin - bw
-				local min_y = max_window_hidden_ver_margin - bh
-				local max_x = parent_panel:w() - max_window_hidden_hor_margin
-				local max_y = parent_panel:h() - (bh + max_window_hidden_ver_margin)
-				local to_x = math.clamp( start_x + d_x, min_x, max_x )
-				local to_y = math.clamp( start_y + d_y, min_y, max_y )
-				
-				panel:set_position(to_x,to_y)
-				
-				self.inherited_settings.dialog_x = to_x
-				self.inherited_settings.dialog_y = to_y
+				if self._held_button == ids_mouse1 then
+					-- move
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					
+					local bw,bh = o:size()
+					local min_x = max_window_hidden_hor_margin - bw
+					local min_y = max_window_hidden_ver_margin - bh
+					local max_x = parent_panel:w() - max_window_hidden_hor_margin
+					local max_y = parent_panel:h() - max_window_hidden_ver_margin
+					local to_x = math.clamp( start_x + d_x, min_x, max_x )
+					local to_y = math.clamp( start_y + d_y, min_y, max_y )
+					
+					o:set_position(to_x,to_y)
+					
+					self.inherited_settings.caption_x = to_x
+					self.inherited_settings.caption_y = to_y
+				end
 			end
 		},
 		
-		body = {
+		dialog_window = {
 			object = panel,
 			mouseover_pointer = "hand", --arrow link hand grab
 			drag_pointer = "grab",
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
-			mouse_left_click_callback = function(o,x,y) --left click (on releasing if this object is the currently held object)
+			mouse_click_callback = function(o,button,x,y) -- click (on releasing if this object is the currently held object)
 				if self._save_settings_callback then 
 					self._save_settings_callback()
 				end
 			end,
-			mouse_left_press_callback = function(o,x,y) --left click (on initial press)
+			mouse_press_callback = function(o,button,x,y) -- click (on initial press)
 				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
 				self._held_object = o
 				self._target_drag_x_start,self._target_drag_y_start = panel:position()
 			end,
-			mouse_left_release_callback = nil,
-			mouse_right_click_callback = function(o,x,y) --right click (on release) 
-				--show context menu (click)
-			end,
-			mouse_right_press_callback = function(o,x,y)
-				--open context menu (hold)
-			end,
-			mouse_drag_event_callback = function(o,x,y)
+			mouse_release_callback = nil,
+			mouse_drag_event_callback = function(o,x,y,btn)
 				local d_x = x - self._mouse_drag_x_start
 				local d_y = y - self._mouse_drag_y_start
 				
 				local start_x = self._target_drag_x_start
 				local start_y = self._target_drag_y_start
-				
-				
-				local bw,bh = o:size()
-				local min_x = max_window_hidden_hor_margin - bw
-				local min_y = max_window_hidden_ver_margin - bh
-				local max_x = parent_panel:w() - max_window_hidden_hor_margin
-				local max_y = parent_panel:h() - (bh + max_window_hidden_ver_margin)
-				local to_x = math.clamp( start_x + d_x, min_x, max_x )
-				local to_y = math.clamp( start_y + d_y, min_y, max_y )
-				
-				panel:set_position(to_x,to_y)
-				
-				self.inherited_settings.dialog_x = to_x
-				self.inherited_settings.dialog_y = to_y
+				if self._held_button == ids_mouse1 then
+					local bw,bh = o:size()
+					local min_x = max_window_hidden_hor_margin - bw
+					local min_y = max_window_hidden_ver_margin - bh
+					local max_x = parent_panel:w() - max_window_hidden_hor_margin
+					local max_y = parent_panel:h() - (bh + max_window_hidden_ver_margin)
+					local to_x = math.clamp( start_x + d_x, min_x, max_x )
+					local to_y = math.clamp( start_y + d_y, min_y, max_y )
+					
+					o:set_position(to_x,to_y)
+					
+					self.inherited_settings.dialog_x = to_x
+					self.inherited_settings.dialog_y = to_y
+				end
 			end
 		},
 		reset_settings = {
@@ -213,13 +235,9 @@ function HUDPlacementCustomizeDialog:create_gui()
 			drag_pointer = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
-			mouse_left_click_callback = function(o,x,y) --left click (on release)
+			mouse_click_callback = function(o,button,x,y) --left click (on release)
 				_G.Print("TODO")
 			end,
-			mouse_left_press_callback = nil,
-			mouse_left_release_callback = nil,
-			mouse_right_click_callback = nil,
-			mouse_right_press_callback = nil,
 			mouse_drag_event_callback = nil
 		}
 	}
@@ -246,12 +264,14 @@ end
 
 function HUDPlacementCustomizeDialog:set_input_enabled(enabled)
 	local controller = self._controller
+	Print("Enabled",enabled)
+		--self._cancel_func = function() Print("cenecele") end
 	if not self._input_enabled ~= not enabled then
 		if enabled then
-			controller:add_trigger("confirm", self._confirm_func)
+			--controller:add_trigger("confirm", self._confirm_func)
 
-			if true or managers.controller:get_default_wrapper_type() == "pc" or managers.controller:get_default_wrapper_type() == "steam" or managers.controller:get_default_wrapper_type() == "vr" then
-				controller:add_trigger("toggle_menu", self._cancel_func)
+			if managers.controller:get_default_wrapper_type() == "pc" or managers.controller:get_default_wrapper_type() == "steam" then -- or managers.controller:get_default_wrapper_type() == "vr"
+				--controller:add_trigger("toggle_menu", self._cancel_func)
 
 				self._mouse_id = managers.mouse_pointer:get_id()
 				self._removed_mouse = nil
@@ -259,19 +279,20 @@ function HUDPlacementCustomizeDialog:set_input_enabled(enabled)
 					mouse_move = callback(self, self, "callback_mouse_moved"),
 					mouse_press = callback(self, self, "callback_mouse_pressed"),
 					mouse_release = callback(self, self, "callback_mouse_released"),
-					mouse_click = callback(self, self, "callback_mouse_clicked"), --don't use this
+					--mouse_click = callback(self, self, "callback_mouse_clicked"), --don't use this
 					id = self._mouse_id
 				}
 				self._fullscreen_ws:connect_keyboard(Input:keyboard())
-				self._input_text:key_press(callback(self, self, "callback_key_press"))
-				self._input_text:key_release(callback(self, self, "callback_key_release"))
+				--self._input_text:key_press(callback(self, self, "callback_key_press"))
+				--self._input_text:key_release(callback(self, self, "callback_key_release"))
 
 				
 				managers.mouse_pointer:use_mouse(data)
+				managers.mouse_pointer:set_pointer_image("arrow")
 			else
 				self._removed_mouse = nil
 
-				controller:add_trigger("cancel", self._cancel_func)
+				--controller:add_trigger("cancel", self._cancel_func)
 				managers.mouse_pointer:disable()
 			end
 		else
@@ -283,14 +304,14 @@ function HUDPlacementCustomizeDialog:set_input_enabled(enabled)
 			self._mouse_drag_y_start = nil
 		
 			self._fullscreen_ws:disconnect_keyboard()
-			self._panel:key_release(nil)
-			self:release_scroll_bar() --not used
-			controller:remove_trigger("confirm", self._confirm_func)
+			--self._panel:key_release(nil)
+			--self:release_scroll_bar() --not used
+			--controller:remove_trigger("confirm", self._confirm_func)
 
-			if managers.controller:get_default_wrapper_type() == "pc" or managers.controller:get_default_wrapper_type() == "steam" or managers.controller:get_default_wrapper_type() == "vr" then
-				controller:remove_trigger("toggle_menu", self._cancel_func)
+			if managers.controller:get_default_wrapper_type() == "pc" or managers.controller:get_default_wrapper_type() == "steam" then -- or managers.controller:get_default_wrapper_type() == "vr" then
+				--controller:remove_trigger("toggle_menu", self._cancel_func)
 			else
-				controller:remove_trigger("cancel", self._cancel_func)
+				--controller:remove_trigger("cancel", self._cancel_func)
 			end
 
 			self:remove_mouse()
@@ -302,6 +323,13 @@ function HUDPlacementCustomizeDialog:set_input_enabled(enabled)
 	end
 end
 
+function HUDPlacementCustomizeDialog:callback_key_press(o,k)
+	Print("Press",o,k)
+end
+
+function HUDPlacementCustomizeDialog:callback_key_release(o,k)
+	Print("Release",o,k)
+end
 
 function HUDPlacementCustomizeDialog:show()
 	if _G.setup and _G.setup:has_queued_exec() then
@@ -309,15 +337,16 @@ function HUDPlacementCustomizeDialog:show()
 	end
 	
 --	self._input_delay_timer = self.INPUT_IGNORE_DELAY_INTERVAL
-	self._panel:show()
+	self._parent_panel:show()
 	if FreeFlightCamera and FreeFlightCamera._state == 0 then
 		FreeFlightCamera._con:disable()
 	end
 	
 	
---	self:set_input_enabled(true)
+	self._data.parent._caption_area_rect:show()
+	self:set_input_enabled(true)
 --	managers.menu:post_event("prompt_enter") --snd
-	self.is_active = true
+	self._visible = true
 	self._manager:event_dialog_shown(self)
 	return true
 end
@@ -339,10 +368,25 @@ function HUDPlacementCustomizeDialog:hide()
 	self:set_input_enabled(false)
 	self._key_held_ids = nil
 	self._key_held_t = nil
-	self.is_active = false
-	self:_hide_dialog_gui()
+	self._visible = false
+	self._parent_panel:hide()
+	self._data.parent._caption_area_rect:hide()
 --	managers.menu:post_event("menu_exit")
 	self._manager:event_dialog_hidden(self)
+end
+
+function HUDPlacementCustomizeDialog:remove_mouse()
+	if not self._removed_mouse then
+		self._removed_mouse = true
+
+		if managers.controller:get_default_wrapper_type() == "pc" or managers.controller:get_default_wrapper_type() == "steam" or managers.controller:get_default_wrapper_type() == "vr" then
+			managers.mouse_pointer:remove_mouse(self._mouse_id)
+		else
+			managers.mouse_pointer:enable()
+		end
+
+		self._mouse_id = nil
+	end
 end
 
 function HUDPlacementCustomizeDialog:close(...)
@@ -353,9 +397,23 @@ function HUDPlacementCustomizeDialog:close(...)
 --	self.is_active = false
 end
 
-if false then
+
+
+function HUDPlacementCustomizeDialog:get_mouseover_target(x,y)
+
+	local ui_objects = self._ui_objects
+	for _,id in ipairs(self._sorted_ui_objects) do 
+		local data = ui_objects[id]
+		local object = data.object
+		if alive(object) and object:inside(x,y) then 
+			return id,object
+		end
+	end
+	
+	return
+end
+
 function HUDPlacementCustomizeDialog:callback_mouse_moved(o,x,y)
---[[
 --	log("moved " .. tostring(x) .. " " .. tostring(y))
 	
 	--get point-at target
@@ -381,27 +439,14 @@ function HUDPlacementCustomizeDialog:callback_mouse_moved(o,x,y)
 		else
 			managers.mouse_pointer:set_pointer_image("arrow")
 		end
-		--[[
-		local id,target = self:get_mouseover_target(x,y)
-		if target then 
-			managers.mouse_pointer:set_pointer_image(pointer or "arrow")
-			local data = 
-			--CHECK IF CAN MOVE HOR/VER
-			--CHECK X/Y BOUND
-			local target_name = target:name()
-			if target_name == "" then 
-			
-			end
-			
-		end
-		--]]
 	else
 		local id,mouseover_target = self:get_mouseover_target(x,y)
 		local prev_mouseover_object = self._mouseover_object
 		if mouseover_target ~= prev_mouseover_object then
 			if alive(prev_mouseover_object) then  --stop mouseover event
-				local id = prev_mouseover_object:name()
-				local ui_object_data = self._ui_objects[id]
+				local _id = prev_mouseover_object:name()
+				local ui_object_data = self._ui_objects[_id]
+				assert(ui_object_data,"No ui object data for " .. tostring(_id))
 				if ui_object_data.mouseover_event_stop_callback then 
 					ui_object_data.mouseover_event_stop_callback(prev_mouseover_object,x,y)
 				end
@@ -434,35 +479,30 @@ function HUDPlacementCustomizeDialog:callback_mouse_moved(o,x,y)
 end
 
 function HUDPlacementCustomizeDialog:callback_mouse_pressed(o,button,x,y)
---[[
 --	log("pressed  " .. tostring(x) .. " " .. tostring(y))
 	
-	if button == Idstring("0") then
-		self._is_holding_mouse_button = true
-		local id,mouseover_target = self:get_mouseover_target(x,y)
+	if button == ids_mouse1 or button == ids_mouse2 then
+		if not self._held_button then
+			self._held_button = button
 		
-		--drag start (can be overridden by object-specific callbacks)
-		self._mouse_drag_x_start = x
-		self._mouse_drag_y_start = y
-		self._target_drag_x_start = x
-		self._target_drag_y_start = y
-		self._held_object = mouseover_target
-		
-		if mouseover_target then
-			local ui_object_data = self._ui_objects[id]
-			if ui_object_data.mouse_left_press_callback then
-				ui_object_data.mouse_left_press_callback(mouseover_target,x,y)
+			self._is_holding_mouse_button = true
+			local id,mouseover_target = self:get_mouseover_target(x,y)
+			
+			--drag start (can be overridden by object-specific callbacks)
+			self._mouse_drag_x_start = x
+			self._mouse_drag_y_start = y
+			self._target_drag_x_start = x
+			self._target_drag_y_start = y
+			self._held_object = mouseover_target
+			
+			if mouseover_target then
+				local ui_object_data = self._ui_objects[id]
+				if ui_object_data.mouse_press_callback then
+					ui_object_data.mouse_press_callback(mouseover_target,button,x,y)
+				end
 			end
 		end
-	elseif button == Idstring("1") then 
-		local id,mouseover_target = self:get_mouseover_target(x,y)
-		if mouseover_target then
-			local ui_object_data = self._ui_objects[id]
-			if ui_object_data.mouse_right_press_callback then
-				ui_object_data.mouse_right_press_callback(mouseover_target,x,y)
-			end
-		end
-		--context menu for clicked item
+		--[[
 	elseif button == Idstring("mouse wheel up") then 
 		--scroll up
 		local direction = self:is_scrollwheel_direction_reversed() and -1 or 1
@@ -473,13 +513,13 @@ function HUDPlacementCustomizeDialog:callback_mouse_pressed(o,button,x,y)
 		local mul = self.inherited_settings.input_mousewheel_scroll_speed
 		self:perform_vscroll_amount(direction * mul * self.inherited_settings.window_font_size)
 		--scroll down
+		--]]
 	end
-	--]]
 end
 
 function HUDPlacementCustomizeDialog:callback_mouse_released(o,button,x,y)
 --	log("released  " .. tostring(x) .. " " .. tostring(y))
-	if button == Idstring("0") then
+	if  button == self._held_button then
 		
 		local held_object = self._held_object
 		if alive(held_object) then
@@ -487,14 +527,14 @@ function HUDPlacementCustomizeDialog:callback_mouse_released(o,button,x,y)
 			if id then
 				local ui_object_data = self._ui_objects[id]
 				if mouseover_target == held_object then 
-					if ui_object_data.mouse_left_click_callback then
+					if ui_object_data.mouse_click_callback then
 --						log("leftclick  " .. tostring(x) .. " " .. tostring(y))
-						ui_object_data.mouse_left_click_callback(mouseover_target,x,y)
+						ui_object_data.mouse_click_callback(mouseover_target,button,x,y)
 					end
 				end
 				
-				if ui_object_data.mouse_left_release_callback then
-					ui_object_data.mouse_left_release_callback(mouseover_target,x,y)
+				if ui_object_data.mouse_release_callback then
+					ui_object_data.mouse_release_callback(mouseover_target,button,x,y)
 				end
 				
 				if ui_object_data.mouseover_pointer then 
@@ -504,27 +544,23 @@ function HUDPlacementCustomizeDialog:callback_mouse_released(o,button,x,y)
 				end
 			end
 		end
-		
 		self._is_holding_mouse_button = false
 		self._held_object = nil
 		self._target_drag_x_start = nil
 		self._target_drag_y_start = nil
 		self._mouse_drag_x_start = nil
 		self._mouse_drag_y_start = nil
-
-		--check pointer image
-	elseif button == Idstring("1") then 
-	--[[
-		local id,mouseover_target = self:get_mouseover_target(x,y)
-		
-		local ui_object_data = self._ui_objects[id]
-		if ui_object_data.mouse_right_release_callback then
-			ui_object_data.mouse_right_release_callback(mouseover_target,x,y)
-		end
-	--]]
+		self._held_button = nil
 	end
 end
 
+
+function HUDPlacementCustomizeDialog:visible()
+	return self._visible
+end
+
+
+if false then
 function HUDPlacementCustomizeDialog:callback_mouse_clicked(o,button,x,y) --don't use this, as pd2's click detection is too lax
 --	log("Mouse clicked")
 	--[[
@@ -804,10 +840,6 @@ end
 
 
 
-
-function ConsoleModDialog:is_focused()
-	return self.is_active
-end
 
 
 function ConsoleModDialog:force_close()

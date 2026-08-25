@@ -174,8 +174,8 @@ function ClosedCaptions:Print(...)
 	end
 end
 
-function ClosedCaptions:require(path) -- local only; relative path to mod folder
-	if self._libraries[path] then
+function ClosedCaptions:require(path,force) -- local only; relative path to mod folder
+	if self._libraries[path] and not force then
 		return self._libraries[path]
 	end
 	
@@ -368,6 +368,15 @@ function ClosedCaptions:setup()
 		layer = 3
 	})
 	
+	self._caption_area_rect = self._panel:rect({
+		name = "caption_area_rect",
+		color = Color.white,
+		alpha = 0.15,
+		layer = -3,
+		visible = false
+		
+	})
+	
 --	self:SetVisible(self:IsEnabled())
 --	self:SetPanelX(self.settings.caption_x)
 	--caption y setting is actually applied within eaach caption so don't do it here
@@ -401,11 +410,11 @@ function ClosedCaptions:update(t,dt)
 	for i=#self._queue_active_subtitles,1,-1 do
 		local id = self._queue_active_subtitles[i]
 		local item = self._active_subtitles[id]
+		
 		local to_state = 1
 		if item and alive(item.panel) then
 			
 			if item.conversation_data then
-			
 				to_state = 2
 				-- this subtitle actually acts as a "manager" for the individual speaker lines in a conversation
 				-- so don't show it
@@ -932,6 +941,7 @@ function ClosedCaptions:_start_subtitle(state_data,id)
 			return self._active_subtitles[a].priority > self._active_subtitles[b].priority
 		end)
 	elseif prio_mode == 2 then -- proximity; sorted every frame anyway
+		table.insert(self._queue_active_subtitles,id)
 --		if position then
 --			local viewport_cam = managers.viewport:get_current_camera()
 --			if viewport_cam then 
@@ -1912,10 +1922,11 @@ function ClosedCaptions:CreateCustomizeDialog()
 		settings = self.settings,
 		save_settings_callback = callback(self,self,"SaveSettings"),
 		realign_hud_callback = callback(self,self,"RealignPanel"),
+		workspace = self._ws,
 		button_list = {} --not used
 	}
 	local dialog_class = self:require("lua/HUDPlacementCustomizeDialog")
-	self._window_instance = ConsoleModDialog:new(managers.system_menu,dialog_data)
+	self._window_instance = dialog_class:new(managers.system_menu,dialog_data)
 end
 
 function ClosedCaptions:ShowCustomizeDialog()
@@ -1930,7 +1941,7 @@ function ClosedCaptions:HideCustomizeDialog()
 end
 function ClosedCaptions:ToggleCustomizeDialog()
 	if self._window_instance then
-		local state = not self._window_instance:is_focused()
+		local state = not self._window_instance:visible()
 		if state then 
 			self:ShowCustomizeDialog()
 		else
