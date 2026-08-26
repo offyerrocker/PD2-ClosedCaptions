@@ -118,7 +118,25 @@ function HUDPlacementCustomizeDialog:create_gui()
 		font = tweak_data.hud_players.ammo_font,
 		font_size = 16, --!
 		y = 6,
+		valign = "grow",
+		halign = "grow",
+		wrap = true,
 		text = self._data.title,
+		align = "center",
+		vertical = "top",
+		color = self._text_color,
+		layer = 2
+	})
+	
+	local subheader_title = panel:text({
+		name = "subheader_title",
+		font = tweak_data.hud_players.ammo_font,
+		font_size = 14, --!
+		y = 20,
+		text = self._data.desc,
+		valign = "grow",
+		halign = "grow",
+		wrap = true,
 		align = "center",
 		vertical = "top",
 		color = self._text_color,
@@ -182,8 +200,8 @@ function HUDPlacementCustomizeDialog:create_gui()
 	upd_readout_v(self.inherited_settings)
 	
 	
-	local add_button,add_label,add_bg = create_readout("add_button",{x=10,y=30,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_addsample_title"),color=Color(223/255,162/255,48/255)})
-	local clear_button,clear_label,clear_bg = create_readout("clear_button",{x=110,y=30,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_clear_title"),color=Color(223/255,162/255,48/255)})
+	local add_button,add_label,add_bg = create_readout("add_button",{x=10,y=50,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_addsample_title"),color=Color(223/255,162/255,48/255)})
+	local clear_button,clear_label,clear_bg = create_readout("clear_button",{x=110,y=50,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_clear_title"),color=Color(223/255,162/255,48/255)})
 	
 	local toggle_valign_button,toggle_valign_label,toggle_valign_bg = create_readout("toggle_valign_button",{x=110,y=140,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_valign_title"),color=Color(107/255,192/255,96/255)})
 	-- toggle valign top/bottom

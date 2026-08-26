@@ -2454,29 +2454,31 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				-- male
-				"I wonder how much this thing cost him.",
-				"McKendrick has been great for business. Let's hope we can get him re-elected.",
-				"I wonder if he ever takes this thing to the Caribbean.",
-				"I wonder how much staff they have here. Must be expensive to maintain.",
-				"It's a little bit too much, isn't it?",
-				"The lifeboat on this thing is bigger than my boat.",
-				"Damn, this thing is giving me boat envy.",
-				"We should take our boat to the Bahamas this summer.",
-				"It's a good party. It should be, considering what we paid.",
-				
-				-- female
-				"Powell's really rich, isn't he?",
-				"I love this boat. It's so cool!",
-				"I heard it's some Irish guy who owns this boat.",
-				"We need a strong mayor in Washington! Only McKendrick can do the job.",
-				"Lifestyles of the rich and famous!",
-				"Wow, look at that!",
-				"It's nice here.",
-				"It's so nice here.",
-				"McKendrick's done so much for the community. I'm glad we can support him like this.",
-				"Imagine if we had a yacht like this!",
-				"I can imagine McKendrick as president or governor one day."
+				standard_mode = {
+					-- male
+					"I wonder how much this thing cost him.",
+					"McKendrick has been great for business. Let's hope we can get him re-elected.",
+					"I wonder if he ever takes this thing to the Caribbean.",
+					"I wonder how much staff they have here. Must be expensive to maintain.",
+					"It's a little bit too much, isn't it?",
+					"The lifeboat on this thing is bigger than my boat.",
+					"Damn, this thing is giving me boat envy.",
+					"We should take our boat to the Bahamas this summer.",
+					"It's a good party. It should be, considering what we paid.",
+					
+					-- female
+					"Powell's really rich, isn't he?",
+					"I love this boat. It's so cool!",
+					"I heard it's some Irish guy who owns this boat.",
+					"We need a strong mayor in Washington! Only McKendrick can do the job.",
+					"Lifestyles of the rich and famous!",
+					"Wow, look at that!",
+					"It's nice here.",
+					"It's so nice here.",
+					"McKendrick's done so much for the community. I'm glad we can support him like this.",
+					"Imagine if we had a yacht like this!",
+					"I can imagine McKendrick as president or governor one day."
+				}
 			}
 		},
 		Play_civ_fish_02 = { --dining room
@@ -2485,11 +2487,13 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"This is a nice dining room.",
-				"I love to dine in style.",
-				
-				"I hope I remembered to tell them I want vegetarian...",
-				"I wish we'd been dining here as well!"
+				standard_mode = {
+					"This is a nice dining room.",
+					"I love to dine in style.",
+					
+					"I hope I remembered to tell them I want vegetarian...",
+					"I wish we'd been dining here as well!"
+				}
 			}
 		},
 		Play_civ_fish_03 = { -- aquarium
@@ -2498,11 +2502,13 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"How many aquariums does this guy need?",
-				"This makes me want to go fishing.",
-				
-				"Oh! That's a... what's that fish called?",
-				"I find aquariums so relaxing to look at."
+				standard_mode = {
+					"How many aquariums does this guy need?",
+					"This makes me want to go fishing.",
+					
+					"Oh! That's a... what's that fish called?",
+					"I find aquariums so relaxing to look at."
+				}
 			}
 		},
 		Play_civ_fish_04 = { -- balcony
@@ -2511,10 +2517,12 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"New York, New York...",
-				"Hey, you can see Manhattan here...",
-				"Ah... the sea air is really nice.",
-				"Wow, look at that view!"
+				standard_mode = {
+					"New York, New York...",
+					"Hey, you can see Manhattan here...",
+					"Ah... the sea air is really nice.",
+					"Wow, look at that view!"
+				}
 			}
 		},
 		Play_civ_fish_05 = { --bedroom
@@ -2523,11 +2531,13 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"Wow! He's got plenty of room for guests here.",
-				"I wonder who sleeps here!",
-				
-				"Oh, that's cool. We should get something like that for our bedroom at home.",
-				"You think anyone would notice if we... you know! [playful giggle]"
+				standard_mode = {
+					"Wow! He's got plenty of room for guests here.",
+					"I wonder who sleeps here!",
+					
+					"Oh, that's cool. We should get something like that for our bedroom at home.",
+					"You think anyone would notice if we... you know! [playful giggle]"
+				}
 			}
 		},
 		Play_civ_fish_06 = { --kitchen
@@ -2536,11 +2546,13 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"Well, this is a big kitchen.",
-				"Think the guard would mind if I grabbed a snack? I could ask.",
-				
-				"I'm a bit hungry, actually.",
-				"Wow, it's all dark and gloomy down here."
+				standard_mode = {
+					"Well, this is a big kitchen.",
+					"Think the guard would mind if I grabbed a snack? I could ask.",
+					
+					"I'm a bit hungry, actually.",
+					"Wow, it's all dark and gloomy down here."
+				}
 			}
 		},
 		Play_civ_fish_07 = { 
@@ -2549,11 +2561,13 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"Wow, look at that!",
-				"I've never been in a place like this before!",
-				
-				"Wow, look at this place!",
-				"What are we doing down here, anyway?"
+				standard_mode = {
+					"Wow, look at that!",
+					"I've never been in a place like this before!",
+					
+					"Wow, look at this place!",
+					"What are we doing down here, anyway?"
+				}
 			}
 		},
 		Play_civ_fish_08 = { -- library
@@ -2562,11 +2576,13 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"Should we go outside?",
-				"This is a pretty cool library!",
-				
-				"Oh, so many books! Do you think he's read them?",
-				"Oh, those flowers are nice."
+				standard_mode = {
+					"Should we go outside?",
+					"This is a pretty cool library!",
+					
+					"Oh, so many books! Do you think he's read them?",
+					"Oh, those flowers are nice."
+				}
 			}
 		},
 		Play_civ_fish_09 = { -- cigar + wine lounge
@@ -2575,10 +2591,12 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"Oh, that's really good wine.",
-				"I think is my favorite part of the boat. Wines and cigars! Yeah!",
-				"This is a nice place to hang out.",
-				"So he smokes, then? Cigars, at least."
+				standard_mode = {
+					"Oh, that's really good wine.",
+					"I think is my favorite part of the boat. Wines and cigars! Yeah!",
+					"This is a nice place to hang out.",
+					"So he smokes, then? Cigars, at least."
+				}
 			}
 		},
 		
@@ -2586,15 +2604,17 @@ return {
 		
 		Play_pot_fish_01 = { -- tape recorder
 			category = "civilian_dialogue",
-			text = "(idle chatter)",
+			text = "(tape recording plays)",
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"Okay, uh, I understand we have cleared to anchor just off Manhattan, right? I like it. Security should be good around the area. I'm a little nervous with so many VIPs attending!",
-				"Hi, it's me, Laura. Okay, listen, just to give you a heads-up: Senator Simmons personally called. The senator has his schedule full at the moment and can't attend the fundraiser personally, but he's asking his contacts to donate to the campaign.",
-				"Hi, this is Laura, from Party Bangers. I just wanna confirm the ticket price for the fundraiser. It's ten grand per person, right?",
-				"Hi! Listen, what's with this 'don't move the furniture' under any circumstances? I'd suggested we need it to be flexible, but that security guy nearly bit my head off! Whatever, if you want to do it like that, it's fine, just... you know, be polite, yeah?",
-				"Hi, it's Laura, just want to repeat this so we're clear on security. The lower levels of the boat will be accessible, but only by those with special invitations. And the rooms will be patrolled by guards. The main party for everyone is upstairs, okay?"
+				standard_mode = {
+					"Okay, uh, I understand we have cleared to anchor just off Manhattan, right? I like it. Security should be good around the area. I'm a little nervous with so many VIPs attending!",
+					"Hi, it's me, Laura. Okay, listen, just to give you a heads-up: Senator Simmons personally called. The senator has his schedule full at the moment and can't attend the fundraiser personally, but he's asking his contacts to donate to the campaign.",
+					"Hi, this is Laura, from Party Bangers. I just wanna confirm the ticket price for the fundraiser. It's ten grand per person, right?",
+					"Hi! Listen, what's with this 'don't move the furniture' under any circumstances? I'd suggested we need it to be flexible, but that security guy nearly bit my head off! Whatever, if you want to do it like that, it's fine, just... you know, be polite, yeah?",
+					"Hi, it's Laura, just want to repeat this so we're clear on security. The lower levels of the boat will be accessible, but only by those with special invitations. And the rooms will be patrolled by guards. The main party for everyone is upstairs, okay?"
+				}
 			}
 		},
 		

@@ -804,7 +804,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		visible = false,
 		x = -arrow_margin_hor,
 		y = 0,
-		align = "right",
+		align = "left",
 		vertical = "center",
 		valign = "grow",
 		halign = "grow",
@@ -1681,8 +1681,8 @@ function ClosedCaptions:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_
 	bgbox:set_w(twc + margin_sum)
 	bgbox:set_h(item_panel:h())
 	bgbox:set_x((item_panel:w() - bgbox:w()) / 2)
-	arrow_left:set_x(bgbox:left())
-	arrow_right:set_x(bgbox:right())
+	arrow_left:set_x(bgbox:left() + arrow_margin_hor)
+	arrow_right:set_x(bgbox:right() - arrow_margin_hor + -twb)
 end
 
 function ClosedCaptions:RealignAllPanels()
@@ -2133,6 +2133,7 @@ function ClosedCaptions:CreateCustomizeDialog()
 		parent = self,
 		id = "ClosedCaptionsCustomize",
 		title = managers.localization:text("dialog_closedcaptions_customize_window_title"),
+		desc = managers.localization:text("dialog_closedcaptions_customize_window_desc"),
 		text = "placeholder text",
 		settings = self.settings,
 		save_settings_callback = callback(self,self,"SaveSettings"),

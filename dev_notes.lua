@@ -1,7 +1,6 @@
 --[[
 
 - todo before release:
--- placement customization
 -- menu/game state handling
 -- anim subtitle removal handling
 
@@ -38,6 +37,13 @@ TODO
 no unit names by tweak table
 cookoff: gangster death lingers forever
 
+
+beneath the mountain
+	[61] : [blast_door_explosion]
+	[62] : [berry_blast_door_blow]
+
+
+
 Stealing Xmas
 	Play_drs_moon_09
 
@@ -50,8 +56,62 @@ carshop manager chatter
 
 
 oil whatever
-	Play_new_deep_01
 	Play_gab_deep_01
+	Play_gab_deep_03
+	Play_gab_deep_6A
+
+
+	[94] : [Play_loc_deep_38A]
+	[95] : [hydrogen_tank_pick_up]
+	[96] : [hydrogen_tank_put_down]
+	[97] : [bar_fan_jam]
+	[98] : [bar_fan_jam_cancel]
+	[99] : [bar_fan_jam_finished]
+	[100] : [Play_loc_deep_39]
+	[101] : [bar_twist_valve]
+	[102] : [bar_twist_valve_cancel]
+	[103] : [bar_twist_valve_finished]
+	[104] : [Play_gab_deep_6A]
+	[105] : [Play_loc_deep_41]
+	[106] : [pick_up_key_card]
+	[107] : [Play_loc_deep_42]
+	[108] : [chalk_scratch]
+	[109] : [bulletproof_shutter_open]
+	[110] : [fish_button_push_server_shutdown]
+	[111] : [deep_crane_rattle_loop_start]
+	[112] : [Play_loc_deep_44]
+	[113] : [Play_loc_deep_45]
+	[114] : [Play_loc_deep_48]
+	[115] : [deep_crane_rattle_loop_stop]
+	[116] : [Play_loc_deep_56]
+	[117] : [bar_turn_off_cooling_system_start]
+	[118] : [bar_turn_off_cooling_system_cancel]
+	[119] : [bar_turn_off_cooling_system_finish]
+	[120] : [Play_loc_deep_49]
+	[121] : [Play_loc_deep_46]
+	[122] : [Play_loc_deep_53]
+	[123] : []
+	[124] : [Play_loc_deep_61]
+	[125] : [Play_loc_deep_63]
+	[126] : [oil_rig_explosion_distant_stereo]
+	[127] : [security_box_lever_pull]
+	[128] : [Play_loc_deep_65]
+	[129] : [hit_oil_drum]
+	[130] : [fire_hydrant]
+	[131] : [gas_station_pumps_explode]
+	[132] : [alarm_deep_on_slow_fade]
+	[133] : [hacking_device_power_off]
+	[134] : [wall_explode_muffled]
+	[135] : [electrical_box_break_hit]
+	[136] : [wall_explosion_large]
+	[137] : [Play_loc_deep_66]
+	[138] : [Play_loc_deep_67]
+	[139] : [unmute]
+[147] : [Play_loc_deep_end_loud]
+
+	Unknown contractor subtitle loc_deep_69_01
+
+
 
 generic bain callouts 
 	Play_pln_pow_01
