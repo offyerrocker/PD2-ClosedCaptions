@@ -10,8 +10,6 @@
 	"closedcaptions_select_language_desc" : "Choose the localization language to use",
 	"menu_closedcaptions_use_fadein_title" : "Use Fade-In",
 	"menu_closedcaptions_use_fadein_desc" : "Captions will start out transparent and become more visible over a short duration",
-	"menu_closedcaptions_set_max_title" : "Set Max Captions",
-	"menu_closedcaptions_set_max_desc" : "Set the maximum number of captions to show",
 	"menu_closedcaptions_set_fadeout_time_title" : "Set Fadeout Time",
 	"menu_closedcaptions_set_fadeout_time_desc" : "How long it takes a caption to disappear when the sound ends",
 	"menu_closedcaptions_set_font_size_title" : "Set Font Size",
@@ -61,7 +59,23 @@
 	
 	"menu_closedcaptions_toggle_customize_title" : "Toggle Captions customization mode",
 	"menu_closedcaptions_toggle_customize_desc" : "Allows you to click-drag and resize the closed captions window in-game.",
-	"dialog_closedcaptions_customize_window_title" : "Caption Display Customization",
-	"dialog_closedcaptions_customize_preview_body" : "Captions will appear in this box"
+	"dialog_closedcaptions_customize_window_title" : "Caption Customization Toolbox",
+	"dialog_closedcaptions_customize_preview_body" : "Captions will appear in this box",
+	"dialog_closedcaptions_customize_window_reset_title" : "Reset Layout",
+	"dialog_closedcaptions_customize_window_reset_desc" : "Return caption window to its default size, position, and style.\nThis cannot be undone!",
+	"dialog_closedcaptions_customize_window_valign_title" : "Toggle Vertical",
+	"dialog_closedcaptions_customize_window_valign_desc" : "Switch between downward and upward subtitle stacking.",
+	"dialog_closedcaptions_customize_window_valign_option_bottom" : "Bottom",
+	"dialog_closedcaptions_customize_window_valign_option_top" : "Top",
+	"dialog_closedcaptions_customize_window_readout_x_title" : "X: $VALUE",
+	"dialog_closedcaptions_customize_window_readout_y_title" : "Y: $VALUE",
+	"dialog_closedcaptions_customize_window_readout_w_title" : "W: $VALUE",
+	"dialog_closedcaptions_customize_window_readout_h_title" : "H: $VALUE",
+	"dialog_closedcaptions_customize_window_readout_v_title" : "VALIGN: $VALUE",
+	"dialog_closedcaptions_customize_window_addsample_title" : "Test Captions",
+	"dialog_closedcaptions_customize_window_addsample_desc" : "Adds some test captions.",
+	"dialog_closedcaptions_customize_window_clear_title" : "Clear Captions",
+	"dialog_closedcaptions_customize_window_clear_desc" : "Removes all currently displayed captions, including test captions."
+	
 	
 }

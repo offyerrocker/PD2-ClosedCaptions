@@ -27,10 +27,12 @@ function HUDPlacementCustomizeDialog:init(manager,data,...)
 	self._controller = self._data.controller or manager:_get_controller()
 	self._save_settings_callback = self._data.save_settings_callback
 	self._realign_hud_callback = self._data.realign_hud_callback
+	self._clear_captions_callback = self._data.clear_captions_callback
+	self._test_captions_callback = self._data.test_captions_callback
 	self._cancel_func = callback(self,self,"hide")
 	
-	self._BGBOX_PARAMS = { tile_size=self._data.parent._BGBOX_PARAMS.tile_size,color = Color(0.4,0.4,0.4) }
-	self._BGBOX_PANEL_CONFIG = {alpha=1,valign="grow",halign="grow"}
+	self._BGBOX_PARAMS = { tile_size=self._data.parent._BGBOX_PARAMS.tile_size,color = Color(1,1,0.5) }
+	self._BGBOX_PANEL_CONFIG = {alpha=0.75,valign="grow",halign="grow"}
 	self._BGBOX_TILE_CONFIG = self._data.parent._BGBOX_TILE_CONFIG
 	
 	self.CreateBGBox = self._data.parent.CreateBGBox
@@ -79,52 +81,114 @@ function HUDPlacementCustomizeDialog:create_gui()
 	self._parent_panel = parent_panel
 	
 	
+	local tooltip_panel = parent_panel:panel({
+		name = "tooltip_panel",
+		layer = 6,
+		visible = false
+	})
+	self._tooltip_panel = tooltip_panel
+	local tooltip_label = tooltip_panel:text({
+		name = "label",
+		font = tweak_data.hud_players.ammo_font,
+		font_size = 16, --!
+		text = "Don't call me Shirley.",
+		align = "left",
+		vertical = "top",
+		color = self._text_color,
+		layer = 4
+	})
+	self._tooltip_label = tooltip_label
+	local tooltip_bgbox = self.CreateBGBox(tooltip_panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
+	tooltip_bgbox:set_size(1,1)
+	tooltip_bgbox:set_layer(5)
+	
+	
 	local panel = parent_panel:panel({
 		name = "dialog_window",
 		w = window_w,
 		h = window_h,
+		x = self.inherited_settings.dialog_x,
+		y = self.inherited_settings.dialog_y,
 		layer = 1
 	})
+	
 	
 	local header_title = panel:text({
 		name = "header_title",
 		font = tweak_data.hud_players.ammo_font,
 		font_size = 16, --!
+		y = 6,
 		text = self._data.title,
-		x = 0,
-		y = 0,
 		align = "center",
 		vertical = "top",
 		color = self._text_color,
 		layer = 2
 	})
 	
-	local reset_button = panel:panel({
-		name = "reset_button",
-		x = 100,
-		y = 100,
-		w = 50,
-		h = 20,
-		alpha = 1,
-		layer = 3
-	})
-	local reset_bg = reset_button:rect({
-		name = "reset_bg",
-		valign = "grow",
-		halign = "grow",
-		color = Color.red,
-		layer = 1
-	})
-	local reset_label = reset_button:text({
-		name = "reset_label",
-		font = tweak_data.hud_players.ammo_font,
-		font_size = 12, --!
-		text = self._data.title,
-		align = "center",
-		vertical = "center",
-		color = self._text_color,
-		layer = 2
-	})
+	local function create_readout(name,params)
+		local readout_panel = panel:panel({
+			name = name,
+			x = params.x,
+			y = params.y,
+			w = params.w,
+			h = params.h,
+			layer = params.layer or 1
+		})
+		local label = readout_panel:text({
+			name = "label",
+			font = tweak_data.hud_players.ammo_font,
+			font_size = 16, --!
+			x = params.text_x or nil,
+			y = params.text_y or nil,
+			text = params.text or "test",
+			align = params.align or "left",
+			vertical = params.vertical or "center",
+			color = self._text_color,
+			layer = 2
+		})
+		local bg = readout_panel:rect({ -- todo use bgbox once i fix coloring
+			name = "bg",
+			valign = "grow",
+			halign = "grow",
+			color = params.color or Color(0.5,0.5,0.5),
+			layer = 0
+		})
+		return readout_panel,label,bg
+	end
+	local readout_x,label_x = create_readout("readout_x",{text_x = 4, w = 50,h=20,x=70,y=80})
+	local readout_y,label_y = create_readout("readout_y",{text_x = 4, w = 50,h=20,x=70,y=110})
+	local readout_w,label_w = create_readout("readout_w",{text_x = 4, w = 50,h=20,x=10,y=80})
+	local readout_h,label_h = create_readout("readout_h",{text_x = 4, w = 50,h=20,x=10,y=110})
+	local readout_v,label_v = create_readout("readout_v",{text_x = 4, w = 90,h=20,x=10,y=140})
+	local function upd_readout_x(settings)
+		label_x:set_text(managers.localization:text("dialog_closedcaptions_customize_window_readout_x_title",{VALUE=string.format("%i",settings.caption_x)}))
+	end
+	local function upd_readout_y(settings)
+		label_y:set_text(managers.localization:text("dialog_closedcaptions_customize_window_readout_y_title",{VALUE=string.format("%i",settings.caption_y)}))
+	end
+	local function upd_readout_w(settings)
+		label_w:set_text(managers.localization:text("dialog_closedcaptions_customize_window_readout_w_title",{VALUE=string.format("%i",settings.caption_w)}))
+	end
+	local function upd_readout_h(settings)
+		label_h:set_text(managers.localization:text("dialog_closedcaptions_customize_window_readout_h_title",{VALUE=string.format("%i",settings.caption_h)}))
+	end
+	local function upd_readout_v(settings)
+		label_v:set_text(managers.localization:text("dialog_closedcaptions_customize_window_readout_v_title",{VALUE=managers.localization:text(settings.caption_vertical_invert and "dialog_closedcaptions_customize_window_valign_option_bottom" or "dialog_closedcaptions_customize_window_valign_option_top")}))
+	end
+	upd_readout_x(self.inherited_settings)
+	upd_readout_y(self.inherited_settings)
+	upd_readout_w(self.inherited_settings)
+	upd_readout_h(self.inherited_settings)
+	upd_readout_v(self.inherited_settings)
+	
+	
+	local add_button,add_label,add_bg = create_readout("add_button",{x=10,y=30,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_addsample_title"),color=Color(223/255,162/255,48/255)})
+	local clear_button,clear_label,clear_bg = create_readout("clear_button",{x=110,y=30,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_clear_title"),color=Color(223/255,162/255,48/255)})
+	
+	local toggle_valign_button,toggle_valign_label,toggle_valign_bg = create_readout("toggle_valign_button",{x=110,y=140,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_valign_title"),color=Color(107/255,192/255,96/255)})
+	-- toggle valign top/bottom
+	
+	local reset_button,reset_label,reset_bg = create_readout("reset_button",{x=(panel:w() - 80)/2,y=170,w=80,h=20,layer=3,align="center",text=managers.localization:text("dialog_closedcaptions_customize_window_reset_title"),color=Color(215/255,67/255,36/255)})
 	-- reset settings and positions to defaults
 	
 	
@@ -132,6 +196,7 @@ function HUDPlacementCustomizeDialog:create_gui()
 	
 	
 	local bgbox = self.CreateBGBox(panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
+	bgbox:set_layer(-10)
 	local MIN_CAPTIONS_W = 200
 	local MIN_CAPTIONS_H = 200
 	local MAX_CAPTIONS_W = ws_panel:w()
@@ -155,8 +220,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 	self._ui_objects = {
 		customize_area = { -- key must EXACTLY match the name of the gui object!
 			object = self._data.parent._customize_panel,
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = function(o,button,x,y) --click (on releasing if this object is the currently held object)
@@ -195,13 +262,18 @@ function HUDPlacementCustomizeDialog:create_gui()
 					
 					self.inherited_settings.caption_x = to_x
 					self.inherited_settings.caption_y = to_y
+					
+					upd_readout_x(self.inherited_settings)
+					upd_readout_y(self.inherited_settings)
 				end
 			end
 		},
 		resize_left = {
 			object = self._data.parent._customize_panel:child("resize_left"),
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = clbk_resize_mouse_click,
@@ -223,6 +295,8 @@ function HUDPlacementCustomizeDialog:create_gui()
 					self.inherited_settings.caption_w = to_w
 					self.inherited_settings.caption_x = obj:x()
 					
+					upd_readout_x(self.inherited_settings)
+					upd_readout_w(self.inherited_settings)
 					if self._realign_hud_callback then
 						self._realign_hud_callback()
 					end
@@ -231,10 +305,12 @@ function HUDPlacementCustomizeDialog:create_gui()
 		},
 		resize_right = {
 			object = self._data.parent._customize_panel:child("resize_right"),
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouse_click_callback = clbk_resize_mouse_click,
 			mouse_press_callback = clbk_resize_mouse_press,
 			mouse_drag_event_callback = function(o,x,y)
@@ -257,15 +333,19 @@ function HUDPlacementCustomizeDialog:create_gui()
 					if self._realign_hud_callback then
 						self._realign_hud_callback()
 					end
+					upd_readout_x(self.inherited_settings)
+					upd_readout_w(self.inherited_settings)
 				end
 			end
 		},
 		resize_top = {
 			object = self._data.parent._customize_panel:child("resize_top"),
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouse_click_callback = clbk_resize_mouse_click,
 			mouse_press_callback = clbk_resize_mouse_press,
 			mouse_drag_event_callback = function(o,x,y)
@@ -288,13 +368,17 @@ function HUDPlacementCustomizeDialog:create_gui()
 					if self._realign_hud_callback then
 						self._realign_hud_callback()
 					end
+					upd_readout_y(self.inherited_settings)
+					upd_readout_h(self.inherited_settings)
 				end
 			end
 		},
 		resize_bottom = {
 			object = self._data.parent._customize_panel:child("resize_bottom"),
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = clbk_resize_mouse_click,
@@ -319,13 +403,17 @@ function HUDPlacementCustomizeDialog:create_gui()
 					if self._realign_hud_callback then
 						self._realign_hud_callback()
 					end
+					upd_readout_y(self.inherited_settings)
+					upd_readout_h(self.inherited_settings)
 				end
 			end
 		},
 		resize_topleft = {
 			object = self._data.parent._customize_panel:child("resize_topleft"),
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = clbk_resize_mouse_click,
@@ -356,13 +444,19 @@ function HUDPlacementCustomizeDialog:create_gui()
 					if self._realign_hud_callback then
 						self._realign_hud_callback()
 					end
+					upd_readout_x(self.inherited_settings)
+					upd_readout_y(self.inherited_settings)
+					upd_readout_w(self.inherited_settings)
+					upd_readout_h(self.inherited_settings)
 				end
 			end
 		},
 		resize_topright = {
 			object = self._data.parent._customize_panel:child("resize_topright"),
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = clbk_resize_mouse_click,
@@ -393,13 +487,19 @@ function HUDPlacementCustomizeDialog:create_gui()
 					if self._realign_hud_callback then
 						self._realign_hud_callback()
 					end
+					upd_readout_x(self.inherited_settings)
+					upd_readout_y(self.inherited_settings)
+					upd_readout_w(self.inherited_settings)
+					upd_readout_h(self.inherited_settings)
 				end
 			end
 		},
 		resize_bottomleft = {
 			object = self._data.parent._customize_panel:child("resize_bottomleft"),
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = clbk_resize_mouse_click,
@@ -430,13 +530,19 @@ function HUDPlacementCustomizeDialog:create_gui()
 					if self._realign_hud_callback then
 						self._realign_hud_callback()
 					end
+					upd_readout_x(self.inherited_settings)
+					upd_readout_y(self.inherited_settings)
+					upd_readout_w(self.inherited_settings)
+					upd_readout_h(self.inherited_settings)
 				end
 			end
 		},
 		resize_bottomright = {
 			object = self._data.parent._customize_panel:child("resize_bottomright"),
-			mouseover_point = "hand",
+			mouseover_pointer = "hand",
 			drag_pointer = "grab",
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = clbk_resize_mouse_click,
@@ -467,6 +573,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					if self._realign_hud_callback then
 						self._realign_hud_callback()
 					end
+					upd_readout_x(self.inherited_settings)
+					upd_readout_y(self.inherited_settings)
+					upd_readout_w(self.inherited_settings)
+					upd_readout_h(self.inherited_settings)
 				end
 			end
 		},
@@ -474,6 +584,8 @@ function HUDPlacementCustomizeDialog:create_gui()
 			object = panel,
 			mouseover_pointer = "hand", --arrow link hand grab
 			drag_pointer = "grab",
+			get_mouseover_macros = nil,
+			mouseover_desc = nil,
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = function(o,button,x,y) -- click (on releasing if this object is the currently held object)
@@ -513,13 +625,91 @@ function HUDPlacementCustomizeDialog:create_gui()
 			object = reset_button,
 			mouseover_pointer = "link",
 			drag_pointer = nil,
+			get_mouseover_macros = nil,
+			mouseover_desc = "dialog_closedcaptions_customize_window_reset_desc",
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
 			mouse_click_callback = function(o,button,x,y) --left click (on release)
-				_G.Print("TODO")
+				local obj = self._data.parent._panel
+				
+				local default_settings = self._data.parent.default_settings
+				self.inherited_settings.caption_w = default_settings.caption_w
+				self.inherited_settings.caption_h = default_settings.caption_h
+				self.inherited_settings.caption_x = default_settings.caption_x
+				self.inherited_settings.caption_y = default_settings.caption_y
+				self.inherited_settings.caption_vertical_invert = default_settings.caption_vertical_invert
+				
+				obj:set_position(self.inherited_settings.caption_x,self.inherited_settings.caption_y)
+				obj:set_size(self.inherited_settings.caption_w,self.inherited_settings.caption_h)
+				
+				if self._realign_hud_callback then
+					self._realign_hud_callback()
+				end
+				
+				if self._save_settings_callback then 
+					self._save_settings_callback()
+				end
+				upd_readout_x(self.inherited_settings)
+				upd_readout_y(self.inherited_settings)
+				upd_readout_w(self.inherited_settings)
+				upd_readout_h(self.inherited_settings)
+				upd_readout_v(self.inherited_settings)
+			end,
+			mouse_drag_event_callback = nil
+		},
+		toggle_valign_button = {
+			object = toggle_valign_button,
+			mouseover_pointer = "link",
+			drag_pointer = nil,
+			get_mouseover_macros = nil,
+			mouseover_desc = "dialog_closedcaptions_customize_window_valign_desc",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = function(o,button,x,y) --left click (on release)
+				local obj = self._data.parent._panel
+				
+				self.inherited_settings.caption_vertical_invert = not self.inherited_settings.caption_vertical_invert
+				-- caption visuals will be updated automatically next update() framcall (next frame)
+				
+				upd_readout_v(self.inherited_settings)
+				
+				if self._save_settings_callback then 
+					self._save_settings_callback()
+				end
+			end,
+			mouse_drag_event_callback = nil
+		},
+		add_button = {
+			object = add_button,
+			mouseover_pointer = "link",
+			drag_pointer = nil,
+			get_mouseover_macros = nil,
+			mouseover_desc = "dialog_closedcaptions_customize_window_addsample_desc",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = function(o,button,x,y) --left click (on release)
+				if self._test_captions_callback then 
+					self._test_captions_callback()
+				end
+			end,
+			mouse_drag_event_callback = nil
+		},
+		clear_button = {
+			object = clear_button,
+			mouseover_pointer = "link",
+			drag_pointer = nil,
+			get_mouseover_macros = nil,
+			mouseover_desc = "dialog_closedcaptions_customize_window_clear_desc",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = function(o,button,x,y) --left click (on release)
+				if self._clear_captions_callback then 
+					self._clear_captions_callback()
+				end
 			end,
 			mouse_drag_event_callback = nil
 		}
+		
 	}
 	
 	local sorted_ui_objects = {}
@@ -540,6 +730,31 @@ function HUDPlacementCustomizeDialog:create_gui()
 	
 	
 	
+end
+
+function HUDPlacementCustomizeDialog:upd_mouseover_tooltip(x,y)
+	local tooltip_label = self._tooltip_label
+	local _,_,tw,th = tooltip_label:text_rect()
+	
+	local offset = 16
+	tooltip_label:set_world_position(math.clamp(x+offset,0,self._parent_panel:w()-tw),math.clamp(y+offset,0,self._parent_panel:h()-th))
+	local tx,ty,_,_ = tooltip_label:text_rect()
+
+	local margin = 2
+	
+	local bgbox = self._tooltip_panel:child("bgbox")
+	bgbox:set_position(tx-margin,ty-margin)
+	bgbox:set_size(tw+margin+margin,th+margin+margin)
+	
+end
+
+function HUDPlacementCustomizeDialog:set_mouseover_tooltip(string_id,macros)
+	if string_id then
+		self._tooltip_panel:child("label"):set_text(managers.localization:text(string_id,macros))
+		self._tooltip_panel:show()
+	else
+		self._tooltip_panel:hide()
+	end
 end
 
 function HUDPlacementCustomizeDialog:set_input_enabled(enabled)
@@ -696,6 +911,8 @@ function HUDPlacementCustomizeDialog:callback_mouse_moved(o,x,y)
 	
 	--get point-at target
 	
+	local mouse_icon = "arrow"
+	
 	if self._is_holding_mouse_button then 
 		
 		local held_obj = self._held_object
@@ -710,12 +927,12 @@ function HUDPlacementCustomizeDialog:callback_mouse_moved(o,x,y)
 --				managers.mouse_pointer:set_pointer_image(ui_object_data.pointer)
 --			end
 			if ui_object_data.drag_pointer then 
-				managers.mouse_pointer:set_pointer_image(ui_object_data.drag_pointer)
+				mouse_icon = ui_object_data.drag_pointer
 			end
 			
 			
 		else
-			managers.mouse_pointer:set_pointer_image("arrow")
+			mouse_icon = "arrow"
 		end
 	else
 		local id,mouseover_target = self:get_mouseover_target(x,y)
@@ -738,22 +955,34 @@ function HUDPlacementCustomizeDialog:callback_mouse_moved(o,x,y)
 				if ui_object_data.mouseover_event_start_callback then 
 					ui_object_data.mouseover_event_start_callback(mouseover_target,x,y)
 				end
+				if ui_object_data.mouseover_desc then 
+					local macros = ui_object_data.get_mouseover_macros and ui_object_data.get_mouseover_macros() or nil
+					self:set_mouseover_tooltip(ui_object_data.mouseover_desc,macros)
+				else
+					self:set_mouseover_tooltip(false)
+				end
 			end
 			
 			if ui_object_data.mouseover_pointer then 
-				managers.mouse_pointer:set_pointer_image(ui_object_data.mouseover_pointer)
+				mouse_icon = ui_object_data.mouseover_pointer
 			else
-				managers.mouse_pointer:set_pointer_image("arrow")
+				mouse_icon = "arrow"
 			end
 		else
-			managers.mouse_pointer:set_pointer_image("arrow")
+			mouse_icon = "arrow"
 			self._mouseover_object = nil
+			self:set_mouseover_tooltip(false)
 		end
 	end
 	
+	self:upd_mouseover_tooltip(x,y)
+	
 	self._mouse_x = x
 	self._mouse_y = y
-	--]]
+	
+	if mouse_icon then
+		managers.mouse_pointer:set_pointer_image(mouse_icon)
+	end
 end
 
 function HUDPlacementCustomizeDialog:callback_mouse_pressed(o,button,x,y)

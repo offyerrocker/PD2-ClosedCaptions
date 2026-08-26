@@ -23,11 +23,11 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 --		log_bainunit_vo = false, --no menu option (intentional)
 		language_name = "english",
 		_language_index = 1,
-		caption_x = 0,
-		caption_y = 150,
-		caption_w = 1280,
-		caption_h = 720,
-		caption_vertical_invert = false, -- if true, "top" captions appear at the bottom; if false, "top" captions appear at the top
+		caption_x = 160,
+		caption_y = 360,
+		caption_w = 960,
+		caption_h = 256,
+		caption_vertical_invert = true, -- if true, "top" captions appear at the bottom; if false, "top" captions appear at the top
 		dialog_x = 100, -- customization window position
 		dialog_y = 100,
 		
@@ -1699,6 +1699,30 @@ function ClosedCaptions:ClearAllSubtitles()
 	end
 end
 
+function ClosedCaptions:AddTestSubtitles()
+	local selections = {
+		"Play_pent_civs_lobby",
+		"Play_buyers_chca_01",
+		"Play_mee_corp_01",
+		"f30x_any",
+		"f31x_any",
+		"f32x_any",
+		"f33x_any",
+		"f34x_any",
+		"f44x_any",
+		"f47x_any",
+		"f45x_any"
+	}
+	local player = managers.player:local_player()
+	if alive(player) then
+		local sound_source = player:sound_source()
+		if sound_source and alive(sound_source) then
+			self:start_subtitle(table.random(selections),nil,sound_source,nil)
+		end
+	end
+	--self:start_contractor_subtitle("","",nil)
+end
+
 
 -- ============================== SoundSource management
 
@@ -2113,6 +2137,8 @@ function ClosedCaptions:CreateCustomizeDialog()
 		settings = self.settings,
 		save_settings_callback = callback(self,self,"SaveSettings"),
 		realign_hud_callback = callback(self,self,"RealignAllPanels"),
+		clear_captions_callback = callback(self,self,"ClearAllSubtitles"),
+		test_captions_callback = callback(self,self,"AddTestSubtitles"),
 		workspace = self._ws,
 		button_list = {} --not used
 	}
