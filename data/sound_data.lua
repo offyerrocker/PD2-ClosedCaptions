@@ -1456,12 +1456,14 @@ return {
 			override_name = "SFX",
 			category = "sfx",
 			priority = 98,
+			disabled = true,
 			text = "(police sirens approaching)"
 		},
 		cop_car_02 = {
 			override_name = "SFX",
 			category = "sfx",
 			priority = 98,
+			disabled = true,
 			text = "(police sirens approaching)"
 		},
 		bd_police_siren_02 = {
@@ -24899,6 +24901,39 @@ $1: Uh huh. right.]]
 			text = "[classical piano music]"
 		},
 		
+		pal_money_printer_end_paper = {
+			speaker_id = "hud_subtitlemod_speaker_sfx",
+			text = "[printer out of paper warning!]",
+			category = "mission_dialogue",
+			max_distance = 1500,
+			priority = 10,
+			duration = 5
+		},
+		
+		pal_money_printer_end_ink = {
+			speaker_id = "hud_subtitlemod_speaker_sfx",
+			text = "[printer out of ink warning!]",
+			category = "mission_dialogue",
+			max_distance = 1500,
+			priority = 10,
+			duration = 5
+		},
+		pal_money_printer_start = {
+			speaker_id = "hud_subtitlemod_speaker_sfx",
+			text = "[printer starts printing]",
+			category = "mission_dialogue",
+			max_distance = 1500,
+			priority = 10,
+			duration = 5
+		},
+		pal_money_printer_finished = {
+			speaker_id = "hud_subtitlemod_speaker_sfx",
+			text = "[printer completed money print]",
+			category = "mission_dialogue",
+			max_distance = 1500,
+			priority = 10,
+			duration = 5
+		},
 		
 		-- Shadow Raid
 		-- Play_pln_ko1_01 -- this is the intro text actually
