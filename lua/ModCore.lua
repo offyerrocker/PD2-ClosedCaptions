@@ -308,7 +308,7 @@ function ClosedCaptions:change_setting(setting,new_value,skip_clbk)
 	self.settings[setting] = new_value
 	if not skip_clbk then
 		self:clbk_on_settings_changed({
-			setting = new_value
+			[setting] = new_value
 		})
 	end
 end
@@ -679,12 +679,12 @@ function ClosedCaptions:update(t,dt)
 					local duration = self.settings.caption_fadeout_time
 					if not item.animate_out then
 						item.animate_out = item.panel:animate(AnimateLibrary.animate_alpha_lerp,
-						function()
+						function(o)
 							item.animate_out = nil
 							if item.state == 3 then
 								self:_remove_subtitle(id,true)
 							else
-								item:hide()
+								o:hide()
 							end
 						end,
 						duration,nil,0)
@@ -696,7 +696,7 @@ function ClosedCaptions:update(t,dt)
 				item.state = to_state
 			end
 			
-			if alive(item.panel) and item.panel:alpha() > 0 then
+			if alive(item.panel) and item.panel:visible() and item.panel:alpha() > 0 then
 				if vertical_reverse then
 					item.panel:set_bottom(y)
 					y = item.panel:top() - 2
@@ -868,18 +868,18 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	
 	self:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_right)
 	
-	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(panel_name),function(settings,changed_settings)
-		if table.contains(changed_settings,"caption_font_size") then
-			-- todo recreate?
-		--[[
-			local caption = self:get_caption(panel_name)
-			if alive(caption) then
-				local font_size = settings.caption_font_size
-				caption:child("subtitle"):set_font_size(font_size)
-				caption:child("arrow_left"):set_font_size(font_size)
-				caption:child("arrow_right"):set_font_size(font_size)
-			end
-		--]]
+	local hook_id = "cc_check_caption_settings_" .. tostring(panel_name)
+	Hooks:Add("ClosedCaptions_OnSettingsChanged",hook_id,function(settings,changed_settings)
+		if not alive(item_panel) then
+			Hooks:Remove("ClosedCaptions_OnSettingsChanged",hook_id)
+			return
+		end
+		if changed_settings.caption_font_size then
+			local font_size = changed_settings.caption_font_size
+			subtitle:set_font_size(font_size)
+			arrow_left:set_font_size(font_size)
+			arrow_right:set_font_size(font_size)
+			self:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_right)
 		end
 	end)
 	
@@ -978,6 +978,7 @@ end
 -- create panel from the given event data,
 -- bootstrap the updater to handle frame updates for tasks like left/right audio position detection or fadeout animations
 function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
+	--self:Print("Start subtitle",event_id,unit,sound_source,position)
 	if type(sound_id) == "number" then
 		self:Print("Received number event id",event_id)
 		return
@@ -1199,6 +1200,7 @@ function ClosedCaptions:_remove_subtitle(id,instant)
 		end
 		local item_panel = item.panel
 		if alive(item_panel) then
+			Hooks:Remove("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(item.panel:name()))
 			if instant or item_panel:alpha() <= 0 then
 				self._panel:remove(item_panel)
 			else
@@ -1214,6 +1216,8 @@ function ClosedCaptions:_remove_subtitle(id,instant)
 					item.animate_out = nil
 					if item.state == 3 then
 						self:_remove_subtitle(id,true)
+					else
+						o:hide()
 					end
 				end,duration,nil,0)
 				
@@ -1224,7 +1228,6 @@ function ClosedCaptions:_remove_subtitle(id,instant)
 	
 	self._active_subtitles[id] = nil
 	
-	Hooks:Remove("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(id))
 	
 	for i,_id in pairs(self._queue_active_subtitles) do 
 		if _id == id then
@@ -1974,7 +1977,6 @@ end
 function ClosedCaptions._clbk_soundsource_post_event(event_id,instance,sound_source,event_type,unit,...)
 --	self:Print("_clbk_soundsource_post_event",event_id,"instance",instance,"sound_source",sound_source,"event_type",event_type,"unit",unit,"...",...)
 	if event_type == "end_of_event" then
-		
 		ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit)
 	end
 end
@@ -2253,7 +2255,7 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	
 	MenuCallbackHandler.callback_closedcaptions_set_visible = function(self,item)
 		local enabled = item:value() == "on"
-		ClosedCaptions.settings.captions_visible = enabled
+		ClosedCaptions:change_setting("captions_visible",enabled,nil)
 		ClosedCaptions:SetCaptionsPanelVisible(enabled)
 	end
 	
@@ -2270,79 +2272,79 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_use_fadein = function(self,item)
-		ClosedCaptions.settings.caption_use_fadein = item:value() == "on"
+		ClosedCaptions:change_setting("caption_use_fadein",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_set_fadeout_time = function(self,item)
-		ClosedCaptions.settings.caption_fadeout_time = tonumber(item:value())
+		ClosedCaptions:change_setting("caption_fadeout_time",tonumber(item:value()),nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_set_font_size = function(self,item)
-		ClosedCaptions.settings.caption_font_size = tonumber(item:value())
+		ClosedCaptions:change_setting("caption_font_size",tonumber(item:value()),nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_caption_variation_mode = function(self,item)
-		ClosedCaptions.settings.caption_variation_mode = tonumber(item:value())
+		ClosedCaptions:change_setting("caption_variation_mode",tonumber(item:value()),nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_caption_order = function(self,item)
-		ClosedCaptions.settings.caption_order = tonumber(item:value())
+		ClosedCaptions:change_setting("caption_order",tonumber(item:value()),nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_use_player_names = function(self,item)
-		ClosedCaptions.settings.caption_use_player_names = item:value() == "on"
+		ClosedCaptions:change_setting("caption_use_player_names",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_use_allcaps_names = function(self,item)
-		ClosedCaptions.settings.caption_allcaps_names = item:value() == "on"
+		ClosedCaptions:change_setting("caption_allcaps_names",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_mission_dialogue = function(self,item)
-		ClosedCaptions.settings.category_mission_dialogue = item:value() == "on"
+		ClosedCaptions:change_setting("category_mission_dialogue",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_contractor_vo = function(self,item)
-		ClosedCaptions.settings.category_contractor_vo = item:value() == "on"
+		ClosedCaptions:change_setting("category_contractor_vo",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_sfx = function(self,item)
-		ClosedCaptions.settings.category_sfx = item:value() == "on"
+		ClosedCaptions:change_setting("category_sfx",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_heister_dialogue = function(self,item)
-		ClosedCaptions.settings.category_heister_dialogue = item:value() == "on"
+		ClosedCaptions:change_setting("category_heister_dialogue",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_heister_spots = function(self,item)
-		ClosedCaptions.settings.category_heister_spots = item:value() == "on"
+		ClosedCaptions:change_setting("category_heister_spots",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_heister_kills = function(self,item)
-		ClosedCaptions.settings.category_heister_kills = item:value() == "on"
+		ClosedCaptions:change_setting("category_heister_kills",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_civilian_dialogue = function(self,item)
-		ClosedCaptions.settings.category_civilian_dialogue = tonumber(item:value())
+		ClosedCaptions:change_setting("category_civilian_dialogue",tonumber(item:value()),nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_enemy_dialogue = function(self,item)
-		ClosedCaptions.settings.category_enemy_dialogue = tonumber(item:value())
+		ClosedCaptions:change_setting("category_enemy_dialogue",tonumber(item:value()),nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_enemy_chatter = function(self,item)
-		ClosedCaptions.settings.category_enemy_chatter = tonumber(item:value())
+		ClosedCaptions:change_setting("category_enemy_chatter",tonumber(item:value()),nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_enemy_death = function(self,item)
-		ClosedCaptions.settings.category_enemy_death = tonumber(item:value())
+		ClosedCaptions:change_setting("category_enemy_death",tonumber(item:value()),nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_specialenemy_chatter = function(self,item)
-		ClosedCaptions.settings.category_specialenemy_chatter = item:value() == "on"
+		ClosedCaptions:change_setting("category_specialenemy_chatter",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_specialenemy_death = function(self,item)
-		ClosedCaptions.settings.category_specialenemy_death = item:value() == "on"
+		ClosedCaptions:change_setting("category_specialenemy_death",item:value() == "on",nil)
 	end
 	--[[
 	MenuCallbackHandler.callback_closedcaptions_enable_logging_master = function(self,item)
