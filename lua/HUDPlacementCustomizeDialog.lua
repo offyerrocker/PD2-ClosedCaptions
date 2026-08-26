@@ -835,11 +835,11 @@ function HUDPlacementCustomizeDialog:set_input_enabled(enabled)
 end
 
 function HUDPlacementCustomizeDialog:callback_key_press(o,k)
-	Print("Press",o,k)
+	--Print("Press",o,k)
 end
 
 function HUDPlacementCustomizeDialog:callback_key_release(o,k)
-	Print("Release",o,k)
+	--Print("Release",o,k)
 end
 
 function HUDPlacementCustomizeDialog:show()
@@ -1012,7 +1012,6 @@ function HUDPlacementCustomizeDialog:callback_mouse_pressed(o,button,x,y)
 		
 			self._is_holding_mouse_button = true
 			local id,mouseover_target = self:get_mouseover_target(x,y)
-			Print("Clicking",id)
 			--drag start (can be overridden by object-specific callbacks)
 			self._mouse_drag_x_start = x
 			self._mouse_drag_y_start = y
