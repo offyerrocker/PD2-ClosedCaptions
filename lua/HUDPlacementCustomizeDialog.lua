@@ -222,6 +222,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					obj:set_right(self._target_drag_x2_start)
 					self.inherited_settings.caption_w = to_w
 					self.inherited_settings.caption_x = obj:x()
+					
+					if self._realign_hud_callback then
+						self._realign_hud_callback()
+					end
 				end
 			end
 		},
@@ -249,6 +253,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					obj:set_left(self._target_drag_x_start)
 					self.inherited_settings.caption_w = to_w
 					self.inherited_settings.caption_x = obj:x()
+					
+					if self._realign_hud_callback then
+						self._realign_hud_callback()
+					end
 				end
 			end
 		},
@@ -276,6 +284,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					obj:set_bottom(self._target_drag_y2_start)
 					self.inherited_settings.caption_h = to_h
 					self.inherited_settings.caption_y = obj:y()
+					
+					if self._realign_hud_callback then
+						self._realign_hud_callback()
+					end
 				end
 			end
 		},
@@ -303,6 +315,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					obj:set_top(self._target_drag_y_start)
 					self.inherited_settings.caption_h = to_h
 					self.inherited_settings.caption_y = obj:y()
+					
+					if self._realign_hud_callback then
+						self._realign_hud_callback()
+					end
 				end
 			end
 		},
@@ -336,6 +352,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					obj:set_bottom(self._target_drag_y2_start)
 					self.inherited_settings.caption_h = to_h
 					self.inherited_settings.caption_y = obj:y()
+					
+					if self._realign_hud_callback then
+						self._realign_hud_callback()
+					end
 				end
 			end
 		},
@@ -369,6 +389,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					obj:set_bottom(self._target_drag_y2_start)
 					self.inherited_settings.caption_h = to_h
 					self.inherited_settings.caption_y = obj:y()
+					
+					if self._realign_hud_callback then
+						self._realign_hud_callback()
+					end
 				end
 			end
 		},
@@ -402,6 +426,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					obj:set_top(self._target_drag_y_start)
 					self.inherited_settings.caption_h = to_h
 					self.inherited_settings.caption_y = obj:y()
+					
+					if self._realign_hud_callback then
+						self._realign_hud_callback()
+					end
 				end
 			end
 		},
@@ -435,6 +463,10 @@ function HUDPlacementCustomizeDialog:create_gui()
 					obj:set_top(self._target_drag_y_start)
 					self.inherited_settings.caption_h = to_h
 					self.inherited_settings.caption_y = obj:y()
+					
+					if self._realign_hud_callback then
+						self._realign_hud_callback()
+					end
 				end
 			end
 		},

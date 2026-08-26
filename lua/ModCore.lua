@@ -25,15 +25,12 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		_language_index = 1,
 		caption_x = 0,
 		caption_y = 150,
-		caption_w_scale = 0.7, -- caption window is sized to 70% of max window/workspace size
 		caption_w = 1280,
 		caption_h = 720,
 		caption_vertical_invert = false, -- if true, "top" captions appear at the bottom; if false, "top" captions appear at the top
 		dialog_x = 100, -- customization window position
 		dialog_y = 100,
 		
---		caption_w = 800,
---		caption_margin_v = 8,
 		caption_order = 2,
 		captions_max_count = 5,
 		caption_use_fadein = false,
@@ -85,7 +82,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	_panel = nil,
 	_window_instance = nil, -- holds the customize dialog window
 	_BGBOX_PARAMS = {tile_size=8},
-	_BGBOX_PANEL_CONFIG = {alpha=0.5,valign="grow",halign="grow"},
+	_BGBOX_PANEL_CONFIG = {alpha=0.5,valign=nil,halign=nil},
 	_BGBOX_TILE_CONFIG = {color=Color(0,0,0)},
 	_soundsources = {
 		--[[
@@ -781,6 +778,7 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		name = panel_name,
 		w = nil, -- inherit from parent panel
 		h = nil,
+		halign = "grow",
 		alpha = use_fadein and 0 or 1,
 		visible = false
 	})
@@ -821,22 +819,19 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 --	local margin_right = twb
 	
 	local margin_sum = arrow_margin_hor+arrow_margin_hor+twa+twb
-	-- can't be larger than 70% of screen width
-	-- get the final width of the text component, after overflow splitting
-	local max_panel_w = (parent_w * self.settings.caption_w_scale) - margin_sum
-
+	
 	local subtitle = item_panel:text({
 		name = "subtitle",
 		text = text,
 --		x = margin_hor/2,
 --		y = margin_ver/2,
-		w = max_panel_w,
---		h = line_h,
+		w = item_panel:w() - margin_sum,
+		--h = self._ws:panel():h(), -- inherit
 		align = "center",
-		vertical = "center", -- note: vertical center doesn't work properly with custom fonts
+		vertical = "top", -- note: vertical center doesn't work properly with custom fonts
 		wrap = true,
-		--valign = "grow", -- don't use these, as the w and h should be used for the bounding box of the text's word wrap
-		--halign = "grow",
+		valign = "top", -- should be used for the bounding box of the text's word wrap
+		halign = "grow",
 		font = tweak_data.hud_players.ammo_font,
 		font_size = self.settings.caption_font_size,
 		color = text_color,
@@ -849,17 +844,10 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 			subtitle:set_range_color(color_ranges[i],color_ranges[i+1],color_ranges[i+2])
 		end
 	end
-	local txc,tyc,twc,thc = subtitle:text_rect()
-	subtitle:set_h(thc + margin_ver)
 	
-	item_panel:set_w(twc + margin_sum)
-	subtitle:set_x((item_panel:w() - subtitle:w()) / 2)
+	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
 	
-	local num_lines = subtitle:number_of_lines()
-	thc = num_lines * subtitle:line_height()
-	item_panel:set_h(thc + margin_ver)
-	
-	item_panel:set_x((parent_w - item_panel:w()) / 2)
+	self:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_right)
 	
 	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_check_caption_settings_" .. tostring(panel_name),function(settings,changed_settings)
 		if table.contains(changed_settings,"caption_font_size") then
@@ -875,8 +863,6 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 		--]]
 		end
 	end)
-	
-	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
 	
 	if use_fadein then
 		local duration = self.settings.caption_fadeout_time
@@ -1662,8 +1648,48 @@ end
 
 -- called when the settings are changed;
 -- reposition all caption ui elements accordingly
-function ClosedCaptions:RealignPanel()
+function ClosedCaptions:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_right)
+	-- on parent panel size changed
+	-- width should be done automatically
+	
+	subtitle = subtitle or item:child("subtitle")
+	bgbox = bgbox or item:child("bgbox")
+	arrow_left = arrow_left or item_panel:child("arrow_left")
+	arrow_right = arrow_right or item_panel:child("arrow_right")
+	
+	--force re-evaluate word wrap
+	subtitle:set_align("left")
+	subtitle:set_align("center")
+	
+	local txa,tya,twa,tha = arrow_left:text_rect()
+	local txb,tyb,twb,thb = arrow_right:text_rect()
+	local txc,tyc,twc,thc = subtitle:text_rect()
+	
+	subtitle:set_x((item_panel:w() - subtitle:w()) / 2)
+	
+	local arrow_margin_hor = 4
+	local margin_ver = 4
+	local margin_hor = 4
+	local margin_sum = arrow_margin_hor+arrow_margin_hor+twa+twb
+	
+	item_panel:set_h(thc + margin_ver + margin_ver)
+	
+	local suby = (item_panel:h() - thc) / 2
+	subtitle:set_y(suby)
+	
+	bgbox:set_w(twc + margin_sum)
+	bgbox:set_h(item_panel:h())
+	bgbox:set_x((item_panel:w() - bgbox:w()) / 2)
+	arrow_left:set_x(bgbox:left())
+	arrow_right:set_x(bgbox:right())
+end
 
+function ClosedCaptions:RealignAllPanels()
+	for k,v in pairs(self._active_subtitles) do 
+		if alive(v.panel) then
+			self:RealignPanel(v.panel,v.panel:child("subtitle"),v.panel:child("bgbox"),v.panel:child("arrow_left"),v.panel:child("arrow_right"))
+		end
+	end
 end
 
 function ClosedCaptions:ClearAllSubtitles()
@@ -2085,7 +2111,7 @@ function ClosedCaptions:CreateCustomizeDialog()
 		text = "placeholder text",
 		settings = self.settings,
 		save_settings_callback = callback(self,self,"SaveSettings"),
-		realign_hud_callback = callback(self,self,"RealignPanel"),
+		realign_hud_callback = callback(self,self,"RealignAllPanels"),
 		workspace = self._ws,
 		button_list = {} --not used
 	}
