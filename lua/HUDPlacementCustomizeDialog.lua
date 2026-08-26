@@ -23,11 +23,11 @@ local ids_mouse2 = Idstring("1")
 
 function HUDPlacementCustomizeDialog:init(manager,data,...)
 	HUDPlacementCustomizeDialog.super.init(self,manager,data,...)
-	
 	--callbacks and input
 	self._controller = self._data.controller or manager:_get_controller()
 	self._save_settings_callback = self._data.save_settings_callback
 	self._realign_hud_callback = self._data.realign_hud_callback
+	self._cancel_func = callback(self,self,"hide")
 	
 	self._BGBOX_PARAMS = { tile_size=self._data.parent._BGBOX_PARAMS.tile_size,color = Color(0.4,0.4,0.4) }
 	self._BGBOX_PANEL_CONFIG = {alpha=1,valign="grow",halign="grow"}
@@ -134,8 +134,24 @@ function HUDPlacementCustomizeDialog:create_gui()
 	local bgbox = self.CreateBGBox(panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
 	local MIN_CAPTIONS_W = 200
 	local MIN_CAPTIONS_H = 200
-	local MAX_CAPTIONS_W = 100
-	local MAX_CAPTIONS_H = 100
+	local MAX_CAPTIONS_W = ws_panel:w()
+	local MAX_CAPTIONS_H = ws_panel:h()
+	local function clbk_resize_mouse_click(o,button,x,y) --click (on releasing if this object is the currently held object)
+		if self._save_settings_callback then 
+			self._save_settings_callback()
+		end
+	end
+	local function clbk_resize_mouse_press(o,button,x,y) -- on initial press
+		self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
+		self._held_object = o
+		
+		local obj = self._data.parent._panel
+		self._target_drag_x_start,self._target_drag_y_start = obj:position()
+		self._target_drag_cx_start,self._target_drag_cy_start = obj:center()
+		self._target_drag_w_start,self._target_drag_h_start = obj:size()
+		self._target_drag_x2_start = obj:right()
+		self._target_drag_y2_start = obj:bottom()
+	end
 	self._ui_objects = {
 		customize_area = { -- key must EXACTLY match the name of the gui object!
 			object = self._data.parent._customize_panel,
@@ -182,93 +198,84 @@ function HUDPlacementCustomizeDialog:create_gui()
 				end
 			end
 		},
-		resize_right = {
-			object = self._data.parent._customize_panel:child("resize_right"),
-			mouseover_point = "hand",
-			drag_pointer = "grab",
-			mouseover_event_start_callback = nil,
-			mouseover_event_stop_callback = nil,
-			mouse_click_callback = function(o,button,x,y) --click (on releasing if this object is the currently held object)
-				if self._save_settings_callback then 
-					self._save_settings_callback()
-				end
-			end,
-			mouse_press_callback = function(o,button,x,y) -- on initial press
-				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
-				self._held_object = o
-				
-				local obj = self._data.parent._panel
-				self._target_drag_x_start,self._target_drag_y_start = obj:position()
-				self._target_drag_cx_start,self._target_drag_cy_start = obj:center()
-				self._target_drag_w_start,self._target_drag_h_start = obj:size()
-				self._target_drag_x2_start = obj:left()
-				self._target_drag_y2_start = obj:bottom()
-			end,
-			mouse_drag_event_callback = function(o,x,y)
-				local d_x = x - self._mouse_drag_x_start
-				local d_y = y - self._mouse_drag_y_start
-				
-				if self._held_button == ids_mouse1 then
-					-- move
-					local start_x = self._target_drag_x_start
-					local start_y = self._target_drag_y_start
-					
-					local obj = self._data.parent._panel
-					local parent = obj:parent()
-					
-					local bw,bh = obj:size()
-					
-					local min_w = 200
-					local max_w = parent:w()
-					local to_w = math.clamp(self._target_drag_w_start + d_x,min_w,max_w)
-					obj:set_w(to_w)
-					--obj:set_left(self._target_drag_x_start)
-					
-					self.inherited_settings.caption_w = to_w
-				end
-			end
-		},
 		resize_left = {
 			object = self._data.parent._customize_panel:child("resize_left"),
 			mouseover_point = "hand",
 			drag_pointer = "grab",
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
-			mouse_click_callback = function(o,button,x,y) --click (on releasing if this object is the currently held object)
-				if self._save_settings_callback then 
-					self._save_settings_callback()
-				end
-			end,
-			mouse_press_callback = function(o,button,x,y) -- on initial press
-				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
-				self._held_object = o
-				
-				local obj = self._data.parent._panel
-				self._target_drag_x_start,self._target_drag_y_start = obj:position()
-				self._target_drag_cx_start,self._target_drag_cy_start = obj:center()
-				self._target_drag_w_start,self._target_drag_h_start = obj:size()
-				self._target_drag_x2_start = obj:left()
-				self._target_drag_y2_start = obj:bottom()
-			end,
+			mouse_click_callback = clbk_resize_mouse_click,
+			mouse_press_callback = clbk_resize_mouse_press,
 			mouse_drag_event_callback = function(o,x,y)
 				local d_x = x - self._mouse_drag_x_start
 				local d_y = y - self._mouse_drag_y_start
 				
 				if self._held_button == ids_mouse1 then
-					-- move
 					local start_x = self._target_drag_x_start
 					local start_y = self._target_drag_y_start
-					
 					local obj = self._data.parent._panel
 					local parent = obj:parent()
 					local bw,bh = obj:size()
-					local min_w = 200
-					local max_w = parent:w()
-					local to_w = math.clamp(self._target_drag_w_start - d_x,min_w,max_w)
-					obj:set_right(self._target_drag_x2_start)
-					obj:set_w(to_w)
 					
+					local to_w = math.clamp(self._target_drag_w_start - d_x,MIN_CAPTIONS_W,MAX_CAPTIONS_W)
+					obj:set_w(to_w)
+					obj:set_right(self._target_drag_x2_start)
 					self.inherited_settings.caption_w = to_w
+					self.inherited_settings.caption_x = obj:x()
+				end
+			end
+		},
+		resize_right = {
+			object = self._data.parent._customize_panel:child("resize_right"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = clbk_resize_mouse_click,
+			mouse_press_callback = clbk_resize_mouse_press,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					local bw,bh = obj:size()
+					
+					local to_w = math.clamp(self._target_drag_w_start + d_x,MIN_CAPTIONS_W,MAX_CAPTIONS_W)
+					obj:set_w(to_w)
+					obj:set_left(self._target_drag_x_start)
+					self.inherited_settings.caption_w = to_w
+					self.inherited_settings.caption_x = obj:x()
+				end
+			end
+		},
+		resize_top = {
+			object = self._data.parent._customize_panel:child("resize_top"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = clbk_resize_mouse_click,
+			mouse_press_callback = clbk_resize_mouse_press,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					local bw,bh = obj:size()
+					
+					local to_h = math.clamp(self._target_drag_h_start - d_y,MIN_CAPTIONS_H,MAX_CAPTIONS_H)
+					obj:set_h(to_h)
+					obj:set_bottom(self._target_drag_y2_start)
+					self.inherited_settings.caption_h = to_h
+					self.inherited_settings.caption_y = obj:y()
 				end
 			end
 		},
@@ -278,42 +285,156 @@ function HUDPlacementCustomizeDialog:create_gui()
 			drag_pointer = "grab",
 			mouseover_event_start_callback = nil,
 			mouseover_event_stop_callback = nil,
-			mouse_click_callback = function(o,button,x,y) --click (on releasing if this object is the currently held object)
-				if self._save_settings_callback then 
-					self._save_settings_callback()
-				end
-			end,
-			mouse_press_callback = function(o,button,x,y) -- on initial press
-				self._mouse_drag_x_start,self._mouse_drag_y_start = x,y
-				self._held_object = o
-				
-				local obj = self._data.parent._panel
-				self._target_drag_x_start,self._target_drag_y_start = obj:position()
-				self._target_drag_cx_start,self._target_drag_cy_start = obj:center()
-				self._target_drag_w_start,self._target_drag_h_start = obj:size()
-				self._target_drag_x2_start = obj:left()
-				self._target_drag_y2_start = obj:bottom()
-			end,
+			mouse_click_callback = clbk_resize_mouse_click,
+			mouse_press_callback = clbk_resize_mouse_press,
 			mouse_drag_event_callback = function(o,x,y)
 				local d_x = x - self._mouse_drag_x_start
 				local d_y = y - self._mouse_drag_y_start
 				
 				if self._held_button == ids_mouse1 then
-					-- move
 					local start_x = self._target_drag_x_start
 					local start_y = self._target_drag_y_start
-					
 					local obj = self._data.parent._panel
 					local parent = obj:parent()
-					
 					local bw,bh = obj:size()
 					
-					local min_h = 200
-					local max_h = parent:w()
-					local to_h = math.clamp(self._target_drag_h_start + d_y,min_h,max_h)
+					local to_h = math.clamp(self._target_drag_h_start + d_y,MIN_CAPTIONS_H,MAX_CAPTIONS_H)
 					obj:set_h(to_h)
-					
+					obj:set_top(self._target_drag_y_start)
 					self.inherited_settings.caption_h = to_h
+					self.inherited_settings.caption_y = obj:y()
+				end
+			end
+		},
+		resize_topleft = {
+			object = self._data.parent._customize_panel:child("resize_topleft"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = clbk_resize_mouse_click,
+			mouse_press_callback = clbk_resize_mouse_press,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					local bw,bh = obj:size()
+					
+					local to_w = math.clamp(self._target_drag_w_start - d_x,MIN_CAPTIONS_W,MAX_CAPTIONS_W)
+					obj:set_w(to_w)
+					obj:set_right(self._target_drag_x2_start)
+					self.inherited_settings.caption_w = to_w
+					self.inherited_settings.caption_x = obj:x()
+					
+					local to_h = math.clamp(self._target_drag_h_start - d_y,MIN_CAPTIONS_H,MAX_CAPTIONS_H)
+					obj:set_h(to_h)
+					obj:set_bottom(self._target_drag_y2_start)
+					self.inherited_settings.caption_h = to_h
+					self.inherited_settings.caption_y = obj:y()
+				end
+			end
+		},
+		resize_topright = {
+			object = self._data.parent._customize_panel:child("resize_topright"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = clbk_resize_mouse_click,
+			mouse_press_callback = clbk_resize_mouse_press,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					local bw,bh = obj:size()
+					
+					local to_w = math.clamp(self._target_drag_w_start + d_x,MIN_CAPTIONS_W,MAX_CAPTIONS_W)
+					obj:set_w(to_w)
+					obj:set_left(self._target_drag_x_start)
+					self.inherited_settings.caption_w = to_w
+					self.inherited_settings.caption_x = obj:x()
+					
+					local to_h = math.clamp(self._target_drag_h_start - d_y,MIN_CAPTIONS_H,MAX_CAPTIONS_H)
+					obj:set_h(to_h)
+					obj:set_bottom(self._target_drag_y2_start)
+					self.inherited_settings.caption_h = to_h
+					self.inherited_settings.caption_y = obj:y()
+				end
+			end
+		},
+		resize_bottomleft = {
+			object = self._data.parent._customize_panel:child("resize_bottomleft"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = clbk_resize_mouse_click,
+			mouse_press_callback = clbk_resize_mouse_press,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					local bw,bh = obj:size()
+					
+					local to_w = math.clamp(self._target_drag_w_start - d_x,MIN_CAPTIONS_W,MAX_CAPTIONS_W)
+					obj:set_w(to_w)
+					obj:set_right(self._target_drag_x2_start)
+					self.inherited_settings.caption_w = to_w
+					self.inherited_settings.caption_x = obj:x()
+					
+					local to_h = math.clamp(self._target_drag_h_start + d_y,MIN_CAPTIONS_H,MAX_CAPTIONS_H)
+					obj:set_h(to_h)
+					obj:set_top(self._target_drag_y_start)
+					self.inherited_settings.caption_h = to_h
+					self.inherited_settings.caption_y = obj:y()
+				end
+			end
+		},
+		resize_bottomright = {
+			object = self._data.parent._customize_panel:child("resize_bottomright"),
+			mouseover_point = "hand",
+			drag_pointer = "grab",
+			mouseover_event_start_callback = nil,
+			mouseover_event_stop_callback = nil,
+			mouse_click_callback = clbk_resize_mouse_click,
+			mouse_press_callback = clbk_resize_mouse_press,
+			mouse_drag_event_callback = function(o,x,y)
+				local d_x = x - self._mouse_drag_x_start
+				local d_y = y - self._mouse_drag_y_start
+				
+				if self._held_button == ids_mouse1 then
+					local start_x = self._target_drag_x_start
+					local start_y = self._target_drag_y_start
+					local obj = self._data.parent._panel
+					local parent = obj:parent()
+					local bw,bh = obj:size()
+					
+					local to_w = math.clamp(self._target_drag_w_start + d_x,MIN_CAPTIONS_W,MAX_CAPTIONS_W)
+					obj:set_w(to_w)
+					obj:set_left(self._target_drag_x_start)
+					self.inherited_settings.caption_w = to_w
+					self.inherited_settings.caption_x = obj:x()
+					
+					local to_h = math.clamp(self._target_drag_h_start + d_y,MIN_CAPTIONS_H,MAX_CAPTIONS_H)
+					obj:set_h(to_h)
+					obj:set_top(self._target_drag_y_start)
+					self.inherited_settings.caption_h = to_h
+					self.inherited_settings.caption_y = obj:y()
 				end
 			end
 		},
@@ -356,7 +477,7 @@ function HUDPlacementCustomizeDialog:create_gui()
 				end
 			end
 		},
-		reset_settings = {
+		reset_button = {
 			object = reset_button,
 			mouseover_pointer = "link",
 			drag_pointer = nil,
@@ -391,14 +512,12 @@ end
 
 function HUDPlacementCustomizeDialog:set_input_enabled(enabled)
 	local controller = self._controller
-	Print("Enabled",enabled)
-		--self._cancel_func = function() Print("cenecele") end
 	if not self._input_enabled ~= not enabled then
 		if enabled then
 			--controller:add_trigger("confirm", self._confirm_func)
 
 			if managers.controller:get_default_wrapper_type() == "pc" or managers.controller:get_default_wrapper_type() == "steam" then -- or managers.controller:get_default_wrapper_type() == "vr"
-				--controller:add_trigger("toggle_menu", self._cancel_func)
+				controller:add_trigger("toggle_menu", self._cancel_func)
 
 				self._mouse_id = managers.mouse_pointer:get_id()
 				self._removed_mouse = nil
@@ -436,7 +555,7 @@ function HUDPlacementCustomizeDialog:set_input_enabled(enabled)
 			--controller:remove_trigger("confirm", self._confirm_func)
 
 			if managers.controller:get_default_wrapper_type() == "pc" or managers.controller:get_default_wrapper_type() == "steam" then -- or managers.controller:get_default_wrapper_type() == "vr" then
-				--controller:remove_trigger("toggle_menu", self._cancel_func)
+				controller:remove_trigger("toggle_menu", self._cancel_func)
 			else
 				--controller:remove_trigger("cancel", self._cancel_func)
 			end
@@ -614,7 +733,7 @@ function HUDPlacementCustomizeDialog:callback_mouse_pressed(o,button,x,y)
 		
 			self._is_holding_mouse_button = true
 			local id,mouseover_target = self:get_mouseover_target(x,y)
-			
+			Print("Clicking",id)
 			--drag start (can be overridden by object-specific callbacks)
 			self._mouse_drag_x_start = x
 			self._mouse_drag_y_start = y

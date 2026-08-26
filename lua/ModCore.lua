@@ -373,6 +373,8 @@ function ClosedCaptions:setup()
 	
 	self._panel = ws_panel:panel({
 		name = "captions_panel",
+		x = self.settings.caption_x,
+		y = self.settings.caption_y,
 		w = w,
 		h = h,
 		layer = 3
@@ -389,6 +391,20 @@ function ClosedCaptions:setup()
 	})
 	self._customize_panel = customize_area
 	
+	customize_area:text({
+		name = "customize_area_label",
+		text = managers.localization:text("dialog_closedcaptions_customize_preview_body"),
+		font = tweak_data.hud_players.ammo_font,
+		font_size = 12,
+		vertical = "center",
+		align = "center",
+		valign = "grow",
+		halign = "grow",
+		wrap = nil,
+		layer = -2
+	})
+	
+	
 	local drag_rect = customize_area:rect({
 		name = "rect",
 		color = Color.white,
@@ -402,7 +418,7 @@ function ClosedCaptions:setup()
 			name = "label",
 			text = text,
 			font = tweak_data.hud_players.ammo_font,
-			font_size = 12,
+			font_size = 24,
 			vertical = "center",
 			align = "center",
 			valign = "grow",
@@ -430,7 +446,7 @@ function ClosedCaptions:setup()
 		y = (h - resizer_h) / 2,
 		layer = -3
 	})
-	populate_resizer(resize_left,"□")
+	populate_resizer(resize_left,"<")
 	
 	local resize_right = customize_area:panel({
 		name = "resize_right",
@@ -442,7 +458,7 @@ function ClosedCaptions:setup()
 		y = (h - resizer_h) / 2,
 		layer = -3
 	})
-	populate_resizer(resize_right,"□")
+	populate_resizer(resize_right,">")
 	
 	local resize_top = customize_area:panel({
 		name = "resize_top",
@@ -454,7 +470,7 @@ function ClosedCaptions:setup()
 		y = 0,
 		layer = -3
 	})
-	populate_resizer(resize_top,"□")
+	populate_resizer(resize_top,"^")
 	
 	local resize_bottom = customize_area:panel({
 		name = "resize_bottom",
@@ -466,7 +482,7 @@ function ClosedCaptions:setup()
 		y = (h-resizer_h),
 		layer = -3
 	})
-	populate_resizer(resize_bottom,"□")
+	populate_resizer(resize_bottom,"v")
 	
 	local resize_topleft = customize_area:panel({
 		name = "resize_topleft",
@@ -478,7 +494,7 @@ function ClosedCaptions:setup()
 		y = 0,
 		layer = -3
 	})
-	populate_resizer(resize_topleft,"□")
+	populate_resizer(resize_topleft,"o")
 	
 	local resize_topright = customize_area:panel({
 		name = "resize_topright",
@@ -490,7 +506,7 @@ function ClosedCaptions:setup()
 		y = 0,
 		layer = -3
 	})
-	populate_resizer(resize_topright,"□")
+	populate_resizer(resize_topright,"o")
 	
 	local resize_bottomleft = customize_area:panel({
 		name = "resize_bottomleft",
@@ -502,7 +518,7 @@ function ClosedCaptions:setup()
 		y = h - resizer_h,
 		layer = -3
 	})
-	populate_resizer(resize_bottomleft,"□")
+	populate_resizer(resize_bottomleft,"o")
 	
 	local resize_bottomright = customize_area:panel({
 		name = "resize_bottomright",
@@ -514,7 +530,7 @@ function ClosedCaptions:setup()
 		y = h - resizer_h,
 		layer = -3
 	})
-	populate_resizer(resize_bottomright,"□")
+	populate_resizer(resize_bottomright,"o")
 	
 --	self:SetVisible(self:IsEnabled())
 --	self:SetPanelX(self.settings.caption_x)

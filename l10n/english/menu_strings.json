@@ -62,5 +62,6 @@
 	"menu_closedcaptions_toggle_customize_title" : "Toggle Captions customization mode",
 	"menu_closedcaptions_toggle_customize_desc" : "Allows you to click-drag and resize the closed captions window in-game.",
 	"dialog_closedcaptions_customize_window_title" : "Caption Display Customization",
+	"dialog_closedcaptions_customize_preview_body" : "Captions will appear in this box"
 	
 }

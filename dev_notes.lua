@@ -6,7 +6,7 @@
 -- menu/game state handling
 -- anim subtitle removal handling
 
-
+create sample subtitles when customizing
 
 
 
