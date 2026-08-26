@@ -1,7 +1,6 @@
 --[[
 
 - todo before release:
--- conversations are not respecting distance
 -- placement customization
 -- menu/game state handling
 -- anim subtitle removal handling
@@ -24,6 +23,15 @@ TODO
 - setup in menu so that captions can be shown in the menu (eg contractor briefings), not just ingame
 
 - better streamlined flow- remove subtitles consistently
+
+- address "duplicated" sounds
+	- sounds that naturally play multiple times in rapid succession
+		eg. enemy death
+	- sounds that play twice because of jank
+		eg. dumpster open/close, plays twice per interaction rather than increasing volume i guess
+	- sounds that play from multiple sources so that you can hear them in multiple locations
+		eg. PA announcements in Crude Awakening
+
 
 
 
@@ -86,15 +94,27 @@ if false then -- sample format absolute timestamps
 
 
 	local s = [[3.2
-7.8
-10.5
-14.3
-17.5
-22.7 
+
+7.1
+12.1
+17.2
+21.8
+26.2
 30.2
-33.2
-37.7
-43
+34.9
+40.9
+46.4
+51.8
+56.9
+65.1
+69.4
+75.6
+79.5
+84.5
+91.9
+95.3
+100.0
+103.2
 	]]
 
 

@@ -1443,19 +1443,19 @@ return {
 		helicopter_police = {
 			override_name = "SFX",
 			text = "(helicopter droning)",
-			max_distance = 2000,
+			max_distance = 4000,
 			priority = 98,
 			category = "sfx",
 			loop_data = {
 				loop_interval = -1
-			},
-			disabled = true
+			}
 		},
 
 		cop_car_01 = {
 			override_name = "SFX",
 			category = "sfx",
 			priority = 98,
+			max_distance = 2000,
 			disabled = true,
 			text = "(police sirens approaching)"
 		},
@@ -1463,6 +1463,7 @@ return {
 			override_name = "SFX",
 			category = "sfx",
 			priority = 98,
+			max_distance = 2000,
 			disabled = true,
 			text = "(police sirens approaching)"
 		},
@@ -2602,6 +2603,7 @@ return {
 			category = "civilian_dialogue",
 			text = "(news crew filming)",
 			priority = 98,
+			max_distance = 1000,
 			duration = 20,
 			conversation = {
 				speakers = {
@@ -2627,6 +2629,7 @@ $1: It might be a close race this year!]]
 			text = "(news crew filming)",
 			priority = 98,
 			duration = 10,
+			max_distance = 1000,
 			conversation = {
 				speakers = {
 					[1] = "hud_subtitlemod_speaker_newsciv"
@@ -2650,6 +2653,7 @@ $1: and guests may enjoy a high-quality meal in these very exclusive surrounding
 			text = "(news crew filming)",
 			priority = 98,
 			duration = 15,
+			max_distance = 1000,
 			conversation = {
 				speakers = {
 					[1] = "hud_subtitlemod_speaker_newsciv"
@@ -2674,6 +2678,7 @@ $1: I don't know what to say about those goddamn fishes.
 			text = "(news crew filming)",
 			priority = 98,
 			duration = 15,
+			max_distance = 1000,
 			conversation = {
 				speakers = {
 					[1] = "hud_subtitlemod_speaker_newsciv"
@@ -2698,6 +2703,7 @@ $1: and it's a beautiful night here in New York!
 			text = "(news crew filming)",
 			priority = 98,
 			duration = 17,
+			max_distance = 1000,
 			conversation = {
 				speakers = {
 					[1] = "hud_subtitlemod_speaker_newsciv"
@@ -2722,6 +2728,7 @@ $1: with access to these private rooms.
 			text = "(news crew filming)",
 			priority = 98,
 			duration = 22,
+			max_distance = 1000,
 			conversation = {
 				speakers = {
 					[1] = "hud_subtitlemod_speaker_newsciv"
@@ -2746,6 +2753,7 @@ $1: [NORMAL VOICE] ...Tom, do you think we could snag a beer from the fridge her
 			text = "(news crew filming)",
 			priority = 98,
 			duration = 14,
+			max_distance = 1000,
 			conversation = {
 				speakers = {
 					[1] = "hud_subtitlemod_speaker_newsciv"
@@ -2769,6 +2777,7 @@ $1: I know I saw some Sartre here, and there was definitely some Tolstoy, too!
 			text = "(news crew filming)",
 			priority = 98,
 			duration = 14,
+			max_distance = 1000,
 			conversation = {
 				speakers = {
 					[1] = "hud_subtitlemod_speaker_newsciv"
@@ -2923,6 +2932,7 @@ $1: It's a new franchise, but they've got awesome burgers. ROUND burgers.$b
 $2: Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
 			},
 			duration = 300,
+			max_distance = 1000,
 			priority = 75
 		},
 		
@@ -3035,6 +3045,7 @@ $2: If I get a good look at the big lamp, I'll have something to distract her wi
 $1: Uh huh. right.]]
 			},
 			duration = 303,
+			max_distance = 1000,
 			priority = 75
 		},
 		
@@ -28468,8 +28479,7 @@ $2: ...Putas.$b
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 15
-		},
-				
+		},	
 		Play_ars_corp = { -- blackmail recording
 			category = "mission_dialogue",
 			text = "(incriminating recording of Rainey soliciting sabotage)",
@@ -28538,9 +28548,7 @@ $2: Okay. [speaks spanish]
 				}
 			}
 		},
-		
-		
-		-- tracy dialogs
+			-- tracy dialogs
 		Play_mee_corp_01 = {
 			category = "civilian_dialogue",
 			text = "(chatter)",
@@ -28964,6 +28972,127 @@ $1: If they don't like working for free, they can find their college credits som
 					"Ooh, how embarrassing."
 					
 				}
+			}
+		},
+		
+		-- Crude Awakening
+		Play_gab_deep_01A = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] Security shift rotation in 30 minutes. Don't get lazy. The clowns could strike at any time.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_01B = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] All personnel, stay on your guard. We can't afford to fuck up like in Dallas.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_02A = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] A reminder to all workers: Do not attempt to engage the new security team in conversation. Do not make eye contact. Do not disobey",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_02B = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] Attention, all personnel. We are on a strict communications blackout. Any attempt to contact the mainland will be punished... severely.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_03A = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] When our conflict with the SERA board is resolved, you will be rewarded.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_04A = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] Patrol Unit One, rotate to the Laboratory. ",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_04B = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] Patrol Unit Two, I want a sweep of the Admin Office.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_04C = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] Patrol Unit Three, check the oil tanks.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_04D = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] Patrol Unit One, investigate the Rest Area.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_04E = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] Patrol Unit Two, do a sweep of the Bridges.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_gab_deep_04F = {
+			speaker_id = "hud_subtitlemod_speaker_gab",
+			category = "mission_dialogue",
+			text = "[over loudspeaker] Patrol Unit Three, I want eyes on the Living Quarters.",
+			max_distance = 500,
+			priority = 44
+		},
+		Play_new_deep_01 = {
+			category = "civilian_dialogue",
+			text = "(news broadcast)",
+			priority = 98,
+			duration = 140,
+			max_distance = 500,
+			conversation = {
+				speakers = {
+					[1] = "hud_subtitlemod_speaker_television"
+				},
+				colors = {
+					[1] = "neutral2"
+				},
+				timing = {
+					7.1,12.1,17.2,21.8,26.2,30.2,34.9,40.9,46.4,51.8,56.9,65.1,69.4,75.6,79.5,84.5,91.9,95.3,100.0,103.2
+				},
+				text = "hud_subtitlemod_cnv_Play_new_deep_01",
+				convo = [[
+$1: Our top story tonight: the shareholders of SERA Incorporated have issued a statement condemning CEO Alice Rainey...$b
+$1: ...in the wake of a corruption scandal that has sent the company's stock value plummeting.$b
+$1: The FBI are currently investigating Rainey after materials leaked to the public mere days ago...$b
+$1: placed her under suspicion of multiple crimes, including bribery, money laundering...$b
+$1: ...extortion, industrial sabotage, and even arms dealing.$b
+$1: These materials include several emails between Rainey and her accountant...$b
+$1: ...in which Rainey calls for the allocation of SERA funds towards illegal activity.$b
+$1: The public were also given access to a recorded conversation allegedly captured at SERA's main office...$b
+$1: ...in which Rainey hires an arsonist to commit acts of sabotage against a rival company.$b
+$1: Though the identity of the arsonist has yet to be confirmed, the FBI has placed Jacques Bernier,$b
+$1: a French terrorist on the INTERPOL's most wanted list, as their prime suspect.$b
+$1: Perhaps most alarming of all, the leak contains a damning voicemail sent by Rainey to SERA's chief of security, Gabriel Santiago.$b
+$1: The contents of the recording form a direct link between Rainey and Midland Ranch,$b
+$1: an illegal weapons compound in Central Texas, which was subject to a massive police raid earlier this month.$b
+$1: In response to the leaks, SERA's board of shareholders said the following:$b
+$1: "Sustainable Energy and Research Applications is a company with strong Texan values."$b
+$1: "Ms. Rainey's actions are in direct violation of those values, and we plan to sever all connection with her as soon as legally possible.""$b
+$1: "We will once again be SERA, Oil You Can Trust.™"$b
+$1: Our team reached out to Alice Rainey for comment. We have yet to receive a reply.$b
+$1: More on this story as it develops. When we come back, we'll examine how a daring train robbery in Fort Worth...$b
+$1: ...gave one crane manufacturer some much needed publicity.
+]]
 			}
 		}
 	}

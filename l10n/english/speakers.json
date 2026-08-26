@@ -7,6 +7,7 @@
 	"hud_subtitlemod_speaker_locke" : "Locke",
 	"hud_subtitlemod_speaker_vlad" : "Vlad",
 	"hud_subtitlemod_speaker_charon" : "Charon",
+	"hud_subtitlemod_speaker_gab" : "Gabriel",
 	"hud_subtitlemod_speaker_gem" : "McShay",
 	"hud_subtitlemod_speaker_kee" : "Keegan",
 	"hud_subtitlemod_speaker_rainey" : "Rainey",
@@ -47,6 +48,7 @@
 	"hud_subtitlemod_speaker_taperecording" : "Tape Recording",
 	"hud_subtitlemod_speaker_taxman" : "Taxman",
 	"hud_subtitlemod_speaker_telephone" : "Phone Call"
+	"hud_subtitlemod_speaker_television" : "TV",
 	"hud_subtitlemod_speaker_twitch" : "Twitch",
 	"hud_subtitlemod_speaker_winters" : "Captain Winters",
 	"hud_subtitlemod_speaker_wwh_captain" : "Captain",
