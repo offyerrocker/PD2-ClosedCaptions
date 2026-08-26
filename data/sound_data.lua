@@ -24192,6 +24192,7 @@ $1: Uh huh. right.]]
 		Play_bnc_flt_01 = {
 			category = "mission_dialogue",
 			priority = 10,
+			duration = 5,
 			line_variations = {
 				standard_mode = {
 					"Get inside. It's straight ahead.",
@@ -28465,7 +28466,7 @@ $2: ...Putas.$b
 		
 		-- Black Cat
 		Play_bar_chca_01 = {
-			override_name = "Captain",
+			override_name = "Insider",
 			text = "I've been waiting. Your equipment is waiting in one of the cabin lavatories, but there's a small complication - vault security's been changed. Lee Deng still has the code, but you'll need Sun Hong's handprint as well to open it. I was able to acquire some impression wax and store it with your gear. Good luck.",
 			category = "mission_dialogue",
 			priority = 10,
