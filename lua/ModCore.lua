@@ -33,7 +33,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		
 		caption_order = 2,
 		caption_use_fadein = false,
-		caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
+		caption_fadeout_time = 0.3, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 		caption_font_size = 16,
 		caption_allcaps_names = true,
 		caption_variation_mode = 2,
@@ -568,7 +568,11 @@ function ClosedCaptions:update(t,dt)
 		local id = self._queue_active_subtitles[i]
 		local item = self._active_subtitles[id]
 		
-		local to_state = 1
+		local to_state = item.state == 3 and item.state or 1
+		-- 1: show
+		-- 2: hide
+		-- 3: delete
+		
 		if item and alive(item.panel) then
 			
 			if item.conversation_data then
@@ -598,100 +602,113 @@ function ClosedCaptions:update(t,dt)
 					end
 				end
 			end
-		
-			current_num = current_num + 1 --counter is accurate but no longer used
-			if (vertical_reverse and y > 0) or (not vertical_reverse and y < h) then
-				if item.end_t and item.end_t <= t then
-					to_state = 3
-				end
-				
-				if item.is_locationless then
-					-- lines from the narrator (bain, locke), which should not diegetically have spatial information
-					-- or sounds from the local player, which do not need it
-				else
-					local has_source
-					-- determine if this caption is left/right of player viewport
-					if item.sound_source and alive(item.sound_source) then
-						tmp_vec1 = item.sound_source:get_position()
-						if tmp_vec1 then
-							has_source = true
-							mvector3.set(source_pos,tmp_vec1)
-						end
-					end
-					--[[ temp disabled
-					if not has_source and item.unit and alive(item.unit) then
-						tmp_vec1 = item.unit:position()
-						if tmp_vec1 then
-							has_source = true
-							mvector3.set(source_pos,tmp_vec1)
-						end
-					end
-					--]]
-					
-					if has_source then
-						local angle_to = ((ClosedCaptions.vec2_angle(player_pos,source_pos) - player_aim + 270) % 360) - 180
-						item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
-						item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
-						
-						if item.max_distance then 
-							if source_pos then
-								if use_proximity_sort then
-									-- may as well calculate the actual distance
-									local distance = mvector3.distance(player_pos,source_pos)
-									if distance >= item.max_distance then 
-										to_state = 2
-									end
-									item.distance = distance
-								else
-									local distance = mvector3.distance_sq(player_pos,source_pos)
-									if distance >= item.max_distance*item.max_distance then 
-										to_state = 2
-									end
-								end
-								
+			
+			if item.end_t and item.end_t <= t then
+				to_state = 3
+			elseif (vertical_reverse and y > 0) or (not vertical_reverse and y < h) then
+				if item.state ~= 3 then
+					if item.is_locationless then
+						-- lines from the narrator (bain, locke), which should not diegetically have spatial information
+						-- or sounds from the local player, which do not need it
+					else
+						local has_source
+						-- determine if this caption is left/right of player viewport
+						if item.sound_source and alive(item.sound_source) then
+							tmp_vec1 = item.sound_source:get_position()
+							if tmp_vec1 then
+								has_source = true
+								mvector3.set(source_pos,tmp_vec1)
 							end
 						end
-					else
-						to_state = 3
+						--[[ temp disabled
+						if not has_source and item.unit and alive(item.unit) then
+							tmp_vec1 = item.unit:position()
+							if tmp_vec1 then
+								has_source = true
+								mvector3.set(source_pos,tmp_vec1)
+							end
+						end
+						--]]
+						
+						if has_source then
+							local angle_to = ((ClosedCaptions.vec2_angle(player_pos,source_pos) - player_aim + 270) % 360) - 180
+							item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
+							item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
+							
+							if item.max_distance then 
+								if source_pos then
+									if use_proximity_sort then
+										-- may as well calculate the actual distance
+										local distance = mvector3.distance(player_pos,source_pos)
+										if distance >= item.max_distance then 
+											to_state = 2
+										end
+										item.distance = distance
+									else
+										local distance = mvector3.distance_sq(player_pos,source_pos)
+										if distance >= item.max_distance*item.max_distance then 
+											to_state = 2
+										end
+									end
+									
+								end
+							end
+						else
+							to_state = 3
+						end
 					end
 				end
 			else
 				to_state = 2
 			end
+			
 			if item.state ~= to_state then
 				if to_state == 1 then -- show
+					if item.animate_out then
+						item.panel:stop(item.animate_out)
+						item.animate_out = nil
+					end
+					item.panel:set_alpha(1)
 					item.panel:show()
 					--local duration = self.settings.caption_fadeout_time
 					--item.panel:animate(AnimateLibrary.animate_alpha_lerp,nil,duration,nil,1)
+					
+					
 				elseif to_state == 2 then -- hiding
-					item.panel:hide()
-					--local duration = self.settings.caption_fadeout_time
+					local duration = self.settings.caption_fadeout_time
+					if not item.animate_out then
+						item.animate_out = item.panel:animate(AnimateLibrary.animate_alpha_lerp,
+						function()
+							item.animate_out = nil
+							if item.state == 3 then
+								self:_remove_subtitle(id,true)
+							else
+								item:hide()
+							end
+						end,
+						duration,nil,0)
+					end
 					--item.panel:animate(AnimateLibrary.animate_alpha_lerp,function(o) o:hide() end,duration,nil,0)
+				elseif to_state == 3 then
+					self:_remove_subtitle(id,false)
 				end
 				item.state = to_state
 			end
 			
+			if alive(item.panel) and item.panel:alpha() > 0 then
+				if vertical_reverse then
+					item.panel:set_bottom(y)
+					y = item.panel:top() - 2
+				else
+					item.panel:set_y(y)
+					y = item.panel:bottom() + 2
+				end
+			end
 		else
-			to_state = 3
+			-- remove immediately
+			self:_remove_subtitle(id,true)
 		end
 		
-		if to_state == 1 then
-			current_num = current_num + 1
-			if vertical_reverse then
-				item.panel:set_bottom(y)
-				y = item.panel:top() - 2
-			else
-				item.panel:set_y(y)
-				y = item.panel:bottom() + 2
-			end
-		elseif to_state == 3 then
-			if item then
-				item.state = to_state
-			end
-			-- panel removed somehow; 
-			-- remove immediately
-			self:_remove_subtitle(id)
-		end
 	end
 	
 	if use_proximity_sort then
@@ -986,19 +1003,6 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	local id = event_id .. "_" .. tostring(sound_source:key())
 	local state_data = self:_get_subtitle(id)
 	
-	if state_data then
-		if state_data.state == 3 then
-			self:_remove_subtitle(id,true)
-			state_data = nil
-		elseif alive(state_data.panel) then
-			state_data.panel:set_alpha(1)
-			self:_set_subtitle_text(state_data.panel,text,color_ranges)
-			return
-		end
-	end
-	
-	self:Print("Playing subtitle",event_id,sound_source,unit)
-	
 	local end_t = nil
 	
 	local is_player = alive(unit) and unit == managers.player:local_player()
@@ -1006,6 +1010,33 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		local t = TimerManager:game():time()
 		end_t = t + (variation_data.duration or sound_data.duration)
 	end
+	
+	if state_data then
+		if alive(state_data.panel) and false then
+			-- disabled bc it's not working
+			
+			-- refresh existing subtitle (reset alpha and expire timer) instead
+			if not conversation_data then
+				state_data.state = 2 -- set state to hidden instead; if it's valid it will be shown 
+				state_data.panel:set_alpha(1)
+				state_data.end_t = end_t
+				self:_set_subtitle_text(state_data.panel,text,color_ranges)
+				if state_data.animate_out then
+					state_data.panel:stop(state_data.animate_out)
+					state_data.animate_out = nil
+				end
+				return
+			end
+		else
+			self:_remove_subtitle(id,true)
+		end
+		
+		-- old panel is dead, just make a new one
+		state_data = nil
+	end
+	
+	self:Print("Playing subtitle",event_id,sound_source,unit)
+	
 	
 	local item_panel
 	local loop_data = sound_data.loop_data
@@ -1167,13 +1198,25 @@ function ClosedCaptions:_remove_subtitle(id,instant)
 		end
 		local item_panel = item.panel
 		if alive(item_panel) then
-			if instant then
+			if instant or item_panel:alpha() <= 0 then
 				self._panel:remove(item_panel)
 			else
 				local duration = self.settings.caption_fadeout_time
-				item_panel:animate(AnimateLibrary.animate_alpha_lerp,function(o)
-					self._panel:remove(item_panel)
+				item.state = 3
+				
+				if item.animate_out then
+					item_panel:stop(item.animate_out)
+					item.animate_out = nil
+				end
+				item.animate_out = item_panel:animate(AnimateLibrary.animate_alpha_lerp,function(o)
+					--self._panel:remove(item_panel)
+					item.animate_out = nil
+					if item.state == 3 then
+						self:_remove_subtitle(id,true)
+					end
 				end,duration,nil,0)
+				
+				return
 			end
 		end
 	end
