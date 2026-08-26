@@ -32,7 +32,6 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		dialog_y = 100,
 		
 		caption_order = 2,
-		captions_max_count = 5,
 		caption_use_fadein = false,
 		caption_fadeout_time = 0.5, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 		caption_font_size = 16,
@@ -554,14 +553,16 @@ function ClosedCaptions:update(t,dt)
 	
 	local player_aim = viewport_cam:rotation():yaw()
 	mvector3.set(player_pos,viewport_cam:position())
-	local MAX_SUBTITLES = self.settings.captions_max_count
 	local angle_threshold = 45
 	
 	local use_proximity_sort = self:GetCaptionPriorityMode() == 2
 	
 	local current_num = 0
 	local y = 0
-	local h = self._panel:h() -- vertical_reverse only
+	local h = self._panel:h()
+	if vertical_reverse then
+		y = h
+	end
 	
 	for i=#self._queue_active_subtitles,1,-1 do
 		local id = self._queue_active_subtitles[i]
@@ -598,8 +599,8 @@ function ClosedCaptions:update(t,dt)
 				end
 			end
 		
-			if current_num <= MAX_SUBTITLES then
-
+			current_num = current_num + 1 --counter is accurate but no longer used
+			if (vertical_reverse and y > 0) or (not vertical_reverse and y < h) then
 				if item.end_t and item.end_t <= t then
 					to_state = 3
 				end
@@ -677,8 +678,8 @@ function ClosedCaptions:update(t,dt)
 		if to_state == 1 then
 			current_num = current_num + 1
 			if vertical_reverse then
-				item.panel:set_bottom(h - y)
-				y = item.panel:y() - 2
+				item.panel:set_bottom(y)
+				y = item.panel:top() - 2
 			else
 				item.panel:set_y(y)
 				y = item.panel:bottom() + 2
@@ -2170,10 +2171,6 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	
 	MenuCallbackHandler.callback_closedcaptions_use_fadein = function(self,item)
 		ClosedCaptions.settings.caption_use_fadein = item:value() == "on"
-	end
-	
-	MenuCallbackHandler.callback_closedcaptions_set_max = function(self,item)
-		ClosedCaptions.settings.captions_max_count = tonumber(item:value())
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_set_fadeout_time = function(self,item)
