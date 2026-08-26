@@ -22310,6 +22310,7 @@ $1: Uh huh. right.]]
 		bdz_g90 = {
 			text = "(Bulldozer taunt)",
 			category = "enemy_chatter",
+			duration = 6,
 			line_variations = {
 				standard_mode = {
 					"ALRIGHT! HERE, AND READY TO KICK ASS!",
