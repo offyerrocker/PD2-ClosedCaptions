@@ -92,6 +92,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 			},
 		--]]
 	},
+	_soundid_lookup = {}, -- holds lookup table for available, non-disabled sounds using SoundDevice:string_to_id()
 	_sound_data = { disabled_sounds = {}, vo = {}, vo_special = {}}, -- subtitle data, indexed by event_id
 	_UNIT_NAMES = {}, -- populated on load from loc file
 	_NARRATOR_PREFIXES = {
@@ -1688,6 +1689,21 @@ function ClosedCaptions:process_macros(sound_data)
 			end
 		end
 	end
+	
+	for event_id,data in pairs(sound_data.vo) do 
+		if not data.disabled then
+			local id = tostring(SoundDevice:string_to_id(event_id))
+--			if self._soundid_lookup[id] then
+				--error("Caption lookup collision! " .. tostring(event_id))
+--			end
+			self._soundid_lookup[id] = event_id
+		end
+	end
+end
+
+-- looks up sound id (float) to event_id (string)
+function ClosedCaptions:id_to_string(id)
+	return self._soundid_lookup[id]
 end
 
 -- called when the settings are changed;
@@ -1898,6 +1914,13 @@ function ClosedCaptions:clbk_stop_postevent(event_id,sound_source,unit,instant)
 		end
 	end
 	
+	
+	if type(event_id) == "number" then
+		event_id = ClosedCaptions:id_to_string(tostring(event_id))
+		if not event_id then
+			return
+		end
+	end
 	self:remove_subtitle(event_id,sound_source,instant)
 end
 
@@ -1908,6 +1931,13 @@ function ClosedCaptions:register_soundsource_postevent(sound_source,event_id,uni
 --		-- interrupt alpha decay, refresh
 		-- (reroll text eg repeat enemy markings)
 --	end
+	if type(event_id) == "number" then
+		event_id = ClosedCaptions:id_to_string(tostring(event_id))
+		if not event_id then
+			return
+		end
+	end
+
 	if not self._sound_data.disabled_sounds[event_id] then
 		if self._sound_data.vo[event_id] then
 			self:start_subtitle(event_id,unit,sound_source,sound_source:get_position()) -- start before registering, so that stop events from cc sound data will only stop other events from the soundsource
