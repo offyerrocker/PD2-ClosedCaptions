@@ -1653,8 +1653,8 @@ function ClosedCaptions:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_
 	-- on parent panel size changed
 	-- width should be done automatically
 	
-	subtitle = subtitle or item:child("subtitle")
-	bgbox = bgbox or item:child("bgbox")
+	subtitle = subtitle or item_panel:child("subtitle")
+	bgbox = bgbox or item_panel:child("bgbox")
 	arrow_left = arrow_left or item_panel:child("arrow_left")
 	arrow_right = arrow_right or item_panel:child("arrow_right")
 	
