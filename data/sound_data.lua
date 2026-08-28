@@ -2606,7 +2606,7 @@ return {
 			category = "civilian_dialogue",
 			text = "(tape recording plays)",
 			priority = 98,
-			duration = 2,
+			duration = 15,
 			line_variations = {
 				standard_mode = {
 					"Okay, uh, I understand we have cleared to anchor just off Manhattan, right? I like it. Security should be good around the area. I'm a little nervous with so many VIPs attending!",
@@ -29015,7 +29015,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_02A = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
-			text = "[over loudspeaker] A reminder to all workers: Do not attempt to engage the new security team in conversation. Do not make eye contact. Do not disobey",
+			text = "[over loudspeaker] A reminder to all workers: Do not attempt to engage the new security team in conversation. Do not make eye contact. Do not disobey.",
 			max_distance = 500,
 			priority = 44
 		},
@@ -29096,24 +29096,24 @@ $1: If they don't like working for free, they can find their college credits som
 $1: Our top story tonight: the shareholders of SERA Incorporated have issued a statement condemning CEO Alice Rainey...$b
 $1: ...in the wake of a corruption scandal that has sent the company's stock value plummeting.$b
 $1: The FBI are currently investigating Rainey after materials leaked to the public mere days ago...$b
-$1: placed her under suspicion of multiple crimes, including bribery, money laundering...$b
+$1: ...placed her under suspicion of multiple crimes, including bribery, money laundering...$b
 $1: ...extortion, industrial sabotage, and even arms dealing.$b
 $1: These materials include several emails between Rainey and her accountant...$b
 $1: ...in which Rainey calls for the allocation of SERA funds towards illegal activity.$b
 $1: The public were also given access to a recorded conversation allegedly captured at SERA's main office...$b
 $1: ...in which Rainey hires an arsonist to commit acts of sabotage against a rival company.$b
-$1: Though the identity of the arsonist has yet to be confirmed, the FBI has placed Jacques Bernier,$b
-$1: a French terrorist on the INTERPOL's most wanted list, as their prime suspect.$b
+$1: Though the identity of the arsonist has yet to be confirmed, the FBI has placed Jacques Bernier...$b
+$1: ...a French terrorist on the INTERPOL's most wanted list, as their prime suspect.$b
 $1: Perhaps most alarming of all, the leak contains a damning voicemail sent by Rainey to SERA's chief of security, Gabriel Santiago.$b
-$1: The contents of the recording form a direct link between Rainey and Midland Ranch,$b
-$1: an illegal weapons compound in Central Texas, which was subject to a massive police raid earlier this month.$b
+$1: The contents of the recording form a direct link between Rainey and Midland Ranch...$b
+$1: ...an illegal weapons compound in Central Texas, which was subject to a massive police raid earlier this month.$b
 $1: In response to the leaks, SERA's board of shareholders said the following:$b
 $1: "Sustainable Energy and Research Applications is a company with strong Texan values."$b
-$1: "Ms. Rainey's actions are in direct violation of those values, and we plan to sever all connection with her as soon as legally possible.""$b
+$1: "Ms. Rainey's actions are in direct violation of those values, and we plan to sever all connection with her as soon as legally possible."$b
 $1: "We will once again be SERA, Oil You Can Trust.™"$b
 $1: Our team reached out to Alice Rainey for comment. We have yet to receive a reply.$b
 $1: More on this story as it develops. When we come back, we'll examine how a daring train robbery in Fort Worth...$b
-$1: ...gave one crane manufacturer some much needed publicity.
+$1: ...gave one crane manufacturer some much needed publicity!
 ]]
 			}
 		}

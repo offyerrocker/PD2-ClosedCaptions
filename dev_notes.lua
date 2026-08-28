@@ -2,11 +2,8 @@
 
 - todo before release:
 -- menu/game state handling
--- anim subtitle removal handling
-
-create sample subtitles when customizing
-
-
+-- fix color ranges not applying?
+-- subtitles for briefing/heist end
 
 
 so yeah the whole technical idea behind the mod (and sound_data specifically)
@@ -59,7 +56,7 @@ oil whatever
 	Play_gab_deep_01
 	Play_gab_deep_03
 	Play_gab_deep_6A
-
+	Play_civ_deep_01
 
 	[94] : [Play_loc_deep_38A]
 	[95] : [hydrogen_tank_pick_up]
