@@ -26691,6 +26691,62 @@ $2: ...Putas.$b
 			duration = 5
 		},
 		
+	-- lab rats
+		spider_enter = {
+			text = "(spider spawns!)",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		spider_idle = {
+			text = "(spider chitters)",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		spider_exit = {
+			text = "(spider retreats)",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		spider_hurt = {
+			text = "(spider screeches!)",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		spider_die = {
+			text = "(spider death)",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		nail_cloaker_spawn = {
+			text = "Necro cloaker spawns!",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		nail_cloaker_presence_loop = {
+			text = "Necro cloaker static",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		nail_cloaker_detect = {
+			text = "Necro cloaker kicks!",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		big_cloaker_taunt = {
+			text = "Necro cloaker taunts",
+			duration = 7,
+			priority = 10,
+			category = "enemy_chatter"
+		},
+		
 	--heat street
 		Play_mtt_run_01 = {
 			text = "You're not getting me this time! Fuck you!",
