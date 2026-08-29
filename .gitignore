@@ -1,3 +1,4 @@
 /old
 data/subtitles.json
-/dev/*
+/dev
+dev_notes.lua
