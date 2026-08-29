@@ -24899,7 +24899,7 @@ $1Uh huh. right.]]
 			line_variations = {
 				standard_mode = {
 					"Fuck the timelock! Let me out already, I need a goddamn smoke! [smoker's cough]",
-					"Tick-tock... [scoffs] You fancy you endless layers of bullshit! I want some fresh air, dammit!",
+					"Tick-tock... [scoffs] You fancy your endless layers of bullshit! I want some fresh air, dammit!",
 					"[frustrated groan] Stupid timelock. You feds are paranoid motherfuckers. I'm tired of sitting in this fucking metal box."
 				}
 			}
