@@ -914,28 +914,31 @@ function ClosedCaptions:format_speaker_name(speaker_name,text,color)
 		text_color = Color.white
 	end
 	
-	local speaker_str
-	if self:UseCapitalNames() then 
-		speaker_str = utf8.to_upper(speaker_name)
-	else
-		speaker_str = speaker_name
-	end
-	
-	local speaker_len = utf8.len(speaker_str)
-	local text_len = utf8.len(text)
-	
 	local caption_str = text
-	if speaker_name and speaker_len > 0 then
-		caption_str = string.format("%s: %s",speaker_str,text)
-		color_ranges = {
-			0,
-			speaker_len+1,
-			speaker_color,
-			
-			speaker_len+1,
-			speaker_len+text_len+2,
-			text_color
-		}
+	local color_ranges
+	if speaker_name then
+		local speaker_str
+		if self:UseCapitalNames() then 
+			speaker_str = utf8.to_upper(speaker_name)
+		else
+			speaker_str = speaker_name
+		end
+		
+		local speaker_len = utf8.len(speaker_str)
+		local text_len = utf8.len(text)
+		
+		if speaker_str and speaker_len > 0 then
+			caption_str = string.format("%s: %s",speaker_str,text)
+			color_ranges = {
+				0,
+				speaker_len+1,
+				speaker_color,
+				
+				speaker_len+1,
+				speaker_len+text_len+2,
+				text_color
+			}
+		end
 	end
 	
 	
@@ -953,7 +956,6 @@ function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
 	local variation_data = self._sound_data.vo[event_id]
 	local speaker_id
 	if variation_data and variation_data.override_speaker_id then
-		-- todo
 		speaker_id = variation_data.override_speaker_id or variation_data.fallback_speaker_id
 	else
 		speaker_id = self:guess_speaker_from_string_id(event_id) or (variation_data and variation_data.fallback_speaker_id)
@@ -1059,7 +1061,6 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	
 	
 	local item_panel
-	local loop_data = sound_data.loop_data
 	local is_recombinable = sound_data.is_recombinable
 	local is_locationless = sound_data.is_locationless or is_player
 	local max_distance = sound_data.max_distance
@@ -1123,7 +1124,6 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		priority = priority,
 		is_recombinable = is_recombinable,
 		is_locationless = is_locationless,
-		loop_data = loop_data,
 		distance = distance,
 		conversation_data = conversation_data,
 		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds) or for conversations
