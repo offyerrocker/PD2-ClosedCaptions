@@ -27907,6 +27907,7 @@ $3: Fuck!$b
 $1: Move it!
 ]]
 			},
+			is_locationless = true,
 			priority = 10,
 			duration = 10
 		},
