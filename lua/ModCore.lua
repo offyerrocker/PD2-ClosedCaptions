@@ -799,7 +799,8 @@ local source_pos = Vector3() -- do not rely on this, as it may be nil
 local tmp_vec1 = Vector3() 
 function ClosedCaptions:update(t,dt)
 	local viewport_cam = managers.viewport:get_current_camera()
-	if not viewport_cam then return end
+	if not viewport_cam then return end -- todo different version for the menu?
+	-- use a getter for the position/yaw to make it more broadly compatible?
 	
 	local vertical_reverse = self.settings.caption_vertical_invert -- sort captions from bottom upward
 	
