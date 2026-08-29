@@ -947,9 +947,60 @@ function ClosedCaptions:format_speaker_name(speaker_name,text,color)
 	return caption_str,text_color,color_ranges
 end
 
+function ClosedCaptions:make_conversation_subtitle(data)
+	if data then
+		-- todo process this in sound data loading
+		local sentences = {}
+		local color_ranges = {}
+		local sp = string.split(string.gsub(managers.localization:text(data.text),"\n",""),"$b")
+		local speaker_names = {}
+		for speaker_index,speaker_id in pairs(data.speakers) do	
+			local name = managers.localization:text(speaker_id)
+			speaker_names[speaker_index] = name
+			
+			local range_col = self:GetColor(data.colors[speaker_index])
+			color_ranges[speaker_index] = {0,utf8.len(name)+1,range_col or Color.white}
+		end
+		
+		for i,line in ipairs(sp) do 
+			local sentence = line
+			local color_range_index = nil
+			for speaker_index,speaker_name in pairs(speaker_names) do 
+				if not color_range_index and string.find(sentence,"^%$" .. speaker_index) then
+					color_range_index = speaker_index
+				end
+				if self:UseCapitalNames() then
+					speaker_name = utf8.to_upper(speaker_name)
+				end
+				sentence = string.gsub(sentence,"%$" .. speaker_index,speaker_name)
+			end
+			sentences[i] = {
+				text = sentence,
+				color_range_index = color_range_index
+			}
+		end
+		--local interval = variation_data.duration / #sp
+		local t = TimerManager:game():time()
+		local conversation_data = {
+			intervals = data.timing or nil,
+			color_ranges = color_ranges,
+			conversation = data,
+			sentences = sentences,
+			current_index = 0, -- somehow this is still one ahead of what it should be
+			start_t = t,
+			next_t = t + 0
+		}
+		
+		return conversation_data
+	end
+end
+
 -- intercept base game subtitles from bain/locke/contractor soup du jour
 function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
 	local id = "corepresenter_" .. event_id
+	if self:_get_subtitle(id) then
+		self:_remove_subtitle(id,true)
+	end
 	
 	--local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
 	
@@ -957,11 +1008,21 @@ function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
 	
 	local variation_data = self._sound_data.vo[event_id]
 	local speaker_id
-	if variation_data and variation_data.override_speaker_id then
-		speaker_id = variation_data.override_speaker_id or variation_data.fallback_speaker_id
-	else
-		speaker_id = self:guess_speaker_from_string_id(event_id) or (variation_data and variation_data.fallback_speaker_id)
+	local new_convo_data 
+	if variation_data then 
+		speaker_id = variation_data.override_speaker_id or self:guess_speaker_from_string_id(event_id) or variation_data.fallback_speaker_id
 		--self:Print("Unknown contractor subtitle",event_id)
+		if variation_data.conversation_data then
+			
+			--local variations = variation_data.line_variations or sound_data.line_variations
+			--if variations and self:IsLineRandomizationEnabled() then 
+			--	if variations.conversation then
+			--		conversation_data = table.random(variations.conversation)
+			
+			new_convo_data = self:make_conversation_subtitle(variation_data.conversation_data)
+		end
+	else
+		speaker_id = self:guess_speaker_from_string_id(event_id) 
 	end
 	
 	local speaker_name
@@ -989,7 +1050,7 @@ function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
 		is_locationless = true,
 		loop_data = nil,
 		distance = nil,
-		conversation_data = nil,
+		conversation_data = new_convo_data,
 		end_t = TimerManager:game():time() + duration
 --		variation_data = variation_data,
 	}
@@ -1068,51 +1129,11 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	local max_distance = sound_data.max_distance
 	local priority = sound_data.priority or 0
 	local distance = 100000
+	local new_convo_data
 	if conversation_data then
-		-- todo process this in sound data loading
-		local sentences = {}
-		local color_ranges = {}
-		local sp = string.split(string.gsub(managers.localization:text(conversation_data.text),"\n",""),"$b")
-		local speaker_names = {}
-		for speaker_index,speaker_id in pairs(conversation_data.speakers) do	
-			local name = managers.localization:text(speaker_id)
-			speaker_names[speaker_index] = name
-			
-			local range_col = self:GetColor(conversation_data.colors[speaker_index])
-			color_ranges[speaker_index] = {0,utf8.len(name)+1,range_col or Color.white}
-		end
-		
-		for i,line in ipairs(sp) do 
-			local sentence = line
-			local color_range_index = nil
-			for speaker_index,speaker_name in pairs(speaker_names) do 
-				if not color_range_index and string.find(sentence,"^%$" .. speaker_index) then
-					color_range_index = speaker_index
-				end
-				if self:UseCapitalNames() then
-					speaker_name = utf8.to_upper(speaker_name)
-				end
-				sentence = string.gsub(sentence,"%$" .. speaker_index,speaker_name)
-			end
-			sentences[i] = {
-				text = sentence,
-				color_range_index = color_range_index
-			}
-		end
-		--local interval = variation_data.duration / #sp
-		local t = TimerManager:game():time()
-		conversation_data = {
-			intervals = conversation_data.timing or nil,
-			color_ranges = color_ranges,
-			conversation = conversation_data,
-			sentences = sentences,
-			current_index = 0, -- somehow this is still one ahead of what it should be
-			start_t = t,
-			next_t = t + 0
-		}
-		
-		item_panel = self:_create_caption_text("DEBUG_CONVO",Color.white,nil,id)
-		--item_panel = self:_create_caption_text(sentences[1].text,Color.white,sentences[1].color_range_index and color_ranges[sentences[1].color_range_index],id)
+		new_convo_data = self:make_conversation_subtitle(conversation_data)
+		local a,b,c = self:format_speaker_name("Offyerrocker","UwU",Color(1,0,1))
+		item_panel = self:_create_caption_text(a,b,c,id) --dummy item panel; never shown
 	else
 		item_panel = self:_create_caption_text(text,text_color,color_ranges,id)
 	end
@@ -1127,7 +1148,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 		is_recombinable = is_recombinable,
 		is_locationless = is_locationless,
 		distance = distance,
-		conversation_data = conversation_data,
+		conversation_data = new_convo_data,
 		end_t = end_t --fallback, if the sound event has no natural termination callback (eg cop death sounds) or for conversations
 --		variation_data = variation_data,
 	}

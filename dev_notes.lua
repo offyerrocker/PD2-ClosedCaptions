@@ -1,8 +1,6 @@
 --[[
 
-- incorrect color range somehow?
-- allow convo from standard subtitle
-- not detecting enemy speaker unit (medic, cloaker)
+- possible edge case if a conversation is triggered twice from a standard subtitle while the first is still going
 
 so yeah the whole technical idea behind the mod (and sound_data specifically)
 is extrapolating data about the sound line solely based on the event id and whatever info we can get via lua
