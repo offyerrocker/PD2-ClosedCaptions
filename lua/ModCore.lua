@@ -37,12 +37,12 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		-- ui acces only
 		caption_vertical_invert = true, -- if true, "top" captions appear at the bottom; if false, "top" captions appear at the top
 		
-		caption_order = 2,
+		caption_order = 3,
 		caption_use_fadein = false,
 		caption_fadeout_time = 0.3, -- at this number of seconds remaining in the caption's lifetime, it fades out to alpha 0
 		caption_font_size = 16,
 		caption_allcaps_names = true,
-		caption_variation_mode = 2,
+		caption_variation_mode = 1,
 		caption_use_player_names = true,
 		caption_empty_voicelines = true, -- show the caption if the line does not have an actual sound file recorded for it
 		caption_separate_speaker_color = true,
@@ -251,7 +251,7 @@ end
 
 --settings getter; 1: use set priority values; 2: use first-in, first-out; 3: use first-in, last-out
 function ClosedCaptions:GetCaptionPriorityMode() 
-	return self.settings.caption_order
+	return 3 -- self.settings.caption_order
 end
 
 --settings getter; allows caption variation (for lines that have them) if enabled; else, chooses more generic text description
@@ -971,21 +971,25 @@ function ClosedCaptions:update(t,dt)
 		
 	end
 	
+	--[[
 	if use_proximity_sort then
 		table.sort(self._queue_active_subtitles,function(a,b)
 			local item_a = self._active_subtitles[a]
-			if item_a.is_locationless then
+			local item_b = self._active_subtitles[b]
+			if item_a.is_locationless or item_b.is_locationless then
+				if item_a.is_locationless then
+					return true
+				elseif item_b.is_locationless then
+					return false
+				end
+			end
+			if item_a.distance < item_b.distance then
 				return true
 			end
-			
-			local item_b = self._active_subtitles[b]
-			if item_b.is_locationless then
-				return false
-			end
-			
-			return item_a.distance <= item_b.distance
+			return item_a.start_t < item_b.start_t
 		end)
 	end
+	--]]
 end
 Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
 
@@ -1685,7 +1689,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	if variation_data.override_speaker_id then
 		name = managers.localization:text(variation_data.override_speaker_id)
 	else
-		name = name or (variation_data.fallback_speaker_id and managers.localization:text(variation_data.fallback_speaker_id)) or (variation_data.fallback_unitname and self._UNIT_NAMES[variation_data.fallback_unitname]) or "???"
+		name = name or (variation_data.fallback_speaker_id and managers.localization:text(variation_data.fallback_speaker_id)) or (variation_data.fallback_unitname and self._UNIT_NAMES[variation_data.fallback_unitname])
 	end
 	
 	local caption_str,text_color,color_ranges = self:format_speaker_name(name,text,color)

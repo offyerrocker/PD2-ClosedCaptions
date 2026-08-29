@@ -87,7 +87,7 @@
 			"value" : "caption_variation_mode"
 		},
 		{
-			"type" : "multiple_choice",
+			"type" : "TEMP_DISABLED_multiple_choice",
 			"id" : "closedcaptions_caption_order",
 			"title" : "menu_closedcaptions_caption_order_title",
 			"description" : "menu_closedcaptions_caption_order_desc",
