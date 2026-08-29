@@ -20,7 +20,6 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		log_missing = false,
 --		log_ids = false,
 --		log_debug = false,
---		log_bainunit_vo = false, --no menu option (intentional)
 		language_name = "english",
 		_language_index = 1,
 		caption_x = 160,
@@ -40,6 +39,7 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		caption_use_player_names = true,
 		caption_empty_voicelines = true, -- show the caption if the line does not have an actual sound file recorded for it
 		caption_separate_speaker_color = true,
+		caption_hide_bgbox = false,
 
 		category_mission_dialogue = true,
 		category_contractor_vo = true,
@@ -56,23 +56,22 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		category_specialenemy_death = true,
 		
 		color_generic = 0xffffff,
-		color_bain = 0x1999e5,
-		color_locke = 0x33e519,
-		color_contractor_vo = 0xffffff,
-		color_criminal1 = 0x00ffff,
-		color_law1 = 0xffcc00,
-		color_boss = 0xe51900,
-		color_neutral1 = 0x00ff00,
-		color_neutral2 = 0x00000ff,
-		color_mobster1 = 0xff7f00,
-		color_peer1 = 0x00ff00,
-		color_peer2 = 0x0000ff,
-		color_peer3 = 0xff0000,
-		color_peer4 = 0xffff00,
+		color_generic2 = 0xd7d7d7,
+		color_contractor_vo = 0x1999e5,
+		color_criminal1 = 0x33ccff,
+		color_law1 = 0xee3030,
+		color_boss = 0xee3074,
+		color_neutral1 = 0x2fd41e,
+		color_neutral2 = 0x4dca41,
+		color_mobster1 = 0x9450d9,
+		color_peer1 = 0xc2fc97,
+		color_peer2 = 0x78b7cc,
+		color_peer3 = 0xb26859,
+		color_peer4 = 0xcca166,
 		color_l4d_witch = 0xdf9ee3,
 		color_l4d_bill = 0x1a821a,
-		color_mrpurple = 0x194cff,
-		color_mrblue = 0x9919ff
+		color_mrpurple = 0x9919ff,
+		color_mrblue = 0x194cff
 	},
 	settings = {}, -- populated from default settings, then from user save json
 	populated_languages_menu_done = false, -- used to populate language multiplechoice selector
@@ -126,29 +125,38 @@ for k,v in pairs(ClosedCaptions.default_settings) do ClosedCaptions.settings[k] 
 
 function ClosedCaptions:LoadColors()
 	
+	--[[
 	Hooks:Add("ClosedCaptions_OnSettingsChanged","cc_on_changed_color_settings",function(settings,changed_settings)
+		for setting_id,value in pairs(changed_settings) do
+			-- at long last, my laziness has prevailed over my scruples over using string matching where a lookup table would suffice
+			local color_id,count = string.gsub(setting_id,"^color_","")
+			if count > 0 then
+				self._COLORS[color_id] = self.convert_color_dec(value)
+			end
+			
+		end
 	end)
+	--]]
 	
 	local settings = self.settings
 	
 	self._COLORS.generic = self.convert_color_dec(settings.color_generic)
-	self._COLORS.bain = self.convert_color_dec(settings.bain)
-	self._COLORS.locke = self.convert_color_dec(settings.locke)
-	self._COLORS.criminal1 = self.convert_color_dec(settings.criminal1)
-	self._COLORS.neutral1 = self.convert_color_dec(settings.neutral1)
-	self._COLORS.neutral2 = self.convert_color_dec(settings.neutral2)
-	self._COLORS.law1 = self.convert_color_dec(settings.law1)
-	self._COLORS.mobster1 = self.convert_color_dec(settings.mobster1)
-	self._COLORS.boss = self.convert_color_dec(settings.boss)
-	self._COLORS.peer1 = self.convert_color_dec(settings.peer1)
-	self._COLORS.peer2 = self.convert_color_dec(settings.peer2)
-	self._COLORS.peer3 = self.convert_color_dec(settings.peer3)
-	self._COLORS.peer4 = self.convert_color_dec(settings.peer4)
-	self._COLORS.contractor_vo = self.convert_color_dec(settings.contractor_vo)
-	self._COLORS.l4d_bill = self.convert_color_dec(settings.l4d_bill)
-	self._COLORS.l4d_witch = self.convert_color_dec(settings.l4d_witch)
-	self._COLORS.mrpurple = self.convert_color_dec(settings.mrpurple)
-	self._COLORS.mrblue = self.convert_color_dec(settings.mrblue)
+	self._COLORS.generic2 = self.convert_color_dec(settings.color_generic2)
+	self._COLORS.criminal1 = self.convert_color_dec(settings.color_criminal1)
+	self._COLORS.neutral1 = self.convert_color_dec(settings.color_neutral1)
+	self._COLORS.neutral2 = self.convert_color_dec(settings.color_neutral2)
+	self._COLORS.law1 = self.convert_color_dec(settings.color_law1)
+	self._COLORS.mobster1 = self.convert_color_dec(settings.color_mobster1)
+	self._COLORS.boss = self.convert_color_dec(settings.color_boss)
+	self._COLORS.peer1 = self.convert_color_dec(settings.color_peer1)
+	self._COLORS.peer2 = self.convert_color_dec(settings.color_peer2)
+	self._COLORS.peer3 = self.convert_color_dec(settings.color_peer3)
+	self._COLORS.peer4 = self.convert_color_dec(settings.color_peer4)
+	self._COLORS.contractor_vo = self.convert_color_dec(settings.color_contractor_vo)
+	self._COLORS.l4d_bill = self.convert_color_dec(settings.color_l4d_bill)
+	self._COLORS.l4d_witch = self.convert_color_dec(settings.color_l4d_witch)
+	self._COLORS.mrpurple = self.convert_color_dec(settings.color_mrpurple)
+	self._COLORS.mrblue = self.convert_color_dec(settings.color_mrblue)
 end
 
 function ClosedCaptions.convert_color_dec(n)
@@ -860,11 +868,13 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	})
 	if color_ranges then
 		for i=1,#color_ranges,3 do 
-			subtitle:set_range_color(color_ranges[i],color_ranges[i+1],color_ranges[i+2])
+			local a,b,c = color_ranges[i],color_ranges[i+1],color_ranges[i+2]
+			subtitle:set_range_color(a,b,c)
 		end
 	end
 	
 	local bgbox = self.CreateBGBox(item_panel,self._BGBOX_PARAMS,self._BGBOX_PANEL_CONFIG,self._BGBOX_TILE_CONFIG)
+	bgbox:set_visible(not self.settings.caption_hide_bgbox)
 	
 	self:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_right)
 	
@@ -881,6 +891,9 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 			arrow_right:set_font_size(font_size)
 			self:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_right)
 		end
+		if changed_settings.caption_hide_bgbox then
+			bgbox:set_visible(changed_settings.caption_hide_bgbox)
+		end
 	end)
 	
 	if use_fadein then
@@ -889,6 +902,44 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 	end
 	
 	return item_panel
+end
+
+function ClosedCaptions:format_speaker_name(speaker_name,text,color)
+	
+	local DIFFERENT_COLOR_TEXT = self.settings.caption_separate_speaker_color
+	
+	local speaker_color = color
+	local text_color = color
+	if DIFFERENT_COLOR_TEXT then
+		text_color = Color.white
+	end
+	
+	local speaker_str
+	if self:UseCapitalNames() then 
+		speaker_str = utf8.to_upper(speaker_name)
+	else
+		speaker_str = speaker_name
+	end
+	
+	local speaker_len = utf8.len(speaker_str)
+	local text_len = utf8.len(text)
+	
+	local caption_str = text
+	if speaker_name and speaker_len > 0 then
+		caption_str = string.format("%s: %s",speaker_str,text)
+		color_ranges = {
+			0,
+			speaker_len+1,
+			speaker_color,
+			
+			speaker_len+1,
+			speaker_len+text_len+2,
+			text_color
+		}
+	end
+	
+	
+	return caption_str,color,color_ranges
 end
 
 -- intercept base game subtitles from bain/locke/contractor soup du jour
@@ -900,60 +951,27 @@ function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
 	local text = managers.localization:text(event_id,macros)
 	
 	local variation_data = self._sound_data.vo[event_id]
-	if variation_data then
-	--[[
-		local name = variation_data.override_name or name or variation_data.fallback_name
-		
-		
-		if self:UseCapitalNames() then 
-			name = utf8.to_upper(name)
-		end
-		
-		local DIFFERENT_COLOR_TEXT = self.settings.caption_separate_speaker_color
-		
-		local speaker_str = name
-		local speaker_color = color
-		local text_color = color
-		if DIFFERENT_COLOR_TEXT then
-			text_color = Color.white
-		end
-		
-		local speaker_len = utf8.len(speaker_str)
-		local text_len = utf8.len(text)
-		
-		local color_ranges
-		
-		if speaker_len > 0 then
-			text = string.format("%s: %s",speaker_str,text)
-			color_ranges = {
-				0,
-				speaker_len+1,
-				speaker_color,
-				
-				speaker_len+1,
-				speaker_len+text_len+2,
-				text_color
-			}
-		end
-	--]]
+	local speaker_id
+	if variation_data and variation_data.override_speaker_id then
+		-- todo
+		speaker_id = variation_data.override_speaker_id or variation_data.fallback_speaker_id
 	else
-		local speaker_id = self:guess_speaker_from_string_id(event_id)
-		if speaker_id then
-			
-			local speaker_name
-			if self:UseCapitalNames() then
-				speaker_name = managers.localization:to_upper_text(speaker_id)
-			else
-				speaker_name = managers.localization:text(speaker_id)
-			end
-			text = speaker_name .. ": " .. text
-		end
-		
-		
-		self:Print("Unknown contractor subtitle",event_id)
+		speaker_id = self:guess_speaker_from_string_id(event_id) or (variation_data and variation_data.fallback_speaker_id)
+		--self:Print("Unknown contractor subtitle",event_id)
 	end
 	
-	local item_panel = ClosedCaptions:_create_caption_text(text,Color.white,nil,id)
+	local speaker_name
+	if speaker_id then
+		if self:UseCapitalNames() then
+			speaker_name = managers.localization:to_upper_text(speaker_id)
+		else
+			speaker_name = managers.localization:text(speaker_id)
+		end
+	end
+	
+	local caption_str,text_color,color_ranges = self:format_speaker_name(speaker_name,text,self:GetColor("contractor_vo"))
+	
+	local item_panel = ClosedCaptions:_create_caption_text(caption_str,text_color,color_ranges,id)
 	
 	local state_data = {
 		event_id = event_id, -- only used for conversations
@@ -1401,47 +1419,19 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	
 	--self:Print("Playing " .. tostring(event_id) .. " from tweaktable " .. tostring(tweak_table) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position) .. " from unit " .. tostring(unit and unit:key()))
 	
-	name = variation_data.override_name or name or variation_data.fallback_name
-	
-	
-	if self:UseCapitalNames() then 
-		name = utf8.to_upper(name)
+	if variation_data.override_color then
+		color = self._COLORS[variation_data.override_color] or color
 	end
 	
-	--local t = Application:time()
-	
-	name = name or "???"
-	
-	local DIFFERENT_COLOR_TEXT = self.settings.caption_separate_speaker_color
-	
-	local speaker_str = name
-	local speaker_color = color
-	local text_color = color
-	if DIFFERENT_COLOR_TEXT then
-		text_color = Color.white
-	end
-	
-	local speaker_len = utf8.len(speaker_str)
-	local text_len = utf8.len(text)
-	
-	local color_ranges
-	
-	local str 
-	if speaker_len > 0 then
-		str = string.format("%s: %s",speaker_str,text)
-		color_ranges = {
-			0,
-			speaker_len+1,
-			speaker_color,
-			
-			speaker_len+1,
-			speaker_len+text_len+2,
-			text_color
-		}
+	if variation_data.override_speaker_id then
+		name = managers.localization:text(variation_data.override_speaker_id)
 	else
-		str = tostring(text) -- just the line, no colon, if no speaker string
+		name = name or (variation_data.fallback_speaker_id and managers.localization:text(variation_data.fallback_speaker_id)) or "???"
 	end
-	return str,text_color,color_ranges,variation_data,conversation_data
+	
+	local caption_str,text_color,color_ranges = self:format_speaker_name(name,text,color)
+	
+	return caption_str,text_color,color_ranges,variation_data,conversation_data
 end
 
 --chooses a random caption variation from the sound_table
@@ -1706,6 +1696,7 @@ end
 
 -- looks up sound id (float) to event_id (string)
 function ClosedCaptions:id_to_string(id)
+	-- this should check BeardLib.Managers.Sound if i want to subtitle custom sounds
 	return self._soundid_lookup[id]
 end
 
@@ -2099,6 +2090,7 @@ function ClosedCaptions:LoadSettings()
 			self.settings[k] = v
 		end
 	end
+	self:LoadColors()
 end
 
 --save settings to save txt
@@ -2297,6 +2289,10 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	
 	MenuCallbackHandler.callback_closedcaptions_use_allcaps_names = function(self,item)
 		ClosedCaptions:change_setting("caption_allcaps_names",item:value() == "on",nil)
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_hide_bgbox = function(self,item)
+		ClosedCaptions:change_setting("caption_hide_bgbox",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_mission_dialogue = function(self,item)

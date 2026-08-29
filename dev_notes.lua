@@ -225,3 +225,39 @@ if false then -- sample format absolute timestamps
 	--logall(results)
 end
 
+
+-- format_speaker_name for conversation_data
+	if conversation_data then
+		-- todo process this in sound data loading
+		local sentences = {}
+		local color_ranges = {}
+		local sp = string.split(string.gsub(managers.localization:text(conversation_data.text),"\n",""),"$b")
+		local speaker_names = {}
+		for speaker_index,speaker_id in pairs(conversation_data.speakers) do	
+			local name = managers.localization:text(speaker_id)
+			speaker_names[speaker_index] = name
+			
+			local range_col = self:GetColor(conversation_data.colors[speaker_index])
+			color_ranges[speaker_index] = {0,utf8.len(name)+1,range_col or Color.white}
+		end
+		
+		for i,line in ipairs(sp) do 
+			local sentence = line
+			local color_range_index = nil
+			for speaker_index,speaker_name in pairs(speaker_names) do 
+				if not color_range_index and string.find(sentence,"^%$" .. speaker_index) then
+					color_range_index = speaker_index
+				end
+
+				local count
+				sentence,count = string.gsub(sentence,"^%$" .. speaker_index,"")
+				if count > 0 then
+					local caption_str,text_color,_color_ranges = self:format_speaker_name(speaker_name,sentence,conversation_data.colors[color_range_index])
+					sentences[i] = {
+						text = sentence,
+						color_range_index = color_range_index
+					}
+					break
+				end
+			end
+		end

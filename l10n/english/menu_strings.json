@@ -56,6 +56,8 @@
 	"menu_closedcaptions_category_enabled_stealthonly" : "Stealth Only",
 	"menu_closedcaptions_category_enabled_loudonly" : "Loud Only",
 	"menu_closedcaptions_category_enabled_none" : "Disabled",
+	"menu_closedcaptions_hide_bgbox_title" : "Hide BG Box",
+	"menu_closedcaptions_hide_bgbox_desc" : "Hides the black box around caption text.",
 	
 	"menu_closedcaptions_toggle_customize_title" : "Toggle Captions customization mode",
 	"menu_closedcaptions_toggle_customize_desc" : "Allows you to click-drag and resize the closed captions window in-game.",

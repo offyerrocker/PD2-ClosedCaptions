@@ -117,6 +117,14 @@
 			"value" : "caption_allcaps_names"
 		},
 		{
+			"type" : "toggle",
+			"id" : "closedcaptions_hide_bgbox",
+			"title" : "menu_closedcaptions_hide_bgbox_title",
+			"description" : "menu_closedcaptions_hide_bgbox_desc",
+			"callback" : "callback_closedcaptions_hide_bgbox",
+			"value" : "caption_hide_bgbox"
+		},
+		{
 			"type" : "divider",
 			"size" : 16
 		},
