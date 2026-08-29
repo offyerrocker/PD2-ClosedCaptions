@@ -1350,6 +1350,7 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 			
 			-- refresh existing subtitle (reset alpha and expire timer) instead
 			if not conversation_data then
+				self:Print("Refreshing subtitle",event_id,sound_source,unit)
 				state_data.state = 2 -- set state to hidden instead; if it's valid it will be shown 
 				state_data.panel:set_alpha(1)
 				state_data.end_t = end_t
@@ -1441,32 +1442,15 @@ end
 
 function ClosedCaptions:_set_subtitle_text(item_panel,text,color_ranges)
 	local subtitle = item_panel:child("subtitle")
-	
-	local parent_w = self._panel:w()
-	local margin_ver = 4
-	local margin_hor = 4
-	local arrow_margin_hor = 4
 	subtitle:set_text(text)
 	subtitle:clear_range_color()
-	
-	local txa,tya,twa,tha = item_panel:child("arrow_left"):text_rect()
-	local txb,tyb,twb,thb = item_panel:child("arrow_right"):text_rect()
 	if color_ranges then
 		for i=1,#color_ranges,3 do 
 			subtitle:set_range_color(color_ranges[i],color_ranges[i+1],color_ranges[i+2])
 		end
 	end
-	local txc,tyc,twc,thc = subtitle:text_rect()
 	
-	item_panel:set_w(math.min(arrow_margin_hor+arrow_margin_hor+twa+twb+twc,parent_w * 0.7) + margin_hor)
-	
-	local num_lines = subtitle:number_of_lines()
-	local line_height = subtitle:line_height()
-	thc = num_lines * line_height
-	item_panel:set_h(thc + margin_ver)
-	
-	-- center subtitle
-	item_panel:set_x((parent_w - item_panel:w()) / 2)
+	self:RealignPanel(item_panel,subtitle,nil,nil,nil)
 end
 
 function ClosedCaptions:remove_subtitle(event_id,sound_source,instant)
