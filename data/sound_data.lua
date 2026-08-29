@@ -27878,7 +27878,7 @@ $2...Putas.$b
 		},
 --white xmas
 		Play_pln_cp1_intro_01 = {
-			text = "[parachute rustling, wind howling]\nHOUSTON: Almost there, almost there!\nWOLF: We're gonna make it! [pause] OH SHIT!\nHOUSTON: Fuck!\nDALLAS: Move it!",
+			text = "(parachute rustling, wind howling)",
 			category = "mission_dialogue",
 			conversation = {
 				speakers = {
