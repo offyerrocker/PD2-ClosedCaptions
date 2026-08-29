@@ -8,8 +8,8 @@ local WRITE = true
 local FLATTEN_RECOMBINATIONS = false
 
 local SOUND_DATA_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.lua"
-local DATA_OUT_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.json"
-local L10N_OUT_PATH = ClosedCaptions._SOUNDDATA_PATH .. "subtitles.json"
+local DATA_OUT_PATH = ClosedCaptions._MOD_PATH .. "dev/sound_data.json"
+local L10N_OUT_PATH = ClosedCaptions._MOD_PATH .. "dev/subtitles.json"
 local sound_data = blt.vm.dofile(SOUND_DATA_PATH)
 
 local ALLOWED_FIELDS = { -- if true, the field will be copied from the original data
