@@ -1,6 +1,12 @@
 # PD2-ClosedCaptions
 Closed Captions mod for PAYDAY 2
-README version v0.9, 31 August 2020
+README version v2.0, 14 Dec 2025
+
+This mod adds text transcriptions for certain audio lines in the game.
+Each of the hundreds of subtitles in the mod so far are hand-transcribed by myself, which is extremely labor intensive.
+If you'd like to help out and/or translate, please give me a shout!
+
+
 
 Please visit https://modworkshop.net/mod/27224 for more information.
 

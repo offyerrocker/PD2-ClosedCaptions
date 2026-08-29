@@ -1,0 +1,433 @@
+[[
+$1: Let's make this quick. I've got a lot to do before the event.$b
+$2: Hey. You dragged me up here, and you're not the only one who's busy.$b
+$1: I want to run through your presentation. Make sure it's aligned with our branding.$b
+$2: Woah, woah, woah, wait. I'm not giving a presentation.$b
+$1: Yes, you are.$b
+$2: No, I'm not.$b
+$1: Yes, you are! I introduce the product, then you come in and explain the technical specs.$b
+$2: Wh-why did no-one tell me about this?$b
+$1: I sent you an email! Months ago!$b
+$2: Aw, shit. I kinda set your emails to go straight to my spam folder. $b
+$1: Nice. Really nice.$b
+$2: I think I'm gonna be sick.$b
+$1: Ugh. You're fine, get a grip.$b
+$2: There is no way I'm going on that stage tonight.$b
+$1: You have to. You're the bulk of the presentation.$b
+$2: You know I hate public speaking! Why would you base this whole event around me?$b
+$1: Because no-one on the marketing team knows what this thing does!$b
+$2: How is that possible? You named it!$b
+$1: And I did a damned good job!$b
+$2: It is a TERRIBLE name, Tracy.$b
+$1: Ugh, this again.$b
+$2: Neo-2? Are you serious?$b
+$1: It's sleek, it's futuristic, it rhymes with CO2.$b
+$2: It sounds like a shitty 'Matrix' spin-off!$b
+$1: Why does everyone keep saying that?$b
+$2: Because it's true!$b
+$1: The name's locked. It's a good name. And we're not rehashing this!$b
+$2: Stupid. So, so stupid.$b
+$1: Look, you're gonna do fine! Just.. throw out a bunch of cool sounding science lingo, and... y'nno, try not to sweat too much.$b
+$2: What if I ... vomit on stage?$b
+$1: You- ...is that a possibility?$b
+$2: Sometimes, when I get really nervous, I vomit.$b
+$1: Okay, well, don't do that.$b
+$2: I can't help it!$b
+$1: Then take a Xanax or something. Chill out.$b
+$2: This is the least chill scenario I can possibly imagine!$b
+$1: And it's happening whether you like it or not, so quit bitching and get your shit together.$b
+$2: I hate you so much for this.$b
+$1: I couldn't care less what you think of me.$b
+$2: Ugh, I gotta go... figure out what I'm gonna say.$b
+$1: Yeah, you do that.$b
+$2: Yeah, thanks for nothing.$b
+]]
+
+5.3
+8.1 
+11.9
+15.6
+17.3
+18.6
+24.9
+27.5
+30.0
+36.2
+38.9
+40.7
+43.2
+46.5
+49.7
+54.9
+58.6
+61.8
+64.1
+66.9
+68.9
+72.2
+76.4
+79.8
+82.0
+84.3
+89.1
+92.7
+99.8
+102.2
+105.4
+108.9
+111.4
+113.4
+117.4
+121.9
+126.7
+129.4
+131.6
+135.7
+137.4
+140
+
+
+
+
+
+
+
+
+
+
+
+
+$1: If Ms. Rainey's video fucks up during the event, it's your ass.$b
+$1: Where are the VIP placecards? Who the fuck's in charge of the placecards?$b
+$1: If the step-and-repeat's not up in seven minutes, somebody's getting fired!$b
+$1: You call this an event space? The interns could do better than this!$b
+
+
+4.2,8.8,13.1,17
+
+
+
+
+$1: Wait, is that... ugh, that's my car alarm!$b
+$1: I swear to god, if there's so much as a smudge on my fucking car, someone's getting sued!
+
+3.7,10
+
+
+
+$1: Hey, yeah, I'm fine. Yeah, I'm just pissed off.$b
+$1: The curtain dropped while I was practicing my speech.$b
+$1: I think someone's fucking with me. $b
+$1: It's unbelievable! How am I the only professional around here?$b
+$1: This event needs to be perfect, but does anyone care? No! Of course not!$b
+$1: THEY won't have to walk into Ms. Rainey's office and explain why her product reveal was a complete disaster!$b
+$1: [sighs] That woman scares the shit out of me.$b
+$1: If people had any idea what she does on the side? [scoffs]$b
+$1: I mean, I barely know, but I know enough. Probably too much.$b
+$1: I'd quit if I didn't think she'd have me shot!$b
+$1: [laughs] No, I'm kidding... kinda.$b
+$1: Ugh, I am not paid enough for this crap...$b
+$1: All my coworkers are either stupid, criminals, or both.$b
+$1: Jesus! The culture here is so toxic.$b
+$1: When this event's done, I'm gonna need to let off some serious steam.$b
+$1: Maybe I'll smash the copier and blame one of the interns!$b
+$1: [sighs happily] That always chills me out.$b
+
+4.2
+7.3
+10
+14.3
+18.9
+28.2
+32.8
+36.
+37.4
+40.7
+44.2
+47.4
+51.5
+55.7
+59.9
+63.3
+66
+
+
+
+Then I pull the lab nerd on stage, I let him drone on for a bit...
+Quick, easy, and I sound smart without knowing shit...
+God, I'm good at my job!
+
+
+
+
+
+
+
+
+Play_pho_corp_01
+
+
+$1: Hey, babe, uh, I gotta stay late tonight.$b
+$1: I know, but there's this company event...$b
+$1: I totally forgot about it.$b
+$1: I don't know, something about a Neo... thing?$b
+$1: I don't actually remember what it's called.$b
+$1: It's like a filter for CO2 or some shit.$b
+$1: No, I'm... I'm sorry, but I, I can't get out of this one.$b
+$1: Super important. Like, the most important thing I've ever done.$b
+$1: Babe, come on, don't say that.$b
+$1: No, nothing's more important than you, you know that.$b
+$1: But I can't bail on this, it's my job.$b
+$1: Can't we just go to the show another night?$b
+$1: Jeeesus, it's a show about cats, how sold out can it really be?$b
+$1: Ugh, please, don't start. Just don't fuckin' start.$b
+$1: I didn't choose this! I don't wanna be stuck at work all night.$b
+$1: We can go to a different play. Or we could rent the movie version.$b
+$1: Then why are you freaking out?$b
+$1: Of course you'd fuckin say that, you've never had a work commitment in your life.$b
+$1: Because you don't work!$b
+$1: I'm not saying that reiki healing isn't a job, it's only a job when you have clients.$b
+$1: Your mom and sisters don't count.$b
+$1: My energy isn't toxic, it's pissed off!$b
+$1: Oh, nice, yeah, give my ticket to Brad!$b
+$1: Oh I'm sure he'd love to see a stupid play about giant dancing cats! Sounds like his thing!$b
+$1: Come on! He's not cultured, he wants to sleep with you!$b
+$1: It's not immature if it's true!$b
+$1: Fine, take him, see if I care!$b
+$1: And heal his aura while you're at it. I'm sure he'll love that.$b
+$1: Whatever. Fuck.$b
+
+3.31
+6.7
+9.2
+13.8
+17.1
+21.4
+26.1
+30
+33.3
+37.5
+40.9
+43.8
+49.2
+54.4
+59.2
+63.4
+66.4
+70.8
+73.7
+79.5
+82.8
+86.5
+90.4
+97.7
+102.2
+105.1
+108.5
+113.3
+115
+
+
+
+
+
+
+
+
+
+
+Play_pho_corp_02
+
+$1: Yo! You do deliveries, right?$b
+$1: Okay, sick. I need like an eighth of indica.$b
+$1: Still got the, uh, cookie dough? Perfect, yeah, that's what I need!$b
+$1: Yeah, yeah, I got the cash on me, no problem.$b
+$1: You're gonna bring that to the SERA office, 13 Alamo Street.$b
+$1: Huh? Wha- are you serious?$b
+$1: What do you mean, you won't deliver here?$b
+$1: Bro, you're not bringing it through security.$b
+$1: You park outside the gate, and I come to you.$b
+$1: It's not risky, there's like zero risk to you.$b
+$1: I'm the one who has to bring the... [sotto] weed... [normal voice] back into my office!$b
+$1: I have to, man! I'm dying out here!$b
+$1: [exasperated sigh] They're making me stay late for some stupid event.$b
+$1: No way I'm doing this shit sober.$b
+$1: Seriously? You're killin' me!$b
+$1: Park down the street, then! I'll walk!$b
+$1: Oh. My. God. Those are just rumors, dude!$b
+$1: SERA's, like, a totally normal company.$b
+$1: I've been working here for a year and I haven't seen anything weird.$b
+$1: You're paranoid, man, fuckin' paranoid!$b
+$1: Fine, I'll call another dealer!$b
+$1: Oh, I got others! You're the only weed dealer in Dallas, asshole!$b
+$1: And maybe I will go to him from now on!$b
+$1: Your shit's too expensive anyway.$b
+$1: I'm a jerk? You're the jerk, man!$b
+$1: You've abandoned me in my time of need!$b
+$1: I've been a loyal customer for five years, and you play me like this?$b
+$1: Yeah, fuck you too!$b
+
+2.9
+6.3
+12.1
+15.5
+19.7
+22.9
+25.6
+28.6
+32.4
+36.0
+39.6
+42.8
+46.5
+49.4
+52.6
+55.6
+58.9
+62.5
+66.2
+69.7
+72.5
+77.1
+80.3
+83.2
+85.8
+89.3
+93.7
+95
+
+
+
+
+
+
+
+
+Play_pho_corp_03
+
+Yo! What's up?$b
+Mn, nothing much. Stuck at work.$b
+[sighs] Yeah, it's gonna be a late one.$b
+Got some stupid event I gotta go to.$b
+What'chu up to?$b
+Oh, no shit? What club are you guys hitting?$b
+Oh, man, they've got the hottest girls there.$b
+Food's pretty good... for a strip club.$b
+You gotta ask for 'Kimberly.'$b
+Best lap dance I ever got.$b
+Careful in that parking lot, though. Rough part of town.$b
+Yeah, a buddy of mine got mugged on the way to his car.$b
+Yeah, yeah, I- I know you always got that switchblade on you.$b
+I've seen! You're like a crazy person with that knife.$b
+Oh, yeah. I remember Houston. $b
+I still can't believe you never got arrested.$b
+I mean, I know they started it, but still.$b
+How many guys did you stab? Four? Five?$b
+[jokingly] You're outta control!$b
+[sighs] But, uh, anyway, have fun! And don't drink too much, you know how you get.$b
+And dude, no coke.$b
+I'm serious, you always lose your shit on coke.$b
+I'm not being lame!$b
+Fine, but I'm not bailing you out again.$b
+I won't! I'm serious this time.$b
+Fuck around and find out.$b
+Yeah, yeah, whatever.$b
+Okay, I gotta go.$b
+You too. Bye, mom.
+
+
+
+
+2.2
+5.3
+8.5
+11.7
+13.6
+17.1
+20.8
+24.4
+26.4
+29.0
+32.8
+36.3
+40.1
+44.3
+48.0
+50.2
+53.9
+57.4
+59.4
+64.8
+67.3
+70.6
+73.1
+76.2
+79.2
+81.4
+84.1
+86.5
+87.5
+
+
+
+
+
+Play_mar_corp_03A
+
+
+$1: Shit, shit, shit! This is just what I need...$b
+$1: What's the point of having security if they can't even guard the goddamn parking lot?$b
+$1: This is supposed to be a private campus! $b
+$1: Unless... [gasp] What if it's an inside job?$b
+$1: Have I pissed off anyone lately?$b
+$1: Could be one of the lab nerds. They hated that I got to name the Neo-2 instead of them.$b
+$1: But like come on! They were gonna call it the 'zeolite membrane electromagnetic polymer filter!' Blegh!$b
+$1: Yeah, that really rolls off the tongue.$b
+$1: Or maybe it was one of the interns!$b
+$1: Ugh, sneaky little jerks!$b
+$1: If they don't like working for free, they can find their college credits someplace else!
+
+
+
+
+
+
+
+3.2
+7.8
+10.5
+14.3
+17.5
+22.7 
+30.2
+33.2
+37.7
+43
+
+
+
+
+
+
+
+
+
+
+local s = ""
+for k,v in ipairs({3.4,8.1,11.9,15.6,17.3,18.6,24.9,27.5,30.0,36.2,38.9,40.7,43.2,46.5,49.7,54.9,58.6,61.8,64.1,66.9,68.9,72.2,76.4,79.8,82.0,84.3,89.1,92.7,99.8,102.2,105.4,108.9,111.4,113.4,117.4,121.9,126.7,129.4,131.6,135.7,137.4,140.0}) do 
+	s = s .. string.format(",%0.1f",v-0.2)
+end
+Print(s)
+
+
+todo
+]/loc corp_intro_02_01
+You're one of the biggest smugglers in Texas. If you don't mind me asking, why shift to the oil industry now?
+]/loc corp_intro_02_02
+When my granddaughter was born, I took a hard look at things. I make a lot of money, but it's dirty. Hard to leave dirty money in your will. Guess I'm doing this for her.
+]/loc corp_intro_02_03
+That's a blerrie good reason, I'd say. And we're glad to help.
+
+Play_civ_corp_01
+Play_civ_corp_02
+Play_civ_corp_03
