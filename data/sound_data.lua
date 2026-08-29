@@ -18,164 +18,33 @@ return {
 			stops_line = "fatigue_breath"
 		},
 		c45_fire = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			disabled = true,
 			category = "sfx",
 			priority = 37,
 			text = "[gunshot]"
 		},
 		c45_npc1a_1shot = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			disabled = true,
 			category = "sfx",
 			priority = 37,
 			text = "[gunshot]"
 		},
 		c45_npc1b_1shot = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			disabled = true,
 			category = "sfx",
 			priority = 37,
 			text = "[gunshot]"
 		},
 		c45_npc1c_1shot = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			disabled = true,
 			category = "sfx",
 			priority = 37,
 			text = "[gunshot]"
-		},
-		Play_pln_glace_brf = true,
-		Play_pln_glace_01 = true,
-		Play_pln_glace_02 = true,
-		Play_pln_glace_03 = true,
-		Play_pln_glace_04 = true,
-		Play_pln_glace_05 = true,
-		Play_pln_glace_06 = true,
-		Play_pln_glace_07 = true,
-		Play_pln_glace_08 = true,
-		Play_pln_glace_09 = true,
-		Play_pln_glace_10 = true,
-		Play_pln_glace_11 = true,
-		Play_pln_glace_12 = true,
-		Play_pln_glace_13 = true,
-		Play_pln_glace_14 = true,
-		ambience_ext_heavy_rain_storm_asphalt = true,
-		bar_drill_apply = true,
-		bar_drill_apply_cancel = true,
-		bar_drill_apply_finished = true,
-		box_tick = true,
-		box_untick = true,
-		bullet_hit = true,
-		bullet_whizby_medium = true,
-		cqc_equip = true,
-		cqc_hit_air = true,
-		cqc_hit_body = true,
-		foley_flap_light = true,
-		foley_run_m4_01 = true,
-		foley_run_m4_02 = true,
-		footstep_land = true,
-		footstep_npc_bulldozer_walk = true,
-		footstep_npc_hardsole_land = true,
-		footstep_npc_hardsole_run = true,
-		footstep_npc_hardsole_walk = true,
-		footstep_run = true,
-		footstep_walk = true,
-		gadget_laser_aim_off = true,
-		gadget_laser_aim_on = true,
-		game_pause_in_game_menu = true,
-		game_resume = true,
-		highlight = true,
-		keltec_fire = true,
-		m4_equip = true,
-		m4_equip = true,
-		m4_npc1a_1shot = true,
-		m4_npc1a_2shot = true,
-		m4_npc1a_3shot = true,
-		m4_npc1a_end = true,
-		m4_npc1a_loop = true,
-		m4_unequip_a = true,
-		mask_on_equip_stereo = true,
-		mask_on_from_bag_stereo = true,
-		mask_on_left_hand_stereo = true,
-		menu_enter = true,
-		menu_exit = true,
-		mp5_npc1a_1shot = true,
-		mp5_npc1a_2shot = true,
-		mp5_npc1a_end = true,
-		mp9_npc1a_1shot = true,
-		mp9_npc1a_2shot = true,
-		mp9_npc1a_3shot = true,
-		mp9_npc1a_end = true,
-		mp9_npc1a_loop = true,
-		music_heist_anticipation = true,
-		music_heist_assault = true,
-		music_heist_control = true,
-		music_heist_setup = true,
-		occasionals_a_silent = true,
-		pistol_steel_sight_enter = true,
-		pistol_steel_sight_exit = true,
-		primary_steel_sight_enter = true,
-		primary_steel_sight_exit = true,
-		rbull_npc1a_1shot = true,
-		remington_npc1a_1shot = true,
-		saiga_npc1a_1shot = true,
-		saiga_npc1a_2shot = true,
-		saiga_npc1a_3shot = true,
-		saiga_npc1a_end = true,
-		saiga_npc1a_loop = true,
-		stinger_feedback_negative = true,
-		stinger_objectivecomplete = true,
-		w_ppk_fire = true,
-		wp_clip_generic_pist_right = true,
-		wp_foley_generic_back_in_hand = true,
-		wp_foley_generic_clip_grab = true,
-		wp_foley_generic_clip_in_connect = true,
-		wp_foley_generic_lever_grab = true,
-		wp_foley_generic_lever_pull = true,
-		wp_foley_generic_lever_release = true,
-		wp_g17_clip_grab = true,
-		wp_g17_clip_in_contact = true,
-		wp_g17_clip_slide_in = true,
-		wp_g17_clip_slide_out = true,
-		wp_g17_lever_release = true,
-		wp_pistol_slide_lock = true,
-		wp_reinbeck_reload_cock = true,
-		wp_reinbeck_shell_insert = true,
-		Play_pln_glace_intro = true,
-		bsides_02_swat_attack = true,
-		footstep_npc_bulldozer_run = true,
-		sniper_npc1a_1shot = true,
-		Play_ban_c01 = true,
-		Play_ban_r04 = true,
-		Play_ban_r03 = true,
-		ambience_ext_wilderness_night = true,
-		music_uno_fade_reset = true,
-		emitter_rain_on_car = true,
-		emitter_car_fire_rain = true,
-		emitter_rain_on_generic = true,
-		emitter_rain_on_metal_hollow_large = true,
-		emitter_tarp_wind = true,
-		emitter_stress_metal_large = true,
-		emitter_rubble_light = true,
-		emitter_water_on_generic_hollow_mono_loop2 = true,
-		emitter_water_on_generic_hollow_mono_loop = true,
-		emitter_generator = true,
-		emitter_ground_animals = true,
-		emitter_coyote = true,
-		emitter_owl = true,
-		emitter_wind = true,
-		emitter_ac_hum = true,
-		emitter_radiator_hiss_loop = true,
-		emitter_car_fire_loop_02 = true,
-		emitter_frog = true,
-		emitter_flickering_light = true,
-		occasionals_city_traffic = true,
-		occasionals_silent = true,
-		hud_suspicion_discovered = true,
-		hud_suspicion_start = true,
-		camera_suspicious_signal = true,
-		camera_silent = true				
+		}			
 	},
 	vo_special = { --there exist character-specific variants for most of these, but we'll burn that bridge when we come to it
 		["f11@_sin"] = { --macroized
@@ -197,7 +66,7 @@ return {
 			priority = 27
 		},
 		["Play_ban_i20@"] = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			duration = 5,
@@ -421,7 +290,7 @@ return {
 	
 	--player sounds (ammo/throwable pickup, perkdeck end, armor broken, etc)
 		pickup_ammo = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up ammo",
 			category = "sfx",
 			override_source_id = true, --if true, generates a new source_id (which will not replace any existing voiceline captions); else if any other non-nil value, uses this as source_id
@@ -429,7 +298,7 @@ return {
 			priority = 93
 		},
 		pickup_ammo_health_boost = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up healthboost ammo",
 			override_source_id = true,
 			category = "sfx",
@@ -437,7 +306,7 @@ return {
 			duration = 2
 		},
 		pickup_fak_skill = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "activated Uppers Aced",
 			override_source_id = true,
 			duration = 1,
@@ -445,7 +314,7 @@ return {
 			category = "sfx"
 		},
 		wp_four_pick_up = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up Shuriken",
 			override_source_id = true,
 			duration = 1,
@@ -453,21 +322,21 @@ return {
 			category = "sfx"
 		},
 		wp_target_pick_up = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up Throwing Knife",
 			override_source_id = true,
 			priority = 96,
 			category = "sfx"
 		},
 		wp_ace_pick_up = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up Throwing Card",
 			override_source_id = true,
 			priority = 96,
 			category = "sfx"
 		},
 		wp_hur_pick_up = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up Throwing Axe",
 			override_source_id = true,
 			duration = 1,
@@ -475,7 +344,7 @@ return {
 			category = "sfx"
 		},
 		wp_jav_pick_up = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up Javelin",
 			override_source_id = true,
 			duration = 1,
@@ -483,7 +352,7 @@ return {
 			category = "sfx"
 		},
 		wp_arrow_pick_up = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up Arrow",
 			override_source_id = true,
 			duration = 1,
@@ -491,7 +360,7 @@ return {
 			category = "sfx"
 		},
 		wp_hunterarrow_pick_up = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "picked up Compound Bow Arrow",
 			override_source_id = true,
 			duration = 1,
@@ -499,21 +368,21 @@ return {
 			category = "sfx"
 		},
 		cable_tie_apply = { --i think this only plays for local player, so i count it as a player sound
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[cable tie rustles]",
 			category = "sfx",
 			duration = 2,
 			priority = 98
 		},
 		perkdeck_cooldown_over = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "perk deck cooldown ends",
 			priority = 28,
 			duration = 2,
 			category = "sfx"
 		},
 		nine_lives_skill = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "nine lives skill activates!", --does this mean swan song?
 			priority = 30,
 			disabled = true, --doesn't matter anyway. suddenly becoming alive has plenty of visual feedback
@@ -521,7 +390,7 @@ return {
 			category = "sfx"
 		},
 		tasered_loop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "being tased!",
 			priority = 22,
 			category = "sfx",
@@ -535,49 +404,49 @@ return {
 			stops_line = "tasered_loop"
 		},
 		melee_hit_body = { --some of these don't trigger since they're queued directly from the sound_source() and not through play() or say()
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "melee impact",
 			priority = 99,
 			category = "sfx",
 			disabled = true
 		},
 		player_armor_gone_stinger = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "armor broken!",
 			priority = 30,
 			category = "sfx",
 			disabled = true
 		},
 		shield_full_indicator = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "armor restored",
 			priority = 99,
 			category = "sfx",
 			disabled = true
 		},
 		player_sniper_hit_armor_gone = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "armor broken by sniper!",
 			priority = 30,
 			category = "sfx",
 			disabled = true
 		},
 		player_hit = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "armor damaged",
 			priority = 30,
 			category = "sfx",
 			disabled = true
 		},
 		player_hit_permadamage = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "health damaged!",
 			priority = 30,
 			category = "sfx",
 			disabled = true
 		},
 		critical_state_heart_loop = { --! needs a stop
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "low health heartbeat",
 			priority = 99,
 			category = "sfx",
@@ -588,14 +457,14 @@ return {
 			}
 		},
 		concussion_effect_on = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "concussed",
 			category = "sfx",
 			disabled = true, --plenty of indication already
 			priority = 98
 		},
 		concussion_effect_off = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "concussion fades",
 			disabled = true,
 			priority = 20,
@@ -603,21 +472,21 @@ return {
 			category = "stops"
 		},
 		concussion_player_disoriented_sfx = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "concussion disorientation",
 			disabled = true,
 			priority = 20,
 			category = "sfx"
 		},
 		tinnitus_beep = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "tinnitus ringing",
 			disabled = true, --let's not and say we didn't
 			priority = 20,
 			category = "sfx"
 		},
 		tinnitus_beep_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "tinnitus stops",
 			disabled = true,
 			duration = 2,
@@ -630,7 +499,7 @@ return {
 --sfx/non-dialogue:
 --mission equipment, player equipment (generally, interactable things)
 		ammo_bag_drop = { --ovk uses this as a generic sound 
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "bag impact",
 			max_distance = 1500,
 			duration = 2,
@@ -638,7 +507,7 @@ return {
 			category = "sfx"
 		},
 		bar_prison_transport_door_open_finished = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "door sawing complete",
 			max_distance = 2000,
 			duration = 2,
@@ -646,7 +515,7 @@ return {
 			category = "sfx"
 		},
 		bag_light_drop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "light bag placed",
 			category = "sfx",
 			max_distance = 1500,
@@ -654,7 +523,7 @@ return {
 			duration = 3
 		},
 		bag_medium_drop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "medium bag placed",
 			category = "sfx",
 			max_distance = 1500,
@@ -662,7 +531,7 @@ return {
 			duration = 3
 		},
 		bag_heavy_drop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "heavy bag placed",
 			category = "sfx",
 			max_distance = 1500,
@@ -670,7 +539,7 @@ return {
 			duration = 3
 		},
 		blowtorch_guy = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "blowtorch hissing",
 			max_distance = 2500,
 			loop_data = {
@@ -680,7 +549,7 @@ return {
 			category = "sfx"
 		},
 		blowtorch_guy_end_global = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "blowtorch stops",
 			priority = 90,
 			stops_line = "blowtorch_guy",
@@ -689,7 +558,7 @@ return {
 		buzz_saw_aced = {
 			text = "buzz saw grinds quietly",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 500,
 			priority = 90,
 			duration = 5,
@@ -700,7 +569,7 @@ return {
 		buzz_saw_jam = {
 			text = "jammed buzz saw screeches!",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 1500,
 			priority = 90,
 			loop_data = {
@@ -709,7 +578,7 @@ return {
 		},
 		buzz_saw = {
 			text = "buzz saw grinds",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			max_distance = 500,
 			priority = 90,
@@ -719,7 +588,7 @@ return {
 		},
 		buzz_saw_end = {
 			text = "buzz saw finishes",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 90,
 			duration = 2,
 			category = "stops",
@@ -727,7 +596,7 @@ return {
 		},
 		buzz_saw_end_aced = {
 			text = "aced buzz saw finishes",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 90,
 			duration = 2,
 			category = "stops",
@@ -736,13 +605,13 @@ return {
 		c4_beep_loop = {
 			text = "C4 beeping",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 3000,
 			priority = 98,
 			disabled = true
 		},
 		card_reader_first_card = { --ovk decided to reuse this sound for hoxton revenge's laser grids activation noises, so... generic descriptions. yay.
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "beeps",
 			duration = 3,
 			max_distance = 1500,
@@ -750,7 +619,7 @@ return {
 			category = "sfx"
 		},
 		card_reader_second_card = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "rapid beeps",
 			duration = 3,
 			max_distance = 1500,
@@ -758,7 +627,7 @@ return {
 			category = "sfx"
 		},
 		camera_wrong_image = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "looped camera whirs",
 			category = "sfx",
 			priority = 98,
@@ -768,7 +637,7 @@ return {
 			}
 		},
 		camera_wrong_image_outro = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "stops",
 			stops_line = "camera_wrong_image",
 			text = "camera loop ending!",
@@ -778,19 +647,19 @@ return {
 			priority = 98
 		},
 		camera_wrong_image_outro_end = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "stops",
 			stops_line = "camera_wrong_image_outro"
 		},
 		container_drop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 90,
 			duration = 3,
 			text = "cargo container drops!"
 		},
 		cooking_meth = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 90,
 			max_distance = 500,
@@ -800,14 +669,14 @@ return {
 			}
 		},
 		cooking_meth_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "stops",
 			text = "meth cooking stops",
 			priority = 90,
 			stops_line = "cooking_meth"
 		},
 		ecm_jammer_ready = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			override_source_id = true,
 			disabled = true, --don't see the use, really
@@ -816,7 +685,7 @@ return {
 			text = "ecm jammer ready"
 		},
 		ecm_jammer_jam_signal = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "ecm jammer active",
 			category = "sfx",
 			override_source_id = true,
@@ -824,7 +693,7 @@ return {
 			priority = 20
 		},
 		ecm_jammer_jam_signal_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "stops",
 			text = "ecm jammer stops",
 			remove_by_source = true, --since multiple ecms may be active at once, but each ecm only plays one sound at a time, ecm sounds should be removed by source
@@ -833,7 +702,7 @@ return {
 			priority = 25
 		},
 		ecm_jammer_puke_signal = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			override_source_id = true,
 			loop_data = {
@@ -843,7 +712,7 @@ return {
 			text = "ecm feedback active"
 		},
 		ecm_jammer_puke_signal_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "stops",
 			text = "ecm feedback stops",
 			stops_line = "ecm_jammer_puke_signal",
@@ -853,7 +722,7 @@ return {
 		},
 		flare_start_loop = {
 			text = "flare burns",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			max_distance = 1500,
 			loop_data = {
@@ -866,7 +735,7 @@ return {
 			stops_line = "flare_start_loop"
 		},
 		goat_fan_woosh = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(oscillating goat bleating)",
 			priority = 90,
 			max_distance = 2000,
@@ -876,7 +745,7 @@ return {
 			}
 		},
 		goat_hang_scaffold = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(bleating)",
 			priority = 90,
 			max_distance = 2000,
@@ -888,7 +757,7 @@ return {
 			category = "sfx"
 		},
 		goat_kick = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "goat kicks!",
 			priority = 90,
 			duration = 2,
@@ -896,7 +765,7 @@ return {
 			category = "sfx"
 		},
 		goat_sleep = {
-			override_name = "Goat",
+			override_speaker_id = "hud_subtitlemod_speaker_goat",
 			text = "(snoring, sleep-bleating)",
 			max_distance = 2000,
 			priority = 90,
@@ -906,7 +775,7 @@ return {
 			category = "sfx"
 		},
 		goat_says_meh = {
-			override_name = "Goat",
+			override_speaker_id = "hud_subtitlemod_speaker_goat",
 			text = "(bleats)",
 			max_distance = 2000,
 			duration = 2,
@@ -914,7 +783,7 @@ return {
 			category = "sfx"
 		},
 		goat_says_meh_loop = {
-			override_name = "Goat",
+			override_speaker_id = "hud_subtitlemod_speaker_goat",
 			text = "Ba-a-ah.",
 			max_distance = 2000,
 			priority = 90,
@@ -925,7 +794,7 @@ return {
 			}
 		},
 		goat_lick = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(licks)",
 			duration = 3,
 			max_distance = 1000,
@@ -933,7 +802,7 @@ return {
 			category = "sfx"
 		},
 		goat_headbutt = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "headbutts!",
 			duration = 3,
 			max_distance = 1000,
@@ -943,13 +812,13 @@ return {
 		glass_door_open = {
 			text = "glass door opens",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 1000,
 			priority = 98,
 			duration = 2
 		},
 		hacking_device = {
-			override_name = "SFX", --looped
+			override_speaker_id = "hud_subtitlemod_speaker_sfx", --looped
 			text = "(hacking noises)",
 			category = "sfx",
 			max_distance = 700,
@@ -965,7 +834,7 @@ return {
 			category = "stops"
 		},				
 		hos_phone_call = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hospital phone ringing)",
 			category = "sfx",
 			max_distance = 2500,
@@ -976,7 +845,7 @@ return {
 			duration = 2
 		},
 		hos_phone_answer = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hospital phone answered)",
 			category = "stops",
 			priority = 90,
@@ -984,13 +853,13 @@ return {
 			duration = 2
 		},
 		inside_container = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(metal clanking)",
 			category = "sfx",
 			priority = 90
 		},
 		insert_usb_stick = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(usb stick clicks)",
 			duration = 2,
 			max_distance = 700,
@@ -998,14 +867,14 @@ return {
 			category = "sfx"
 		},
 		kick_open_container = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(cargo container opens)",
 			category = "sfx",
 			priority = 98,
 			duration = 2
 		},
 		keypad_button_press_03 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "keypad button pressed",
 			max_distance = 1000,
 			override_source_id = "keypad", --don't need eight of these on my screen
@@ -1014,7 +883,7 @@ return {
 			duration = 3
 		},
 		keypad_wrong_code_03 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(negative keypad beeps)",
 			override_source_id = "keypad",
 			max_distance = 1000,
@@ -1023,7 +892,7 @@ return {
 			duration = 3
 		},
 		keypad_correct_code_03 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(positive keypad trill)",
 			override_source_id = "keypad",
 			max_distance = 1000,
@@ -1032,7 +901,7 @@ return {
 			duration = 3
 		},
 		keypad_wrong_code = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 1000,
 			text = "(negative keypad beeps)",
 			override_source_id = "keypad",
@@ -1041,7 +910,7 @@ return {
 			duration = 3
 		},
 		keypad_correct_code = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 1000,
 			text = "(positive keypad trill)",
 			override_source_id = "keypad",
@@ -1050,7 +919,7 @@ return {
 			duration = 3
 		},
 		laser_shutdown_left = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "left laser deactivates",
 			category = "sfx",
 			max_distance = 3000,
@@ -1058,7 +927,7 @@ return {
 			duration = 3
 		},
 		laser_shutdown_right = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "right laser deactivates",
 			category = "sfx",
 			max_distance = 3000,
@@ -1066,7 +935,7 @@ return {
 			duration = 3
 		},
 		laser_warning_on_left = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "left laser activates",
 			category = "sfx",
 			max_distance = 3000,
@@ -1074,7 +943,7 @@ return {
 			duration = 3
 		},
 		laser_warning_on_right = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "right laser activates",
 			category = "sfx",
 			max_distance = 3000,
@@ -1084,7 +953,7 @@ return {
 		magnetic_door_open = {
 			text = "magnetic door opens",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 1000,
 			priority = 90,
 			duration = 2
@@ -1092,13 +961,13 @@ return {
 		metalsheet_place = {
 			text = "metal sheet placed",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 700,
 			priority = 90,
 			duration = 2
 		},
 		server_room_door_open = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "server room door opens",
 			max_distance = 1500,
 			category = "sfx",
@@ -1106,7 +975,7 @@ return {
 			duration = 3
 		},
 		server_noise_loop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			text = "(server noises)",
 			max_distance = 500, --needs stop sound, but limited distance means I'm fine with it
@@ -1117,7 +986,7 @@ return {
 			}
 		},
 		sah_hacking_device_data_transfer_finish = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "hacking device finishes",
 			category = "sfx",
 			max_distance = 700,
@@ -1125,7 +994,7 @@ return {
 			duration = 2
 		},
 		sah_hacking_device_data_transfer_loop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hacking device working)",
 			max_distance = 1000,
 			loop_data = {
@@ -1137,13 +1006,13 @@ return {
 		small_metal_door_open_02 = {
 			text = "[door opens]",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 1000,
 			priority = 98,
 			duration = 2
 		},
 		table_saw = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(table saw grinding)",
 			max_distance = 1000,
 			loop_data = {
@@ -1153,7 +1022,7 @@ return {
 			category = "sfx"
 		},
 		table_saw_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "table saw stops",
 			stops_line = "table_saw",
 			duration = 2,
@@ -1162,7 +1031,7 @@ return {
 		},
 		thermite_paste_start = {
 			text = "thermite paste burns",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			loop_data = {
 				loop_interval = -1
@@ -1176,69 +1045,69 @@ return {
 			remove_by_source = true
 		},
 		trip_mine_arm = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
 			text = "(trip mine set to explosive mode)"
 		},
 		trip_mine_attach = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
 			text = "(trip mine placed)"
 		},
 		trip_mine_beep_armed = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
 			text = "(trip mine armed)"
 		},
 		trip_mine_beep_explode = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
 			text = "(trip mine triggered explosion!)"
 		},
 		trip_mine_disarm = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
 			text = "(trip mine set to sensor mode)"
 		},
 		trip_mine_explode = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 1,
 			priority = 98,
 			text = "(trip mine explodes!)"
 		},
 		trip_mine_sensor_alarm = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 2,
 			priority = 98,
 			text = "(trip mine sensor triggered!)"
 		},
 		vial_break_2d = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(vial breaks!)",
 			priority = 90,
 			category = "sfx"
 		},
 		hlp_keycard_box_appear = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(keycard box appears)",
 			duration = 2,
 			priority = 90,
 			category = "sfx"
 		},
 		hlp_keycard_box_disappear = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(keycard box poofs)",
 			duration = 2,
 			priority = 90,
@@ -1264,7 +1133,7 @@ return {
 			}
 		},
 		hos_witch_cry_loop_01 = {
-			override_name = "Witch",
+			override_speaker_id = "hud_subtitlemod_speaker_l4dwitch",
 			override_color = "l4d_witch",
 			text = "[Groans Softly]",
 			priority = 100,
@@ -1278,7 +1147,7 @@ return {
 			category = "sfx"
 		},
 		city_sounds_basketball = { --idk if this works, probably though. panic room 
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(ambient: casual basketball game)",
 			priority = 99,
 			category = "ambient"
@@ -1288,14 +1157,14 @@ return {
 			category = "stops"
 		},
 		earthquake_siren = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(air raid/earthquake siren)",
 			override_source_id = "earthquake_siren_pa",
 			category = "sfx",
 			duration = 91
 		},
 		earthquake_siren_end = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 --					text = "(air raid/earthquake siren ends)",
 			override_source_id = "earthquake_siren_pa",
 			category = "stops",
@@ -1303,7 +1172,7 @@ return {
 		},
 		thunder_struck = {
 			text = "[thunder rumbles]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			disabled = true,
 			priority = 90,
 			duration = 2,
@@ -1311,14 +1180,14 @@ return {
 		},
 		thunder_struck_distant = {
 			text = "[distant thunder rumbles]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			disabled = true,
 			priority = 90,
 			duration = 2,
 			category = "sfx"
 		},
 		emitter_rain_tag_open_window_indoor = {
-			override_name = "ambient",
+			override_speaker_id = "hud_subtitlemod_speaker_ambient",
 			override_source_id = "rain_emitter",
 			is_locationless = true,
 			text = "(soft rain, distant thunder outside window)",
@@ -1326,7 +1195,7 @@ return {
 			category = "ambient"
 		},
 		emitter_rain_on_skylight_indoor = {
-			override_name = "ambient",
+			override_speaker_id = "hud_subtitlemod_speaker_ambient",
 			override_source_id = "rain_emitter",
 			is_locationless = true,
 			text = "(soft rain against skylight)",
@@ -1334,7 +1203,7 @@ return {
 			category = "ambient"
 		},
 		emitter_lorry_idle_01 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(lorry engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1344,7 +1213,7 @@ return {
 			}
 		},
 		emitter_lorry_idle_03 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(lorry engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1356,7 +1225,7 @@ return {
 
 
 		emitter_car_idle_01 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1366,7 +1235,7 @@ return {
 			}
 		},
 		emitter_car_idle_05 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1376,7 +1245,7 @@ return {
 			}
 		},
 		emitter_car_idle_07 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1386,7 +1255,7 @@ return {
 			}
 		},
 		emitter_car_idle_10 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1396,7 +1265,7 @@ return {
 			}
 		},
 		emitter_car_idle_broken_01 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(broken car engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1406,7 +1275,7 @@ return {
 			}
 		},
 		emitter_car_idle_03_gen_20 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1416,7 +1285,7 @@ return {
 			}
 		},
 		emitter_truck_idle_02 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(truck engine idling)",
 			max_distance = 500,
 			priority = 98,
@@ -1426,7 +1295,7 @@ return {
 			}
 		},
 		helicopter_ambience_loop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(helicopter droning)",
 			max_distance = 5000,
 			priority = 98,
@@ -1441,7 +1310,7 @@ return {
 			disabled = true
 		},
 		helicopter_police = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(helicopter droning)",
 			max_distance = 4000,
 			priority = 98,
@@ -1452,7 +1321,7 @@ return {
 		},
 
 		cop_car_01 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			max_distance = 2000,
@@ -1460,7 +1329,7 @@ return {
 			text = "(police sirens approaching)"
 		},
 		cop_car_02 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			max_distance = 2000,
@@ -1468,13 +1337,13 @@ return {
 			text = "(police sirens approaching)"
 		},
 		bd_police_siren_02 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			text = "(police sirens)"
 		},
 		police_radio = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(police radio chatter)",
 			max_distance = 500,
 			priority = 98,
@@ -1484,7 +1353,7 @@ return {
 			}
 		},
 		policecar_approaching = { 
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			text = "(police car approaching)",
@@ -1494,7 +1363,7 @@ return {
 			}
 		},
 		policecar_arrive_stop_global = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "stops",
 			stops_line = "policecar_approaching",
 			remove_by_source = true,
@@ -1503,7 +1372,7 @@ return {
 		},
 		hos_crowd_walla = {
 			text = "[hospital din]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "ambient",
 			duration = 98,
 			disabled = true,
@@ -1520,14 +1389,14 @@ return {
 
 --npcs/enemy equipment
 		camera_alarm_signal = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(Camera alerted!)",
 			priority = 90, --mapwide
 			duration = 10,
 			category = "sfx"
 		},
 		emitter_security_camera_explode = { --reused sound for monitors, so generic description it is
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(electronics destroyed!)",
 			max_distance = 3000,
 			priority = 90,
@@ -1535,7 +1404,7 @@ return {
 			category = "sfx"
 		},
 		pfn_beep = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(flashbang beeping)",
 			duration = 1,
 			max_distance = 1000,
@@ -1543,7 +1412,7 @@ return {
 			category = "sfx"
 		},
 		flashbang_beep = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "flashbang beeping",
 			duration = 1,
 			max_distance = 1000,
@@ -1551,7 +1420,7 @@ return {
 			category = "sfx"
 		},
 		flashbang_bounce = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(flashbang bounces)",
 			duration = 1,
 			max_distance = 1500,
@@ -1559,7 +1428,7 @@ return {
 			category = "sfx"
 		},
 		flashbang_explosion = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(flashbang explodes!)",
 			duration = 2,
 			max_distance = 3000,
@@ -1567,14 +1436,14 @@ return {
 			category = "sfx"
 		},
 		flashbang_explode_sfx_player = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(flashbang blinds!)",
 			max_distance = 1500,
 			priority = 20,
 			category = "sfx"
 		},
 		pfn_beep_end = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(flashbang destroyed)",
 			priority = 20,
 			max_distance = 1500,
@@ -1582,7 +1451,7 @@ return {
 			duration = 2
 		},
 		grenade_gas_npc_fire = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(grenade launched)",
 			duration = 2,
 			priority = 20,
@@ -1606,7 +1475,7 @@ return {
 			disabled = true
 		},	
 		bulldozer_collar_plate_shatter = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(Bulldozer collar shatters!)",
 			max_distance = 1500,
 			priority = 97,
@@ -1614,7 +1483,7 @@ return {
 			category = "sfx"
 		},
 		bulldozer_metal_plate_shatter = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(Bulldozer plate shatters!)",
 			max_distance = 1500,
 			priority = 97,
@@ -1622,7 +1491,7 @@ return {
 			category = "sfx"
 		},
 		bulldozer_visor_shatter = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(Bulldozer visor shatters!)",
 			max_distance = 1500,
 			priority = 97,
@@ -1630,7 +1499,7 @@ return {
 			category = "sfx"
 		},
 		npc_typing_on_copy_machine_loop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(copy machine typing)",
 			priority = 98,
 			loop_data = {
@@ -1640,7 +1509,7 @@ return {
 			category = "sfx"
 		},
 		npc_crowd_scream_01 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(crowd screaming)",
 			priority = 98,
 			category = "sfx",
@@ -1651,7 +1520,7 @@ return {
 
 --music/radios
 		radio = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio plays music)",
 			priority = 98,
 			loop_data = {
@@ -1661,7 +1530,7 @@ return {
 			category = "sfx"
 		},
 		christmas_radio = { --i'm okay with having a larger range for this one because you can always shoot the radio
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "radio plays Christmas music",
 			max_distance = 2000,
 			loop_data = {
@@ -1671,7 +1540,7 @@ return {
 			category = "sfx"
 		},
 		christmas_radio_end = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio stops)",
 			stops_line = "christmas_radio",
 			remove_by_source = true,
@@ -1681,7 +1550,7 @@ return {
 			category = "stops"
 		},
 		halloween_radio_loop_2013 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "radio plays spooky music",
 			max_distance = 700,
 			loop_data = {
@@ -1691,7 +1560,7 @@ return {
 			category = "sfx"
 		},
 		jukebox_shuffle = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio music plays)",
 			max_distance = 1700,
 			loop_data = {
@@ -1701,7 +1570,7 @@ return {
 			category = "sfx"
 		},
 		jukebox_shuffle_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio music stops)",
 			stops_line = "jukebox_shuffle",
 			duration = 2,
@@ -1711,7 +1580,7 @@ return {
 			category = "sfx"
 		},
 		jukebox_the_flames_of_love = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio plays 'The Flames of Love')",
 			priority = 98,
 			max_distance = 1700,
@@ -1721,7 +1590,7 @@ return {
 			category = "sfx"
 		},
 		jukebox_biker = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(music plays)",
 			max_distance = 1700,
 			loop_data = {
@@ -1731,7 +1600,7 @@ return {
 			category = "sfx"
 		},
 		jukebox_biker_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(music stops)",
 			stops_line = "jukebox_shuffle",
 			duration = 2,
@@ -1741,7 +1610,7 @@ return {
 			category = "sfx"
 		},
 		rvd_radio_music_start = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio music)", --these are mostly just different so that I can tell them apart
 			priority = 98,
 			max_distance = 700,
@@ -1751,7 +1620,7 @@ return {
 			category = "sfx"
 		},
 		rvd_radio_music_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio music stops)",
 			category = "stops",
 			remove_by_source = true,
@@ -1759,7 +1628,7 @@ return {
 			stops_line = "rvd_radio_music_start"					
 		},
 		diegetic_club_music = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[loud club music]",
 			loop_data = {
 				loop_interval = -1
@@ -1769,13 +1638,13 @@ return {
 			max_distance = 3000
 		},
 		diegetic_club_music_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[club music stops]",
 			category = "stops",
 			stops_line = "diegetic_club_music"
 		},
 		diegetic_lounge_music = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[lounge music]",
 			loop_data = {
 				loop_interval = -1
@@ -1788,7 +1657,7 @@ return {
 		
 --alarms
 		art_galley_alarm_on_slow_fade = { --(sic)
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[ALARM KLAXON]",
 			priority = 90,
 			duration = 60,
@@ -1799,28 +1668,28 @@ return {
 			category = "stops"
 		},
 		bank_alarm_on_slow_fade = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[bank alarm!]",
 			priority = 90,
 			duration = 60,
 			category = "sfx"					
 		},
 		alarm_kosugi_on_slow_fade_02 = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[alarm klaxon!]",
 			duration = 30,
 			priority = 90,
 			category = "sfx"
 		},
 		alarm_museum_on_slow_fade = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[alarm klaxon!]",
 			duration = 30,
 			priority = 90,
 			category = "sfx"
 		},
 		alarm_countdown_loop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 2000,
 			text = "[slow countdown ticking]",
 			category = "sfx",
@@ -1830,13 +1699,13 @@ return {
 			priority = 90
 		},
 		alarm_countdown_ticking_down_10sec = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 2000,
 			text = "[countdown ticks faster!]",
 			category = "sfx"
 		},
 		alarm_countdown_loop_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[countdown stops]",
 			category = "stops",
 			stops_line = "alarm_countdown_loop",
@@ -1844,14 +1713,14 @@ return {
 			priority = 90
 		},
 		hitec_lotec_alarm_slow_fade = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[alarm]",
 			category = "sfx",
 			priority = 90,
 			duration = 3
 		},
 		hos_alarm = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hospital alarm!)",
 			category = "sfx",
 			duration = 30,
@@ -1862,20 +1731,20 @@ return {
 
 --general heist sfx/explosions and the like;misc sfx
 		bell_ring = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(bell ringing)",
 			duration = 5,
 			priority = 91,
 			category = "sfx"
 		},
 		birds_fly_away = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			text = "(birds squawk, fly away)"
 		},
 		branch_bank_phone_call = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[phone ringing]",
 			max_distance = 1000,
 			category = "sfx",
@@ -1883,35 +1752,35 @@ return {
 			duration = 30
 		},
 		branch_bank_phone_call_pickup = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[phone answered]",
 			category = "stops",
 			priority = 98,
 			duration = 30
 		},
 		c4_explode_metal = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 5000,
 			text = "(explosion, metal broken)",
 			priority = 98,
 			category = "sfx"
 		},
 		car_land_in_water = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 3,
 			priority = 98,
 			text = "[car lands in water]"
 		},
 		car_tumble_hit = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			duration = 3,
 			priority = 98,
 			text = "[car impact]"
 		},
 		cellphone_01_no_answer = {
-			override_name = "SFX", --looped
+			override_speaker_id = "hud_subtitlemod_speaker_sfx", --looped
 			text = "[cellphone ringing]",
 			max_distance = 2500,
 			priority = 90,
@@ -1921,7 +1790,7 @@ return {
 			}
 		},
 		cellphone_01_answer = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[cellphone answered]",
 			max_distance = 2500,
 			duration = 1,
@@ -1929,7 +1798,7 @@ return {
 			category = "sfx"
 		},
 		cft_manhole_cover_slide = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "manhole cover slides",
 			max_distance = 2000,
 			duration = 2,
@@ -1937,7 +1806,7 @@ return {
 			category = "sfx"
 		},
 		manhole_opens = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "manhole cover opens",
 			max_distance = 2000,
 			duration = 2,
@@ -1945,7 +1814,7 @@ return {
 			category = "sfx"
 		},
 		door_wooden_kicked_in = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(door kicked open)",
 			max_distance = 2000,
 			duration = 2,
@@ -1953,7 +1822,7 @@ return {
 			category = "sfx"
 		},
 		elevator_doors_open = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(elevator doors open)",
 			max_distance = 1500,
 			duration = 4,
@@ -1961,7 +1830,7 @@ return {
 			category = "sfx"
 		},
 		elevator_doors_close = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(elevator doors close)",
 			max_distance = 1500,
 			duration = 4,
@@ -1969,7 +1838,7 @@ return {
 			category = "sfx"
 		},
 		elevator_ding = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[elevator dings]",
 			category = "sfx",
 			max_distance = 4000,
@@ -1977,7 +1846,7 @@ return {
 			duration = 2
 		},
 		fire_sprinkler_start = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(fire sprinkler activates)",
 			override_source_id = "fire_sprinkler",
 			max_distance = 2000,
@@ -1985,14 +1854,14 @@ return {
 			category = "sfx"
 		},
 		fire_sprinkler_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 --					text = "(fire sprinkler stops)",
 --					priority = 98,
 			stops_line = "fire_sprinkler_start",
 			category = "stops"
 		},
 		fire_small_mono = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(fire burning)",
 			max_distance = 500,
 			loop_data = {
@@ -2003,7 +1872,7 @@ return {
 			category = "sfx"
 		},
 		fire_hiss = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(fire hisses)",
 			override_source_id = "fire_hiss",
 			max_distance = 2000,
@@ -2011,7 +1880,7 @@ return {
 			category = "sfx"
 		},
 		hlp_poof_big = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(loud poof, sparkles)",
 			duration = 2,
 			priority = 98,
@@ -2019,7 +1888,7 @@ return {
 			category = "sfx"
 		},
 		hlp_green_fire = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hellfire burning, distant screaming)",
 			max_distance = 3000,
 			priority = 98,
@@ -2029,12 +1898,12 @@ return {
 			category = "sfx"
 		},
 		hlp_green_fire_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			stops_line = "hlp_green_fire",
 			category = "stops"
 		},
 		hlp_bag_door_loop_start = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(loot door wind howling)",
 			category = "sfx",
 			priority = 98,
@@ -2044,7 +1913,7 @@ return {
 			}
 		},
 		hlp_bag_door_loop_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			stops_line = "hlp_bag_door_loop_start",
 			remove_by_source = true,
 			category = "stops"
@@ -2063,14 +1932,14 @@ return {
 			stops_line = "hlp_ending_choir_start"
 		},
 		hos_pa_announcement_emergency = {
-			override_name = "SFX", --chatter?
+			override_speaker_id = "hud_subtitlemod_speaker_sfx", --chatter?
 			text = "(hospital PA announces emergency)",
 			duration = 5,
 			priority = 98,
 			category = "ambient"
 		},
 		hos_pa_announcement_generic = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hospital PA announcement)",
 			duration = 5,
 			priority = 98,
@@ -2078,27 +1947,27 @@ return {
 		},
 		hos_wardrobe_change = {
 			text = "[clothes rustling]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			duration = 5
 		},
 		hos_fake_sentry_place = {
 			text = "[fake sentry placed]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			duration = 3
 		},
 		hos_pa_announcement_all = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hospital PA announcement)",
 			duration = 5,
 			priority = 98,
 			category = "ambient"
 		},
 		large_fire = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(fire burning)",
 			max_distance = 1000,
 			priority = 98,
@@ -2108,14 +1977,14 @@ return {
 			category = "ambient"
 		},
 		large_fire_stop = { --needs a stops_line
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			stops_line = "large_fire",
 --					text = "(fire stops)",
 			priority = 98,
 			category = "stops"
 		},
 		metal_door_knock = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(door knocking)",
 			max_distance = 2000,
 			duration = 2,
@@ -2124,7 +1993,7 @@ return {
 			category = "sfx"
 		},
 		metal_door_open = { --used for some wooden doors so i can't really be specific
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(door opens)",
 			max_distance = 2000,
 			override_source_id = "metal_door",
@@ -2132,7 +2001,7 @@ return {
 			category = "sfx"
 		},
 		fence_gate_close = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(fence gate closes)",
 			max_distance = 2000,
 			duration = 2,
@@ -2140,7 +2009,7 @@ return {
 			category = "sfx"
 		},
 		fence_gate_open = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(fence gate opens)",
 			max_distance = 2000,
 			duration = 2,
@@ -2148,7 +2017,7 @@ return {
 			category = "sfx"
 		},
 		gate_fence_street_open = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(fence gate opens)",
 			max_distance = 2000,
 			duration = 2,
@@ -2156,7 +2025,7 @@ return {
 			category = "sfx"
 		},
 		generic_door_metal_open = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(metal door opens)",
 			max_distance = 2000,
 			duration = 2,
@@ -2165,14 +2034,14 @@ return {
 		},
 		glass_crack = {
 			text = "(glass cracks!)",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 700,
 			category = "sfx",
 			duration = 2,
 			priority = 98
 		},
 		hand_dryer_on = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hand dryer whirring)",
 			loop_data = {
 				loop_interval = -1
@@ -2182,7 +2051,7 @@ return {
 			category = "sfx"
 		},
 		hand_dryer_off = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hand dryer deactivates)",
 			stops_line = "hand_dryer_on",
 			duration = 2,
@@ -2190,13 +2059,13 @@ return {
 			category = "sfx"
 		},
 		Play_howl_reverb = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(spooky howl)",
 			priority = 98,
 			category = "sfx"
 		},
 		phone_01_no_answer = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[phone ringing]",
 			max_distance = 1000,
 			category = "sfx",
@@ -2204,7 +2073,7 @@ return {
 			duration = 30
 		},
 		phone_02_no_answer = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[phone ringing]",
 			max_distance = 1000,
 			category = "sfx",
@@ -2212,7 +2081,7 @@ return {
 			duration = 30
 		},
 		phone_03_no_answer = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[phone ringing]",
 			max_distance = 1000,
 			category = "sfx",
@@ -2220,7 +2089,7 @@ return {
 			duration = 30
 		},
 		phone_04_no_answer = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[phone ringing]",
 			max_distance = 1000,
 			category = "sfx",
@@ -2230,26 +2099,26 @@ return {
 		prison_transport_sliding = {
 			text = "(transport truck screeches!)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			duration = 5,
 			priority = 98
 		},
 		queue_beep = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(bank queue beep)",
 			priority = 98,
 			max_distance = 2000,
 			category = "sfx"
 		},
 		swat_explosion = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			max_distance = 5000,
 			text = "(SWAT explosive breaches wall)"
 		},
 		telephone_booth_ringing = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[telephone booth ringing]",
 			max_distance = 1000,
 			category = "sfx",
@@ -2257,7 +2126,7 @@ return {
 			duration = 30
 		},
 		telephone_booth_ringing_stop = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[telephone booth stops]",
 			category = "stops",
 			priority = 98,
@@ -2266,7 +2135,7 @@ return {
 		tick_tock_play = {
 			text = "[clock ticking loudly]",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 98,
 			loop_data = {
 				loop_interval = -1
@@ -2280,13 +2149,13 @@ return {
 		tire_blow = {
 			disabled = true,
 			text = "(tire pops)",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			max_distance = 1000
 		},
 		toilet_flush = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(toilet flushing)",
 			priority = 98,
 			max_distance = 700,
@@ -2303,35 +2172,35 @@ return {
 		window_small_shatter = {
 			category = "sfx",
 			text = "[small glass shatters!]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 98,
 			duration = 2
 		},
 		window_medium_shatter = {
 			category = "sfx",
 			text = "[medium glass shatters!]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 50,
 			duration = 2
 		},
 		window_large_shatter = {
 			category = "sfx",
 			text = "[large glass shatters!]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 98,
 			duration = 2
 		},
 		van_rear_door_close = {
 			category = "sfx",
 			text = "[van rear door closes]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 98,
 			duration = 2
 		},
 		van_rear_door_open = {
 			category = "sfx",
 			text = "[van rear door opens]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 98,
 			duration = 2
 		},
@@ -2637,11 +2506,11 @@ return {
 				},
 				text = "hud_subtitlemod_cnv_Play_ncr_fish_01",
 				convo = [[
-$1: As the campaign for the mayoral election gets going,$b
-$1: Nancy Bukowski seems to be sailing up as the main challenger to Bob McKendrick!$b
-$1: Bob McKendrick's 'tough on crime' stance and his defense of the second amendment have been popular with voters,$b
-$1: but many feel that he hasn't been able to deliver on his promises!$b
-$1: It might be a close race this year!]]
+$1As the campaign for the mayoral election gets going,$b
+$1Nancy Bukowski seems to be sailing up as the main challenger to Bob McKendrick!$b
+$1Bob McKendrick's 'tough on crime' stance and his defense of the second amendment have been popular with voters,$b
+$1but many feel that he hasn't been able to deliver on his promises!$b
+$1It might be a close race this year!]]
 			}
 		},
 		Play_ncr_fish_02 = { -- news team in dining room
@@ -2662,9 +2531,9 @@ $1: It might be a close race this year!]]
 				},
 				text = "hud_subtitlemod_cnv_Play_ncr_fish_02",
 				convo = [[
-$1: So this is the luxurious dining room!$b
-$1: Food is brought up from the kitchen downstairs,$b
-$1: and guests may enjoy a high-quality meal in these very exclusive surroundings!
+$1So this is the luxurious dining room!$b
+$1Food is brought up from the kitchen downstairs,$b
+$1and guests may enjoy a high-quality meal in these very exclusive surroundings!
 ]]
 			}
 		},
@@ -2686,10 +2555,10 @@ $1: and guests may enjoy a high-quality meal in these very exclusive surrounding
 				},
 				text = "hud_subtitlemod_cnv_Play_ncr_fish_03",
 				convo = [[
-$1: As you can see here, Powell has a collection of rare... uh... fish!$b
-$1: There are various, uh... colors, and sizes, and, uh...$b
-$1: [NORMAL VOICE] Tom, can we cut? This isn't working.$b
-$1: I don't know what to say about those goddamn fishes.
+$1As you can see here, Powell has a collection of rare... uh... fish!$b
+$1There are various, uh... colors, and sizes, and, uh...$b
+$1[NORMAL VOICE] Tom, can we cut? This isn't working.$b
+$1I don't know what to say about those goddamn fishes.
 ]]
 			}
 		},
@@ -2711,10 +2580,10 @@ $1: I don't know what to say about those goddamn fishes.
 				},
 				text = "hud_subtitlemod_cnv_Play_ncr_fish_04",
 				convo = [[
-$1: As you can see, we're standing here on the aft deck of this beautiful yacht!$b
-$1: The views of New York City are stunning!$b
-$1: The funraiser for Washington Mayor McKendrick is ongoing just above us here,$b
-$1: and it's a beautiful night here in New York!
+$1As you can see, we're standing here on the aft deck of this beautiful yacht!$b
+$1The views of New York City are stunning!$b
+$1The funraiser for Washington Mayor McKendrick is ongoing just above us here,$b
+$1and it's a beautiful night here in New York!
 ]]
 			}
 		},
@@ -2736,10 +2605,10 @@ $1: and it's a beautiful night here in New York!
 				},
 				text = "hud_subtitlemod_cnv_Play_ncr_fish_05",
 				convo = [[
-$1: There are four of these luxurious bedrooms here on the yacht!$b
-$1: I expect you'd sleep rather well here if you were on a long cruise in, say, the Caribbean!$b
-$1: Once again, I'd like to point out how privileged we are to get an inside look at this amazing yacht...$b
-$1: with access to these private rooms.
+$1There are four of these luxurious bedrooms here on the yacht!$b
+$1I expect you'd sleep rather well here if you were on a long cruise in, say, the Caribbean!$b
+$1Once again, I'd like to point out how privileged we are to get an inside look at this amazing yacht...$b
+$1with access to these private rooms.
 ]]
 			}
 		},
@@ -2761,10 +2630,10 @@ $1: with access to these private rooms.
 				},
 				text = "hud_subtitlemod_cnv_Play_ncr_fish_06",
 				convo = [[
-$1: This is where it all happens, food-wise!$b
-$1: On cruises, a large kitchen staff will be working here to keep passengers happy and well-fed.$b
-$1: It's amazing how big how this place is, and it's really a testament to the use of this vessel as a luxury retreat for the wealthy!$b
-$1: [NORMAL VOICE] ...Tom, do you think we could snag a beer from the fridge here?
+$1This is where it all happens, food-wise!$b
+$1On cruises, a large kitchen staff will be working here to keep passengers happy and well-fed.$b
+$1It's amazing how big how this place is, and it's really a testament to the use of this vessel as a luxury retreat for the wealthy!$b
+$1[NORMAL VOICE] ...Tom, do you think we could snag a beer from the fridge here?
 ]]
 			}
 		},
@@ -2786,9 +2655,9 @@ $1: [NORMAL VOICE] ...Tom, do you think we could snag a beer from the fridge her
 				},
 				text = "hud_subtitlemod_cnv_Play_ncr_fish_07",
 				convo = [[
-$1: As you can see, the library here is a balcony with views of the downstairs dining room!$b
-$1: The owner has a huge collection of books here!$b
-$1: I know I saw some Sartre here, and there was definitely some Tolstoy, too!
+$1As you can see, the library here is a balcony with views of the downstairs dining room!$b
+$1The owner has a huge collection of books here!$b
+$1I know I saw some Sartre here, and there was definitely some Tolstoy, too!
 ]]
 			}
 		},
@@ -2810,9 +2679,9 @@ $1: I know I saw some Sartre here, and there was definitely some Tolstoy, too!
 				},
 				text = "hud_subtitlemod_cnv_Play_ncr_fish_08",
 				convo = [[
-$1: So yeah, this is where the yacht's owner and guests can sit down and enjoy a nice glass of wine!$b
-$1: There are also large tobacco humidors in this area,$b
-$1: so it's definitely what you might call 'a relax zone!'
+$1So yeah, this is where the yacht's owner and guests can sit down and enjoy a nice glass of wine!$b
+$1There are also large tobacco humidors in this area,$b
+$1so it's definitely what you might call 'a relax zone!'
 ]]
 			}
 		},
@@ -2835,121 +2704,121 @@ $1: so it's definitely what you might call 'a relax zone!'
 					1.62,5.7,7.9,9.3,11,12.5,15.7,19,22.9,25.4,30,32.1,33.5,36.3,37.3,42.2,45,47.8,49.8,53.1,55.4,59.3,61.2,62.7,65.6,69.5,72.5,74,76.6,78.3,81.3,83.5,86.9,90,94.7,99,102.3,104.2,105.7,107.6,110.2,111.0,115.7,120.7,123.7,128,130.8,134.0,135.9,142.3,144.2,150.6,153.6,157.9,161.4,165.7,167.4,168.1,170.4,171.9,173.6,175,179.3,180.9,185.8,189.6,192,194.1,198.3,200.2,201.3,205.1,207.6,209.4,212.1,214.0,218.3,221.7,222.9,224.4,226.8,228.2,231.2,232.7,236.4,239.0,241.6,244,245.2,247.5,251.2,253.2,256.7,258.7,261.2,264.9,266.7,271.1,273.4,274.5,275.7,278.9,282.4,288.1,292.7,295.3,296.5,299.8,301.0,302.8,307.1,311.0,312.1,316.7,320.4
 				},
 				text = "hud_subtitlemod_cnv_Play_pent_civs_lobby",
-				convo = [[$1: You just took it and ran?$b
-$2: HIM! I took HIM and ran. It's a dog, not a thing.$b
-$1: Whatever. That's straight-up stealing.$b
-$2: I'd beg to differ.$b
-$1: What the hell would you call it, then?$b
-$2: A rescue operation.$b
-$1: You 'rescued' a chihuahua from a retired old lady?$b
-$2: She's fifty! So, not really at death's door.$b
-$2: And she's not retired, she's running a health insurance scam.$b
-$1: Still, though. You stole her dog.$b
-$2: Rescued! She's overfeeding him. Carl looks like a plump football.$b
-$1: The dog's name is 'Carl?'$b
-$2: Yeah, so?$b
-$1: You can't give a regular human-sounding name to a pet!$b
-$2: Why not?$b
-$1: I mean, it sounds ridiculous! 'Meet my dog, Carl, and my cat, Anna!" Come on.$b
-$2: Anyway, Carl will be better off with another family.$b
-$1: So... what, you're gonna adopt him anyway?$b
-$2: I'm gonna put him on a diet first.$b
-$1: And then what? What about the serial number tattoo and microchip?$b
-$2: Shit! I didn't think about that.$b
-$1: Planning to do some ad-hoc surgery on the poor bastard on your kitchen table?$b
-$2: Of course not! That's sick!$b
-$1: So what're you gonna do then?$b
-$2: I'll have to pay some veterinarian under the table!$b
-$1: You telling me you're gonna track down some shady black-market Doctor Doolittle?$b
-$2: I guess so... 'cause I ain't bringing Carl back to my old neighbor.$b
-$1: What if she calls the cops?$b
-$2: That boat... has already sailed.$b
-$1: Are you kidding me?!$b
-$2: No, there was a uniformed cop at our door the other day.$b
-$1: Jesus! Aren't you scared you're gonna get busted?$b
-$2: Nah, I don't think a missing dog is high up on their list.$b
-$1: You're probably right. The police got their hands full already.$b
-$2: Damn straight! High-stakes violent robberies, gangs? They're busy.$b
-$1: Speaking of crimes, I think we got some Asian wise guys coming.$b
-$2: 'Asian wise guys?' You mean triads?$b
-$1: [SCOFFS] What's 'triads?'$b
-$2: Chinese mafia.$b
-$1: Oh, yeah, that.$b
-$2: 'Asian wise guys' is a weird way of putting it.$b
-$1: Why?$b
-$2: The expression 'Asian wise guys' is an American-Italian mob... thing.$b
-$1: Wait, a second ago you said 'Chinese mafia.' Isn't that just as weird in that case?$b
-$2: Oh... yeah. Okay, you win that one.$b
-$1: As I was saying, I think we got some people from the... 'triads' in this building.$b
-$2: O-kay, I'll bite, why do you think that?$b
-$1: I've seen a bunch of Chinese dudes here with extensive ink.$b
-$2: They've got tattoos, so what?$b
-$1: Tattoos are given more common in Hong Kong, sure, but unless there's a tattoo convention, these guys are triad members.$b
-$2: How do you know they're from Hong Kong?$b
-$1: Mostly guessing. There's organized crime in big cities, and Cantonese is the main dialect in Hong Kong.$b
-$2: What? How... how the hell do you know that?$b
-$1: Way back, I dated a girl from Hong Kong for a couple years. I picked up a thing or two.$b
-$2: Oh yeah! Back in college, right? That exchange student?$b
-$1: Yep. Anyway, I think we got some triad members in this place.$b
-$2: What was her name again?$b
-$1: What?$b
-$2: The girl from Hong Kong! what was her name?$b
-$1: Why do you wanna know that?$b
-$2: It's not an odd question!$b
-$1: It kind of is.$b
-$2: No it isn't! If you talk about someone, asking for their name isn't weird.$b
-$1: Her name... isn't important.$b
-$2: Why are you so defensive? It's not like I'm gonna track her down in Hong Kong and try to date her.$b
-$1: I... don't like to talk about her, alright? It didn't end well.$b
-$2: See, now I'm curious about that.$b
-$1: Why are you so goddamn nosy, huh?$b
-$2: We've known each other for seven years, and you've barely talked about this girl.$b
-$1: Her name is Meijing, okay?$b
-$2: And?$b
-$1: No way. If you want the full rundown, you're gonna buy me lots of drinks first.$b
-$2: Deal. Tomorrow night at the Tweaked Edge?$b
-$1: Since you're buying? Sure.$b
-$2: By the way, how long have we been waiting?$b
-$1: Half an hour? Forty-five?$b
-$2: Why do we always show up on time when we know Jake is constantly late?$b
-$1: 'Cause the few times we have shown up late, he always wigged out.$b
-$2: Did you text him?$b
-$1: Yeah, ten minutes ago.$b
-$2: What's his excuse for being late this time?$b
-$1: Well, he hasn't gotten back to me.$b
-$2: C'mon. That's just a dick move. I'm hungry as hell.$b
-$1: [SCOFFS] You and me both.$b
-$2: Screw Jake! Let's go and grab some food and meet him at the theater.$b
-$1: Yeah, I'm kinda picking up what you're throwing down here.$b
-$2: What do you wanna eat? Mexican food, maybe?$b
-$1: Nah, I had burritos for lunch yesterday.$b
-$2: What about pizza?$b
-$1: Ehh... too much cheese.$b
-$2: You love cheese! I've seen you stuff your face with double cheese pizza!$b
-$1: I'm trying to get the calories down a bit...$b
-$2: Okay, whatever. What about hamburgers then?$b
-$1: Works for me. Where do you wanna go?$b
-$2: What's the name of that place with the square burgers?$b
-$1: I have no idea, but I don't want 'square burgers'.$b
-$2: What's wrong with square burgers?$b
-$1: Burgers should be round. Otherwise it's some... weird sandwich.$b
-$2: Technically, a burger is a sandwich.$b
-$1: No, it isn't.$b
-$2: Duh, yeah.$b
-$1: A burger has to have a cooked and hot filling.$b
-$2: By that definition, a sloppy joe or a grilled cheese is a hamburger.$b
-$1: I misspoke. A hamburger must have a cooked patty of ground meat between the buns.$b
-$2: So if you have a whole piece of chicken or fish between two buns, it doesn't count as a burger?$b
-$1: Nope! Then it's a sandwich.$b
-$2: That's stupid.$b
-$1: Really? Would you classify a philly cheese steak as a hamburger?$b
-$2: Go to hell!$b
-$1: I'm right, and you know it!$b
-$2: Yeah, yeah... since you don't wany your burger square, where do you wanna go?$b
-$1: Let's go to... Hungry Bob's!$b
-$2: Never heard of it.$b
-$1: It's a new franchise, but they've got awesome burgers. ROUND burgers.$b
-$2: Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
+				convo = [[$1You just took it and ran?$b
+$2HIM! I took HIM and ran. It's a dog, not a thing.$b
+$1Whatever. That's straight-up stealing.$b
+$2I'd beg to differ.$b
+$1What the hell would you call it, then?$b
+$2A rescue operation.$b
+$1You 'rescued' a chihuahua from a retired old lady?$b
+$2She's fifty! So, not really at death's door.$b
+$2And she's not retired, she's running a health insurance scam.$b
+$1Still, though. You stole her dog.$b
+$2Rescued! She's overfeeding him. Carl looks like a plump football.$b
+$1The dog's name is 'Carl?'$b
+$2Yeah, so?$b
+$1You can't give a regular human-sounding name to a pet!$b
+$2Why not?$b
+$1I mean, it sounds ridiculous! 'Meet my dog, Carl, and my cat, Anna!" Come on.$b
+$2Anyway, Carl will be better off with another family.$b
+$1So... what, you're gonna adopt him anyway?$b
+$2I'm gonna put him on a diet first.$b
+$1And then what? What about the serial number tattoo and microchip?$b
+$2Shit! I didn't think about that.$b
+$1Planning to do some ad-hoc surgery on the poor bastard on your kitchen table?$b
+$2Of course not! That's sick!$b
+$1So what're you gonna do then?$b
+$2I'll have to pay some veterinarian under the table!$b
+$1You telling me you're gonna track down some shady black-market Doctor Doolittle?$b
+$2I guess so... 'cause I ain't bringing Carl back to my old neighbor.$b
+$1What if she calls the cops?$b
+$2That boat... has already sailed.$b
+$1Are you kidding me?!$b
+$2No, there was a uniformed cop at our door the other day.$b
+$1Jesus! Aren't you scared you're gonna get busted?$b
+$2Nah, I don't think a missing dog is high up on their list.$b
+$1You're probably right. The police got their hands full already.$b
+$2Damn straight! High-stakes violent robberies, gangs? They're busy.$b
+$1Speaking of crimes, I think we got some Asian wise guys coming.$b
+$2'Asian wise guys?' You mean triads?$b
+$1[SCOFFS] What's 'triads?'$b
+$2Chinese mafia.$b
+$1Oh, yeah, that.$b
+$2'Asian wise guys' is a weird way of putting it.$b
+$1Why?$b
+$2The expression 'Asian wise guys' is an American-Italian mob... thing.$b
+$1Wait, a second ago you said 'Chinese mafia.' Isn't that just as weird in that case?$b
+$2Oh... yeah. Okay, you win that one.$b
+$1As I was saying, I think we got some people from the... 'triads' in this building.$b
+$2O-kay, I'll bite, why do you think that?$b
+$1I've seen a bunch of Chinese dudes here with extensive ink.$b
+$2They've got tattoos, so what?$b
+$1Tattoos are given more common in Hong Kong, sure, but unless there's a tattoo convention, these guys are triad members.$b
+$2How do you know they're from Hong Kong?$b
+$1Mostly guessing. There's organized crime in big cities, and Cantonese is the main dialect in Hong Kong.$b
+$2What? How... how the hell do you know that?$b
+$1Way back, I dated a girl from Hong Kong for a couple years. I picked up a thing or two.$b
+$2Oh yeah! Back in college, right? That exchange student?$b
+$1Yep. Anyway, I think we got some triad members in this place.$b
+$2What was her name again?$b
+$1What?$b
+$2The girl from Hong Kong! what was her name?$b
+$1Why do you wanna know that?$b
+$2It's not an odd question!$b
+$1It kind of is.$b
+$2No it isn't! If you talk about someone, asking for their name isn't weird.$b
+$1Her name... isn't important.$b
+$2Why are you so defensive? It's not like I'm gonna track her down in Hong Kong and try to date her.$b
+$1I... don't like to talk about her, alright? It didn't end well.$b
+$2See, now I'm curious about that.$b
+$1Why are you so goddamn nosy, huh?$b
+$2We've known each other for seven years, and you've barely talked about this girl.$b
+$1Her name is Meijing, okay?$b
+$2And?$b
+$1No way. If you want the full rundown, you're gonna buy me lots of drinks first.$b
+$2Deal. Tomorrow night at the Tweaked Edge?$b
+$1Since you're buying? Sure.$b
+$2By the way, how long have we been waiting?$b
+$1Half an hour? Forty-five?$b
+$2Why do we always show up on time when we know Jake is constantly late?$b
+$1'Cause the few times we have shown up late, he always wigged out.$b
+$2Did you text him?$b
+$1Yeah, ten minutes ago.$b
+$2What's his excuse for being late this time?$b
+$1Well, he hasn't gotten back to me.$b
+$2C'mon. That's just a dick move. I'm hungry as hell.$b
+$1[SCOFFS] You and me both.$b
+$2Screw Jake! Let's go and grab some food and meet him at the theater.$b
+$1Yeah, I'm kinda picking up what you're throwing down here.$b
+$2What do you wanna eat? Mexican food, maybe?$b
+$1Nah, I had burritos for lunch yesterday.$b
+$2What about pizza?$b
+$1Ehh... too much cheese.$b
+$2You love cheese! I've seen you stuff your face with double cheese pizza!$b
+$1I'm trying to get the calories down a bit...$b
+$2Okay, whatever. What about hamburgers then?$b
+$1Works for me. Where do you wanna go?$b
+$2What's the name of that place with the square burgers?$b
+$1I have no idea, but I don't want 'square burgers'.$b
+$2What's wrong with square burgers?$b
+$1Burgers should be round. Otherwise it's some... weird sandwich.$b
+$2Technically, a burger is a sandwich.$b
+$1No, it isn't.$b
+$2Duh, yeah.$b
+$1A burger has to have a cooked and hot filling.$b
+$2By that definition, a sloppy joe or a grilled cheese is a hamburger.$b
+$1I misspoke. A hamburger must have a cooked patty of ground meat between the buns.$b
+$2So if you have a whole piece of chicken or fish between two buns, it doesn't count as a burger?$b
+$1Nope! Then it's a sandwich.$b
+$2That's stupid.$b
+$1Really? Would you classify a philly cheese steak as a hamburger?$b
+$2Go to hell!$b
+$1I'm right, and you know it!$b
+$2Yeah, yeah... since you don't wany your burger square, where do you wanna go?$b
+$1Let's go to... Hungry Bob's!$b
+$2Never heard of it.$b
+$1It's a new franchise, but they've got awesome burgers. ROUND burgers.$b
+$2Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
 			},
 			duration = 300,
 			max_distance = 1000,
@@ -2972,97 +2841,97 @@ $2: Alright. If Jake doesn't show up soon, we'll go to Hungry Bob's.]]
 					2.0,2.8,5.7,7.0,9.6,10.6,16.9,19.5,22.0,26.6,28.1,29.6,32.0,35.9,37.9,46.2,48.8,51.6,54.3,58.0,59.3,63.5,67.0,68.7,70.0,73.9,76.2,80.6,82.3,87.4,90.1,94.2,100.5,103.0,109.0,113.2,114.4,117.0,119.6,122.7,125.3,129.1,135.1,137.3,141.8,144.7,147.2,154.5,158.1,159.9,165.4,169.6,173.4,179.3,182.8,185.0,190.3,198.0,199.6,203.4,205.7,206.9,208.4,210.7,211.9,213.8,217.5,220.9,222.4,226.6,230.3,234.3,236.1,241.3,242.6,247.6,256.0,259.3,260.5,263.1,266.9,272.7,275.2,279.3,282.3,285.2,289.5,291.9,294.1,300.1,303.0
 				},
 				text = "hud_subtitlemod_cnv_Play_buyers_chca_01",
-				convo = [[$1: The guy is fuckin' nuts.$b
-$2: Huh?$b
-$1: He's nuts! This is going to ruin us!$b
-$2: How d'ya figure?$b
-$1: He doesn't have the cash for 'Shark in the Cupboard 5'.$b
-$2: So?$b
-$1: And he thinks sending us here to gamble away the pitch money he got from the bank is gonna make it all okay?$b
-$2: If we do this right, maybe it will.$b
-$1: Are you a gambler? Cause, cause I'm not a gambler.$b
-$2: If your next sentence contains the word 'lover,' I'm throwing you overboard.$b
-$1: I'm serious, man!$b
-$2: So am I.$b
-$1: Well, that's not where I was going.$b
-$2: Okay then, but I think Bruck Johns knows what he's doing!$b
-$1: Uh huh. What's your basis for that?$b
-$2: He's done it before, back in '98, with the first one? I was just a lark. Took me to Vegas and we cleaned out!$b
-$1: And you got enough dough to back the show?$b
-$2: Well, yeah, it was only a two mil budget.$b
-$1: Yeah- that's only a fifth of what we need for this!$b
-$2: Yeah, but from what I've heard, you can really strike it in this place! $b
-$1: Who told you that?$b
-$2: Guy who runs the place, Lee... Deng, I think his name was?$b
-$1: Huh. Sounds like something made up for a video game.$b
-$2: The dude's legit.$b
-$1: How d'ya figure?$b
-$2: Has gold teeth, smiled alot, lotta tattoos too.$b
-$1: Sounds like your run-of-the-mill gangster.$b
-$2: Yeah, but this guy walks around here like he owns the place.$b
-$1: Yeah, he probably does!$b
-$2: Ah, he's just a local boss! The head honcho is still that 'Wang' guy.$b
-$1: Oho, the one we were supposed to buy that statue from?$b
-$2: Right. Man, I don't even wanna think about that. Just forget I brought it up.$b
-$1: Wasn't our fault that shit went bad. How were we supposed to know the place was gonna get robbed by those clown dudes?$b
-$2: With our luck, this place will get robbed too.$b
-$1: We're in the middle of the fucking ocean! Who'd be so stupid to try a robbery here?$b
-$2: I don't know! Maybe it'll be like... one of those secret agent movies.$b
-$1: So?$b
-$2: So, the ship always sinks in those!$b
-$1: You're getting worked up about nothing!$b
-$2: We shoulda taken that deal on that space show...$b
-$1: They were paying chickenshit money!$b
-$2: At least they were paying! We haven't seen a dime in months!$b
-$1: ANYWAY, that space show has been getting awful ratings. It's not gonna be around long.$b
-$2: Eh, unless they sell it to one of the streamers.$b
-$1: Yeah, maybe. Still, you really want to be known as a 'space guy'?$b
-$2: Better than 'the shark movie that never gets made' guy.$b
-$1: It'll get made, it'll get made!$b
-$1: Even if we don't clean out here, investors are gonna go nuts once they find out we have Lana playing the lead role!$b
-$2: *whistles* She DOES look good in a bathing suit.$b
-$1: She won't be wearing one.$b
-$2: WHAT? well, what's the point of getting Lana Leonard if she's not gonna be... showing it off?$b
-$1: Dude, keep it down! You don't wanna announce it to the world!$b
-$2: Well, still. I think it's a wasted opportunity.$b
-$1: The shark... is in the CUPBOARD. Why the HELL would she be wearing a bathing suit?$b
-$2: Maybe she's on her way out to the pool or something.$b
-$1: In a midtown high-rise?$b
-$2: Okay, okay. Well... at least tell me we're getting a better FX team this time around?$b
-$1: Oho, yeah we are! Johns told me we're going all practical on this one. No CGI, not even the blood!$b
-$2: ...Can we afford that?$b
-$1: Sure we can! just gotta come back from here with a nice haul.$b
-$2: What if, uh...$b
-$1: ...What?$b
-$2: Ah, nevermind.$b
-$1: Oh, come on! tell me!$b
-$2: Nah, forget it.$b
-$1: Spill it, man!$b
-$2: What if we get these guys to opt in on a piece of the film?$b
-$1: You want to get in bed... with GANGSTERS?$b
-$2: Hey, money is money! $b
-$1: Johns would be furious! More people that want to tell him what's what!$b
-$2: Yeah, maybe! But he'd have to give US more control!$b
-$1: And they would probably want to give notes on the script.$b
-$2: Why would they care? It's an investment.$b
-$1: And... if the movie flops? They don't seem like the understanding types.$b
-$2: It's not gonna flop.$b
-$1: You willing to risk a couple of fingers on that? How about an organ or two?$b
-$2: Hey, I figure, the worst that happens is, they put a hit on Bruck Johns, and then we move up to the top, eh?$b
-$1: Unless we end up being collateral damage!$b
-$2: Nah.$b
-$1: How are you so tough all of a sudden?$b
-$2: I don't know! It's just an idea. It doesn't seem more dangerous than cleaning out their casino.$b
-$1: Hey at least my way, they have a chance at getting some money back.$b
-$2: Huh. You've got a point... MAYBE.$b
-$1: You know, I think I saw that Lee Deng guy hanging around the spa.$b
-$2: Maybe we should get ourselves a couple of massages?$b
-$1: Yeah... maybe we should.$b
-$2: Ooh, on the way, we gotta stop and get a closer look at that big fuckin' chandelier.$b
-$1: What's with you and decor?$b
-$2: Hey, my girl's into interior decorating.$b
-$2: If I get a good look at the big lamp, I'll have something to distract her with when she asks what we were doing on this boat.$b
-$1: Uh huh. right.]]
+				convo = [[$1The guy is fuckin' nuts.$b
+$2Huh?$b
+$1He's nuts! This is going to ruin us!$b
+$2How d'ya figure?$b
+$1He doesn't have the cash for 'Shark in the Cupboard 5'.$b
+$2So?$b
+$1And he thinks sending us here to gamble away the pitch money he got from the bank is gonna make it all okay?$b
+$2If we do this right, maybe it will.$b
+$1Are you a gambler? Cause, cause I'm not a gambler.$b
+$2If your next sentence contains the word 'lover,' I'm throwing you overboard.$b
+$1I'm serious, man!$b
+$2So am I.$b
+$1Well, that's not where I was going.$b
+$2Okay then, but I think Bruck Johns knows what he's doing!$b
+$1Uh huh. What's your basis for that?$b
+$2He's done it before, back in '98, with the first one? I was just a lark. Took me to Vegas and we cleaned out!$b
+$1And you got enough dough to back the show?$b
+$2Well, yeah, it was only a two mil budget.$b
+$1Yeah- that's only a fifth of what we need for this!$b
+$2Yeah, but from what I've heard, you can really strike it in this place! $b
+$1Who told you that?$b
+$2Guy who runs the place, Lee... Deng, I think his name was?$b
+$1Huh. Sounds like something made up for a video game.$b
+$2The dude's legit.$b
+$1How d'ya figure?$b
+$2Has gold teeth, smiled alot, lotta tattoos too.$b
+$1Sounds like your run-of-the-mill gangster.$b
+$2Yeah, but this guy walks around here like he owns the place.$b
+$1Yeah, he probably does!$b
+$2Ah, he's just a local boss! The head honcho is still that 'Wang' guy.$b
+$1Oho, the one we were supposed to buy that statue from?$b
+$2Right. Man, I don't even wanna think about that. Just forget I brought it up.$b
+$1Wasn't our fault that shit went bad. How were we supposed to know the place was gonna get robbed by those clown dudes?$b
+$2With our luck, this place will get robbed too.$b
+$1We're in the middle of the fucking ocean! Who'd be so stupid to try a robbery here?$b
+$2I don't know! Maybe it'll be like... one of those secret agent movies.$b
+$1So?$b
+$2So, the ship always sinks in those!$b
+$1You're getting worked up about nothing!$b
+$2We shoulda taken that deal on that space show...$b
+$1They were paying chickenshit money!$b
+$2At least they were paying! We haven't seen a dime in months!$b
+$1ANYWAY, that space show has been getting awful ratings. It's not gonna be around long.$b
+$2Eh, unless they sell it to one of the streamers.$b
+$1Yeah, maybe. Still, you really want to be known as a 'space guy'?$b
+$2Better than 'the shark movie that never gets made' guy.$b
+$1It'll get made, it'll get made!$b
+$1Even if we don't clean out here, investors are gonna go nuts once they find out we have Lana playing the lead role!$b
+$2*whistles* She DOES look good in a bathing suit.$b
+$1She won't be wearing one.$b
+$2WHAT? well, what's the point of getting Lana Leonard if she's not gonna be... showing it off?$b
+$1Dude, keep it down! You don't wanna announce it to the world!$b
+$2Well, still. I think it's a wasted opportunity.$b
+$1The shark... is in the CUPBOARD. Why the HELL would she be wearing a bathing suit?$b
+$2Maybe she's on her way out to the pool or something.$b
+$1In a midtown high-rise?$b
+$2Okay, okay. Well... at least tell me we're getting a better FX team this time around?$b
+$1Oho, yeah we are! Johns told me we're going all practical on this one. No CGI, not even the blood!$b
+$2...Can we afford that?$b
+$1Sure we can! just gotta come back from here with a nice haul.$b
+$2What if, uh...$b
+$1...What?$b
+$2Ah, nevermind.$b
+$1Oh, come on! tell me!$b
+$2Nah, forget it.$b
+$1Spill it, man!$b
+$2What if we get these guys to opt in on a piece of the film?$b
+$1You want to get in bed... with GANGSTERS?$b
+$2Hey, money is money! $b
+$1Johns would be furious! More people that want to tell him what's what!$b
+$2Yeah, maybe! But he'd have to give US more control!$b
+$1And they would probably want to give notes on the script.$b
+$2Why would they care? It's an investment.$b
+$1And... if the movie flops? They don't seem like the understanding types.$b
+$2It's not gonna flop.$b
+$1You willing to risk a couple of fingers on that? How about an organ or two?$b
+$2Hey, I figure, the worst that happens is, they put a hit on Bruck Johns, and then we move up to the top, eh?$b
+$1Unless we end up being collateral damage!$b
+$2Nah.$b
+$1How are you so tough all of a sudden?$b
+$2I don't know! It's just an idea. It doesn't seem more dangerous than cleaning out their casino.$b
+$1Hey at least my way, they have a chance at getting some money back.$b
+$2Huh. You've got a point... MAYBE.$b
+$1You know, I think I saw that Lee Deng guy hanging around the spa.$b
+$2Maybe we should get ourselves a couple of massages?$b
+$1Yeah... maybe we should.$b
+$2Ooh, on the way, we gotta stop and get a closer look at that big fuckin' chandelier.$b
+$1What's with you and decor?$b
+$2Hey, my girl's into interior decorating.$b
+$2If I get a good look at the big lamp, I'll have something to distract her with when she asks what we were doing on this boat.$b
+$1Uh huh. right.]]
 			},
 			duration = 303,
 			max_distance = 1000,
@@ -3075,7 +2944,7 @@ $1: Uh huh. right.]]
 		
 		-- getaway driver lines (not twitch; radio filtered simon viklund)
 		Play_drv_ukranian_stage1_01 = { 
-			override_name = "Getaway Driver",
+			override_speaker_id = "hud_subtitlemod_speaker_escapedriver",
 			text = "I'll wait here with the van.",
 			category = "contractor_vo",
 			is_locationless = nil,
@@ -3089,7 +2958,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_drv_ukranian_stage1_02 = { 
-			override_name = "Getaway Driver",
+			override_speaker_id = "hud_subtitlemod_speaker_escapedriver",
 			text = "Too much heat! I gotta split! I'll come back in a few!",
 			category = "contractor_vo",
 			is_locationless = nil,
@@ -3097,7 +2966,7 @@ $1: Uh huh. right.]]
 			duration = 5
 		},
 		Play_drv_ukranian_stage1_03 = { 
-			override_name = "Getaway Driver",
+			override_speaker_id = "hud_subtitlemod_speaker_escapedriver",
 			text = "I'm there in thirty seconds, hang tight!",
 			category = "contractor_vo",
 			is_locationless = nil,
@@ -3113,7 +2982,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_drv_ukranian_stage1_04 = { 
-			override_name = "Getaway Driver",
+			override_speaker_id = "hud_subtitlemod_speaker_escapedriver",
 			text = "I'm here! Hurry the fuck up, or I'll split!",
 			category = "contractor_vo",
 			is_locationless = nil,
@@ -3128,7 +2997,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_drv_ukranian_stage1_05 = { 
-			override_name = "Getaway Driver",
+			override_speaker_id = "hud_subtitlemod_speaker_escapedriver",
 			text = "So many cops here, guys! Hurry!",
 			category = "contractor_vo",
 			is_locationless = nil,
@@ -3143,7 +3012,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_drv_ukranian_stage1_06 = { 
-			override_name = "Getaway Driver",
+			override_speaker_id = "hud_subtitlemod_speaker_escapedriver",
 			text = "As soon as you get everyone in, we're leavin'.",
 			category = "contractor_vo",
 			is_locationless = nil,
@@ -3158,7 +3027,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_drv_ukranian_stage1_07 = { 
-			override_name = "Getaway Driver",
+			override_speaker_id = "hud_subtitlemod_speaker_escapedriver",
 			text = "Lots a' bags! Nice work!",
 			category = "contractor_vo",
 			is_locationless = nil,
@@ -3173,7 +3042,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_pln_drl_wrn_snd = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			text = "Remember to keep bystanders away from the drill! They'll get alerted just from the noise!",
 			category = "contractor_vo",
 			is_locationless = true,
@@ -3199,7 +3068,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_pln_spawn_01 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			text = "Security just dispatched another shift! Stay alert!",
 			priority = 13,
 			duration = 7,
@@ -3220,7 +3089,7 @@ $1: Uh huh. right.]]
 		},
 		Play_pln_polin_01 = {
 			text = "Twenty until police arrive!",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3237,7 +3106,7 @@ $1: Uh huh. right.]]
 		},
 		Play_pln_polin_02 = {
 			text = "Thirty until police arrive!",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3256,7 +3125,7 @@ $1: Uh huh. right.]]
 		},
 		Play_pln_polin_03 = {
 			text = "Cops running up- forty seconds until confrontation!",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3271,7 +3140,7 @@ $1: Uh huh. right.]]
 		},
 		play_pln_gen_snip_01 = {
 			text = "Police are going to snipers!",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3297,7 +3166,7 @@ $1: Uh huh. right.]]
 		},
 		play_pln_gen_pol_01 = {
 			text = "Well, here's our cops!",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3324,7 +3193,7 @@ $1: Uh huh. right.]]
 			duration = 7,
 			category = "contractor_vo",
 			is_locationless = true,
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			priority = 13,
 			duration = 7,
 			line_variations = {
@@ -3358,7 +3227,7 @@ $1: Uh huh. right.]]
 			duration = 7,
 			category = "contractor_vo",
 			is_locationless = true,
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			priority = 13,
 			duration = 6,
 			line_variations = {
@@ -3389,7 +3258,7 @@ $1: Uh huh. right.]]
 		},
 		Play_ban_b12 = {
 			text = "(assault easily beaten)",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3429,7 +3298,7 @@ $1: Uh huh. right.]]
 			text = "(assault beaten)",
 			category = "contractor_vo",
 			is_locationless = true,
-			override_name = "Locke",
+			override_speaker_id = "hud_subtitlemod_speaker_locke",
 			priority = 13,
 			duration = 7,
 			line_variations = {
@@ -3461,7 +3330,7 @@ $1: Uh huh. right.]]
 			text = "(assault easily beaten)",
 			category = "contractor_vo",
 			is_locationless = true,
-			override_name = "Locke",
+			override_speaker_id = "hud_subtitlemod_speaker_locke",
 			priority = 13,
 			duration = 7,
 			line_variations = {
@@ -3494,7 +3363,7 @@ $1: Uh huh. right.]]
 		},
 		Play_pln_ctci_01 = {
 			text = "(keep the civilians down)",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3512,7 +3381,7 @@ $1: Uh huh. right.]]
 		},
 		Play_pln_indif_01 = {
 			text = "(force increase warning)",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3535,7 +3404,7 @@ $1: Uh huh. right.]]
 		},
 		Play_ban_b02c = {
 			text = "(assault incoming warning)",
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3566,7 +3435,7 @@ $1: Uh huh. right.]]
 		},
 		Play_loc_b02c = {
 			text = "(assault incoming warning)",
-			override_name = "Locke",
+			override_speaker_id = "hud_subtitlemod_speaker_locke",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3597,7 +3466,7 @@ $1: Uh huh. right.]]
 		Play_ban_h01x = {
 			category = "contractor_vo",
 			is_locationless = true,
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			text = "You need to take hostages- tie them down!",
 			priority = 13,
 			duration = 6,
@@ -3612,7 +3481,7 @@ $1: Uh huh. right.]]
 		Play_loc_h01x = {
 			category = "contractor_vo",
 			is_locationless = true,
-			override_name = "Locke",
+			override_speaker_id = "hud_subtitlemod_speaker_locke",
 			text = "You've got to take some hostages- tie them down!",
 			priority = 13,
 			duration = 5,
@@ -3624,7 +3493,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		play_pln_gen_count_01 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3632,7 +3501,7 @@ $1: Uh huh. right.]]
 			text = "That's one!"
 		},
 		play_pln_gen_count_02 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3640,7 +3509,7 @@ $1: Uh huh. right.]]
 			text = "That's two!"
 		},
 		play_pln_gen_count_03 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3648,7 +3517,7 @@ $1: Uh huh. right.]]
 			text = "That's three!"
 		},
 		play_pln_gen_count_04 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3656,7 +3525,7 @@ $1: Uh huh. right.]]
 			text = "That's four!"
 		},
 		play_pln_gen_count_05 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3664,7 +3533,7 @@ $1: Uh huh. right.]]
 			text = "That's five!"
 		},
 		play_pln_gen_count_06 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3672,7 +3541,7 @@ $1: Uh huh. right.]]
 			text = "That's six!"
 		},
 		play_pln_gen_count_07 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3680,7 +3549,7 @@ $1: Uh huh. right.]]
 			text = "That's seven!"
 		},
 		play_pln_gen_count_08 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3688,7 +3557,7 @@ $1: Uh huh. right.]]
 			text = "That's eight!"
 		},
 		play_pln_gen_count_09 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3696,7 +3565,7 @@ $1: Uh huh. right.]]
 			text = "That's all of them. Let's get out of here!"
 		},
 		play_pln_gen_count_10 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3704,7 +3573,7 @@ $1: Uh huh. right.]]
 			text = "That's enough, if you want to leave!"
 		},
 		play_pln_gen_count_11 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3712,7 +3581,7 @@ $1: Uh huh. right.]]
 			text = "Nice, that's a quarter!"
 		},
 		play_pln_gen_count_12 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3720,7 +3589,7 @@ $1: Uh huh. right.]]
 			text = "Cool, that's half of it!"
 		},
 		play_pln_gen_count_13 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3728,7 +3597,7 @@ $1: Uh huh. right.]]
 			text = "Halfway there!"
 		},
 		play_pln_gen_count_14 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3736,7 +3605,7 @@ $1: Uh huh. right.]]
 			text = "Almost got it all!"
 		},
 		play_pln_gen_count_15 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3744,7 +3613,7 @@ $1: Uh huh. right.]]
 			text = "Just two more!"
 		},
 		play_pln_gen_count_16 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3752,7 +3621,7 @@ $1: Uh huh. right.]]
 			text = "One more!"
 		},
 		play_pln_gen_count_17 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			priority = 13,
@@ -3760,7 +3629,7 @@ $1: Uh huh. right.]]
 			text = "Keep 'em coming!"
 		},
 		play_pln_gen_lkgo_01 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			text = "Keep it up and we're going to pull it off!",
@@ -3792,7 +3661,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_ban_r01 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			text = "Cops are freeing civilians!",
@@ -3820,7 +3689,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_ban_h01a = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			category = "contractor_vo",
 			is_locationless = true,
 			text = "(Good going- take hostages to slow down the cops!)",
@@ -3841,7 +3710,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_loc_h01a = {
-			override_name = "Locke",
+			override_speaker_id = "hud_subtitlemod_speaker_locke",
 			category = "contractor_vo",
 			is_locationless = true,
 			text = "Kerels work slower when you have civvies!",
@@ -3860,7 +3729,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_pln_fost_cam_01 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			text = "They have cameras- take 'em out!",
 			category = "contractor_vo",
 			is_locationless = true,
@@ -3868,7 +3737,7 @@ $1: Uh huh. right.]]
 			duration = 3
 		},
 		Play_pln_fost_cam_01 = {
-			override_name = "Bain",
+			override_speaker_id = "hud_subtitlemod_speaker_bain",
 			text = "Mask up when you're ready to roll.",
 			category = "contractor_vo",
 			is_locationless = true,
@@ -22024,7 +21893,7 @@ $1: Uh huh. right.]]
 		rclk_c01x_plu = {
 			text = "(Cloaker whoosh!)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			override_source_id = true,
 			max_distance = 700,
 			duration = 2,
@@ -22505,7 +22374,7 @@ $1: Uh huh. right.]]
 		clk_c01x_plu = {
 			text = "(Cloaker whoosh!)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			override_source_id = true,
 			max_distance = 700,
 			duration = 2,
@@ -22514,7 +22383,7 @@ $1: Uh huh. right.]]
 		clk_baton_enter = {
 			text = "(Cloaker baton)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			override_source_id = true,
 			max_distance = 1000,
 			disabled = true,
@@ -22524,7 +22393,7 @@ $1: Uh huh. right.]]
 		clk_baton_swing = {
 			text = "(Cloaker swings baton)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			override_source_id = true,
 			max_distance = 1000,
 			duration = 2,
@@ -22533,7 +22402,7 @@ $1: Uh huh. right.]]
 		clk_crawl_in = {
 			text = "(Cloaker crawls in)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			override_source_id = true,
 			max_distance = 700,
 			duration = 2,
@@ -22542,7 +22411,7 @@ $1: Uh huh. right.]]
 		clk_crawl_out = {
 			text = "(Cloaker crawls out)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			disabled = true,
 			override_source_id = true,
 			max_distance = 700,
@@ -22552,7 +22421,7 @@ $1: Uh huh. right.]]
 		clk_grab_baton = {
 			text = "(Cloaker grabs baton)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			disabled = true,
 			override_source_id = true,
 			max_distance = 1000,
@@ -22562,7 +22431,7 @@ $1: Uh huh. right.]]
 		clk_jump = {
 			text = "(Cloaker jumps)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			override_source_id = true,
 			max_distance = 1000,
 			duration = 2,
@@ -22571,7 +22440,7 @@ $1: Uh huh. right.]]
 		clk_kick_impact = {
 			text = "(Cloaker kick impact!)",
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			override_source_id = true,
 			max_distance = 1000,
 			duration = 2,
@@ -22900,7 +22769,7 @@ $1: Uh huh. right.]]
 			category = "enemy_death"
 		},
 		taser_charge = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			text = "(Taser charge)",
 			override_source_id = true,
@@ -23222,7 +23091,7 @@ $1: Uh huh. right.]]
 		
 	--cpa (captain winters/megaphone police negotiator)
 		cpa_a02_01 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			duration = 3,
 			priority = 7,
 			text = "Captain's just got here, time to turn this around!",
@@ -23240,7 +23109,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		cpa_a03_01 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Turret'll be here any second!",
 			category = "enemy_dialogue",
 			priority = 7,
@@ -23255,7 +23124,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		cpa_a04_01 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Turret's arrived!",
 			category = "enemy_dialogue",
 			priority = 7,
@@ -23275,7 +23144,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		cpw_a01 = {
-			override_name = "Captain Winters",
+			override_speaker_id = "hud_subtitlemod_speaker_winters",
 			text = "Contact!",
 			category = "enemy_dialogue",
 			priority = 7,
@@ -23305,7 +23174,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		cpw_a02 = {
-			override_name = "Captain Winters",
+			override_speaker_id = "hud_subtitlemod_speaker_winters",
 			text = "Criminal down!",
 			category = "enemy_chatter",
 			priority = 7,
@@ -23332,7 +23201,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		cpw_a04 = {
-			override_name = "Captain Winters",
+			override_speaker_id = "hud_subtitlemod_speaker_winters",
 			text = "Retreat!",
 			category = "enemy_dialogue",
 			priority = 7,
@@ -23350,7 +23219,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		cpw_a05 = {
-			override_name = "Captain Winters",
+			override_speaker_id = "hud_subtitlemod_speaker_winters",
 			text = "Taking fire!",
 			category = "enemy_chatter",
 			priority = 7,
@@ -23432,7 +23301,7 @@ $1: Uh huh. right.]]
 		},
 
 		dsp_radio_buzz = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(idle pager buzz)", --nonalert, idle sound
 			category = "sfx",
 			max_distance = 1500,
@@ -23454,161 +23323,161 @@ $1: Uh huh. right.]]
 		},
 
 		mga_death_scream = { -- unused afaik
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "[muted scream, megaphone feedback]",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_deploy_snipers = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Deploying snipers!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_generic_a = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "How's it going? Is everyone alright?",
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 7
 		},
 		mga_generic_b = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Give up! There's no way you'll get away with this!",
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 7
 		},
 		mga_generic_c = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "We're past negotiations- you die tonight!",
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 7
 		},
 		mga_hostage_assault_delay = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "We know you took hostages!", --alt. "very clever, we're delayed"
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_intro = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "This is the Washington Police, there is no way out!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_killed_civ_1st = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "You've killed a civilian! You're not helping me or yourself.",
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 7
 		},
 		mga_killed_civ_2nd = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Multiple kills, you're way outta line! This is madness!",
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 7
 		},
 		mga_leave = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Fuck this, I'm hitting the golf course!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_robbers_clever = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Impressive! But you still won't get away!",
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 7
 		},
 		mga_thermite = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Thermite to get into the vault? Ha! But now we have you trapped!",
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 7
 		},
 		mga_vault_a = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "There's no way into the vault, give up!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_vault_b = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "That's a multilayer vault! Didn't think it'd be that easy did you?",
 			category = "mission_dialogue",
 			duration = 5,
 			priority = 7
 		},
 		mga_vault_c = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "You've breached the vault, but now you're heavy and we're fast.",
 			category = "mission_dialogue",
 			duration = 5,
 			priority = 7
 		},
 		mga_t01a_con_plu = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "We're willing to do a hostage trade.",
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 7
 		},
 		mga_s01 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Listen up! This is the police!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_s02 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "We know you're in there!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_s03 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "We have you surrounded!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_s04 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Make no mistake, we're in charge of this situation!",
 			category = "mission_dialogue",
 			duration = 5,
 			priority = 7
 		},
 		mga_s05 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "Resistance is futile, give up!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_s06 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "This is your last warning!",
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 7
 		},
 		mga_s07 = {
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			text = "We will not give up until all the hostages are released!",
 			category = "mission_dialogue",
 			duration = 5,
@@ -23618,7 +23487,7 @@ $1: Uh huh. right.]]
 --mission specific dialogue
 		--no mercy
 		Play_bil_nmh_01_01 = {
-			override_name = "Bill",
+			override_speaker_id = "hud_subtitlemod_speaker_l4dbill",
 			override_color = "l4d_bill",
 			category = "mission_dialogue",
 			priority = 10,
@@ -23633,7 +23502,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bil_nmh_01_02 = {
-			override_name = "Bill",
+			override_speaker_id = "hud_subtitlemod_speaker_l4dbill",
 			override_color = "l4d_bill",
 			category = "mission_dialogue",
 			priority = 10,
@@ -23649,7 +23518,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bil_nmh_01_03 = {
-			override_name = "Bill",
+			override_speaker_id = "hud_subtitlemod_speaker_l4dbill",
 			override_color = "l4d_bill",
 			category = "mission_dialogue",
 			priority = 10,
@@ -23665,7 +23534,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bil_nmh_01_04 = {
-			override_name = "Bill",
+			override_speaker_id = "hud_subtitlemod_speaker_l4dbill",
 			override_color = "l4d_bill",
 			category = "mission_dialogue",
 			priority = 10,
@@ -23682,7 +23551,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bil_nmh_01_05 = {
-			override_name = "Bill",
+			override_speaker_id = "hud_subtitlemod_speaker_l4dbill",
 			override_color = "l4d_bill",
 			category = "mission_dialogue",
 			priority = 10,
@@ -23697,7 +23566,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_a = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 20,
@@ -23710,14 +23579,14 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_b = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 4,
 			text = "First, let's look at Isolation B." --no variations for these
 		},
 		Play_doc_nmh_c = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 4,
@@ -23725,14 +23594,14 @@ $1: Uh huh. right.]]
 		},
 		--not sure what happened to c
 		Play_doc_nmh_d = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 4,
 			text = "Finally, let's look at Isolation C."
 		},
 		Play_doc_nmh_e = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 4,
@@ -23754,7 +23623,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_f = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 20,
@@ -23768,7 +23637,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_g = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 20,
@@ -23787,14 +23656,14 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_h = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 5,
 			text = "If you need me, I'll be over there." --no variations
 		},
 		Play_doc_nmh_i = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			duration = 5,
 			line_variations = {
@@ -23805,7 +23674,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_run_01 = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 20,
@@ -23865,7 +23734,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_run_02 = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			duration = 20,
 			priority = 10,
@@ -23911,7 +23780,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_run_03 = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			duration = 20,
 			priority = 10,
@@ -23971,7 +23840,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_run_04 = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			duration = 20,
 			priority = 10,
@@ -24018,7 +23887,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_run_05 = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			duration = 20,
 			priority = 10,
@@ -24070,7 +23939,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_run_06 = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			duration = 20,
 			priority = 10,
@@ -24100,7 +23969,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_run_07 = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			duration = 20,
 			priority = 10,
@@ -24134,7 +24003,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_doc_nmh_run_08 = {
-			override_name = "Dr. Schneider",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docs",
 			category = "mission_dialogue",
 			duration = 20,
 			priority = 10,
@@ -24176,7 +24045,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		l1n_a03 = {
-			override_name = "Doctor",
+			override_speaker_id = "hud_subtitlemod_speaker_hos_docg",
 			category = "mission_dialogue",
 			priority = 10,
 			line_variations = {
@@ -24234,7 +24103,7 @@ $1: Uh huh. right.]]
 			category = "mission_dialogue",
 			duration = 6,
 			priority = 10,
-			override_name = "Gangster",
+			override_speaker_id = "hud_subtitlemod_speaker_gangster",
 			override_color = "mobster1",
 			text = "I'll get my main man Chavez to hook you guys up. You guys 'ang around.",
 			line_variations = {
@@ -24300,7 +24169,7 @@ $1: Uh huh. right.]]
 		
 --counterfeit
 		Play_bkn_pal_01 = {
-			override_name = "Sunbathing Party Guest",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_sunb",
 			category = "mission_dialogue",
 			priority = 37,
 			text = "Ugh, what are you looking at?",
@@ -24311,7 +24180,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bkn_pal_02 = {
-			override_name = "Sunbathing Party Guest",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_sunb",
 			category = "mission_dialogue",
 			text = "Get me some tanning lotion.",
 			priority = 37,
@@ -24323,7 +24192,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bkn_pal_03 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			category = "mission_dialogue",
 			text = "You should get us some weed, too.",
 			priority = 37,
@@ -24334,7 +24203,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bkn_pal_04 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			category = "mission_dialogue",
 			text = "Mitchell, can we go shopping again?",
 			priority = 37,
@@ -24346,7 +24215,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bkn_pal_05 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			category = "mission_dialogue",
 			text = "Mitchell, fix the pool, already!",
 			priority = 37,
@@ -24380,7 +24249,7 @@ $1: Uh huh. right.]]
 			stops_line = "Play_bkn_pal_05"
 		},
 		Play_mch_pal_01 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			category = "mission_dialogue",
 			text = "How do I make my money? Uh...",
 			duration = 15,
@@ -24400,7 +24269,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_02 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			category = "mission_dialogue",
 			text = "[boasting about his money]",
 			duration = 15,
@@ -24433,7 +24302,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_03 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			category = "mission_dialogue",
 			text = "[boasting about expensive hookers]",
 			duration = 15,
@@ -24453,7 +24322,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_04 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			category = "mission_dialogue",
 			text = "[boasting about The King]",
 			duration = 15,
@@ -24497,7 +24366,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_05 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "You guys are dressed pretty sharply for pool repairmen. I guess you got your overalls in those bags. I'll show you the leak.",
 			priority = 10,
 			duration = 10,
@@ -24521,7 +24390,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_06 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "It's just down here.",
 			priority = 10,
 			duration = 3,
@@ -24536,7 +24405,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_07 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "See those pipes, leaking down the walls! It's fucked! This is a $10,000 carpet!",
 			duration = 7,
 			priority = 10,
@@ -24551,7 +24420,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_08 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "Hey, I'm not paying you guys to hang around! Get down there!",
 			duration = 7,
 			priority = 10,
@@ -24566,7 +24435,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_09 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "Fix it, already!",
 			category = "mission_dialogue",
 			duration = 20,
@@ -24590,7 +24459,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_10 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "I hope it's free service.",
 			duration = 4,
 			priority = 10,
@@ -24605,7 +24474,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_11 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "Aw, fuck!",
 			duration = 4,
 			priority = 10,
@@ -24620,7 +24489,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_12 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "[groans, scoffs] 'Bodhi's Pool Repair'... Fuck, I should've known!",
 			category = "mission_dialogue",
 			duration = 5,
@@ -24638,7 +24507,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_mch_pal_13 = {
-			override_name = "Mitchell",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_mitchell",
 			text = "Fucking clowns!",
 			duration = 3,
 			priority = 10,
@@ -24653,7 +24522,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bqg_pal_01 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			text = "It's only $10,000 a day.",
 			priority = 75,
 			duration = 5,
@@ -24668,7 +24537,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bqg_pal_02 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			text = "You don't want us to leave, do you?",
 			priority = 75,
 			duration = 5,
@@ -24682,7 +24551,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bqg_pal_03 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			text = "When these plumbers are gone, we can get this party started for real!",
 			category = "mission_dialogue",
 			priority = 75,
@@ -24696,7 +24565,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_bqg_pal_04 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			text = "I'm fed up waiting for that meat!",
 			category = "mission_dialogue",
 			priority = 75,
@@ -24727,7 +24596,7 @@ $1: Uh huh. right.]]
 			stops_line = "Play_bqg_pal_04"
 		},
 		Play_cm1_pal_01 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			category = "mission_dialogue",
 			duration = 6,
 			priority = 75,
@@ -24742,7 +24611,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_cm1_pal_02 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			category = "mission_dialogue",
 			duration = 6,
 			priority = 75,
@@ -24757,7 +24626,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_cm1_pal_03 = {
-			override_name = "Party 'Guest'",
+			override_speaker_id = "hud_subtitlemod_speaker_pal_guest",
 			category = "mission_dialogue",
 			text = "Yeah, so... anyway...",
 			max_distance = 2000,
@@ -24784,7 +24653,7 @@ $1: Uh huh. right.]]
 			stops_line = "Play_cm1_pal_03"
 		},
 		Play_cm2_pal_01 = {
-			override_name = "Mitchell's friend",
+			override_speaker_name = "hud_subtitlemod_speaker_pal_friend",
 			category = "mission_dialogue",
 			text = "It's all in the basement, man. Go on, help yourself.",
 			priority = 75,
@@ -24799,7 +24668,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_cm2_pal_02 = {
-			override_name = "Mitchell's friend",
+			override_speaker_name = "hud_subtitlemod_speaker_pal_friend",
 			category = "mission_dialogue",
 			text = "Play_cm2_pal_02",
 			priority = 75,
@@ -24923,7 +24792,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		cft_piano_music = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 75,
 			loop_data = {
@@ -24975,12 +24844,12 @@ $1: Uh huh. right.]]
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 5,
-			override_name = "Murkywater Intercom"
+			override_speaker_name = "hud_subtitlemod_speaker_murkyintercom"
 		},
 		
 --undercover		
 		Play_txm_man_01 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 5,
@@ -24995,7 +24864,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_02 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 5,
@@ -25009,7 +24878,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_03 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 5,
@@ -25022,7 +24891,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_04 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 5,
@@ -25038,14 +24907,14 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_05 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			priority = 10,
 			duration = 5,
 			category = "mission_dialogue",
 			text = "I know what you guys are after, but I won't give it to you."
 		},
 		Play_txm_man_06 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			text = "Resisting interrogation",
 			priority = 10,
 			duration = 7,
@@ -25074,7 +24943,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_07 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			text = "Giving in to interrogation",
 			priority = 10,
 			duration = 5,
@@ -25089,14 +24958,14 @@ $1: Uh huh. right.]]
 		},
 		Play_txm_man_08a = {
 			duration = 6,
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			priority = 10,
 			duration = 5,
 			category = "mission_dialogue",
 			text = "The login... is MercyKill. Capital'M', capital 'K'."
 		},
 		Play_txm_man_08b = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			priority = 10,
 			duration = 7,
 			category = "mission_dialogue",
@@ -25105,12 +24974,12 @@ $1: Uh huh. right.]]
 		Play_txm_man_08c = {
 			priority = 10,
 			duration = 8,
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			category = "mission_dialogue",
 			text = "[hoarsely] The password is SYGON. All... capital letters. [groaning in pain] Agh, FUUUCK!"
 		},
 		Play_txm_man_09 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			text = "(interrogation resistance failing)",
 			priority = 10,
 			duration = 5,
@@ -25125,7 +24994,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_10 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			text = "(being interrogated)",
 			priority = 10,
 			duration = 5,
@@ -25143,7 +25012,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_11 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			text = "[burning alive]",
 			priority = 10,
 			duration = 30,
@@ -25157,7 +25026,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_12 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			text = "[coughing]",
 			priority = 10,
 			duration = 3,
@@ -25171,7 +25040,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_txm_man_13 = {
-			override_name = "Taxman",
+			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 3,
@@ -25180,7 +25049,7 @@ $1: Uh huh. right.]]
 		
 	--hoxton revenge
 		Play_hct_hb3_01 = {
-			override_name = "The Rat",
+			override_speaker_id = "hud_subtitlemod_speaker_rat",
 			priority = 10,
 			duration = 7,
 			override_color = "boss",
@@ -25195,7 +25064,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_hct_hb3_02 = {
-			override_name = "The Rat",
+			override_speaker_id = "hud_subtitlemod_speaker_rat",
 			priority = 10,
 			duration = 5,
 			override_color = "boss",
@@ -25210,7 +25079,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_hct_hb3_03 = {
-			override_name = "The Rat",
+			override_speaker_id = "hud_subtitlemod_speaker_rat",
 			override_color = "boss",
 			priority = 10,
 			duration = 5,
@@ -25225,7 +25094,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_hct_hb3_04 = {
-			override_name = "The Rat",
+			override_speaker_id = "hud_subtitlemod_speaker_rat",
 			override_color = "boss",
 			priority = 10,
 			duration = 7,
@@ -25240,7 +25109,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_hct_hb3_05 = {
-			override_name = "The Rat",
+			override_speaker_id = "hud_subtitlemod_speaker_rat",
 			override_color = "boss",
 			text = "(taunting heisters)",
 			priority = 10,
@@ -25255,7 +25124,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_hct_hb3_06 = {
-			override_name = "The Rat",
+			override_speaker_id = "hud_subtitlemod_speaker_rat",
 			override_color = "boss",
 			priority = 10,
 			duration = 7,
@@ -25270,7 +25139,7 @@ $1: Uh huh. right.]]
 			}
 		},
 		Play_hct_hb3_07 = {
-			override_name = "The Rat",
+			override_speaker_id = "hud_subtitlemod_speaker_rat",
 			override_color = "boss",
 			priority = 10,
 			duration = 5,
@@ -25305,15 +25174,15 @@ $1: Uh huh. right.]]
 				text = "hud_subtitlemod_cnv_Play_snippet_hb3_01",
 				convo = [[
 [tape clicks on]$b
-$1: [AMUSED] Is it true? You're getting access to Crime.net?$b
-$2: Fuck you!$b
-$1: Are you familiar with Bain's crew, the PAYDAY clowns?$b
-$2: I've seen the news. First World Bank. Very impressive.$b
-$1: Well, Hector, maybe they've been giving the Bureau quite a headache.$b
-$1: We can make good things happen for you IF...$b
-$2: [SIGHS]$b
-$1: ...you help us... to get closer to them.$b
-$2: Rat them out, you mean? What could you possibly offer me?$b
+$1[AMUSED] Is it true? You're getting access to Crime.net?$b
+$2Fuck you!$b
+$1Are you familiar with Bain's crew, the PAYDAY clowns?$b
+$2I've seen the news. First World Bank. Very impressive.$b
+$1Well, Hector, maybe they've been giving the Bureau quite a headache.$b
+$1We can make good things happen for you IF...$b
+$2[SIGHS]$b
+$1...you help us... to get closer to them.$b
+$2Rat them out, you mean? What could you possibly offer me?$b
 [tape clicks off] ]]
 			}
 		},
@@ -25338,16 +25207,16 @@ $2: Rat them out, you mean? What could you possibly offer me?$b
 				text = "hud_subtitlemod_cnv_Play_snippet_hb3_02",
 				convo = [[
 [tape clicks on]$b
-$1: I'm getting impatient, Hector. Look. I know you're connected to Bain.$b
-$1: If you want this little 'arrangement' of ours to continue, you'd better give me something on the clowns.$b
-$2: Fuck you, dog.$b
-$1: This dog needs a bone. Or this dog will hump your leg, amigo.$b
-$2: [sighs] I can give you one of them, but that's all. I still need them to take care of a few things.$b
-$1: We want Dallas.$b
-$2: No. He's the leader. It'll have to be another. I'll be in touch.$b
-$1: It'd better be soon. Your ass is on the line here, amigo.$b
-$2: [SIGHS] Yeah, yeah...$b
-$1: You wanna do time? I'll let every lowlife in Mount Olive have a piece of your ass.$b
+$1I'm getting impatient, Hector. Look. I know you're connected to Bain.$b
+$1If you want this little 'arrangement' of ours to continue, you'd better give me something on the clowns.$b
+$2Fuck you, dog.$b
+$1This dog needs a bone. Or this dog will hump your leg, amigo.$b
+$2[sighs] I can give you one of them, but that's all. I still need them to take care of a few things.$b
+$1We want Dallas.$b
+$2No. He's the leader. It'll have to be another. I'll be in touch.$b
+$1It'd better be soon. Your ass is on the line here, amigo.$b
+$2[SIGHS] Yeah, yeah...$b
+$1You wanna do time? I'll let every lowlife in Mount Olive have a piece of your ass.$b
 [tape clicks off]
 ]]
 			}
@@ -25373,14 +25242,14 @@ $1: You wanna do time? I'll let every lowlife in Mount Olive have a piece of you
 				text = "hud_subtitlemod_cnv_Play_snippet_hb3_03",
 				convo = [[
 [tape clicks on]$b
-$1: We have him in custody.$b
-$2: The English one, yes?$b
-$1: Yes. They call him 'Hoxton.' Tough son of a bitch.$b
-$1: Biting and spitting... almost got away!$b
-$2: That's him. ...Then I trust this matter is settled? You got what you wanted.$b
-$1: 'SETTLED?' Jesus Christ, Hector. Nothing is settled. This is only the start.$b
-$1: Won't be long before the public demands the heads of ALL of these fucking clowns...$b
-$1: And with your help, I intend to deliver.$b
+$1We have him in custody.$b
+$2The English one, yes?$b
+$1Yes. They call him 'Hoxton.' Tough son of a bitch.$b
+$1Biting and spitting... almost got away!$b
+$2That's him. ...Then I trust this matter is settled? You got what you wanted.$b
+$1'SETTLED?' Jesus Christ, Hector. Nothing is settled. This is only the start.$b
+$1Won't be long before the public demands the heads of ALL of these fucking clowns...$b
+$1And with your help, I intend to deliver.$b
 [tape clicks off] ]]
 			}
 		},
@@ -25405,17 +25274,17 @@ $1: And with your help, I intend to deliver.$b
 				text = "hud_subtitlemod_cnv_Play_snippet_hb3_04",
 				convo = [[
 [tape clicks on]$b
-$1: You've had your fun.$b
-$1: But it's over now, you hear? The Mendozas were on our payroll too, you know!$b
-$2: Yeah, yeah...$b
-$1: You fucking piece of shit, you work for us, Hector! We OWN you!$b
-$2: [SIGHS]$b
-$1: That rivalry shit gets left at the border!$b
-$2: The Mendozas disrespected me! They deserved-$b
-$1: Jesus Christ, do you ever listen to yourself? The public wants blood, Hector!$b
-$1: They want the PAYDAY Gang on death row-$b
-$2: [SIGHS]$b
-$1: -and if you don't wanna share a cell with those bastards, you'd better give me something I can work with!$b
+$1You've had your fun.$b
+$1But it's over now, you hear? The Mendozas were on our payroll too, you know!$b
+$2Yeah, yeah...$b
+$1You fucking piece of shit, you work for us, Hector! We OWN you!$b
+$2[SIGHS]$b
+$1That rivalry shit gets left at the border!$b
+$2The Mendozas disrespected me! They deserved-$b
+$1Jesus Christ, do you ever listen to yourself? The public wants blood, Hector!$b
+$1They want the PAYDAY Gang on death row-$b
+$2[SIGHS]$b
+$1-and if you don't wanna share a cell with those bastards, you'd better give me something I can work with!$b
 [tape clicks off] ]]
 			}
 		},
@@ -25440,13 +25309,13 @@ $1: -and if you don't wanna share a cell with those bastards, you'd better give 
 				text = "hud_subtitlemod_cnv_Play_snippet_hb3_05",
 				convo = [[
 [tape clicks on]$b
-$2: It's a white box van you'll be looking for. A meat truck.$b
-$2: They'll be inside with the product.$b
-$1: Won't Bain be suspicious? It might look like a setup.$b
-$2: [sighs] I'm losing millions in product on this. He won't doubt me!$b
-$2: You just worry about how you'll stop the clowns when they realize what's going on.$b
-$1: Don't worry, we'll have them completely surrounded.$b
-$1: What're they gonna do? Try to shoot their way out?$b
+$2It's a white box van you'll be looking for. A meat truck.$b
+$2They'll be inside with the product.$b
+$1Won't Bain be suspicious? It might look like a setup.$b
+$2[sighs] I'm losing millions in product on this. He won't doubt me!$b
+$2You just worry about how you'll stop the clowns when they realize what's going on.$b
+$1Don't worry, we'll have them completely surrounded.$b
+$1What're they gonna do? Try to shoot their way out?$b
 [tape clicks off] ]]
 			}
 		},
@@ -25471,24 +25340,24 @@ $1: What're they gonna do? Try to shoot their way out?$b
 				text = "hud_subtitlemod_cnv_Play_snippet_hb3_06",
 				convo = [[
 [tape clicks on]$b
-$1: You heard about the incident at the Courthouse? [pause] They got Hoxton back.$b
-$2: [scoffs] And you let them waltz right into your fucking headquarters?! Do they know about me?$b
-$1: We're not stupid, Hector. Nothing points to you directly.$b
-$2: [EXASPERATED SIGH]$b
-$1: But if we allow them time to dig through all the data, they'll put two and two together.$b
-$1: They might figure out why that meat truck of yours was conveniently surrounded.$b
-$2: [GROANS] Shit! Putas! Fucking putas! They'll know!$b
-$1: Hector, we're running out of time. I've prepared a safehouse.$b
-$1: We'll keep you protected while you work with my agents to build a case against the clowns.$b
-$1: From what I've learned about them over the month, I'd say your life depends on it.$b
-$2: ...Putas.$b
+$1You heard about the incident at the Courthouse? [pause] They got Hoxton back.$b
+$2[scoffs] And you let them waltz right into your fucking headquarters?! Do they know about me?$b
+$1We're not stupid, Hector. Nothing points to you directly.$b
+$2[EXASPERATED SIGH]$b
+$1But if we allow them time to dig through all the data, they'll put two and two together.$b
+$1They might figure out why that meat truck of yours was conveniently surrounded.$b
+$2[GROANS] Shit! Putas! Fucking putas! They'll know!$b
+$1Hector, we're running out of time. I've prepared a safehouse.$b
+$1We'll keep you protected while you work with my agents to build a case against the clowns.$b
+$1From what I've learned about them over the month, I'd say your life depends on it.$b
+$2...Putas.$b
 [tape clicks off] ]]
 			}
 		},
 		
 	--first world bank
 		Play_ism_fwb_01 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			override_color = "neutral1",
 			priority = 10,
 			text = "You need to find another code. We can't use mine, or they'll know it was me.",
@@ -25503,7 +25372,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_02 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			duration = 4,
 			priority = 10,
 			override_color = "neutral1",
@@ -25511,7 +25380,7 @@ $2: ...Putas.$b
 			text = "Coming from Floor 2, heading to the gates. See you there." --no variations
 		},
 		Play_ism_fwb_03 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			duration = 5,
 			priority = 10,
 			override_color = "neutral1",
@@ -25526,7 +25395,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_04 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			duration = 5,
 			priority = 10,
 			override_color = "neutral1",
@@ -25545,7 +25414,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_05 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 5,
@@ -25560,7 +25429,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_06 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			override_color = "neutral1",
 			duration = 4,
 			priority = 10,
@@ -25575,7 +25444,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_07 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 5,
@@ -25590,7 +25459,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_08 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 5,
@@ -25605,7 +25474,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_09 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			duration = 10,
 			priority = 10,
 			override_color = "neutral1",
@@ -25620,7 +25489,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_10 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 6,
@@ -25635,7 +25504,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_11 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 4,
@@ -25651,7 +25520,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ism_fwb_12 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 5,
@@ -25665,7 +25534,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_bm_fwb_01 = {
-			override_name = "Bank Manager",
+			override_speaker_id = "hud_subtitlemod_speaker_bankmanager",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 8,
@@ -25695,7 +25564,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_bm_fwb_02 = {
-			override_name = "Bank Manager",
+			override_speaker_id = "hud_subtitlemod_speaker_bankmanager",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 8,
@@ -25722,7 +25591,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_bm_fwb_03 = {
-			override_name = "Bank Manager",
+			override_speaker_id = "hud_subtitlemod_speaker_bankmanager",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			duration = 8,
@@ -25763,7 +25632,7 @@ $2: ...Putas.$b
 			max_distance = 700,
 			duration = 7,
 			priority = 10,
-			override_name = "Bank Customer",
+			override_speaker_id = "hud_subtitlemod_speaker_bankcustomer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "(customer asking for funding for awful ideas)",
@@ -25803,7 +25672,7 @@ $2: ...Putas.$b
 		},
 		Play_mc1_fwb_01 = {
 			text = "(customer asking for funding for awful ideas)",
-			override_name = "Bank Customer",
+			override_speaker_id = "hud_subtitlemod_speaker_bankcustomer",
 			override_color = "neutral1",
 			duration = 7,
 			priority = 10,
@@ -25846,7 +25715,7 @@ $2: ...Putas.$b
 --big bank				
 		teller_customer_dialog_approve = {
 			text = "(civilian's grant request approved by teller)",
-			override_name = "Bank Teller",
+			override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 			category = "civilian_dialogue",
 			priority = 75,
 			max_distance = 500, --these are actually really irritating and large so i reduced the range from 1500
@@ -25907,7 +25776,7 @@ $2: ...Putas.$b
 		teller_customer_dialog_deny = {
 			text = "(civilian's grant request rejected by teller)",
 			category = "civilian_dialogue",
-			override_name = "Bank Teller",
+			override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 			priority = 75,
 			max_distance = 500,
 			duration = 35,
@@ -25965,7 +25834,7 @@ $2: ...Putas.$b
 		teller_bank_next = {
 			text = "(Next customer, please.)",
 			category = "civilian_dialogue",
-			override_name = "Bank Teller",
+			override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 			priority = 75,
 			max_distance = 500,
 			duration = 4,
@@ -25981,7 +25850,7 @@ $2: ...Putas.$b
 		big_bank_phone_call = {
 			text = "phone ringing!",
 			category = "mission_dialogue", --not sfx because this shit's important dammit
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 90,
 			max_distance = 3000,
 			loop_data = {
@@ -25990,13 +25859,13 @@ $2: ...Putas.$b
 		},
 		big_bank_phone_call_pickup = {
 			text = "phone answered",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "stops",
 			stops_line = "big_bank_phone_call",
 			priority = 90
 		},
 		Play_gensec_conversation_ending_1 = {
-			override_name = "Phone Call",
+			override_speaker_id = "hud_subtitlemod_speaker_telephone",
 			priority = 65,
 			duration = 15,
 			category = "mission_dialogue",
@@ -26042,7 +25911,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_gensec_conversation_ending_2 = {
-			override_name = "Phone Call",
+			override_speaker_id = "hud_subtitlemod_speaker_telephone",
 			priority = 65,
 			duration = 15,
 			category = "mission_dialogue",
@@ -26094,7 +25963,7 @@ $2: ...Putas.$b
 	--framing frame
 		--day 2
 		Play_dlr_framing_stage2_01 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26102,7 +25971,7 @@ $2: ...Putas.$b
 			text = "[over phone] Good day. [pause] Uh, we're pleased to negotiate with you, but... you're gonna do it our way, or not at all."
 		},
 		Play_dlr_framing_stage2_02 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26110,7 +25979,7 @@ $2: ...Putas.$b
 			text = "[over phone] Put all the paintings on the table in the train car. Stand by for my contact."
 		},
 		Play_dlr_framing_stage2_03 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26118,7 +25987,7 @@ $2: ...Putas.$b
 			text = "[over phone] Nine paintings! Excellent."
 		},
 		Play_dlr_framing_stage2_04 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26126,7 +25995,7 @@ $2: ...Putas.$b
 			text = "[over phone] We count eight paintings! Very, very good."
 		},
 		Play_dlr_framing_stage2_05 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26134,7 +26003,7 @@ $2: ...Putas.$b
 			text = "[over phone] We count seven paintings. Good, good."
 		},
 		Play_dlr_framing_stage2_06 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26142,7 +26011,7 @@ $2: ...Putas.$b
 			text = "[over phone] So that's six paintings. Good."
 		},
 		Play_dlr_framing_stage2_07 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26150,7 +26019,7 @@ $2: ...Putas.$b
 			text = "[over phone] Okay, we got five paintings here. Good."
 		},
 		Play_dlr_framing_stage2_08 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26158,7 +26027,7 @@ $2: ...Putas.$b
 			text = "[over phone] Four paintings... that's, uh, not much, but we'll take it."
 		},
 		Play_dlr_framing_stage2_09 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26166,7 +26035,7 @@ $2: ...Putas.$b
 			text = "[over phone] Great. Now, our client, he prefers not to take any chances when it comes to things of a 'legally questionable' nature. So, if you could just all get into the train car... thank you."
 		},
 		Play_dlr_framing_stage2_10 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26174,7 +26043,7 @@ $2: ...Putas.$b
 			text = "[over phone] It's not that we don't trust you. We just need to be sure that nothing... untoward... would happen."
 		},
 		Play_dlr_framing_stage2_11 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26182,7 +26051,7 @@ $2: ...Putas.$b
 			text = "[over phone] This is purely a safety precaution."
 		},
 		Play_dlr_framing_stage2_12 = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26190,7 +26059,7 @@ $2: ...Putas.$b
 			text = "[over phone] Alright. Our dealer is here. Hold on for a second."
 		},
 		Play_ph1_trade1_loud = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26198,7 +26067,7 @@ $2: ...Putas.$b
 			text = "Okay! Throw me the paintings, and you'll get your money!"
 		},
 		Play_ph1_trade2_loud = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26213,7 +26082,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ph1_trade3_loud = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26229,7 +26098,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ph1_trade4_loud = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26244,7 +26113,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ph1_trade5_loud = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26259,7 +26128,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_ph1_trade6_loud = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26267,7 +26136,7 @@ $2: ...Putas.$b
 			text = "Doors are open for you! Me, I'm leaving!"
 		},
 		Play_ph1_trade7_loud = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26282,7 +26151,7 @@ $2: ...Putas.$b
 		}, 
 		--8 doesn't exist
 		Play_ph1_trade9_loud = {
-			override_name = "Art Buyer",
+			override_speaker_id = "hud_subtitlemod_speaker_artdealer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26293,7 +26162,7 @@ $2: ...Putas.$b
 --hoxton breakout
 --day 1
 		Play_rb5_hb1_01 = {
-			override_name = "Hoxton",
+			override_speaker_id = "menu_american",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26313,7 +26182,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_rb5_hb1_02 = {
-			override_name = "Hoxton",
+			override_speaker_id = "menu_american",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26328,7 +26197,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_rb5_hb1_03 = {
-			override_name = "Hoxton",
+			override_speaker_id = "menu_american",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26348,7 +26217,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_rb5_hb1_04 = {
-			override_name = "Hoxton",
+			override_speaker_id = "menu_american",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26385,7 +26254,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_rb5_hb1_05 = {
-			override_name = "Hoxton",
+			override_speaker_id = "menu_american",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26393,7 +26262,7 @@ $2: ...Putas.$b
 			text = "I said, IT'S FUCKING PAYDAY MOTHERFU-"
 		},
 		Play_dr1_hb1_01 = {
-			override_name = "Twitch",
+			override_speaker_id = "hud_subtitlemod_speaker_twitch",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26410,7 +26279,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_dr1_hb1_02 = {
-			override_name = "Twitch",
+			override_speaker_id = "hud_subtitlemod_speaker_twitch",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26425,7 +26294,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_dr1_hb1_03 = { --unused afaik
-			override_name = "Twitch",
+			override_speaker_id = "hud_subtitlemod_speaker_twitch",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "Keep 'em offa me!",
@@ -26440,7 +26309,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_dr1_hb1_04 = {
-			override_name = "Twitch",
+			override_speaker_id = "hud_subtitlemod_speaker_twitch",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "Get this gate open!",
@@ -26455,7 +26324,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_dr1_hb1_05 = {
-			override_name = "Twitch",
+			override_speaker_id = "hud_subtitlemod_speaker_twitch",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			priority = 10,
@@ -26470,7 +26339,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_dr1_hb1_06 = {
-			override_name = "Twitch",
+			override_speaker_id = "hud_subtitlemod_speaker_twitch",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "Get him in the back!",
@@ -26486,7 +26355,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_dr1_hb1_07 = {
-			override_name = "Twitch",
+			override_speaker_id = "hud_subtitlemod_speaker_twitch",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "Cops ahead!",
@@ -26501,7 +26370,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_dr1_hb1_08 = {
-			override_name = "Twitch",
+			override_speaker_id = "hud_subtitlemod_speaker_twitch",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "Keepin' my foot off the gas. Make sure you guys keep the road safe and clear.",
@@ -26517,7 +26386,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_rb5_hb2_01 = {
-			override_name = "Hoxton",
+			override_speaker_id = "menu_american",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "Get inside, lads! Got work to do.",
@@ -26532,7 +26401,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_rb5_hb2_02 = {
-			override_name = "Hoxton",
+			override_speaker_id = "menu_american",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "Get inside, lads! Got work to do.",
@@ -26751,7 +26620,7 @@ $2: ...Putas.$b
 		Play_mtt_run_01 = {
 			text = "You're not getting me this time! Fuck you!",
 			category = "mission_dialogue",
-			override_name = "Matt Roscoe",
+			override_speaker_id = "hud_subtitlemod_speaker_mattroscoe",
 			override_color = "boss", --should it be "neutral1" green to match later?
 			duration = 5,
 			priority = 10,
@@ -26766,7 +26635,7 @@ $2: ...Putas.$b
 		Play_mtt_run_02 = {
 			text = "(hacking, coughing) Wait! Don't kill me! I have information about Jiro that he will want to hear!",
 			category = "mission_dialogue",
-			override_name = "Matt Roscoe",
+			override_speaker_id = "hud_subtitlemod_speaker_mattroscoe",
 			override_color = "boss",
 			duration = 7,
 			priority = 10,
@@ -26791,7 +26660,7 @@ $2: ...Putas.$b
 		Play_mtt_run_04 = { --3 does not exist
 			text = "[muffled] Forget it! The cops will get you before you get me!",
 			category = "mission_dialogue",
-			override_name = "Matt Roscoe",
+			override_speaker_id = "hud_subtitlemod_speaker_mattroscoe",
 			override_color = "boss",
 			duration = 5,
 			priority = 10,
@@ -26807,7 +26676,7 @@ $2: ...Putas.$b
 		Play_mtt_run_06 = { --5 also does not exist
 			text = "[extended muffled screaming, burning]",
 			category = "mission_dialogue",
-			override_name = "Matt Roscoe",
+			override_speaker_id = "hud_subtitlemod_speaker_mattroscoe",
 			priority = 10,
 			override_color = "boss",
 			duration = 20
@@ -26816,7 +26685,7 @@ $2: ...Putas.$b
 	--goat simulator heist day 1		
 		Play_cpg_pt1_01 = {
 			text = "Leave the damn goats alone, clown!",
-			override_name = "Police Negotiator",
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			priority = 37,
 			category = "mission_dialogue",
 			line_variations = {
@@ -26836,7 +26705,7 @@ $2: ...Putas.$b
 		},
 	--go bank
 		Play_btm_cs1_01 = {
-			override_name = "Bank Teller",
+			override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 			category = "civilian_dialogue",
 			priority = 75,
 			duration = 7,
@@ -26855,7 +26724,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_btf_cs1_01 = {
-			override_name = "Bank Teller",
+			override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 			category = "civilian_dialogue",
 			priority = 75,
 			duration = 7,
@@ -26874,7 +26743,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_bkm_cs1_01 = {
-			override_name = "Bank Teller",
+			override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 			category = "civilian_dialogue",
 			priority = 75,
 			duration = 5,
@@ -26890,7 +26759,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_bkm_cs1_02 = {
-			override_name = "Bank Teller",
+			override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 			category = "civilian_dialogue",
 			priority = 75,
 			duration = 5,
@@ -26908,7 +26777,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_gsc_cs1_10 = { --two pager gensec guards, in the event that the gensec loot truck spawns
-			--override_name = "GenSec Driver",
+			fallback_speaker_id = "hud_subtitlemod_speaker_gensecpatrol",
 			text = "Wait here with the truck. I'll be right back.",
 			category = "mission_dialogue",
 			priority = 75,
@@ -26922,6 +26791,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_blm_cs1_01 = { --blackmailer
+			override_speaker_id = "hud_subtitlemod_speaker_telephone",
 			text = "(Throw a bag of money over the yellow wall by Jimbo's, or I call the cops!)",
 			category = "mission_dialogue",
 			override_color = "boss",
@@ -26936,7 +26806,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_csf_cs1_01 = {
-			override_name = "Customer on phone",
+			override_speaker_id = "hud_subtitlemod_speaker_phone_customer",
 			override_color = "neutral1",
 			text = "(Customer asking for bank assistance)",
 			duration = 7,
@@ -26949,7 +26819,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_csf_cs1_02 = {
-			override_name = "Customer on phone",
+			override_speaker_id = "hud_subtitlemod_speaker_phone_customer",
 			override_color = "neutral1",
 			text = "(Customer asking for bank assistance)",
 			duration = 7,
@@ -26963,7 +26833,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_csf_cs1_03 = {
-			override_name = "Customer on phone",
+			override_speaker_id = "hud_subtitlemod_speaker_phone_customer",
 			override_color = "neutral1",
 			text = "(Customer asking for bank assistance)",
 			duration = 9,
@@ -26976,7 +26846,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_csm_cs1_01 = {
-			override_name = "Customer on phone",
+			override_speaker_id = "hud_subtitlemod_speaker_phone_customer",
 			override_color = "neutral1",
 			text = "(Customer asking for bank assistance)",
 			duration = 6,
@@ -26989,7 +26859,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_csm_cs1_02 = {
-			override_name = "Customer on phone",
+			override_speaker_id = "hud_subtitlemod_speaker_phone_customer",
 			override_color = "neutral1",
 			text = "(Customer asking for bank assistance)",
 			duration = 6,
@@ -27002,7 +26872,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_csm_cs1_03 = {
-			override_name = "Customer on phone",
+			override_speaker_id = "hud_subtitlemod_speaker_phone_customer",
 			override_color = "neutral1",
 			text = "(Customer asking for bank assistance)",
 			category = "mission_dialogue",
@@ -27019,7 +26889,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_csk_cs1_01 = {
-			override_name = "Customer on phone",
+			override_speaker_id = "hud_subtitlemod_speaker_phone_customer",
 			override_color = "neutral1",
 			text = "(customer asking for bank assistance)",
 			category = "mission_dialogue",
@@ -27064,7 +26934,7 @@ $2: ...Putas.$b
 
 	--prison nightmare
 		Play_big_clk_help_01 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(creating fire hazard)",
 			category = "mission_dialogue",
@@ -27079,7 +26949,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_02 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting heisters)",
 			category = "mission_dialogue",
@@ -27094,7 +26964,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_03 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(creating giant drill hazard)",
 			category = "mission_dialogue",
@@ -27109,7 +26979,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_04 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(creating Snipers hazard)",
 			category = "mission_dialogue",
@@ -27125,7 +26995,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_05 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			category = "mission_dialogue",
 			duration = 3,
@@ -27133,7 +27003,7 @@ $2: ...Putas.$b
 			text = "DOZER... CATCH!" --no variations
 		},
 		Play_big_clk_help_06 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(coming down to be the hazard)",
 			category = "mission_dialogue",
@@ -27148,7 +27018,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_07 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting heisters)",
 			category = "mission_dialogue",
@@ -27163,7 +27033,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_08 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			category = "mission_dialogue",
 			duration = 3,
@@ -27171,7 +27041,7 @@ $2: ...Putas.$b
 			text = "HA! THERE!"
 		},
 		Play_big_clk_help_09 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting heisters about wheel)",
 			category = "mission_dialogue",
@@ -27188,7 +27058,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_10 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting heisters about bad wheel spin)",
 			category = "mission_dialogue",
@@ -27204,7 +27074,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_11 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting heisters about broken wheel drill)",
 			category = "mission_dialogue",
@@ -27218,7 +27088,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_12 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting heisters about surviving halfway)",
 			category = "mission_dialogue",
@@ -27233,7 +27103,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_13 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(frustrated about heister success)",
 			category = "mission_dialogue",
@@ -27250,7 +27120,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_14 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(frustrated about heisters stealing cloaker gold)",
 			category = "mission_dialogue",
@@ -27266,7 +27136,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_15 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(vows revenge for stolen cloaker gold)",
 			category = "mission_dialogue",
@@ -27286,7 +27156,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_16 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(mocking heister failure)",
 			category = "mission_dialogue",
@@ -27303,7 +27173,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_17 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting heisters to continue)",
 			category = "mission_dialogue",
@@ -27320,7 +27190,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_18 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(sending minions after leaving heisters)",
 			category = "mission_dialogue",
@@ -27338,7 +27208,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_19 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(spawning a drill)",
 			category = "mission_dialogue",
@@ -27353,7 +27223,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_20 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(threatening heisters with train puns)", --i like the ambiguity of this because he could either be threatening the heisters who are on the train, or threatening the heisters by using the hazard of train puns, even though it's not really a pun
 			category = "mission_dialogue",
@@ -27371,7 +27241,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_21 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting trapped heisters on train)",
 			category = "mission_dialogue",
@@ -27388,7 +27258,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_22 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(angry about heisters damaging train)",
 			category = "mission_dialogue",
@@ -27403,7 +27273,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_23 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(scaring heisters)",
 			category = "mission_dialogue",
@@ -27446,7 +27316,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_24 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(taunting)",
 			category = "mission_dialogue",
@@ -27461,7 +27331,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_25 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "(spawning Headless Dozer hazard)",
 			category = "mission_dialogue",
@@ -27475,7 +27345,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_big_clk_help_26 = {
-			override_name = "NecroCloaker",
+			override_speaker_id = "hud_subtitlemod_speaker_necrocloaker",
 			override_color = "boss",
 			text = "[wailing] YOU'RE USELESS... USELESS!",
 			category = "mission_dialogue",
@@ -27484,7 +27354,7 @@ $2: ...Putas.$b
 		},
 	--breakin' feds
 		Play_npc_tag_poi_01 = {
---					override_name = "FBI Agent",
+			override_speaker_id = "hud_subtitlemod_speaker_fbi",
 			text = "(incredibly boring meeting dialogue)", --I don't know if I have it in me to log these variations
 			category = "mission_dialogue",
 			max_distance = 2000,
@@ -27497,6 +27367,7 @@ $2: ...Putas.$b
 			stops_line = "Play_npc_tag_poi_01"
 		},
 		Play_gar_tag_01 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(phone call with mayor)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27508,6 +27379,7 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_02 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(phone call with Sergeant)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27521,6 +27393,7 @@ $2: ...Putas.$b
 		},
 		--3 does not exist i guess
 		Play_gar_tag_04 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(answering prank call)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27533,6 +27406,7 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_05 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(muffled frustration)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27545,24 +27419,28 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_06 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "Again? Damn electricians...", --no variations
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 10
 		},
 		Play_gar_tag_07 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "This one... uh... [mumbling to self] No, lemme see... there! Okay. [sighs] Should do it.", --no variations
 			category = "mission_dialogue",
 			duration = 8,
 			priority = 10
 		},			
 		Play_gar_tag_08 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "[muffled] Will I ever get a moment of peace?",
 			category = "mission_dialogue",
 			duration = 8,
 			priority = 10
 		},
 		Play_gar_tag_09 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(Hey, who was just in my office?)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27575,18 +27453,21 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_10 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "[muffled] Alright... now where were we?", --no variations
 			category = "mission_dialogue",
 			duration = 4,
 			priority = 10
 		},
 		Play_gar_tag_11 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "[muffled, reading] Uh... 'Mister Garrett.. okay, when you get a chance, can you please come down to... [indistinct mumbling] trying to come up with a strategy...' Oh... [groans] oh, dammit to hell! Amateurs!", --no variations
 			category = "mission_dialogue",
 			duration = 25,
 			priority = 10
 		},
 		Play_gar_tag_12 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(grumbling to self)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27599,18 +27480,21 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_13 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "Now, dammit!", --no variations
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 10
 		},
 		Play_gar_tag_14 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "[muffled] What the...?", --no variations
 			category = "mission_dialogue",
 			duration = 3,
 			priority = 10
 		},
 		Play_gar_tag_15 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(spotted delicious Chimichanga)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27623,6 +27507,7 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_16 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(complaining about Chimichanga-induced digestive stress)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27635,6 +27520,7 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_17 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(spotted office intruder!)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27646,6 +27532,7 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_18 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(urgently commandeering bathroom)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27657,6 +27544,7 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_19 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(spotted heister!)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27671,6 +27559,7 @@ $2: ...Putas.$b
 			priority = 10
 		},
 		Play_gar_tag_20 = {
+			override_speaker_id = "hud_subtitlemod_speaker_garrett",
 			text = "(pain)",
 			category = "mission_dialogue",
 			line_variations = {
@@ -27686,6 +27575,7 @@ $2: ...Putas.$b
 
 	--biker heist
 		Play_bkl_brn_01 = {
+			fallback_speaker_id = "hud_subtitlemod_speaker_brnbk",
 			text = "(biker aggro)",
 			category = "mission_dialogue",
 			max_distance = 1500,
@@ -27700,6 +27590,7 @@ $2: ...Putas.$b
 			}
 		},
 		Play_mch_brn_01 = {
+			override_speaker_id = "hud_subtitlemod_speaker_brnmch",
 			text = "[muffled yelling for help through gag]",
 			category = "mission_dialogue",
 			priority = 10,
@@ -27715,7 +27606,7 @@ $2: ...Putas.$b
 	--diamond heist	
 		laser_hum_right = {
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[right laser hums]",
 			loop_data = {
 				loop_interval = -1
@@ -27725,7 +27616,7 @@ $2: ...Putas.$b
 		},
 		laser_hum_left = {
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[left laser hums]",
 			loop_data = {
 				loop_interval = -1
@@ -27735,7 +27626,7 @@ $2: ...Putas.$b
 		},
 		dah_party_music = {
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[party music]",
 			loop_data = {
 				loop_interval = -1
@@ -27753,7 +27644,7 @@ $2: ...Putas.$b
 		},
 		elevator_ding_dh = {
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[elevator dings]",
 			duration = 3,
 			priority = 98,
@@ -27761,14 +27652,14 @@ $2: ...Putas.$b
 		},
 		alarm_dah = {
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[alarm rings]",
 			duration = 30,
 			priority = 98
 		},
 		dah_npc_impact_glass_01 = { --ceo dropped out of helicopter, strikes glass skylight
 			category = "sfx",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[body impacts glass]",
 			priority = 98,
 			duration = 3
@@ -27777,14 +27668,14 @@ $2: ...Putas.$b
 			category = "UNKNOWN"
 		},
 		str_car_fire = { --???
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			max_distance = 700,
 			disabled = true, 
 			priority = 98
 		},
 		car_alarm_on = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			text = "[car alarm beeping]",
 			priority = 50,
@@ -27796,27 +27687,26 @@ $2: ...Putas.$b
 			stops_line = "car_alarm_on"					
 		},
 		glace_secondary_explosion = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			text = "[large explosion]",
 			priority = 90
 		},
 --hell's island
 		bph_lever_down = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			text = "[lever pulled]",
 			priority = 98
 		},
 		bph_prison_buzzer = {
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			text = "[buzzer sounds]",
 			priority = 98
-		
 		},
 		Play_dnt_bph_01 = {
-			override_name = "The Dentist",
+			override_speaker_id = "hud_subtitlemod_speaker_dentist",
 			override_source_id = "dentist", --these lines play from every pa speaker, but we only need the one subtitle
 			override_color = "boss",
 			category = "mission_dialogue",
@@ -27825,7 +27715,7 @@ $2: ...Putas.$b
 			duration = 5
 		},
 		Play_dnt_bph_02 = {
-			override_name = "The Dentist",
+			override_speaker_id = "hud_subtitlemod_speaker_dentist",
 			override_source_id = "dentist",
 			override_color = "boss",
 			category = "mission_dialogue",
@@ -27834,7 +27724,7 @@ $2: ...Putas.$b
 			duration = 16
 		},
 		Play_dnt_bph_03 = {
-			override_name = "The Dentist",
+			override_speaker_id = "hud_subtitlemod_speaker_dentist",
 			override_source_id = "dentist",
 			override_color = "boss",
 			category = "mission_dialogue",
@@ -27843,7 +27733,7 @@ $2: ...Putas.$b
 			duration = 16
 		},
 		Play_dnt_bph_04 = {
-			override_name = "The Dentist",
+			override_speaker_id = "hud_subtitlemod_speaker_dentist",
 			override_source_id = "dentist",
 			override_color = "boss",
 			category = "mission_dialogue",
@@ -27852,7 +27742,7 @@ $2: ...Putas.$b
 			duration = 14
 		},
 		Play_dnt_bph_05 = {
-			override_name = "The Dentist",
+			override_speaker_id = "hud_subtitlemod_speaker_dentist",
 			override_source_id = "dentist",
 			override_color = "boss",
 			category = "mission_dialogue",
@@ -27861,7 +27751,7 @@ $2: ...Putas.$b
 			duration = 10
 		},
 		Play_dnt_bph_06 = {
-			override_name = "The Dentist",
+			override_speaker_id = "hud_subtitlemod_speaker_dentist",
 			override_source_id = "dentist",
 			override_color = "boss",
 			category = "mission_dialogue",
@@ -27872,7 +27762,7 @@ $2: ...Putas.$b
 --scarface mansion
 		Play_sec_fri_01 = {
 			text = "(talking on phone)",
---					override_name = "Head of Security", --disabled because it'll cause a weird discrepancy when he dies and shows "Bolivian Security" in that caption
+			fallback_speaker_id = "hud_subtitlemod_speaker_frisec",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 4,
@@ -28007,13 +27897,13 @@ $2: ...Putas.$b
 	--day "2" (timeline wise; day 1 gameplay wise)
 		Play_mrb_rvd_03 = {
 			text = "Why don't we play with our little squeaky toy here while we wait? Okay, doughnut boy, I'm gonna take this off, and you're gonna talk, capiche? Who set us up?",
-			override_name = "Mr. Blue",
+			override_speaker_id = "hud_subtitlemod_speaker_rvd_blue",
 			override_color = "mrblue",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 9
 		},
-		Play_mrb_rvd_03c = {
+		Play_mrb_rvd_03c = { -- should be a convo
 			text = "Hey... look... I'm just following orders! I don't know nothin'!\nMR BLUE:I don't think you're bein' honest, little pig. ",
 			override_name = "Policeman",
 			override_color = "mrblue",
@@ -28041,7 +27931,7 @@ $2: ...Putas.$b
 		Play_mrp_rvd_04 = {
 			text = "The FUCK took so long, man?!",
 			category = "mission_dialogue",
-			override_name = "Mr. Purple",
+			override_speaker_id = "hud_subtitlemod_speaker_rvd_purple",
 			override_source_id = "mrp",
 			override_color = "mrpurple",
 			max_distance = 1500,
@@ -28058,7 +27948,7 @@ $2: ...Putas.$b
 		Play_mrp_rvd_05 = {
 			text = "[groaning in pain]",
 			category = "mission_dialogue",
-			override_name = "Mr. Purple",
+			override_speaker_id = "hud_subtitlemod_speaker_rvd_purple",
 			override_source_id = "mrp",
 			override_color = "mrpurple",
 			max_distance = 1500,
@@ -28074,7 +27964,7 @@ $2: ...Putas.$b
 		Play_mrp_rvd_06 = {
 			text = "(What happened back there?!)",
 			category = "mission_dialogue",
-			override_name = "Mr. Purple",
+			override_speaker_id = "hud_subtitlemod_speaker_rvd_purple",
 			override_source_id = "mrp",
 			override_color = "mrpurple",
 			max_distance = 1500,
@@ -28094,7 +27984,7 @@ $2: ...Putas.$b
 		Play_mrp_rvd_07 = {
 			text = "(Fuck this shit, I'm out!)",
 			category = "mission_dialogue",
-			override_name = "Mr. Purple",
+			override_speaker_id = "hud_subtitlemod_speaker_rvd_purple",
 			override_source_id = "mrp",
 			override_color = "mrpurple",
 			max_distance = 1500,
@@ -28116,7 +28006,7 @@ $2: ...Putas.$b
 		Play_mrp_rvd_08 = {
 			text = "(Are we sure this mess isn't the PAYDAY Gang's fault?)",
 			category = "mission_dialogue",
-			override_name = "Mr. Purple",
+			override_speaker_id = "hud_subtitlemod_speaker_rvd_purple",
 			override_source_id = "mrp",
 			override_color = "mrpurple",
 			max_distance = 1500,
@@ -28132,7 +28022,7 @@ $2: ...Putas.$b
 		Play_mrb_rvd_05 = {
 			text = "(Are we sure this mess isn't the PAYDAY Gang's fault?)",
 			category = "mission_dialogue",
-			override_name = "Mr. Blue",
+			override_speaker_id = "hud_subtitlemod_speaker_rvd_blue",
 			override_color = "mrpurple",
 			max_distance = 1500,
 			priority = 10,
@@ -28160,7 +28050,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Kazuo",
+			override_speaker_id = "hud_subtitlemod_speaker_kazuo",
 			max_distance = 1500,
 			priority = 10,
 			duration = 5
@@ -28182,7 +28072,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Kazuo",
+			override_speaker_id = "hud_subtitlemod_speaker_kazuo",
 			max_distance = 1500,
 			priority = 10,
 			duration = 5
@@ -28197,7 +28087,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Kazuo",
+			override_speaker_id = "hud_subtitlemod_speaker_kazuo",
 			max_distance = 1500,
 			priority = 10,
 			duration = 3
@@ -28206,14 +28096,40 @@ $2: ...Putas.$b
 		Play_pln_cp1_intro_01 = {
 			text = "[parachute rustling, wind howling]\nHOUSTON: Almost there, almost there!\nWOLF: We're gonna make it! [pause] OH SHIT!\nHOUSTON: Fuck!\nDALLAS: Move it!",
 			category = "mission_dialogue",
-			override_name = "[INTRO]",
+			conversation = {
+				speakers = {
+					"menu_russian",
+					"menu_german",
+					"menu_american",
+					"hud_subtitlemod_speaker_sfx"
+				},
+				colors = {
+					"peer1",
+					"peer2",
+					"peer3",
+					"peer4",
+					"generic"
+				},
+				timing = {
+					0.6,2.5,4.5,6.5,7.6,9.3
+				},
+				text = "hud_subtitlemod_cnv_Play_pln_cp1_intro_01",
+				convo = [[
+$4: [parachute rustling, wind howling]$b
+$3: Almost there, almost there!$b
+$2: We're gonna make it!$b
+$2: ...OH, SHIT!$b
+$3: Fuck!$b
+$1: Move it!
+]]
+			},
 			priority = 10,
-			duration = 9
+			duration = 10
 		},
 		drunk_pilot_puke = {
 			text = "[vomits]",
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 700,
 			duration = 2
@@ -28221,7 +28137,7 @@ $2: ...Putas.$b
 		drunk_pilot_fall = {
 			text = "[falls on the ground]",
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 700,
 			duration = 2
@@ -28229,7 +28145,7 @@ $2: ...Putas.$b
 		drunk_pilot_sit_down = {
 			text = "[sits down on the ground]",
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 700,
 			duration = 2
@@ -28237,7 +28153,7 @@ $2: ...Putas.$b
 		drunk_pilot_up = {
 			text = "[getting back up]",
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 700,
 			duration = 2
@@ -28259,7 +28175,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 6
@@ -28274,7 +28190,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 5
@@ -28289,7 +28205,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 3
@@ -28304,7 +28220,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 5
@@ -28319,7 +28235,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 5
@@ -28335,7 +28251,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 5
@@ -28348,7 +28264,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 5
@@ -28362,7 +28278,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 3
@@ -28377,7 +28293,7 @@ $2: ...Putas.$b
 				}
 			},
 			category = "mission_dialogue",
-			override_name = "Drunk Pilot",
+			override_speaker_id = "hud_subtitlemod_speaker_drunkpilot",
 			priority = 10,
 			max_distance = 1500,
 			duration = 3
@@ -28390,7 +28306,7 @@ $2: ...Putas.$b
 		chimes_and_bell = {
 			category = "sfx",
 			text = "[chimes and service bell rings]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 98,
 			max_distance = 1500,
 			duration = 4
@@ -28398,7 +28314,7 @@ $2: ...Putas.$b
 		packing_box_loop = {
 			category = "sfx",
 			text = "[drugs being packed]",
-			override_name = "SFX",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 98,
 			max_distance = 500,
 			loop_data = {
@@ -28434,7 +28350,7 @@ $2: ...Putas.$b
 --		},
 --hotline miami day 2
 		Play_com_hm2_09 = {
-			override_name = "Commissar",
+			fallback_speaker_id = "hud_subtitlemod_speaker_commissar",
 			text = "[weakly] I spit on your grave, you fucking dickholes... [death gurgle]",
 			override_color = boss_color,
 			line_variations = {
@@ -28450,7 +28366,7 @@ $2: ...Putas.$b
 		},
 --alaskan deal
 		Play_crw_wwh_01 = {
-			override_name = "Crew Member",
+			override_speaker_id = "hud_subtitlemod_speaker_wwh_crew",
 			text = "You must help free captain with saw! He is behind door!",
 --					override_color = 
 			line_variations = { 
@@ -28465,7 +28381,7 @@ $2: ...Putas.$b
 			duration = 4
 		},
 		Play_cpt_wwh_01 = {
-			override_name = "Captain",
+			override_speaker_id = "hud_subtitlemod_speaker_wwh_captain",
 			text = "Ah, good, Butcher sent help. Untie me now, please.",
 			line_variations = {
 				standard_mode = {
@@ -28479,7 +28395,7 @@ $2: ...Putas.$b
 			duration = 4
 		},
 		Play_cpt_wwh_02 = {
-			override_name = "Captain",
+			override_speaker_id = "hud_subtitlemod_speaker_wwh_captain",
 			text = "I will get back to ship alone. Will contact you with instructions.",
 			line_variations = {
 				standard_mode = {
@@ -28492,7 +28408,7 @@ $2: ...Putas.$b
 			duration = 3
 		},
 		Play_cpt_wwh_03 = {
-			override_name = "Captain",
+			override_speaker_id = "hud_subtitlemod_speaker_wwh_captain",
 			text = "[radio static] Hello? I am coming through? Boat will need more fuel to make international waters!",
 			line_variations = {
 				standard_mode = {
@@ -28506,7 +28422,7 @@ $2: ...Putas.$b
 			duration = 8
 		},
 		Play_cpt_wwh_04 = {
-			override_name = "Captain",
+			override_speaker_id = "hud_subtitlemod_speaker_wwh_captain",
 			text = "Look out for hose line and pump for diesel.",
 			line_variations = {
 				standard_mode = {
@@ -28523,7 +28439,7 @@ $2: ...Putas.$b
 		
 		-- Black Cat
 		Play_bar_chca_01 = {
-			override_name = "Insider",
+			override_speaker_id = "hud_subtitlemod_speaker_insider",
 			text = "I've been waiting. Your equipment is waiting in one of the cabin lavatories, but there's a small complication - vault security's been changed. Lee Deng still has the code, but you'll need Sun Hong's handprint as well to open it. I was able to acquire some impression wax and store it with your gear. Good luck.",
 			category = "mission_dialogue",
 			priority = 10,
@@ -29057,6 +28973,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_01A = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] Security shift rotation in 30 minutes. Don't get lazy. The clowns could strike at any time.",
 			max_distance = 500,
 			priority = 44
@@ -29064,6 +28981,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_01B = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] All personnel, stay on your guard. We can't afford to fuck up like in Dallas.",
 			max_distance = 500,
 			priority = 44
@@ -29071,6 +28989,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_02A = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] A reminder to all workers: Do not attempt to engage the new security team in conversation. Do not make eye contact. Do not disobey.",
 			max_distance = 500,
 			priority = 44
@@ -29078,6 +28997,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_02B = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] Attention, all personnel. We are on a strict communications blackout. Any attempt to contact the mainland will be punished... severely.",
 			max_distance = 500,
 			priority = 44
@@ -29085,6 +29005,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_03A = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] When our conflict with the SERA board is resolved, you will be rewarded.",
 			max_distance = 500,
 			priority = 44
@@ -29092,6 +29013,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_04A = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit One, rotate to the Laboratory. ",
 			max_distance = 500,
 			priority = 44
@@ -29099,6 +29021,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_04B = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit Two, I want a sweep of the Admin Office.",
 			max_distance = 500,
 			priority = 44
@@ -29106,6 +29029,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_04C = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit Three, check the oil tanks.",
 			max_distance = 500,
 			priority = 44
@@ -29113,6 +29037,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_04D = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit One, investigate the Rest Area.",
 			max_distance = 500,
 			priority = 44
@@ -29120,6 +29045,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_04E = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit Two, do a sweep of the Bridges.",
 			max_distance = 500,
 			priority = 44
@@ -29127,6 +29053,7 @@ $1: If they don't like working for free, they can find their college credits som
 		Play_gab_deep_04F = {
 			speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
+			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit Three, I want eyes on the Living Quarters.",
 			max_distance = 500,
 			priority = 44
