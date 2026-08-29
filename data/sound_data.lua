@@ -8,10 +8,7 @@ return {
 		},
 		fatigue_breath = {
 			text = "[heavy panting]",
-			category = "foley",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "foley"
 		},
 		fatigue_breath_stop = {
 			category = "stops",
@@ -393,10 +390,7 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "being tased!",
 			priority = 22,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1 --constant
-			}
+			category = "sfx"
 		},
 		tasered_stop = {
 			category = "stops",
@@ -450,11 +444,7 @@ return {
 			text = "low health heartbeat",
 			priority = 99,
 			category = "sfx",
-			disabled = true, --needs a loop
-			duration = 1,
-			loop_data = {
-				loop_interval = 1
-			}
+			disabled = true --needs a loop
 		},
 		concussion_effect_on = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -542,9 +532,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "blowtorch hissing",
 			max_distance = 2500,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 90,
 			category = "sfx"
 		},
@@ -560,31 +547,21 @@ return {
 			category = "sfx",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 500,
-			priority = 90,
-			duration = 5,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 90
 		},
 		buzz_saw_jam = {
 			text = "jammed buzz saw screeches!",
 			category = "sfx",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			max_distance = 1500,
-			priority = 90,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 90
 		},
 		buzz_saw = {
 			text = "buzz saw grinds",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			max_distance = 500,
-			priority = 90,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 90
 		},
 		buzz_saw_end = {
 			text = "buzz saw finishes",
@@ -631,19 +608,13 @@ return {
 			text = "looped camera whirs",
 			category = "sfx",
 			priority = 98,
-			max_distance = 3000,
-			loop_data = {
-				loop_interval = -1
-			}
+			max_distance = 3000
 		},
 		camera_wrong_image_outro = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "stops",
 			stops_line = "camera_wrong_image",
 			text = "camera loop ending!",
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 98
 		},
 		camera_wrong_image_outro_end = {
@@ -656,17 +627,14 @@ return {
 			category = "sfx",
 			priority = 90,
 			duration = 3,
-			text = "cargo container drops!"
+			text = "cargo container lands!"
 		},
 		cooking_meth = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
-			category = "sfx",
+			category = "ambient",
 			priority = 90,
 			max_distance = 500,
-			text = "meth bubbles",
-			loop_data = {
-				loop_interval = -1
-			}
+			text = "meth bubbles"
 		},
 		cooking_meth_stop = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -705,9 +673,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			override_source_id = true,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 21,
 			text = "ecm feedback active"
 		},
@@ -725,9 +690,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			max_distance = 1500,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 90
 		},
 		flare_end = {
@@ -739,21 +701,13 @@ return {
 			text = "(oscillating goat bleating)",
 			priority = 90,
 			max_distance = 2000,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "sfx"
 		},
 		goat_hang_scaffold = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(bleating)",
 			priority = 90,
 			max_distance = 2000,
-			loop_data = {
-				loop_interval = 2,
-				loop_interval_min = 2,
-				use_random_loop_interval = true
-			},
 			category = "sfx"
 		},
 		goat_kick = {
@@ -769,9 +723,6 @@ return {
 			text = "(snoring, sleep-bleating)",
 			max_distance = 2000,
 			priority = 90,
-			loop_data = {
-				loop_interval = -1
-			},
 			category = "sfx"
 		},
 		goat_says_meh = {
@@ -788,10 +739,7 @@ return {
 			max_distance = 2000,
 			priority = 90,
 			category = "sfx",
-			duration = 2,
-			loop_data = {
-				loop_interval = 2
-			}
+			duration = 2
 		},
 		goat_lick = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -822,11 +770,7 @@ return {
 			text = "(hacking noises)",
 			category = "sfx",
 			max_distance = 700,
-			priority = 90,
-			duration = 10,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 90
 		},
 		hacking_device_end = {
 			category = "sfx",
@@ -838,9 +782,6 @@ return {
 			text = "(hospital phone ringing)",
 			category = "sfx",
 			max_distance = 2500,
-			loop_data = {
-				loop_interval = 2
-			},
 			priority = 90,
 			duration = 2
 		},
@@ -976,14 +917,10 @@ return {
 		},
 		server_noise_loop = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
-			category = "sfx",
+			category = "ambient",
 			text = "(server noises)",
 			max_distance = 500, --needs stop sound, but limited distance means I'm fine with it
-			priority = 90,
-			duration = 5,
-			loop_data = {
-				loop_interval = 20
-			}
+			priority = 90
 		},
 		sah_hacking_device_data_transfer_finish = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -997,9 +934,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hacking device working)",
 			max_distance = 1000,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 90,
 			category = "sfx"
 		},
@@ -1015,9 +949,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(table saw grinding)",
 			max_distance = 1000,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 98,
 			category = "sfx"
 		},
@@ -1033,9 +964,6 @@ return {
 			text = "thermite paste burns",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			},
 			max_distance = 700,
 			priority = 98
 		},
@@ -1119,18 +1047,12 @@ return {
 		ambience_switch_halloween_2016_state_smoke_to_ext = {
 			text = "ambient outdoor spoopiness",
 			category = "ambient",
-			priority = 100,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 100
 		},
 		ambience_switch_halloween_2016_state_ext_to_smoke = {
 			text = "ambient indoor spoopiness",
 			category = "ambient",
-			priority = 100,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 100
 		},
 		hos_witch_cry_loop_01 = {
 			override_speaker_id = "hud_subtitlemod_speaker_l4dwitch",
@@ -1139,12 +1061,7 @@ return {
 			priority = 100,
 			duration = 3,
 			is_locationless = true,
-			loop_data = {
-				loop_interval = 3,
-				loop_interval_min = 15,
-				use_random_loop_interval = true
-			},
-			category = "sfx"
+			category = "ambient"
 		},
 		city_sounds_basketball = { --idk if this works, probably though. panic room 
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -1207,20 +1124,14 @@ return {
 			text = "(lorry engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 		emitter_lorry_idle_03 = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(lorry engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 
 
@@ -1229,80 +1140,56 @@ return {
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 		emitter_car_idle_05 = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 		emitter_car_idle_07 = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 		emitter_car_idle_10 = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 		emitter_car_idle_broken_01 = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(broken car engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 		emitter_car_idle_03_gen_20 = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(car engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 		emitter_truck_idle_02 = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(truck engine idling)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "ambient"
 		},
 		helicopter_ambience_loop = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(helicopter droning)",
 			max_distance = 5000,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			},
+			category = "ambient",
 			disabled = true
 		},
 		heli_loop_stop = { --not sure which sound this stops
@@ -1314,10 +1201,7 @@ return {
 			text = "(helicopter droning)",
 			max_distance = 4000,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "sfx"
 		},
 
 		cop_car_01 = {
@@ -1347,20 +1231,14 @@ return {
 			text = "(police radio chatter)",
 			max_distance = 500,
 			priority = 98,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "sfx"
 		},
 		policecar_approaching = { 
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			priority = 98,
 			text = "(police car approaching)",
-			max_distance = 1500,
-			loop_data = {
-				loop_interval = -1 --constant
-			}
+			max_distance = 1500
 		},
 		policecar_arrive_stop_global = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -1375,10 +1253,7 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "ambient",
 			duration = 98,
-			disabled = true,
-			loop_data = {
-				loop_interval = -1
-			}
+			disabled = true
 		},
 		hos_crowd_walla_stop = {
 			category = "stops",
@@ -1463,10 +1338,7 @@ return {
 			max_distance = 300,
 			priority = 60,
 			category = "sfx",
-			disabled = true,
-			loop_data = {
-				loop_interval = -1
-			}
+			disabled = true
 		},
 		repel_end = {
 			category = "stops",
@@ -1502,9 +1374,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(copy machine typing)",
 			priority = 98,
-			loop_data = {
-				loop_interval = -1
-			},
 			max_distance = 1000,
 			category = "sfx"
 		},
@@ -1523,9 +1392,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio plays music)",
 			priority = 98,
-			loop_data = {
-				loop_interval = -1
-			},
 			max_distance = 1700,
 			category = "sfx"
 		},
@@ -1533,9 +1399,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "radio plays Christmas music",
 			max_distance = 2000,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 98,
 			category = "sfx"
 		},
@@ -1553,9 +1416,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "radio plays spooky music",
 			max_distance = 700,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 98,
 			category = "sfx"
 		},
@@ -1563,9 +1423,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(radio music plays)",
 			max_distance = 1700,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 98,
 			category = "sfx"
 		},
@@ -1584,18 +1441,12 @@ return {
 			text = "(radio plays 'The Flames of Love')",
 			priority = 98,
 			max_distance = 1700,
-			loop_data = {
-				loop_interval = -1
-			},
 			category = "sfx"
 		},
 		jukebox_biker = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(music plays)",
 			max_distance = 1700,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 98,
 			category = "sfx"
 		},
@@ -1614,9 +1465,6 @@ return {
 			text = "(radio music)", --these are mostly just different so that I can tell them apart
 			priority = 98,
 			max_distance = 700,
-			loop_data = {
-				loop_interval = -1
-			},
 			category = "sfx"
 		},
 		rvd_radio_music_stop = {
@@ -1630,10 +1478,7 @@ return {
 		diegetic_club_music = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[loud club music]",
-			loop_data = {
-				loop_interval = -1
-			},
-			category = "sfx",
+			category = "ambient",
 			priority = 98,
 			max_distance = 3000
 		},
@@ -1646,10 +1491,7 @@ return {
 		diegetic_lounge_music = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[lounge music]",
-			loop_data = {
-				loop_interval = -1
-			},
-			category = "sfx",
+			category = "ambient",
 			priority = 98,
 			max_distance = 3000
 		},
@@ -1693,9 +1535,6 @@ return {
 			max_distance = 2000,
 			text = "[slow countdown ticking]",
 			category = "sfx",
-			loop_data = {
-				loop_interval = -1 --constant
-			},
 			priority = 90
 		},
 		alarm_countdown_ticking_down_10sec = {
@@ -1784,10 +1623,7 @@ return {
 			text = "[cellphone ringing]",
 			max_distance = 2500,
 			priority = 90,
-			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "sfx"
 		},
 		cellphone_01_answer = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -1864,9 +1700,6 @@ return {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(fire burning)",
 			max_distance = 500,
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 98,
 			disabled = true,
 			category = "sfx"
@@ -1892,9 +1725,6 @@ return {
 			text = "(hellfire burning, distant screaming)",
 			max_distance = 3000,
 			priority = 98,
-			loop_data = {
-				loop_interval = -1
-			},
 			category = "sfx"
 		},
 		hlp_green_fire_stop = {
@@ -1907,10 +1737,7 @@ return {
 			text = "(loot door wind howling)",
 			category = "sfx",
 			priority = 98,
-			max_distance = 2500,
-			loop_data = {
-				loop_interval = -1
-			}
+			max_distance = 2500
 		},
 		hlp_bag_door_loop_stop = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -1922,10 +1749,7 @@ return {
 			text = "[angelic choir]",
 			category = "sfx",
 			priority = 98,
-			max_distance = 2000,
-			loop_data = {
-				loop_interval = -1
-			}
+			max_distance = 2000
 		},
 		hlp_ending_choir_stop = {
 			category = "stops",
@@ -1971,9 +1795,6 @@ return {
 			text = "(fire burning)",
 			max_distance = 1000,
 			priority = 98,
-			loop_data = {
-				loop_interval = -1
-			},
 			category = "ambient"
 		},
 		large_fire_stop = { --needs a stops_line
@@ -2043,9 +1864,6 @@ return {
 		hand_dryer_on = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "(hand dryer whirring)",
-			loop_data = {
-				loop_interval = -1
-			},
 			max_distance = 1000,
 			priority = 98,
 			category = "sfx"
@@ -2136,10 +1954,7 @@ return {
 			text = "[clock ticking loudly]",
 			category = "sfx",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
-			priority = 98,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 98
 		},
 		tick_tock_stop = {
 			category = "stops",
@@ -11910,9 +11725,7 @@ $1Uh huh. right.]]
 			text = "[taser crackles]",
 			max_distance = 3000,
 			category = "sfx",
-			loop_data = {
-				loop_interval = -1
-			},
+			duration = 10,
 			priority = 21
 		},
 		dsp_radio_checking_1 = {
@@ -22588,10 +22401,7 @@ $1Uh huh. right.]]
 			fallback_name = "Cloaker",
 			priority = 21,
 			max_distance = 1500,
-			category = "enemy_chatter",
-			loop_data = {
-				loop_interval = -1
-			}
+			category = "enemy_chatter"
 		},
 		cloaker_presence_stop = {
 --					text = "(Cloaker idle stops)",
@@ -22995,10 +22805,7 @@ $1Uh huh. right.]]
 			text = "[SWAT Turret firing!]",
 			category = "enemy_chatter",
 			max_distance = 3000,
-			priority = 85,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 85
 		},
 		swatturret_fire_end = {
 			category = "stops",
@@ -23009,10 +22816,7 @@ $1Uh huh. right.]]
 			text = "[SWAT Turret hacked]",
 			category = "enemy_chatter",
 			max_distance = 3000,
-			priority = 85,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 85
 		},
 		swatturret_disarmed_loop_stop = {
 			category = "stops",
@@ -23044,10 +22848,7 @@ $1Uh huh. right.]]
 			text = "[SWAT Turret reloading]",
 			max_distance = 3000,
 			category = "enemy_chatter",
-			priority = 85,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 85
 		},
 		swatturret_reload_end = {
 			category = "stops",
@@ -23060,19 +22861,13 @@ $1Uh huh. right.]]
 			text = "[SWAT Turret whirs!]",
 			max_distance = 3000,
 			category = "enemy_chatter",
-			priority = 85,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 85
 		},
 		swatturret_spin_start = {
 			text = "[SWAT Turret spins up!]",
 			max_distance = 3000,
 			category = "enemy_chatter",
-			priority = 85,
-			loop_data = {
-				loop_interval = -1
-			}
+			priority = 85
 		},
 		swatturret_spin_stop = {
 			category = "stops",
@@ -24793,12 +24588,8 @@ $1Uh huh. right.]]
 		},
 		cft_piano_music = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
-			category = "sfx",
+			category = "ambient",
 			priority = 75,
-			loop_data = {
-				loop_interval = -1
-			},
-			disabled = true,
 			max_distance = 700,
 			text = "[classical piano music]"
 		},
@@ -25537,14 +25328,8 @@ $2...Putas.$b
 			override_speaker_id = "hud_subtitlemod_speaker_bankmanager",
 			override_color = "neutral1",
 			category = "mission_dialogue",
-			duration = 8,
 			priority = 37,
 			max_distance = 1500,
-			loop_data = {
-				loop_interval = 10,
-				loop_interval_min = 10,
-				use_random_variations = true
-			},
 			text = "(talking on phone and being a dick in general)",
 			line_variations = {
 				standard_mode = {
@@ -25567,14 +25352,8 @@ $2...Putas.$b
 			override_speaker_id = "hud_subtitlemod_speaker_bankmanager",
 			override_color = "neutral1",
 			category = "mission_dialogue",
-			duration = 8,
 			priority = 37,
 			max_distance = 1500,
-			loop_data = {
-				loop_interval = 10,
-				loop_interval_min = 10,
-				use_random_variations = true
-			},
 			text = "(talking on phone and being a dick in general)",
 			line_variations = {
 				standard_mode = {
@@ -25594,14 +25373,8 @@ $2...Putas.$b
 			override_speaker_id = "hud_subtitlemod_speaker_bankmanager",
 			override_color = "neutral1",
 			category = "mission_dialogue",
-			duration = 8,
 			priority = 37,
 			max_distance = 1500,
-			loop_data = {
-				loop_interval = 20,
-				loop_interval_min = 10,
-				use_random_variations = true
-			},
 			text = "(talking on phone and being a dick in general)",
 			line_variations = {
 				standard_mode = {
@@ -25630,15 +25403,11 @@ $2...Putas.$b
 		},
 		Play_be2_fwb_01 = {
 			max_distance = 700,
-			duration = 7,
 			priority = 10,
 			override_speaker_id = "hud_subtitlemod_speaker_bankcustomer",
 			override_color = "neutral1",
 			category = "mission_dialogue",
 			text = "(customer asking for funding for awful ideas)",
-			loop_data = {
-				loop_interval = 0.5
-			},
 			line_variations = {
 				recombinable = true,
 				standard_mode = {
@@ -25674,7 +25443,6 @@ $2...Putas.$b
 			text = "(customer asking for funding for awful ideas)",
 			override_speaker_id = "hud_subtitlemod_speaker_bankcustomer",
 			override_color = "neutral1",
-			duration = 7,
 			priority = 10,
 			category = "mission_dialogue",
 			line_variations = {
@@ -25702,9 +25470,6 @@ $2...Putas.$b
 						"Have you tried Roberts?"
 					}
 				}
-			},
-			loop_data = {
-				loop_interval = 0.5
 			}
 		},
 		Stop_mc1_fwb_01 = {
@@ -25852,10 +25617,7 @@ $2...Putas.$b
 			category = "mission_dialogue", --not sfx because this shit's important dammit
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 90,
-			max_distance = 3000,
-			loop_data = {
-				loop_interval = -1
-			}
+			max_distance = 3000
 		},
 		big_bank_phone_call_pickup = {
 			text = "phone answered",
@@ -27593,11 +27355,7 @@ $2...Putas.$b
 			override_speaker_id = "hud_subtitlemod_speaker_brnmch",
 			text = "[muffled yelling for help through gag]",
 			category = "mission_dialogue",
-			priority = 10,
-			duration = 1,
-			loop_data = {
-				loop_interval = 2
-			}
+			priority = 10
 		},
 		Stop_mch_brn_01 = {
 			category = "stops",
@@ -27608,9 +27366,6 @@ $2...Putas.$b
 			category = "sfx",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[right laser hums]",
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 90,
 			max_distance = 700
 		},
@@ -27618,9 +27373,6 @@ $2...Putas.$b
 			category = "sfx",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[left laser hums]",
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 90,
 			max_distance = 700				
 		},
@@ -27628,9 +27380,6 @@ $2...Putas.$b
 			category = "sfx",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[party music]",
-			loop_data = {
-				loop_interval = -1
-			},
 			priority = 98,
 			max_distance = 700
 		},
@@ -28316,10 +28065,7 @@ $1: Move it!
 			text = "[drugs being packed]",
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			priority = 98,
-			max_distance = 500,
-			loop_data = {
-				loop_interval = -1
-			}
+			max_distance = 500
 		},
 		packing_box_stop = {
 			category = "stops",
@@ -28332,16 +28078,12 @@ $1: Move it!
 			category = "mission_dialogue",
 			max_distance = 1500,
 			text = "(Car Shop Manager)",
-			duration = 10,
 			line_variations = {
 				whisper_mode = {
 					"(managerial chatter)"
 				}
 			},
-			priority = 10,
-			loop_data = {
-				loop_interval = 5,
-			}
+			priority = 10
 		},
 --		Stop_man_ch_01 = { --taking a guess that this will work
 --			category = "stops",

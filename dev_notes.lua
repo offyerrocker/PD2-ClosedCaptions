@@ -1,5 +1,9 @@
 --[[
 
+- incorrect color range somehow?
+- allow convo from standard subtitle
+- not detecting enemy speaker unit (medic, cloaker)
+
 so yeah the whole technical idea behind the mod (and sound_data specifically)
 is extrapolating data about the sound line solely based on the event id and whatever info we can get via lua
 such as whether the game is stealth or loud (which we can get).
@@ -31,7 +35,7 @@ TODO
 - sounds that need converting to conversations:
 	- heat speech
 		* each heister variant is separate... oy vey
-
+	- flames of love
 
 
 no unit names by tweak table
@@ -42,6 +46,9 @@ beneath the mountain
 	[61] : [blast_door_explosion]
 	[62] : [berry_blast_door_blow]
 
+undercover
+	Play_pon_man_01
+	Play_hnc_man_01
 
 
 Stealing Xmas
