@@ -1,6 +1,5 @@
 --[[
 
-- possible edge case if a conversation is triggered twice from a standard subtitle while the first is still going
 
 so yeah the whole technical idea behind the mod (and sound_data specifically)
 is extrapolating data about the sound line solely based on the event id and whatever info we can get via lua
@@ -12,11 +11,17 @@ some events are definitely more important than others.
 
 TODO
 
--- menu/game state handling
--- subtitles for briefing/heist end
+- allow overriding subtitle font
+- menu/game state handling
+	- allow subtitles in main menu, when player does not exist
+- subtitles for briefing/heist end
+	- main menu contract mouseover lines
+- allow overriding/adding to standard subtitles
+	* see rvd 
+
+- controller support for customize ui
 
 - heist intro/complete lines
-- main menu contract mouseover lines
 - better streamlined flow- remove subtitles consistently
 	* look into source style subtitle display- brief delay while the caption animates fadein, queues always cleared from the top - much more readable
 		* not exactly feasible since line lengths vary so widely in pd2 (eg. heat speech)
@@ -36,9 +41,19 @@ TODO
 		* each heister variant is separate... oy vey
 	- flames of love
 
+- possible edge case if a conversation is triggered twice from a standard subtitle while the first is still going
 
-no unit names by tweak table
-cookoff: gangster death lingers forever
+
+
+
+
+
+
+
+
+
+
+missing lines:
 
 
 beneath the mountain
@@ -57,6 +72,7 @@ Stealing Xmas
 
 resdogs
 	Play_loc_rvd_02 - includes a baked snippet at the end of mr blue going "i'll take care of our lil boy here"
+	- probably needs an override and/or convo conversion
 
 
 carshop manager chatter

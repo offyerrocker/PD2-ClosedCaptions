@@ -22,13 +22,20 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 --		log_debug = false,
 		language_name = "english",
 		_language_index = 1,
+		
+		-- customization window position; ui access only
+		dialog_x = 100,
+		dialog_y = 100,
+		
+		-- caption position; ui access only
 		caption_x = 160,
 		caption_y = 360,
+		
 		caption_w = 960,
 		caption_h = 256,
+		
+		-- ui acces only
 		caption_vertical_invert = true, -- if true, "top" captions appear at the bottom; if false, "top" captions appear at the top
-		dialog_x = 100, -- customization window position
-		dialog_y = 100,
 		
 		caption_order = 2,
 		caption_use_fadein = false,
