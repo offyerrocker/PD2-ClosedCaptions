@@ -1,0 +1,124 @@
+## {#ffd700}(*What's all this, then?*)
+{#b2b2b2}(Now, you might be saying, "Hey, Offy, or whatever your name is, aren't there subtitles in the game already?"
+Well, most contractor VO in the game (Bain's and Locke's lines) do have subtitles, but almost all other lines in PAYDAY 2 lack captions, even though they should *really have captions.*)
+
+For example: (non-exhaustive list)
+* Heist-specific information, eg. correct patient clues in No Mercy, alarm box countdowns in stealth
+* Special enemies spotting/kill callouts
+* Tactical information (flashbang beeping, cloaker charging, etc)
+* Flavor (Heat Speech from First World Bank, other reactions and chatter)
+
+{#b2b2b2}(As a solution, this mod adds closed captions to the game, in a style similar to that of *Left 4 Dead 2* or *Minecraft*. Deaf/hard of hearing/hearing-impaired gamers, and people who don['](https://youtu.be/j0m4rcx0of4?t=97)t need closed captions but perhaps just like them[,](https://dooomkitten.tumblr.com/post/626960085420326912) this is for you.)
+
+This Closed Captions mod aims to be as comprehensive as possible when it comes to logging lines, with the following exceptions:
+* {#b2b2b2}(Lines that already have subtitles in the unmodded base game (such as most of Bain's/Locke's heist-specific dialogue) will not be given captions by this mod)
+* {#b2b2b2}(Most "foley" type sounds: things like weapon reloading noises, bullet impacts, rainfall, footstep sounds, or most sources of gunfire. I may consider allow adding gunfire subtitles for stealth only in the future.)
+
+### {#987cf4}(***Installation and Requirements***)
+{#aaaaaa}(Requires [SuperBLT](https://superblt.znix.xyz/))
+{#aaaaaa}(Requires [BeardLib](https://modworkshop.net/mod/14924))
+
+Check the "Dependencies & Instructions" page for detailed installation instructions/video.
+
+### {#ffd700}(***Features (and Limitations)***)
+* Each caption (with the exception of ambient sounds, or sounds originating at the player) has directional indicators indicating the source of the sound.
+* In the event that a voice line has variations, may choose to display either a description of the sound (eg. "(Medic spawned)", or a random variation of the sound according to the source of the sound. (eg. "Medic in the house!", "This place looks like a surgery ward, there's blood all over!", "I'm here! ...AND I brought drugs!"). This does not apply to voice lines that have no variation- eg. the heat speech is transcribed exactly as-is for every heister.
+* Voicelines are roughly sorted into categories (eg. "Heister Dialogue", "Contractor Voiceover", "Enemy Chatter", etc); you can choose which categories to show, and for most, you may additionally choose under what circumstances the line shows. (eg. stealth-only, loud-only, or always)
+* The font size and color of the captions is customizable through the Mod Options menu
+* You may choose the maximum number of captions that can appear at once.
+
+### {#987cf4}(***Limitations of Closed Captions Mod, also known as:***) **:(**
+!!! Click to expand
+* Many sounds may show a variant that is not true to the exact sound variant played; this is a limitation due to the fact that (to my knowledge) one cannot use Lua to get the currently playing sound variant from Wwise, which is the sound engine that PAYDAY 2 uses. This is the reason behind choosing a random line: even if you can't see the caption for the current line variation, you may still get a bit of flavor from the variation.
+* Since the descriptions for the sounds must be written in manually by hand (read: I add them and write subtitles/captions for them as I find them), this mod may not show all voicelines played.
+!!!
+
+### {#ffd700}(***Known Issues and Known Missing Voicelines***)
+The following issues are currently known to the developer (that's me!) at this time:
+* Captions can overlap with the base-game subtitles. The current workaround is to adjust the captions position in your mod options menu such that they don't overlap.
+The following voicelines/sounds are known to have missing caption data, either for variants or for the sound entirely:
+!!! Click to expand
+* **Diamond Heist (Garnet Group)** CFO/Ralph dialogue
+* **Green Bridge** prisoner dialogue
+* **Biker Heist** Mechanic dialogue
+* **Brooklyn 10/10** Charon's dialogue
+* **Goat Simulator** - Driver/Smuggler dialogue (both days)
+* **Beneath the Mountain** - Locke's dialogue
+* **Stealing Xmas** - Drunken Santa's dialogue
+* **Meltdown** - Geiger Counter SFX
+* **Safe House** - Aldstone's dialogue
+* **Mountain Master** - two civilians long conversation
+* **Black Cat** - two civilians long conversation
+!!!
+
+
+**Heister-specific dialogue variants' statuses:**
+!!! Click to expand
+* Dallas: **DONE**
+* Chains: Unfinished
+* Wolf: Unfinished
+* Hoxton: Unfinished
+* Houston: Not Done
+* John Wick: Not Done
+* Clover: Not Done
+* Dragan: Not Done
+* Jacket: **DONE**
+* Bonnie: Not Done
+* Sokol: Not Done
+* Jiro: Not Done (I also don't know Japanese)
+* Bodhi: Not Done
+* Jimmy: Not Done
+* Sydney: **DONE**
+* Rust: Not Done
+* Tony: Not Done
+* Sangres: Not Done
+* Joy: Not Done
+* Ethan: Not Done
+* Hila: Not Done
+* Duke: Not Done
+!!!
+
+### {#987cf4}(***Compatibility with other Mods***)
+
+{#aaaaaa}(This mod should be compatible with any and all HUD mods. There are no known mod incompatibilities with Closed Captions Mod at this time. Please report incompatibilities on this mod page.)
+Known interaction: Lines blocked by [*Anti-Voice Spam (Updated)*](https://modworkshop.net/mod/23361) are not blocked from displaying their captions.
+
+
+## {#ffd700}(**FAQ**)
+!!! Click to expand
+{#b0704a}(Q:) {#eeeeee}(The mod mentions both subtitles, but mostly uses the term "closed captions." What's the difference?)
+{#70b04a}(A:) {#aaaaaa}(In some languages, there's no difference between subtitles or closed captions, but in the USA, there's a definitional difference:)
+> {#aaaaaa}("*Subtitles* assume the viewer can hear but cannot understand the language or accent, or the speech is not entirely clear, so they transcribe only dialogue and some on-screen text. *Captions* aim to describe to the deaf and hard of hearing all significant audio content — spoken dialogue and non-speech information such as the identity of speakers and, occasionally, their manner of speaking — along with any significant music or sound effects using words or symbols." (from Wikipedia: https://en.wikipedia.org/wiki/Closed_captioning ))
+
+{#aaaaaa}(Since this mod aims to give deaf or hard of hearing players the ability to perceive information normally only available by sound (including sound effects as well as spoken dialogue), its function is more accurately described as Closed Captioning than simply subtitling. As a side note, this Closed Captions mod also aims to directly translate into English any lines which are spoken in non-English languages; this particular feature has met with limited success owing to the fact that I only know about one and a half of the other languages spoken in this game besides English.)
+
+{#b0704a}(Q:) {#eeeeee}(I don't want to see captions for a specific sound.)
+{#70b04a}(A:) {#aaaaaa}(You can customize captions or which captions are displayed, but at the moment, you will need to edit the sound_data file, since there is not yet any in-game/UI option to customize sounds' captions.)
+
+{#b0704a}(Q:) {#eeeeee}(I don't want to see randomized captions, just descriptive captioning.)
+{#70b04a}(A:) {#aaaaaa}(You can disable randomized captions in this mod's options.)
+
+{#b0704a}(Q:) {#eeeeee}(I found a missing caption for a sound!)
+{#70b04a}(A:) {#aaaaaa}(Sorry about that! I enter all the sounds manually, so I've almost certainly forgotten some lines. In particular, I haven't logged most character-specific dialogue variants yet, because there's just so many of them. You can report the sound to me if you'd like.)
+
+{#b0704a}(Q:) {#eeeeee}(Isn't it cheating to have a directional indicator on your screen for sounds, like the Alarm Box in Hoxton Revenge?)
+{#70b04a}(A:) {#aaaaaa}(No. This mod only provides captions for sounds that you could already hear with your own ear(s), if you are not hearing-impaired. Furthermore, the captions for these sounds only appear if you are in hearing range in-game for any given sound (ranges determined and assigned manually). Players are ordinarily expected be able to use their directional hearing; I don't believe that adding a visual component counterpart is cheating. So, the information is already in the game- this mod just makes it accessible in a way other than by sound.)
+
+{#b0704a}(Q:) {#eeeeee}(Subs or dubs?)
+{#70b04a}(A:) {#aaaaaa}(Subs, obviously.)
+
+!!!
+
+### {#987cf4}(***Support and Reporting Issues***)
+!!! Click to expand
+{#b2b2b2}(Encountered crashes? Missing lines to report? Saw a typo in one of the captions? Foolhardy enough to attempt translating the captions into a different language?  Just having issues with another mod of mine?
+Here's how you can contact me:)
+* Leave a comment on this mod page. I check MWS for notifications regularly. 
+* Find me on the official ModWorkshop Discord (you can find the link at the top of the site banner).
+* Submit an issue (or contribute a pull request if you're code-inclined) to the GitHub repository.
+I highly encourage and am greatly thankful to people who report bugs- I can't fix issues if I don't know about them!
+
+!!!
+
+Thanks to Lightbulb/Doctor Dakka for creating the Payday 2 Voiceline IDs spreadsheet, and to everyone who contributed to that: https://docs.google.com/spreadsheets/d/1m0LBg2PKpB-bnWfOFj40AglCI1dLmAHLH3ydi3Y7uz8/  
+Thanks to Hoxtilicious and all of the translators who contributed to translating the Russian merc lines: https://www.youtube.com/watch?v=NxzLuAlWIqI | Reddit thread: https://www.reddit.com/r/paydaytheheist/comments/4fer1m/can_someone_who_speaks_russian_translate_all_these/d28jpw7/
