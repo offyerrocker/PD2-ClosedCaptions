@@ -2,7 +2,6 @@
 
 - todo before release:
 -- menu/game state handling
--- fix color ranges not applying?
 -- subtitles for briefing/heist end
 
 
@@ -19,6 +18,8 @@ TODO
 - setup in menu so that captions can be shown in the menu (eg contractor briefings), not just ingame
 
 - better streamlined flow- remove subtitles consistently
+	* look into source style subtitle display- brief delay while the caption animates fadein, queues always cleared from the top - much more readable
+		* not exactly feasible since line lengths vary so widely in pd2 (eg. heat speech)
 
 - address "duplicated" sounds
 	- sounds that naturally play multiple times in rapid succession
@@ -27,7 +28,12 @@ TODO
 		eg. dumpster open/close, plays twice per interaction rather than increasing volume i guess
 	- sounds that play from multiple sources so that you can hear them in multiple locations
 		eg. PA announcements in Crude Awakening
+	* use override_source_id system?
+		- can't remove other lines, just display one at a time
 
+- sounds that need converting to conversations:
+	- heat speech
+		* each heister variant is separate... oy vey
 
 
 
