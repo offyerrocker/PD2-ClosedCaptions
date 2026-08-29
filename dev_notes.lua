@@ -1,10 +1,5 @@
 --[[
 
-- todo before release:
--- menu/game state handling
--- subtitles for briefing/heist end
-
-
 so yeah the whole technical idea behind the mod (and sound_data specifically)
 is extrapolating data about the sound line solely based on the event id and whatever info we can get via lua
 such as whether the game is stealth or loud (which we can get).
@@ -15,6 +10,8 @@ some events are definitely more important than others.
 
 TODO
 
+-- menu/game state handling
+-- subtitles for briefing/heist end
 - setup in menu so that captions can be shown in the menu (eg contractor briefings), not just ingame
 
 - better streamlined flow- remove subtitles consistently

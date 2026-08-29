@@ -1389,9 +1389,9 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 			return
 		elseif category_allowed == nil then 
 			--if unknown or undefined category then log the sound (if logging is enabled)
-			if not self:ShouldLogMissing() then 
+			--if not self:ShouldLogMissing() then 
 				return
-			end
+			--end
 --			self:log_debug("Category is not set for this line! (id " .. tostring(event_id) .. ", category " .. tostring(sound_data.category) .. ")")
 		else
 			if category_allowed == 1 then --always enabled
@@ -1408,10 +1408,6 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 			end
 		end
 	end
-	
---	if category == "sfx" then
---		name = "SFX"
---	end
 	
 	if not text then
 		return
@@ -2459,9 +2455,9 @@ Hooks:Add("ConsoleMod_RegisterCommands","closedcaptions_load_dev_commands",funct
 				local path = ClosedCaptions._MOD_PATH .. "data/sounddata_conversion_script_2.lua"
 				console:Print(blt.vm.dofile(path))
 			elseif subcmd == "missing" then
-				logall(ClosedCaptions._debug_missing_lines_list)
+				console:LogTable(ClosedCaptions._debug_missing_lines_list)
 			elseif subcmd == "list" then
-				logall(ClosedCaptions._active_subtitles)
+				console:LogTable(ClosedCaptions._active_subtitles)
 			end
 		end
 	})
