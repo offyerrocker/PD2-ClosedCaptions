@@ -49,7 +49,9 @@ beneath the mountain
 undercover
 	Play_pon_man_01
 	Play_hnc_man_01
-
+[53] : [Play_pon_man_04] --vars
+[54] : [Play_pon_man_07]
+[55] : [Play_pon_man_06]
 
 Stealing Xmas
 	Play_drs_moon_09

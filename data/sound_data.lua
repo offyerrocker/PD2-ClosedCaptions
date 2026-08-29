@@ -1978,7 +1978,7 @@ return {
 		},
 		whistling_attention = {
 			text = "(whistle!)",
-			fallback_name = "SFX",
+			fallback_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "mission_dialogue",
 			priority = 98,
 			max_distance = 1500,
@@ -22166,7 +22166,7 @@ $1Uh huh. right.]]
 			priority = 65
 		},
 		bdz_heal = {
-			fallback_name = "Medic Dozer",
+			fallback_unitname = "tank_medic",
 			text = "(healed cop)",
 			max_distance = 1500,
 			category = "enemy_chatter",
@@ -22398,7 +22398,7 @@ $1Uh huh. right.]]
 		},
 		cloaker_presence_loop = {
 			text = "(Cloaker idle)",
-			fallback_name = "Cloaker",
+			fallback_unitname = "spooc",
 			priority = 21,
 			max_distance = 1500,
 			category = "enemy_chatter"
@@ -22591,7 +22591,7 @@ $1Uh huh. right.]]
 		
 	--shd (shield); no unit-specific lines aside from this sfx
 		shield_identification = {
-			fallback_name = "SFX",
+			fallback_unitname = "shield",
 			text = "(Shield clanking)",
 			category = "enemy_chatter",
 			max_distance = 4000, --it's loud.
@@ -22605,7 +22605,7 @@ $1Uh huh. right.]]
 			text = "(Medic spawned)",
 			duration = 3,
 			priority = 85,
-			fallback_name = "Medic",
+			fallback_unitname = "medic",
 			category = "enemy_chatter",
 			max_distance = 4000,
 			line_variations = {
@@ -22771,7 +22771,7 @@ $1Uh huh. right.]]
 
 		rmdc_entrance = {
 			text = "(Russian Medic spawned)",
-			fallback_name = "Medic",
+			fallback_unitname = "medic",
 			duration = 3,
 			priority = 85,
 			max_distance = 4000,
@@ -24638,35 +24638,70 @@ $1Uh huh. right.]]
 			override_speaker_name = "hud_subtitlemod_speaker_murkyintercom"
 		},
 		
---undercover		
-		Play_txm_man_01 = {
-			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
+--undercover
+		
+		Play_pon_man_01 = {
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			category = "mission_dialogue",
 			priority = 10,
-			duration = 5,
-			text = "It's close by, but I want to see the funds.",
-			line_variations = {
-				standard_mode = {
-					"It's close by, but I want to see the funds.",
-					"It's... it's somewhere close, but I want to see the funds.",
-					"It's... it's somewhere close. I want to see the funds.",
-					"It's nearby. Can I see the funds?"
-				}
-			}
+			duration = 7,
+			text = "Mr. Sturr, this is the FBI. You are under arrest for tax fraud and for affiliating with known criminals."
 		},
-		Play_txm_man_02 = {
-			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
+		Play_pon_man_02 = {
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 7,
+			text = "Stay completely still and keep your hands in the air." -- has variants
+		},
+		Play_pon_man_03 = {
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 7,
+			text = "Mr. Sturr, comply, or we will be forced to take you down."
+		},
+		Play_pon_man_04 = {
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 7,
+			text = "Don't move. One of our agents will now detain you."
+		},
+		Play_pon_man_05 = {
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
 			category = "mission_dialogue",
 			priority = 10,
 			duration = 5,
-			text = "Great. I'll go get the server.",
-			line_variations = {
-				standard_mode = {
-					"Nice. I'll get the server.",
-					"Excellent. I'll get the server.",
-					"Great. I'll go get the server."
-				}
-			}
+			text = "Don't comply with them. We will secure you."
+		},
+		Play_pon_man_06 = {
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 5,
+			text = "Mr. Sturr, get out of the limo." -- we will breach the car, sir
+		},
+		Play_pon_man_07 = {
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 5,
+			text = "Mr. Sturr, we will get you out of there."
+		},
+		Play_pon_man_08 = {
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 5,
+			text = "Mr. Sturr, comply, or we will be forced to take you down."
+		},
+		Play_pon_man_09 = { -- not used, i think
+			override_speaker_id = "hud_subtitlemod_speaker_megaphone",
+			category = "mission_dialogue",
+			priority = 10,
+			duration = 5,
+			text = "Up top, let's move, people! Let's secure Alpha One."
 		},
 		Play_txm_man_03 = {
 			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",

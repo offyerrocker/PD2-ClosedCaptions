@@ -18,6 +18,7 @@
 	"hud_subtitlemod_speaker_bankteller" : "Bank Teller",
 	"hud_subtitlemod_speaker_brnmch" : "Mechanic",
 	"hud_subtitlemod_speaker_brnbk" : "Biker",
+	"hud_subtitlemod_speaker_crnman" : "Alex",
 	"hud_subtitlemod_speaker_commissar" : "Commissar",
 	"hud_subtitlemod_speaker_drunkpilot" : "Drunken Pilot",
 	"hud_subtitlemod_speaker_escapedriver" : "Escape Driver",
@@ -61,5 +62,4 @@
 	"hud_subtitlemod_speaker_unknown_female" : "Woman",
 	"hud_subtitlemod_speaker_gen_civilian_1" : "Man 1",
 	"hud_subtitlemod_speaker_gen_civilian_2" : "Man 2"
-	
 }

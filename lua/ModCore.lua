@@ -356,6 +356,8 @@ function ClosedCaptions:guess_speaker_from_string_id(event_id)
 		return "hud_subtitlemod_speaker_rvd_blue"
 	elseif string.find(s,"^pyr") then -- alesso pyrotech guy
 		return "hud_subtitlemod_speaker_pyr"
+	elseif string.find(s,"^crn") then -- alesso pyrotech guy
+		return "hud_subtitlemod_speaker_crnman"
 	end
 end
 
@@ -942,7 +944,7 @@ function ClosedCaptions:format_speaker_name(speaker_name,text,color)
 	end
 	
 	
-	return caption_str,color,color_ranges
+	return caption_str,text_color,color_ranges
 end
 
 -- intercept base game subtitles from bain/locke/contractor soup du jour
@@ -1422,7 +1424,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	if variation_data.override_speaker_id then
 		name = managers.localization:text(variation_data.override_speaker_id)
 	else
-		name = name or (variation_data.fallback_speaker_id and managers.localization:text(variation_data.fallback_speaker_id)) or "???"
+		name = name or (variation_data.fallback_speaker_id and managers.localization:text(variation_data.fallback_speaker_id)) or (variation_data.fallback_unitname and self._UNIT_NAMES[variation_data.fallback_unitname]) or "???"
 	end
 	
 	local caption_str,text_color,color_ranges = self:format_speaker_name(name,text,color)
