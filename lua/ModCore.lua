@@ -553,6 +553,247 @@ function ClosedCaptions:setup()
 	self:hook_soundsource()
 end
 
+--used to generate sounds that are not significantly different save for characters' names
+function ClosedCaptions:process_macros(sound_data)
+	if not managers.criminals then return end
+	
+	for sound_name_raw,vo_data in pairs(sound_data.vo_special) do 
+		if vo_data.macro == "character_name" then 
+			for char_index,char_data in pairs(managers.criminals._characters) do 
+				if char_data.static_data and char_data.static_data.ssuffix then
+					local prefix = char_data.static_data.ssuffix
+					local id = string.gsub(sound_name_raw,"@",prefix)
+					local data = sound_data.vo[id]
+					if not data then
+						data = table.deep_map_copy(vo_data)
+						sound_data.vo[id] = data
+					end
+					local character_name = managers.localization:text("menu_" .. char_data.name)
+					data.text = string.gsub(data.text,"$CHARACTER_NAME",utf8.to_upper(character_name))
+					data.text = string.gsub(data.text,"$character_name",character_name)
+				end
+			end
+		end
+	end
+	
+	for event_id,data in pairs(sound_data.vo) do 
+		if not data.disabled then
+			local id = tostring(SoundDevice:string_to_id(event_id))
+--			if self._soundid_lookup[id] then
+				--error("Caption lookup collision! " .. tostring(event_id))
+--			end
+			self._soundid_lookup[id] = event_id
+		end
+	end
+end
+--chooses a random caption variation from the sound_table
+-- todo skip_chance for each part?
+function ClosedCaptions.get_random_variation(variations_tbl,is_recombinable)
+	if is_recombinable then
+		local variation_text
+		for _,combinable_parts in pairs(variations_tbl) do 
+			local new_text = combinable_parts[math.random(#combinable_parts)]
+			if new_text ~= "" then 
+				if variation_text then
+					variation_text = variation_text .. " "
+				else
+					variation_text = ""
+				end
+				variation_text = variation_text .. new_text
+			end
+		end
+		return variation_text
+	else
+		local num_variants = #variations_tbl
+		if num_variants > 0 then 
+			return variations_tbl[math.random(num_variants)]
+		end
+	end
+end
+
+function ClosedCaptions.CreateBGBox(parent,params,panel_config,child_config)
+	local w = (params and params.w) or parent:w()
+	local h = (params and params.h) or parent:h()
+	local panel = parent:panel({
+		name = "bgbox",
+		x = params.x or nil,
+		y = params.y or nil,
+		w = w,
+		h = h,
+		alpha = 0.5, --default; overridden from panel config
+		layer = -1
+	})
+	if panel_config then
+		panel:configure(panel_config)
+	end
+	
+	--local tile_w_scale = params and (params.w_scale or params.scale) or 1
+	--local tile_h_scale = params and (params.h_scale or params.scale) or 1
+	
+	-- individual tile sizes in texture file
+	local RAW_BITMAP_W = 16
+	local RAW_BITMAP_H = 16
+	
+	local tile_w = params and (params.w or params.tile_size) or RAW_BITMAP_W -- or (tile_w_scale * RAW_BITMAP_W)
+	local tile_h = params and (params.h or params.tile_size) or RAW_BITMAP_H -- or (tile_h_scale * RAW_BITMAP_H)
+	
+	local hor_size = w - (tile_w + tile_w)
+	local ver_size = h - (tile_h + tile_h)
+	
+	local color = params.color or Color.black
+	local texture = "guis/textures/closedcaptions_bgbox_atlas"
+	local corner_topleft = panel:bitmap({
+		name = "corner_topleft",
+		x = 0,
+		y = 0,
+		w = tile_w,
+		h = tile_h,
+		valign = "top",
+		halign = "left",
+		color = color,
+		texture = texture,
+		texture_rect = {
+			0,0,
+			RAW_BITMAP_W,RAW_BITMAP_H
+		}
+	})
+	local corner_bottomleft = panel:bitmap({
+		name = "corner_bottomleft",
+		x = 0,
+		y = h - tile_h,
+		w = tile_w,
+		h = tile_h,
+		valign = "bottom",
+		halign = "left",
+		color = color,
+		texture = texture,
+		texture_rect = {
+			0,RAW_BITMAP_H,
+			RAW_BITMAP_W,-RAW_BITMAP_H
+		}
+	})
+	local corner_topright = panel:bitmap({
+		name = "corner_topright",
+		x = w - tile_w,
+		y = 0,
+		w = tile_w,
+		h = tile_h,
+		valign = "top",
+		halign = "right",
+		color = color,
+		texture = texture,
+		texture_rect = {
+			RAW_BITMAP_W,0,
+			-RAW_BITMAP_W,RAW_BITMAP_H
+		}
+	})
+	local corner_bottomright = panel:bitmap({
+		name = "corner_bottomright",
+		x = w - tile_w,
+		y = h - tile_h,
+		w = tile_w,
+		h = tile_h,
+		valign = "bottom",
+		halign = "right",
+		color = color,
+		texture = texture,
+		texture_rect = {
+			RAW_BITMAP_W,RAW_BITMAP_H,
+			-RAW_BITMAP_W,-RAW_BITMAP_H
+		}
+	})
+	local edge_left = panel:bitmap({
+		name = "edge_left",
+		x = 0,
+		y = tile_h,
+		w = tile_w,
+		h = ver_size,
+		valign = "grow",
+		halign = "left",
+		color = color,
+		texture = texture,
+		texture_rect = {
+			0,RAW_BITMAP_H,
+			RAW_BITMAP_W,RAW_BITMAP_H
+		}
+	})
+	local edge_right = panel:bitmap({
+		name = "edge_right",
+		x = w - tile_w,
+		y = tile_h,
+		w = tile_w,
+		h = ver_size,
+		valign = "grow",
+		halign = "right",
+		texture = texture,
+		color = color,
+		texture_rect = {
+			RAW_BITMAP_W,RAW_BITMAP_H,
+			-RAW_BITMAP_W,RAW_BITMAP_H
+		}
+	})
+	local edge_top = panel:bitmap({
+		name = "edge_top",
+		x = tile_w,
+		y = 0,
+		w = hor_size,
+		h = tile_h,
+		valign = "top",
+		halign = "grow",
+		color = color,
+		texture = texture,
+		texture_rect = {
+			RAW_BITMAP_W,0,
+			RAW_BITMAP_W,RAW_BITMAP_H
+		}
+	})
+	local edge_bottom = panel:bitmap({
+		name = "edge_bottom",
+		x = tile_w,
+		y = h - tile_h,
+		w = hor_size,
+		h = tile_h,
+		valign = "bottom",
+		halign = "grow",
+		color = color,
+		texture = texture,
+		texture_rect = {
+			RAW_BITMAP_W,RAW_BITMAP_H,
+			RAW_BITMAP_W,-RAW_BITMAP_H
+		}
+	})
+	
+	local center = panel:bitmap({
+		name = "center",
+		x = tile_w,
+		y = tile_h,
+		w = hor_size,
+		h = ver_size,
+		valign = "grow",
+		halign = "grow",
+		color = color,
+		texture = texture,
+		texture_rect = {
+			RAW_BITMAP_W,RAW_BITMAP_H,
+			RAW_BITMAP_W,-RAW_BITMAP_H
+		}
+	})
+	
+	if child_config then
+		corner_topleft:configure(child_config)
+		corner_bottomleft:configure(child_config)
+		corner_topright:configure(child_config)
+		corner_bottomright:configure(child_config)
+		edge_left:configure(child_config)
+		edge_right:configure(child_config)
+		edge_top:configure(child_config)
+		edge_bottom:configure(child_config)
+		center:configure(child_config)
+	end
+	
+	return panel
+end
+
 local player_pos = Vector3()
 local source_pos = Vector3() -- do not rely on this, as it may be nil
 local tmp_vec1 = Vector3() 
@@ -739,6 +980,13 @@ function ClosedCaptions:update(t,dt)
 	end
 end
 Hooks:Add("GameSetupUpdate","ClosedCaptions_Update",callback(ClosedCaptions,ClosedCaptions,"update"))
+
+
+-- looks up sound id (float) to event_id (string)
+function ClosedCaptions:id_to_string(id)
+	-- this should check BeardLib.Managers.Sound if i want to subtitle custom sounds
+	return self._soundid_lookup[id]
+end
 
 
 function ClosedCaptions:add_conversation_subtitle(t,item)
@@ -1453,272 +1701,6 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	return caption_str,text_color,color_ranges,variation_data,conversation_data
 end
 
---chooses a random caption variation from the sound_table
--- todo skip_chance for each part?
-function ClosedCaptions.get_random_variation(variations_tbl,is_recombinable)
-	if is_recombinable then
-		local variation_text
-		for _,combinable_parts in pairs(variations_tbl) do 
-			local new_text = combinable_parts[math.random(#combinable_parts)]
-			if new_text ~= "" then 
-				if variation_text then
-					variation_text = variation_text .. " "
-				else
-					variation_text = ""
-				end
-				variation_text = variation_text .. new_text
-			end
-		end
-		return variation_text
-	else
-		local num_variants = #variations_tbl
-		if num_variants > 0 then 
-			return variations_tbl[math.random(num_variants)]
-		end
-	end
-end
-
-function ClosedCaptions:HideCaptionsPanel()
-	if alive(self._panel) then
-		self._panel:hide()
-	end
-end
-
-function ClosedCaptions:ShowCaptionsPanel()
-	if alive(self._panel) then
-		self._panel:show()
-	end
-end
-
-function ClosedCaptions:SetCaptionsPanelVisible(state)
-	if alive(self._panel) then
-		self._panel:set_visible(state)
-	end
-end
-
-function ClosedCaptions.CreateBGBox(parent,params,panel_config,child_config)
-	local w = (params and params.w) or parent:w()
-	local h = (params and params.h) or parent:h()
-	local panel = parent:panel({
-		name = "bgbox",
-		x = params.x or nil,
-		y = params.y or nil,
-		w = w,
-		h = h,
-		alpha = 0.5, --default; overridden from panel config
-		layer = -1
-	})
-	if panel_config then
-		panel:configure(panel_config)
-	end
-	
-	--local tile_w_scale = params and (params.w_scale or params.scale) or 1
-	--local tile_h_scale = params and (params.h_scale or params.scale) or 1
-	
-	-- individual tile sizes in texture file
-	local RAW_BITMAP_W = 16
-	local RAW_BITMAP_H = 16
-	
-	local tile_w = params and (params.w or params.tile_size) or RAW_BITMAP_W -- or (tile_w_scale * RAW_BITMAP_W)
-	local tile_h = params and (params.h or params.tile_size) or RAW_BITMAP_H -- or (tile_h_scale * RAW_BITMAP_H)
-	
-	local hor_size = w - (tile_w + tile_w)
-	local ver_size = h - (tile_h + tile_h)
-	
-	local color = params.color or Color.black
-	local texture = "guis/textures/closedcaptions_bgbox_atlas"
-	local corner_topleft = panel:bitmap({
-		name = "corner_topleft",
-		x = 0,
-		y = 0,
-		w = tile_w,
-		h = tile_h,
-		valign = "top",
-		halign = "left",
-		color = color,
-		texture = texture,
-		texture_rect = {
-			0,0,
-			RAW_BITMAP_W,RAW_BITMAP_H
-		}
-	})
-	local corner_bottomleft = panel:bitmap({
-		name = "corner_bottomleft",
-		x = 0,
-		y = h - tile_h,
-		w = tile_w,
-		h = tile_h,
-		valign = "bottom",
-		halign = "left",
-		color = color,
-		texture = texture,
-		texture_rect = {
-			0,RAW_BITMAP_H,
-			RAW_BITMAP_W,-RAW_BITMAP_H
-		}
-	})
-	local corner_topright = panel:bitmap({
-		name = "corner_topright",
-		x = w - tile_w,
-		y = 0,
-		w = tile_w,
-		h = tile_h,
-		valign = "top",
-		halign = "right",
-		color = color,
-		texture = texture,
-		texture_rect = {
-			RAW_BITMAP_W,0,
-			-RAW_BITMAP_W,RAW_BITMAP_H
-		}
-	})
-	local corner_bottomright = panel:bitmap({
-		name = "corner_bottomright",
-		x = w - tile_w,
-		y = h - tile_h,
-		w = tile_w,
-		h = tile_h,
-		valign = "bottom",
-		halign = "right",
-		color = color,
-		texture = texture,
-		texture_rect = {
-			RAW_BITMAP_W,RAW_BITMAP_H,
-			-RAW_BITMAP_W,-RAW_BITMAP_H
-		}
-	})
-	local edge_left = panel:bitmap({
-		name = "edge_left",
-		x = 0,
-		y = tile_h,
-		w = tile_w,
-		h = ver_size,
-		valign = "grow",
-		halign = "left",
-		color = color,
-		texture = texture,
-		texture_rect = {
-			0,RAW_BITMAP_H,
-			RAW_BITMAP_W,RAW_BITMAP_H
-		}
-	})
-	local edge_right = panel:bitmap({
-		name = "edge_right",
-		x = w - tile_w,
-		y = tile_h,
-		w = tile_w,
-		h = ver_size,
-		valign = "grow",
-		halign = "right",
-		texture = texture,
-		color = color,
-		texture_rect = {
-			RAW_BITMAP_W,RAW_BITMAP_H,
-			-RAW_BITMAP_W,RAW_BITMAP_H
-		}
-	})
-	local edge_top = panel:bitmap({
-		name = "edge_top",
-		x = tile_w,
-		y = 0,
-		w = hor_size,
-		h = tile_h,
-		valign = "top",
-		halign = "grow",
-		color = color,
-		texture = texture,
-		texture_rect = {
-			RAW_BITMAP_W,0,
-			RAW_BITMAP_W,RAW_BITMAP_H
-		}
-	})
-	local edge_bottom = panel:bitmap({
-		name = "edge_bottom",
-		x = tile_w,
-		y = h - tile_h,
-		w = hor_size,
-		h = tile_h,
-		valign = "bottom",
-		halign = "grow",
-		color = color,
-		texture = texture,
-		texture_rect = {
-			RAW_BITMAP_W,RAW_BITMAP_H,
-			RAW_BITMAP_W,-RAW_BITMAP_H
-		}
-	})
-	
-	local center = panel:bitmap({
-		name = "center",
-		x = tile_w,
-		y = tile_h,
-		w = hor_size,
-		h = ver_size,
-		valign = "grow",
-		halign = "grow",
-		color = color,
-		texture = texture,
-		texture_rect = {
-			RAW_BITMAP_W,RAW_BITMAP_H,
-			RAW_BITMAP_W,-RAW_BITMAP_H
-		}
-	})
-	
-	if child_config then
-		corner_topleft:configure(child_config)
-		corner_bottomleft:configure(child_config)
-		corner_topright:configure(child_config)
-		corner_bottomright:configure(child_config)
-		edge_left:configure(child_config)
-		edge_right:configure(child_config)
-		edge_top:configure(child_config)
-		edge_bottom:configure(child_config)
-		center:configure(child_config)
-	end
-	
-	return panel
-end
-
---used to generate sounds that are not significantly different save for characters' names
-function ClosedCaptions:process_macros(sound_data)
-	if not managers.criminals then return end
-	
-	for sound_name_raw,vo_data in pairs(sound_data.vo_special) do 
-		if vo_data.macro == "character_name" then 
-			for char_index,char_data in pairs(managers.criminals._characters) do 
-				if char_data.static_data and char_data.static_data.ssuffix then
-					local prefix = char_data.static_data.ssuffix
-					local id = string.gsub(sound_name_raw,"@",prefix)
-					local data = sound_data.vo[id]
-					if not data then
-						data = table.deep_map_copy(vo_data)
-						sound_data.vo[id] = data
-					end
-					local character_name = managers.localization:text("menu_" .. char_data.name)
-					data.text = string.gsub(data.text,"$CHARACTER_NAME",utf8.to_upper(character_name))
-					data.text = string.gsub(data.text,"$character_name",character_name)
-				end
-			end
-		end
-	end
-	
-	for event_id,data in pairs(sound_data.vo) do 
-		if not data.disabled then
-			local id = tostring(SoundDevice:string_to_id(event_id))
---			if self._soundid_lookup[id] then
-				--error("Caption lookup collision! " .. tostring(event_id))
---			end
-			self._soundid_lookup[id] = event_id
-		end
-	end
-end
-
--- looks up sound id (float) to event_id (string)
-function ClosedCaptions:id_to_string(id)
-	-- this should check BeardLib.Managers.Sound if i want to subtitle custom sounds
-	return self._soundid_lookup[id]
-end
-
 -- called when the settings are changed;
 -- reposition all caption ui elements accordingly
 function ClosedCaptions:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_right)
@@ -1762,6 +1744,24 @@ function ClosedCaptions:RealignAllPanels()
 		if alive(v.panel) then
 			self:RealignPanel(v.panel,v.panel:child("subtitle"),v.panel:child("bgbox"),v.panel:child("arrow_left"),v.panel:child("arrow_right"))
 		end
+	end
+end
+
+function ClosedCaptions:HideCaptionsPanel()
+	if alive(self._panel) then
+		self._panel:hide()
+	end
+end
+
+function ClosedCaptions:ShowCaptionsPanel()
+	if alive(self._panel) then
+		self._panel:show()
+	end
+end
+
+function ClosedCaptions:SetCaptionsPanelVisible(state)
+	if alive(self._panel) then
+		self._panel:set_visible(state)
 	end
 end
 

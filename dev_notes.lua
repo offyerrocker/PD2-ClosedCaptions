@@ -14,8 +14,9 @@ TODO
 
 -- menu/game state handling
 -- subtitles for briefing/heist end
-- setup in menu so that captions can be shown in the menu (eg contractor briefings), not just ingame
 
+- heist intro/complete lines
+- main menu contract mouseover lines
 - better streamlined flow- remove subtitles consistently
 	* look into source style subtitle display- brief delay while the caption animates fadein, queues always cleared from the top - much more readable
 		* not exactly feasible since line lengths vary so widely in pd2 (eg. heat speech)
