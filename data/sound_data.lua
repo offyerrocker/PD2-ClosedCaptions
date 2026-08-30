@@ -22579,7 +22579,7 @@ $1Uh huh. right.]]
 			category = "enemy_death"
 		},
 		taser_charge = {
-			override_speaker_id = "hud_subtitlemod_speaker_sfx",
+			fallback_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
 			text = "(Taser charge)",
 			override_source_id = true,
