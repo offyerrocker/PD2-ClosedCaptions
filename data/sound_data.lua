@@ -77,9 +77,10 @@ return {
 		f11a_sin = {
 			category = "heister_dialogue",
 			text = "Dallas! Help me up!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"Hey, Dallas!",
 						"Dallas!",
@@ -93,16 +94,17 @@ return {
 						"Help!",
 						"Over here!",
 						"I need help!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 		f11b_sin = {
 			category = "heister_dialogue",
 			text = "Dallas! Help me up!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"Hey, Chains!",
 						"Chains!",
@@ -116,16 +118,17 @@ return {
 						"Help!",
 						"Over here!",
 						"I need help!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 		f11c_sin = {
 			category = "heister_dialogue",
 			text = "Hoxton! Help me up!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"HOXTON!",
 						"Hey, Hoxton!",
@@ -140,16 +143,17 @@ return {
 						"Help!",
 						"Over here!",
 						"I need help!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 		f13a_sin = {
 			category = "heister_dialogue",
 			text = "Dallas! Get me outta these cuffs!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"Hey, Dallas!",
 						"Dallas!"
@@ -163,16 +167,17 @@ return {
 						"Get me outta here!",
 						"Get me outta these cuffs!",
 						"Let me outta these cuffs!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 		f13b_sin = {
 			category = "heister_dialogue",
 			text = "Dallas! Help me up!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"Hey, Chains!",
 						"Chains!"
@@ -186,16 +191,17 @@ return {
 						"Get me outta here!",
 						"Get me outta these cuffs!",
 						"Let me outta these cuffs!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 		f13d_sin = {
 			category = "heister_dialogue",
 			text = "Hoxton! Get me outta these cuffs!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"Hoxtalicious!",
 						"Hoxtonite!",
@@ -215,16 +221,17 @@ return {
 						"Get me outta here!",
 						"Get me outta these cuffs!",
 						"Let me outta these cuffs!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 		f21a_sin = {
 			category = "heister_dialogue",
 			text = "Chains! Follow me!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"Hey, Dallas!",
 						"Dallas!"
@@ -235,16 +242,17 @@ return {
 						"Follow me!",
 						"Follow my lead!",
 						"Follow me quickly!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 		f21b_sin = {
 			category = "heister_dialogue",
 			text = "Chains! Follow me!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"Hey, Chains!",
 						"Chains!"
@@ -255,16 +263,17 @@ return {
 						"Follow me!",
 						"Follow my lead!",
 						"Follow me quickly!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 		f21d_sin = {
 			category = "heister_dialogue",
 			text = "Hey, Hoxton! Follow me!",
-			rb3 = {
+			variants = {rb3 = {
 				line_variations = {
 					recombinable = true,
+					standard_mode = {
 					{
 						"Hoxtalicious!",
 						"Hoxtonite!",
@@ -279,9 +288,9 @@ return {
 						"Come with me!",
 						"Follow my lead!",
 						"Come with me, move it!"
-					}
+					}}
 				}
-			}
+			}}
 		},
 	
 	
@@ -2077,10 +2086,12 @@ return {
 			priority = 98,
 			duration = 2,
 			line_variations = {
-				"Copy that. Opening Gate 2.",
-				"Alright, alright! Hang on a sec.",
-				"Copy, copy... [sigh]. Stand clear.",
-				"Fine... stand by."
+				standard_mode = {
+					"Copy that. Opening Gate 2.",
+					"Alright, alright! Hang on a sec.",
+					"Copy, copy... [sigh]. Stand clear.",
+					"Fine... stand by."
+				}
 			}
 		},
 		TRAI_Gate_Unlock = {
@@ -4372,8 +4383,7 @@ $1Uh huh. right.]]
 							"Drill's in place.",
 							"Drill in place.",
 							"Drill mounted."
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -4709,7 +4719,7 @@ $1Uh huh. right.]]
 		},
 		g30 = {
 			text = "Killed a Bulldozer!",
-			category = "special_kills",
+			category = "heister_kills",
 			priority = 45,
 			duration = 2,
 			variants = {
@@ -4720,8 +4730,7 @@ $1Uh huh. right.]]
 							"The Bulldozer taken care of!",
 							"I took out the Bulldozer!",
 							"The Bulldozer's history!"										
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb4 = {
@@ -4731,8 +4740,7 @@ $1Uh huh. right.]]
 							"Bulldozer eliminated!",
 							"Bulldozer taken care of!",
 							"Bulldozer's history!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -4859,8 +4867,7 @@ $1Uh huh. right.]]
 							--nar bla er der bar klenge
 							--er da knows de me kwee, der det no skaap
 							"Vi sotte! (We suck!)"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb4 = {
@@ -4872,8 +4879,7 @@ $1Uh huh. right.]]
 							"Sheeit!",
 							"Fuck...!",
 							"Damn..."
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb15 = {
@@ -4995,8 +5001,7 @@ $1Uh huh. right.]]
 							"Any second, aaaany second...",
 							"Any second, now...",
 							"Wait for it, wait for it..."
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb4 = {
@@ -5006,8 +5011,7 @@ $1Uh huh. right.]]
 							"Any second...",
 							"Steady now! Hold it...",
 							"Wait for it, wait for it..."
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb15 = {
@@ -5017,8 +5021,7 @@ $1Uh huh. right.]]
 							"Time to dance!",
 							"Get fucking ready.",
 							"Any second now, c'mon!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				}
 			}
@@ -5444,7 +5447,7 @@ $1Uh huh. right.]]
 		},
 		p10 = {
 			text = "Broke-dick piece of shit drill!", --chains/hoxton only?
-			category = "UNKNOWN"
+			category = "heister_dialogue"
 		},
 		p12 = {
 			text = "Go, go!",
@@ -5558,7 +5561,7 @@ $1Uh huh. right.]]
 		},
 		p18 = {
 			text = "What're you waiting for!?", --wolf only?
-			category = "UNKNOWN"
+			category = "heister_dialogue"
 		},
 		p19 = {
 			text = "I'm on my way!",
@@ -6301,8 +6304,7 @@ $1Uh huh. right.]]
 							"Here it is!",
 							"Found it!",
 							"We got it!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb15 = {
@@ -6311,8 +6313,7 @@ $1Uh huh. right.]]
 							"We got it!",
 							"Here it is!",
 							"Found it!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				}
 			}
@@ -8026,8 +8027,7 @@ $1Uh huh. right.]]
 							"It's a Bulldozer!",
 							"Bulldozer!",
 							"Got a Bulldozer!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				}
 			}
@@ -8311,8 +8311,7 @@ $1Uh huh. right.]]
 							"It's a Cloaker!",
 							"We've got a Cloaker!",
 							"Cloaker!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				}
 			}
@@ -9605,7 +9604,7 @@ $1Uh huh. right.]]
 		},
 		s14 = {
 			text = "Bodybag secured.", --hoxton only?
-			category = "UNKNOWN"
+			category = "heister_dialogue"
 		},
 		s32x_sin = {
 			text = "I'm out of Cable Ties.",
@@ -10084,8 +10083,7 @@ $1Uh huh. right.]]
 							"Stay down!",
 							"Don't move!",
 							"Stay where you are!"
-						},
-						DISABLED_assault_mode = {}
+						}
 					}
 				},
 				rb4 = {
@@ -10096,8 +10094,7 @@ $1Uh huh. right.]]
 							"Stay down!",
 							"Don't move!",
 							"Stay where you are!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -10157,8 +10154,7 @@ $1Uh huh. right.]]
 							"And stay down.",
 							"And don't you dare move.",
 							"And don't move."
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb4 = {
@@ -10170,8 +10166,7 @@ $1Uh huh. right.]]
 							"And stay down!",
 							"And don't get up!",
 							"And don't move."
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -10215,8 +10210,7 @@ $1Uh huh. right.]]
 							"Get the fuck up!",
 							"You get the fuck up!",
 							"You! GET UP!"
-						},
-						DISABLED_assault_mode = {} --we need you, buddy! Stand up!
+						} -- needs assault mode variations --we need you, buddy! Stand up!
 					}
 				},
 				rb4 = {
@@ -10231,8 +10225,7 @@ $1Uh huh. right.]]
 							"You can do it!",
 							"Stand up!",
 							"Pain is just mental! Get back up!"
-						},
-						DISABLED_assault_mode = {} --we need you, buddy! Stand up!
+						} -- needs assault mode variations --we need you, buddy! Stand up!
 					}
 				},
 				rb9 = {
@@ -10371,8 +10364,7 @@ $1Uh huh. right.]]
 							"Come with me, move it!",
 							"Come along, now.",
 							"Come along, now!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -10544,8 +10536,7 @@ $1Uh huh. right.]]
 						standard_mode = {
 							"Up.",
 							"Up!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -10593,8 +10584,7 @@ $1Uh huh. right.]]
 						standard_mode = {
 							"Up.",
 							"Up!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -10724,8 +10714,7 @@ $1Uh huh. right.]]
 							"Don't move!",
 							"Stay still!",
 							"Stay where you are!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -10997,8 +10986,7 @@ $1Uh huh. right.]]
 							"Sounds like the Lance is misfiring.",
 							"Yeah, that's an overheated Thermal Lance, alright." --dallas pronounces it "overhead" so ovk probably made a typo in the script
 						--										"Another computer needs fixing!", --uhh... not sure why this sound variant can play from d03_sin
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				}
 			}
@@ -11081,8 +11069,7 @@ $1Uh huh. right.]]
 								"Somebody's gotta restart it!",
 								"Somebody's gotta fix it!"
 							}
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb4 = {
@@ -11102,8 +11089,7 @@ $1Uh huh. right.]]
 								"We have to fix it!",
 								"We need to get it fixed!"
 							}
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb15 = {
@@ -11252,8 +11238,8 @@ $1Uh huh. right.]]
 			}
 		}, --mask up				
 		i01x_any = {
-			text = "[Anticipation phase]",
-			category = "UNKNOWN",
+			text = "(entered Anticipation phase)", -- no idea who even says this
+			category = "heister_dialogue",
 			disabled = true
 		},
 		r01x_sin = { --bot 'follow me' response; short delay
@@ -11675,8 +11661,7 @@ $1Uh huh. right.]]
 							"Cuff yourself.",
 							"Put your cuffs on!",
 							"Handcuff yourself!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb4 = {
@@ -11689,8 +11674,7 @@ $1Uh huh. right.]]
 							"Cuff yourself.",
 							"Put your cuffs on!",
 							"Handcuff yourself!"
-						},
-						DISABLED_assault_mode = {}
+						} -- needs assault mode variations
 					}
 				},
 				rb9 = {
@@ -20065,7 +20049,7 @@ $1Uh huh. right.]]
 			priority = 85
 		},
 		fl1n_g90 = {
-			category = "UNKNOWN",
+			category = "enemy_chatter",
 			duration = 3,
 			priority = 85,
 			max_distance = 1000,
@@ -21714,7 +21698,8 @@ $1Uh huh. right.]]
 		},
 		rclk_m01x_plu = { --! todo
 			text = "???",
-			category = "UNKNOWN",
+			category = "enemy_chatter",
+			disabled = true,
 			override_source_id = true,
 			max_distance = 700,
 			duration = 2,
@@ -21855,7 +21840,7 @@ $1Uh huh. right.]]
 			max_distance = 1500,
 			duration = 3,
 			priority = 85,
-			category = "UNKNOWN"
+			category = "enemy_chatter"
 		},
 		rtsr_mov = {
 			text = "(Move!)",
@@ -23082,8 +23067,9 @@ $1Uh huh. right.]]
 			priority = 21
 		},
 		tasing = {
-			text = "(taser charging)", --tasing
-			category = "UNKNOWN", --??? when???
+			text = "(taser charging!)", --tasing
+			fallback_unitname = "taser",
+			category = "enemy_dialogue", --??? when???
 			duration = 5,
 			priority = 21
 		},
@@ -23969,9 +23955,11 @@ $1Uh huh. right.]]
 			priority = 37,
 			text = "Ugh, what are you looking at?",
 			line_variations = {
-				"Ugh, what are you looking at?",
-				"Get out of there, you're blocking the sun...",
-				"Get out of there, you're blocking the sun!"
+				standard_mode = {
+					"Ugh, what are you looking at?",
+					"Get out of there, you're blocking the sun...",
+					"Get out of there, you're blocking the sun!"
+				}
 			}
 		},
 		Play_bkn_pal_02 = {
@@ -23981,9 +23969,11 @@ $1Uh huh. right.]]
 			priority = 37,
 			override_color = "neutral1", --this field is necessary for when voicelines are set to play through a source that is not a unit's sound() extension 
 			line_variations = {
-				"Get me some tanning lotion, will ya?",
-				"Get me some tanning lotion, baby.",
-				"Get me some tanning lotion."
+				standard_mode = {
+					"Get me some tanning lotion, will ya?",
+					"Get me some tanning lotion, baby.",
+					"Get me some tanning lotion."
+				}
 			}
 		},
 		Play_bkn_pal_03 = {
@@ -23993,8 +23983,10 @@ $1Uh huh. right.]]
 			priority = 37,
 			override_color = "neutral1",
 			line_variations = {
-				"[flirtatious] Ooh, you should totally get us some weed, as well.",
-				"Oh, and you should probably get us some weed, too."
+				standard_mode = {
+					"[flirtatious] Ooh, you should totally get us some weed, as well.",
+					"Oh, and you should probably get us some weed, too."
+				}
 			}
 		},
 		Play_bkn_pal_04 = {
@@ -24595,7 +24587,7 @@ $1Uh huh. right.]]
 		},
 		
 		pal_money_printer_end_paper = {
-			speaker_id = "hud_subtitlemod_speaker_sfx",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[printer out of paper warning!]",
 			category = "mission_dialogue",
 			max_distance = 1500,
@@ -24604,7 +24596,7 @@ $1Uh huh. right.]]
 		},
 		
 		pal_money_printer_end_ink = {
-			speaker_id = "hud_subtitlemod_speaker_sfx",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[printer out of ink warning!]",
 			category = "mission_dialogue",
 			max_distance = 1500,
@@ -24612,7 +24604,7 @@ $1Uh huh. right.]]
 			duration = 5
 		},
 		pal_money_printer_start = {
-			speaker_id = "hud_subtitlemod_speaker_sfx",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[printer starts printing]",
 			category = "mission_dialogue",
 			max_distance = 1500,
@@ -24620,7 +24612,7 @@ $1Uh huh. right.]]
 			duration = 5
 		},
 		pal_money_printer_finished = {
-			speaker_id = "hud_subtitlemod_speaker_sfx",
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			text = "[printer completed money print]",
 			category = "mission_dialogue",
 			max_distance = 1500,
@@ -27451,13 +27443,6 @@ $2...Putas.$b
 		mute = { --???
 			category = "UNKNOWN"
 		},
-		str_car_fire = { --???
-			override_speaker_id = "hud_subtitlemod_speaker_sfx",
-			category = "sfx",
-			max_distance = 700,
-			disabled = true, 
-			priority = 98
-		},
 		car_alarm_on = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
 			category = "sfx",
@@ -28226,7 +28211,7 @@ $1: Move it!
 		
 		-- Hostile Takeover
 		Play_rai_corp_01 = {
-			speaker_id = "hud_subtitlemod_speaker_rainey",
+			override_speaker_id = "hud_subtitlemod_speaker_rainey",
 			text = "(incriminating voicemail)",
 			line_variations = { 
 				standard_mode = {
@@ -28240,7 +28225,7 @@ $1: Move it!
 			duration = 15
 		},
 		Play_rai_corp_02 = {
-			speaker_id = "hud_subtitlemod_speaker_rainey",
+			override_speaker_id = "hud_subtitlemod_speaker_rainey",
 			text = "(SERA propaganda)",
 			line_variations = { 
 				standard_mode = {
@@ -28386,7 +28371,7 @@ $2: Yeah, thanks for nothing.$b
 			}
 		},
 		Play_mar_corp_01 = {
-			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			override_speaker_id = "hud_subtitlemod_speaker_unknown_female",
 			category = "civilian_dialogue",
 			text = "(chatter)",
 			priority = 98,
@@ -28411,7 +28396,7 @@ $1:asdfkjasldfkj $b
 			}
 		},
 		Play_mar_corp_02 = {
-			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			override_speaker_id = "hud_subtitlemod_speaker_unknown_female",
 			category = "civilian_dialogue",
 			text = "(chatter)",
 			priority = 98,
@@ -28436,7 +28421,7 @@ $1: You call this an event space? [scoffs] The interns could do better than this
 			}
 		},
 		Play_mar_corp_03 = {
-			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			override_speaker_id = "hud_subtitlemod_speaker_unknown_female",
 			category = "civilian_dialogue",
 			text = "(chatter)",
 			priority = 98,
@@ -28496,7 +28481,7 @@ $1: [sighs happily] That always chills me out.$b
 			}
 		},
 		Play_mar_corp_05 = {
-			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			override_speaker_id = "hud_subtitlemod_speaker_unknown_female",
 			category = "civilian_dialogue",
 			priority = 75,
 			duration = 5,
@@ -28513,7 +28498,7 @@ $1: [sighs happily] That always chills me out.$b
 			}
 		},
 		Play_mar_corp_06 = {
-			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			override_speaker_id = "hud_subtitlemod_speaker_unknown_female",
 			category = "civilian_dialogue",
 			priority = 75,
 			duration = 5,
@@ -28528,7 +28513,7 @@ $1: [sighs happily] That always chills me out.$b
 			}
 		},
 		Play_mar_corp_07 = {
-			speaker_id = "hud_subtitlemod_speaker_unknown_female",
+			override_speaker_id = "hud_subtitlemod_speaker_unknown_female",
 			category = "civilian_dialogue",
 			priority = 75,
 			duration = 4,
@@ -28749,7 +28734,7 @@ $1: If they don't like working for free, they can find their college credits som
 		
 		-- Crude Awakening
 		Play_gab_deep_01A = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] Security shift rotation in 30 minutes. Don't get lazy. The clowns could strike at any time.",
@@ -28757,7 +28742,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_01B = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] All personnel, stay on your guard. We can't afford to fuck up like in Dallas.",
@@ -28765,7 +28750,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_02A = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] A reminder to all workers: Do not attempt to engage the new security team in conversation. Do not make eye contact. Do not disobey.",
@@ -28773,7 +28758,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_02B = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] Attention, all personnel. We are on a strict communications blackout. Any attempt to contact the mainland will be punished... severely.",
@@ -28781,7 +28766,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_03A = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] When our conflict with the SERA board is resolved, you will be rewarded.",
@@ -28789,7 +28774,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_04A = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit One, rotate to the Laboratory. ",
@@ -28797,7 +28782,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_04B = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit Two, I want a sweep of the Admin Office.",
@@ -28805,7 +28790,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_04C = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit Three, check the oil tanks.",
@@ -28813,7 +28798,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_04D = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit One, investigate the Rest Area.",
@@ -28821,7 +28806,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_04E = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit Two, do a sweep of the Bridges.",
@@ -28829,7 +28814,7 @@ $1: If they don't like working for free, they can find their college credits som
 			priority = 44
 		},
 		Play_gab_deep_04F = {
-			speaker_id = "hud_subtitlemod_speaker_gab",
+			override_speaker_id = "hud_subtitlemod_speaker_gab",
 			category = "mission_dialogue",
 			override_source_id = "gab",
 			text = "[over loudspeaker] Patrol Unit Three, I want eyes on the Living Quarters.",
