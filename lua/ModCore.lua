@@ -2471,8 +2471,16 @@ Hooks:Add("ConsoleMod_RegisterCommands","closedcaptions_load_dev_commands",funct
 			
 			if subcmd == "export" then
 				console:Log("Exporting sound_data.lua to sound_data.json and l10n...")
-				local path = ClosedCaptions._MOD_PATH .. "data/sounddata_conversion_script_2.lua"
-				console:Print(blt.vm.dofile(path))
+				local path = ClosedCaptions._MOD_PATH .. "dev/sounddata_conversion_script_3.lua"
+				local file = io.open(path,"r")
+				if file then
+					file:close()
+					file = nil
+					-- exists
+					console:Print(blt.vm.dofile(path))
+				else
+					console:Log("FileNotFound! " .. tostring(path),{color=Color.red})
+				end
 			elseif subcmd == "missing" then
 				console:LogTable(ClosedCaptions._debug_missing_lines_list)
 			elseif subcmd == "list" then
