@@ -27441,7 +27441,7 @@ $2...Putas.$b
 			duration = 3
 		},
 		mute = { --???
-			category = "UNKNOWN"
+			category = "stops"
 		},
 		car_alarm_on = {
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
