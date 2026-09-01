@@ -1050,7 +1050,18 @@ return {
 			priority = 90,
 			category = "sfx"
 		},
-
+		switch_on  = {
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
+			text = "[power box switched on]",
+			priority = 90,
+			category = "sfx"
+		},
+		switch_off  = {
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
+			text = "[power box switched off]",
+			priority = 90,
+			category = "sfx"
+		},
 		
 --environ/emitters
 		ambience_switch_halloween_2016_state_smoke_to_ext = {
@@ -1063,7 +1074,7 @@ return {
 			category = "ambient",
 			priority = 100
 		},
-		hos_witch_cry_loop_01 = {
+		hos_witch_cry_loop = {
 			override_speaker_id = "hud_subtitlemod_speaker_l4dwitch",
 			override_color = "l4d_witch",
 			text = "[Groans Softly]",
@@ -1071,6 +1082,9 @@ return {
 			duration = 3,
 			is_locationless = true,
 			category = "ambient"
+		},
+		hos_witch_cry_stop = {
+			category = "stops"
 		},
 		city_sounds_basketball = { --idk if this works, probably though. panic room 
 			override_speaker_id = "hud_subtitlemod_speaker_sfx",
@@ -23837,6 +23851,25 @@ $1Uh huh. right.]]
 					"This area is staff only, I'm afraid."
 				}
 			}
+		},
+		hos_bloodtest_accepted = {
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
+			category = "mission_dialogue",
+			priority = 10,
+			text = "(blood sample success!)"
+		},
+		hos_bloodtest_denied = {
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
+			category = "mission_dialogue",
+			priority = 10,
+			text = "(blood sample fail)"
+		},
+		hos_missile_attack = {
+			override_speaker_id = "hud_subtitlemod_speaker_sfx",
+			category = "ambient",
+			priority = 10,
+			is_locationless = true,
+			text = "(distant missile explosion)"
 		},
 
 		--panic room
