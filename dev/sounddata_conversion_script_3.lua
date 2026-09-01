@@ -36,6 +36,8 @@ local SOUND_DATA_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.lua"
 local DATA_OUT_PATH = ClosedCaptions._MOD_PATH .. "dev/sound_data.json"
 local L10N_OUT_PATH = ClosedCaptions._MOD_PATH .. "dev/subtitles.json"
 
+local sound_data = blt.vm.dofile(ClosedCaptions._MOD_PATH .. "dev/OLD_sound_data.lua")
+
 -- serialize sounddata v2 to serialized json sounddata v3,
 -- ready for use in game or export to google sheets
 
@@ -175,8 +177,6 @@ do -- guess the order
 	end
 	
 end
-
-local sound_data = blt.vm.dofile(SOUND_DATA_PATH)
 
 local function serialize_compound_variations(data)
 	local new_loc_string
