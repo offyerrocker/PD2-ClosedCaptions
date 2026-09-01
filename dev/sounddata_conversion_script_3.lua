@@ -87,7 +87,6 @@ local VALIDATE_FUNCTIONS = {
 	duration = GEN_VALIDATE_FUNCTIONS.int,
 	is_locationless = GEN_VALIDATE_FUNCTIONS.bool,
 	max_distance = GEN_VALIDATE_FUNCTIONS.number,
-	stops_line = GEN_VALIDATE_FUNCTIONS.pass,
 	override_color = GEN_VALIDATE_FUNCTIONS.pass,
 	override_speaker_id = GEN_VALIDATE_FUNCTIONS.pass,
 	fallback_speaker_id = GEN_VALIDATE_FUNCTIONS.pass,
@@ -106,7 +105,7 @@ local function validate_column(column_name,value)
 	return f and f(value) or nil
 end
 -- do not detect these as sound names when determining file order
-local BLACKLIST_KEYS = {
+local WHITELIST_KEYS = {
 	text = false, -- handled manually for localization
 	disabled = true,
 	category = true,
@@ -149,7 +148,7 @@ do -- guess the order
 					-- comment line; ignore
 				else
 					sound_name = string.match(line,"^[%w_]+")
-					if not BLACKLIST_KEYS[sound_name] then
+					if WHITELIST_KEYS[sound_name] ~= nil then
 						table.insert(ordered_lines,ordered_lines+1,sound_name)
 					end
 					--[[
@@ -214,15 +213,17 @@ for event_id,data in pairs(sound_data.vo) do
 	--		priority = validate_column("priority",data.priority),
 	--		duration = validate_column("duration",data.duration),
 	--		max_distance = validate_column("max_distance",data.duration),
-
-			fungible = data.override_source_id and true or nil,
+			fungible = data.override_source_id and true or nil
 			-- custom field, renamed in 3.0 (not yet implemented)
 			-- if enabled, only one of this sound can be DISPLAYED from any source at any time
-			conversation = nil
 		}
 		
 		for column_name,value in pairs(data) do 
 			event_data[column_name] = validate_column(column_name,value)
+		end
+		if data.stops_line and data.category ~= "stops" then
+			log("Converting line",event_id,"from category",data.category,"to stops")
+			event_data.category = "stops"
 		end
 		
 		new_sound_data[event_id] = event_data
@@ -376,16 +377,38 @@ for event_id,data in pairs(sound_data.vo) do
 					if state_name == "recombinable" then
 						-- do nothing
 					elseif state_name == "conversation" then
-						for convo_variation_index,convo_data in ipairs(state_variations) do 
-							local convo_string = convo_data.convo
-							local loc_id = CAPTION_LOC_PREFIX .. state_shortname .. "_" .. voice_id .. "_var_" ..  convo_variation_index .. "_" .. event_id
-							local out_convo_data = table.deep_map_copy(convo_data)
-							out_convo_data.convo = nil
-							out_convo_data.text = nil -- my data in 2.0 was directly the loc id
-							out_convo_data.loc_id = loc_id
+						local conversation_variants = {}
+						if state_variations.is_random_conversation then
+							for convo_variation_index,convo_data in ipairs(state_variations) do 
+								conversation_variants.colors = convo_data.colors -- just copy whichever was last
+								conversation_variants.speakers = convo_data.speakers 
+								
+								local convo_string = convo_data.convo
+								local loc_id = CAPTION_LOC_PREFIX .. state_shortname .. "_" .. voice_id .. "_var_" ..  convo_variation_index .. "_" .. event_id
+								local out_convo_data = {
+									timing = convo_data.timing,
+									loc_id = loc_id
+								--,desc = event_data.text -- not used
+								}
+								new_loc_ids[loc_id] = convo_string
+								table.insert(conversation_variants,#conversation_variants+1,out_convo_data)
+							end
+						else
+							conversation_variants.colors = convo_data.colors -- just copy whichever was last
+							conversation_variants.speakers = convo_data.speakers 
+							
+							local convo_string = state_variations.convo
+							local loc_id = CAPTION_LOC_PREFIX .. state_shortname .. "_" .. voice_id .. "_" .. event_id
+							local out_convo_data = {
+								timing = convo_data.timing,
+								loc_id = loc_id
+								--,desc = event_data.text -- not used
+							}
 							new_loc_ids[loc_id] = convo_string
-							voice_variant.conversation = out_convo_data
+							table.insert(conversation_variants,#conversation_variants+1,out_convo_data)
 						end
+						
+						voice_variant.con = conversation_variants
 						done_any = true
 					else
 						if is_recombinable then
@@ -401,9 +424,6 @@ for event_id,data in pairs(sound_data.vo) do
 							new_loc_ids[loc_id] = compound_string
 							
 							--voices[voice_id][state_shortname].duration = 1
-							if state_variations.duration then
-								error("MAYBE?2" .. tostring(event_id))
-							end
 							done_any = true
 						else
 							voice_variant[state_shortname] = voice_variant[state_shortname] or {}
@@ -414,19 +434,7 @@ for event_id,data in pairs(sound_data.vo) do
 								variants[var_id] = loc_id
 								new_loc_ids[loc_id] = var_str
 							end
-						--[[
-							-- add string
-							local var_index = assert(type(var_index) == "number","Unknown varindex type " .. event_id) and var_index
-							local var_str = assert(type(state_variations) == "string","Unknown varstring type " .. event_id) and state_variations
-							voice_variant[state_shortname] = voice_variant[state_shortname] or {}
-							voice_variant[state_shortname].variants = voice_variant[state_shortname].variants or {}
-							local variants = voice_variant[state_shortname].variants
-							for var_id,var_str in ipairs(data_variant) do 
-								local loc_id = CAPTION_LOC_PREFIX .. event_id .. "_" .. state_shortname .. "_" .. voice_id .. "_var" .. tostring(var_id)
-								variants[var_id] = loc_id
-								new_loc_ids[loc_id] = var_str
-							end
-							--]]
+							
 							done_any = true
 						end
 						
@@ -461,15 +469,21 @@ for event_id,data in pairs(sound_data.vo) do
 			local convo_data = data.conversation
 			local convo_string = convo_data.convo
 			local loc_id = CAPTION_LOC_PREFIX .. state_shortname .. "_" .. voice_id .. "_" .. event_id
-			local out_convo_data = table.deep_map_copy(convo_data)
-			out_convo_data.convo = nil
-			out_convo_data.text = nil
-			out_convo_data.loc_id = loc_id
+			local out_convo_data = {
+				timing = convo_data.timing,
+				loc_id = loc_id
+			}
 			new_loc_ids[loc_id] = convo_string
-			event_data.conversation = out_convo_data
+			event_data.voices = event_data.voices or {}
+			event_data.voices.all = event_data.voices.all or {}
+			event_data.voices.all.con = {
+				speakers = convo_data.speakers,
+				colors = convo_data.colors,
+				out_convo_data
+			}
 		else
 			
-			if data.category ~= "stops" then
+			if event_data.category ~= "stops" then
 				local has_any
 				for k,v in pairs(voices) do 
 					has_any = true
