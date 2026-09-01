@@ -1647,38 +1647,15 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 				state_variants = voice_data.std
 			end
 			
-			-- is recombinable; parse it!
-			-- todo do this at setup instead of in heist
-			if state_variants.compound_loc_id then
-				-- todo allow macro-ization? can't think of any to use here though
-				local compound_str = managers.localization:text(state_variants.compound_loc_id)
-				local compound_data = string.split(compound_str,"$b")
-				local s
-				for stage_index,compound_stage in ipairs(compound_data) do 
-					local stage_variants = string.split(compound_stage,"|")
-					if s then
-						s = s .. " " .. table.random(stage_variants)
-					else
-						s = table.random(stage_variants)
-					end
-				end
-				text = s
-			elseif state_variants.variants then
-				-- regular variations
-				local loc_id = table.random(state_variants.variants)
-				text = loc_id and managers.localization:text(loc_id)
-			end
-			
 			for k,v in pairs(state_variants) do 
 				variant_data[k] = v
 			end
 		end
 	end
-	text = text or managers.localization:text(variant_data.desc_id)
 	
 	-- todo move cat check before get text
 	-- variant_data isn't defined for stops
-	local category = variant_data and variant_data.category or sound_data.category
+	local category = variant_data.category or sound_data.category
 	
 	if category == "stops" then 
 		-- this case should already have been filtered out by the caller
@@ -1711,20 +1688,44 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		end
 	end
 	
-	if variant_data.override_color or sound_data.override_color then
+	-- is recombinable; parse it!
+	-- todo do this at setup instead of in heist
+	if variant_data.compound_loc_id then
+		-- todo allow macro-ization? can't think of any to use here though
+		local compound_str = managers.localization:text(variant_data.compound_loc_id)
+		local compound_data = string.split(compound_str,"$b")
+		local s
+		for stage_index,compound_stage in ipairs(compound_data) do 
+			local stage_variants = string.split(compound_stage,"|")
+			if s then
+				s = s .. " " .. table.random(stage_variants)
+			else
+				s = table.random(stage_variants)
+			end
+		end
+		text = s
+	elseif variant_data.variants then
+		-- regular variations
+		local loc_id = table.random(variant_data.variants)
+		text = loc_id and managers.localization:text(loc_id)
+	end
+	
+	text = text or managers.localization:text(variant_data.desc_id)
+	
+	if variant_data.override_color then
 		color = self._COLORS[variant_data.override_color] or color
-	elseif variant_data.fallback_color or sound_data.fallback_color then
-		color = color or self._COLORS[variant_data.fallback_color or sound_data.fallback_color]
+	elseif variant_data.fallback_color then
+		color = color or self._COLORS[variant_data.fallback_color]
 	end
 	color = color or self:GetColor("color_generic")
 	
-	if variant_data.override_speaker_id or sound_data.override_speaker_id then
-		speaker_name = managers.localization:text(variant_data.override_speaker_id or sound_data.override_speaker_id)
+	if variant_data.override_speaker_id then
+		speaker_name = managers.localization:text(variant_data.override_speaker_id)
 	elseif not speaker_name then
-		if variant_data.fallback_speaker_id or sound_data.fallback_speaker_id then
-			speaker_name = speaker_name or managers.localization:text(variant_data.fallback_speaker_id or sound_data.fallback_speaker_id)
-		elseif variant_data.fallback_unitname or sound_data.fallback_unitname then
-			speaker_name = speaker_name or self._UNIT_NAMES[variant_data.fallback_unitname or sound_data.fallback_unitname]
+		if variant_data.fallback_speaker_id then
+			speaker_name = speaker_name or managers.localization:text(variant_data.fallback_speaker_id)
+		elseif variant_data.fallback_unitname then
+			speaker_name = speaker_name or self._UNIT_NAMES[variant_data.fallback_unitname]
 		end
 	end
 	
