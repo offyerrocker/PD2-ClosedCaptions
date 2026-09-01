@@ -1325,10 +1325,10 @@ end
 function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	
 	--self:Print("Start subtitle",event_id,unit,sound_source,position)
-	if type(sound_id) == "number" then
-		self:Print("Received number event id",event_id)
-		return
-	end
+--	if type(sound_id) == "number" then
+--		self:Print("Received number event id",event_id)
+--		return
+--	end
 	
 	local sound_data = self._sound_data.vo[event_id]
 	
@@ -1385,7 +1385,6 @@ function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
 	end
 	
 	self:Print("Playing subtitle",event_id,sound_source,unit)
-	
 	
 	local item_panel
 	local is_recombinable = sound_data.is_recombinable
@@ -1566,30 +1565,32 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 				end
 			end
 			
-		else -- is civ or enemy (probably)
-			
-			-- specific is enemy/civ checks not needed anymore
-			-- managers.enemy:is_enemy(unit)
-			-- managers.enemy:is_civilian(unit)
-			
-			local tweak_table = unit:base()._tweak_table
-			if unit:sound() then 
-				voice_id = unit:sound()._prefix
-			end
-			voice_id = voice_id or tweak_table
-			speaker_name = tweak_table and self._UNIT_NAMES[tweak_table]
-			
-			is_special_enemy = groupai_state and groupai_state:is_enemy_special(unit)
-			
-			local mov_ext = unit:movement()
-			local team_id = mov_ext and mov_ext:team() and mov_ext:team().id
-			if team_id then 
-				local brain_ext = unit:brain()
-				local is_intimidated = unit:in_slot(16,22,24) or (brain_ext and brain_ext.is_current_logic and brain_ext:is_current_logic("intimidated"))
-				if is_intimidated then
-					team_id = "criminal1"
+		else
+			if managers.enemy:is_enemy(unit) or managers.enemy:is_civilian(unit) then
+				-- or unit == managers.dialog._bain_unit then
+				-- specific is enemy/civ checks not needed anymore
+				
+				local unit_base = unit:base()
+				local tweak_table = unit_base and unit_base._tweak_table
+				local unit_sound = unit:sound()
+				if unit_sound then 
+					voice_id = unit_sound._prefix
 				end
-				color = self:GetColor(team_id)
+				voice_id = voice_id or tweak_table
+				speaker_name = tweak_table and self._UNIT_NAMES[tweak_table]
+				
+				is_special_enemy = groupai_state and groupai_state:is_enemy_special(unit)
+				
+				local mov_ext = unit:movement()
+				local team_id = mov_ext and mov_ext:team() and mov_ext:team().id
+				if team_id then 
+					local brain_ext = unit:brain()
+					local is_intimidated = unit:in_slot(16,22,24) or (brain_ext and brain_ext.is_current_logic and brain_ext:is_current_logic("intimidated"))
+					if is_intimidated then
+						team_id = "criminal1"
+					end
+					color = self:GetColor(team_id)
+				end
 			end
 		end
 	end
@@ -1609,13 +1610,10 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	
 	local voice_data = voice_id and sound_data.voices[voice_id] or sound_data.voices.all -- generic
 	if not voice_data then
-		-- fall back to default
-		
+		-- will fall back to default
 		
 		--self:Print("Missing voice_data for event_id,voice_id:",event_id,voice_id)
 		-- return
-		text = managers.localization:text(variant_data.desc_id)
-		
 	else
 		if voice_data.disabled then
 			return
@@ -1635,14 +1633,13 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 			end
 			text = ""
 		else
-			
 			local state_variants
 			if groupai_state then
-				if not state_variants and is_assault_mode then
-					state_variants = voice_data.ast
-				end
 				if not state_variants and is_whisper_mode then
 					state_variants = voice_data.ste
+				end
+				if not state_variants and is_assault_mode then
+					state_variants = voice_data.ast
 				end
 			end
 			
@@ -1666,9 +1663,10 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 					end
 				end
 				text = s
-			else
+			elseif state_variants.variants then
 				-- regular variations
-				text = table.random(state_variants)
+				local loc_id = table.random(state_variants.variants)
+				text = loc_id and managers.localization:text(loc_id)
 			end
 			
 			for k,v in pairs(state_variants) do 
@@ -1676,7 +1674,9 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 			end
 		end
 	end
+	text = text or managers.localization:text(variant_data.desc_id)
 	
+	-- todo move cat check before get text
 	-- variant_data isn't defined for stops
 	local category = variant_data and variant_data.category or sound_data.category
 	
@@ -1716,6 +1716,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	elseif variant_data.fallback_color or sound_data.fallback_color then
 		color = color or self._COLORS[variant_data.fallback_color or sound_data.fallback_color]
 	end
+	color = color or self:GetColor("color_generic")
 	
 	if variant_data.override_speaker_id or sound_data.override_speaker_id then
 		speaker_name = managers.localization:text(variant_data.override_speaker_id or sound_data.override_speaker_id)
@@ -1728,8 +1729,6 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 	end
 	
 	local caption_str,text_color,color_ranges = self:format_speaker_name(speaker_name,text,color)
-	
-	
 	
 	return caption_str,text_color,color_ranges,variant_data,convo_data
 end
