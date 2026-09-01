@@ -2128,7 +2128,7 @@ function ClosedCaptions:ReadSoundData()
 	local start_t = os.time()
 	log("[ClosedCaptions] Reading sound_data.lua...")
 	--self._sound_data.vo = blt.vm.dofile(self._MOD_PATH .. "dev/sound_data.lua")
-	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
+	self._sound_data.vo = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
 	log(string.format("[ClosedCaptions] ...Finished reading sound_data.lua in %i seconds",os.time() - start_t))
 	
 	--[[
