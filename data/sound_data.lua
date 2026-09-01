@@ -28284,6 +28284,7 @@ $1: Move it!
 			duration = 20,
 			line_variations = {
 				conversation = {
+					is_random_conversation = true, -- bandaid flag for the converter script
 					{
 						speakers = {
 							[1] = "hud_subtitlemod_speaker_rainey",
