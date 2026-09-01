@@ -1611,7 +1611,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		variant_data[k] = v
 	end
 	
-	local voice_data = sound_data.voices[voice_id] or sound_data.voices.all -- generic
+	local voice_data = voice_id and sound_data.voices[voice_id] or sound_data.voices.all -- generic
 	if not voice_data then
 		-- fall back to default
 		
@@ -1658,10 +1658,11 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 			-- todo do this at setup instead of in heist
 			if state_variants.compound_loc_id then
 				-- todo allow macro-ization? can't think of any to use here though
-				local compound_data = json.decode(managers.localization:text(state_variants.compound_loc_id))
+				local compound_str = managers.localization:text(state_variants.compound_loc_id)
+				local compound_data = string.split(compound_str,"$b")
 				local s
 				for stage_index,compound_stage in ipairs(compound_data) do 
-					local stage_variants = string.split(compound_data,"|")
+					local stage_variants = string.split(compound_stage,"|")
 					if s then
 						s = s .. " " .. table.random(stage_variants)
 					else
@@ -1669,7 +1670,6 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 					end
 				end
 				text = s
-				
 			else
 				-- regular variations
 				text = table.random(state_variants)
