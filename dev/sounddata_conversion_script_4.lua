@@ -1,8 +1,9 @@
 local SOUND_DATA_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.lua"
+local L10N_OUT_PATH = ClosedCaptions._MOD_PATH .. "dev/subtitles.json"
 local sound_data = blt.vm.dofile(SOUND_DATA_PATH)
 
 local WRITE = true
-
+local GUESS_ORDER = true
 
 local function tbl_to_str(tbl,order)
 	local keys_record = {}
@@ -147,9 +148,15 @@ local function tbl_to_str(tbl,order)
 end
 
 
+local loc_ids_by_event_id = {}
+local function register_loc_id(event_id,loc_id)
+	loc_ids_by_event_id[event_id] = loc_ids_by_event_id[event_id] or {}
+	table.insert(loc_ids_by_event_id[event_id],loc_id)
+end
 
 
-
+local loc_transfers = {}
+local CAPTION_LOC_PREFIX = "hud_subtitlemod_"
 for event_id,event_data in pairs(sound_data) do 
 	if not event_data.disabled and event_data.category ~= "stops" then
 		local done_any
@@ -168,16 +175,17 @@ for event_id,event_data in pairs(sound_data) do
 					end
 					--]]
 					for state_name,state_data in pairs(voice_data) do
-						if state_name == "compound_loc_id" then
-							done_any = true
-						elseif state_name == "duration" then
+						if state_name == "duration" then
 							log("event has uncatgeorized duration",event_id,voice_id,duration)
 						elseif state_name == "con" then
 							if state_data.variants then
 								for i,var in pairs(state_data.variants) do 
 									if var.loc_id then
 										done_any = true
-										break
+										--break
+										register_loc_id(event_id,var.loc_id)
+									else
+										log("Conversation variant has no loc_id",event_id,voice_id,state_name,i)
 									end
 								end
 							else
@@ -192,13 +200,16 @@ for event_id,event_data in pairs(sound_data) do
 							--state_data.duration = duration
 							for k,v in pairs(state_data) do
 								if k == "compound_loc_id" then
+									register_loc_id(event_id,v)
 									done_any = true
 								elseif k == "desc_id" then
 									done_any = true
+									register_loc_id(event_id,v)
 								elseif k == "variants" then
 									for i,j in pairs(v) do 
 										done_any = true
-										break
+										register_loc_id(event_id,j)
+										--break
 									end
 									if not done_any then
 										log("No variants",event_id)
@@ -213,6 +224,8 @@ for event_id,event_data in pairs(sound_data) do
 											state_data.variants = state_data.variants or {}
 											table.insert(state_data.variants,#state_data.variants+1,v)
 											
+											local loc_id = CAPTION_LOC_PREFIX .. event_id .. "_" .. state_name .. "_" .. voice_id .. "_var" .. tostring(k)
+											loc_transfers[v] = loc_id
 											state_data[k] = nil
 										end
 										--]]
@@ -242,6 +255,10 @@ for event_id,event_data in pairs(sound_data) do
 			return
 		end
 		
+		
+	end
+	if event_data.desc_id then
+		register_loc_id(event_id,event_data.desc_id)
 	end
 end
 
@@ -263,7 +280,7 @@ end
 -- order only matters for exporting data to the csv for the translation sheet
 local ordered_lines = {} -- index:event_id
 local lines_order = {} -- event_id:index
-if true then -- guess the order
+if GUESS_ORDER then -- guess the order
 	local start = true
 	--local open_count = 0
 	local file = io.open(SOUND_DATA_PATH,"r")
@@ -298,54 +315,70 @@ if true then -- guess the order
 	
 end
 
-local loc_ids_by_event_id = {}
-local function register_loc_id(event_id,loc_id)
-	loc_ids_by_event_id[event_id] = loc_ids_by_event_id[event_id] or {}
-	table.insert(loc_ids_by_event_id[event_id],loc_id)
-end
 
-if false then
-for event_id,event_data in pairs(sound_data) do 
-	if not event_data.disabled and event_data.category ~= "stops" then
-		register_loc_id(event_id,data.desc_id)
-		if event_data.voices then
-			for voice_id,voice_data in pairs(event_data.voices) do
-				if type(voice_data) ~= "table" then
-					log("ERROR Wrong voice_data type",event_id,voice_id,type(voice_data))
-					return
-				end
-				if not voice_data.disabled then
-					for state_name,state_data in pairs(voice_data) do
-						if not state_data.variants then
-							log("No variants for state " .. tostring(state_name) .. ", event " .. tostring(event_id))
-						end
-						
-						if state_name == "con" then
-							for i,data in pairs(state_data.variants) do
-								register_loc_id(event_id,data.loc_id)
-							end
-						elseif state_name ~= "duration" then
-							if type(state_data) ~= "table" then
-								log("ERROR 2 Wrong state_data type",event_id,voice_id,type(state_data))
-								return
-							end
-							if state_data.compound_loc_id then
-								register_loc_id(event_id,state_data.compound_loc_id)
-							else
-								for _,loc_id in ipairs(state_data.variants) do 
-									register_loc_id(event_id,loc_id)
-								end
-							end
-						end
+if WRITE then
+
+	local count = 0
+	local file = io.open(ClosedCaptions._LOCALIZATION_DIRECTORY_PATH .. "english/subtitles.json","r")
+	local old_loc = json.decode(file:read("*all"))
+	file:close()
+	
+	local hits = {}
+	for _,event_id in ipairs(ordered_lines) do 
+		local loc_map = loc_ids_by_event_id[event_id]
+		if loc_map then
+			table.sort(loc_map)
+			for _,loc_id in ipairs(loc_map) do
+				if old_loc[loc_id] then
+					count = count + 1
+					old_loc[loc_id] = nil
+				else
+					if true then
+						log("Missing loc",event_id,loc_id)
+						return 
+					elseif type(old_loc[loc_id]) ~= "string" then
+						log("Invalid type",loc_id)
 					end
 				end
+			--[[
+				if not managers.localization._custom_localizations[loc_id] then
+					self:log("Unknown loc",loc_id)
+					return
+				end
+				local text = managers.localization:text(loc_id)
+				text = string.gsub(text,"\n","")
+				loc_s = loc_s .. loc_id .. "\t" .. text
+				--]]
 			end
 		end
 	end
-end
-end
+	Print("Hits",count)
+	foor = old_loc
+--[[
+	local file = io.open(ClosedCaptions._LOCALIZATION_DIRECTORY_PATH .. "english/subtitles.json","r")
+	local old_loc = json.decode(file:read("*all"))
+	for old, new in pairs(loc_transfers) do 
+		if old_loc[old] then
+			local text = old_loc[old]
+			old_loc[old] = nil
+			old_loc[new] = text
+		else
+			file:close()
+			log("No loc found:",old,new)
+			return
+		end
+	end
+	--]]
 
-if WRITE then
+
+
+
+	--[[
+	local file = io.open(L10N_OUT_PATH,"w+")
+	file:write(json.encode(new_loc_ids))
+	file:flush()
+	file:close()
+	--]]
 	
 	--[[
 	local path = ClosedCaptions._MOD_PATH .. "dev/test_sounddata.lua"
@@ -353,9 +386,16 @@ if WRITE then
 	file:write("return " .. tbl_to_str(sound_data,ordered_lines))
 	file:flush()
 	file:close()
---]]
+	--]]
+	--hud_subtitlemod_f11e_plu_std_rb3_var1 
+	-- f11e_plu
 	
-	--[[
+	do return end
+	
+	
+	
+	_G.all_loc = {}
+	
 	local loc_s = "ID\ten\tXX\tNotes from localization lead\tNotes from translator" 
 	for _,event_id in ipairs(ordered_lines) do 
 		local loc_map = loc_ids_by_event_id[event_id]
@@ -364,10 +404,21 @@ if WRITE then
 			
 			table.sort(loc_map)
 			for _,loc_id in ipairs(loc_map) do 
-				loc_s = loc_s .. loc_id .. "\t" .. managers.localization:text(loc_id)
+				--log("found loc_id",loc_id)
+				all_loc[loc_id] = true
+			--[[
+				if not managers.localization._custom_localizations[loc_id] then
+					self:log("Unknown loc",loc_id)
+					return
+				end
+				local text = managers.localization:text(loc_id)
+				text = string.gsub(text,"\n","")
+				loc_s = loc_s .. loc_id .. "\t" .. text
+				--]]
 			end
 		end
 	end
+	
 	local file = io.open(ClosedCaptions._MOD_PATH .. "dev/l10n_en.csv","w+")
 	file:write(loc_s)
 	file:flush()
