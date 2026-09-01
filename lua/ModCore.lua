@@ -563,7 +563,7 @@ end
 --used to generate sounds that are not significantly different save for characters' names
 function ClosedCaptions:process_macros(sound_data)
 	if not managers.criminals then return end
-	
+	--[[
 	for sound_name_raw,vo_data in pairs(sound_data.vo_special) do 
 		if vo_data.macro == "character_name" then 
 			for char_index,char_data in pairs(managers.criminals._characters) do 
@@ -582,9 +582,11 @@ function ClosedCaptions:process_macros(sound_data)
 			end
 		end
 	end
-	
+	--]]
 	for event_id,data in pairs(sound_data.vo) do 
 		if not data.disabled then
+			
+			
 			local id = tostring(SoundDevice:string_to_id(event_id))
 --			if self._soundid_lookup[id] then
 				--error("Caption lookup collision! " .. tostring(event_id))
@@ -1209,10 +1211,14 @@ end
 
 function ClosedCaptions:make_conversation_subtitle(data)
 	if data then
+		
+		local variant_data = table.random(data.variants)
+		local loc_id = variant_data.loc_id
+		
 		-- todo process this in sound data loading
 		local sentences = {}
 		local color_ranges = {}
-		local sp = string.split(string.gsub(managers.localization:text(data.text),"\n",""),"$b")
+		local sp = string.split(string.gsub(managers.localization:text(loc_id),"\n",""),"$b")
 		local speaker_names = {}
 		for speaker_index,speaker_id in pairs(data.speakers) do	
 			local name = managers.localization:text(speaker_id)
@@ -1242,7 +1248,7 @@ function ClosedCaptions:make_conversation_subtitle(data)
 		--local interval = variation_data.duration / #sp
 		local t = TimerManager:game():time()
 		local conversation_data = {
-			intervals = data.timing or nil,
+			intervals = variant_data.timing or nil,
 			color_ranges = color_ranges,
 			conversation = data,
 			sentences = sentences,
@@ -1321,30 +1327,31 @@ end
 -- create panel from the given event data,
 -- bootstrap the updater to handle frame updates for tasks like left/right audio position detection or fadeout animations
 function ClosedCaptions:start_subtitle(event_id,unit,sound_source,position)
+	
 	--self:Print("Start subtitle",event_id,unit,sound_source,position)
 	if type(sound_id) == "number" then
 		self:Print("Received number event id",event_id)
 		return
 	end
 	
-	if self._sound_data.disabled_sounds[event_id] then
-		return
-	end
 	local sound_data = self._sound_data.vo[event_id]
 	
+	if sound_data.category == "stops" then -- stop all other lines from this sound source (previously only stopped specific line)
+		self:unregister_source(sound_source)
+		self:Print("Stop line detected:",event_id,sound_source)
+		return
+	end
+	
 	local text,text_color,color_ranges,variation_data,conversation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
+
 	if not variation_data then
 		--self:Print("No variation_data",event_id)
 		return
 	end
-	if variation_data.stops_line or variation_data.category == "stops" then -- stop all other lines from this sound source (previously only stopped specific line)
-		self:unregister_source(sound_source)
-		self:Print("Stop line detected:",event_id,sound_source)
-	end
 	if not text then 
 		return
 	end
-
+	
 	local id = event_id .. "_" .. tostring(sound_source:key())
 	local state_data = self:_get_subtitle(id)
 	
@@ -1524,129 +1531,161 @@ end
 
 -- returns str,text_color,color_ranges,variation_data,conversation_data
 function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,position)
-	
 	local sound_data = self._sound_data.vo[event_id]
-	if not sound_data then
+	if not sound_data or sound_data.disabled then
 		return
 	end
 	
-	local text
-	local variation_data = sound_data
-	if sound_data.voice_variations and sound_data.voice_variations[voice] then
-		variation_data = sound_data
-	end
-	local groupai_state = managers.groupai and managers.groupai:state()
-
-	
-	local name,variant,is_locationless,tweak_table
-	local color = Color.white
+	local voice_id -- from unit
 	local is_special_enemy
-	-- get speaker string
+	local is_locationless
+	local speaker_name
+	local text,color
+	
+	-- get: voice_id, is_locationless, is_special_enemy, speaker string, text string
+	local groupai_state = managers.groupai and managers.groupai:state()
+	local is_whisper_mode = groupai_state and groupai_state:whisper_mode()
+	local is_assault_mode = groupai_state and groupai_state:get_assault_mode()
+	
 	if alive(unit) then 
-		if unit == managers.dialog._bain_unit then
-			--is from vo
-			local narrator_prefix = managers.dialog._narrator_prefix
-			if self._NARRATOR_PREFIXES[narrator_prefix] then
-				name = self._NARRATOR_PREFIXES[narrator_prefix]
+		local criminal_name = managers.criminals:character_name_by_unit(unit)
+		if criminal_name then
+			-- is heister
+			local switch = alive(sound_source) and sound_source:get_switch()
+			if switch and switch.robber then 
+				voice_id = switch.robber
+				if switch.int_ext == "first" then
+					is_locationless = true
+				end
 			end
-			variant = "narrator"
-		else
-			name = managers.criminals:character_name_by_unit(unit)
-			if name then --is criminal
-				local switch = alive(sound_source) and sound_source:get_switch()
-				if switch and switch.robber then 
-					variant = switch.robber
-					if switch.int_ext == "first" then
-						is_locationless = true
-					end
+			
+			speaker_name = managers.localization:text("menu_" .. tostring(criminal_name))
+			local color_id = managers.criminals:character_color_id_by_unit(unit)
+			color = color_id and tweak_data.chat_colors[color_id] --should this use cc's peer colors?
+			local peer_id = managers.criminals:character_peer_id_by_unit(unit) 
+			if peer_id then 
+				if self:UsePlayerName() then 
+					local peer = managers.network:session():peer(peer_id)
+					speaker_name = peer and peer:name() or criminal_name
 				end
-				name = managers.localization:text("menu_" .. tostring(name))
-				local color_id = managers.criminals:character_color_id_by_unit(unit)
-				color = color_id and tweak_data.chat_colors[color_id] --should this use cc's peer colors?
-				local peer_id = managers.criminals:character_peer_id_by_unit(unit) 
-				if peer_id then 
-					if self:UsePlayerName() then 
-						local peer = managers.network:session():peer(peer_id)
-						name = peer and peer:name() or name
-					end
+			end
+			
+		else -- is civ or enemy (probably)
+			
+			-- specific is enemy/civ checks not needed anymore
+			-- managers.enemy:is_enemy(unit)
+			-- managers.enemy:is_civilian(unit)
+			
+			local tweak_table = unit:base()._tweak_table
+			if unit:sound() then 
+				voice_id = unit:sound()._prefix
+			end
+			voice_id = voice_id or tweak_table
+			speaker_name = tweak_table and self._UNIT_NAMES[tweak_table]
+			
+			is_special_enemy = groupai_state and groupai_state:is_enemy_special(unit)
+			
+			local mov_ext = unit:movement()
+			local team_id = mov_ext and mov_ext:team() and mov_ext:team().id
+			if team_id then 
+				local brain_ext = unit:brain()
+				local is_intimidated = unit:in_slot(16,22,24) or (brain_ext and brain_ext.is_current_logic and brain_ext:is_current_logic("intimidated"))
+				if is_intimidated then
+					team_id = "criminal1"
 				end
-			elseif managers.enemy:is_enemy(unit) then 
-				tweak_table = unit:base()._tweak_table
-				if unit:sound() then 
-					variant = unit:sound()._prefix
-				end
-				color = self:GetColor("law1")
-				variant = variant or tweak_table
-				name = tweak_table and self._UNIT_NAMES[tweak_table]
-				is_special_enemy = groupai_state and groupai_state:is_enemy_special(unit)
-				--should bosses be considered special enemies for the purposes of category checks?
-				--(vanilla game does not consider hector/sosa to be special enemies)
-			elseif managers.enemy:is_civilian(unit) then 
-				if unit:sound() then 
-					variant = unit:sound()._prefix
-				end
-				color = self:GetColor("neutral1")
-
-				tweak_table = unit:base()._tweak_table
-				name = tweak_table and self._UNIT_NAMES[tweak_table]
-				variant = variant or tweak_table
+				color = self:GetColor(team_id)
 			end
 		end
 	end
 	
-	if variant and sound_data.variants and sound_data.variants[variant] then 
-		variation_data = sound_data.variants[variant]
-	end
 	
-	-- get subtitle text
-	if not sound_data then 
-		self._sound_data.vo[event_id] = {disabled = true} --temporarily set this sound_data so that the error will only appear once 
-		return
-	elseif sound_data.disabled then
+	local variant_data 
+	if not sound_data.voices then
+		-- all event data should have voices defined, even if only one fallback variant exists for all voices
+		self:Print("Missing voices data for event:",event_id)
 		return
 	end
 	
-	local conversation_data
-	local variations = variation_data.line_variations or sound_data.line_variations
-	if variations and self:IsLineRandomizationEnabled() then 
-		if variations.conversation then
-			conversation_data = table.random(variations.conversation)
-		else
-			local is_recombinable = variations.recombinable
-			local is_whisper_mode = groupai_state and groupai_state:whisper_mode()
-			local is_assault_mode = groupai_state and groupai_state:get_assault_mode()
-			if is_whisper_mode and variations.whisper_mode then --whisper_mode indicates the requirement that the heist is currently in stealth mode
-	--			variation_data = variations.whisper_mode
-				text = ClosedCaptions.get_random_variation(variations.whisper_mode,is_recombinable)
-			elseif is_assault_mode and variations.assault_mode then --assault_mode indicates the requirement that an assault is present
-	--			variation_data = variations.assault_mode
-				text = ClosedCaptions.get_random_variation(variations.assault_mode,is_recombinable)
-			elseif variations.standard_mode then --no requirements
-	--			variation_data = variations.standard_mode
-				text = ClosedCaptions.get_random_variation(variations.standard_mode,is_recombinable)
-			end
-		end
-	elseif sound_data.text then 
-		text = sound_data.text
+	local variant_data = {}
+	for k,v in pairs(sound_data) do 
+		variant_data[k] = v
+	end
+	
+	local voice_data = sound_data.voices[voice_id] or sound_data.voices.all -- generic
+	if not voice_data then
+		-- fall back to default
+		
+		
+		--self:Print("Missing voice_data for event_id,voice_id:",event_id,voice_id)
+		-- return
+		text = managers.localization:text(variant_data.desc_id)
+		
 	else
---		if sound_data.category == "stops" then 
---			return nil,nil,nil,sound_data
---		else
---			self:Log("Error- sound " .. tostring(event_id) .. " has no associated text for variant " .. tostring(variant) .. "!")
---		end
---		return
+		if voice_data.disabled then
+			return
+		end
+		
+		local convo_data
+		if voice_data.con then -- conversation
+			-- select random convo variant
+			convo_data = voice_data.con
+			--convo_data = table.random(voice_data.con.variants)
+			if convo_data then
+				-- local speakers = voice_data.con.speakers
+				-- local colors = voice_data.con.colors
+			else
+				self:Print("ERROR: No convo data for",event_id)
+				return
+			end
+			text = ""
+		else
+			
+			local state_variants
+			if groupai_state then
+				if not state_variants and is_assault_mode then
+					state_variants = voice_data.ast
+				end
+				if not state_variants and is_whisper_mode then
+					state_variants = voice_data.ste
+				end
+			end
+			
+			if not state_variants then -- default to standard (fallback if no assaultstate-specific lines are defined)
+				state_variants = voice_data.std
+			end
+			
+			-- is recombinable; parse it!
+			-- todo do this at setup instead of in heist
+			if state_variants.compound_loc_id then
+				-- todo allow macro-ization? can't think of any to use here though
+				local compound_data = json.decode(managers.localization:text(state_variants.compound_loc_id))
+				local s
+				for stage_index,compound_stage in ipairs(compound_data) do 
+					local stage_variants = string.split(compound_data,"|")
+					if s then
+						s = s .. " " .. table.random(stage_variants)
+					else
+						s = table.random(stage_variants)
+					end
+				end
+				text = s
+				
+			else
+				-- regular variations
+				text = table.random(state_variants)
+			end
+			
+			for k,v in pairs(state_variants) do 
+				variant_data[k] = v
+			end
+		end
 	end
 	
-	conversation_data = conversation_data or variation_data.conversation
+	-- variant_data isn't defined for stops
+	local category = variant_data and variant_data.category or sound_data.category
 	
-	if variation_data.disabled then
-		return
-	end
-	
-	text = text or variation_data.text or sound_data.text
-	
-	local category = variation_data.category or sound_data.category	
 	if category == "stops" then 
+		-- this case should already have been filtered out by the caller
 		return nil,nil,nil,sound_data
 	else
 		local category_allowed = self:IsCaptionCategoryEnabled(category,is_special_enemy)
@@ -1676,25 +1715,27 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		end
 	end
 	
-	if not text then
-		return
+	if variant_data.override_color or sound_data.override_color then
+		color = self._COLORS[variant_data.override_color] or color
+	elseif variant_data.fallback_color or sound_data.fallback_color then
+		color = color or self._COLORS[variant_data.fallback_color or sound_data.fallback_color]
 	end
 	
-	--self:Print("Playing " .. tostring(event_id) .. " from tweaktable " .. tostring(tweak_table) .. " variant " .. tostring(variant) .. " with source " .. tostring(sound_source) .. " at position " .. tostring(position) .. " from unit " .. tostring(unit and unit:key()))
-	
-	if variation_data.override_color then
-		color = self._COLORS[variation_data.override_color] or color
+	if variant_data.override_speaker_id or sound_data.override_speaker_id then
+		speaker_name = managers.localization:text(variant_data.override_speaker_id or sound_data.override_speaker_id)
+	elseif not speaker_name then
+		if variant_data.fallback_speaker_id or sound_data.fallback_speaker_id then
+			speaker_name = speaker_name or managers.localization:text(variant_data.fallback_speaker_id or sound_data.fallback_speaker_id)
+		elseif variant_data.fallback_unitname or sound_data.fallback_unitname then
+			speaker_name = speaker_name or self._UNIT_NAMES[variant_data.fallback_unitname or sound_data.fallback_unitname]
+		end
 	end
 	
-	if variation_data.override_speaker_id then
-		name = managers.localization:text(variation_data.override_speaker_id)
-	else
-		name = name or (variation_data.fallback_speaker_id and managers.localization:text(variation_data.fallback_speaker_id)) or (variation_data.fallback_unitname and self._UNIT_NAMES[variation_data.fallback_unitname])
-	end
+	local caption_str,text_color,color_ranges = self:format_speaker_name(speaker_name,text,color)
 	
-	local caption_str,text_color,color_ranges = self:format_speaker_name(name,text,color)
 	
-	return caption_str,text_color,color_ranges,variation_data,conversation_data
+	
+	return caption_str,text_color,color_ranges,variant_data,convo_data
 end
 
 -- called when the settings are changed;
@@ -2086,15 +2127,22 @@ Hooks:Add("LocalizationManagerPostInit", "ClosedCaptions_LocalizationManagerPost
 
 -- ============================== I/O
 function ClosedCaptions:ReadSoundData()
-	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
-
+	local start_t = os.time()
+	log("[ClosedCaptions] Reading sound_data.lua...")
+	self._sound_data.vo = blt.vm.dofile(self._MOD_PATH .. "dev/sound_data.lua")
+--	self._sound_data = blt.vm.dofile(self._SOUNDDATA_PATH .. "sound_data.lua")
+	log(string.format("[ClosedCaptions] ...Finished reading sound_data.lua in %i seconds",os.time() - start_t))
+	
 	--[[
 	local file = io.open(self._SOUNDDATA_PATH .. "sound_data.json", "r")
 	if file then
+		log("[ClosedCaptions] Reading sound_data.json...")
 		self._sound_data = json.decode(file:read("*all"))
+		log(string.format("[ClosedCaptions] ...Finished reading sound_data.json in %i seconds",os.time() - start_t))
+	else
+		self:Print("Missing sound data!",self._SOUNDDATA_PATH)
 	end
 	--]]
-	
 end
 
 --load settings from save txt
