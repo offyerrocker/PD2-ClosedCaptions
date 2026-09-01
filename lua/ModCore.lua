@@ -1225,21 +1225,23 @@ function ClosedCaptions:make_conversation_subtitle(data)
 		end
 		
 		for i,line in ipairs(sp) do 
-			local sentence = line
-			local color_range_index = nil
-			for speaker_index,speaker_name in pairs(speaker_names) do 
-				if not color_range_index and string.find(sentence,"^%$" .. speaker_index) then
-					color_range_index = speaker_index
+			if line ~= "" then
+				local sentence = line
+				local color_range_index = nil
+				for speaker_index,speaker_name in pairs(speaker_names) do 
+					if not color_range_index and string.find(sentence,"^%$" .. speaker_index) then
+						color_range_index = speaker_index
+					end
+					if self:UseCapitalNames() then
+						speaker_name = utf8.to_upper(speaker_name)
+					end
+					sentence = string.gsub(sentence,"%$" .. speaker_index,speaker_name)
 				end
-				if self:UseCapitalNames() then
-					speaker_name = utf8.to_upper(speaker_name)
-				end
-				sentence = string.gsub(sentence,"%$" .. speaker_index,speaker_name)
+				sentences[i] = {
+					text = sentence,
+					color_range_index = color_range_index
+				}
 			end
-			sentences[i] = {
-				text = sentence,
-				color_range_index = color_range_index
-			}
 		end
 		--local interval = variation_data.duration / #sp
 		local t = TimerManager:game():time()
@@ -1608,6 +1610,7 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 		variant_data[k] = v
 	end
 	
+	local convo_data
 	local voice_data = voice_id and sound_data.voices[voice_id] or sound_data.voices.all -- generic
 	if not voice_data then
 		-- will fall back to default
@@ -1619,7 +1622,6 @@ function ClosedCaptions:get_subtitle_display_data(event_id,unit,sound_source,pos
 			return
 		end
 		
-		local convo_data
 		if voice_data.con then -- conversation
 			-- select random convo variant
 			convo_data = voice_data.con
