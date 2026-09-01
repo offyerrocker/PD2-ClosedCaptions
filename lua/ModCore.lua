@@ -101,10 +101,6 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	_soundid_lookup = {}, -- holds lookup table for available, non-disabled sounds using SoundDevice:string_to_id()
 	_sound_data = { disabled_sounds = {}, vo = {}, vo_special = {}}, -- subtitle data, indexed by event_id
 	_UNIT_NAMES = {}, -- populated on load from loc file
-	_NARRATOR_PREFIXES = {
-		Play_ban_ = "menu_subtitlemod_speaker_cont_bain",
-		Play_loc_ = "menu_subtitlemod_speaker_cont_locke"
-	},
 	_CATEGORY_NAMES_TO_SETTING_NAMES = {
 		mission_dialogue = "category_mission_dialogue",
 		contractor_vo = "category_contractor_vo",
