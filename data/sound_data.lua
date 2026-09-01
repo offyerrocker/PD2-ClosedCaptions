@@ -11014,10 +11014,7 @@ return {
 			},
 			rb3 = {
 				std = {
-					variants = {
-						"hud_subtitlemod_f11e_plu_std_rb3_var1",
-						"hud_subtitlemod_f11e_plu_std_rb3_var2"
-					}
+					compound_loc_id = "hud_subtitlemod_f11e_plu_rb3_std_compound"
 				}
 			},
 			rb4 = {
