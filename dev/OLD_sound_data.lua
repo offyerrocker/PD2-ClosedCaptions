@@ -24821,7 +24821,7 @@ $1Uh huh. right.]]
 			priority = 10,
 			duration = 5,
 			category = "mission_dialogue",
-			text = "The login... is MercyKill. Capital'M', capital 'K'."
+			text = "The login... is MercyKill. Capital 'M', capital 'K'."
 		},
 		Play_txm_man_08b = {
 			override_speaker_id = "hud_subtitlemod_speaker_txm_taxman",
@@ -28426,14 +28426,10 @@ $2: Yeah, thanks for nothing.$b
 					[1] = "neutral2"
 				},
 				timing = {
-					1,2,3,4,5,6
+					7.5,15.8,20.8,22.5,28.0,32.1,35.1,39.5,45.1,48.7,51.3,56.4,59.8,63.5,67.9,71.9,77.1,83.4
 				},
 				text = "hud_subtitlemod_cnv_Play_mar_corp_01",
-				convo = [[
-$1:asdfkjasldfkj $b
-$1:asdfkjasldfkj $b
-$1:asdfkjasldfkj $b
-$1:asdfkjasldfkj $b
+				convo = [[$1: Alright, so, they play the video, the crowd applauds... 'Woo, yeah, go Tracy!'$b$1: 'Ladies and gentlemen, this is a very important day...'$b$1: 'Important?' No, no, no... what's a better...? 'Historic!'$b$1: 'Ladies and gentlemen, tonight's event is nothing short of historic.'$b$1: Ooh, that's good.$b$1: 'Tonight, SERA Inc. is proud to reveal the future of... uh...'$b$1: 'future of...' ...goddammit, what does this thing do?$b$1: Seriously, what the fuck even is this thing?$b$1: I named it the 'Neo-2' because it rhymes with 'CO2'.$b$1: It's a filter for... CO2... uh...$b$1: ...Holy shit, I have no idea what the Neo-2 does.$b$1: This is what I get for winging the speech.$b$1: If I'd practiced, I would have caught this weeks ago. I am so fired.$b$1: No, no, chill out, chill out. Just relax! $b$1: I can make this work. I'll just keep it super vague.$b$1: Tonight, SERA is proud to reveal... the future!$b$1: When Neo-2 enters the market, nothing will be the same!$b$1: Then I pull the lab nerd on stage, let him drone on for a few minutes...$b$1: Then we move to the photo op. Quick, easy, and I sound smart without knowing shit.$b$1: God, I'm good at my job.
 ]]
 			}
 		},
