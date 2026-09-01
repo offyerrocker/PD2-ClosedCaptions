@@ -9661,6 +9661,7 @@ $1Uh huh. right.]]
 			variants = {
 				rb3 = {
 					line_variations = {
+						recombinable = true,
 						standard_mode = {
 							{
 								"Anybody!",
