@@ -280,23 +280,28 @@ for event_id,data in pairs(sound_data.vo) do
 			for voice_id,data_variant in pairs(data.variants) do
 				local voice_variant
 				
+				local line_variations
 				if voice_id == "line_variations" then
 					-- i'll allow it.
 					voice_id = "all" -- hope nobody gets a voice variant with this id or that'll collide
-				elseif not table.contains(VOICE_PREFIXES,voice_id) then
-					log("Invalid voice: " .. tostring(voice_id) .. " " .. tostring(event_id))
+					line_variations = data_variant
+				else
+					line_variations = data_variant.line_variations
+					if not table.contains(VOICE_PREFIXES,voice_id) then
+						log("Invalid voice: " .. tostring(voice_id) .. " " .. tostring(event_id))
+					end
 				end
+				
+				
 				voices[voice_id] = voices[voice_id] or {}
 				voice_variant = voices[voice_id]
 				if data_variant.disabled then
 					voice_variant.disabled = true
 				else
-				
 					local done_any
-					if data_variant.line_variations then
-						if data_variant.recombinable then error("HUH " .. event_id) end
-						if data_variant.line_variations.recombinable then
-							for state_name,state_variations in pairs(data_variant.line_variations) do
+					if line_variations then
+						if line_variations.recombinable then
+							for state_name,state_variations in pairs(line_variations) do
 								if type(state_variations) == "table" then
 									local compound_string = serialize_compound_variations(state_variations)
 									if compound_string == false then
@@ -321,7 +326,7 @@ for event_id,data in pairs(sound_data.vo) do
 								end
 							end
 						else
-							for state_name,state_variations in pairs(data_variant.line_variations) do
+							for state_name,state_variations in pairs(line_variations) do
 								local state_shortname = assert(STATE_SHORTNAMES[state_name],"Unknown state1: " .. tostring(state_name))
 								voice_variant[state_shortname] = voice_variant[state_shortname] or {}
 								voice_variant[state_shortname].variants = voice_variant[state_shortname].variants or {}
@@ -375,7 +380,7 @@ for event_id,data in pairs(sound_data.vo) do
 							local convo_string = convo_data.convo
 							local loc_id = CAPTION_LOC_PREFIX .. state_shortname .. "_" .. voice_id .. "_var_" ..  convo_variation_index .. "_" .. event_id
 							local out_convo_data = table.deep_map_copy(convo_data)
-							out_convo_data.convo_string = nil
+							out_convo_data.convo = nil
 							out_convo_data.text = nil -- my data in 2.0 was directly the loc id
 							out_convo_data.loc_id = loc_id
 							new_loc_ids[loc_id] = convo_string
@@ -457,7 +462,7 @@ for event_id,data in pairs(sound_data.vo) do
 			local convo_string = convo_data.convo
 			local loc_id = CAPTION_LOC_PREFIX .. state_shortname .. "_" .. voice_id .. "_" .. event_id
 			local out_convo_data = table.deep_map_copy(convo_data)
-			out_convo_data.convo_string = nil
+			out_convo_data.convo = nil
 			out_convo_data.text = nil
 			out_convo_data.loc_id = loc_id
 			new_loc_ids[loc_id] = convo_string
