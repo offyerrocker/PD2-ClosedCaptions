@@ -2515,7 +2515,7 @@ Hooks:Add("ConsoleMod_RegisterCommands","closedcaptions_load_dev_commands",funct
 			
 			if subcmd == "export" then
 				console:Log("Exporting sound_data.lua to sound_data.json and l10n...")
-				local path = ClosedCaptions._MOD_PATH .. "dev/sounddata_conversion_script_3.lua"
+				local path = ClosedCaptions._MOD_PATH .. "dev/sounddata_conversion_script_4.lua"
 				local file = io.open(path,"r")
 				if file then
 					file:close()
