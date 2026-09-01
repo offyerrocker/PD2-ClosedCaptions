@@ -108,7 +108,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pickup_ammo"
+					variants = {
+						"hud_subtitlemod_std_pickup_ammo"
+					}
 				}
 			}
 		}
@@ -123,7 +125,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pickup_ammo_health_boost"
+					variants = {
+						"hud_subtitlemod_std_pickup_ammo_health_boost"
+					}
 				}
 			}
 		}
@@ -138,7 +142,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pickup_fak_skill"
+					variants = {
+						"hud_subtitlemod_std_pickup_fak_skill"
+					}
 				}
 			}
 		}
@@ -153,7 +159,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_wp_four_pick_up"
+					variants = {
+						"hud_subtitlemod_std_wp_four_pick_up"
+					}
 				}
 			}
 		}
@@ -167,7 +175,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_wp_target_pick_up"
+					variants = {
+						"hud_subtitlemod_std_wp_target_pick_up"
+					}
 				}
 			}
 		}
@@ -181,7 +191,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_wp_ace_pick_up"
+					variants = {
+						"hud_subtitlemod_std_wp_ace_pick_up"
+					}
 				}
 			}
 		}
@@ -196,7 +208,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_wp_hur_pick_up"
+					variants = {
+						"hud_subtitlemod_std_wp_hur_pick_up"
+					}
 				}
 			}
 		}
@@ -211,7 +225,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_wp_jav_pick_up"
+					variants = {
+						"hud_subtitlemod_std_wp_jav_pick_up"
+					}
 				}
 			}
 		}
@@ -226,7 +242,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_wp_arrow_pick_up"
+					variants = {
+						"hud_subtitlemod_std_wp_arrow_pick_up"
+					}
 				}
 			}
 		}
@@ -241,7 +259,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_wp_hunterarrow_pick_up"
+					variants = {
+						"hud_subtitlemod_std_wp_hunterarrow_pick_up"
+					}
 				}
 			}
 		}
@@ -255,7 +275,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cable_tie_apply"
+					variants = {
+						"hud_subtitlemod_std_cable_tie_apply"
+					}
 				}
 			}
 		}
@@ -269,7 +291,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_perkdeck_cooldown_over"
+					variants = {
+						"hud_subtitlemod_std_perkdeck_cooldown_over"
+					}
 				}
 			}
 		}
@@ -285,7 +309,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tasered_loop"
+					variants = {
+						"hud_subtitlemod_std_tasered_loop"
+					}
 				}
 			}
 		}
@@ -341,7 +367,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ammo_bag_drop"
+					variants = {
+						"hud_subtitlemod_std_ammo_bag_drop"
+					}
 				}
 			}
 		}
@@ -356,7 +384,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bar_prison_transport_door_open_finished"
+					variants = {
+						"hud_subtitlemod_std_bar_prison_transport_door_open_finished"
+					}
 				}
 			}
 		}
@@ -371,7 +401,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bag_light_drop"
+					variants = {
+						"hud_subtitlemod_std_bag_light_drop"
+					}
 				}
 			}
 		}
@@ -386,7 +418,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bag_medium_drop"
+					variants = {
+						"hud_subtitlemod_std_bag_medium_drop"
+					}
 				}
 			}
 		}
@@ -401,7 +435,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bag_heavy_drop"
+					variants = {
+						"hud_subtitlemod_std_bag_heavy_drop"
+					}
 				}
 			}
 		}
@@ -415,7 +451,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_blowtorch_guy"
+					variants = {
+						"hud_subtitlemod_std_blowtorch_guy"
+					}
 				}
 			}
 		}
@@ -437,7 +475,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_buzz_saw_aced"
+					variants = {
+						"hud_subtitlemod_std_buzz_saw_aced"
+					}
 				}
 			}
 		}
@@ -451,7 +491,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_buzz_saw_jam"
+					variants = {
+						"hud_subtitlemod_std_buzz_saw_jam"
+					}
 				}
 			}
 		}
@@ -465,7 +507,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_buzz_saw"
+					variants = {
+						"hud_subtitlemod_std_buzz_saw"
+					}
 				}
 			}
 		}
@@ -501,7 +545,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_card_reader_first_card"
+					variants = {
+						"hud_subtitlemod_std_card_reader_first_card"
+					}
 				}
 			}
 		}
@@ -516,7 +562,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_card_reader_second_card"
+					variants = {
+						"hud_subtitlemod_std_card_reader_second_card"
+					}
 				}
 			}
 		}
@@ -530,7 +578,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_camera_wrong_image"
+					variants = {
+						"hud_subtitlemod_std_camera_wrong_image"
+					}
 				}
 			}
 		}
@@ -558,7 +608,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_container_drop"
+					variants = {
+						"hud_subtitlemod_std_container_drop"
+					}
 				}
 			}
 		}
@@ -572,7 +624,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cooking_meth"
+					variants = {
+						"hud_subtitlemod_std_cooking_meth"
+					}
 				}
 			}
 		}
@@ -598,7 +652,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ecm_jammer_jam_signal"
+					variants = {
+						"hud_subtitlemod_std_ecm_jammer_jam_signal"
+					}
 				}
 			}
 		}
@@ -621,7 +677,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ecm_jammer_puke_signal"
+					variants = {
+						"hud_subtitlemod_std_ecm_jammer_puke_signal"
+					}
 				}
 			}
 		}
@@ -644,7 +702,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_flare_start_loop"
+					variants = {
+						"hud_subtitlemod_std_flare_start_loop"
+					}
 				}
 			}
 		}
@@ -663,7 +723,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_goat_fan_woosh"
+					variants = {
+						"hud_subtitlemod_std_goat_fan_woosh"
+					}
 				}
 			}
 		}
@@ -677,7 +739,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_goat_hang_scaffold"
+					variants = {
+						"hud_subtitlemod_std_goat_hang_scaffold"
+					}
 				}
 			}
 		}
@@ -692,7 +756,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_goat_kick"
+					variants = {
+						"hud_subtitlemod_std_goat_kick"
+					}
 				}
 			}
 		}
@@ -706,7 +772,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_goat_sleep"
+					variants = {
+						"hud_subtitlemod_std_goat_sleep"
+					}
 				}
 			}
 		}
@@ -721,7 +789,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_goat_says_meh"
+					variants = {
+						"hud_subtitlemod_std_goat_says_meh"
+					}
 				}
 			}
 		}
@@ -736,7 +806,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_goat_says_meh_loop"
+					variants = {
+						"hud_subtitlemod_std_goat_says_meh_loop"
+					}
 				}
 			}
 		}
@@ -751,7 +823,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_goat_lick"
+					variants = {
+						"hud_subtitlemod_std_goat_lick"
+					}
 				}
 			}
 		}
@@ -766,7 +840,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_goat_headbutt"
+					variants = {
+						"hud_subtitlemod_std_goat_headbutt"
+					}
 				}
 			}
 		}
@@ -781,7 +857,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_glass_door_open"
+					variants = {
+						"hud_subtitlemod_std_glass_door_open"
+					}
 				}
 			}
 		}
@@ -795,7 +873,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hacking_device"
+					variants = {
+						"hud_subtitlemod_std_hacking_device"
+					}
 				}
 			}
 		}
@@ -815,7 +895,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_phone_call"
+					variants = {
+						"hud_subtitlemod_std_hos_phone_call"
+					}
 				}
 			}
 		}
@@ -837,7 +919,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_inside_container"
+					variants = {
+						"hud_subtitlemod_std_inside_container"
+					}
 				}
 			}
 		}
@@ -852,7 +936,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_insert_usb_stick"
+					variants = {
+						"hud_subtitlemod_std_insert_usb_stick"
+					}
 				}
 			}
 		}
@@ -866,7 +952,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_kick_open_container"
+					variants = {
+						"hud_subtitlemod_std_kick_open_container"
+					}
 				}
 			}
 		}
@@ -882,7 +970,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_keypad_button_press_03"
+					variants = {
+						"hud_subtitlemod_std_keypad_button_press_03"
+					}
 				}
 			}
 		}
@@ -898,7 +988,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_keypad_wrong_code_03"
+					variants = {
+						"hud_subtitlemod_std_keypad_wrong_code_03"
+					}
 				}
 			}
 		}
@@ -914,7 +1006,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_keypad_correct_code_03"
+					variants = {
+						"hud_subtitlemod_std_keypad_correct_code_03"
+					}
 				}
 			}
 		}
@@ -930,7 +1024,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_keypad_wrong_code"
+					variants = {
+						"hud_subtitlemod_std_keypad_wrong_code"
+					}
 				}
 			}
 		}
@@ -946,7 +1042,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_keypad_correct_code"
+					variants = {
+						"hud_subtitlemod_std_keypad_correct_code"
+					}
 				}
 			}
 		}
@@ -961,7 +1059,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_laser_shutdown_left"
+					variants = {
+						"hud_subtitlemod_std_laser_shutdown_left"
+					}
 				}
 			}
 		}
@@ -976,7 +1076,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_laser_shutdown_right"
+					variants = {
+						"hud_subtitlemod_std_laser_shutdown_right"
+					}
 				}
 			}
 		}
@@ -991,7 +1093,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_laser_warning_on_left"
+					variants = {
+						"hud_subtitlemod_std_laser_warning_on_left"
+					}
 				}
 			}
 		}
@@ -1006,7 +1110,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_laser_warning_on_right"
+					variants = {
+						"hud_subtitlemod_std_laser_warning_on_right"
+					}
 				}
 			}
 		}
@@ -1021,7 +1127,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_magnetic_door_open"
+					variants = {
+						"hud_subtitlemod_std_magnetic_door_open"
+					}
 				}
 			}
 		}
@@ -1036,7 +1144,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_metalsheet_place"
+					variants = {
+						"hud_subtitlemod_std_metalsheet_place"
+					}
 				}
 			}
 		}
@@ -1051,7 +1161,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_server_room_door_open"
+					variants = {
+						"hud_subtitlemod_std_server_room_door_open"
+					}
 				}
 			}
 		}
@@ -1065,7 +1177,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_server_noise_loop"
+					variants = {
+						"hud_subtitlemod_std_server_noise_loop"
+					}
 				}
 			}
 		}
@@ -1080,7 +1194,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_sah_hacking_device_data_transfer_finish"
+					variants = {
+						"hud_subtitlemod_std_sah_hacking_device_data_transfer_finish"
+					}
 				}
 			}
 		}
@@ -1094,7 +1210,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_sah_hacking_device_data_transfer_loop"
+					variants = {
+						"hud_subtitlemod_std_sah_hacking_device_data_transfer_loop"
+					}
 				}
 			}
 		}
@@ -1109,7 +1227,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_small_metal_door_open_02"
+					variants = {
+						"hud_subtitlemod_std_small_metal_door_open_02"
+					}
 				}
 			}
 		}
@@ -1123,7 +1243,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_table_saw"
+					variants = {
+						"hud_subtitlemod_std_table_saw"
+					}
 				}
 			}
 		}
@@ -1146,7 +1268,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_thermite_paste_start"
+					variants = {
+						"hud_subtitlemod_std_thermite_paste_start"
+					}
 				}
 			}
 		}
@@ -1165,7 +1289,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_trip_mine_arm"
+					variants = {
+						"hud_subtitlemod_std_trip_mine_arm"
+					}
 				}
 			}
 		}
@@ -1179,7 +1305,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_trip_mine_attach"
+					variants = {
+						"hud_subtitlemod_std_trip_mine_attach"
+					}
 				}
 			}
 		}
@@ -1193,7 +1321,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_trip_mine_beep_armed"
+					variants = {
+						"hud_subtitlemod_std_trip_mine_beep_armed"
+					}
 				}
 			}
 		}
@@ -1207,7 +1337,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_trip_mine_beep_explode"
+					variants = {
+						"hud_subtitlemod_std_trip_mine_beep_explode"
+					}
 				}
 			}
 		}
@@ -1221,7 +1353,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_trip_mine_disarm"
+					variants = {
+						"hud_subtitlemod_std_trip_mine_disarm"
+					}
 				}
 			}
 		}
@@ -1235,7 +1369,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_trip_mine_explode"
+					variants = {
+						"hud_subtitlemod_std_trip_mine_explode"
+					}
 				}
 			}
 		}
@@ -1249,7 +1385,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_trip_mine_sensor_alarm"
+					variants = {
+						"hud_subtitlemod_std_trip_mine_sensor_alarm"
+					}
 				}
 			}
 		}
@@ -1262,7 +1400,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_vial_break_2d"
+					variants = {
+						"hud_subtitlemod_std_vial_break_2d"
+					}
 				}
 			}
 		}
@@ -1276,7 +1416,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hlp_keycard_box_appear"
+					variants = {
+						"hud_subtitlemod_std_hlp_keycard_box_appear"
+					}
 				}
 			}
 		}
@@ -1290,7 +1432,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hlp_keycard_box_disappear"
+					variants = {
+						"hud_subtitlemod_std_hlp_keycard_box_disappear"
+					}
 				}
 			}
 		}
@@ -1303,7 +1447,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_switch_on"
+					variants = {
+						"hud_subtitlemod_std_switch_on"
+					}
 				}
 			}
 		}
@@ -1316,7 +1462,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_switch_off"
+					variants = {
+						"hud_subtitlemod_std_switch_off"
+					}
 				}
 			}
 		}
@@ -1328,7 +1476,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ambience_switch_halloween_2016_state_smoke_to_ext"
+					variants = {
+						"hud_subtitlemod_std_ambience_switch_halloween_2016_state_smoke_to_ext"
+					}
 				}
 			}
 		}
@@ -1340,7 +1490,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ambience_switch_halloween_2016_state_ext_to_smoke"
+					variants = {
+						"hud_subtitlemod_std_ambience_switch_halloween_2016_state_ext_to_smoke"
+					}
 				}
 			}
 		}
@@ -1356,7 +1508,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_witch_cry_loop"
+					variants = {
+						"hud_subtitlemod_std_hos_witch_cry_loop"
+					}
 				}
 			}
 		}
@@ -1374,7 +1528,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_city_sounds_basketball"
+					variants = {
+						"hud_subtitlemod_std_city_sounds_basketball"
+					}
 				}
 			}
 		}
@@ -1393,7 +1549,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_earthquake_siren"
+					variants = {
+						"hud_subtitlemod_std_earthquake_siren"
+					}
 				}
 			}
 		}
@@ -1421,7 +1579,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_rain_tag_open_window_indoor"
+					variants = {
+						"hud_subtitlemod_std_emitter_rain_tag_open_window_indoor"
+					}
 				}
 			}
 		}
@@ -1436,7 +1596,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_rain_on_skylight_indoor"
+					variants = {
+						"hud_subtitlemod_std_emitter_rain_on_skylight_indoor"
+					}
 				}
 			}
 		}
@@ -1450,7 +1612,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_lorry_idle_01"
+					variants = {
+						"hud_subtitlemod_std_emitter_lorry_idle_01"
+					}
 				}
 			}
 		}
@@ -1464,7 +1628,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_lorry_idle_03"
+					variants = {
+						"hud_subtitlemod_std_emitter_lorry_idle_03"
+					}
 				}
 			}
 		}
@@ -1478,7 +1644,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_car_idle_01"
+					variants = {
+						"hud_subtitlemod_std_emitter_car_idle_01"
+					}
 				}
 			}
 		}
@@ -1492,7 +1660,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_car_idle_05"
+					variants = {
+						"hud_subtitlemod_std_emitter_car_idle_05"
+					}
 				}
 			}
 		}
@@ -1506,7 +1676,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_car_idle_07"
+					variants = {
+						"hud_subtitlemod_std_emitter_car_idle_07"
+					}
 				}
 			}
 		}
@@ -1520,7 +1692,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_car_idle_10"
+					variants = {
+						"hud_subtitlemod_std_emitter_car_idle_10"
+					}
 				}
 			}
 		}
@@ -1534,7 +1708,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_car_idle_broken_01"
+					variants = {
+						"hud_subtitlemod_std_emitter_car_idle_broken_01"
+					}
 				}
 			}
 		}
@@ -1548,7 +1724,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_car_idle_03_gen_20"
+					variants = {
+						"hud_subtitlemod_std_emitter_car_idle_03_gen_20"
+					}
 				}
 			}
 		}
@@ -1562,7 +1740,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_truck_idle_02"
+					variants = {
+						"hud_subtitlemod_std_emitter_truck_idle_02"
+					}
 				}
 			}
 		}
@@ -1582,7 +1762,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_helicopter_police"
+					variants = {
+						"hud_subtitlemod_std_helicopter_police"
+					}
 				}
 			}
 		}
@@ -1601,7 +1783,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bd_police_siren_02"
+					variants = {
+						"hud_subtitlemod_std_bd_police_siren_02"
+					}
 				}
 			}
 		}
@@ -1615,7 +1799,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_police_radio"
+					variants = {
+						"hud_subtitlemod_std_police_radio"
+					}
 				}
 			}
 		}
@@ -1629,7 +1815,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_policecar_approaching"
+					variants = {
+						"hud_subtitlemod_std_policecar_approaching"
+					}
 				}
 			}
 		}
@@ -1659,7 +1847,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_camera_alarm_signal"
+					variants = {
+						"hud_subtitlemod_std_camera_alarm_signal"
+					}
 				}
 			}
 		}
@@ -1674,7 +1864,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_emitter_security_camera_explode"
+					variants = {
+						"hud_subtitlemod_std_emitter_security_camera_explode"
+					}
 				}
 			}
 		}
@@ -1689,7 +1881,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pfn_beep"
+					variants = {
+						"hud_subtitlemod_std_pfn_beep"
+					}
 				}
 			}
 		}
@@ -1704,7 +1898,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_flashbang_beep"
+					variants = {
+						"hud_subtitlemod_std_flashbang_beep"
+					}
 				}
 			}
 		}
@@ -1719,7 +1915,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_flashbang_bounce"
+					variants = {
+						"hud_subtitlemod_std_flashbang_bounce"
+					}
 				}
 			}
 		}
@@ -1734,7 +1932,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_flashbang_explosion"
+					variants = {
+						"hud_subtitlemod_std_flashbang_explosion"
+					}
 				}
 			}
 		}
@@ -1748,7 +1948,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_flashbang_explode_sfx_player"
+					variants = {
+						"hud_subtitlemod_std_flashbang_explode_sfx_player"
+					}
 				}
 			}
 		}
@@ -1763,7 +1965,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pfn_beep_end"
+					variants = {
+						"hud_subtitlemod_std_pfn_beep_end"
+					}
 				}
 			}
 		}
@@ -1778,7 +1982,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_grenade_gas_npc_fire"
+					variants = {
+						"hud_subtitlemod_std_grenade_gas_npc_fire"
+					}
 				}
 			}
 		}
@@ -1799,7 +2005,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bulldozer_collar_plate_shatter"
+					variants = {
+						"hud_subtitlemod_std_bulldozer_collar_plate_shatter"
+					}
 				}
 			}
 		}
@@ -1814,7 +2022,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bulldozer_metal_plate_shatter"
+					variants = {
+						"hud_subtitlemod_std_bulldozer_metal_plate_shatter"
+					}
 				}
 			}
 		}
@@ -1829,7 +2039,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bulldozer_visor_shatter"
+					variants = {
+						"hud_subtitlemod_std_bulldozer_visor_shatter"
+					}
 				}
 			}
 		}
@@ -1843,7 +2055,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_npc_typing_on_copy_machine_loop"
+					variants = {
+						"hud_subtitlemod_std_npc_typing_on_copy_machine_loop"
+					}
 				}
 			}
 		}
@@ -1857,7 +2071,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_npc_crowd_scream_01"
+					variants = {
+						"hud_subtitlemod_std_npc_crowd_scream_01"
+					}
 				}
 			}
 		}
@@ -1871,7 +2087,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_radio"
+					variants = {
+						"hud_subtitlemod_std_radio"
+					}
 				}
 			}
 		}
@@ -1885,7 +2103,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_christmas_radio"
+					variants = {
+						"hud_subtitlemod_std_christmas_radio"
+					}
 				}
 			}
 		}
@@ -1908,7 +2128,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_halloween_radio_loop_2013"
+					variants = {
+						"hud_subtitlemod_std_halloween_radio_loop_2013"
+					}
 				}
 			}
 		}
@@ -1922,7 +2144,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_jukebox_shuffle"
+					variants = {
+						"hud_subtitlemod_std_jukebox_shuffle"
+					}
 				}
 			}
 		}
@@ -1945,7 +2169,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_jukebox_the_flames_of_love"
+					variants = {
+						"hud_subtitlemod_std_jukebox_the_flames_of_love"
+					}
 				}
 			}
 		}
@@ -1959,7 +2185,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_jukebox_biker"
+					variants = {
+						"hud_subtitlemod_std_jukebox_biker"
+					}
 				}
 			}
 		}
@@ -1982,7 +2210,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rvd_radio_music_start"
+					variants = {
+						"hud_subtitlemod_std_rvd_radio_music_start"
+					}
 				}
 			}
 		}
@@ -2003,7 +2233,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_diegetic_club_music"
+					variants = {
+						"hud_subtitlemod_std_diegetic_club_music"
+					}
 				}
 			}
 		}
@@ -2024,7 +2256,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_diegetic_lounge_music"
+					variants = {
+						"hud_subtitlemod_std_diegetic_lounge_music"
+					}
 				}
 			}
 		}
@@ -2038,7 +2272,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_art_galley_alarm_on_slow_fade"
+					variants = {
+						"hud_subtitlemod_std_art_galley_alarm_on_slow_fade"
+					}
 				}
 			}
 		}
@@ -2057,7 +2293,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bank_alarm_on_slow_fade"
+					variants = {
+						"hud_subtitlemod_std_bank_alarm_on_slow_fade"
+					}
 				}
 			}
 		}
@@ -2071,7 +2309,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_alarm_kosugi_on_slow_fade_02"
+					variants = {
+						"hud_subtitlemod_std_alarm_kosugi_on_slow_fade_02"
+					}
 				}
 			}
 		}
@@ -2085,7 +2325,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_alarm_museum_on_slow_fade"
+					variants = {
+						"hud_subtitlemod_std_alarm_museum_on_slow_fade"
+					}
 				}
 			}
 		}
@@ -2099,7 +2341,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_alarm_countdown_loop"
+					variants = {
+						"hud_subtitlemod_std_alarm_countdown_loop"
+					}
 				}
 			}
 		}
@@ -2112,7 +2356,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_alarm_countdown_ticking_down_10sec"
+					variants = {
+						"hud_subtitlemod_std_alarm_countdown_ticking_down_10sec"
+					}
 				}
 			}
 		}
@@ -2135,7 +2381,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hitec_lotec_alarm_slow_fade"
+					variants = {
+						"hud_subtitlemod_std_hitec_lotec_alarm_slow_fade"
+					}
 				}
 			}
 		}
@@ -2149,7 +2397,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_alarm"
+					variants = {
+						"hud_subtitlemod_std_hos_alarm"
+					}
 				}
 			}
 		}
@@ -2163,7 +2413,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bell_ring"
+					variants = {
+						"hud_subtitlemod_std_bell_ring"
+					}
 				}
 			}
 		}
@@ -2176,7 +2428,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_birds_fly_away"
+					variants = {
+						"hud_subtitlemod_std_birds_fly_away"
+					}
 				}
 			}
 		}
@@ -2191,7 +2445,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_branch_bank_phone_call"
+					variants = {
+						"hud_subtitlemod_std_branch_bank_phone_call"
+					}
 				}
 			}
 		}
@@ -2214,7 +2470,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_c4_explode_metal"
+					variants = {
+						"hud_subtitlemod_std_c4_explode_metal"
+					}
 				}
 			}
 		}
@@ -2228,7 +2486,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_car_land_in_water"
+					variants = {
+						"hud_subtitlemod_std_car_land_in_water"
+					}
 				}
 			}
 		}
@@ -2242,7 +2502,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_car_tumble_hit"
+					variants = {
+						"hud_subtitlemod_std_car_tumble_hit"
+					}
 				}
 			}
 		}
@@ -2256,7 +2518,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cellphone_01_no_answer"
+					variants = {
+						"hud_subtitlemod_std_cellphone_01_no_answer"
+					}
 				}
 			}
 		}
@@ -2271,7 +2535,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cellphone_01_answer"
+					variants = {
+						"hud_subtitlemod_std_cellphone_01_answer"
+					}
 				}
 			}
 		}
@@ -2286,7 +2552,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cft_manhole_cover_slide"
+					variants = {
+						"hud_subtitlemod_std_cft_manhole_cover_slide"
+					}
 				}
 			}
 		}
@@ -2301,7 +2569,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_manhole_opens"
+					variants = {
+						"hud_subtitlemod_std_manhole_opens"
+					}
 				}
 			}
 		}
@@ -2316,7 +2586,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_door_wooden_kicked_in"
+					variants = {
+						"hud_subtitlemod_std_door_wooden_kicked_in"
+					}
 				}
 			}
 		}
@@ -2331,7 +2603,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_elevator_doors_open"
+					variants = {
+						"hud_subtitlemod_std_elevator_doors_open"
+					}
 				}
 			}
 		}
@@ -2346,7 +2620,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_elevator_doors_close"
+					variants = {
+						"hud_subtitlemod_std_elevator_doors_close"
+					}
 				}
 			}
 		}
@@ -2361,7 +2637,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_elevator_ding"
+					variants = {
+						"hud_subtitlemod_std_elevator_ding"
+					}
 				}
 			}
 		}
@@ -2376,7 +2654,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_fire_sprinkler_start"
+					variants = {
+						"hud_subtitlemod_std_fire_sprinkler_start"
+					}
 				}
 			}
 		}
@@ -2400,7 +2680,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_fire_hiss"
+					variants = {
+						"hud_subtitlemod_std_fire_hiss"
+					}
 				}
 			}
 		}
@@ -2415,7 +2697,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hlp_poof_big"
+					variants = {
+						"hud_subtitlemod_std_hlp_poof_big"
+					}
 				}
 			}
 		}
@@ -2429,7 +2713,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hlp_green_fire"
+					variants = {
+						"hud_subtitlemod_std_hlp_green_fire"
+					}
 				}
 			}
 		}
@@ -2449,7 +2735,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hlp_bag_door_loop_start"
+					variants = {
+						"hud_subtitlemod_std_hlp_bag_door_loop_start"
+					}
 				}
 			}
 		}
@@ -2468,7 +2756,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hlp_ending_choir_start"
+					variants = {
+						"hud_subtitlemod_std_hlp_ending_choir_start"
+					}
 				}
 			}
 		}
@@ -2487,7 +2777,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_pa_announcement_emergency"
+					variants = {
+						"hud_subtitlemod_std_hos_pa_announcement_emergency"
+					}
 				}
 			}
 		}
@@ -2501,7 +2793,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_pa_announcement_generic"
+					variants = {
+						"hud_subtitlemod_std_hos_pa_announcement_generic"
+					}
 				}
 			}
 		}
@@ -2515,7 +2809,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_wardrobe_change"
+					variants = {
+						"hud_subtitlemod_std_hos_wardrobe_change"
+					}
 				}
 			}
 		}
@@ -2529,7 +2825,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_fake_sentry_place"
+					variants = {
+						"hud_subtitlemod_std_hos_fake_sentry_place"
+					}
 				}
 			}
 		}
@@ -2543,7 +2841,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_pa_announcement_all"
+					variants = {
+						"hud_subtitlemod_std_hos_pa_announcement_all"
+					}
 				}
 			}
 		}
@@ -2557,7 +2857,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_large_fire"
+					variants = {
+						"hud_subtitlemod_std_large_fire"
+					}
 				}
 			}
 		}
@@ -2580,7 +2882,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_metal_door_knock"
+					variants = {
+						"hud_subtitlemod_std_metal_door_knock"
+					}
 				}
 			}
 		}
@@ -2595,7 +2899,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_metal_door_open"
+					variants = {
+						"hud_subtitlemod_std_metal_door_open"
+					}
 				}
 			}
 		}
@@ -2610,7 +2916,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_fence_gate_close"
+					variants = {
+						"hud_subtitlemod_std_fence_gate_close"
+					}
 				}
 			}
 		}
@@ -2625,7 +2933,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_fence_gate_open"
+					variants = {
+						"hud_subtitlemod_std_fence_gate_open"
+					}
 				}
 			}
 		}
@@ -2640,7 +2950,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_gate_fence_street_open"
+					variants = {
+						"hud_subtitlemod_std_gate_fence_street_open"
+					}
 				}
 			}
 		}
@@ -2655,7 +2967,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_generic_door_metal_open"
+					variants = {
+						"hud_subtitlemod_std_generic_door_metal_open"
+					}
 				}
 			}
 		}
@@ -2670,7 +2984,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_glass_crack"
+					variants = {
+						"hud_subtitlemod_std_glass_crack"
+					}
 				}
 			}
 		}
@@ -2684,7 +3000,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hand_dryer_on"
+					variants = {
+						"hud_subtitlemod_std_hand_dryer_on"
+					}
 				}
 			}
 		}
@@ -2706,7 +3024,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_howl_reverb"
+					variants = {
+						"hud_subtitlemod_std_Play_howl_reverb"
+					}
 				}
 			}
 		}
@@ -2721,7 +3041,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_phone_01_no_answer"
+					variants = {
+						"hud_subtitlemod_std_phone_01_no_answer"
+					}
 				}
 			}
 		}
@@ -2736,7 +3058,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_phone_02_no_answer"
+					variants = {
+						"hud_subtitlemod_std_phone_02_no_answer"
+					}
 				}
 			}
 		}
@@ -2751,7 +3075,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_phone_03_no_answer"
+					variants = {
+						"hud_subtitlemod_std_phone_03_no_answer"
+					}
 				}
 			}
 		}
@@ -2766,7 +3092,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_phone_04_no_answer"
+					variants = {
+						"hud_subtitlemod_std_phone_04_no_answer"
+					}
 				}
 			}
 		}
@@ -2780,7 +3108,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_prison_transport_sliding"
+					variants = {
+						"hud_subtitlemod_std_prison_transport_sliding"
+					}
 				}
 			}
 		}
@@ -2794,7 +3124,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_queue_beep"
+					variants = {
+						"hud_subtitlemod_std_queue_beep"
+					}
 				}
 			}
 		}
@@ -2808,7 +3140,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swat_explosion"
+					variants = {
+						"hud_subtitlemod_std_swat_explosion"
+					}
 				}
 			}
 		}
@@ -2823,7 +3157,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_telephone_booth_ringing"
+					variants = {
+						"hud_subtitlemod_std_telephone_booth_ringing"
+					}
 				}
 			}
 		}
@@ -2845,7 +3181,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tick_tock_play"
+					variants = {
+						"hud_subtitlemod_std_tick_tock_play"
+					}
 				}
 			}
 		}
@@ -2867,7 +3205,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_toilet_flush"
+					variants = {
+						"hud_subtitlemod_std_toilet_flush"
+					}
 				}
 			}
 		}
@@ -2882,7 +3222,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_whistling_attention"
+					variants = {
+						"hud_subtitlemod_std_whistling_attention"
+					}
 				}
 			}
 		}
@@ -2896,7 +3238,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_window_small_shatter"
+					variants = {
+						"hud_subtitlemod_std_window_small_shatter"
+					}
 				}
 			}
 		}
@@ -2910,7 +3254,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_window_medium_shatter"
+					variants = {
+						"hud_subtitlemod_std_window_medium_shatter"
+					}
 				}
 			}
 		}
@@ -2924,7 +3270,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_window_large_shatter"
+					variants = {
+						"hud_subtitlemod_std_window_large_shatter"
+					}
 				}
 			}
 		}
@@ -2938,7 +3286,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_van_rear_door_close"
+					variants = {
+						"hud_subtitlemod_std_van_rear_door_close"
+					}
 				}
 			}
 		}
@@ -2952,7 +3302,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_van_rear_door_open"
+					variants = {
+						"hud_subtitlemod_std_van_rear_door_open"
+					}
 				}
 			}
 		}
@@ -2965,7 +3317,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_open_body_container"
+					variants = {
+						"hud_subtitlemod_std_open_body_container"
+					}
 				}
 			}
 		}
@@ -2978,7 +3332,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_close_body_container"
+					variants = {
+						"hud_subtitlemod_std_close_body_container"
+					}
 				}
 			}
 		}
@@ -2991,7 +3347,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_bag_generic_throw"
+					variants = {
+						"hud_subtitlemod_std_Play_bag_generic_throw"
+					}
 				}
 			}
 		}
@@ -3004,7 +3362,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_heli_loop"
+					variants = {
+						"hud_subtitlemod_std_heli_loop"
+					}
 				}
 			}
 		}
@@ -3017,7 +3377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_drone_loop_start"
+					variants = {
+						"hud_subtitlemod_std_drone_loop_start"
+					}
 				}
 			}
 		}
@@ -3038,7 +3400,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pick_up_crowbar"
+					variants = {
+						"hud_subtitlemod_std_pick_up_crowbar"
+					}
 				}
 			}
 		}
@@ -3051,7 +3415,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_drone_camera_malfunction_stop"
+					variants = {
+						"hud_subtitlemod_std_drone_camera_malfunction_stop"
+					}
 				}
 			}
 		}
@@ -3082,7 +3448,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_TRAI_Gate_Unlock"
+					variants = {
+						"hud_subtitlemod_std_TRAI_Gate_Unlock"
+					}
 				}
 			}
 		}
@@ -3095,7 +3463,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_TRAI_Gate_Open"
+					variants = {
+						"hud_subtitlemod_std_TRAI_Gate_Open"
+					}
 				}
 			}
 		}
@@ -3108,7 +3478,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_TRAI_Gate_Open_STOP"
+					variants = {
+						"hud_subtitlemod_std_TRAI_Gate_Open_STOP"
+					}
 				}
 			}
 		}
@@ -3121,7 +3493,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_TRAI_Walkie_Talkie"
+					variants = {
+						"hud_subtitlemod_std_TRAI_Walkie_Talkie"
+					}
 				}
 			}
 		}
@@ -3134,7 +3508,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_TRAI_Crane_Move_Arm"
+					variants = {
+						"hud_subtitlemod_std_TRAI_Crane_Move_Arm"
+					}
 				}
 			}
 		}
@@ -3147,7 +3523,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_coffee_machine_start"
+					variants = {
+						"hud_subtitlemod_std_coffee_machine_start"
+					}
 				}
 			}
 		}
@@ -3649,7 +4027,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_drv_ukranian_stage1_02"
+					variants = {
+						"hud_subtitlemod_std_Play_drv_ukranian_stage1_02"
+					}
 				}
 			}
 		}
@@ -4145,7 +4525,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_01"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_01"
+					}
 				}
 			}
 		}
@@ -4160,7 +4542,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_02"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_02"
+					}
 				}
 			}
 		}
@@ -4175,7 +4559,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_03"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_03"
+					}
 				}
 			}
 		}
@@ -4190,7 +4576,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_04"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_04"
+					}
 				}
 			}
 		}
@@ -4205,7 +4593,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_05"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_05"
+					}
 				}
 			}
 		}
@@ -4220,7 +4610,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_06"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_06"
+					}
 				}
 			}
 		}
@@ -4235,7 +4627,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_07"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_07"
+					}
 				}
 			}
 		}
@@ -4250,7 +4644,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_08"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_08"
+					}
 				}
 			}
 		}
@@ -4265,7 +4661,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_09"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_09"
+					}
 				}
 			}
 		}
@@ -4280,7 +4678,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_10"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_10"
+					}
 				}
 			}
 		}
@@ -4295,7 +4695,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_11"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_11"
+					}
 				}
 			}
 		}
@@ -4310,7 +4712,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_12"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_12"
+					}
 				}
 			}
 		}
@@ -4325,7 +4729,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_13"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_13"
+					}
 				}
 			}
 		}
@@ -4340,7 +4746,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_14"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_14"
+					}
 				}
 			}
 		}
@@ -4355,7 +4763,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_15"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_15"
+					}
 				}
 			}
 		}
@@ -4370,7 +4780,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_16"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_16"
+					}
 				}
 			}
 		}
@@ -4385,7 +4797,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_play_pln_gen_count_17"
+					variants = {
+						"hud_subtitlemod_std_play_pln_gen_count_17"
+					}
 				}
 			}
 		}
@@ -4499,7 +4913,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pln_fost_cam_01"
+					variants = {
+						"hud_subtitlemod_std_Play_pln_fost_cam_01"
+					}
 				}
 			}
 		}
@@ -5810,7 +6226,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_g50"
+					variants = {
+						"hud_subtitlemod_std_g50"
+					}
 				}
 			}
 		}
@@ -5823,7 +6241,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_g51"
+					variants = {
+						"hud_subtitlemod_std_g51"
+					}
 				}
 			}
 		}
@@ -6084,7 +6504,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_g70"
+					variants = {
+						"hud_subtitlemod_std_g70"
+					}
 				}
 			}
 		}
@@ -6192,7 +6614,6 @@ return {
 				}
 			},
 			rb3 = {
-				duration = 3,
 				std = {
 					desc_id = "hud_subtitlemod_p01_rb3_std",
 					variants = {
@@ -6204,7 +6625,6 @@ return {
 				}
 			},
 			rb4 = {
-				duration = 3,
 				std = {
 					desc_id = "hud_subtitlemod_p01_rb4_std",
 					variants = {
@@ -6438,7 +6858,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_p10"
+					variants = {
+						"hud_subtitlemod_std_p10"
+					}
 				}
 			}
 		}
@@ -6559,7 +6981,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_p18"
+					variants = {
+						"hud_subtitlemod_std_p18"
+					}
 				}
 			}
 		}
@@ -8152,121 +8576,101 @@ return {
 		priority = 35,
 		voices = {
 			rb1 = {
-				duration = 15,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb1_std"
 				}
 			},
 			rb10 = {
-				duration = 25,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb10_std"
 				}
 			},
 			rb11 = {
-				duration = 18,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb11_std"
 				}
 			},
 			rb13 = {
-				duration = 21,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb13_std"
 				}
 			},
 			rb14 = {
-				duration = 32,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb14_std"
 				}
 			},
 			rb15 = {
-				duration = 30,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb15_std"
 				}
 			},
 			rb16 = {
-				duration = 18,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb16_std"
 				}
 			},
 			rb17 = {
-				duration = 21,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb17_std"
 				}
 			},
 			rb18 = {
-				duration = 25,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb18_std"
 				}
 			},
 			rb19 = {
-				duration = 23,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb19_std"
 				}
 			},
 			rb2 = {
-				duration = 21,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb2_std"
 				}
 			},
 			rb20 = {
-				duration = 19,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb20_std"
 				}
 			},
 			rb21 = {
-				duration = 18,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb21_std"
 				}
 			},
 			rb22 = {
-				duration = 20,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb22_std"
 				}
 			},
 			rb3 = {
-				duration = 19,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb3_std"
 				}
 			},
 			rb4 = {
-				duration = 22,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb4_std"
 				}
 			},
 			rb5 = {
-				duration = 18,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb5_std"
 				}
 			},
 			rb6 = {
-				duration = 20,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb6_std"
 				}
 			},
 			rb8 = {
-				duration = 22,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb8_std"
 				}
 			},
 			rb9 = {
-				duration = 22,
 				std = {
 					desc_id = "hud_subtitlemod_v34_rb9_std"
 				}
@@ -10052,7 +10456,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_g40x_any"
+					variants = {
+						"hud_subtitlemod_std_g40x_any"
+					}
 				}
 			}
 		}
@@ -10556,7 +10962,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_s14"
+					variants = {
+						"hud_subtitlemod_std_s14"
+					}
 				}
 			}
 		}
@@ -12125,7 +12533,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_s09a"
+					variants = {
+						"hud_subtitlemod_std_s09a"
+					}
 				}
 			}
 		}
@@ -12139,7 +12549,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_s09b"
+					variants = {
+						"hud_subtitlemod_std_s09b"
+					}
 				}
 			}
 		}
@@ -12153,7 +12565,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_s09c"
+					variants = {
+						"hud_subtitlemod_std_s09c"
+					}
 				}
 			}
 		}
@@ -12167,7 +12581,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_s05a_sin"
+					variants = {
+						"hud_subtitlemod_std_s05a_sin"
+					}
 				}
 			}
 		}
@@ -12181,7 +12597,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_s05b_sin"
+					variants = {
+						"hud_subtitlemod_std_s05b_sin"
+					}
 				}
 			}
 		}
@@ -12485,7 +12903,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tasered_3rd"
+					variants = {
+						"hud_subtitlemod_std_tasered_3rd"
+					}
 				}
 			}
 		}
@@ -12649,7 +13069,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_dispatch_generic_message"
+					variants = {
+						"hud_subtitlemod_std_dispatch_generic_message"
+					}
 				}
 			}
 		}
@@ -12660,7 +13082,6 @@ return {
 	dsp_radio_reminder_1 = {
 		voices = {
 			security = {
-				duration = 4,
 				std = {
 					desc_id = "hud_subtitlemod_dsp_radio_reminder_1_security_std",
 					variants = {
@@ -12673,7 +13094,6 @@ return {
 	dsp_radio_fooled_1 = {
 		voices = {
 			security = {
-				duration = 5,
 				std = {
 					desc_id = "hud_subtitlemod_dsp_radio_fooled_1_security_std"
 				}
@@ -12683,7 +13103,6 @@ return {
 	dsp_radio_fooled_4 = {
 		voices = {
 			security = {
-				duration = 5,
 				std = {
 					desc_id = "hud_subtitlemod_dsp_radio_fooled_4_security_std"
 				}
@@ -12702,7 +13121,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_911_call"
+					variants = {
+						"hud_subtitlemod_std_911_call"
+					}
 				}
 			}
 		}
@@ -12716,7 +13137,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_a02x_any"
+					variants = {
+						"hud_subtitlemod_std_a02x_any"
+					}
 				}
 			}
 		}
@@ -12730,7 +13153,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf1_911_call"
+					variants = {
+						"hud_subtitlemod_std_cf1_911_call"
+					}
 				}
 			}
 		}
@@ -12744,7 +13169,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf1_a01x_any"
+					variants = {
+						"hud_subtitlemod_std_cf1_a01x_any"
+					}
 				}
 			}
 		}
@@ -12758,7 +13185,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf1_a02x_any"
+					variants = {
+						"hud_subtitlemod_std_cf1_a02x_any"
+					}
 				}
 			}
 		}
@@ -12772,7 +13201,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf1_a03x_any"
+					variants = {
+						"hud_subtitlemod_std_cf1_a03x_any"
+					}
 				}
 			}
 		}
@@ -12786,7 +13217,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf2_911_call"
+					variants = {
+						"hud_subtitlemod_std_cf2_911_call"
+					}
 				}
 			}
 		}
@@ -12800,7 +13233,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf2_a01x_any"
+					variants = {
+						"hud_subtitlemod_std_cf2_a01x_any"
+					}
 				}
 			}
 		}
@@ -12814,7 +13249,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf2_a02x_any"
+					variants = {
+						"hud_subtitlemod_std_cf2_a02x_any"
+					}
 				}
 			}
 		}
@@ -12828,7 +13265,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf2_a03x_any"
+					variants = {
+						"hud_subtitlemod_std_cf2_a03x_any"
+					}
 				}
 			}
 		}
@@ -12842,7 +13281,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf3_911_call"
+					variants = {
+						"hud_subtitlemod_std_cf3_911_call"
+					}
 				}
 			}
 		}
@@ -12856,7 +13297,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf3_a01x_any"
+					variants = {
+						"hud_subtitlemod_std_cf3_a01x_any"
+					}
 				}
 			}
 		}
@@ -12870,7 +13313,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf3_a02x_any"
+					variants = {
+						"hud_subtitlemod_std_cf3_a02x_any"
+					}
 				}
 			}
 		}
@@ -12884,7 +13329,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf3_a03x_any"
+					variants = {
+						"hud_subtitlemod_std_cf3_a03x_any"
+					}
 				}
 			}
 		}
@@ -12898,7 +13345,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf4_911_call"
+					variants = {
+						"hud_subtitlemod_std_cf4_911_call"
+					}
 				}
 			}
 		}
@@ -12912,7 +13361,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf4_a01x_any"
+					variants = {
+						"hud_subtitlemod_std_cf4_a01x_any"
+					}
 				}
 			}
 		}
@@ -12926,7 +13377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf4_a02x_any"
+					variants = {
+						"hud_subtitlemod_std_cf4_a02x_any"
+					}
 				}
 			}
 		}
@@ -12940,7 +13393,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf4_a03x_any"
+					variants = {
+						"hud_subtitlemod_std_cf4_a03x_any"
+					}
 				}
 			}
 		}
@@ -12954,7 +13409,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf5_911_call"
+					variants = {
+						"hud_subtitlemod_std_cf5_911_call"
+					}
 				}
 			}
 		}
@@ -12968,7 +13425,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf5_a01x_any"
+					variants = {
+						"hud_subtitlemod_std_cf5_a01x_any"
+					}
 				}
 			}
 		}
@@ -12982,7 +13441,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf5_a02x_any"
+					variants = {
+						"hud_subtitlemod_std_cf5_a02x_any"
+					}
 				}
 			}
 		}
@@ -12996,7 +13457,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cf5_a03x_any"
+					variants = {
+						"hud_subtitlemod_std_cf5_a03x_any"
+					}
 				}
 			}
 		}
@@ -13024,7 +13487,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cm1_a01x_any"
+					variants = {
+						"hud_subtitlemod_std_cm1_a01x_any"
+					}
 				}
 			}
 		}
@@ -13038,7 +13503,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cm1_a02x_any"
+					variants = {
+						"hud_subtitlemod_std_cm1_a02x_any"
+					}
 				}
 			}
 		}
@@ -13052,7 +13519,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cm1_a03x_any"
+					variants = {
+						"hud_subtitlemod_std_cm1_a03x_any"
+					}
 				}
 			}
 		}
@@ -13080,7 +13549,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cm2_a01x_any"
+					variants = {
+						"hud_subtitlemod_std_cm2_a01x_any"
+					}
 				}
 			}
 		}
@@ -13094,7 +13565,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cm2_a02x_any"
+					variants = {
+						"hud_subtitlemod_std_cm2_a02x_any"
+					}
 				}
 			}
 		}
@@ -13108,7 +13581,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cm2_a03x_any"
+					variants = {
+						"hud_subtitlemod_std_cm2_a03x_any"
+					}
 				}
 			}
 		}
@@ -13122,7 +13597,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cm2_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_cm2_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -13136,7 +13613,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cm2_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_cm2_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -13206,7 +13685,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_a03x_any"
+					variants = {
+						"hud_subtitlemod_std_a03x_any"
+					}
 				}
 			}
 		}
@@ -13237,7 +13718,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_att"
+					variants = {
+						"hud_subtitlemod_std_l1d_att"
+					}
 				}
 			}
 		}
@@ -13251,7 +13734,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_bak"
+					variants = {
+						"hud_subtitlemod_std_l1d_bak"
+					}
 				}
 			}
 		}
@@ -13265,7 +13750,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_burndeath"
+					variants = {
+						"hud_subtitlemod_std_l1d_burndeath"
+					}
 				}
 			}
 		}
@@ -13279,7 +13766,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_l1d_burnhurt"
+					}
 				}
 			}
 		}
@@ -13293,7 +13782,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_c01"
+					variants = {
+						"hud_subtitlemod_std_l1d_c01"
+					}
 				}
 			}
 		}
@@ -13307,7 +13798,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_ch1"
+					variants = {
+						"hud_subtitlemod_std_l1d_ch1"
+					}
 				}
 			}
 		}
@@ -13321,7 +13814,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_ch2"
+					variants = {
+						"hud_subtitlemod_std_l1d_ch2"
+					}
 				}
 			}
 		}
@@ -13335,7 +13830,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_ch3"
+					variants = {
+						"hud_subtitlemod_std_l1d_ch3"
+					}
 				}
 			}
 		}
@@ -13349,7 +13846,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_ch4"
+					variants = {
+						"hud_subtitlemod_std_l1d_ch4"
+					}
 				}
 			}
 		}
@@ -13363,7 +13862,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_civ"
+					variants = {
+						"hud_subtitlemod_std_l1d_civ"
+					}
 				}
 			}
 		}
@@ -13377,7 +13878,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_clr"
+					variants = {
+						"hud_subtitlemod_std_l1d_clr"
+					}
 				}
 			}
 		}
@@ -13391,7 +13894,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_cn1"
+					variants = {
+						"hud_subtitlemod_std_l1d_cn1"
+					}
 				}
 			}
 		}
@@ -13405,7 +13910,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_cr1"
+					variants = {
+						"hud_subtitlemod_std_l1d_cr1"
+					}
 				}
 			}
 		}
@@ -13438,7 +13945,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_d02"
+					variants = {
+						"hud_subtitlemod_std_l1d_d02"
+					}
 				}
 			}
 		}
@@ -13452,7 +13961,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_e01"
+					variants = {
+						"hud_subtitlemod_std_l1d_e01"
+					}
 				}
 			}
 		}
@@ -13466,7 +13977,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_e02"
+					variants = {
+						"hud_subtitlemod_std_l1d_e02"
+					}
 				}
 			}
 		}
@@ -13480,7 +13993,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_e03"
+					variants = {
+						"hud_subtitlemod_std_l1d_e03"
+					}
 				}
 			}
 		}
@@ -13494,7 +14009,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_e04"
+					variants = {
+						"hud_subtitlemod_std_l1d_e04"
+					}
 				}
 			}
 		}
@@ -13511,7 +14028,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l1d_gr1a"
+					}
 				}
 			}
 		}
@@ -13525,7 +14044,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l1d_gr1b"
+					}
 				}
 			}
 		}
@@ -13539,7 +14060,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l1d_gr1c"
+					}
 				}
 			}
 		}
@@ -13553,7 +14076,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l1d_gr1d"
+					}
 				}
 			}
 		}
@@ -13567,7 +14092,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l1d_gr2a"
+					}
 				}
 			}
 		}
@@ -13581,7 +14108,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l1d_gr2b"
+					}
 				}
 			}
 		}
@@ -13595,7 +14124,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l1d_gr2c"
+					}
 				}
 			}
 		}
@@ -13609,7 +14140,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l1d_gr2d"
+					}
 				}
 			}
 		}
@@ -13623,7 +14156,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_h01"
+					variants = {
+						"hud_subtitlemod_std_l1d_h01"
+					}
 				}
 			}
 		}
@@ -13637,7 +14172,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_hlp"
+					variants = {
+						"hud_subtitlemod_std_l1d_hlp"
+					}
 				}
 			}
 		}
@@ -13684,7 +14221,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_l01"
+					variants = {
+						"hud_subtitlemod_std_l1d_l01"
+					}
 				}
 			}
 		}
@@ -13734,7 +14273,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_m01"
+					variants = {
+						"hud_subtitlemod_std_l1d_m01"
+					}
 				}
 			}
 		}
@@ -13748,7 +14289,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_mov"
+					variants = {
+						"hud_subtitlemod_std_l1d_mov"
+					}
 				}
 			}
 		}
@@ -13762,7 +14305,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_p01"
+					variants = {
+						"hud_subtitlemod_std_l1d_p01"
+					}
 				}
 			}
 		}
@@ -13776,7 +14321,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_p02"
+					variants = {
+						"hud_subtitlemod_std_l1d_p02"
+					}
 				}
 			}
 		}
@@ -13790,7 +14337,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_p03"
+					variants = {
+						"hud_subtitlemod_std_l1d_p03"
+					}
 				}
 			}
 		}
@@ -13804,7 +14353,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_pos"
+					variants = {
+						"hud_subtitlemod_std_l1d_pos"
+					}
 				}
 			}
 		}
@@ -13818,7 +14369,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_prm"
+					variants = {
+						"hud_subtitlemod_std_l1d_prm"
+					}
 				}
 			}
 		}
@@ -13832,7 +14385,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_pus"
+					variants = {
+						"hud_subtitlemod_std_l1d_pus"
+					}
 				}
 			}
 		}
@@ -13846,7 +14401,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_r01"
+					variants = {
+						"hud_subtitlemod_std_l1d_r01"
+					}
 				}
 			}
 		}
@@ -13860,7 +14417,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_rdy"
+					variants = {
+						"hud_subtitlemod_std_l1d_rdy"
+					}
 				}
 			}
 		}
@@ -13874,7 +14433,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_rrl"
+					variants = {
+						"hud_subtitlemod_std_l1d_rrl"
+					}
 				}
 			}
 		}
@@ -13912,7 +14473,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_t01"
+					variants = {
+						"hud_subtitlemod_std_l1d_t01"
+					}
 				}
 			}
 		}
@@ -13926,7 +14489,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l1d_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -13940,7 +14505,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1d_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l1d_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -13954,7 +14521,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_a01"
+					variants = {
+						"hud_subtitlemod_std_l1n_a01"
+					}
 				}
 			}
 		}
@@ -13968,7 +14537,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_a02"
+					variants = {
+						"hud_subtitlemod_std_l1n_a02"
+					}
 				}
 			}
 		}
@@ -14021,7 +14592,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_a06"
+					variants = {
+						"hud_subtitlemod_std_l1n_a06"
+					}
 				}
 			}
 		}
@@ -14075,7 +14648,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_a08"
+					variants = {
+						"hud_subtitlemod_std_l1n_a08"
+					}
 				}
 			}
 		}
@@ -14089,7 +14664,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_a09"
+					variants = {
+						"hud_subtitlemod_std_l1n_a09"
+					}
 				}
 			}
 		}
@@ -14315,7 +14892,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_amm"
+					variants = {
+						"hud_subtitlemod_std_l1n_amm"
+					}
 				}
 			}
 		}
@@ -14329,7 +14908,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_bak"
+					variants = {
+						"hud_subtitlemod_std_l1n_bak"
+					}
 				}
 			}
 		}
@@ -14343,7 +14924,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_burndeath"
+					variants = {
+						"hud_subtitlemod_std_l1n_burndeath"
+					}
 				}
 			}
 		}
@@ -14357,7 +14940,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_l1n_burnhurt"
+					}
 				}
 			}
 		}
@@ -14371,7 +14956,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_c01"
+					variants = {
+						"hud_subtitlemod_std_l1n_c01"
+					}
 				}
 			}
 		}
@@ -14385,7 +14972,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_ch1"
+					variants = {
+						"hud_subtitlemod_std_l1n_ch1"
+					}
 				}
 			}
 		}
@@ -14399,7 +14988,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_ch2"
+					variants = {
+						"hud_subtitlemod_std_l1n_ch2"
+					}
 				}
 			}
 		}
@@ -14413,7 +15004,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_ch3"
+					variants = {
+						"hud_subtitlemod_std_l1n_ch3"
+					}
 				}
 			}
 		}
@@ -14427,7 +15020,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_ch4"
+					variants = {
+						"hud_subtitlemod_std_l1n_ch4"
+					}
 				}
 			}
 		}
@@ -14441,7 +15036,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_civ"
+					variants = {
+						"hud_subtitlemod_std_l1n_civ"
+					}
 				}
 			}
 		}
@@ -14455,7 +15052,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_clr"
+					variants = {
+						"hud_subtitlemod_std_l1n_clr"
+					}
 				}
 			}
 		}
@@ -14469,7 +15068,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_cn1"
+					variants = {
+						"hud_subtitlemod_std_l1n_cn1"
+					}
 				}
 			}
 		}
@@ -14483,7 +15084,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_cr1"
+					variants = {
+						"hud_subtitlemod_std_l1n_cr1"
+					}
 				}
 			}
 		}
@@ -14516,7 +15119,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_d02"
+					variants = {
+						"hud_subtitlemod_std_l1n_d02"
+					}
 				}
 			}
 		}
@@ -14533,7 +15138,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l1n_gr1a"
+					}
 				}
 			}
 		}
@@ -14547,7 +15154,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l1n_gr1b"
+					}
 				}
 			}
 		}
@@ -14561,7 +15170,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l1n_gr1c"
+					}
 				}
 			}
 		}
@@ -14575,7 +15186,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l1n_gr1d"
+					}
 				}
 			}
 		}
@@ -14589,7 +15202,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l1n_gr2a"
+					}
 				}
 			}
 		}
@@ -14603,7 +15218,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l1n_gr2b"
+					}
 				}
 			}
 		}
@@ -14617,7 +15234,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l1n_gr2c"
+					}
 				}
 			}
 		}
@@ -14631,7 +15250,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l1n_gr2d"
+					}
 				}
 			}
 		}
@@ -14645,7 +15266,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_h01"
+					variants = {
+						"hud_subtitlemod_std_l1n_h01"
+					}
 				}
 			}
 		}
@@ -14659,7 +15282,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_hlp"
+					variants = {
+						"hud_subtitlemod_std_l1n_hlp"
+					}
 				}
 			}
 		}
@@ -14706,7 +15331,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_l01"
+					variants = {
+						"hud_subtitlemod_std_l1n_l01"
+					}
 				}
 			}
 		}
@@ -14756,7 +15383,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_m01"
+					variants = {
+						"hud_subtitlemod_std_l1n_m01"
+					}
 				}
 			}
 		}
@@ -14770,7 +15399,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_mov"
+					variants = {
+						"hud_subtitlemod_std_l1n_mov"
+					}
 				}
 			}
 		}
@@ -14784,7 +15415,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_p01"
+					variants = {
+						"hud_subtitlemod_std_l1n_p01"
+					}
 				}
 			}
 		}
@@ -14798,7 +15431,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_p02"
+					variants = {
+						"hud_subtitlemod_std_l1n_p02"
+					}
 				}
 			}
 		}
@@ -14812,7 +15447,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_p03"
+					variants = {
+						"hud_subtitlemod_std_l1n_p03"
+					}
 				}
 			}
 		}
@@ -14826,7 +15463,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_pos"
+					variants = {
+						"hud_subtitlemod_std_l1n_pos"
+					}
 				}
 			}
 		}
@@ -14840,7 +15479,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_prm"
+					variants = {
+						"hud_subtitlemod_std_l1n_prm"
+					}
 				}
 			}
 		}
@@ -14854,7 +15495,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_pus"
+					variants = {
+						"hud_subtitlemod_std_l1n_pus"
+					}
 				}
 			}
 		}
@@ -14868,7 +15511,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_r01"
+					variants = {
+						"hud_subtitlemod_std_l1n_r01"
+					}
 				}
 			}
 		}
@@ -14882,7 +15527,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_rdy"
+					variants = {
+						"hud_subtitlemod_std_l1n_rdy"
+					}
 				}
 			}
 		}
@@ -14896,7 +15543,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_rrl"
+					variants = {
+						"hud_subtitlemod_std_l1n_rrl"
+					}
 				}
 			}
 		}
@@ -14934,7 +15583,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_t01"
+					variants = {
+						"hud_subtitlemod_std_l1n_t01"
+					}
 				}
 			}
 		}
@@ -14948,7 +15599,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l1n_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -14962,7 +15615,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l1n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l1n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -14976,7 +15631,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_a08"
+					variants = {
+						"hud_subtitlemod_std_l2d_a08"
+					}
 				}
 			}
 		}
@@ -14990,7 +15647,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_att"
+					variants = {
+						"hud_subtitlemod_std_l2d_att"
+					}
 				}
 			}
 		}
@@ -15004,7 +15663,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_bak"
+					variants = {
+						"hud_subtitlemod_std_l2d_bak"
+					}
 				}
 			}
 		}
@@ -15018,7 +15679,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_burndeath"
+					variants = {
+						"hud_subtitlemod_std_l2d_burndeath"
+					}
 				}
 			}
 		}
@@ -15032,7 +15695,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_l2d_burnhurt"
+					}
 				}
 			}
 		}
@@ -15046,7 +15711,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_c01"
+					variants = {
+						"hud_subtitlemod_std_l2d_c01"
+					}
 				}
 			}
 		}
@@ -15060,7 +15727,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_ch1"
+					variants = {
+						"hud_subtitlemod_std_l2d_ch1"
+					}
 				}
 			}
 		}
@@ -15074,7 +15743,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_ch2"
+					variants = {
+						"hud_subtitlemod_std_l2d_ch2"
+					}
 				}
 			}
 		}
@@ -15088,7 +15759,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_ch3"
+					variants = {
+						"hud_subtitlemod_std_l2d_ch3"
+					}
 				}
 			}
 		}
@@ -15102,7 +15775,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_ch4"
+					variants = {
+						"hud_subtitlemod_std_l2d_ch4"
+					}
 				}
 			}
 		}
@@ -15116,7 +15791,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_civ"
+					variants = {
+						"hud_subtitlemod_std_l2d_civ"
+					}
 				}
 			}
 		}
@@ -15130,7 +15807,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_clr"
+					variants = {
+						"hud_subtitlemod_std_l2d_clr"
+					}
 				}
 			}
 		}
@@ -15144,7 +15823,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_cn1"
+					variants = {
+						"hud_subtitlemod_std_l2d_cn1"
+					}
 				}
 			}
 		}
@@ -15158,7 +15839,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_cr1"
+					variants = {
+						"hud_subtitlemod_std_l2d_cr1"
+					}
 				}
 			}
 		}
@@ -15191,7 +15874,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_d02"
+					variants = {
+						"hud_subtitlemod_std_l2d_d02"
+					}
 				}
 			}
 		}
@@ -15205,7 +15890,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_e01"
+					variants = {
+						"hud_subtitlemod_std_l2d_e01"
+					}
 				}
 			}
 		}
@@ -15219,7 +15906,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_e02"
+					variants = {
+						"hud_subtitlemod_std_l2d_e02"
+					}
 				}
 			}
 		}
@@ -15233,7 +15922,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_e03"
+					variants = {
+						"hud_subtitlemod_std_l2d_e03"
+					}
 				}
 			}
 		}
@@ -15247,7 +15938,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_e04"
+					variants = {
+						"hud_subtitlemod_std_l2d_e04"
+					}
 				}
 			}
 		}
@@ -15261,7 +15954,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_e05"
+					variants = {
+						"hud_subtitlemod_std_l2d_e05"
+					}
 				}
 			}
 		}
@@ -15275,7 +15970,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_e06"
+					variants = {
+						"hud_subtitlemod_std_l2d_e06"
+					}
 				}
 			}
 		}
@@ -15292,7 +15989,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l2d_gr1a"
+					}
 				}
 			}
 		}
@@ -15306,7 +16005,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l2d_gr1b"
+					}
 				}
 			}
 		}
@@ -15320,7 +16021,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l2d_gr1c"
+					}
 				}
 			}
 		}
@@ -15334,7 +16037,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l2d_gr1d"
+					}
 				}
 			}
 		}
@@ -15348,7 +16053,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l2d_gr2a"
+					}
 				}
 			}
 		}
@@ -15362,7 +16069,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l2d_gr2b"
+					}
 				}
 			}
 		}
@@ -15376,7 +16085,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l2d_gr2c"
+					}
 				}
 			}
 		}
@@ -15390,7 +16101,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l2d_gr2d"
+					}
 				}
 			}
 		}
@@ -15404,7 +16117,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_h01"
+					variants = {
+						"hud_subtitlemod_std_l2d_h01"
+					}
 				}
 			}
 		}
@@ -15418,7 +16133,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_hlp"
+					variants = {
+						"hud_subtitlemod_std_l2d_hlp"
+					}
 				}
 			}
 		}
@@ -15465,7 +16182,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_l01"
+					variants = {
+						"hud_subtitlemod_std_l2d_l01"
+					}
 				}
 			}
 		}
@@ -15515,7 +16234,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_m01"
+					variants = {
+						"hud_subtitlemod_std_l2d_m01"
+					}
 				}
 			}
 		}
@@ -15529,7 +16250,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_mov"
+					variants = {
+						"hud_subtitlemod_std_l2d_mov"
+					}
 				}
 			}
 		}
@@ -15543,7 +16266,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_p01"
+					variants = {
+						"hud_subtitlemod_std_l2d_p01"
+					}
 				}
 			}
 		}
@@ -15557,7 +16282,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_p02"
+					variants = {
+						"hud_subtitlemod_std_l2d_p02"
+					}
 				}
 			}
 		}
@@ -15571,7 +16298,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_p03"
+					variants = {
+						"hud_subtitlemod_std_l2d_p03"
+					}
 				}
 			}
 		}
@@ -15585,7 +16314,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_pos"
+					variants = {
+						"hud_subtitlemod_std_l2d_pos"
+					}
 				}
 			}
 		}
@@ -15599,7 +16330,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_prm"
+					variants = {
+						"hud_subtitlemod_std_l2d_prm"
+					}
 				}
 			}
 		}
@@ -15613,7 +16346,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_pus"
+					variants = {
+						"hud_subtitlemod_std_l2d_pus"
+					}
 				}
 			}
 		}
@@ -15627,7 +16362,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_r01"
+					variants = {
+						"hud_subtitlemod_std_l2d_r01"
+					}
 				}
 			}
 		}
@@ -15641,7 +16378,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_rdy"
+					variants = {
+						"hud_subtitlemod_std_l2d_rdy"
+					}
 				}
 			}
 		}
@@ -15655,7 +16394,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_rrl"
+					variants = {
+						"hud_subtitlemod_std_l2d_rrl"
+					}
 				}
 			}
 		}
@@ -15693,7 +16434,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_t01"
+					variants = {
+						"hud_subtitlemod_std_l2d_t01"
+					}
 				}
 			}
 		}
@@ -15707,7 +16450,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l2d_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -15721,7 +16466,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2d_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l2d_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -15735,7 +16482,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_a01"
+					variants = {
+						"hud_subtitlemod_std_l2n_a01"
+					}
 				}
 			}
 		}
@@ -15749,7 +16498,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_a02"
+					variants = {
+						"hud_subtitlemod_std_l2n_a02"
+					}
 				}
 			}
 		}
@@ -15763,7 +16514,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_a03"
+					variants = {
+						"hud_subtitlemod_std_l2n_a03"
+					}
 				}
 			}
 		}
@@ -15799,7 +16552,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_a06"
+					variants = {
+						"hud_subtitlemod_std_l2n_a06"
+					}
 				}
 			}
 		}
@@ -15853,7 +16608,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_a08"
+					variants = {
+						"hud_subtitlemod_std_l2n_a08"
+					}
 				}
 			}
 		}
@@ -15867,7 +16624,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_a09"
+					variants = {
+						"hud_subtitlemod_std_l2n_a09"
+					}
 				}
 			}
 		}
@@ -16093,7 +16852,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_amm"
+					variants = {
+						"hud_subtitlemod_std_l2n_amm"
+					}
 				}
 			}
 		}
@@ -16107,7 +16868,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_att"
+					variants = {
+						"hud_subtitlemod_std_l2n_att"
+					}
 				}
 			}
 		}
@@ -16518,7 +17281,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_bak"
+					variants = {
+						"hud_subtitlemod_std_l2n_bak"
+					}
 				}
 			}
 		}
@@ -16532,7 +17297,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_burndeath"
+					variants = {
+						"hud_subtitlemod_std_l2n_burndeath"
+					}
 				}
 			}
 		}
@@ -16546,7 +17313,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_l2n_burnhurt"
+					}
 				}
 			}
 		}
@@ -16560,7 +17329,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_c01"
+					variants = {
+						"hud_subtitlemod_std_l2n_c01"
+					}
 				}
 			}
 		}
@@ -16574,7 +17345,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_ch1"
+					variants = {
+						"hud_subtitlemod_std_l2n_ch1"
+					}
 				}
 			}
 		}
@@ -16588,7 +17361,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_ch2"
+					variants = {
+						"hud_subtitlemod_std_l2n_ch2"
+					}
 				}
 			}
 		}
@@ -16602,7 +17377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_ch3"
+					variants = {
+						"hud_subtitlemod_std_l2n_ch3"
+					}
 				}
 			}
 		}
@@ -16616,7 +17393,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_ch4"
+					variants = {
+						"hud_subtitlemod_std_l2n_ch4"
+					}
 				}
 			}
 		}
@@ -16630,7 +17409,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_civ"
+					variants = {
+						"hud_subtitlemod_std_l2n_civ"
+					}
 				}
 			}
 		}
@@ -16644,7 +17425,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_clr"
+					variants = {
+						"hud_subtitlemod_std_l2n_clr"
+					}
 				}
 			}
 		}
@@ -16658,7 +17441,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_cn1"
+					variants = {
+						"hud_subtitlemod_std_l2n_cn1"
+					}
 				}
 			}
 		}
@@ -16672,7 +17457,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_cr1"
+					variants = {
+						"hud_subtitlemod_std_l2n_cr1"
+					}
 				}
 			}
 		}
@@ -16705,7 +17492,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_d02"
+					variants = {
+						"hud_subtitlemod_std_l2n_d02"
+					}
 				}
 			}
 		}
@@ -16722,7 +17511,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l2n_gr1a"
+					}
 				}
 			}
 		}
@@ -16736,7 +17527,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l2n_gr1b"
+					}
 				}
 			}
 		}
@@ -16750,7 +17543,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l2n_gr1c"
+					}
 				}
 			}
 		}
@@ -16764,7 +17559,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l2n_gr1d"
+					}
 				}
 			}
 		}
@@ -16778,7 +17575,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l2n_gr2a"
+					}
 				}
 			}
 		}
@@ -16792,7 +17591,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l2n_gr2b"
+					}
 				}
 			}
 		}
@@ -16806,7 +17607,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l2n_gr2c"
+					}
 				}
 			}
 		}
@@ -16820,7 +17623,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l2n_gr2d"
+					}
 				}
 			}
 		}
@@ -16834,7 +17639,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_h01"
+					variants = {
+						"hud_subtitlemod_std_l2n_h01"
+					}
 				}
 			}
 		}
@@ -16848,7 +17655,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_hlp"
+					variants = {
+						"hud_subtitlemod_std_l2n_hlp"
+					}
 				}
 			}
 		}
@@ -16920,7 +17729,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_l01"
+					variants = {
+						"hud_subtitlemod_std_l2n_l01"
+					}
 				}
 			}
 		}
@@ -16970,7 +17781,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_m01"
+					variants = {
+						"hud_subtitlemod_std_l2n_m01"
+					}
 				}
 			}
 		}
@@ -16984,7 +17797,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_mov"
+					variants = {
+						"hud_subtitlemod_std_l2n_mov"
+					}
 				}
 			}
 		}
@@ -16998,7 +17813,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_p01"
+					variants = {
+						"hud_subtitlemod_std_l2n_p01"
+					}
 				}
 			}
 		}
@@ -17012,7 +17829,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_p02"
+					variants = {
+						"hud_subtitlemod_std_l2n_p02"
+					}
 				}
 			}
 		}
@@ -17026,7 +17845,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_p03"
+					variants = {
+						"hud_subtitlemod_std_l2n_p03"
+					}
 				}
 			}
 		}
@@ -17040,7 +17861,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_pos"
+					variants = {
+						"hud_subtitlemod_std_l2n_pos"
+					}
 				}
 			}
 		}
@@ -17054,7 +17877,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_prm"
+					variants = {
+						"hud_subtitlemod_std_l2n_prm"
+					}
 				}
 			}
 		}
@@ -17068,7 +17893,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_pus"
+					variants = {
+						"hud_subtitlemod_std_l2n_pus"
+					}
 				}
 			}
 		}
@@ -17082,7 +17909,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_r01"
+					variants = {
+						"hud_subtitlemod_std_l2n_r01"
+					}
 				}
 			}
 		}
@@ -17096,7 +17925,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_rdy"
+					variants = {
+						"hud_subtitlemod_std_l2n_rdy"
+					}
 				}
 			}
 		}
@@ -17110,7 +17941,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_rrl"
+					variants = {
+						"hud_subtitlemod_std_l2n_rrl"
+					}
 				}
 			}
 		}
@@ -17148,7 +17981,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_t01"
+					variants = {
+						"hud_subtitlemod_std_l2n_t01"
+					}
 				}
 			}
 		}
@@ -17162,7 +17997,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l2n_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -17179,7 +18016,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l2n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l2n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -17196,7 +18035,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_att"
+					variants = {
+						"hud_subtitlemod_std_l3d_att"
+					}
 				}
 			}
 		}
@@ -17210,7 +18051,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_bak"
+					variants = {
+						"hud_subtitlemod_std_l3d_bak"
+					}
 				}
 			}
 		}
@@ -17224,7 +18067,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_ch1"
+					variants = {
+						"hud_subtitlemod_std_l3d_ch1"
+					}
 				}
 			}
 		}
@@ -17238,7 +18083,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_ch2"
+					variants = {
+						"hud_subtitlemod_std_l3d_ch2"
+					}
 				}
 			}
 		}
@@ -17252,7 +18099,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_ch3"
+					variants = {
+						"hud_subtitlemod_std_l3d_ch3"
+					}
 				}
 			}
 		}
@@ -17266,7 +18115,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_ch4"
+					variants = {
+						"hud_subtitlemod_std_l3d_ch4"
+					}
 				}
 			}
 		}
@@ -17280,7 +18131,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_civ"
+					variants = {
+						"hud_subtitlemod_std_l3d_civ"
+					}
 				}
 			}
 		}
@@ -17294,7 +18147,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_clr"
+					variants = {
+						"hud_subtitlemod_std_l3d_clr"
+					}
 				}
 			}
 		}
@@ -17308,7 +18163,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_cn1"
+					variants = {
+						"hud_subtitlemod_std_l3d_cn1"
+					}
 				}
 			}
 		}
@@ -17322,7 +18179,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_cr1"
+					variants = {
+						"hud_subtitlemod_std_l3d_cr1"
+					}
 				}
 			}
 		}
@@ -17355,7 +18214,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_d02"
+					variants = {
+						"hud_subtitlemod_std_l3d_d02"
+					}
 				}
 			}
 		}
@@ -17369,7 +18230,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_e01"
+					variants = {
+						"hud_subtitlemod_std_l3d_e01"
+					}
 				}
 			}
 		}
@@ -17383,7 +18246,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_e02"
+					variants = {
+						"hud_subtitlemod_std_l3d_e02"
+					}
 				}
 			}
 		}
@@ -17397,7 +18262,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_e03"
+					variants = {
+						"hud_subtitlemod_std_l3d_e03"
+					}
 				}
 			}
 		}
@@ -17411,7 +18278,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_e04"
+					variants = {
+						"hud_subtitlemod_std_l3d_e04"
+					}
 				}
 			}
 		}
@@ -17425,7 +18294,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_e05"
+					variants = {
+						"hud_subtitlemod_std_l3d_e05"
+					}
 				}
 			}
 		}
@@ -17439,7 +18310,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_e06"
+					variants = {
+						"hud_subtitlemod_std_l3d_e06"
+					}
 				}
 			}
 		}
@@ -17456,7 +18329,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l3d_gr1a"
+					}
 				}
 			}
 		}
@@ -17470,7 +18345,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l3d_gr1b"
+					}
 				}
 			}
 		}
@@ -17484,7 +18361,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l3d_gr1c"
+					}
 				}
 			}
 		}
@@ -17498,7 +18377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l3d_gr1d"
+					}
 				}
 			}
 		}
@@ -17512,7 +18393,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l3d_gr2a"
+					}
 				}
 			}
 		}
@@ -17526,7 +18409,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l3d_gr2b"
+					}
 				}
 			}
 		}
@@ -17540,7 +18425,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l3d_gr2c"
+					}
 				}
 			}
 		}
@@ -17554,7 +18441,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l3d_gr2d"
+					}
 				}
 			}
 		}
@@ -17568,7 +18457,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_h01"
+					variants = {
+						"hud_subtitlemod_std_l3d_h01"
+					}
 				}
 			}
 		}
@@ -17582,7 +18473,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_hlp"
+					variants = {
+						"hud_subtitlemod_std_l3d_hlp"
+					}
 				}
 			}
 		}
@@ -17654,7 +18547,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_l01"
+					variants = {
+						"hud_subtitlemod_std_l3d_l01"
+					}
 				}
 			}
 		}
@@ -17704,7 +18599,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_m01"
+					variants = {
+						"hud_subtitlemod_std_l3d_m01"
+					}
 				}
 			}
 		}
@@ -17718,7 +18615,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_mov"
+					variants = {
+						"hud_subtitlemod_std_l3d_mov"
+					}
 				}
 			}
 		}
@@ -17732,7 +18631,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_p01"
+					variants = {
+						"hud_subtitlemod_std_l3d_p01"
+					}
 				}
 			}
 		}
@@ -17746,7 +18647,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_p02"
+					variants = {
+						"hud_subtitlemod_std_l3d_p02"
+					}
 				}
 			}
 		}
@@ -17760,7 +18663,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_p03"
+					variants = {
+						"hud_subtitlemod_std_l3d_p03"
+					}
 				}
 			}
 		}
@@ -17774,7 +18679,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_pos"
+					variants = {
+						"hud_subtitlemod_std_l3d_pos"
+					}
 				}
 			}
 		}
@@ -17788,7 +18695,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_prm"
+					variants = {
+						"hud_subtitlemod_std_l3d_prm"
+					}
 				}
 			}
 		}
@@ -17802,7 +18711,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_pus"
+					variants = {
+						"hud_subtitlemod_std_l3d_pus"
+					}
 				}
 			}
 		}
@@ -17816,7 +18727,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_r01"
+					variants = {
+						"hud_subtitlemod_std_l3d_r01"
+					}
 				}
 			}
 		}
@@ -17830,7 +18743,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_rdy"
+					variants = {
+						"hud_subtitlemod_std_l3d_rdy"
+					}
 				}
 			}
 		}
@@ -17844,7 +18759,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_rrl"
+					variants = {
+						"hud_subtitlemod_std_l3d_rrl"
+					}
 				}
 			}
 		}
@@ -17882,7 +18799,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_t01"
+					variants = {
+						"hud_subtitlemod_std_l3d_t01"
+					}
 				}
 			}
 		}
@@ -17896,7 +18815,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l3d_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -17910,7 +18831,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3d_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l3d_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -17924,7 +18847,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_a01"
+					variants = {
+						"hud_subtitlemod_std_l3n_a01"
+					}
 				}
 			}
 		}
@@ -17938,7 +18863,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_a02"
+					variants = {
+						"hud_subtitlemod_std_l3n_a02"
+					}
 				}
 			}
 		}
@@ -17952,7 +18879,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_a03"
+					variants = {
+						"hud_subtitlemod_std_l3n_a03"
+					}
 				}
 			}
 		}
@@ -17988,7 +18917,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_a06"
+					variants = {
+						"hud_subtitlemod_std_l3n_a06"
+					}
 				}
 			}
 		}
@@ -18042,7 +18973,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_a08"
+					variants = {
+						"hud_subtitlemod_std_l3n_a08"
+					}
 				}
 			}
 		}
@@ -18056,7 +18989,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_a09"
+					variants = {
+						"hud_subtitlemod_std_l3n_a09"
+					}
 				}
 			}
 		}
@@ -18282,7 +19217,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_amm"
+					variants = {
+						"hud_subtitlemod_std_l3n_amm"
+					}
 				}
 			}
 		}
@@ -18296,7 +19233,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_att"
+					variants = {
+						"hud_subtitlemod_std_l3n_att"
+					}
 				}
 			}
 		}
@@ -18310,7 +19249,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_bak"
+					variants = {
+						"hud_subtitlemod_std_l3n_bak"
+					}
 				}
 			}
 		}
@@ -18324,7 +19265,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_burndeath"
+					variants = {
+						"hud_subtitlemod_std_l3n_burndeath"
+					}
 				}
 			}
 		}
@@ -18338,7 +19281,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_l3n_burnhurt"
+					}
 				}
 			}
 		}
@@ -18352,7 +19297,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_c01"
+					variants = {
+						"hud_subtitlemod_std_l3n_c01"
+					}
 				}
 			}
 		}
@@ -18366,7 +19313,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_ch1"
+					variants = {
+						"hud_subtitlemod_std_l3n_ch1"
+					}
 				}
 			}
 		}
@@ -18380,7 +19329,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_ch2"
+					variants = {
+						"hud_subtitlemod_std_l3n_ch2"
+					}
 				}
 			}
 		}
@@ -18394,7 +19345,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_ch3"
+					variants = {
+						"hud_subtitlemod_std_l3n_ch3"
+					}
 				}
 			}
 		}
@@ -18408,7 +19361,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_ch4"
+					variants = {
+						"hud_subtitlemod_std_l3n_ch4"
+					}
 				}
 			}
 		}
@@ -18422,7 +19377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_civ"
+					variants = {
+						"hud_subtitlemod_std_l3n_civ"
+					}
 				}
 			}
 		}
@@ -18436,7 +19393,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_clr"
+					variants = {
+						"hud_subtitlemod_std_l3n_clr"
+					}
 				}
 			}
 		}
@@ -18450,7 +19409,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_cn1"
+					variants = {
+						"hud_subtitlemod_std_l3n_cn1"
+					}
 				}
 			}
 		}
@@ -18464,7 +19425,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_cr1"
+					variants = {
+						"hud_subtitlemod_std_l3n_cr1"
+					}
 				}
 			}
 		}
@@ -18497,7 +19460,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_d02"
+					variants = {
+						"hud_subtitlemod_std_l3n_d02"
+					}
 				}
 			}
 		}
@@ -18514,7 +19479,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l3n_gr1a"
+					}
 				}
 			}
 		}
@@ -18528,7 +19495,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l3n_gr1b"
+					}
 				}
 			}
 		}
@@ -18542,7 +19511,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l3n_gr1c"
+					}
 				}
 			}
 		}
@@ -18556,7 +19527,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l3n_gr1d"
+					}
 				}
 			}
 		}
@@ -18570,7 +19543,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l3n_gr2a"
+					}
 				}
 			}
 		}
@@ -18584,7 +19559,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l3n_gr2b"
+					}
 				}
 			}
 		}
@@ -18598,7 +19575,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l3n_gr2c"
+					}
 				}
 			}
 		}
@@ -18612,7 +19591,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l3n_gr2d"
+					}
 				}
 			}
 		}
@@ -18626,7 +19607,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_h01"
+					variants = {
+						"hud_subtitlemod_std_l3n_h01"
+					}
 				}
 			}
 		}
@@ -18640,7 +19623,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_hlp"
+					variants = {
+						"hud_subtitlemod_std_l3n_hlp"
+					}
 				}
 			}
 		}
@@ -18712,7 +19697,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_l01"
+					variants = {
+						"hud_subtitlemod_std_l3n_l01"
+					}
 				}
 			}
 		}
@@ -18762,7 +19749,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_m01"
+					variants = {
+						"hud_subtitlemod_std_l3n_m01"
+					}
 				}
 			}
 		}
@@ -18776,7 +19765,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_mov"
+					variants = {
+						"hud_subtitlemod_std_l3n_mov"
+					}
 				}
 			}
 		}
@@ -18790,7 +19781,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_p01"
+					variants = {
+						"hud_subtitlemod_std_l3n_p01"
+					}
 				}
 			}
 		}
@@ -18804,7 +19797,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_p02"
+					variants = {
+						"hud_subtitlemod_std_l3n_p02"
+					}
 				}
 			}
 		}
@@ -18818,7 +19813,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_p03"
+					variants = {
+						"hud_subtitlemod_std_l3n_p03"
+					}
 				}
 			}
 		}
@@ -18832,7 +19829,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_pos"
+					variants = {
+						"hud_subtitlemod_std_l3n_pos"
+					}
 				}
 			}
 		}
@@ -18846,7 +19845,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_prm"
+					variants = {
+						"hud_subtitlemod_std_l3n_prm"
+					}
 				}
 			}
 		}
@@ -18860,7 +19861,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_pus"
+					variants = {
+						"hud_subtitlemod_std_l3n_pus"
+					}
 				}
 			}
 		}
@@ -18874,7 +19877,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_r01"
+					variants = {
+						"hud_subtitlemod_std_l3n_r01"
+					}
 				}
 			}
 		}
@@ -18888,7 +19893,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_rdy"
+					variants = {
+						"hud_subtitlemod_std_l3n_rdy"
+					}
 				}
 			}
 		}
@@ -18902,7 +19909,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_rrl"
+					variants = {
+						"hud_subtitlemod_std_l3n_rrl"
+					}
 				}
 			}
 		}
@@ -18940,7 +19949,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_t01"
+					variants = {
+						"hud_subtitlemod_std_l3n_t01"
+					}
 				}
 			}
 		}
@@ -18954,7 +19965,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l3n_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -18971,7 +19984,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l3n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l3n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -18988,7 +20003,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_a08"
+					variants = {
+						"hud_subtitlemod_std_l4d_a08"
+					}
 				}
 			}
 		}
@@ -19002,7 +20019,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_att"
+					variants = {
+						"hud_subtitlemod_std_l4d_att"
+					}
 				}
 			}
 		}
@@ -19016,7 +20035,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_bak"
+					variants = {
+						"hud_subtitlemod_std_l4d_bak"
+					}
 				}
 			}
 		}
@@ -19030,7 +20051,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_burndeath"
+					variants = {
+						"hud_subtitlemod_std_l4d_burndeath"
+					}
 				}
 			}
 		}
@@ -19044,7 +20067,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_l4d_burnhurt"
+					}
 				}
 			}
 		}
@@ -19058,7 +20083,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_ch1"
+					variants = {
+						"hud_subtitlemod_std_l4d_ch1"
+					}
 				}
 			}
 		}
@@ -19072,7 +20099,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_ch2"
+					variants = {
+						"hud_subtitlemod_std_l4d_ch2"
+					}
 				}
 			}
 		}
@@ -19086,7 +20115,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_ch3"
+					variants = {
+						"hud_subtitlemod_std_l4d_ch3"
+					}
 				}
 			}
 		}
@@ -19100,7 +20131,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_ch4"
+					variants = {
+						"hud_subtitlemod_std_l4d_ch4"
+					}
 				}
 			}
 		}
@@ -19114,7 +20147,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_civ"
+					variants = {
+						"hud_subtitlemod_std_l4d_civ"
+					}
 				}
 			}
 		}
@@ -19128,7 +20163,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_clr"
+					variants = {
+						"hud_subtitlemod_std_l4d_clr"
+					}
 				}
 			}
 		}
@@ -19142,7 +20179,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_cn1"
+					variants = {
+						"hud_subtitlemod_std_l4d_cn1"
+					}
 				}
 			}
 		}
@@ -19156,7 +20195,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_cr1"
+					variants = {
+						"hud_subtitlemod_std_l4d_cr1"
+					}
 				}
 			}
 		}
@@ -19189,7 +20230,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_d02"
+					variants = {
+						"hud_subtitlemod_std_l4d_d02"
+					}
 				}
 			}
 		}
@@ -19203,7 +20246,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_e01"
+					variants = {
+						"hud_subtitlemod_std_l4d_e01"
+					}
 				}
 			}
 		}
@@ -19217,7 +20262,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_e02"
+					variants = {
+						"hud_subtitlemod_std_l4d_e02"
+					}
 				}
 			}
 		}
@@ -19231,7 +20278,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_e03"
+					variants = {
+						"hud_subtitlemod_std_l4d_e03"
+					}
 				}
 			}
 		}
@@ -19245,7 +20294,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_e04"
+					variants = {
+						"hud_subtitlemod_std_l4d_e04"
+					}
 				}
 			}
 		}
@@ -19259,7 +20310,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_e05"
+					variants = {
+						"hud_subtitlemod_std_l4d_e05"
+					}
 				}
 			}
 		}
@@ -19273,7 +20326,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_e06"
+					variants = {
+						"hud_subtitlemod_std_l4d_e06"
+					}
 				}
 			}
 		}
@@ -19290,7 +20345,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l4d_gr1a"
+					}
 				}
 			}
 		}
@@ -19304,7 +20361,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l4d_gr1b"
+					}
 				}
 			}
 		}
@@ -19318,7 +20377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l4d_gr1c"
+					}
 				}
 			}
 		}
@@ -19332,7 +20393,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l4d_gr1d"
+					}
 				}
 			}
 		}
@@ -19346,7 +20409,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l4d_gr2a"
+					}
 				}
 			}
 		}
@@ -19360,7 +20425,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l4d_gr2b"
+					}
 				}
 			}
 		}
@@ -19374,7 +20441,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l4d_gr2c"
+					}
 				}
 			}
 		}
@@ -19388,7 +20457,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l4d_gr2d"
+					}
 				}
 			}
 		}
@@ -19402,7 +20473,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_h01"
+					variants = {
+						"hud_subtitlemod_std_l4d_h01"
+					}
 				}
 			}
 		}
@@ -19416,7 +20489,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_hlp"
+					variants = {
+						"hud_subtitlemod_std_l4d_hlp"
+					}
 				}
 			}
 		}
@@ -19488,7 +20563,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_l01"
+					variants = {
+						"hud_subtitlemod_std_l4d_l01"
+					}
 				}
 			}
 		}
@@ -19538,7 +20615,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_m01"
+					variants = {
+						"hud_subtitlemod_std_l4d_m01"
+					}
 				}
 			}
 		}
@@ -19552,7 +20631,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_mov"
+					variants = {
+						"hud_subtitlemod_std_l4d_mov"
+					}
 				}
 			}
 		}
@@ -19566,7 +20647,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_p01"
+					variants = {
+						"hud_subtitlemod_std_l4d_p01"
+					}
 				}
 			}
 		}
@@ -19580,7 +20663,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_p02"
+					variants = {
+						"hud_subtitlemod_std_l4d_p02"
+					}
 				}
 			}
 		}
@@ -19594,7 +20679,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_p03"
+					variants = {
+						"hud_subtitlemod_std_l4d_p03"
+					}
 				}
 			}
 		}
@@ -19608,7 +20695,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_pos"
+					variants = {
+						"hud_subtitlemod_std_l4d_pos"
+					}
 				}
 			}
 		}
@@ -19622,7 +20711,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_prm"
+					variants = {
+						"hud_subtitlemod_std_l4d_prm"
+					}
 				}
 			}
 		}
@@ -19636,7 +20727,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_pus"
+					variants = {
+						"hud_subtitlemod_std_l4d_pus"
+					}
 				}
 			}
 		}
@@ -19650,7 +20743,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_r01"
+					variants = {
+						"hud_subtitlemod_std_l4d_r01"
+					}
 				}
 			}
 		}
@@ -19664,7 +20759,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_rdy"
+					variants = {
+						"hud_subtitlemod_std_l4d_rdy"
+					}
 				}
 			}
 		}
@@ -19678,7 +20775,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_rrl"
+					variants = {
+						"hud_subtitlemod_std_l4d_rrl"
+					}
 				}
 			}
 		}
@@ -19716,7 +20815,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_t01"
+					variants = {
+						"hud_subtitlemod_std_l4d_t01"
+					}
 				}
 			}
 		}
@@ -19730,7 +20831,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l4d_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -19744,7 +20847,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4d_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l4d_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -19758,7 +20863,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_a01"
+					variants = {
+						"hud_subtitlemod_std_l4n_a01"
+					}
 				}
 			}
 		}
@@ -19772,7 +20879,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_a02"
+					variants = {
+						"hud_subtitlemod_std_l4n_a02"
+					}
 				}
 			}
 		}
@@ -19786,7 +20895,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_a03"
+					variants = {
+						"hud_subtitlemod_std_l4n_a03"
+					}
 				}
 			}
 		}
@@ -19822,7 +20933,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_a06"
+					variants = {
+						"hud_subtitlemod_std_l4n_a06"
+					}
 				}
 			}
 		}
@@ -19876,7 +20989,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_a08"
+					variants = {
+						"hud_subtitlemod_std_l4n_a08"
+					}
 				}
 			}
 		}
@@ -19890,7 +21005,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_a09"
+					variants = {
+						"hud_subtitlemod_std_l4n_a09"
+					}
 				}
 			}
 		}
@@ -20116,7 +21233,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_amm"
+					variants = {
+						"hud_subtitlemod_std_l4n_amm"
+					}
 				}
 			}
 		}
@@ -20130,7 +21249,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_att"
+					variants = {
+						"hud_subtitlemod_std_l4n_att"
+					}
 				}
 			}
 		}
@@ -20144,7 +21265,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_bak"
+					variants = {
+						"hud_subtitlemod_std_l4n_bak"
+					}
 				}
 			}
 		}
@@ -20158,7 +21281,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_burndeath"
+					variants = {
+						"hud_subtitlemod_std_l4n_burndeath"
+					}
 				}
 			}
 		}
@@ -20172,7 +21297,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_l4n_burnhurt"
+					}
 				}
 			}
 		}
@@ -20186,7 +21313,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_c01"
+					variants = {
+						"hud_subtitlemod_std_l4n_c01"
+					}
 				}
 			}
 		}
@@ -20200,7 +21329,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_ch1"
+					variants = {
+						"hud_subtitlemod_std_l4n_ch1"
+					}
 				}
 			}
 		}
@@ -20214,7 +21345,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_ch2"
+					variants = {
+						"hud_subtitlemod_std_l4n_ch2"
+					}
 				}
 			}
 		}
@@ -20228,7 +21361,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_ch3"
+					variants = {
+						"hud_subtitlemod_std_l4n_ch3"
+					}
 				}
 			}
 		}
@@ -20242,7 +21377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_ch4"
+					variants = {
+						"hud_subtitlemod_std_l4n_ch4"
+					}
 				}
 			}
 		}
@@ -20256,7 +21393,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_civ"
+					variants = {
+						"hud_subtitlemod_std_l4n_civ"
+					}
 				}
 			}
 		}
@@ -20270,7 +21409,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_clr"
+					variants = {
+						"hud_subtitlemod_std_l4n_clr"
+					}
 				}
 			}
 		}
@@ -20284,7 +21425,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_cn1"
+					variants = {
+						"hud_subtitlemod_std_l4n_cn1"
+					}
 				}
 			}
 		}
@@ -20298,7 +21441,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_cr1"
+					variants = {
+						"hud_subtitlemod_std_l4n_cr1"
+					}
 				}
 			}
 		}
@@ -20331,7 +21476,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_d02"
+					variants = {
+						"hud_subtitlemod_std_l4n_d02"
+					}
 				}
 			}
 		}
@@ -20348,7 +21495,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l4n_gr1a"
+					}
 				}
 			}
 		}
@@ -20362,7 +21511,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l4n_gr1b"
+					}
 				}
 			}
 		}
@@ -20376,7 +21527,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l4n_gr1c"
+					}
 				}
 			}
 		}
@@ -20390,7 +21543,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l4n_gr1d"
+					}
 				}
 			}
 		}
@@ -20404,7 +21559,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l4n_gr2a"
+					}
 				}
 			}
 		}
@@ -20418,7 +21575,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l4n_gr2b"
+					}
 				}
 			}
 		}
@@ -20432,7 +21591,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l4n_gr2c"
+					}
 				}
 			}
 		}
@@ -20446,7 +21607,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l4n_gr2d"
+					}
 				}
 			}
 		}
@@ -20460,7 +21623,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_h01"
+					variants = {
+						"hud_subtitlemod_std_l4n_h01"
+					}
 				}
 			}
 		}
@@ -20474,7 +21639,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_hlp"
+					variants = {
+						"hud_subtitlemod_std_l4n_hlp"
+					}
 				}
 			}
 		}
@@ -20546,7 +21713,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_l01"
+					variants = {
+						"hud_subtitlemod_std_l4n_l01"
+					}
 				}
 			}
 		}
@@ -20596,7 +21765,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_m01"
+					variants = {
+						"hud_subtitlemod_std_l4n_m01"
+					}
 				}
 			}
 		}
@@ -20610,7 +21781,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_mov"
+					variants = {
+						"hud_subtitlemod_std_l4n_mov"
+					}
 				}
 			}
 		}
@@ -20624,7 +21797,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_p01"
+					variants = {
+						"hud_subtitlemod_std_l4n_p01"
+					}
 				}
 			}
 		}
@@ -20638,7 +21813,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_p02"
+					variants = {
+						"hud_subtitlemod_std_l4n_p02"
+					}
 				}
 			}
 		}
@@ -20652,7 +21829,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_p03"
+					variants = {
+						"hud_subtitlemod_std_l4n_p03"
+					}
 				}
 			}
 		}
@@ -20666,7 +21845,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_pos"
+					variants = {
+						"hud_subtitlemod_std_l4n_pos"
+					}
 				}
 			}
 		}
@@ -20680,7 +21861,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_prm"
+					variants = {
+						"hud_subtitlemod_std_l4n_prm"
+					}
 				}
 			}
 		}
@@ -20694,7 +21877,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_pus"
+					variants = {
+						"hud_subtitlemod_std_l4n_pus"
+					}
 				}
 			}
 		}
@@ -20708,7 +21893,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_r01"
+					variants = {
+						"hud_subtitlemod_std_l4n_r01"
+					}
 				}
 			}
 		}
@@ -20722,7 +21909,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_rdy"
+					variants = {
+						"hud_subtitlemod_std_l4n_rdy"
+					}
 				}
 			}
 		}
@@ -20736,7 +21925,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_rrl"
+					variants = {
+						"hud_subtitlemod_std_l4n_rrl"
+					}
 				}
 			}
 		}
@@ -20774,7 +21965,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_t01"
+					variants = {
+						"hud_subtitlemod_std_l4n_t01"
+					}
 				}
 			}
 		}
@@ -20788,7 +21981,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l4n_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -20805,7 +22000,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l4n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l4n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -20822,7 +22019,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_a08"
+					variants = {
+						"hud_subtitlemod_std_l5d_a08"
+					}
 				}
 			}
 		}
@@ -20836,7 +22035,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_bak"
+					variants = {
+						"hud_subtitlemod_std_l5d_bak"
+					}
 				}
 			}
 		}
@@ -20850,7 +22051,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_burndeath"
+					variants = {
+						"hud_subtitlemod_std_l5d_burndeath"
+					}
 				}
 			}
 		}
@@ -20864,7 +22067,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_l5d_burnhurt"
+					}
 				}
 			}
 		}
@@ -20878,7 +22083,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_ch1"
+					variants = {
+						"hud_subtitlemod_std_l5d_ch1"
+					}
 				}
 			}
 		}
@@ -20892,7 +22099,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_ch2"
+					variants = {
+						"hud_subtitlemod_std_l5d_ch2"
+					}
 				}
 			}
 		}
@@ -20906,7 +22115,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_ch3"
+					variants = {
+						"hud_subtitlemod_std_l5d_ch3"
+					}
 				}
 			}
 		}
@@ -20920,7 +22131,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_ch4"
+					variants = {
+						"hud_subtitlemod_std_l5d_ch4"
+					}
 				}
 			}
 		}
@@ -20934,7 +22147,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_civ"
+					variants = {
+						"hud_subtitlemod_std_l5d_civ"
+					}
 				}
 			}
 		}
@@ -20948,7 +22163,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_clr"
+					variants = {
+						"hud_subtitlemod_std_l5d_clr"
+					}
 				}
 			}
 		}
@@ -20962,7 +22179,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_cn1"
+					variants = {
+						"hud_subtitlemod_std_l5d_cn1"
+					}
 				}
 			}
 		}
@@ -20976,7 +22195,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_cr1"
+					variants = {
+						"hud_subtitlemod_std_l5d_cr1"
+					}
 				}
 			}
 		}
@@ -21009,7 +22230,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_d02"
+					variants = {
+						"hud_subtitlemod_std_l5d_d02"
+					}
 				}
 			}
 		}
@@ -21023,7 +22246,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_e01"
+					variants = {
+						"hud_subtitlemod_std_l5d_e01"
+					}
 				}
 			}
 		}
@@ -21037,7 +22262,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_e02"
+					variants = {
+						"hud_subtitlemod_std_l5d_e02"
+					}
 				}
 			}
 		}
@@ -21051,7 +22278,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_e03"
+					variants = {
+						"hud_subtitlemod_std_l5d_e03"
+					}
 				}
 			}
 		}
@@ -21065,7 +22294,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_e04"
+					variants = {
+						"hud_subtitlemod_std_l5d_e04"
+					}
 				}
 			}
 		}
@@ -21079,7 +22310,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_e05"
+					variants = {
+						"hud_subtitlemod_std_l5d_e05"
+					}
 				}
 			}
 		}
@@ -21093,7 +22326,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_e06"
+					variants = {
+						"hud_subtitlemod_std_l5d_e06"
+					}
 				}
 			}
 		}
@@ -21110,7 +22345,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_gr1a"
+					variants = {
+						"hud_subtitlemod_std_l5d_gr1a"
+					}
 				}
 			}
 		}
@@ -21124,7 +22361,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_gr1b"
+					variants = {
+						"hud_subtitlemod_std_l5d_gr1b"
+					}
 				}
 			}
 		}
@@ -21138,7 +22377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_gr1c"
+					variants = {
+						"hud_subtitlemod_std_l5d_gr1c"
+					}
 				}
 			}
 		}
@@ -21152,7 +22393,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_gr1d"
+					variants = {
+						"hud_subtitlemod_std_l5d_gr1d"
+					}
 				}
 			}
 		}
@@ -21166,7 +22409,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_gr2a"
+					variants = {
+						"hud_subtitlemod_std_l5d_gr2a"
+					}
 				}
 			}
 		}
@@ -21180,7 +22425,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_gr2b"
+					variants = {
+						"hud_subtitlemod_std_l5d_gr2b"
+					}
 				}
 			}
 		}
@@ -21194,7 +22441,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_gr2c"
+					variants = {
+						"hud_subtitlemod_std_l5d_gr2c"
+					}
 				}
 			}
 		}
@@ -21208,7 +22457,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_gr2d"
+					variants = {
+						"hud_subtitlemod_std_l5d_gr2d"
+					}
 				}
 			}
 		}
@@ -21222,7 +22473,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_h10"
+					variants = {
+						"hud_subtitlemod_std_l5d_h10"
+					}
 				}
 			}
 		}
@@ -21236,7 +22489,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_hlp"
+					variants = {
+						"hud_subtitlemod_std_l5d_hlp"
+					}
 				}
 			}
 		}
@@ -21308,7 +22563,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_l01"
+					variants = {
+						"hud_subtitlemod_std_l5d_l01"
+					}
 				}
 			}
 		}
@@ -21358,7 +22615,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_m01"
+					variants = {
+						"hud_subtitlemod_std_l5d_m01"
+					}
 				}
 			}
 		}
@@ -21372,7 +22631,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_mov"
+					variants = {
+						"hud_subtitlemod_std_l5d_mov"
+					}
 				}
 			}
 		}
@@ -21386,7 +22647,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_p01"
+					variants = {
+						"hud_subtitlemod_std_l5d_p01"
+					}
 				}
 			}
 		}
@@ -21400,7 +22663,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_p02"
+					variants = {
+						"hud_subtitlemod_std_l5d_p02"
+					}
 				}
 			}
 		}
@@ -21414,7 +22679,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_p03"
+					variants = {
+						"hud_subtitlemod_std_l5d_p03"
+					}
 				}
 			}
 		}
@@ -21428,7 +22695,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_pos"
+					variants = {
+						"hud_subtitlemod_std_l5d_pos"
+					}
 				}
 			}
 		}
@@ -21442,7 +22711,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_prm"
+					variants = {
+						"hud_subtitlemod_std_l5d_prm"
+					}
 				}
 			}
 		}
@@ -21456,7 +22727,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_pus"
+					variants = {
+						"hud_subtitlemod_std_l5d_pus"
+					}
 				}
 			}
 		}
@@ -21470,7 +22743,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_r01"
+					variants = {
+						"hud_subtitlemod_std_l5d_r01"
+					}
 				}
 			}
 		}
@@ -21484,7 +22759,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_rdy"
+					variants = {
+						"hud_subtitlemod_std_l5d_rdy"
+					}
 				}
 			}
 		}
@@ -21498,7 +22775,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_rrl"
+					variants = {
+						"hud_subtitlemod_std_l5d_rrl"
+					}
 				}
 			}
 		}
@@ -21536,7 +22815,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_t01"
+					variants = {
+						"hud_subtitlemod_std_l5d_t01"
+					}
 				}
 			}
 		}
@@ -21550,7 +22831,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l5d_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -21564,7 +22847,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5d_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_l5d_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -21578,7 +22863,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5n_a01"
+					variants = {
+						"hud_subtitlemod_std_l5n_a01"
+					}
 				}
 			}
 		}
@@ -21592,7 +22879,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5n_a02"
+					variants = {
+						"hud_subtitlemod_std_l5n_a02"
+					}
 				}
 			}
 		}
@@ -21606,7 +22895,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5n_a03"
+					variants = {
+						"hud_subtitlemod_std_l5n_a03"
+					}
 				}
 			}
 		}
@@ -21642,7 +22933,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5n_a06"
+					variants = {
+						"hud_subtitlemod_std_l5n_a06"
+					}
 				}
 			}
 		}
@@ -21656,7 +22949,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5n_a08"
+					variants = {
+						"hud_subtitlemod_std_l5n_a08"
+					}
 				}
 			}
 		}
@@ -21670,7 +22965,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5n_a09"
+					variants = {
+						"hud_subtitlemod_std_l5n_a09"
+					}
 				}
 			}
 		}
@@ -21854,7 +23151,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_l5n_amm"
+					variants = {
+						"hud_subtitlemod_std_l5n_amm"
+					}
 				}
 			}
 		}
@@ -21868,7 +23167,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_fl1n_a23"
+					variants = {
+						"hud_subtitlemod_std_fl1n_a23"
+					}
 				}
 			}
 		}
@@ -21882,7 +23183,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_fl1n_g90"
+					variants = {
+						"hud_subtitlemod_std_fl1n_g90"
+					}
 				}
 			}
 		}
@@ -21896,7 +23199,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_fl1n_h01"
+					variants = {
+						"hud_subtitlemod_std_fl1n_h01"
+					}
 				}
 			}
 		}
@@ -21910,7 +23215,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_fl1n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_fl1n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -22002,7 +23309,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r1n_burndeath"
+					variants = {
+						"hud_subtitlemod_std_r1n_burndeath"
+					}
 				}
 			}
 		}
@@ -22016,7 +23325,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r1n_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_r1n_burnhurt"
+					}
 				}
 			}
 		}
@@ -22347,7 +23658,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r1n_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_r1n_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -22361,7 +23674,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r1n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_r1n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -22375,7 +23690,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r1n_s01x"
+					variants = {
+						"hud_subtitlemod_std_r1n_s01x"
+					}
 				}
 			}
 		}
@@ -22424,7 +23741,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r2n_burndeath"
+					variants = {
+						"hud_subtitlemod_std_r2n_burndeath"
+					}
 				}
 			}
 		}
@@ -22438,7 +23757,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r2n_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_r2n_burnhurt"
+					}
 				}
 			}
 		}
@@ -22769,7 +24090,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r2n_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_r2n_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -22783,7 +24106,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r2n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_r2n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -22797,7 +24122,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r2n_s01x"
+					variants = {
+						"hud_subtitlemod_std_r2n_s01x"
+					}
 				}
 			}
 		}
@@ -22846,7 +24173,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r3n_burndeath"
+					variants = {
+						"hud_subtitlemod_std_r3n_burndeath"
+					}
 				}
 			}
 		}
@@ -22860,7 +24189,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r3n_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_r3n_burnhurt"
+					}
 				}
 			}
 		}
@@ -23191,7 +24522,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r3n_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_r3n_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -23205,7 +24538,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r3n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_r3n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -23219,7 +24554,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r3n_s01x"
+					variants = {
+						"hud_subtitlemod_std_r3n_s01x"
+					}
 				}
 			}
 		}
@@ -23268,7 +24605,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r4n_burndeath"
+					variants = {
+						"hud_subtitlemod_std_r4n_burndeath"
+					}
 				}
 			}
 		}
@@ -23282,7 +24621,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r4n_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_r4n_burnhurt"
+					}
 				}
 			}
 		}
@@ -23613,7 +24954,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r4n_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_r4n_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -23627,7 +24970,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r4n_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_r4n_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -23641,7 +24986,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_r4n_s01x"
+					variants = {
+						"hud_subtitlemod_std_r4n_s01x"
+					}
 				}
 			}
 		}
@@ -23741,7 +25088,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rclk_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_rclk_burnhurt"
+					}
 				}
 			}
 		}
@@ -23754,7 +25103,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rclk_burndeath"
+					variants = {
+						"hud_subtitlemod_std_rclk_burndeath"
+					}
 				}
 			}
 		}
@@ -23770,7 +25121,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rclk_c01x_plu"
+					variants = {
+						"hud_subtitlemod_std_rclk_c01x_plu"
+					}
 				}
 			}
 		}
@@ -23826,7 +25179,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rclk_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_rclk_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -23840,7 +25195,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rclk_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_rclk_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -23854,7 +25211,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rclk_mov"
+					variants = {
+						"hud_subtitlemod_std_rclk_mov"
+					}
 				}
 			}
 		}
@@ -23868,7 +25227,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rclk_rdy"
+					variants = {
+						"hud_subtitlemod_std_rclk_rdy"
+					}
 				}
 			}
 		}
@@ -23882,7 +25243,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rtsr_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_rtsr_burnhurt"
+					}
 				}
 			}
 		}
@@ -23896,7 +25259,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rtsr_burndeath"
+					variants = {
+						"hud_subtitlemod_std_rtsr_burndeath"
+					}
 				}
 			}
 		}
@@ -23910,7 +25275,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rtsr_c01"
+					variants = {
+						"hud_subtitlemod_std_rtsr_c01"
+					}
 				}
 			}
 		}
@@ -23985,7 +25352,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rtsr_mov"
+					variants = {
+						"hud_subtitlemod_std_rtsr_mov"
+					}
 				}
 			}
 		}
@@ -24017,7 +25386,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rtsr_tasered"
+					variants = {
+						"hud_subtitlemod_std_rtsr_tasered"
+					}
 				}
 			}
 		}
@@ -24031,7 +25402,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rtsr_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_rtsr_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -24045,7 +25418,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rtsr_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_rtsr_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -24289,7 +25664,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bdz_post_kill_taunt"
+					variants = {
+						"hud_subtitlemod_std_bdz_post_kill_taunt"
+					}
 				}
 			}
 		}
@@ -24337,7 +25714,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bdz_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_bdz_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -24351,7 +25730,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bdz_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_bdz_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -24388,7 +25769,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_c01x_plu"
+					variants = {
+						"hud_subtitlemod_std_clk_c01x_plu"
+					}
 				}
 			}
 		}
@@ -24407,7 +25790,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_baton_swing"
+					variants = {
+						"hud_subtitlemod_std_clk_baton_swing"
+					}
 				}
 			}
 		}
@@ -24423,7 +25808,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_crawl_in"
+					variants = {
+						"hud_subtitlemod_std_clk_crawl_in"
+					}
 				}
 			}
 		}
@@ -24445,7 +25832,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_jump"
+					variants = {
+						"hud_subtitlemod_std_clk_jump"
+					}
 				}
 			}
 		}
@@ -24461,7 +25850,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_kick_impact"
+					variants = {
+						"hud_subtitlemod_std_clk_kick_impact"
+					}
 				}
 			}
 		}
@@ -24475,7 +25866,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_punch_3p"
+					variants = {
+						"hud_subtitlemod_std_clk_punch_3p"
+					}
 				}
 			}
 		}
@@ -24489,7 +25882,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_punch_3rd_person_3p"
+					variants = {
+						"hud_subtitlemod_std_clk_punch_3rd_person_3p"
+					}
 				}
 			}
 		}
@@ -24503,7 +25898,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_roundkick"
+					variants = {
+						"hud_subtitlemod_std_clk_roundkick"
+					}
 				}
 			}
 		}
@@ -24517,7 +25914,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_turn"
+					variants = {
+						"hud_subtitlemod_std_clk_turn"
+					}
 				}
 			}
 		}
@@ -24596,7 +25995,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_clk_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -24609,7 +26010,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_clk_burnhurt"
+					}
 				}
 			}
 		}
@@ -24622,7 +26025,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_clk_burndeath"
+					variants = {
+						"hud_subtitlemod_std_clk_burndeath"
+					}
 				}
 			}
 		}
@@ -24635,7 +26040,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cloaker_spawn"
+					variants = {
+						"hud_subtitlemod_std_cloaker_spawn"
+					}
 				}
 			}
 		}
@@ -24649,7 +26056,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cloaker_detect_mono"
+					variants = {
+						"hud_subtitlemod_std_cloaker_detect_mono"
+					}
 				}
 			}
 		}
@@ -24667,7 +26076,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cloaker_detect_christmas_mono"
+					variants = {
+						"hud_subtitlemod_std_cloaker_detect_christmas_mono"
+					}
 				}
 			}
 		}
@@ -24686,7 +26097,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cloaker_presence_loop"
+					variants = {
+						"hud_subtitlemod_std_cloaker_presence_loop"
+					}
 				}
 			}
 		}
@@ -24705,7 +26118,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tsr_c01"
+					variants = {
+						"hud_subtitlemod_std_tsr_c01"
+					}
 				}
 			}
 		}
@@ -24847,7 +26262,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tsr_post_tasing_taunt"
+					variants = {
+						"hud_subtitlemod_std_tsr_post_tasing_taunt"
+					}
 				}
 			}
 		}
@@ -24861,7 +26278,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tsr_tasered"
+					variants = {
+						"hud_subtitlemod_std_tsr_tasered"
+					}
 				}
 			}
 		}
@@ -24875,7 +26294,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tsr_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_tsr_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -24889,7 +26310,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tsr_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_tsr_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -24903,7 +26326,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tsr_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_tsr_burnhurt"
+					}
 				}
 			}
 		}
@@ -24917,7 +26342,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tsr_burndeath"
+					variants = {
+						"hud_subtitlemod_std_tsr_burndeath"
+					}
 				}
 			}
 		}
@@ -24933,7 +26360,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_taser_charge"
+					variants = {
+						"hud_subtitlemod_std_taser_charge"
+					}
 				}
 			}
 		}
@@ -24948,7 +26377,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_shield_identification"
+					variants = {
+						"hud_subtitlemod_std_shield_identification"
+					}
 				}
 			}
 		}
@@ -24963,7 +26394,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_shd_x02a_any_3p_01"
+					variants = {
+						"hud_subtitlemod_std_shd_x02a_any_3p_01"
+					}
 				}
 			}
 		}
@@ -25127,7 +26560,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mdc_burnhurt"
+					variants = {
+						"hud_subtitlemod_std_mdc_burnhurt"
+					}
 				}
 			}
 		}
@@ -25141,7 +26576,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mdc_burndeath"
+					variants = {
+						"hud_subtitlemod_std_mdc_burndeath"
+					}
 				}
 			}
 		}
@@ -25155,7 +26592,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mdc_x01a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_mdc_x01a_any_3p"
+					}
 				}
 			}
 		}
@@ -25169,7 +26608,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mdc_x02a_any_3p"
+					variants = {
+						"hud_subtitlemod_std_mdc_x02a_any_3p"
+					}
 				}
 			}
 		}
@@ -25184,7 +26625,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_rmdc_entrance"
+					variants = {
+						"hud_subtitlemod_std_rmdc_entrance"
+					}
 				}
 			}
 		}
@@ -25198,7 +26641,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_alert"
+					variants = {
+						"hud_subtitlemod_std_swatturret_alert"
+					}
 				}
 			}
 		}
@@ -25212,7 +26657,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_cooldown"
+					variants = {
+						"hud_subtitlemod_std_swatturret_cooldown"
+					}
 				}
 			}
 		}
@@ -25226,7 +26673,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_destroy"
+					variants = {
+						"hud_subtitlemod_std_swatturret_destroy"
+					}
 				}
 			}
 		}
@@ -25239,7 +26688,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_fire"
+					variants = {
+						"hud_subtitlemod_std_swatturret_fire"
+					}
 				}
 			}
 		}
@@ -25257,7 +26708,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_disarmed_loop"
+					variants = {
+						"hud_subtitlemod_std_swatturret_disarmed_loop"
+					}
 				}
 			}
 		}
@@ -25276,7 +26729,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_mount"
+					variants = {
+						"hud_subtitlemod_std_swatturret_mount"
+					}
 				}
 			}
 		}
@@ -25290,7 +26745,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_plate_off"
+					variants = {
+						"hud_subtitlemod_std_swatturret_plate_off"
+					}
 				}
 			}
 		}
@@ -25304,7 +26761,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_pressure_release"
+					variants = {
+						"hud_subtitlemod_std_swatturret_pressure_release"
+					}
 				}
 			}
 		}
@@ -25317,7 +26776,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_reload"
+					variants = {
+						"hud_subtitlemod_std_swatturret_reload"
+					}
 				}
 			}
 		}
@@ -25337,7 +26798,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_spin_loop"
+					variants = {
+						"hud_subtitlemod_std_swatturret_spin_loop"
+					}
 				}
 			}
 		}
@@ -25350,7 +26813,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_spin_start"
+					variants = {
+						"hud_subtitlemod_std_swatturret_spin_start"
+					}
 				}
 			}
 		}
@@ -25369,7 +26834,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_swatturret_weakspot_hit"
+					variants = {
+						"hud_subtitlemod_std_swatturret_weakspot_hit"
+					}
 				}
 			}
 		}
@@ -25561,7 +27028,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_law_enf_puke"
+					variants = {
+						"hud_subtitlemod_std_law_enf_puke"
+					}
 				}
 			}
 		}
@@ -25575,7 +27044,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tasered_shock"
+					variants = {
+						"hud_subtitlemod_std_tasered_shock"
+					}
 				}
 			}
 		}
@@ -25603,7 +27074,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_post_kill_taunt"
+					variants = {
+						"hud_subtitlemod_std_post_kill_taunt"
+					}
 				}
 			}
 		}
@@ -25617,7 +27090,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_post_tasing_taunt"
+					variants = {
+						"hud_subtitlemod_std_post_tasing_taunt"
+					}
 				}
 			}
 		}
@@ -25629,7 +27104,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tasered"
+					variants = {
+						"hud_subtitlemod_std_tasered"
+					}
 				}
 			}
 		}
@@ -25643,7 +27120,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_tasing"
+					variants = {
+						"hud_subtitlemod_std_tasing"
+					}
 				}
 			}
 		}
@@ -25657,7 +27136,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_heal"
+					variants = {
+						"hud_subtitlemod_std_heal"
+					}
 				}
 			}
 		}
@@ -25672,7 +27153,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_dsp_radio_buzz"
+					variants = {
+						"hud_subtitlemod_std_dsp_radio_buzz"
+					}
 				}
 			}
 		}
@@ -25686,7 +27169,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_dsp_radio_query_1"
+					variants = {
+						"hud_subtitlemod_std_dsp_radio_query_1"
+					}
 				}
 			}
 		}
@@ -25699,7 +27184,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_dsp_fooled_1"
+					variants = {
+						"hud_subtitlemod_std_dsp_fooled_1"
+					}
 				}
 			}
 		}
@@ -25713,7 +27200,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_death_scream"
+					variants = {
+						"hud_subtitlemod_std_mga_death_scream"
+					}
 				}
 			}
 		}
@@ -25727,7 +27216,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_deploy_snipers"
+					variants = {
+						"hud_subtitlemod_std_mga_deploy_snipers"
+					}
 				}
 			}
 		}
@@ -25741,7 +27232,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_generic_a"
+					variants = {
+						"hud_subtitlemod_std_mga_generic_a"
+					}
 				}
 			}
 		}
@@ -25755,7 +27248,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_generic_b"
+					variants = {
+						"hud_subtitlemod_std_mga_generic_b"
+					}
 				}
 			}
 		}
@@ -25769,7 +27264,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_generic_c"
+					variants = {
+						"hud_subtitlemod_std_mga_generic_c"
+					}
 				}
 			}
 		}
@@ -25783,7 +27280,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_hostage_assault_delay"
+					variants = {
+						"hud_subtitlemod_std_mga_hostage_assault_delay"
+					}
 				}
 			}
 		}
@@ -25797,7 +27296,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_intro"
+					variants = {
+						"hud_subtitlemod_std_mga_intro"
+					}
 				}
 			}
 		}
@@ -25811,7 +27312,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_killed_civ_1st"
+					variants = {
+						"hud_subtitlemod_std_mga_killed_civ_1st"
+					}
 				}
 			}
 		}
@@ -25825,7 +27328,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_killed_civ_2nd"
+					variants = {
+						"hud_subtitlemod_std_mga_killed_civ_2nd"
+					}
 				}
 			}
 		}
@@ -25839,7 +27344,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_leave"
+					variants = {
+						"hud_subtitlemod_std_mga_leave"
+					}
 				}
 			}
 		}
@@ -25853,7 +27360,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_robbers_clever"
+					variants = {
+						"hud_subtitlemod_std_mga_robbers_clever"
+					}
 				}
 			}
 		}
@@ -25867,7 +27376,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_thermite"
+					variants = {
+						"hud_subtitlemod_std_mga_thermite"
+					}
 				}
 			}
 		}
@@ -25881,7 +27392,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_vault_a"
+					variants = {
+						"hud_subtitlemod_std_mga_vault_a"
+					}
 				}
 			}
 		}
@@ -25895,7 +27408,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_vault_b"
+					variants = {
+						"hud_subtitlemod_std_mga_vault_b"
+					}
 				}
 			}
 		}
@@ -25909,7 +27424,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_vault_c"
+					variants = {
+						"hud_subtitlemod_std_mga_vault_c"
+					}
 				}
 			}
 		}
@@ -25923,7 +27440,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_t01a_con_plu"
+					variants = {
+						"hud_subtitlemod_std_mga_t01a_con_plu"
+					}
 				}
 			}
 		}
@@ -25937,7 +27456,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_s01"
+					variants = {
+						"hud_subtitlemod_std_mga_s01"
+					}
 				}
 			}
 		}
@@ -25951,7 +27472,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_s02"
+					variants = {
+						"hud_subtitlemod_std_mga_s02"
+					}
 				}
 			}
 		}
@@ -25965,7 +27488,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_s03"
+					variants = {
+						"hud_subtitlemod_std_mga_s03"
+					}
 				}
 			}
 		}
@@ -25979,7 +27504,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_s04"
+					variants = {
+						"hud_subtitlemod_std_mga_s04"
+					}
 				}
 			}
 		}
@@ -25993,7 +27520,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_s05"
+					variants = {
+						"hud_subtitlemod_std_mga_s05"
+					}
 				}
 			}
 		}
@@ -26007,7 +27536,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_s06"
+					variants = {
+						"hud_subtitlemod_std_mga_s06"
+					}
 				}
 			}
 		}
@@ -26021,7 +27552,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_mga_s07"
+					variants = {
+						"hud_subtitlemod_std_mga_s07"
+					}
 				}
 			}
 		}
@@ -26151,7 +27684,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_doc_nmh_b"
+					variants = {
+						"hud_subtitlemod_std_Play_doc_nmh_b"
+					}
 				}
 			}
 		}
@@ -26165,7 +27700,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_doc_nmh_c"
+					variants = {
+						"hud_subtitlemod_std_Play_doc_nmh_c"
+					}
 				}
 			}
 		}
@@ -26179,7 +27716,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_doc_nmh_d"
+					variants = {
+						"hud_subtitlemod_std_Play_doc_nmh_d"
+					}
 				}
 			}
 		}
@@ -26260,7 +27799,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_doc_nmh_h"
+					variants = {
+						"hud_subtitlemod_std_Play_doc_nmh_h"
+					}
 				}
 			}
 		}
@@ -26392,7 +27933,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_bloodtest_accepted"
+					variants = {
+						"hud_subtitlemod_std_hos_bloodtest_accepted"
+					}
 				}
 			}
 		}
@@ -26405,7 +27948,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_bloodtest_denied"
+					variants = {
+						"hud_subtitlemod_std_hos_bloodtest_denied"
+					}
 				}
 			}
 		}
@@ -26419,7 +27964,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_hos_missile_attack"
+					variants = {
+						"hud_subtitlemod_std_hos_missile_attack"
+					}
 				}
 			}
 		}
@@ -26463,7 +28010,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_flt_01"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_flt_01"
+					}
 				}
 			}
 		}
@@ -27175,7 +28724,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pil_pal_03"
+					variants = {
+						"hud_subtitlemod_std_Play_pil_pal_03"
+					}
 				}
 			}
 		}
@@ -27270,7 +28821,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_cft_piano_music"
+					variants = {
+						"hud_subtitlemod_std_cft_piano_music"
+					}
 				}
 			}
 		}
@@ -27285,7 +28838,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pal_money_printer_end_paper"
+					variants = {
+						"hud_subtitlemod_std_pal_money_printer_end_paper"
+					}
 				}
 			}
 		}
@@ -27300,7 +28855,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pal_money_printer_end_ink"
+					variants = {
+						"hud_subtitlemod_std_pal_money_printer_end_ink"
+					}
 				}
 			}
 		}
@@ -27315,7 +28872,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pal_money_printer_start"
+					variants = {
+						"hud_subtitlemod_std_pal_money_printer_start"
+					}
 				}
 			}
 		}
@@ -27330,7 +28889,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_pal_money_printer_finished"
+					variants = {
+						"hud_subtitlemod_std_pal_money_printer_finished"
+					}
 				}
 			}
 		}
@@ -27343,7 +28904,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ta_ko1_01"
+					variants = {
+						"hud_subtitlemod_std_Play_ta_ko1_01"
+					}
 				}
 			}
 		}
@@ -27357,7 +28920,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_01"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_01"
+					}
 				}
 			}
 		}
@@ -27371,7 +28936,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_02"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_02"
+					}
 				}
 			}
 		}
@@ -27385,7 +28952,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_03"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_03"
+					}
 				}
 			}
 		}
@@ -27399,7 +28968,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_04"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_04"
+					}
 				}
 			}
 		}
@@ -27413,7 +28984,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_05"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_05"
+					}
 				}
 			}
 		}
@@ -27427,7 +29000,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_06"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_06"
+					}
 				}
 			}
 		}
@@ -27441,7 +29016,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_07"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_07"
+					}
 				}
 			}
 		}
@@ -27455,7 +29032,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_08"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_08"
+					}
 				}
 			}
 		}
@@ -27469,7 +29048,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_pon_man_09"
+					variants = {
+						"hud_subtitlemod_std_Play_pon_man_09"
+					}
 				}
 			}
 		}
@@ -27520,7 +29101,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_txm_man_05"
+					variants = {
+						"hud_subtitlemod_std_Play_txm_man_05"
+					}
 				}
 			}
 		}
@@ -27585,7 +29168,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_txm_man_08a"
+					variants = {
+						"hud_subtitlemod_std_Play_txm_man_08a"
+					}
 				}
 			}
 		}
@@ -27599,7 +29184,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_txm_man_08b"
+					variants = {
+						"hud_subtitlemod_std_Play_txm_man_08b"
+					}
 				}
 			}
 		}
@@ -27613,7 +29200,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_txm_man_08c"
+					variants = {
+						"hud_subtitlemod_std_Play_txm_man_08c"
+					}
 				}
 			}
 		}
@@ -27704,7 +29293,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_txm_man_13"
+					variants = {
+						"hud_subtitlemod_std_Play_txm_man_13"
+					}
 				}
 			}
 		}
@@ -28045,7 +29636,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ism_fwb_02"
+					variants = {
+						"hud_subtitlemod_std_Play_ism_fwb_02"
+					}
 				}
 			}
 		}
@@ -28432,7 +30025,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_big_bank_phone_call"
+					variants = {
+						"hud_subtitlemod_std_big_bank_phone_call"
+					}
 				}
 			}
 		}
@@ -28481,7 +30076,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_01"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_01"
+					}
 				}
 			}
 		}
@@ -28496,7 +30093,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_02"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_02"
+					}
 				}
 			}
 		}
@@ -28511,7 +30110,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_03"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_03"
+					}
 				}
 			}
 		}
@@ -28526,7 +30127,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_04"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_04"
+					}
 				}
 			}
 		}
@@ -28541,7 +30144,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_05"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_05"
+					}
 				}
 			}
 		}
@@ -28556,7 +30161,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_06"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_06"
+					}
 				}
 			}
 		}
@@ -28571,7 +30178,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_07"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_07"
+					}
 				}
 			}
 		}
@@ -28586,7 +30195,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_08"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_08"
+					}
 				}
 			}
 		}
@@ -28601,7 +30212,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_09"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_09"
+					}
 				}
 			}
 		}
@@ -28616,7 +30229,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_10"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_10"
+					}
 				}
 			}
 		}
@@ -28631,7 +30246,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_11"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_11"
+					}
 				}
 			}
 		}
@@ -28646,7 +30263,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dlr_framing_stage2_12"
+					variants = {
+						"hud_subtitlemod_std_Play_dlr_framing_stage2_12"
+					}
 				}
 			}
 		}
@@ -28661,7 +30280,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ph1_trade1_loud"
+					variants = {
+						"hud_subtitlemod_std_Play_ph1_trade1_loud"
+					}
 				}
 			}
 		}
@@ -28752,7 +30373,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ph1_trade6_loud"
+					variants = {
+						"hud_subtitlemod_std_Play_ph1_trade6_loud"
+					}
 				}
 			}
 		}
@@ -28785,7 +30408,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ph1_trade9_loud"
+					variants = {
+						"hud_subtitlemod_std_Play_ph1_trade9_loud"
+					}
 				}
 			}
 		}
@@ -28908,7 +30533,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_rb5_hb1_05"
+					variants = {
+						"hud_subtitlemod_std_Play_rb5_hb1_05"
+					}
 				}
 			}
 		}
@@ -29139,7 +30766,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ict2_lsc_2"
+					variants = {
+						"hud_subtitlemod_std_ict2_lsc_2"
+					}
 				}
 			}
 		}
@@ -29152,7 +30781,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ict2_lsc_3"
+					variants = {
+						"hud_subtitlemod_std_ict2_lsc_3"
+					}
 				}
 			}
 		}
@@ -29165,7 +30796,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ict2_lsc_4"
+					variants = {
+						"hud_subtitlemod_std_ict2_lsc_4"
+					}
 				}
 			}
 		}
@@ -29178,7 +30811,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_ict2_lsc_5"
+					variants = {
+						"hud_subtitlemod_std_ict2_lsc_5"
+					}
 				}
 			}
 		}
@@ -29191,7 +30826,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ga2_rats_stage2_01"
+					variants = {
+						"hud_subtitlemod_std_Play_ga2_rats_stage2_01"
+					}
 				}
 			}
 		}
@@ -29204,7 +30841,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ga2_rats_stage2_02"
+					variants = {
+						"hud_subtitlemod_std_Play_ga2_rats_stage2_02"
+					}
 				}
 			}
 		}
@@ -29216,7 +30855,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ga2_rats_stage2_03"
+					variants = {
+						"hud_subtitlemod_std_Play_ga2_rats_stage2_03"
+					}
 				}
 			}
 		}
@@ -29229,7 +30870,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ga2_rats_stage2_04"
+					variants = {
+						"hud_subtitlemod_std_Play_ga2_rats_stage2_04"
+					}
 				}
 			}
 		}
@@ -29242,7 +30885,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ga2_rats_stage2_05"
+					variants = {
+						"hud_subtitlemod_std_Play_ga2_rats_stage2_05"
+					}
 				}
 			}
 		}
@@ -29255,7 +30900,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_ga2_rats_stage2_06"
+					variants = {
+						"hud_subtitlemod_std_Play_ga2_rats_stage2_06"
+					}
 				}
 			}
 		}
@@ -29268,7 +30915,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_spider_enter"
+					variants = {
+						"hud_subtitlemod_std_spider_enter"
+					}
 				}
 			}
 		}
@@ -29281,7 +30930,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_spider_idle"
+					variants = {
+						"hud_subtitlemod_std_spider_idle"
+					}
 				}
 			}
 		}
@@ -29294,7 +30945,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_spider_exit"
+					variants = {
+						"hud_subtitlemod_std_spider_exit"
+					}
 				}
 			}
 		}
@@ -29307,7 +30960,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_spider_hurt"
+					variants = {
+						"hud_subtitlemod_std_spider_hurt"
+					}
 				}
 			}
 		}
@@ -29320,7 +30975,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_spider_die"
+					variants = {
+						"hud_subtitlemod_std_spider_die"
+					}
 				}
 			}
 		}
@@ -29333,7 +30990,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_nail_cloaker_spawn"
+					variants = {
+						"hud_subtitlemod_std_nail_cloaker_spawn"
+					}
 				}
 			}
 		}
@@ -29346,7 +31005,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_nail_cloaker_presence_loop"
+					variants = {
+						"hud_subtitlemod_std_nail_cloaker_presence_loop"
+					}
 				}
 			}
 		}
@@ -29359,7 +31020,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_nail_cloaker_detect"
+					variants = {
+						"hud_subtitlemod_std_nail_cloaker_detect"
+					}
 				}
 			}
 		}
@@ -29372,7 +31035,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_big_cloaker_taunt"
+					variants = {
+						"hud_subtitlemod_std_big_cloaker_taunt"
+					}
 				}
 			}
 		}
@@ -29441,7 +31106,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_mtt_run_06"
+					variants = {
+						"hud_subtitlemod_std_Play_mtt_run_06"
+					}
 				}
 			}
 		}
@@ -29831,7 +31498,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_big_clk_help_05"
+					variants = {
+						"hud_subtitlemod_std_Play_big_clk_help_05"
+					}
 				}
 			}
 		}
@@ -29884,7 +31553,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_big_clk_help_08"
+					variants = {
+						"hud_subtitlemod_std_Play_big_clk_help_08"
+					}
 				}
 			}
 		}
@@ -30271,7 +31942,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_big_clk_help_26"
+					variants = {
+						"hud_subtitlemod_std_Play_big_clk_help_26"
+					}
 				}
 			}
 		}
@@ -30286,7 +31959,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_npc_tag_poi_01"
+					variants = {
+						"hud_subtitlemod_std_Play_npc_tag_poi_01"
+					}
 				}
 			}
 		}
@@ -30372,7 +32047,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gar_tag_06"
+					variants = {
+						"hud_subtitlemod_std_Play_gar_tag_06"
+					}
 				}
 			}
 		}
@@ -30386,7 +32063,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gar_tag_07"
+					variants = {
+						"hud_subtitlemod_std_Play_gar_tag_07"
+					}
 				}
 			}
 		}
@@ -30400,7 +32079,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gar_tag_08"
+					variants = {
+						"hud_subtitlemod_std_Play_gar_tag_08"
+					}
 				}
 			}
 		}
@@ -30431,7 +32112,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gar_tag_10"
+					variants = {
+						"hud_subtitlemod_std_Play_gar_tag_10"
+					}
 				}
 			}
 		}
@@ -30445,7 +32128,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gar_tag_11"
+					variants = {
+						"hud_subtitlemod_std_Play_gar_tag_11"
+					}
 				}
 			}
 		}
@@ -30476,7 +32161,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gar_tag_13"
+					variants = {
+						"hud_subtitlemod_std_Play_gar_tag_13"
+					}
 				}
 			}
 		}
@@ -30490,7 +32177,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gar_tag_14"
+					variants = {
+						"hud_subtitlemod_std_Play_gar_tag_14"
+					}
 				}
 			}
 		}
@@ -30625,7 +32314,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_mch_brn_01"
+					variants = {
+						"hud_subtitlemod_std_Play_mch_brn_01"
+					}
 				}
 			}
 		}
@@ -30644,7 +32335,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_laser_hum_right"
+					variants = {
+						"hud_subtitlemod_std_laser_hum_right"
+					}
 				}
 			}
 		}
@@ -30658,7 +32351,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_laser_hum_left"
+					variants = {
+						"hud_subtitlemod_std_laser_hum_left"
+					}
 				}
 			}
 		}
@@ -30672,7 +32367,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_dah_party_music"
+					variants = {
+						"hud_subtitlemod_std_dah_party_music"
+					}
 				}
 			}
 		}
@@ -30697,7 +32394,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_elevator_ding_dh"
+					variants = {
+						"hud_subtitlemod_std_elevator_ding_dh"
+					}
 				}
 			}
 		}
@@ -30711,7 +32410,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_alarm_dah"
+					variants = {
+						"hud_subtitlemod_std_alarm_dah"
+					}
 				}
 			}
 		}
@@ -30725,7 +32426,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_dah_npc_impact_glass_01"
+					variants = {
+						"hud_subtitlemod_std_dah_npc_impact_glass_01"
+					}
 				}
 			}
 		}
@@ -30745,7 +32448,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_car_alarm_on"
+					variants = {
+						"hud_subtitlemod_std_car_alarm_on"
+					}
 				}
 			}
 		}
@@ -30763,7 +32468,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_glace_secondary_explosion"
+					variants = {
+						"hud_subtitlemod_std_glace_secondary_explosion"
+					}
 				}
 			}
 		}
@@ -30776,7 +32483,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bph_lever_down"
+					variants = {
+						"hud_subtitlemod_std_bph_lever_down"
+					}
 				}
 			}
 		}
@@ -30789,7 +32498,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_bph_prison_buzzer"
+					variants = {
+						"hud_subtitlemod_std_bph_prison_buzzer"
+					}
 				}
 			}
 		}
@@ -30805,7 +32516,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dnt_bph_01"
+					variants = {
+						"hud_subtitlemod_std_Play_dnt_bph_01"
+					}
 				}
 			}
 		}
@@ -30821,7 +32534,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dnt_bph_02"
+					variants = {
+						"hud_subtitlemod_std_Play_dnt_bph_02"
+					}
 				}
 			}
 		}
@@ -30837,7 +32552,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dnt_bph_03"
+					variants = {
+						"hud_subtitlemod_std_Play_dnt_bph_03"
+					}
 				}
 			}
 		}
@@ -30853,7 +32570,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dnt_bph_04"
+					variants = {
+						"hud_subtitlemod_std_Play_dnt_bph_04"
+					}
 				}
 			}
 		}
@@ -30869,7 +32588,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dnt_bph_05"
+					variants = {
+						"hud_subtitlemod_std_Play_dnt_bph_05"
+					}
 				}
 			}
 		}
@@ -30885,7 +32606,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_dnt_bph_06"
+					variants = {
+						"hud_subtitlemod_std_Play_dnt_bph_06"
+					}
 				}
 			}
 		}
@@ -31060,7 +32783,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_mrb_rvd_03"
+					variants = {
+						"hud_subtitlemod_std_Play_mrb_rvd_03"
+					}
 				}
 			}
 		}
@@ -31322,7 +33047,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_drunk_pilot_puke"
+					variants = {
+						"hud_subtitlemod_std_drunk_pilot_puke"
+					}
 				}
 			}
 		}
@@ -31337,7 +33064,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_drunk_pilot_fall"
+					variants = {
+						"hud_subtitlemod_std_drunk_pilot_fall"
+					}
 				}
 			}
 		}
@@ -31352,7 +33081,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_drunk_pilot_sit_down"
+					variants = {
+						"hud_subtitlemod_std_drunk_pilot_sit_down"
+					}
 				}
 			}
 		}
@@ -31367,7 +33098,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_drunk_pilot_up"
+					variants = {
+						"hud_subtitlemod_std_drunk_pilot_up"
+					}
 				}
 			}
 		}
@@ -31563,7 +33296,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_chimes_and_bell"
+					variants = {
+						"hud_subtitlemod_std_chimes_and_bell"
+					}
 				}
 			}
 		}
@@ -31577,7 +33312,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_packing_box_loop"
+					variants = {
+						"hud_subtitlemod_std_packing_box_loop"
+					}
 				}
 			}
 		}
@@ -31718,7 +33455,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_bar_chca_01"
+					variants = {
+						"hud_subtitlemod_std_Play_bar_chca_01"
+					}
 				}
 			}
 		}
@@ -32140,7 +33879,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_01A"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_01A"
+					}
 				}
 			}
 		}
@@ -32155,7 +33896,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_01B"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_01B"
+					}
 				}
 			}
 		}
@@ -32170,7 +33913,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_02A"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_02A"
+					}
 				}
 			}
 		}
@@ -32185,7 +33930,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_02B"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_02B"
+					}
 				}
 			}
 		}
@@ -32200,7 +33947,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_03A"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_03A"
+					}
 				}
 			}
 		}
@@ -32215,7 +33964,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_04A"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_04A"
+					}
 				}
 			}
 		}
@@ -32230,7 +33981,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_04B"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_04B"
+					}
 				}
 			}
 		}
@@ -32245,7 +33998,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_04C"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_04C"
+					}
 				}
 			}
 		}
@@ -32260,7 +34015,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_04D"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_04D"
+					}
 				}
 			}
 		}
@@ -32275,7 +34032,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_04E"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_04E"
+					}
 				}
 			}
 		}
@@ -32290,7 +34049,9 @@ return {
 		voices = {
 			any = {
 				std = {
-					"hud_subtitlemod_std_Play_gab_deep_04F"
+					variants = {
+						"hud_subtitlemod_std_Play_gab_deep_04F"
+					}
 				}
 			}
 		}
