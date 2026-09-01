@@ -22588,7 +22588,7 @@ $1Uh huh. right.]]
 		},
 		
 		
-	--shd (shield); no unit-specific lines aside from this sfx
+	--shd (shield)
 		shield_identification = {
 			fallback_unitname = "shield",
 			text = "(Shield clanking)",
@@ -22597,7 +22597,14 @@ $1Uh huh. right.]]
 			duration = 2,
 			priority = 65
 		},
-		
+		shd_x02a_any_3p_01 = {
+			fallback_unitname = "shield",
+			text = "[death]",
+			category = "enemy_death",
+			max_distance = 1500,
+			duration = 3,
+			priority = 65
+		},
 		
 	--mdc (medic)
 		mdc_entrance = {
