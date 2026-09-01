@@ -137,7 +137,7 @@ do -- guess the order
 	local file = io.open(SOUND_DATA_PATH,"r")
 	if file then
 		for raw_line in file:lines() do 
-			local line = string.gsub(raw_line,"^%s+","")
+			local line = string.gsub(raw_line,'^%s+%[?%"?',"") -- strip leading tabs, [, and " (the latter two for specifically the 911_call string)
 			if not start then
 				if string.find(line,"^vo_special") then
 					-- don't start
@@ -149,7 +149,7 @@ do -- guess the order
 				if string.find(line,"^%-%-") then
 					-- comment line; ignore
 				else
-					if string.match(raw_line,"^\t\t[%w%_]+") then
+					if string.match(raw_line,"^\t\t[%w%_%[]+") then
 						local sound_name = string.match(line,"^[%w%_]+")
 						if sound_name and WHITELIST_KEYS[sound_name] == nil then
 							--log("Found sound", "[" .. tostring(sound_name) .. "]")
@@ -186,11 +186,11 @@ local function serialize_compound_variations(data)
 		end
 		-- compound/recombinable
 		if new_loc_string then
-			new_loc_string = new_loc_string .. ","
+			new_loc_string = new_loc_string .. "$b"
 		else
 			new_loc_string = ""
 		end
-		new_loc_string = new_loc_string .. "{"
+--		new_loc_string = new_loc_string .. "{"
 		local frag_str
 		for _,variant_fragment in ipairs(stage_data) do
 			if frag_str then
@@ -201,7 +201,7 @@ local function serialize_compound_variations(data)
 			frag_str = frag_str .. variant_fragment 
 		end
 		
-		new_loc_string = new_loc_string .. frag_str .. "}"
+		new_loc_string = new_loc_string .. frag_str  -- .. "}"
 	end
 	return new_loc_string
 end
@@ -278,7 +278,7 @@ for event_id,data in pairs(sound_data.vo) do
 
 						voices[voice_id] = voices[voice_id] or {}
 						voices[voice_id][state_shortname] = voices[voice_id][state_shortname] or {}
-						voices[voice_id][state_shortname].desc = loc_id
+						voices[voice_id][state_shortname].desc_id = loc_id
 						new_loc_ids[loc_id] = loc_text
 					end
 				end
@@ -357,7 +357,7 @@ for event_id,data in pairs(sound_data.vo) do
 						local loc_text = data_variant.text
 						
 						voice_variant[state_shortname] = voice_variant[state_shortname] or {}
-						voice_variant[state_shortname].desc = loc_id
+						voice_variant[state_shortname].desc_id = loc_id
 						new_loc_ids[loc_id] = loc_text
 						
 						done_any = true
@@ -569,7 +569,15 @@ local function tbl_to_str(tbl,order)
 	local TAB_S = "\t"
 	local indent_level = 1
 	local write_to_string
-	write_to_string = function(key,value,skip_key)
+	write_to_string = function(key,value,skip_key,skip_spacing)
+		local _NEWLINE_CHAR,_TAB_CHAR
+		if skip_spacing then
+			_NEWLINE_CHAR = ""
+			_TAB_CHAR = ""
+		else
+			_NEWLINE_CHAR = NEWLINE
+			_TAB_CHAR = "\t"
+		end
 		local key_str
 		if skip_key then
 			key_str = ""
@@ -588,47 +596,67 @@ local function tbl_to_str(tbl,order)
 		
 		local s = ""
 		if type(value) ~= "table" then
-			s = s .. string.rep(TAB_S,indent_level)
+			s = s .. _NEWLINE_CHAR .. string.rep(_TAB_CHAR,indent_level)
 			if type(value) == "number" then
-				s = s .. string.format("%s%s,",key_str,tostring(value))
+				s = s .. string.format("%s%s",key_str,tostring(value))
+			elseif type(value) == "boolean" then
+				s = s .. string.format("%s%s",key_str,tostring(value))
 			else
-				s = s .. string.format("%s\"%s\",",key_str,tostring(value))
+				s = s .. string.format("%s\"%s\"",key_str,tostring(value))
 			end
-			s = s .. NEWLINE
 		else -- is table
-			s = s .. string.rep(TAB_S,indent_level) .. string.format("%s{",key_str) .. NEWLINE
+			s = s .. _NEWLINE_CHAR .. string.rep(_TAB_CHAR,indent_level) .. string.format("%s{",key_str)
 			indent_level = indent_level + 1
 			
+			local _skip_spacing
+			
 			-- determine if this is an ordered list
-			local valid_list_keys = {}
+			local valid_list_indices = {}
 			for i=1,255 do 
 				if not value[i] then
 					break
 				end
+				if type(value[i]) == "number" then
+					_skip_spacing = true
+				end
 				
-				valid_list_keys[i] = i
+				valid_list_indices[i] = i
 				-- amateurish but functional
 				-- operates as a lookup table and can get length with #
 			end
+			local num_indices = #valid_list_indices
 			
 			local ordered_keys = {}
 			-- determine order for remaining non-index keys
 			for k,v in pairs(value) do 
-				if not valid_list_keys[k] then
+				if not valid_list_indices[k] then
 					table.insert(ordered_keys,k)
 				end
 			end
 			
 			table.sort(ordered_keys)
+			local num_keys = #ordered_keys
 			
-			for index,_ in ipairs(valid_list_keys) do 
-				local _value = value[index]
-				s = s .. write_to_string(index,_value,true)
+			if num_indices > 0 then
+				local _s
+				if _skip_spacing then
+					s = s .. _NEWLINE_CHAR .. string.rep(_TAB_CHAR,indent_level)
+				end
+				for index,_ in ipairs(valid_list_indices) do 
+					local _value = value[index]
+					s = s .. write_to_string(index,_value,true,_skip_spacing)
+					if num_keys > 0 or (index < num_indices) then
+						s = s .. ","
+					end
+				end
 			end
 			
-			for _,k in ipairs(ordered_keys) do 
+			for i,k in ipairs(ordered_keys) do 
 				local v = value[k]
 				s = s .. write_to_string(k,v)
+				if (i < num_keys) then
+					s = s .. ","
+				end
 			end
 			
 			
@@ -641,30 +669,33 @@ local function tbl_to_str(tbl,order)
 			--end
 			
 			indent_level = indent_level - 1
-			s = s .. string.rep(TAB_S,indent_level) .. "}," .. NEWLINE
+			s = s .. _NEWLINE_CHAR .. string.rep(_TAB_CHAR,indent_level) .. "}"
 		end
 		return s
 	end
 
 
 	local out_s = ""
-	out_s = out_s .. "{" .. NEWLINE
+	out_s = out_s .. "{"
 	if order then
-		for _,k in ipairs(order) do 
+		for i,k in ipairs(order) do 
 			if not keys_record[k] then
 				local data = tbl[k]
 				out_s = out_s .. write_to_string(k,data)
+				if i < #order then
+					out_s = out_s .. ","
+				end
 				keys_record[k] = true
 			end
 		end
 	end
 	for k,data in pairs(tbl) do 
 		if not keys_record[k] then
-			out_s = out_s .. write_to_string(k,data)
+			out_s = out_s .. NEWLINE .. write_to_string(k,data)
 			keys_record[k] = true
 		end
 	end
-	out_s = out_s .. "}" .. NEWLINE
+	out_s = out_s .. NEWLINE .. "}"
 	
 	log("Finished in " .. tostring(os.time() - t) .. " seconds")
 	
@@ -683,13 +714,13 @@ if WRITE then
 	file:close()
 	--]]
 	
-	local foo1 = tbl_to_str(new_sound_data,ordered_lines)
 	
-	local file = io.open(ClosedCaptions._MOD_PATH .. "dev/sounddatatest.lua","w+")
-	file:write(foo1)
+	-- [[
+	local file = io.open(ClosedCaptions._MOD_PATH .. "dev/sound_data.lua","w+")
+	file:write("return " .. tbl_to_str(new_sound_data,ordered_lines))
 	file:flush()
 	file:close()
-	
+	--]]
 	
 	local file = io.open(L10N_OUT_PATH,"w+")
 	file:write(json.encode(new_loc_ids))
