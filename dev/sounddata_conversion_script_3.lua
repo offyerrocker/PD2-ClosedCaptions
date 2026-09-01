@@ -1,4 +1,4 @@
---[[
+--[[ converts v2 data to v3
 
 check stops category- some may be valid sounds like camera loop intro
 	make it a flag?
