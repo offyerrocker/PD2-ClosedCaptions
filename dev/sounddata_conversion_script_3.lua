@@ -569,29 +569,77 @@ local function tbl_to_str(tbl,order)
 	local TAB_S = "\t"
 	local indent_level = 1
 	local write_to_string
-	write_to_string = function(key,value)
-		local key_str = key
-		local _key_type = type(key)
-		if _key_type == "number" then
-			key_str = string.format("[%d]",key)
-		elseif (_key_type == "string") and string.find(key,"^%d") then
-			key_str = string.format("[%s]",key)
+	write_to_string = function(key,value,skip_key)
+		local key_str
+		if skip_key then
+			key_str = ""
+		else
+			local _key_type = type(key)
+			if _key_type == "number" then
+				key_str = string.format("[%d] =  ",key)
+			elseif (_key_type == "string") then 
+				if string.find(key,"^%d") then
+					key_str = string.format("[\"%s\"] = ",key)
+				else
+					key_str = string.format("%s = ",key)
+				end
+			end
 		end
+		
 		local s = ""
 		if type(value) ~= "table" then
 			s = s .. string.rep(TAB_S,indent_level)
 			if type(value) == "number" then
-				s = s .. string.format("%s = %s,",key_str,tostring(value))
+				s = s .. string.format("%s%s,",key_str,tostring(value))
 			else
-				s = s .. string.format("%s = \"%s\",",key_str,tostring(value))
+				s = s .. string.format("%s\"%s\",",key_str,tostring(value))
 			end
 			s = s .. NEWLINE
-		else
-			s = s .. string.rep(TAB_S,indent_level) .. string.format("%s = {",key_str) .. NEWLINE
+		else -- is table
+			s = s .. string.rep(TAB_S,indent_level) .. string.format("%s{",key_str) .. NEWLINE
 			indent_level = indent_level + 1
+			
+			-- determine if this is an ordered list
+			local valid_list_keys = {}
+			for i=1,255 do 
+				if not value[i] then
+					break
+				end
+				
+				valid_list_keys[i] = i
+				-- amateurish but functional
+				-- operates as a lookup table and can get length with #
+			end
+			
+			local ordered_keys = {}
+			-- determine order for remaining non-index keys
 			for k,v in pairs(value) do 
+				if not valid_list_keys[k] then
+					table.insert(ordered_keys,k)
+				end
+			end
+			
+			table.sort(ordered_keys)
+			
+			for index,_ in ipairs(valid_list_keys) do 
+				local _value = value[index]
+				s = s .. write_to_string(index,_value,true)
+			end
+			
+			for _,k in ipairs(ordered_keys) do 
+				local v = value[k]
 				s = s .. write_to_string(k,v)
 			end
+			
+			
+			-- opt. sort keys here
+			
+			
+			
+			--for k,v in pairs(value) do 
+			--	s = s .. write_to_string(k,v)
+			--end
+			
 			indent_level = indent_level - 1
 			s = s .. string.rep(TAB_S,indent_level) .. "}," .. NEWLINE
 		end
