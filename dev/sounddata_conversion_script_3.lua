@@ -128,28 +128,33 @@ local WHITELIST_KEYS = {
 local CAPTION_LOC_PREFIX = "hud_subtitlemod_"
 
 
-local lines_order = {} -- order only matters for exporting data to the csv for the translation sheet
+-- order only matters for exporting data to the csv for the translation sheet
+local ordered_lines = {} -- index:event_id
+local lines_order = {} -- event_id:index
 do -- guess the order
-	local ordered_lines = {}
 	local start
 	--local open_count = 0
 	local file = io.open(SOUND_DATA_PATH,"r")
 	if file then
 		for raw_line in file:lines() do 
-			local line = string.gsub(raw_line,"^%s","")
+			local line = string.gsub(raw_line,"^%s+","")
 			if not start then
 				if string.find(line,"^vo_special") then
 					-- don't start
 				elseif string.find(line,"^vo") then
 					start = true
+					--log("Start enabled! line",i)
 				end
 			elseif start then
-				if string.find(line,"^--") then
+				if string.find(line,"^%-%-") then
 					-- comment line; ignore
 				else
-					sound_name = string.match(line,"^[%w_]+")
-					if WHITELIST_KEYS[sound_name] ~= nil then
-						table.insert(ordered_lines,ordered_lines+1,sound_name)
+					if string.match(raw_line,"^\t\t[%w%_]+") then
+						local sound_name = string.match(line,"^[%w%_]+")
+						if sound_name and WHITELIST_KEYS[sound_name] == nil then
+							--log("Found sound", "[" .. tostring(sound_name) .. "]")
+							table.insert(ordered_lines,#ordered_lines+1,sound_name)
+						end
 					end
 					--[[
 					local n,_ = string.find(line,"{") 
@@ -207,7 +212,7 @@ for event_id,data in pairs(sound_data.vo) do
 	if not data.disabled then
 		local voices = {}
 		local event_data = {
-			desc = data.text, -- this should be descriptive enough for translators to tell what the dialogue is meant to be
+			--desc = data.text, -- this should be descriptive enough for translators to tell what the dialogue is meant to be
 			voices = voices, -- voice variant, eg. rb1, rb2, etc
 	--		category = validate_column("category",data.category),
 	--		priority = validate_column("priority",data.priority),
@@ -217,6 +222,11 @@ for event_id,data in pairs(sound_data.vo) do
 			-- custom field, renamed in 3.0 (not yet implemented)
 			-- if enabled, only one of this sound can be DISPLAYED from any source at any time
 		}
+		if data.text then
+			local loc_id = CAPTION_LOC_PREFIX .. event_id .. "_gen"
+			event_data.desc_id = loc_id
+			new_loc_ids[loc_id] = data.text
+		end
 		
 		for column_name,value in pairs(data) do 
 			event_data[column_name] = validate_column(column_name,value)
@@ -377,7 +387,7 @@ for event_id,data in pairs(sound_data.vo) do
 					if state_name == "recombinable" then
 						-- do nothing
 					elseif state_name == "conversation" then
-						local conversation_variants = {}
+						local conversation_variants = {variants = {}}
 						if state_variations.is_random_conversation then
 							for convo_variation_index,convo_data in ipairs(state_variations) do 
 								conversation_variants.colors = convo_data.colors -- just copy whichever was last
@@ -391,7 +401,7 @@ for event_id,data in pairs(sound_data.vo) do
 								--,desc = event_data.text -- not used
 								}
 								new_loc_ids[loc_id] = convo_string
-								table.insert(conversation_variants,#conversation_variants+1,out_convo_data)
+								table.insert(conversation_variants.variants,#conversation_variants.variants+1,out_convo_data)
 							end
 						else
 							conversation_variants.colors = convo_data.colors -- just copy whichever was last
@@ -405,7 +415,7 @@ for event_id,data in pairs(sound_data.vo) do
 								--,desc = event_data.text -- not used
 							}
 							new_loc_ids[loc_id] = convo_string
-							table.insert(conversation_variants,#conversation_variants+1,out_convo_data)
+							table.insert(conversation_variants.variants,#conversation_variants.variants+1,out_convo_data)
 						end
 						
 						voice_variant.con = conversation_variants
@@ -479,7 +489,9 @@ for event_id,data in pairs(sound_data.vo) do
 			event_data.voices.all.con = {
 				speakers = convo_data.speakers,
 				colors = convo_data.colors,
-				out_convo_data
+				variants = {
+					out_convo_data
+				}
 			}
 		else
 			
@@ -539,7 +551,80 @@ string:
 
 
 
+
+
+
+
+
+
+
+
+
+local function tbl_to_str(tbl,order)
+	local keys_record = {}
+	
+	local t = os.time()
+	log("Starting...")
+	local NEWLINE = "\n"
+	local TAB_S = "\t"
+	local indent_level = 1
+	local write_to_string
+	write_to_string = function(key,value)
+		local key_str = key
+		local _key_type = type(key)
+		if _key_type == "number" then
+			key_str = string.format("[%d]",key)
+		elseif (_key_type == "string") and string.find(key,"^%d") then
+			key_str = string.format("[%s]",key)
+		end
+		local s = ""
+		if type(value) ~= "table" then
+			s = s .. string.rep(TAB_S,indent_level)
+			if type(value) == "number" then
+				s = s .. string.format("%s = %s,",key_str,tostring(value))
+			else
+				s = s .. string.format("%s = \"%s\",",key_str,tostring(value))
+			end
+			s = s .. NEWLINE
+		else
+			s = s .. string.rep(TAB_S,indent_level) .. string.format("%s = {",key_str) .. NEWLINE
+			indent_level = indent_level + 1
+			for k,v in pairs(value) do 
+				s = s .. write_to_string(k,v)
+			end
+			indent_level = indent_level - 1
+			s = s .. string.rep(TAB_S,indent_level) .. "}," .. NEWLINE
+		end
+		return s
+	end
+
+
+	local out_s = ""
+	out_s = out_s .. "{" .. NEWLINE
+	if order then
+		for _,k in ipairs(order) do 
+			if not keys_record[k] then
+				local data = tbl[k]
+				out_s = out_s .. write_to_string(k,data)
+				keys_record[k] = true
+			end
+		end
+	end
+	for k,data in pairs(tbl) do 
+		if not keys_record[k] then
+			out_s = out_s .. write_to_string(k,data)
+			keys_record[k] = true
+		end
+	end
+	out_s = out_s .. "}" .. NEWLINE
+	
+	log("Finished in " .. tostring(os.time() - t) .. " seconds")
+	
+	return out_s
+end
+
 if WRITE then
+--[[
 	local file = io.open(DATA_OUT_PATH,"w+")
 	file:write(json.encode({
 		vo = new_sound_data,
@@ -548,6 +633,15 @@ if WRITE then
 	}))
 	file:flush()
 	file:close()
+	--]]
+	
+	local foo1 = tbl_to_str(new_sound_data,ordered_lines)
+	
+	local file = io.open(ClosedCaptions._MOD_PATH .. "dev/sounddatatest.lua","w+")
+	file:write(foo1)
+	file:flush()
+	file:close()
+	
 	
 	local file = io.open(L10N_OUT_PATH,"w+")
 	file:write(json.encode(new_loc_ids))
