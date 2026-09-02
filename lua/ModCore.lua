@@ -1174,7 +1174,7 @@ function ClosedCaptions:format_speaker_name(speaker_name,text,color)
 		text_color = Color.white
 	end
 	
-	local caption_str = text
+	local caption_str = string.gsub(text,"$b","\n")
 	local color_ranges
 	if speaker_name then
 		local speaker_str
@@ -1188,7 +1188,7 @@ function ClosedCaptions:format_speaker_name(speaker_name,text,color)
 		local text_len = utf8.len(text)
 		
 		if speaker_str and speaker_len > 0 then
-			caption_str = string.format("%s: %s",speaker_str,text)
+			caption_str = string.format("%s: %s",speaker_str,caption_str)
 			color_ranges = {
 				0,
 				speaker_len+1,
@@ -2518,6 +2518,7 @@ Hooks:Add("ConsoleMod_RegisterCommands","closedcaptions_load_dev_commands",funct
 			
 			if subcmd == "export" then
 				local path = ClosedCaptions._MOD_PATH .. "dev/sounddata_conversion_script_" .. n .. ".lua"
+				local start_t = os.time()
 				console:Print("Running",path)
 				local file = io.open(path,"r")
 				if file then
@@ -2525,6 +2526,7 @@ Hooks:Add("ConsoleMod_RegisterCommands","closedcaptions_load_dev_commands",funct
 					file = nil
 					-- exists
 					console:Print(blt.vm.dofile(path))
+					console:Print(string.format("Finished in %d seconds",os.time() - start_t))
 				else
 					console:Log("FileNotFound! " .. tostring(path),{color=Color.red})
 				end
@@ -2532,6 +2534,9 @@ Hooks:Add("ConsoleMod_RegisterCommands","closedcaptions_load_dev_commands",funct
 				console:LogTable(ClosedCaptions._debug_missing_lines_list)
 			elseif subcmd == "list" then
 				console:LogTable(ClosedCaptions._active_subtitles)
+			elseif subcmd == "reload" then
+				ClosedCaptions:ReadSoundData()
+				ClosedCaptions:LoadLanguage(nil,nil)
 			end
 		end
 	})
