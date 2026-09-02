@@ -5,6 +5,93 @@ local sound_data = blt.vm.dofile(SOUND_DATA_PATH)
 local WRITE = true
 local GUESS_ORDER = true
 
+
+local function ordered_iterate(tbl,order,clbk)
+	if not clbk then return end
+	
+	local keys_record = {}
+	if order then
+		local num_order = #order
+		for i,key in ipairs(order) do 
+			local value = tbl[key]
+			clbk(tbl[key],value,i,num_order)
+			keys_record[key] = true
+		end
+	end
+	-- iterate on any remaining 
+	local i = 0
+	for key,value in pairs(tbl) do
+		if not keys_record[key] then
+			i = i + 1
+			clbk(tbl[key],value,i)
+		end
+	end
+end
+
+local function tbl_to_tsv(tbl,order)
+	local s,s2 = "",""
+	local clbk = function(key,value)
+		log("Value:",key,value)
+		s = s .. string.gsub(value,"\n","\\n")  .. "\n"
+		s2 = s2 .. string.gsub(key,"\n","\\n")  .. "\n"
+	end
+	ordered_iterate(tbl,order,clbk)
+	
+	return s,s2
+end
+
+-- intended for conversion to json or single, 1-depth key-pair tables
+local function tsv_to_tbl(path,f_verify)
+	local file = io.open(path,"r")
+	if file then
+		local tbl = {}
+		local row = 0
+		for line in file:lines() do
+			row = row + 1
+			local a = string.split(line,"\t")
+			local key = a[1]
+			local value = a[2]
+			if value ~= nil then
+				if not f_verify or f_verify(row,key,value) then
+					tbl[key] = value
+				end
+			end
+		end
+		file:close()
+		return tbl
+	else
+		log("FileNotFound!",path)
+		return false
+	end
+end
+
+-- agnostic; CAUTION: different arguments passed to verify
+local function tsv_to_tbl2(path,f_verify)
+	local file = io.open(path,"r")
+	if file then
+		local tbl = {}
+		local row = 0
+		for line in file:lines() do
+			row = row + 1
+			tbl[row] = {}
+			local a = string.split(line,"\t")
+			for i,v in ipairs(a) do
+				if not f_verify or f_verify(row,i,v) then
+					tbl[row][i] = v
+				end
+			end
+		end
+		file:close()
+		return tbl
+	else
+		log("FileNotFound!",path)
+		return false
+	end
+end
+
+
+
+
 local function tbl_to_str(tbl,order)
 	local keys_record = {}
 	
@@ -148,7 +235,8 @@ local function tbl_to_str(tbl,order)
 end
 
 -- only works on tables with a depth of 1
-local function tbl_to_csv(tbl,order)
+--[[
+local function tbl_to_tsv(tbl,order)
 	local keys_record = {}
 	local s = ""
 	local s2 = ""
@@ -175,6 +263,7 @@ local function tbl_to_csv(tbl,order)
 	end
 	return s,s2
 end
+--]]
 
 
 local SPEAKERS_LOOKUP = {
@@ -333,6 +422,26 @@ end
 --	do return end
 
 
+-- only works with pure alphanumeric keys (and underscores)
+local function get_json_order(path)
+	local file = io.open(path,"r")
+	if file then
+		local tbl = {}
+		for line in file:lines() do
+			local key = string.match(line,"\"[%w%_]+\"") -- should allow some punctuation but... meh
+			key = key and string.gsub(key,"^\"","")
+			key = key and string.gsub(key,"\"$","")
+			if key then
+				table.insert(tbl,#tbl+1,key)
+			end
+		end
+		file:close()
+		return tbl
+	else
+		log("FileNotFound!",path)
+		return
+	end
+end
 
 
 
@@ -340,10 +449,7 @@ end
 
 
 
-
-
-
--- order only matters for exporting data to the csv for the translation sheet
+-- order only matters for exporting data to the tsv for the translation sheet
 local ordered_lines = {} -- index:event_id
 local lines_order = {} -- event_id:index
 if GUESS_ORDER then -- guess the order
@@ -381,7 +487,7 @@ if GUESS_ORDER then -- guess the order
 	
 end
 
-local function json_to_csv(path,order)
+local function json_to_tsv(path,order)
 	local order = {}
 	local file = io.open(path,"r")
 	if file then
@@ -389,22 +495,51 @@ local function json_to_csv(path,order)
 		file:seek("set",0)
 		for line in file:lines() do 
 			local key = string.match(line,"[%w%_]+")
-			log("Key",line,key)
+			--log("Key",line,key)
 			if key then
 				table.insert(order,#order+1,key)
 			end
 		end
 		file:close()
-		return tbl_to_csv(data,order)
+		return tbl_to_tsv(data,order)
 	end
 	error("No file! " .. tostring(path))
 end
 
 
 if WRITE then
-	--log(json_to_csv(ClosedCaptions._MOD_PATH .. "l10n/english/menu_strings.json",true))
-	log(json_to_csv(ClosedCaptions._MOD_PATH .. "l10n/english/unit_names.json"))
-	log(json_to_csv(ClosedCaptions._MOD_PATH .. "l10n/english/speakers.json"))
+	local menu_strings_path = ClosedCaptions._MOD_PATH .. "l10n/english/menu_strings.json"
+	local order = get_json_order(menu_strings_path)
+	local function f_verify(row,k,v)
+		if row > 1 then -- ignore first row
+			if k ~= "" then -- ignore empty cells
+				return true
+			end
+		end
+	end
+	
+	local tbl = tsv_to_tbl(ClosedCaptions._MOD_PATH .. "dev/menu_strings.tsv",f_verify)
+	local json_str = tbl and tbl_to_str(tbl,order)
+	
+--	foo = tbl
+--	foo2 = json_str
+	
+	--log(json_to_tsv(ClosedCaptions._MOD_PATH .. "l10n/english/menu_strings.json",true))
+	--[[
+	log(json_to_tsv(ClosedCaptions._MOD_PATH .. "l10n/english/unit_names.json"))
+	log(json_to_tsv(ClosedCaptions._MOD_PATH .. "l10n/english/speakers.json"))
+	local a = tsv_to_tbl(ClosedCaptions._MOD_PATH .. "dev/speakers.tsv")
+	if a then
+		local new_speakers = {}
+		for row,row_data in ipairs(a) do
+			local key = row_data[1]
+			local value = row_data[2]
+			if key and value then
+				new_speakers[key] = value
+			end
+		end
+	end
+	--]]
 	
 	--[[
 	local file = io.open(L10N_OUT_PATH,"w+")
@@ -475,7 +610,7 @@ if WRITE then
 			end
 		end
 	end
-	local file = io.open(ClosedCaptions._MOD_PATH .. "dev/l10n_en.csv","w+")
+	local file = io.open(ClosedCaptions._MOD_PATH .. "dev/l10n_en.tsv","w+")
 	file:write(loc_s)
 	file:flush()
 	file:close()
