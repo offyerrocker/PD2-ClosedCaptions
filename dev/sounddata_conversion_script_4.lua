@@ -147,11 +147,73 @@ local function tbl_to_str(tbl,order)
 	return out_s
 end
 
+-- only works on tables with a depth of 1
+local function tbl_to_csv(tbl,order)
+	local keys_record = {}
+	local s = ""
+	local s2 = ""
+	if order then
+		for i,key in ipairs(order) do 
+			local value = tbl[key]
+			if value then
+				log("Value:",key,value)
+				keys_record[key] = true
+				s = s .. string.gsub(value,"\n","\\n")  .. "\n"
+				s2 = s2 .. string.gsub(key,"\n","\\n")  .. "\n"
+				--s = s .. key  .. "\t" .. value .. "\n"
+			else
+				log("No value:",key)
+			end
+		end
+	end
+	for key,value in pairs(tbl) do
+		if not keys_record[key] then
+			s = s .. string.gsub(value,"\n","\\n") .. "\n"
+			s2 = s2 .. string.gsub(key,"\n","\\n")  .. "\n"
+			--s = s .. key .. "\t" .. value .. "\n"
+		end
+	end
+	return s,s2
+end
+
+
+local SPEAKERS_LOOKUP = {
+	civilian = "Civilian",
+	cop = "Cop",
+	security = "Security",
+	rb4 = "Dallas",
+	rb3 = "Wolf",
+	rb1 = "Chains",
+	rb2 = "Houston",
+	rb6 = "John Wick",
+	rb5 = "Hoxton",
+	rb7 = "Clover",
+	rb8 = "Dragan",
+	rb9 = "Jacket",
+	rb10 = "Bonnie",
+	rb11 = "Sokol",
+	rb12 = "Jiro",
+	rb13 = "Bodhi",
+	rb14 = "Jimmy",
+	rb15 = "Sydney",
+	rb16 = "Rust",
+	rb17 = "Scarface",
+	rb18 = "Sangres",
+	rb19 = "Joy",
+	rb22 = "Duke",
+	rb20 = "Ethan",
+	rb21 = "Hila"
+}
+
 
 local loc_ids_by_event_id = {}
-local function register_loc_id(event_id,loc_id)
+local voice_ids_by_loc_id = {}
+local function register_loc_id(event_id,loc_id,voice_id)
 	loc_ids_by_event_id[event_id] = loc_ids_by_event_id[event_id] or {}
 	table.insert(loc_ids_by_event_id[event_id],loc_id)
+	if voice_id ~= "all" then
+		voice_ids_by_loc_id[loc_id] = voice_id
+	end
 end
 
 
@@ -160,6 +222,7 @@ local CAPTION_LOC_PREFIX = "hud_subtitlemod_"
 for event_id,event_data in pairs(sound_data) do 
 	if not event_data.disabled and event_data.category ~= "stops" then
 		local done_any
+		local should_log_desc = true
 		if event_data.voices then
 			for voice_id,voice_data in pairs(event_data.voices) do
 				if type(voice_data) ~= "table" then
@@ -183,7 +246,7 @@ for event_id,event_data in pairs(sound_data) do
 									if var.loc_id then
 										done_any = true
 										--break
-										register_loc_id(event_id,var.loc_id)
+										register_loc_id(event_id,var.loc_id,voice_id)
 									else
 										log("Conversation variant has no loc_id",event_id,voice_id,state_name,i)
 									end
@@ -200,16 +263,19 @@ for event_id,event_data in pairs(sound_data) do
 							--state_data.duration = duration
 							for k,v in pairs(state_data) do
 								if k == "compound_loc_id" then
-									register_loc_id(event_id,v)
+									register_loc_id(event_id,v,voice_id)
 									done_any = true
 								elseif k == "desc_id" then
 									done_any = true
-									register_loc_id(event_id,v)
+									register_loc_id(event_id,v,voice_id)
 								elseif k == "variants" then
 									for i,j in pairs(v) do 
 										done_any = true
-										register_loc_id(event_id,j)
+										register_loc_id(event_id,j,voice_id)
 										--break
+									end
+									if #v > 0 then
+										should_log_desc = false
 									end
 									if not done_any then
 										log("No variants",event_id)
@@ -257,7 +323,7 @@ for event_id,event_data in pairs(sound_data) do
 		
 		
 	end
-	if event_data.desc_id then
+	if event_data.desc_id and should_log_desc then
 		register_loc_id(event_id,event_data.desc_id)
 	end
 end
@@ -315,64 +381,31 @@ if GUESS_ORDER then -- guess the order
 	
 end
 
-
-if WRITE then
-
-	local count = 0
-	local file = io.open(ClosedCaptions._LOCALIZATION_DIRECTORY_PATH .. "english/subtitles.json","r")
-	local old_loc = json.decode(file:read("*all"))
-	file:close()
-	
-	local hits = {}
-	for _,event_id in ipairs(ordered_lines) do 
-		local loc_map = loc_ids_by_event_id[event_id]
-		if loc_map then
-			table.sort(loc_map)
-			for _,loc_id in ipairs(loc_map) do
-				if old_loc[loc_id] then
-					count = count + 1
-					old_loc[loc_id] = nil
-				else
-					if true then
-						log("Missing loc",event_id,loc_id)
-						return 
-					elseif type(old_loc[loc_id]) ~= "string" then
-						log("Invalid type",loc_id)
-					end
-				end
-			--[[
-				if not managers.localization._custom_localizations[loc_id] then
-					self:log("Unknown loc",loc_id)
-					return
-				end
-				local text = managers.localization:text(loc_id)
-				text = string.gsub(text,"\n","")
-				loc_s = loc_s .. loc_id .. "\t" .. text
-				--]]
+local function json_to_csv(path,order)
+	local order = {}
+	local file = io.open(path,"r")
+	if file then
+		local data = json.decode(file:read("*all"))
+		file:seek("set",0)
+		for line in file:lines() do 
+			local key = string.match(line,"[%w%_]+")
+			log("Key",line,key)
+			if key then
+				table.insert(order,#order+1,key)
 			end
 		end
+		file:close()
+		return tbl_to_csv(data,order)
 	end
-	Print("Hits",count)
-	foor = old_loc
---[[
-	local file = io.open(ClosedCaptions._LOCALIZATION_DIRECTORY_PATH .. "english/subtitles.json","r")
-	local old_loc = json.decode(file:read("*all"))
-	for old, new in pairs(loc_transfers) do 
-		if old_loc[old] then
-			local text = old_loc[old]
-			old_loc[old] = nil
-			old_loc[new] = text
-		else
-			file:close()
-			log("No loc found:",old,new)
-			return
-		end
-	end
-	--]]
+	error("No file! " .. tostring(path))
+end
 
 
-
-
+if WRITE then
+	--log(json_to_csv(ClosedCaptions._MOD_PATH .. "l10n/english/menu_strings.json",true))
+	log(json_to_csv(ClosedCaptions._MOD_PATH .. "l10n/english/unit_names.json"))
+	log(json_to_csv(ClosedCaptions._MOD_PATH .. "l10n/english/speakers.json"))
+	
 	--[[
 	local file = io.open(L10N_OUT_PATH,"w+")
 	file:write(json.encode(new_loc_ids))
@@ -387,38 +420,61 @@ if WRITE then
 	file:flush()
 	file:close()
 	--]]
-	--hud_subtitlemod_f11e_plu_std_rb3_var1 
-	-- f11e_plu
 	
+--			local single_sound = #loc_map < 2
+	--_G.all_loc = {}
 	do return end
-	
-	
-	
-	_G.all_loc = {}
-	
-	local loc_s = "ID\ten\tXX\tNotes from localization lead\tNotes from translator" 
+	local loc_s = "" -- table.concat({"Event ID","Loc ID","EN","Your Language"},"\t")
+	-- "ID\ten\tXX\tNotes from localization lead\tNotes from translator" 
 	for _,event_id in ipairs(ordered_lines) do 
 		local loc_map = loc_ids_by_event_id[event_id]
 		if loc_map then
-			loc_s = loc_s .. "\n" .. event_id .. "\t"
+--			loc_s = loc_s .. "\n" .. event_id .. "\t"
 			
 			table.sort(loc_map)
 			for _,loc_id in ipairs(loc_map) do 
+				loc_s = loc_s .. "\n" .. event_id .. "\t" .. loc_id
+				
 				--log("found loc_id",loc_id)
-				all_loc[loc_id] = true
-			--[[
-				if not managers.localization._custom_localizations[loc_id] then
-					self:log("Unknown loc",loc_id)
-					return
+				--all_loc[loc_id] = true
+				local speaker_id = voice_ids_by_loc_id[loc_id]
+				local speaker_name
+				if speaker_id then
+					speaker_name = SPEAKERS_LOOKUP[speaker_id]
 				end
-				local text = managers.localization:text(loc_id)
-				text = string.gsub(text,"\n","")
-				loc_s = loc_s .. loc_id .. "\t" .. text
-				--]]
+				speaker_name = speaker_name or ""
+				local text = string.gsub(managers.localization:text(loc_id),"\n","") -- line breaks shouldn't occur naturally in any of these lines
+				if string.find(text,"$b") then
+					-- print out multi line, conversations, or compound strings
+					local ss = "\n"
+					local subs_data = string.split(text,"$b")
+					if string.find(text,"%|") then
+						
+						-- print compound strings
+						for stage_id,subs in ipairs(subs_data) do
+							local options = string.split(subs,"|")
+							for i,option in ipairs(options) do 
+								ss = ss .. "\t\t" .. option .. "\t" .. speaker_name .. "\n"
+							end
+							if stage_id < #subs_data then
+								-- print compound string joiner
+								ss = ss .. "\t\t=\"+\"\n"
+							end
+						end
+					else
+						-- regular newline
+						for i,option in ipairs(subs_data) do
+							ss = ss .. "\t\t" .. option .. "\t" .. speaker_name .. "\n"
+						end
+					end
+					loc_s = loc_s .. ss
+					
+				else
+					loc_s = loc_s .. "\t" .. text .. "\t" .. speaker_name
+				end
 			end
 		end
 	end
-	
 	local file = io.open(ClosedCaptions._MOD_PATH .. "dev/l10n_en.csv","w+")
 	file:write(loc_s)
 	file:flush()
