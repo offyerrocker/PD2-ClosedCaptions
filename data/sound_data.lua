@@ -29931,6 +29931,10 @@ return {
 		override_color = "neutral1",
 		override_speaker_id = "hud_subtitlemod_speaker_bankcustomer",
 		priority = 10,
+		speakers = {
+			"hud_subtitlemod_speaker_bankteller",
+			"hud_subtitlemod_speaker_bankcustomer"
+		},
 		voices = {
 			all = {
 				std = {
@@ -29947,9 +29951,14 @@ return {
 	Play_mc1_fwb_01 = {
 		category = "mission_dialogue",
 		desc_id = "hud_subtitlemod_Play_mc1_fwb_01_gen",
+		max_distance = 500,
 		override_color = "neutral1",
 		override_speaker_id = "hud_subtitlemod_speaker_bankcustomer",
 		priority = 10,
+		speakers = {
+			"hud_subtitlemod_speaker_bankteller",
+			"hud_subtitlemod_speaker_bankcustomer"
+		},
 		voices = {
 			all = {
 				std = {
@@ -29970,6 +29979,10 @@ return {
 		max_distance = 500,
 		override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 		priority = 75,
+		speakers = {
+			"hud_subtitlemod_speaker_bankteller",
+			"hud_subtitlemod_speaker_bankcustomer"
+		},
 		voices = {
 			all = {
 				std = {
@@ -29985,6 +29998,10 @@ return {
 		max_distance = 500,
 		override_speaker_id = "hud_subtitlemod_speaker_bankteller",
 		priority = 75,
+		speakers = {
+			"hud_subtitlemod_speaker_bankteller",
+			"hud_subtitlemod_speaker_bankcustomer"
+		},
 		voices = {
 			all = {
 				std = {
@@ -30042,6 +30059,10 @@ return {
 		duration = 15,
 		override_speaker_id = "hud_subtitlemod_speaker_telephone",
 		priority = 65,
+		speakers = {
+			"hud_subtitlemod_speaker_bain",
+			"hud_subtitlemod_speaker_gensecjen"
+		},
 		voices = {
 			all = {
 				std = {
@@ -30055,6 +30076,10 @@ return {
 		duration = 15,
 		override_speaker_id = "hud_subtitlemod_speaker_telephone",
 		priority = 65,
+		speakers = {
+			"hud_subtitlemod_speaker_bain",
+			"hud_subtitlemod_speaker_gensecjen"
+		},
 		voices = {
 			all = {
 				std = {
