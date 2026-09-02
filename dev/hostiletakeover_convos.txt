@@ -94,9 +94,9 @@ $2: Yeah, thanks for nothing.$b
 Play_mar_corp_01
 
 
-7.5,15.8,20.8,22.5,28.0,32.1,35.1,39.5,45.1,48.7,51.3,56.4,59.8,63.5,67.9,71.9,77.1,83.4
+7.5,11.5,15.8,20.8,22.5,28.0,32.1,35.1,39.5,45.1,48.7,51.3,56.4,59.8,63.5,67.9,71.9,77.1,83.4
 
-$1: Alright, so, they play the video, the crowd applauds... 'Woo, yeah, go Tracy!'$b
+$1: Alright, so, they play the video, I walk out, the crowd applauds... 'Woo, yeah, go Tracy!'$b
 $1: 'Ladies and gentlemen, this is a very important day...'$b
 $1: 'Important?' No, no, no... what's a better...? 'Historic!'$b
 $1: 'Ladies and gentlemen, tonight's event is nothing short of historic.'$b
