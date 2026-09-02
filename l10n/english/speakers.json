@@ -1,7 +1,6 @@
 {
 	"hud_subtitlemod_speaker_sfx" : "SFX",
 	"hud_subtitlemod_speaker_ambient" : "ambient",
-	"hud_subtitlemod_speaker_heistintro" : "[INTRO]",
 	"hud_subtitlemod_speaker_unknown" : "Unknown",
 	"hud_subtitlemod_speaker_bain" : "Bain",
 	"hud_subtitlemod_speaker_locke" : "Locke",
@@ -26,6 +25,7 @@
 	"hud_subtitlemod_speaker_gangster" : "Gangster",
 	"hud_subtitlemod_speaker_garrett" : "Garrett",
 	"hud_subtitlemod_speaker_gensecpatrol" : "GenSec Patrol",
+	"hud_subtitlemod_speaker_gensecjen" : "GenSec Operator",
 	"hud_subtitlemod_speaker_goat" : "Goat",
 	"hud_subtitlemod_speaker_hos_docg" : "Doctor",
 	"hud_subtitlemod_speaker_hos_docs" : "Dr. Schneider",
