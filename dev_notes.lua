@@ -11,6 +11,11 @@ some events are definitely more important than others.
 
 TODO
 
+
+Play_mrb_rvd_03c
+- needs speaker data
+
+
 - allow overriding subtitle font
 - menu/game state handling
 	- allow subtitles in main menu, when player does not exist
