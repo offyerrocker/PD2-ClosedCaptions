@@ -1,8 +1,10 @@
+local function f()
+
 local SOUND_DATA_PATH = ClosedCaptions._SOUNDDATA_PATH .. "sound_data.lua"
 local L10N_OUT_PATH = ClosedCaptions._MOD_PATH .. "dev/subtitles.json"
 local sound_data = blt.vm.dofile(SOUND_DATA_PATH)
 
-local WRITE = true
+local WRITE = false
 local GUESS_ORDER = true
 
 
@@ -617,3 +619,211 @@ if WRITE then
 	--]]
 end
 
+
+local function split_b(s,c,timeout)
+	timeout = timeout or 10
+	local tbl = {}
+	local t = os.time()
+	local next_tab = utf8.find_char(s,c) or 0
+	local len = utf8.len(s)
+	repeat
+		if ( os.time() - t ) > timeout then
+			error("Passed time limit")
+		end
+		local subs = utf8.sub(s,1,next_tab-1)
+		s = utf8.sub(s,next_tab+1,-1)
+		table.insert(tbl,#tbl+1,subs)
+		
+		next_tab = utf8.find_char(s,c)
+		--log("new",s)
+	until not next_tab
+	table.insert(tbl,#tbl+1,s)
+	
+	return tbl
+end
+
+local function read_subtitles_tsv(path)
+	local file = io.open(path,"r")
+	if file then
+		local tbl = {}
+		local row = 0
+		
+		local function nil_or_empty(s)
+			return s == nil or string.gsub(s,"^%s","") == ""
+		end
+		
+		-- some of these persist for multiple rows
+		
+		local event_id -- index 1
+		local loc_id   -- index 2
+		
+		--local template_text -- index 3
+		--local lead_notes -- index 4
+		--local l10n_text  -- index 5
+		
+		local loc_tbl -- progressive from column 5, string building, becomes loc string
+		local is_compound
+		local loc_compound_index
+		
+		for line in file:lines() do
+		
+			
+			row = row + 1
+			if row > 1 then
+				-- ignore first row
+--				if row > 100 then
+--					break
+--				end
+				local a = split_b(line,"\t")
+				--local a = string.split(line,"\t")-- needs replacement
+				
+				for col,v in ipairs(a) do
+					if not nil_or_empty(v) then
+						if col == 1 then
+							event_id = v
+						elseif col == 2 then
+							if loc_id and loc_id ~= v and not nil_or_empty(v) then
+								
+								-- terminate previous string
+								local loc_str = ""
+								if is_compound then
+									for i,subtbl in ipairs(loc_tbl) do 
+										for j,s in ipairs(subtbl) do
+											if j > 1 then
+												loc_str = loc_str .. "|" .. s
+											else
+												loc_str = loc_str .. s
+											end
+										end
+										if i < #loc_tbl then
+											loc_str = loc_str .. "$b"
+										end
+									end
+								else
+									for i,subtbl in ipairs(loc_tbl) do 
+										for j,s in ipairs(subtbl) do
+											if j > 1 then
+												loc_str = loc_str .. "$b" .. s
+											else
+												loc_str = loc_str .. s
+											end
+										end
+										if i > 1 then
+											error("Somehow multi paragraph loc string? " .. tostring(row) .. ", " .. tostring(event_id))
+										end
+									end
+								end
+								
+								if not nil_or_empty(loc_str) then
+									-- finish this string
+									tbl[loc_id] = loc_str
+									loc_tbl = nil
+									--log("Finished loc string",loc_id,loc_str)
+								end
+							end
+							if not nil_or_empty(v) then
+								--log("started string",v)
+								loc_compound_index = 1
+								loc_id = v
+								loc_tbl = {{}}
+								is_compound = nil
+							end
+						elseif col == 3 then
+							-- nothing
+						elseif col == 4 then
+							-- nothing
+						elseif col == 5 then
+							
+							if not nil_or_empty(loc_id) then
+								--log("found string",v)
+								if v == "$&" then
+									is_compound = true
+									loc_compound_index = loc_compound_index + 1
+									loc_tbl[loc_compound_index] = {}
+									--loc_str = loc_str .. "$b" .. v
+								else
+									table.insert(loc_tbl[loc_compound_index],v)
+									--loc_str = loc_str .. "|" .. v
+								end
+							end
+						end
+					end
+					if i == 1 and not nil_or_empty(v) then
+						event_id = i
+					end
+				end
+			end
+		end
+		
+		
+		-- finish last string, if present
+
+		-- terminate previous string
+		local loc_str = ""
+		if loc_tbl and loc_id then
+			if is_compound then
+				for i,subtbl in ipairs(loc_tbl) do 
+					for j,s in ipairs(subtbl) do
+						if j > 1 then
+							loc_str = loc_str .. "|" .. s
+						else
+							loc_str = loc_str .. s
+						end
+					end
+					if i < #loc_tbl then
+						loc_str = loc_str .. "$b"
+					end
+				end
+			else
+				for i,subtbl in ipairs(loc_tbl) do 
+					for j,s in ipairs(subtbl) do
+						if j > 1 then
+							loc_str = loc_str .. "$b" .. s
+						else
+							loc_str = loc_str .. s
+						end
+					end
+					if i > 1 then
+						error("Somehow multi paragraph loc string? " .. tostring(row) .. ", " .. tostring(event_id))
+					end
+				end
+			end
+			
+			if not nil_or_empty(loc_str) then
+				-- finish this string
+				tbl[loc_id] = loc_str
+				loc_tbl = nil
+--				log("Finished loc string",loc_id,loc_str)
+			end
+		end
+		
+		
+		
+		
+		
+		
+		
+		
+		file:close()
+		return tbl
+	else
+		log("FileNotFound!",path)
+		return false
+	end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+end
+
+	foo = read_subtitles_tsv("mods/PD2-ClosedCaptions/l10n/english/subtitles.tsv")
+end
+
+return blt.pcall(f)

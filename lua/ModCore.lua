@@ -3,7 +3,13 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 	_SETTINGS_PATH = SavePath .. "closedcaptions_settings.txt",
 	_ASSETS_PATH = ModPath .. "assets/",
 	_LOCALIZATION_DIRECTORY_PATH = ModPath .. "l10n/",
-	_LOCALIZATION_FILE_NAME = "menu_strings.json", -- menu strings and main mod localization (nothing directly related to subtitles themselves)
+	
+	-- menu strings and main mod localization (nothing directly related to subtitles themselves)
+	_L10N_MENU_FILE_NAME = "menu_strings",
+	_L10N_UNITS_FILE_NAME = "unit_names",
+	_L10N_SPEAKERS_FILE_NAME = "speakers",
+	_L10N_SUBTITLES_FILE_NAME = "subtitles",
+	
 	_SOUNDDATA_PATH = ModPath .. "data/",
 	_MENU_PATH = ModPath .. "menu/options.json",
 	_DEBUG_LIST_MISSING_LINES_PATH = SavePath .. "CLOSEDCAPTIONS_r3_MISSINGLINES.txt",
@@ -1266,6 +1272,7 @@ function ClosedCaptions:start_contractor_subtitle(event_id,duration,macros)
 		self:_remove_subtitle(id,true)
 	end
 	
+	self:Print("Starting contractor vo subtitle",event_id)
 	--local text,text_color,color_ranges,variation_data = self:get_subtitle_display_data(event_id,unit,sound_source,position)
 	
 	local text = managers.localization:text(event_id,macros)
@@ -2037,26 +2044,50 @@ function ClosedCaptions:LoadLanguage(localizationmanager,user_language)
 		user_language = user_language or self:GetCurrentLanguageName()
 		local language_data = user_language and self._languages[user_language]
 		if language_data then
-			if language_data.file_path then
-				localizationmanager:load_localization_file(language_data.file_path,true)
+			if language_data.menu_strings then
+			
+				-- load menu strings (data already obtained and read from peeking through the l10n directory)
+				localizationmanager:add_localized_strings(language_data.menu_strings)
 				
 				if language_data.folder_path then
-					localizationmanager:load_localization_file(language_data.folder_path .. "subtitles.json",true)
-					localizationmanager:load_localization_file(language_data.folder_path .. "speakers.json",true)
+					-- attempt loading dev l10n first, then default shipped l10n
 					
+					-- load subtitles
+					local start_t = os.time()
+					local path_subtitles = language_data.folder_path .. self._L10N_SUBTITLES_FILE_NAME
+					self:Print("Loading subtitles l10n file from",path_subtitles,"...")
+					local subtitles_data = self.read_subtitles_tsv(path_subtitles .. ".tsv")
+					if subtitles_data then
+						localizationmanager:add_localized_strings(subtitles_data)
+					else
+						self:Print("No development subtitles.tsv l10n found. Defaulting to release subtitles.json l10n.")
+						localizationmanager:load_localization_file(path_subtitles .. ".json",true)
+					end
+					self:Print("Done loading subtitles. Elapsed:",tostring(os.time() - t),"seconds.")
+					
+					-- load unit names
+					local path_unitnames = language_data.folder_path .. self._L10N_UNITS_FILE_NAME
+					self:Print("Loading unit_names l10n file from",path_unitnames,"...")
+					self._UNIT_NAMES = self.read_tsv(path_unitnames .. ".tsv") or self.read_json(path_unitnames .. ".json") or self._UNIT_NAMES
 					-- because the unit list gets edited so often (relatively),
 					-- it gets disorganized very easily,
 					-- so i'm not bothering with localizing it using the actual loc system,
 					-- because that would require a lot of name mangling and i'm tired of it
-					local unit_names_path = Application:nice_path(language_data.folder_path .. "unit_names.json", false)
-					if SystemFS:exists(unit_names_path) then	
-						local file = io.open(unit_names_path, "r")
-						if file then
-							local unit_names = json.decode(file:read("*all"))
-							self._UNIT_NAMES = unit_names
-							file:close()
-						end
+					self:Print("Done loading unit names. Elapsed:",tostring(os.time() - t),"seconds.")
+					
+					
+					-- load speakers
+					self:Print("Loading unit_names l10n file from",path_unitnames,"...")
+					local path_speakers = language_data.folder_path .. self._L10N_SPEAKERS_FILE_NAME
+					local speakers_data = self.read_tsv(path_speakers .. ".tsv")
+					if speakers_data then
+						localizationmanager:add_localized_strings(speakers_data)
+					else
+						self:Print("No development unit_names.tsv l10n found. Defaulting to release .json l10n.")
+						localizationmanager:load_localization_file(path_speakers .. ".json",true)
 					end
+					self:Print("Done loading unit names. Elapsed:",tostring(os.time() - t),"seconds.")
+					
 				end
 				self.settings._language_index = language_data.index
 			else
@@ -2079,36 +2110,31 @@ end
 function ClosedCaptions:LoadLanguageFiles()
 	-- For each language folder in the localization folder...
 	for i,foldername in ipairs(SystemFS:list(self._LOCALIZATION_DIRECTORY_PATH,true)) do 
-		local folder_path = Application:nice_path(self._LOCALIZATION_DIRECTORY_PATH .. foldername,true)
-		local localization_file_path = folder_path .. self._LOCALIZATION_FILE_NAME
+		local folder_path = self._LOCALIZATION_DIRECTORY_PATH .. foldername .. "/"
+		local localization_file_path = folder_path .. self._L10N_MENU_FILE_NAME
 		-- ...check for the main localization file inside...
-		if SystemFS:exists( Application:nice_path( localization_file_path, false )) then
-			local file = io.open(localization_file_path, "r")
-			-- ...open the file...
-			if file then
-				-- ...read the contents and get the name of the language from the contents (not from the filename!)...
-				local localized_strings = json.decode(file:read("*all"))
-				local lang_name = localized_strings and (type(localized_strings) == "table") and localized_strings.menu_closedcaptions_language_name
-				-- ...and "register" the file so that the mod knows that it is a selectable language
-				if lang_name then 
-					self._languages[foldername] = {
-						index = i,
-						localized_language_name = lang_name,
-						folder_path = folder_path,
-						file_path = localization_file_path
-					}
-				end
-			
-			end
-			-- If this file is the currently selected language,
-			-- Then set the _language_index so that the multiple choice setting reflects that this is the currently selected language
-			if foldername == self:GetCurrentLanguageName() then 
-				self:Print("Loading ClosedCaptions language:",foldername)
-				self.settings._language_index = i
-				-- Language order is not guaranteed- particularly if a new language is added which interferes with the alphabetical order-
-				-- which is why the filename is saved and not the index number of the language,
-				-- and the index number is "generated" on load instead of being written here in settings
-			end
+		
+		
+		local menu_strings = self.read_tsv(localization_file_path .. ".tsv") or self.read_json(localization_file_path .. ".json")
+		local lang_name = menu_strings and (type(menu_strings) == "table") and menu_strings.menu_closedcaptions_language_name
+		-- ...and "register" the file so that the mod knows that it is a selectable language
+		if lang_name then 
+			self._languages[foldername] = {
+				index = i,
+				localized_language_name = lang_name,
+				folder_path = folder_path,
+				menu_strings = menu_strings
+			}
+		end
+		
+		-- If this file is the currently selected language,
+		-- Then set the _language_index so that the multiple choice setting reflects that this is the currently selected language
+		if foldername == self:GetCurrentLanguageName() then 
+			self:Print("Loading ClosedCaptions language:",foldername)
+			self.settings._language_index = i
+			-- Language order is not guaranteed- particularly if a new language is added which interferes with the alphabetical order-
+			-- which is why the filename is saved and not the index number of the language,
+			-- and the index number is "generated" on load instead of being written here in settings
 		end
 	end
 end
@@ -2137,6 +2163,7 @@ function ClosedCaptions:ReadSoundData()
 		log("[ClosedCaptions] Reading sound_data.json...")
 		self._sound_data = json.decode(file:read("*all"))
 		log(string.format("[ClosedCaptions] ...Finished reading sound_data.json in %i seconds",os.time() - start_t))
+		file:close()
 	else
 		self:Print("Missing sound data!",self._SOUNDDATA_PATH)
 	end
@@ -2150,6 +2177,7 @@ function ClosedCaptions:LoadSettings()
 		for k, v in pairs(json.decode(file:read("*all"))) do
 			self.settings[k] = v
 		end
+		file:close()
 	end
 	self:LoadColors()
 end
@@ -2190,6 +2218,244 @@ function ClosedCaptions:DumpMissingLines(do_write,fresh)
 		end
 	end
 	
+end
+
+
+function ClosedCaptions.string_split(s,c,timeout)
+	timeout = timeout or 10
+	local tbl = {}
+--	local t = os.time()
+	local next_tab = utf8.find_char(s,c) or 0
+	local len = utf8.len(s)
+	repeat
+--		if ( os.time() - t ) > timeout then
+--			error("Passed time limit")
+--		end
+		local subs = utf8.sub(s,1,next_tab-1)
+		s = utf8.sub(s,next_tab+1,-1)
+		table.insert(tbl,#tbl+1,subs)
+		
+		next_tab = utf8.find_char(s,c)
+		--log("new",s)
+	until not next_tab
+	table.insert(tbl,#tbl+1,s)
+	
+	return tbl
+end
+
+
+function ClosedCaptions.read_subtitles_tsv(path)
+	local file = io.open(path,"r")
+	if file then
+		local tbl = {}
+		local row = 0
+		
+		local function nil_or_empty(s)
+			return s == nil or string.gsub(s,"^%s","") == ""
+		end
+		
+		-- some of these persist for multiple rows
+		
+		local event_id -- index 1
+		local loc_id   -- index 2
+		
+		--local template_text -- index 3
+		--local lead_notes -- index 4
+		--local l10n_text  -- index 5
+		
+		local loc_tbl -- progressive from column 5, string building, becomes loc string
+		local is_compound
+		local loc_compound_index
+		
+		for line in file:lines() do
+		
+			
+			row = row + 1
+			if row > 1 then
+				-- ignore first row
+--				if row > 100 then
+--					break
+--				end
+				local a = ClosedCaptions.string_split(line,"\t")
+				--local a = string.split(line,"\t")-- needs replacement
+				
+				for col,v in ipairs(a) do
+					if not nil_or_empty(v) then
+						if col == 1 then
+							event_id = v
+						elseif col == 2 then
+							if loc_id and loc_id ~= v and not nil_or_empty(v) then
+								
+								-- terminate previous string
+								local loc_str = ""
+								if is_compound then
+									for i,subtbl in ipairs(loc_tbl) do 
+										for j,s in ipairs(subtbl) do
+											if j > 1 then
+												loc_str = loc_str .. "|" .. s
+											else
+												loc_str = loc_str .. s
+											end
+										end
+										if i < #loc_tbl then
+											loc_str = loc_str .. "$b"
+										end
+									end
+								else
+									for i,subtbl in ipairs(loc_tbl) do 
+										for j,s in ipairs(subtbl) do
+											if j > 1 then
+												loc_str = loc_str .. "$b" .. s
+											else
+												loc_str = loc_str .. s
+											end
+										end
+										if i > 1 then
+											error("Somehow multi paragraph loc string? " .. tostring(row) .. ", " .. tostring(event_id))
+										end
+									end
+								end
+								
+								if not nil_or_empty(loc_str) then
+									-- finish this string
+									tbl[loc_id] = loc_str
+									loc_tbl = nil
+									--log("Finished loc string",loc_id,loc_str)
+								end
+							end
+							if not nil_or_empty(v) then
+								--log("started string",v)
+								loc_compound_index = 1
+								loc_id = v
+								loc_tbl = {{}}
+								is_compound = nil
+							end
+						elseif col == 3 then
+							-- nothing
+						elseif col == 4 then
+							-- nothing
+						elseif col == 5 then
+							
+							if not nil_or_empty(loc_id) then
+								--log("found string",v)
+								if v == "$&" then
+									is_compound = true
+									loc_compound_index = loc_compound_index + 1
+									loc_tbl[loc_compound_index] = {}
+									--loc_str = loc_str .. "$b" .. v
+								else
+									table.insert(loc_tbl[loc_compound_index],v)
+									--loc_str = loc_str .. "|" .. v
+								end
+							end
+						end
+					end
+					if i == 1 and not nil_or_empty(v) then
+						event_id = i
+					end
+				end
+			end
+		end
+		
+		
+		-- finish last string, if present
+
+		-- terminate previous string
+		local loc_str = ""
+		if loc_tbl and loc_id then
+			if is_compound then
+				for i,subtbl in ipairs(loc_tbl) do 
+					for j,s in ipairs(subtbl) do
+						if j > 1 then
+							loc_str = loc_str .. "|" .. s
+						else
+							loc_str = loc_str .. s
+						end
+					end
+					if i < #loc_tbl then
+						loc_str = loc_str .. "$b"
+					end
+				end
+			else
+				for i,subtbl in ipairs(loc_tbl) do 
+					for j,s in ipairs(subtbl) do
+						if j > 1 then
+							loc_str = loc_str .. "$b" .. s
+						else
+							loc_str = loc_str .. s
+						end
+					end
+					if i > 1 then
+						error("Somehow multi paragraph loc string? " .. tostring(row) .. ", " .. tostring(event_id))
+					end
+				end
+			end
+			
+			if not nil_or_empty(loc_str) then
+				-- finish this string
+				tbl[loc_id] = loc_str
+				loc_tbl = nil
+--				log("Finished loc string",loc_id,loc_str)
+			end
+		end
+		
+		
+		
+		
+		
+		
+		
+		
+		file:close()
+		return tbl
+	else
+		log("FileNotFound!",path)
+		return false
+	end
+end
+
+function ClosedCaptions.read_tsv(path)
+	local file = io.open(path,"r")
+	if file then
+	
+		local function f_verify(row,k,v)
+			if row > 1 then -- ignore first row
+				if k ~= "" then -- ignore empty cells
+					return true
+				end
+			end
+		end
+		
+		local tbl
+		local row = 0
+		for line in file:lines() do
+			row = row + 1
+			local a = string.split(line,"\t")
+			local key = a[1]
+			local value = a[2]
+			if value ~= nil then
+				if not f_verify or f_verify(row,key,value) then
+					tbl = tbl or {}
+					tbl[key] = value
+				end
+			end
+		end
+		file:close()
+		return tbl
+	else
+		--log("FileNotFound!",path)
+	end
+	return false
+end
+
+function ClosedCaptions.read_json(path)
+	local file = io.open(Application:nice_path(path, false), "r")
+	if file then
+		local data = json.decode(file:read("*all"))
+		file:close()
+		return data
+	end
+	return false
 end
 
 -- ============================== Custom assets
