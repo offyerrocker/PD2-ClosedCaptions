@@ -2077,7 +2077,7 @@ function ClosedCaptions:LoadLanguage(localizationmanager,user_language)
 						self:Print("No development subtitles.tsv l10n found. Defaulting to release subtitles.json l10n.")
 						localizationmanager:load_localization_file(path_subtitles .. ".json",true)
 					end
-					self:Print("Done loading subtitles. Elapsed:",tostring(os.time() - t),"seconds.")
+					self:Print("Done loading subtitles. Elapsed:",tostring(os.time() - start_t),"seconds.")
 					
 					-- load unit names
 					local path_unitnames = language_data.folder_path .. self._L10N_UNITS_FILE_NAME
@@ -2087,7 +2087,7 @@ function ClosedCaptions:LoadLanguage(localizationmanager,user_language)
 					-- it gets disorganized very easily,
 					-- so i'm not bothering with localizing it using the actual loc system,
 					-- because that would require a lot of name mangling and i'm tired of it
-					self:Print("Done loading unit names. Elapsed:",tostring(os.time() - t),"seconds.")
+					self:Print("Done loading unit names. Elapsed:",tostring(os.time() - start_t),"seconds.")
 					
 					
 					-- load speakers
@@ -2100,7 +2100,7 @@ function ClosedCaptions:LoadLanguage(localizationmanager,user_language)
 						self:Print("No development unit_names.tsv l10n found. Defaulting to release .json l10n.")
 						localizationmanager:load_localization_file(path_speakers .. ".json",true)
 					end
-					self:Print("Done loading unit names. Elapsed:",tostring(os.time() - t),"seconds.")
+					self:Print("Done loading unit names. Elapsed:",tostring(os.time() - start_t),"seconds.")
 					
 				end
 				self.settings._language_index = language_data.index
