@@ -51,6 +51,14 @@
 			"value" : "caption_use_fadein"
 		},
 		{
+			"type" : "toggle",
+			"id" : "closedcaptions_use_directional_indicators",
+			"title" : "menu_closedcaptions_use_directional_indicators_title",
+			"description" : "menu_closedcaptions_use_directional_indicators_desc",
+			"callback" : "callback_closedcaptions_use_directional_indicators",
+			"value" : "caption_use_directional_indicators"
+		},
+		{
 			"type" : "slider",
 			"id" : "closedcaptions_set_fadeout_time",
 			"title" : "menu_closedcaptions_set_fadeout_time_title",

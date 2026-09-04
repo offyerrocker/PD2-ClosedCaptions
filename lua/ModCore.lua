@@ -53,7 +53,8 @@ ClosedCaptions = { -- _G.ClosedCaptions or
 		caption_empty_voicelines = true, -- show the caption if the line does not have an actual sound file recorded for it
 		caption_separate_speaker_color = true,
 		caption_hide_bgbox = false,
-
+		caption_use_directional_indicators = true,
+		
 		category_mission_dialogue = true,
 		category_contractor_vo = true,
 		category_sfx = true,
@@ -317,6 +318,10 @@ end
 
 function ClosedCaptions:ShouldInterceptVanillaSubtitles()
 	return true
+end
+
+function ClosedCaptions:UseDirectionalIndicators()
+	return self.settings.caption_use_directional_indicators
 end
 
 -- ============================== Misc settings management
@@ -819,6 +824,7 @@ function ClosedCaptions:update(t,dt)
 	mvector3.set(player_pos,viewport_cam:position())
 	local angle_threshold = 45
 	
+	local use_directional_arrows = self:UseDirectionalIndicators()
 	local use_proximity_sort = self:GetCaptionPriorityMode() == 2
 	
 	local current_num = 0
@@ -896,9 +902,10 @@ function ClosedCaptions:update(t,dt)
 						
 						if has_source then
 							local angle_to = ((ClosedCaptions.vec2_angle(player_pos,source_pos) - player_aim + 270) % 360) - 180
-							item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
-							item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
-							
+							if use_directional_arrows then
+								item.panel:child("arrow_left"):set_visible(angle_to > angle_threshold)
+								item.panel:child("arrow_right"):set_visible(angle_to < -angle_threshold)
+							end
 							if item.max_distance then 
 								if source_pos then
 									if use_proximity_sort then
@@ -1156,6 +1163,13 @@ function ClosedCaptions:_create_caption_text(text,text_color,color_ranges,panel_
 			arrow_left:set_font_size(font_size)
 			arrow_right:set_font_size(font_size)
 			self:RealignPanel(item_panel,subtitle,bgbox,arrow_left,arrow_right)
+		end
+		
+		-- hide arrows if disabled setting
+		-- otherwise, let the next update() check audio direction
+		if not changed_settings.caption_use_directional_indicators then
+			arrow_left:hide()
+			arrow_right:hide()
 		end
 		if changed_settings.caption_hide_bgbox then
 			bgbox:set_visible(changed_settings.caption_hide_bgbox)
@@ -2620,6 +2634,10 @@ Hooks:Add("MenuManagerInitialize", "ClosedCaptions_InitializeMenu", function(men
 	
 	MenuCallbackHandler.callback_closedcaptions_hide_bgbox = function(self,item)
 		ClosedCaptions:change_setting("caption_hide_bgbox",item:value() == "on",nil)
+	end
+	
+	MenuCallbackHandler.callback_closedcaptions_use_directional_indicators = function(self,item)
+		ClosedCaptions:change_setting("caption_use_directional_indicators",item:value() == "on",nil)
 	end
 	
 	MenuCallbackHandler.callback_closedcaptions_category_mission_dialogue = function(self,item)

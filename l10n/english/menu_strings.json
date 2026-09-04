@@ -58,6 +58,9 @@
 	"menu_closedcaptions_category_enabled_none" : "Disabled",
 	"menu_closedcaptions_hide_bgbox_title" : "Hide BG Box",
 	"menu_closedcaptions_hide_bgbox_desc" : "Hides the black box around caption text.",
+	"menu_closedcaptions_use_directional_indicators_title" : "Show Audio Direction",
+	"menu_closedcaptions_use_directional_indicators_desc" : "Use left and right arrows < > in subtitles to show the direction of the sound source.",
+	
 	
 	"menu_closedcaptions_toggle_customize_title" : "Toggle Captions customization mode",
 	"menu_closedcaptions_toggle_customize_desc" : "Allows you to click-drag and resize the closed captions window in-game.",
